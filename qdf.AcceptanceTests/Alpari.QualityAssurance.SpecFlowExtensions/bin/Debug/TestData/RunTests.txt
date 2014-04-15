@@ -1,0 +1,4 @@
+C:\Program Files (x86)\NUnit 2.6.3\bin>nunit-console.exe /noshadow /framework:"net-4.5" /xml:C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemo
+TestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\TestResult.xml C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects
+\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll /out:C:\svn\local\BakeryDemoTest\trunk\
+AllBakeryDemoTestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\TestResult.txt /include=textToXmlReconciliation /labels

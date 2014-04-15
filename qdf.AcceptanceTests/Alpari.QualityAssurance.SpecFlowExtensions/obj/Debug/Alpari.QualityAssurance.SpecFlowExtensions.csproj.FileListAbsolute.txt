@@ -1,0 +1,12 @@
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll.config
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.pdb
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\FluentAssertions.dll
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\nunit.framework.dll
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\TechTalk.SpecFlow.dll
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\FluentAssertions.pdb
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\FluentAssertions.xml
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\nunit.framework.xml
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\obj\Debug\Alpari.QualityAssurance.SpecFlowExtensions.csprojResolveAssemblyReference.cache
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\obj\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll
+C:\svn\qa\Tools\BakeryDemoTest\branches\qa\dgalloway\dgalloway_qa_001\Alpari.QualityAssurance.SpecFlowExtensions\obj\Debug\Alpari.QualityAssurance.SpecFlowExtensions.pdb

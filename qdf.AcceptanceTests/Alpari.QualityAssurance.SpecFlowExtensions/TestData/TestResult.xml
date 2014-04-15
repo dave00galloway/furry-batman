@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Release\FIX_SpecflowTests.dll" total="7" errors="1" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2014-01-27" time="14:07:06">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5472" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects" machine-name="AUK0231NB" user="dgalloway" user-domain="ALPARI-UK" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Release\FIX_SpecflowTests.dll" executed="True" result="Failure" success="False" time="1.015" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="Alpari" executed="True" result="Success" success="True" time="0.905" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="QualityAssurance" executed="True" result="Success" success="True" time="0.902" asserts="0">
+            <results>
+              <test-suite type="Namespace" name="SpecFlowExtensions" executed="True" result="Success" success="True" time="0.902" asserts="0">
+                <results>
+                  <test-suite type="Namespace" name="Specs" executed="True" result="Success" success="True" time="0.902" asserts="0">
+                    <results>
+                      <test-suite type="TestFixture" name="ShareContextOneFeature" description="ShareContextOne" executed="True" result="Success" success="True" time="0.887" asserts="0">
+                        <results>
+                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioOne" description="Access a static object from ShareContextOne ScenarioOne" executed="True" result="Success" success="True" time="0.352" asserts="2">
+                            <categories>
+                              <category name="selfTestContext" />
+                            </categories>
+                          </test-case>
+                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioTwo" description="Access a static object from ShareContextOne ScenarioTwo" executed="True" result="Success" success="True" time="0.001" asserts="2">
+                            <categories>
+                              <category name="selfTestContext" />
+                            </categories>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                      <test-suite type="TestFixture" name="ShareContextTwoFeature" description="ShareContextTwo" executed="True" result="Success" success="True" time="0.007" asserts="0">
+                        <results>
+                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextTwoFeature.AccessAStaticObjectFromShareContextTwoScenarioOne" description="Access a static object from ShareContextTwo ScenarioOne" executed="True" result="Success" success="True" time="0.002" asserts="2">
+                            <categories>
+                              <category name="selfTestContext" />
+                            </categories>
+                          </test-case>
+                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextTwoFeature.AccessAStaticObjectFromShareContextTwoScenarioTwo" description="Access a static object from ShareContextTwo ScenarioTwo" executed="True" result="Success" success="True" time="0.001" asserts="2">
+                            <categories>
+                              <category name="selfTestContext" />
+                            </categories>
+                          </test-case>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+      <test-suite type="Namespace" name="FIX_SpecflowTests" executed="True" result="Failure" success="False" time="0.083" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Specs" executed="True" result="Failure" success="False" time="0.082" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="QuoteRequestAndResponseFeature" description="Quote Request And Response" executed="True" result="Failure" success="False" time="0.082" asserts="0">
+                <results>
+                  <test-case name="FIX_SpecflowTests.Specs.QuoteRequestAndResponseFeature.QuoteRequestForAnInvalidCurrencySymbolReceivesAQuote" description="Quote request for an invalid currency symbol receives a quote" executed="True" result="Error" success="False" time="0.058" asserts="0">
+                    <categories>
+                      <category name="negative" />
+                      <category name="mytag" />
+                    </categories>
+                    <failure>
+                      <message><![CDATA[System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary.]]></message>
+                      <stack-trace><![CDATA[at FIX_SpecflowTests.Steps.QuoteRequestAndResponseSteps.ThenIReceiveAQuoteWithAInTag(String expectedValue, Int32 tagNumber) in c:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\Steps\QuoteRequestAndResponseSteps.cs:line 88
+at TechTalk.SpecFlow.Bindings.BindingInvoker.InvokeBinding(IBinding binding, IContextManager contextManager, Object[] arguments, ITestTracer testTracer, TimeSpan& duration)
+at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStepMatch(BindingMatch match, Object[] arguments)
+at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.ExecuteStep(StepInstance stepInstance)
+at TechTalk.SpecFlow.Infrastructure.TestExecutionEngine.OnAfterLastStep()
+]]></stack-trace>
+                    </failure>
+                  </test-case>
+                  <test-case name="FIX_SpecflowTests.Specs.QuoteRequestAndResponseFeature.QuoteRequestForAnInvalidCurrencySymbolReceivesAQuoteRejection" description="Quote request for an invalid currency symbol receives a quote rejection" executed="True" result="Success" success="True" time="0.008" asserts="3">
+                    <categories>
+                      <category name="mytag" />
+                    </categories>
+                  </test-case>
+                  <test-case name="FIX_SpecflowTests.Specs.QuoteRequestAndResponseFeature.QuoteRequestForAValidCurrencySymbolReceivesAQuote" description="Quote request for a valid currency symbol receives a quote" executed="True" result="Success" success="True" time="0.009" asserts="1">
+                    <categories>
+                      <category name="mytag" />
+                    </categories>
+                  </test-case>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Alpari.QualityAssurance.SpecFlowExtensions</RootNamespace>
+    <AssemblyName>Alpari.QualityAssurance.SpecFlowExtensions</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.2.2.0.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow">
+      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FileUtilities\CsvColumnDefinition.cs" />
+    <Compile Include="FileUtilities\CsvParser.cs" />
+    <Compile Include="FileUtilities\CsvParserExtensionMethods.cs" />
+    <Compile Include="FileUtilities\DefinedCsvFile.cs" />
+    <Compile Include="FileUtilities\FileComparisonResult.cs" />
+    <Compile Include="FileUtilities\ICsvColumnDefinition.cs" />
+    <Compile Include="FluentVerifications\CompareUsing.cs" />
+    <Compile Include="FluentVerifications\Verify.cs" />
+    <Compile Include="Hooks\Reporting.cs" />
+    <Compile Include="NUnitReportParser\categoryType.cs" />
+    <Compile Include="NUnitReportParser\cultureInfoType.cs" />
+    <Compile Include="NUnitReportParser\environmentType.cs" />
+    <Compile Include="NUnitReportParser\failureType.cs" />
+    <Compile Include="NUnitReportParser\NunitXmlParser.cs" />
+    <Compile Include="NUnitReportParser\Results.cs" />
+    <Compile Include="NUnitReportParser\resultsType.cs" />
+    <Compile Include="NUnitReportParser\resultType.cs" />
+    <Compile Include="NUnitReportParser\testCaseType.cs" />
+    <Compile Include="NUnitReportParser\testSuiteType.cs" />
+    <Compile Include="NunitTextReportParser\CombinedTextAndXmlResult.cs" />
+    <Compile Include="NunitTextReportParser\TestCaseTextResult.cs" />
+    <Compile Include="NunitTextReportParser\TestStepResult.cs" />
+    <Compile Include="Specs\CreateMixtureOfTestResults002.feature.cs">
+      <DependentUpon>CreateMixtureOfTestResults002.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Specs\CreateMixtureOfTestResults001.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateMixtureOfTestResults001.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SpecflowNunitTextReportParser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecflowNunitTextReportParser.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\TestDataToShare.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataToShare.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\TestDataToShareClientTwo.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataToShareClientTwo.feature</DependentUpon>
+    </Compile>
+    <Compile Include="StepBases\DataTableOperations.cs" />
+    <Compile Include="StepBases\MasterStepBase.cs" />
+    <Compile Include="Specs\EnableCrossStepDefinitionCallsOne.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EnableCrossStepDefinitionCallsOne.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\ShareContextOne.feature.cs">
+      <DependentUpon>ShareContextOne.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Specs\ShareContextTwo.feature.cs">
+      <DependentUpon>ShareContextTwo.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Specs\SpecflowZapiReporterParser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SpecflowZapiReporterParser.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\CrossStepDefinitionFileOne.cs" />
+    <Compile Include="Steps\CrossStepDefinitionFileOneStepBase.cs" />
+    <Compile Include="Steps\CrossStepDefinitionFileThree.cs" />
+    <Compile Include="Steps\CrossStepDefinitionFileTwo.cs" />
+    <Compile Include="Steps\CrossStepDefinitionStepBase.cs" />
+    <Compile Include="NunitTextReportParser\NunitTxtParser.cs" />
+    <Compile Include="Steps\ShareContextSteps.cs" />
+    <Compile Include="Steps\SpecflowNunitTextReporterStepBase.cs" />
+    <Compile Include="Steps\SpecflowNunitTextReporterSteps.cs" />
+    <Compile Include="Steps\SpecFlowZapiReporterParserStepBase.cs" />
+    <Compile Include="Steps\SpecflowZapiReporterParserSteps.cs" />
+    <Compile Include="StepBases\StepCentral.cs" />
+    <Compile Include="Context\TestRunContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\TestDataToShareClientOne.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestDataToShareClientOne.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\TestDataToShareStepBase.cs" />
+    <Compile Include="Steps\TextToXmlReconciliationSteps.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="PickleMyFeatures.ps1" />
+    <None Include="Specs\CreateMixtureOfTestResults002.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateMixtureOfTestResults002.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\CreateMixtureOfTestResults001.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CreateMixtureOfTestResults001.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\EnableCrossStepDefinitionCallsOne.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>EnableCrossStepDefinitionCallsOne.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\ShareContextOne.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ShareContextOne.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\ShareContextTwo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ShareContextTwo.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SpecflowNunitTextReportParser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecflowNunitTextReportParser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SpecflowZapiReporterParser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>SpecflowZapiReporterParser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\TestDataToShare.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TestDataToShare.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\TestDataToShareClientOne.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TestDataToShareClientOne.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\TestDataToShareClientTwo.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TestDataToShareClientTwo.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestData\Results.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TestData\TestResult.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NugetSetup.txt" />
+    <Content Include="TestData\RunTests.txt" />
+    <Content Include="TestData\TaggedTestResult.txt" />
+    <Content Include="TestData\TaggedTestResult.xml" />
+    <Content Include="TestData\TestResult.txt" />
+    <Content Include="TestData\TestResult.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <Copy DestinationFolder="$(OutputPath)\TestData" SourceFiles="@(Content)" SkipUnchangedFiles="false" />
+  </Target>
+</Project>
