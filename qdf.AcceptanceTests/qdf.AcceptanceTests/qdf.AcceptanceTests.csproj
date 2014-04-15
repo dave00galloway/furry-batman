@@ -61,17 +61,43 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\ArsQdfCCReconciliation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\DealReconciliationSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Specs\ArsQdfCCReconciliation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)KillScript.ps1)</PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="BeforeBuild">
+    <CallTarget Targets="SpicNSpan" />
+  </Target>
+  <Target Name="SpicNSpan">
+    <RemoveDir Directories="$(OUTDIR)" />
+    <MakeDir Directories="$(OUTDIR)" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
+  <Target Name="AfterBuild">   
+   </Target>
   -->
+  <Target Name="AfterBuild">
+    <Copy DestinationFolder="$(OutputPath)\TestData" SourceFiles="@(Content)" SkipUnchangedFiles="false" />
+  </Target>
 </Project>
