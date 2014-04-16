@@ -22,10 +22,16 @@ namespace qdf.AcceptanceTests.Steps
             entry.convertedEndTime = end.GetTimeFromShortCode(entry.convertedStartTime);
         }
 
-        [StepArgumentTransformation]
-        public static IEnumerable<QdfDealParameters> ErrorsTransform(Table table)
+        [StepArgumentTransformation(@"Deal Data for these parameter sets:")]
+        public static IEnumerable<QdfDealParameters> QdfDealParametersTransformSet(Table table)
         {
             return table.CreateSet<QdfDealParameters>();
+        }
+
+        [StepArgumentTransformation]
+        public static QdfDealParameters QdfDealParametersTransform(Table table)
+        {
+            return table.CreateInstance<QdfDealParameters>();
         }
     }
 }

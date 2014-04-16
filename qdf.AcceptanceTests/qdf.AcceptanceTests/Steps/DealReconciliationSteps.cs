@@ -8,6 +8,7 @@ using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Alpari.QualityAssurance.SpecFlowExtensions;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -15,6 +16,32 @@ namespace qdf.AcceptanceTests.Steps
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
         public RedisConnectionHelper redisConnectionHelper { get; private set; }
+
+        /// <summary>
+        /// Clear the test output directory for the feature
+        /// to limit this set the tag to 
+        /// //[BeforeFeature("CreateOutput")]
+        /// and apply tags to features
+        /// </summary>
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            FeatureContext.Current["FeatureOutputDirectory"] = ConfigurationManager.AppSettings["reportRoot"] + FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") + @"\";
+            ((string)FeatureContext.Current["FeatureOutputDirectory"]).ClearOutputDirectory();
+        }
+
+        /// <summary>
+        /// Clear the test output directory for the feature
+        /// to limit this set the tag to 
+        /// //[BeforeScenario("CreateOutput")]
+        /// and apply tags to features
+        /// </summary>
+        [BeforeScenario]
+        public static void BeforeScenario()
+        {
+            ScenarioContext.Current["ScenarioOutputDirectory"] = (string)FeatureContext.Current["FeatureOutputDirectory"] + ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
+            ((string)ScenarioContext.Current["ScenarioOutputDirectory"]).ClearOutputDirectory();
+        }
 
         [Given(@"I have QDF Data")]
         public void GivenIHaveQDFData()
@@ -25,17 +52,30 @@ namespace qdf.AcceptanceTests.Steps
         }
 
         [Given(@"I have QDF Deal Data")]
-        public void GivenIHaveQDFDealData(IEnumerable<QdfDealParameters> QdfDealParameters)
+        public void GivenIHaveQDFDealData(QdfDealParameters qdfDealParameters)
         {
             redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
-            foreach (QdfDealParameters entry in QdfDealParameters)
+            SetupQdfDealQuery(qdfDealParameters);
+            redisConnectionHelper.GetDealData(qdfDealParameters);
+            redisConnectionHelper.OutputAllDeals((string)ScenarioContext.Current["ScenarioOutputDirectory"] + "AllDeals.csv");
+            //redisConnectionHelper.FilterDeals(qdfDealParameters);
+
+            throw new NotImplementedException();
+        }
+
+        [Given(@"I have QDF Deal Data for these parameter sets:")]
+        public void GivenIHaveQDFDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
+        {
+            redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
+            foreach (QdfDealParameters entry in qdfDealParameters)
             {
                 SetupQdfDealQuery(entry);
                 redisConnectionHelper.GetDealData(entry);
             }
-            
+
             throw new NotImplementedException();
         }
+
 
         [Given(@"I have CC data")]
         public void GivenIHaveCCData()

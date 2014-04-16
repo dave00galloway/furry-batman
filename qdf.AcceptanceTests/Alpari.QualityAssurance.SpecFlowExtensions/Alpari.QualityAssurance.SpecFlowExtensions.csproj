@@ -54,6 +54,7 @@
     <Compile Include="FileUtilities\CsvParserExtensionMethods.cs" />
     <Compile Include="FileUtilities\DefinedCsvFile.cs" />
     <Compile Include="FileUtilities\FileComparisonResult.cs" />
+    <Compile Include="FileUtilities\FileExtensions.cs" />
     <Compile Include="FileUtilities\ICsvColumnDefinition.cs" />
     <Compile Include="FileUtilities\XmlExtensions.cs" />
     <Compile Include="FluentVerifications\CompareUsing.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Steps\TextToXmlReconciliationSteps.cs" />
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
+    <Compile Include="TypeUtilities\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

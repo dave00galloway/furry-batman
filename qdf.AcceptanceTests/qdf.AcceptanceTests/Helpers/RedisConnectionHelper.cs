@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -30,8 +31,28 @@ namespace qdf.AcceptanceTests.Helpers
         public void GetDealData(QdfDealParameters qdfDealParameters)
         {
             dealsStore = new RedisDataStore(connection, new SortedSetBasedStorageStrategy(connection, new JsonSerializer()));
+            //might need to adjust the time slice, for now leaving as Day
             var deals = dealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal, qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime, TimeSlice.Day);
+            if (retrievedDeals == null) 
+            { 
+                retrievedDeals = deals; 
+            }
+            else
+            {
+                retrievedDeals = retrievedDeals.Concat(deals); 
+            }
+        }
 
+        public void OutputAllDeals(string fileNamePath)
+        {
+            StringBuilder csvFile = new StringBuilder();
+            var headers = String.Join(",", TypeExtensions.GetPropertyNamesAsList(typeof(Deal)).Select(x => x));
+            csvFile.AppendLine(headers);
+            foreach (Deal deal in retrievedDeals)
+            {
+                csvFile.AppendLine(String.Join(",", TypeExtensions.GetObjectPropertyValuesAsList(deal)));
+            }
+            System.IO.File.WriteAllText(fileNamePath, csvFile.ToString());
         }
     }
 }
