@@ -30,14 +30,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Alpari.QDF">
+      <HintPath>..\packages\Alpari.QDF.0.1.29.0\lib\net45\Alpari.QDF.dll</HintPath>
+    </Reference>
+    <Reference Include="Alpari.QDF.Domain">
+      <HintPath>..\packages\Alpari.QDF.Domain.0.1.29.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
+    </Reference>
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
     </Reference>
     <Reference Include="Autofac.Configuration">
       <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.Configuration.dll</HintPath>
     </Reference>
+    <Reference Include="BookSleeve">
+      <HintPath>..\packages\BookSleeve.1.3.41\lib\BookSleeve.dll</HintPath>
+    </Reference>
+    <Reference Include="C5">
+      <HintPath>..\packages\C5.2.2.5073.27396\lib\portable-net40+sl50+wp80+win\C5.dll</HintPath>
+    </Reference>
     <Reference Include="FluentAssertions">
       <HintPath>..\packages\FluentAssertions.2.2.0.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="MsgPack">
+      <HintPath>..\packages\MsgPack.Cli.0.4.4\lib\net40-client\MsgPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
@@ -45,7 +63,11 @@
     <Reference Include="PicklesDoc.Pickles.MSBuild.Tasks">
       <HintPath>..\packages\Pickles.MSBuild.0.15.0\lib\net35\PicklesDoc.Pickles.MSBuild.Tasks.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Abstractions">
       <HintPath>..\packages\System.IO.Abstractions.1.4.0.84\lib\net35\System.IO.Abstractions.dll</HintPath>
@@ -60,6 +82,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\QdfDealParameters.cs" />
+    <Compile Include="Helpers\RedisConnectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\ArsQdfCCReconciliation.feature.cs">
       <AutoGen>True</AutoGen>
@@ -76,6 +100,7 @@
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>

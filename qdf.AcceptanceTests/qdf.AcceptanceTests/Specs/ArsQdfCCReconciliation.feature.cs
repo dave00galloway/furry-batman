@@ -74,14 +74,21 @@ namespace qdf.AcceptanceTests.Specs
                     " ago", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "symbol"});
+            table1.AddRow(new string[] {
+                        "C1",
+                        "EURUSD"});
 #line 7
-testRunner.Given("I have QDF Data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
-testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 9
-testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
 #line 10
-testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+ testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

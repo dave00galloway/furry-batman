@@ -55,6 +55,7 @@
     <Compile Include="FileUtilities\DefinedCsvFile.cs" />
     <Compile Include="FileUtilities\FileComparisonResult.cs" />
     <Compile Include="FileUtilities\ICsvColumnDefinition.cs" />
+    <Compile Include="FileUtilities\XmlExtensions.cs" />
     <Compile Include="FluentVerifications\CompareUsing.cs" />
     <Compile Include="FluentVerifications\Verify.cs" />
     <Compile Include="Hooks\Reporting.cs" />
