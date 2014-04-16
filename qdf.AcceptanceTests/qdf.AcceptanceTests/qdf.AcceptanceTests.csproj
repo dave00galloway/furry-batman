@@ -90,6 +90,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +101,12 @@
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
+      <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
+      <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>

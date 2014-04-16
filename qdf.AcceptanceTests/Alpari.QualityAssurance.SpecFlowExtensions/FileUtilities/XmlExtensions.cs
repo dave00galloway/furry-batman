@@ -33,15 +33,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     map[subElement.Name.ToString()] = subElement.Value;
                 }             
             }
-
-            //foreach (XElement element in database.Elements())
-            //{
-            //    foreach (var subElement in element.Elements())
-            //    {
-            //        map[subElement.Name.ToString()] = subElement.Value;
-            //    }
-            //}
-
             return map;
         }
 
@@ -64,7 +55,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     map[subElement.Name.ToString()] = subElement.Value;
                 }
             }
-
             return map;
         }
     }

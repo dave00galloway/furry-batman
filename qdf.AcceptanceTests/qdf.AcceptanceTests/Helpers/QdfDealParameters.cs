@@ -15,5 +15,7 @@ namespace qdf.AcceptanceTests.Helpers
         public string symbol {get;set;}
         public string startTime {get;set;}
         public string endTime { get; set; }
+        public DateTime convertedStartTime { get; set; }
+        public DateTime convertedEndTime { get; set; }
     }
 }

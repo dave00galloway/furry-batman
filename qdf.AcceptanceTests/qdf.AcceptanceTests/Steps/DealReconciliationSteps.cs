@@ -6,11 +6,13 @@ using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
+using Alpari.QualityAssurance.SpecFlowExtensions;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace qdf.AcceptanceTests.Steps
 {
     [Binding]
-    public class DealReconciliationSteps
+    public class DealReconciliationSteps : DealReconciliationStepBase
     {
         public RedisConnectionHelper redisConnectionHelper { get; private set; }
 
@@ -28,19 +30,12 @@ namespace qdf.AcceptanceTests.Steps
             redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
             foreach (QdfDealParameters entry in QdfDealParameters)
             {
-                var start = entry.startTime != null ? entry.startTime:"";
+                SetupQdfDealQuery(entry);
+                redisConnectionHelper.GetDealData(entry);
             }
             
-            //redisConnectionHelper.GetDealData();
             throw new NotImplementedException();
         }
-
-        [StepArgumentTransformation]
-        public IEnumerable<QdfDealParameters> ErrorsTransform(Table table)
-        {
-            return table.CreateSet<QdfDealParameters>();
-        }
-
 
         [Given(@"I have CC data")]
         public void GivenIHaveCCData()

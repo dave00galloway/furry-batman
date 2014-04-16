@@ -140,6 +140,8 @@
     </Compile>
     <Compile Include="Steps\TestDataToShareStepBase.cs" />
     <Compile Include="Steps\TextToXmlReconciliationSteps.cs" />
+    <Compile Include="TypeUtilities\DateTimeUtils.cs" />
+    <Compile Include="TypeUtilities\StringUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
