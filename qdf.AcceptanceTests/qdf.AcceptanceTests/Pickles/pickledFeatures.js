@@ -12,7 +12,19 @@ jsonPWrapper ([
             {
               "Keyword": "Given",
               "NativeKeyword": "Given ",
-              "Name": "I have QDF Data"
+              "Name": "I have QDF Deal Data",
+              "TableArgument": {
+                "HeaderRow": [
+                  "server",
+                  "symbol"
+                ],
+                "DataRows": [
+                  [
+                    "C1",
+                    "EURUSD"
+                  ]
+                ]
+              }
             },
             {
               "Keyword": "And",

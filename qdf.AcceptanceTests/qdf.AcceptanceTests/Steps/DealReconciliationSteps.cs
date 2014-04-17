@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Data;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Alpari.QualityAssurance.SpecFlowExtensions;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -16,6 +18,9 @@ namespace qdf.AcceptanceTests.Steps
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
         public RedisConnectionHelper redisConnectionHelper { get; private set; }
+        public IDataContextSubstitute contextSubstitute { get; private set; }
+        public QdfDealParameters qdfDealParameters { get; private set; }
+        public IEnumerable<QdfDealParameters> qdfDealParametersSet { get; private set; }
 
         /// <summary>
         /// Clear the test output directory for the feature
@@ -60,7 +65,7 @@ namespace qdf.AcceptanceTests.Steps
             redisConnectionHelper.OutputAllDeals((string)ScenarioContext.Current["ScenarioOutputDirectory"] + "AllDeals.csv");
             //redisConnectionHelper.FilterDeals(qdfDealParameters);
 
-            throw new NotImplementedException();
+            this.qdfDealParameters = qdfDealParameters;
         }
 
         [Given(@"I have QDF Deal Data for these parameter sets:")]
@@ -72,15 +77,58 @@ namespace qdf.AcceptanceTests.Steps
                 SetupQdfDealQuery(entry);
                 redisConnectionHelper.GetDealData(entry);
             }
-
+            this.qdfDealParametersSet = qdfDealParameters;
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// possibly need to rename this to make it clear its a connection to a substitute data context
+        /// </summary>
+        /// <param name="dataContext"></param>
+        [Given(@"I have created a connection to ""(.*)""")]
+        public void GivenIHaveCreatedAConnectionTo(string dataContext)
+        {
+            contextSubstitute = GetDataContextSubstitute(dataContext);
+        }
 
         [Given(@"I have CC data")]
         public void GivenIHaveCCData()
         {
-            ScenarioContext.Current.Pending();
+            contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
+            var ccEntries = contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
+            var ccEntrySet = contextSubstitute.SelectDataAsDataSet(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
+            var ccEntryView = contextSubstitute.SelectDataAsDataView(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
+            //TODO: decide whether to use datatable or data set
+            //TODO: implement for multiple qdfDealParameters 
+            //if (qdfDealParametersSet != null) etc.
+
+            var tableResult = from DataRow myRow in ccEntries.Rows
+                              where myRow.Field<string>("DatabaseName").StartsWith("ars_")
+                              select new
+                              {
+                                  Server = myRow.Field<string>("DatabaseName"),
+                                  Spread = (myRow.Field<decimal>("BidPrice") - myRow.Field<decimal>("AskPrice"))
+                              };
+
+            foreach (var item in tableResult)
+            {
+                Console.WriteLine(string.Format("using table, Server Name is {0}, spread is {1}", item.Server, item.Spread.ToString()));
+            }
+
+            //foreach (var item in ccEntries.AsDataView())
+            //{
+            //    item.
+            //}
+
+            //foreach (var item in ccEntrySet)
+            //{
+
+            //}
+
+            //foreach (var item in ccEntryView)
+            //{
+            //    Console.WriteLine("using view, Server Name is {0}",item.
+            //}
         }
 
         [When(@"I compare QDF and CC data")]
@@ -103,7 +151,7 @@ namespace qdf.AcceptanceTests.Steps
                 //try
                 //{
                 //removed try/catch as might as well see full stack trace - this is likely to be the last operation
-                    redisConnectionHelper.connection.Close(true);
+                redisConnectionHelper.connection.Close(true);
                 //}
                 //catch (Exception e)
                 //{

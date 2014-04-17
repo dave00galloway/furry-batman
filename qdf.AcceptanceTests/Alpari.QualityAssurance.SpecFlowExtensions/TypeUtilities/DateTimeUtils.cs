@@ -27,47 +27,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             string units;
             ParseShortCode(shortCode, out magnitude, out units);
             return ConvertShortCodeToDate(DateTime.UtcNow, magnitude, units);
-            //switch (units.ToUpper())
-            //{
-            //    case "DAYS":
-            //    case "DAY":
-            //    case "D":
-            //        return DateTime.UtcNow.AddDays(magnitude);
-            //    case "HOURS":
-            //    case "HR":
-            //    case "H":
-            //        return DateTime.UtcNow.AddHours(magnitude);
-            //    case "MILLISECONDS":
-            //    case "MILLIS":
-            //    case "MILLI":
-            //    case "MILLS":
-            //    case "MLS":
-            //        return DateTime.UtcNow.AddMilliseconds(magnitude);
-            //    case "MINUTES":
-            //    case "MIN":
-            //        return DateTime.UtcNow.AddMinutes(magnitude);
-            //    case "MONTHS":
-            //    case "MONS":
-            //    case "MON":
-            //    case "M":
-            //        return DateTime.UtcNow.AddMonths(Convert.ToInt32(magnitude));
-            //    case "SECONDS":
-            //    case "SECS":
-            //    case "SEC":
-            //    case "S":
-            //        return DateTime.UtcNow.AddSeconds(magnitude);
-            //    case "TICKS":
-            //    case "T":
-            //        return DateTime.UtcNow.AddTicks((long)magnitude);
-            //    case "YEARS":
-            //    case "YRS":
-            //    case "YR":
-            //    case "YS":
-            //    case "Y":
-            //        return DateTime.UtcNow.AddYears(Convert.ToInt32(magnitude));
-            //    default:
-            //        throw new ArgumentException(String.Format("parameter units '{0}' is not recognised as a valid time period",units));
-            //}
+            
         }
 
         /// <summary>

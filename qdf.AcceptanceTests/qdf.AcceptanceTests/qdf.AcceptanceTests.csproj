@@ -54,6 +54,10 @@
     <Reference Include="MsgPack">
       <HintPath>..\packages\MsgPack.Cli.0.4.4\lib\net40-client\MsgPack.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.8.3\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -69,8 +73,13 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.IO.Abstractions">
       <HintPath>..\packages\System.IO.Abstractions.1.4.0.84\lib\net35\System.IO.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Dataflow, Version=4.5.14.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Tpl.Dataflow.4.5.14\lib\portable-net45+win8\System.Threading.Tasks.Dataflow.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -82,6 +91,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
+    <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
+    <Compile Include="DataContexts\MySqlQueries.cs" />
+    <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
     <Compile Include="Helpers\QdfDealParameters.cs" />
     <Compile Include="Helpers\RedisConnectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,15 +103,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\MySqlQUickStart.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MySqlQUickStart.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Specs\ArsQdfCCReconciliation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTests\MySqlQUickStart.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MySqlQUickStart.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +130,9 @@
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

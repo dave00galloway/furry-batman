@@ -8,6 +8,7 @@ using TechTalk.SpecFlow.Assist;
 using Alpari.QualityAssurance.SpecFlowExtensions;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using System.Configuration;
+using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -32,6 +33,31 @@ namespace qdf.AcceptanceTests.Steps
         public static QdfDealParameters QdfDealParametersTransform(Table table)
         {
             return table.CreateInstance<QdfDealParameters>();
+        }
+
+        public static IDataContextSubstitute GetDataContextSubstitute(string dataContext)
+        {
+            switch (dataContext)
+            {
+                case "MySqlDataContextSubstitute":
+                    return new MySqlDataContextSubstitute(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString);
+                case "QuickStartMySqlDataContext":
+                    //QuickStartMySqlDataContext context = new QuickStartMySqlDataContext();
+                    throw new ArgumentException("data context {0} is licensed and there is no license available", dataContext);
+                default:
+                    throw new ArgumentException("data context {0} is not a valid data context", dataContext);
+            }
+        }
+
+        public static IDataContextSubstitute GetDataContextSubstituteForDB(string dbName)
+        {
+            switch (ConfigurationManager.ConnectionStrings[dbName].ProviderName)
+            {
+                case "MySql.Data.MySqlClient":
+                    return new MySqlDataContextSubstitute(ConfigurationManager.ConnectionStrings[dbName].ConnectionString);
+                default:
+                    throw new ArgumentException("data provider {0} is not a valid data context", ConfigurationManager.ConnectionStrings[dbName].ProviderName);
+            }
         }
     }
 }
