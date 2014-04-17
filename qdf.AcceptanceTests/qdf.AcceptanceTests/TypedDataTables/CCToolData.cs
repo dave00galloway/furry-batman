@@ -10,15 +10,20 @@ namespace qdf.AcceptanceTests.TypedDataTables
     /// <summary>
     /// with thanks to 
     /// http://www.codeproject.com/Articles/30490/How-to-Manually-Create-a-Typed-DataTable
+    /// if the query used to populate this has more columns, they are ignored.
+    /// This is ok unless code tries to access these columns later (compile time error), but won't break creating the table.
+    /// if the query doesn't return a column that is needed for the datatable, this won't cause any problem unless that column is accessed in code
+    /// e.g.:-
+    /// 'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>
     public class CCToolData : DataTable
     {
         public CCToolData()
         {
             Columns.Add(new DataColumn("ServerName", typeof(string)));
-            Columns.Add(new DataColumn("PlatformId", typeof(int)));
-            Columns.Add(new DataColumn("Id", typeof(int)));
-            Columns.Add(new DataColumn("DatabaseName", typeof(string)));
+            //Columns.Add(new DataColumn("PlatformId", typeof(int)));
+            //Columns.Add(new DataColumn("Id", typeof(int)));
+            //Columns.Add(new DataColumn("DatabaseName", typeof(string)));
             Columns.Add(new DataColumn("SymbolCode", typeof(string)));
             Columns.Add(new DataColumn("IsBookA", typeof(ulong)));
             Columns.Add(new DataColumn("BidPrice", typeof(decimal)));
@@ -26,7 +31,6 @@ namespace qdf.AcceptanceTests.TypedDataTables
             Columns.Add(new DataColumn("Volume", typeof(decimal)));
             Columns.Add(new DataColumn("ContractSize", typeof(decimal)));
             Columns.Add(new DataColumn("UpdateDateTime", typeof(System.DateTime)));
-
         }
 
         public CCtoolRow this[int idx]
@@ -77,23 +81,23 @@ namespace qdf.AcceptanceTests.TypedDataTables
             set { base ["ServerName"] = value; }
         }
 
-        public int PlatformId
-        {
-            get { return (int)base["PlatformId"]; }
-            set { base["PlatformId"] = value; }
-        }
+        //public int PlatformId
+        //{
+        //    get { return (int)base["PlatformId"]; }
+        //    set { base["PlatformId"] = value; }
+        //}
 
-        public int Id
-        {
-            get { return (int)base["Id"]; }
-            set { base["Id"] = value; }
-        }
+        //public int Id
+        //{
+        //    get { return (int)base["Id"]; }
+        //    set { base["Id"] = value; }
+        //}
 
-        public string DatabaseName
-        {
-            get { return (string)base["DatabaseName"]; }
-            set { base["DatabaseName"] = value; }
-        }
+        //public string DatabaseName
+        //{
+        //    get { return (string)base["DatabaseName"]; }
+        //    set { base["DatabaseName"] = value; }
+        //}
 
         public string SymbolCode
         {

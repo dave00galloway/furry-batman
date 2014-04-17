@@ -96,55 +96,21 @@ namespace qdf.AcceptanceTests.Steps
         public void GivenIHaveCCData()
         {
             contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
-            var ccEntries = contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
-            var ccEntrySet = contextSubstitute.SelectDataAsDataSet(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
-            var ccEntryView = contextSubstitute.SelectDataAsDataView(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime));
-            //TODO: decide whether to use datatable or data set
             //TODO: implement for multiple qdfDealParameters 
             //if (qdfDealParametersSet != null) etc.
 
-            var tableResult = from DataRow myRow in ccEntries.Rows
-                              where myRow.Field<string>("DatabaseName").StartsWith("ars_")
-                              select new
-                              {
-                                  Server = myRow.Field<string>("DatabaseName"),
-                                  Spread = (myRow.Field<decimal>("BidPrice") - myRow.Field<decimal>("AskPrice"))
-                              };
-
-            foreach (var item in tableResult)
-            {
-                Console.WriteLine(string.Format("using table, Server Name is {0}, spread is {1}", item.Server, item.Spread.ToString()));
-            }
-
-            //foreach (var item in ccEntries.AsDataView())
-            //{
-            //    item.
-            //}
-
-            //foreach (var item in ccEntrySet)
-            //{
-
-            //}
-
-            //foreach (var item in ccEntryView)
-            //{
-            //    Console.WriteLine("using view, Server Name is {0}",item.
-            //}
-
             CCToolData ccToolData = contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime)).ConvertToTypedDataTable <CCToolData>();
-            var typedTableResult = from CCtoolRow myRow in ccToolData.Rows
-                              where myRow.DatabaseName.StartsWith("ars_")
-                              select new
-                              {
-                                  Server = myRow.DatabaseName,
-                                  Spread = (myRow.BidPrice - myRow.AskPrice)
-                              };
-
-            foreach (var item in typedTableResult)
-            {
-                Console.WriteLine(string.Format("using typedTableResult, Server Name is {0}, spread is {1}", item.Server, item.Spread.ToString()));
-            }
+            //get server and spread combos as a demo
+            CCToolDataContext.OutputCalculatedSpread(ccToolData);
+            /*undecided whether to use properties for this data. 
+             * with the QDF data, there always willbe some, 
+             * but for the ars/cnx/ecn data there might or might not be 
+             * maybe the base class should hold properties for QDF, and specialised subclasses should hold properties for comparing with the QDF data
+             * */
+            ScenarioContext.Current["ccToolData"] = ccToolData;
         }
+
+
 
         [When(@"I compare QDF and CC data")]
         public void WhenICompareQDFAndCCData()

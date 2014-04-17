@@ -40,7 +40,7 @@ namespace qdf.AcceptanceTests.Steps
             switch (dataContext)
             {
                 case "MySqlDataContextSubstitute":
-                    return new MySqlDataContextSubstitute(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString);
+                    return new CCToolDataContext(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString);
                 case "QuickStartMySqlDataContext":
                     //QuickStartMySqlDataContext context = new QuickStartMySqlDataContext();
                     throw new ArgumentException("data context {0} is licensed and there is no license available", dataContext);
@@ -54,7 +54,14 @@ namespace qdf.AcceptanceTests.Steps
             switch (ConfigurationManager.ConnectionStrings[dbName].ProviderName)
             {
                 case "MySql.Data.MySqlClient":
-                    return new MySqlDataContextSubstitute(ConfigurationManager.ConnectionStrings[dbName].ConnectionString);
+                   
+                    switch (dbName)
+                    {
+                        case MySqlDataContextSubstitute.CC:
+                            return new CCToolDataContext(ConfigurationManager.ConnectionStrings[dbName].ConnectionString);
+                        default:
+                            throw new ArgumentException("dbName {0} is not a valid dbName", dbName);
+                    }
                 default:
                     throw new ArgumentException("data provider {0} is not a valid data context", ConfigurationManager.ConnectionStrings[dbName].ProviderName);
             }

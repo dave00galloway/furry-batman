@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\CCToolDataContext.cs" />
     <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlQueries.cs" />

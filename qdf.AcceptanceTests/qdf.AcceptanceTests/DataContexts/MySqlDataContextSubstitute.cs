@@ -13,10 +13,11 @@ namespace qdf.AcceptanceTests.DataContexts
     /// <summary>
     /// Unable to get fully Linq compatible DataContext working either due to license contstrains (ALinq,  Devart) or not being able to get DBMetal working
     /// so using a substitute to connect to MySql
+    /// strongly typed DataTables give us all the functionality we need for aggregating the returned data
     /// </summary>
-    public class MySqlDataContextSubstitute : qdf.AcceptanceTests.DataContexts.IDataContextSubstitute
+    public abstract class MySqlDataContextSubstitute : qdf.AcceptanceTests.DataContexts.IDataContextSubstitute
     {
-        public static readonly string CC = "CC";
+        public const string CC = "CC";
         public MySqlConnection myConnection { get; private set; }
         public MySqlDataContextSubstitute(string connectionString)
         {
@@ -134,23 +135,6 @@ namespace qdf.AcceptanceTests.DataContexts
         //DataRow drow = dt.AsEnumerable().Where(p=>P.Field<Int32>(0)==1).FirstOrDefault();
         // // 
 
-        //2.query using a cast
-        // var results = from DataRow myRow in myDataTable.Rows
-        //where (int)myRow["RowNo"] == 1
-        //select myRow
-
-        //3. using type and cast
-        //var query = from p in dt.AsEnumerable()
-        //            where p.Field<string>("code") == this.txtCat.Text
-        //            select new
-        //            {
-        //                name = p.Field<string>("name"),
-        //                age = p.Field<int>("age")
-        //            };
-
-        //4. query the rows instead
-        //var results = from myRow in myDataTable.Rows where myRow.Field("RowNo") == 1 select myRow;
-        // doesn't seem to work - The type arguments for method 'System.Data.DataRowExtensions.Field<T>(System.Data.DataRow, int)' cannot be inferred from the usage. Try specifying the type arguments explicitly. Seems to be the generally held opion you can't do this
         // http://stackoverflow.com/questions/17143701/querying-data-table-to-get-particular-row-in-c-sharp
     }
 }
