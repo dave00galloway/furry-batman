@@ -11,6 +11,7 @@ using Alpari.QualityAssurance.SpecFlowExtensions;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using qdf.AcceptanceTests.DataContexts;
+using qdf.AcceptanceTests.TypedDataTables;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -129,6 +130,20 @@ namespace qdf.AcceptanceTests.Steps
             //{
             //    Console.WriteLine("using view, Server Name is {0}",item.
             //}
+
+            CCToolData ccToolData = contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime)).ConvertToTypedDataTable <CCToolData>();
+            var typedTableResult = from CCtoolRow myRow in ccToolData.Rows
+                              where myRow.DatabaseName.StartsWith("ars_")
+                              select new
+                              {
+                                  Server = myRow.DatabaseName,
+                                  Spread = (myRow.BidPrice - myRow.AskPrice)
+                              };
+
+            foreach (var item in typedTableResult)
+            {
+                Console.WriteLine(string.Format("using typedTableResult, Server Name is {0}, spread is {1}", item.Server, item.Spread.ToString()));
+            }
         }
 
         [When(@"I compare QDF and CC data")]

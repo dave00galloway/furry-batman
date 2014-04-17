@@ -110,6 +110,9 @@
     </Compile>
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
+    <Compile Include="TypedDataTables\CCToolData.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

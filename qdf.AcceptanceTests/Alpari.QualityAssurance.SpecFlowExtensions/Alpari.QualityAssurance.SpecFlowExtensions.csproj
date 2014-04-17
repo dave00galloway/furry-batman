@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Steps\TestDataToShareStepBase.cs" />
     <Compile Include="Steps\TextToXmlReconciliationSteps.cs" />
+    <Compile Include="TypeUtilities\DataTableExtensions.cs" />
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
