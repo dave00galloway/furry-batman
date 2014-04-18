@@ -98,6 +98,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestDataToShareClientTwo.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\TypedDataTableFun.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TypedDataTableFun.feature</DependentUpon>
+    </Compile>
     <Compile Include="StepBases\DataTableOperations.cs" />
     <Compile Include="StepBases\MasterStepBase.cs" />
     <Compile Include="Specs\EnableCrossStepDefinitionCallsOne.feature.cs">
@@ -126,6 +131,9 @@
     <Compile Include="Steps\CrossStepDefinitionFileTwo.cs" />
     <Compile Include="Steps\CrossStepDefinitionStepBase.cs" />
     <Compile Include="NunitTextReportParser\NunitTxtParser.cs" />
+    <Compile Include="Context\TypedDataTables\Person.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Steps\ShareContextSteps.cs" />
     <Compile Include="Steps\SpecflowNunitTextReporterStepBase.cs" />
     <Compile Include="Steps\SpecflowNunitTextReporterSteps.cs" />
@@ -141,6 +149,7 @@
     </Compile>
     <Compile Include="Steps\TestDataToShareStepBase.cs" />
     <Compile Include="Steps\TextToXmlReconciliationSteps.cs" />
+    <Compile Include="Steps\TypedDataTableFunSteps.cs" />
     <Compile Include="TypeUtilities\DataTableExtensions.cs" />
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
@@ -189,6 +198,10 @@
     <None Include="Specs\TestDataToShareClientTwo.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TestDataToShareClientTwo.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\TypedDataTableFun.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TypedDataTableFun.feature.cs</LastGenOutput>
     </None>
     <None Include="TestData\Results.xsd">
       <SubType>Designer</SubType>
