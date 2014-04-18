@@ -40,8 +40,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I compare the ""(.*)"" and ""(.*)"" person data")]
         public void WhenICompareTheAndPersonData(string first, string second)
         {
-            var exp = PersonData.ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>);
-            var act = PersonData.ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>);
+            var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>);
+            var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>);
             //var diffBase = exp.Copy();
            // diffBase.Merge(
             exp.Merge(act);

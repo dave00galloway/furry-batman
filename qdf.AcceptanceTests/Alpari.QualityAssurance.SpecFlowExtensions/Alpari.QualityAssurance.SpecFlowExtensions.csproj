@@ -49,6 +49,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TypeUtilities\ITypedDataTable.cs" />
     <Compile Include="FileUtilities\CsvColumnDefinition.cs" />
     <Compile Include="FileUtilities\CsvParser.cs" />
     <Compile Include="FileUtilities\CsvParserExtensionMethods.cs" />
