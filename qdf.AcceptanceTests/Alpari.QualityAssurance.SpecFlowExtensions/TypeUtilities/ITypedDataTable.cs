@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Collections.Generic;
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
@@ -9,7 +10,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
     /// </summary>
     public interface ITypedDataTable
     {
-        T ConvertIEnumerableToDataTable<T>(System.Collections.Generic.IEnumerable<T> enumeratedObjects) where T : System.Data.DataTable, new();
+        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new();
+        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects,string tableName,string[] primaryKeys) where T : DataTable, new();
         #region Constructor and StronglyTypedDataTable required methods
         //public PersonData()
         //{

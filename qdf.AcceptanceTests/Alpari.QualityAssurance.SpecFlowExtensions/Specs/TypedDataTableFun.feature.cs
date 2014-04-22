@@ -199,7 +199,7 @@ this.ScenarioSetup(scenarioInfo);
                         "1",
                         "Vladimir",
                         "Putin",
-                        "99",
+                        "98",
                         "Impaler"});
             table5.AddRow(new string[] {
                         "2",
@@ -227,6 +227,57 @@ this.ScenarioSetup(scenarioInfo);
 #line 40
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 41
+ testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets one extra")]
+        public virtual void CompareTwoDataSetsOneExtra()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one extra", ((string[])(null)));
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table7.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+#line 44
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table7, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table8.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+            table8.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 47
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table8, "And ");
+#line 51
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
  testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

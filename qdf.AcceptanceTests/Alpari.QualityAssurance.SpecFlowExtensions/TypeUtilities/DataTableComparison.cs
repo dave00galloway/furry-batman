@@ -11,5 +11,6 @@
         public DataTableComparison() { }
 
         public List<DataRow> MissingInCompareWith { get; set; }
+        public List<DataRow> AdditionalInCompareWith { get; set; }
     }
 }

@@ -32,10 +32,21 @@ Scenario: Compare Two data sets one mismatch
 Scenario: Compare Two data sets one missing
 	Given I have the following "expected" person data:
 	| ID | Forenames | Lastname | Age | Occupation     |
-	| 1  | Vladimir  | Putin    | 99  | Impaler        |
+	| 1  | Vladimir  | Putin    | 98  | Impaler        |
 	| 2  | John      | Kerry    | 100 | stand up comic |
 	And I have the following "actual" person data:
 	| ID | Forenames | Lastname | Age | Occupation     |
 	| 1  | Vladimir  | Putin    | 98  | Impaler        |
+	When I compare the "expected" and "actual" person data
+	Then the person data should match exactly
+
+Scenario: Compare Two data sets one extra
+	Given I have the following "expected" person data:
+	| ID | Forenames | Lastname | Age | Occupation     |
+	| 1  | Vladimir  | Putin    | 98  | Impaler        |
+	And I have the following "actual" person data:
+	| ID | Forenames | Lastname | Age | Occupation     |
+	| 1  | Vladimir  | Putin    | 98  | Impaler        |
+	| 2  | John      | Kerry    | 100 | stand up comic |
 	When I compare the "expected" and "actual" person data
 	Then the person data should match exactly

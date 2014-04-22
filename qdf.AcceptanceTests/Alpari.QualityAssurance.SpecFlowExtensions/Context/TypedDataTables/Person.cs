@@ -100,7 +100,26 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         #endregion
         public PersonData ConvertIEnumerableToDataTable(IEnumerable<Person> enumeratedObjects)
         {
-            PersonData dataTable = new PersonData();
+            //PersonData dataTable = new PersonData();
+            return SetupDataTable(enumeratedObjects, this);
+            //foreach (Person person in enumeratedObjects)
+            //{
+            //    dataTable.Rows.Add(new Object[] { person.ID, person.Forenames, person.Lastname, person.Age, person.Occupation });
+            //}
+            //dataTable.AcceptChanges();
+            //return dataTable;
+        }
+
+        public PersonData ConvertIEnumerableToDataTable(IEnumerable<Person> enumeratedObjects,string tableName, string[] primaryKeys)
+        {
+            //PersonData dataTable = new PersonData();
+            this.TableName = tableName;
+            this.SetPrimaryKey(primaryKeys);
+            return SetupDataTable(enumeratedObjects, this);
+        }
+
+        private static PersonData SetupDataTable(IEnumerable<Person> enumeratedObjects, PersonData dataTable)
+        {
             foreach (Person person in enumeratedObjects)
             {
                 dataTable.Rows.Add(new Object[] { person.ID, person.Forenames, person.Lastname, person.Age, person.Occupation });
@@ -119,7 +138,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         /// <returns></returns>
         public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : System.Data.DataTable, new()
         {
-            return new PersonData().ConvertIEnumerableToDataTable(enumeratedObjects);
+            return this.ConvertIEnumerableToDataTable(enumeratedObjects);
+        }
+
+        public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys) where T : DataTable, new()
+        {
+            return this.ConvertIEnumerableToDataTable(enumeratedObjects,tableName, primaryKeys);
         }
     }
 

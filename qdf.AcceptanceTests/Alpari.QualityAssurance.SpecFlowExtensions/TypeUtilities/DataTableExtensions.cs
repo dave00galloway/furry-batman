@@ -23,54 +23,68 @@
             return dtTyped;
         }
 
+        /// <summary>
+        /// Must have primary keys set or the comparisons will fail
+        /// </summary>
+        /// <param name="dtBase"></param>
+        /// <param name="compareWith"></param>
+        /// <returns></returns>
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith)//, DataColumn[] keyColumns)
         {
-            DataTableComparison comparison = new DataTableComparison();
+            DataTableComparer<DataRow>.Instance.ResetInstance();
+            try
+            {
+                DataTableComparison comparison = new DataTableComparison();
 
+                //get rows missing in compare with
+                var baseRows = from DataRow row in dtBase.Rows
+                               select row;
 
-            //get rows missing in compare with
-            var baseRows = from DataRow row in dtBase.Rows
-                           select row;
+                var compRows = from DataRow row in compareWith.Rows
+                               select row;
 
-            var compRows = from DataRow row in compareWith.Rows
-                           select row;
+                comparison.MissingInCompareWith = baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList();//.Select(x => x).ToList();
+                comparison.AdditionalInCompareWith = compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).ToList();
 
-            //comparison.MissingInCompareWith = compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).Select(x => x).ToList();
-            comparison.MissingInCompareWith = baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).Select(x => x).ToList();
+                //get diffs using an event handler for OnColumnChanged - failed
+                
+                dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row
+                //dtBase.Merge(compareWith);
 
-            return comparison;
+                //stub a change
+                object[] findTheseVals = new object[2];
+                findTheseVals[0] = 1;
+                findTheseVals[1] = "Putin";
 
-            ////var missingInCompareWith = from DataRow row in dtBase.Rows
-            ////                           //where DataRow compareWithRow.Rows on dtBase.PrimaryKey != compareWith.PrimaryKey
+                DataRow toChange = dtBase.Rows.Find(findTheseVals);
+                //toChange.BeginEdit();
+                toChange["Forenames"] = "Ian";
+                //toChange.EndEdit();
 
-            ////                                   where compareWith.Rows.Contains(dtBase.PrimaryKey as object[]) == false
-            ////                                    select (
-            ////                                            from keyColumn in dtBase.PrimaryKey
-            ////                                            select row[keyColumn.ColumnName]
-            ////                                           );
-            ////comparison.MissingInCompareWith = missingInCompareWith.SelectMany(x=>x).ToList();
+                //var additions = dtBase.GetChanges(DataRowState.Added);
+                //var additionRows = from DataRow row in additions.Rows
+                //                   select row;
+                //comparison.AdditionalInCompareWith = additionRows.ToList();
+                //var changes = dtBase.GetChanges(DataRowState.Modified);
 
-            ////TODO: factor out common code - =shouldn't need this, leaving as example of how to iterate over primary keys
-            //var baseKeys = from DataRow row in dtBase.Rows
-            //               select (
-            //                       from keyColumn in dtBase.PrimaryKey
-            //                       select row[keyColumn.ColumnName]
-            //                      );
+                // var addsAndChanges = dtBase.GetChanges(); // doesn't seem to pick up merges. does pick up direct edits, but the info from the event is richer, so we'll use that
 
-            //var compareWithKeys = from DataRow row in compareWith.Rows
-            //                      select (
-            //                              from keyColumn in compareWith.PrimaryKey
-            //                              select row[keyColumn.ColumnName]
-            //                             );
-            ////also Except is returning all records, not just the ones missing in compare with
-            ////var temp = baseKeys.Except(compareWithKeys); //;//missingInCompareWith.SelectMany(x => x).ToList();
-            //var temp = from row in baseKeys
-            //           //where compareWithKeys.Contains(row) == false // contains doesn't seem to work either
-            //           select row;
-            //comparison.MissingInCompareWith = temp.Select(x => x).ToList();
-            ////reason except is returning all rows is that an IEqualityComparer is required. should be able to compare rows by primary key values. Default is to use refs, so it doesn't work as Row is a ref type
+                return comparison;
+            }
+            finally
+            {
+                DataTableComparer<DataRow>.Instance.ResetInstance();
+                dtBase.RejectChanges();
+                dtBase.ColumnChanged -= new DataColumnChangeEventHandler(dtBase_ColumnChanged);
+            }
 
             ////todo . add a DataRowColumnChanged event handler to report diffs when merge happens. Primary keys need to be set
+        }
+
+        private static void dtBase_ColumnChanged(object sender, DataColumnChangeEventArgs e)
+        {
+            //throw new NotImplementedException();
+            Console.WriteLine("Column Changed : {0}, Original value : {1}, new value : {2}", e.Column.ColumnName, e.Row[e.Column, DataRowVersion.Original],e.ProposedValue);
         }
 
         //public static DataTableComparison Compare<T>(this T dtBase, T compareWith) where T : DataTable,new()
@@ -79,7 +93,7 @@
         //}
 
         /// <summary>
-        /// class providing a comparer for Lionq functions Except, intersect, distinct etc for Data tables
+        /// class providing a comparer for Linq functions Except, intersect, distinct etc for Data tables
         /// </summary>
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow

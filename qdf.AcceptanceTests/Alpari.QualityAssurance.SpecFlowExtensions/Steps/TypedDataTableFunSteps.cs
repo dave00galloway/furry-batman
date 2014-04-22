@@ -41,8 +41,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I compare the ""(.*)"" and ""(.*)"" person data")]
         public void WhenICompareTheAndPersonData(string first, string second)
         {
-            var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>);
-            var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>);
+            var keys = new string[] { "ID", "Lastname" };
+            var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,"expected",keys);
+            var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,"actual",keys);
             #region merge attempts
             //var diffBase = exp.Copy();
            // diffBase.Merge(
@@ -53,9 +54,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             //exp.AcceptChanges();
             //exp.
             #endregion
-            var keys = new string[] { "ID", "Lastname" };
-            exp.SetPrimaryKey(keys);
-            act.SetPrimaryKey(keys);
+
             var diffs = exp.Compare(act);
             ScenarioContext.Current["diffs"] = diffs;
         }
