@@ -6,6 +6,7 @@ using System.Text;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using FluentAssertions;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 {
@@ -42,14 +43,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>);
             var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>);
+            #region merge attempts
             //var diffBase = exp.Copy();
            // diffBase.Merge(
-            exp.Merge(act);
-            var diffs = exp.GetChanges();
+            //exp.Merge(act);
+            //var diffs = exp.GetChanges();
             //doesn't seem to undo the merge, even if the merge was done without preserving changes
             //exp.RejectChanges();
             //exp.AcceptChanges();
             //exp.
+            #endregion
+            var keys = new string[] { "ID", "Lastname" };
+            exp.SetPrimaryKey(keys);
+            act.SetPrimaryKey(keys);
+            var diffs = exp.Compare(act);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
@@ -57,6 +64,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the person data should match exactly")]
         public void ThenThePersonDataShouldMatchExactly()
         {
+            //this null check won't work - need to check each of the checks within diffs to see their values
             ScenarioContext.Current["diffs"].Should().BeNull();
         }
 

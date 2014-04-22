@@ -180,6 +180,57 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets one missing")]
+        public virtual void CompareTwoDataSetsOneMissing()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one missing", ((string[])(null)));
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table5.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table5.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 33
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table5, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table6.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+#line 37
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table6, "And ");
+#line 40
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+ testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

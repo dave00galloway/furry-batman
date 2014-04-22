@@ -19,7 +19,45 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
     public class PersonData : DataTable, Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities.ITypedDataTable
     {
         #region Constructor and StronglyTypedDataTable required methods
+        /// <summary>
+        /// set up with no primary key
+        /// </summary>
         public PersonData()
+        {
+            SetupColumns();
+        }
+
+        public PersonData(bool defaultPrimaryKey)
+        {
+            SetupColumns();
+            if (defaultPrimaryKey)
+            {
+                this.PrimaryKey = new DataColumn[] { Columns["ID"] };
+            }
+        }
+
+        public PersonData(string[] primaryKeyColumns)
+        {
+            SetupColumns();
+            SetPrimaryKey(primaryKeyColumns);
+        }
+
+        public void SetPrimaryKey(string[] primaryKeyColumns)
+        {
+            int size = primaryKeyColumns.Length;
+            DataColumn[] keyColumns = Array.CreateInstance(typeof(DataColumn), size) as DataColumn[];
+            for (int i = 0; i < size; i++)
+            {
+                keyColumns[i] = Columns[primaryKeyColumns[i]];
+            }
+            this.PrimaryKey = keyColumns;
+        }
+
+
+        /// <summary>
+        /// TODO:- set up an abstract base class implementing ITypedDataTable with abstract or virtual methods to override
+        /// </summary>
+        internal void SetupColumns()
         {
             Columns.Add(new DataColumn("ID", typeof(ulong)));
             Columns.Add(new DataColumn("Forenames", typeof(string)));
@@ -27,6 +65,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             Columns.Add(new DataColumn("Age", typeof(UInt16)));
             Columns.Add(new DataColumn("Occupation", typeof(string)));
         }
+
         public PersonDataRow this[int idx]
         {
             get { return (PersonDataRow)Rows[idx]; }
@@ -93,35 +132,35 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             this.builder = builder;
         }
 
-        //public ulong ID
-        //{
-        //    get { return (ulong)base["ID"]; }
-        //    set { base["SymbolCIDode"] = value; }
-        //}
+        public ulong ID
+        {
+            get { return (ulong)base["ID"]; }
+            set { base["SymbolCIDode"] = value; }
+        }
 
-        //public string Forenames
-        //{
-        //    get { return (string)base["Forenames"]; }
-        //    set { base["Forenames"] = value; }
-        //}
+        public string Forenames
+        {
+            get { return (string)base["Forenames"]; }
+            set { base["Forenames"] = value; }
+        }
 
-        //public string Lastname
-        //{
-        //    get { return (string)base["Lastname"]; }
-        //    set { base["Lastname"] = value; }
-        //}
+        public string Lastname
+        {
+            get { return (string)base["Lastname"]; }
+            set { base["Lastname"] = value; }
+        }
 
-        //public UInt16 Age
-        //{
-        //    get { return (UInt16)base["Age"]; }
-        //    set { base["Age"] = value; }
-        //}        
+        public UInt16 Age
+        {
+            get { return (UInt16)base["Age"]; }
+            set { base["Age"] = value; }
+        }
 
-        //public string Occupation
-        //{
-        //    get { return (string)base["Occupation"]; }
-        //    set { base["Occupation"] = value; }
-        //}
+        public string Occupation
+        {
+            get { return (string)base["Occupation"]; }
+            set { base["Occupation"] = value; }
+        }
     }
 
 }
