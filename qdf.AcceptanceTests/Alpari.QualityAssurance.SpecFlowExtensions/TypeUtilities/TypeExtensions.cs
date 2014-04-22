@@ -26,6 +26,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return objectToSearch.GetType().GetProperties().Select(x => x.GetValue(objectToSearch).ToString()).ToList();
         }
 
+        public static bool IsNumber(this string s)
+        {
+            float output;
+            return float.TryParse(s, out output);
+        }
+
         //public static List<string> GetPropertyNamesAsList<T>()
         //{
         //    return T.GetProperties().Select(x => x.Name).ToList();

@@ -25,6 +25,7 @@
 
         /// <summary>
         /// Must have primary keys set or the comparisons will fail
+        /// gets missing and added entries from datatables and returns them. Does an in console comparison of the data
         /// </summary>
         /// <param name="dtBase"></param>
         /// <param name="compareWith"></param>
@@ -46,28 +47,47 @@
                 comparison.MissingInCompareWith = baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList();//.Select(x => x).ToList();
                 comparison.AdditionalInCompareWith = compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).ToList();
 
-                //get diffs using an event handler for OnColumnChanged - failed
+                var commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
                 
+                //todo:- allow an ovelroad to specify a delegate which writes to csv or db instead of console
                 dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row
                 //dtBase.Merge(compareWith);
 
-                //stub a change
-                object[] findTheseVals = new object[2];
-                findTheseVals[0] = 1;
-                findTheseVals[1] = "Putin";
+                ////stub a change
+                //object[] findTheseVals = new object[2];
+                //findTheseVals[0] = 1;
+                //findTheseVals[1] = "Putin";
 
-                DataRow toChange = dtBase.Rows.Find(findTheseVals);
-                //toChange.BeginEdit();
-                toChange["Forenames"] = "Ian";
-                //toChange.EndEdit();
+                //DataRow toChange = dtBase.Rows.Find(findTheseVals);
 
-                //var additions = dtBase.GetChanges(DataRowState.Added);
-                //var additionRows = from DataRow row in additions.Rows
-                //                   select row;
-                //comparison.AdditionalInCompareWith = additionRows.ToList();
-                //var changes = dtBase.GetChanges(DataRowState.Modified);
+                ////toChange["Forenames"] = "Ian";
+                //toChange["Forenames"] = "Vladimir";
 
-                // var addsAndChanges = dtBase.GetChanges(); // doesn't seem to pick up merges. does pick up direct edits, but the info from the event is richer, so we'll use that
+                //get the non-primary key field columns
+                List<DataColumn> columnsToUpdate = (from DataColumn col in dtBase.Columns
+                                                    where dtBase.PrimaryKey.Contains(col) == false
+                                                    select col).ToList();               
+                foreach (var row in commonRows)
+                {
+                    //get the primary key values for the comp row
+                    object[] findTheseVals = new object[dtBase.PrimaryKey.Count()];
+                    for (int i = 0; i < findTheseVals.Length; i++)
+                    {
+                        findTheseVals[i] = row[dtBase.PrimaryKey[i]];
+                    }
+
+                    //get the equivalent row in the base table
+                    DataRow toChange = dtBase.Rows.Find(findTheseVals);
+
+                    //get the equivalent row in the comp table
+                    DataRow toRead = compareWith.Rows.Find(findTheseVals);
+
+                    //make edits to triggger the changed value validation
+                    foreach (DataColumn column in columnsToUpdate)
+                    {
+                        toChange[column] = toRead[column.ColumnName];
+                    }
+                }
 
                 return comparison;
             }
@@ -83,8 +103,40 @@
 
         private static void dtBase_ColumnChanged(object sender, DataColumnChangeEventArgs e)
         {
+            bool changed = false;
             //throw new NotImplementedException();
-            Console.WriteLine("Column Changed : {0}, Original value : {1}, new value : {2}", e.Column.ColumnName, e.Row[e.Column, DataRowVersion.Original],e.ProposedValue);
+            //if (e.ProposedValue.Equals(e.Row[e.Column, DataRowVersion.Original])) // will fail on reference types including string
+            //if (e.ProposedValue == e.Row[e.Column, DataRowVersion.Original]) // will fail on reference types other than string, but we probably shouldn't have complex datatypes in these comparisons - doesn't work for numbers!
+            //// dynamic type = e.ProposedValue.GetType();
+            //var E = e;
+            //switch (typeof(E.ProposedValue.GetType()))
+            //{
+            //    default:
+            //        break;
+            //}
+
+            //TODO:- create a class in TypeUtilities that can return an enum representing type, and downcast the objects to their types based on the enum
+            //this is required to work out the difference between vlaues (numbers dates, and if anything else, toString and assert them)
+            var type = e.ProposedValue.GetType();
+            if (type.Equals(typeof(string)))
+            {
+                changed = (e.ProposedValue != e.Row[e.Column, DataRowVersion.Original]);
+            }
+            else
+            {
+                changed = !(e.ProposedValue.Equals(e.Row[e.Column, DataRowVersion.Original]));
+            }
+
+            if(changed)
+            {
+                Console.WriteLine("Column Changed : {0}, Original value : {1}, new value : {2}", e.Column.ColumnName, e.Row[e.Column, DataRowVersion.Original], e.ProposedValue);
+                
+            }
+            else
+            {
+                e.Row.RejectChanges();
+            }
+            
         }
 
         //public static DataTableComparison Compare<T>(this T dtBase, T compareWith) where T : DataTable,new()
