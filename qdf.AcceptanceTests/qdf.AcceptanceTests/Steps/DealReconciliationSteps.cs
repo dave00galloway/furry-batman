@@ -101,7 +101,7 @@ namespace qdf.AcceptanceTests.Steps
 
             CCToolData ccToolData = contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime)).ConvertToTypedDataTable <CCToolData>();
             //get server and spread combos as a demo
-            CCToolDataContext.OutputCalculatedSpread(ccToolData);
+            //CCToolDataContext.OutputCalculatedSpread(ccToolData);
             /*undecided whether to use properties for this data. 
              * with the QDF data, there always willbe some, 
              * but for the ars/cnx/ecn data there might or might not be 
@@ -117,6 +117,7 @@ namespace qdf.AcceptanceTests.Steps
         {
             var aggregator = new QDFCCDataReconciliation(ScenarioContext.Current["ccToolData"] as CCToolData, redisConnectionHelper.retrievedDeals);
             aggregator.AggregateQDFDeals();
+            aggregator.AggregateCCToolData();
             ScenarioContext.Current.Pending();
         }
 

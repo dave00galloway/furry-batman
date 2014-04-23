@@ -1,7 +1,9 @@
 ﻿using Alpari.QDF.Domain;
+using NUnit.Framework;
 using qdf.AcceptanceTests.TypedDataTables;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +17,7 @@ namespace qdf.AcceptanceTests.Helpers
     {
         public CCToolData CCToolData { get; private set; }
         public List<Deal> QDFDeals { get; private set; }
+        public List<QDFDealPosition> QDFDealPositions { get; private set; }
 
         public QDFCCDataReconciliation(CCToolData cCToolData, List<Deal> qDFDeals)
         {
@@ -33,13 +36,14 @@ namespace qdf.AcceptanceTests.Helpers
             //                                                        //Side = x.Side
             //                                                    }
             //                                       )
+            //answer - group using an anonymous type. This works!
             var aggregatedDeals = QDFDeals.GroupBy(x => new
-                                                                {
-                                                                    Book = x.Book,
-                                                                    Instrument = x.Instrument,
-                                                                    ServerId = x.ServerId//,
-                                                                    //Side = x.Side
-                                                                }
+                                                            {
+                                                                Book = x.Book,
+                                                                Instrument = x.Instrument,
+                                                                ServerId = x.ServerId//,
+                                                                //Side = x.Side
+                                                            }
                                                    )
                                     .Select(x => new QDFDealPosition()
                                                     {
@@ -55,8 +59,48 @@ namespace qdf.AcceptanceTests.Helpers
             foreach (var position in aggregatedDeals)
             {
                 position.CalculatePosition();
-                Console.WriteLine("position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
+                Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
             }
+            QDFDealPositions = aggregatedDeals;
+        }
+
+        public void AggregateCCToolData()
+        {
+            CCToolData.Columns.Add(new DataColumn("VolumeSize", typeof(decimal)));
+
+            #region nice little demo of not using deferred execution
+            //works ok, but dow we really need to double query the rows?
+            //List<CCtoolRow> ccrowQuery = (from CCtoolRow row in CCToolData.Rows
+            //                            select row).ToList<CCtoolRow>();
+            //List<DataRow> rowQuery = (from DataRow row in CCToolData.Rows
+            //                          select row).ToList<DataRow>();
+
+            //for (int i = 0; i < ccrowQuery.Count(); i++)
+            //{
+            //    var VolumeSize = ccrowQuery[i].Volume * ccrowQuery[i].ContractSize;
+            //    rowQuery[i]["VolumeSize"] = VolumeSize;
+            //}
+
+            //rowQuery = (from DataRow row in CCToolData.Rows
+            //            select row).ToList<DataRow>();
+            //foreach (DataRow row in rowQuery)
+            //{
+            //    Assert.AreEqual((decimal)row["VolumeSize"], (decimal)row["Volume"] * (decimal)row["ContractSize"]);
+            //}
+            #endregion
+
+            var rowQuery = (from DataRow row in CCToolData.Rows
+                                          select row);
+            foreach (var row in rowQuery)
+            {
+                row["VolumeSize"] = (decimal)row["Volume"] * (decimal) row["ContractSize"]; 
+            }
+
+            foreach (DataRow row in rowQuery)
+            {
+               // Assert.AreEqual((decimal)row["VolumeSize"], (decimal)row["Volume"] * (decimal)row["ContractSize"]);
+                Console.WriteLine("CC position {0} has a value of {1}", (row["IsBookA"].ToString() + row["SymbolCode"] + row["ServerName"]).Replace(" ", ""), row["VolumeSize"]);
+            }            
         }
     }
 
