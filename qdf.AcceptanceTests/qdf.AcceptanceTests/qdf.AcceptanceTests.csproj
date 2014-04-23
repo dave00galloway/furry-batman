@@ -96,6 +96,7 @@
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlQueries.cs" />
     <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
+    <Compile Include="Helpers\QDFCCDataReconciliation.cs" />
     <Compile Include="Helpers\QdfDealParameters.cs" />
     <Compile Include="Helpers\RedisConnectionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

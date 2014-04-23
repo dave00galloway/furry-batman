@@ -14,7 +14,7 @@ namespace qdf.AcceptanceTests.Helpers
     public class RedisConnectionHelper
     {
         public RedisDataStore dealsStore { get; private set; }
-        public IEnumerable<Deal> retrievedDeals { get; private set; }
+        public List<Deal> retrievedDeals { get; private set; }
         public RedisConnection connection { get; private set; }
         public string redisHost { get; private set; }
         public RedisConnectionHelper(string redisHost)
@@ -36,11 +36,11 @@ namespace qdf.AcceptanceTests.Helpers
             var deals = dealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal, qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime, TimeSlice.Day);
             if (retrievedDeals == null) 
             { 
-                retrievedDeals = deals; 
+                retrievedDeals = deals.ToList(); 
             }
             else
             {
-                retrievedDeals = retrievedDeals.Concat(deals); 
+                retrievedDeals.Concat(deals.ToList());
             }
         }
 

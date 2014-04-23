@@ -115,6 +115,8 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I compare QDF and CC data")]
         public void WhenICompareQDFAndCCData()
         {
+            var aggregator = new QDFCCDataReconciliation(ScenarioContext.Current["ccToolData"] as CCToolData, redisConnectionHelper.retrievedDeals);
+            aggregator.AggregateQDFDeals();
             ScenarioContext.Current.Pending();
         }
 

@@ -47,8 +47,8 @@ namespace qdf.AcceptanceTests.DataContexts
             "	    ON p.ServerId = srv.Id	" +
             "	  INNER JOIN cc.cc_tbl_symbol AS smb	" +
             "	    ON cr.SymbolCode = smb.Code AND smb.IsSpreadBetting = 0	" +
-            "     INNER JOIN cc.cc_tbl_position_section ctps "+
-            "       ON p.SectionId" +
+            "     INNER JOIN cc.cc_tbl_position_section AS ctps "+
+            "       ON p.SectionId = ctps.Id" +
             "	WHERE s.UpdateDateTime BETWEEN '{0}' AND '{1}' 	" +
             "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode", start.ToString(MySqlDateFormatToSeconds), end.ToString(MySqlDateFormatToSeconds));
 
