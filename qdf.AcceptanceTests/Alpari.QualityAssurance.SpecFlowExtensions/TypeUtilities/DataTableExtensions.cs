@@ -1,5 +1,6 @@
 ﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
+    using NUnit.Framework;
     using System;
     using System.Collections.Generic;
     using System.Data;
@@ -50,7 +51,7 @@
                 var commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
                 
                 //todo:- allow an ovelroad to specify a delegate which writes to csv or db instead of console
-                dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row
+                // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
                 //dtBase.Merge(compareWith);
 
                 ////stub a change
@@ -58,15 +59,20 @@
                 //findTheseVals[0] = 1;
                 //findTheseVals[1] = "Putin";
 
-                //DataRow toChange = dtBase.Rows.Find(findTheseVals);
+                //DataRow sourceRow = dtBase.Rows.Find(findTheseVals);
 
-                ////toChange["Forenames"] = "Ian";
-                //toChange["Forenames"] = "Vladimir";
+                ////sourceRow["Forenames"] = "Ian";
+                //sourceRow["Forenames"] = "Vladimir";
 
                 //get the non-primary key field columns
-                List<DataColumn> columnsToUpdate = (from DataColumn col in dtBase.Columns
+                List<DataColumn> columnsToCompare = (from DataColumn col in dtBase.Columns
                                                     where dtBase.PrimaryKey.Contains(col) == false
-                                                    select col).ToList();               
+                                                    select col).ToList();
+
+                //when the format for this is agreed, could create a strongly typed datatable for the comparisons
+                
+                DataTable comparisonDiffs = SetupComparisonDiffsTable();
+                comparison.FieldDifferences = comparisonDiffs;
                 foreach (var row in commonRows)
                 {
                     //get the primary key values for the comp row
@@ -77,15 +83,26 @@
                     }
 
                     //get the equivalent row in the base table
-                    DataRow toChange = dtBase.Rows.Find(findTheseVals);
+                    DataRow sourceRow = dtBase.Rows.Find(findTheseVals);
 
                     //get the equivalent row in the comp table
-                    DataRow toRead = compareWith.Rows.Find(findTheseVals);
+                    DataRow newRow = compareWith.Rows.Find(findTheseVals);
 
-                    //make edits to triggger the changed value validation
-                    foreach (DataColumn column in columnsToUpdate)
+                    ////make edits to triggger the changed value validation
+                    //foreach (DataColumn column in columnsToCompare)
+                    //{
+                    //    sourceRow[column] = newRow[column.ColumnName];
+                    //}
+
+                    //really disliked the above implementation so going straight to a generic-ish comparison
+                    foreach (DataColumn column in columnsToCompare)
                     {
-                        toChange[column] = toRead[column.ColumnName];
+                        //DataRow columnComparison = 
+                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs);
+                        //if (columnComparison != null)
+                        //{
+                        //    comparisonDiffs.ImportRow(columnComparison);
+                        //}
                     }
                 }
 
@@ -94,11 +111,219 @@
             finally
             {
                 DataTableComparer<DataRow>.Instance.ResetInstance();
-                dtBase.RejectChanges();
-                dtBase.ColumnChanged -= new DataColumnChangeEventHandler(dtBase_ColumnChanged);
+                //dtBase.RejectChanges();
+                //dtBase.ColumnChanged -= new DataColumnChangeEventHandler(dtBase_ColumnChanged);
             }
+        }
 
-            ////todo . add a DataRowColumnChanged event handler to report diffs when merge happens. Primary keys need to be set
+        public static DataTable SetupComparisonDiffsTable()
+        {
+            DataTable table = new DataTable("comparsionDiffs");
+
+            DataColumn column;
+    
+            column = new DataColumn();
+            column.DataType = System.Type.GetType("System.String");
+            column.ColumnName = "comparisonKey";
+            table.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "column";
+            table.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "original";
+            table.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "newValue";
+            table.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "difference";
+            table.Columns.Add(column);
+
+            column = new DataColumn();
+            column.DataType = Type.GetType("System.String");
+            column.ColumnName = "type";
+            table.Columns.Add(column);
+
+            return table;
+        }
+
+        public static void CompareWith(this object p1, object p2, DataColumn column , object[] primaryKeyValues, DataTable diffsTable)
+        {
+            string difference = null;
+            string original = null;
+            string newValue = null;
+
+            //throw new NotImplementedException();
+            //get the type as an "enum"
+            var type = column.DataType.GetDataType();
+
+            #region downcast the object to its type, and compare. if different, create a new row and return it and a calcualtion of difference
+            switch (type.ToUpper())
+            {
+                case TypeExtensions.BYTE:
+                    // difference = ((byte) p1 - (byte) p2 == 0 )? null : (byte) p1 - (byte) p2
+                    var bdiff = (byte)p1 - (byte)p2;
+                    if (bdiff != 0)
+                    {
+                        difference = bdiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.SBYTE:
+                    var sdiff = (sbyte) p1 - (sbyte) p2;
+                    if (sdiff != 0)
+                    {
+                        difference = sdiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.SHORT:
+                    var shdiff = (short) p1 - (short) p2;
+                    if (shdiff != 0)
+                    {
+                        difference = shdiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.USHORT:
+                    var ushdiff = (short) p1 - (short) p2;
+                    if (ushdiff != 0)
+                    {
+                       difference = ushdiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.INT :
+                    var idiff = (int)p1 - (int)p2;
+                    if (idiff != 0)
+                    {
+                        difference = idiff.ToString();
+                    }
+                    break;
+                case "INT16":
+                    var i16diff = (Int16)p1 - (Int16)p2;
+                    if (i16diff != 0)
+                    {
+                        difference = i16diff.ToString();
+                    }
+                    break;
+                case "INT32":
+                    var i32diff = (Int32)p1 - (Int32)p2;
+                    if (i32diff != 0)
+                    {
+                        difference = i32diff.ToString();
+                    }
+                    break;
+                case "INT64":
+                    var i64diff = (Int64)p1 - (Int64)p2;
+                    if (i64diff != 0)
+                    {
+                        difference = i64diff.ToString();
+                    }
+                    break;
+                case TypeExtensions.UINT:
+                    var uidiff = (uint)p1 - (uint)p2;
+                    if (uidiff != 0)
+                    {
+                        difference = uidiff.ToString();
+                    }
+                    break;
+                case "UINT16":
+                    var ui16diff = (UInt16)p1 - (UInt16)p2;
+                    if (ui16diff != 0)
+                    {
+                        difference = ui16diff.ToString();
+                    }
+                    break;
+                case "UINT32":
+                    var ui32diff = (UInt32)p1 - (UInt32)p2;
+                    if (ui32diff != 0)
+                    {
+                        difference = ui32diff.ToString();
+                    }
+                    break;
+                case "UINT64":
+                    var ui64diff = (UInt64)p1 - (UInt64)p2;
+                    if (ui64diff != 0)
+                    {
+                        difference = ui64diff.ToString();
+                    }
+                    break;
+                case TypeExtensions.LONG:
+                    var ldiff = (long)p1 - (long)p2;
+                    if (ldiff != 0)
+                    {
+                        difference = ldiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.ULONG:
+                    var uldiff = (ulong)p1 - (ulong)p2;
+                    if (uldiff != 0)
+                    {
+                        difference = uldiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.FLOAT:
+                    var fdiff = (float)p1 - (float)p2;
+                    if (fdiff != 0)
+                    {
+                        difference = fdiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.DOUBLE:
+                    var dbldiff = (double)p1 - (double)p2;
+                    if (dbldiff != 0)
+                    {
+                        difference = dbldiff.ToString();
+                    }
+                    break;
+                case TypeExtensions.DECIMAL:
+                    var decdiff = (decimal)p1 - (decimal)p2;
+                    if (decdiff != 0)
+                    {
+                        difference = decdiff.ToString();
+                    }
+                    break;
+                //TypeExtensions.CHAR
+                //TypeExtensions.STRING
+                //TypeExtensions.BOOL
+                //TypeExtensions.OBJECT // date - although maybe create a subtraction for date?
+                default:
+                    difference = catchAssertion(p1, p2);
+                    break;
+            }
+            #endregion
+            if (difference != null)
+            {
+                DataRow diffRow = diffsTable.NewRow();
+                //join the primary key values
+                diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
+                diffRow["column"] = column.ColumnName;
+                diffRow["original"] = original;
+                diffRow["newValue"] = newValue;
+                diffRow["difference"] = difference;
+                diffRow["type"] = type;
+                diffsTable.Rows.Add(diffRow);
+            }
+            
+        }
+
+        public static string catchAssertion(object p1, object p2)
+        {
+            string difference = null;
+            try
+            {
+                Assert.AreEqual(p1, p2);
+            }
+            catch (Exception e)
+            {
+                difference = e.Message;
+            }
+            return difference;
         }
 
         private static void dtBase_ColumnChanged(object sender, DataColumnChangeEventArgs e)

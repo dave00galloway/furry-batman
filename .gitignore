@@ -23,3 +23,7 @@ qdf.AcceptanceTests/Microsoft.VisualStudio.TestTools.CppUnitTestFramework.CppUni
 qdf.AcceptanceTests/msdia110typelib_clr0200.pdb/AE2D2191D3224EA394FF23E8FE0D8DD11/msdia110typelib_clr0200.pdb
 qdf.AcceptanceTests/vstest.executionengine.x86.pdb/BB860D8A4494443C9A6E26024ADA3A451/vstest.executionengine.x86.pdb
 /qdf.AcceptanceTests/lib/DbLinq-0.20.1
+qdf.AcceptanceTests/qdf.AcceptanceTests.v11.suo
+qdf.AcceptanceTests/qdf.AcceptanceTests/qdf.AcceptanceTests.csproj.user
+qdf.AcceptanceTests/TestResults/qdf.AcceptanceTests.TE.Tests.mdf
+qdf.AcceptanceTests/TestResults/qdf.AcceptanceTests.TE.Tests_log.ldf

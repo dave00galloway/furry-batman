@@ -12,7 +12,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
     /// http://www.codeproject.com/Articles/30490/How-to-Manually-Create-a-Typed-DataTable
     /// if the query used to populate this has more columns, they are ignored.
     /// This is ok unless code tries to access these columns later (compile time error), but won't break creating the table.
-    /// if the query doesn't return a column that is needed for the datatable, this won't cause any problem unless that column is accessed in code
+    /// if the query doesn't return a column that is needed for the datatable, this won't cause any problem unless that column is accessed in code at runtime
     /// e.g.:-
     /// 'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>

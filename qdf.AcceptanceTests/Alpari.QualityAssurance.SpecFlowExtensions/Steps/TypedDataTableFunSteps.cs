@@ -44,17 +44,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var keys = new string[] { "ID", "Lastname" };
             var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,"expected",keys);
             var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,"actual",keys);
-            #region merge attempts
-            //var diffBase = exp.Copy();
-           // diffBase.Merge(
-            //exp.Merge(act);
-            //var diffs = exp.GetChanges();
-            //doesn't seem to undo the merge, even if the merge was done without preserving changes
-            //exp.RejectChanges();
-            //exp.AcceptChanges();
-            //exp.
-            #endregion
-
             var diffs = exp.Compare(act);
             ScenarioContext.Current["diffs"] = diffs;
         }
@@ -64,8 +53,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenThePersonDataShouldMatchExactly()
         {
             //this null check won't work - need to check each of the checks within diffs to see their values
-            ScenarioContext.Current["diffs"].Should().BeNull();
-        }
+            // ScenarioContext.Current["diffs"].Should().BeNull();
+            var diffs = (DataTableComparison) ScenarioContext.Current["diffs"];
 
+            diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
+        }
     }
 }

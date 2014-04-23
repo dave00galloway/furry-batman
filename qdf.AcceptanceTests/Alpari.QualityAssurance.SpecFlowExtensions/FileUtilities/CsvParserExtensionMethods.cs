@@ -8,9 +8,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public static class CsvParserExtensionMethods
     {
-        public static string escapeCommasIfInEscapeList(this string val, int[] grcColumnsToEscape, KeyValuePair<string, int> column)
+        public static string escapeCommasIfInEscapeList(this string val, int[] columnsToEscape, KeyValuePair<string, int> column)
         {
-            if (grcColumnsToEscape.Contains(column.Value))
+            if (columnsToEscape.Contains(column.Value))
             {
                 val = CsvParser.StringToCSVCell(val);
             }

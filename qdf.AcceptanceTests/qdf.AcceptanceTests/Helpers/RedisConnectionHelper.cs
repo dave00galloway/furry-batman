@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -46,11 +47,11 @@ namespace qdf.AcceptanceTests.Helpers
         public void OutputAllDeals(string fileNamePath)
         {
             StringBuilder csvFile = new StringBuilder();
-            var headers = String.Join(",", TypeExtensions.GetPropertyNamesAsList(typeof(Deal)).Select(x => x));
+            var headers = String.Join(",", TypeExtensions.GetPropertyNamesAsList(typeof(Deal)));//.Select(x => x));
             csvFile.AppendLine(headers);
             foreach (Deal deal in retrievedDeals)
             {
-                csvFile.AppendLine(String.Join(",", TypeExtensions.GetObjectPropertyValuesAsList(deal)));
+                csvFile.AppendLine(String.Join(",", TypeExtensions.GetObjectPropertyValuesAsList(deal).Select(x=>CsvParser.StringToCSVCell(x.ToString()))));
             }
             System.IO.File.WriteAllText(fileNamePath, csvFile.ToString());
         }
