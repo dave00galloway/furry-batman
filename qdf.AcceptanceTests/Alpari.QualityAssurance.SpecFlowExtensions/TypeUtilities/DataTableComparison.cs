@@ -27,10 +27,7 @@
                 diffs.AppendLine(diff);
                 //this is the bit to swap out with a delegate:-
                 Console.WriteLine(diff);
-                foreach (DataColumn item in MissingInCompareWith.First().Table.Columns)
-                {
-                    Console.Write(String.Join(",",item.ColumnName));
-                }
+                Console.WriteLine(String.Join(",",(from DataColumn column in MissingInCompareWith.First().Table.Columns select column.ColumnName)));
                 foreach (var item in MissingInCompareWith)
                 {
                     Console.WriteLine(String.Join(",",item.ItemArray.Select(x=>CsvParser.StringToCSVCell(x.ToString()))));
@@ -45,10 +42,7 @@
                 diffs.AppendLine(diff);
                 //this is the bit to swap out with a delegate:-
                 Console.WriteLine(diff);
-                foreach (DataColumn item in AdditionalInCompareWith.First().Table.Columns)
-                {
-                    Console.Write(String.Join(",",item.ColumnName));
-                }
+                Console.WriteLine(String.Join(",", (from DataColumn column in AdditionalInCompareWith.First().Table.Columns select column.ColumnName)));
                 foreach (var item in AdditionalInCompareWith)
                 {
                     Console.WriteLine(String.Join(",", item.ItemArray.Select(x => CsvParser.StringToCSVCell(x.ToString()))));
@@ -61,10 +55,7 @@
                 diffs.AppendLine(diff);
                 //this is the bit to swap out with a delegate:-
                 Console.WriteLine(diff);
-                foreach (DataColumn item in FieldDifferences.Columns)
-                {
-                    Console.Write(String.Join(",", item.ColumnName));
-                }
+                Console.WriteLine(String.Join(",", (from DataColumn column in FieldDifferences.Columns select column.ColumnName)));
                 foreach (DataRow item in FieldDifferences.Rows)
                 {
                     Console.WriteLine(String.Join(",", item.ItemArray.Select(x => CsvParser.StringToCSVCell(x.ToString()))));

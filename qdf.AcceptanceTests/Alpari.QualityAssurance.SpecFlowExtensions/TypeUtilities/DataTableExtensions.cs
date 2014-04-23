@@ -52,17 +52,7 @@
                 
                 //todo:- allow an ovelroad to specify a delegate which writes to csv or db instead of console
                 // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
-                //dtBase.Merge(compareWith);
 
-                ////stub a change
-                //object[] findTheseVals = new object[2];
-                //findTheseVals[0] = 1;
-                //findTheseVals[1] = "Putin";
-
-                //DataRow sourceRow = dtBase.Rows.Find(findTheseVals);
-
-                ////sourceRow["Forenames"] = "Ian";
-                //sourceRow["Forenames"] = "Vladimir";
 
                 //get the non-primary key field columns
                 List<DataColumn> columnsToCompare = (from DataColumn col in dtBase.Columns
@@ -88,21 +78,9 @@
                     //get the equivalent row in the comp table
                     DataRow newRow = compareWith.Rows.Find(findTheseVals);
 
-                    ////make edits to triggger the changed value validation
-                    //foreach (DataColumn column in columnsToCompare)
-                    //{
-                    //    sourceRow[column] = newRow[column.ColumnName];
-                    //}
-
-                    //really disliked the above implementation so going straight to a generic-ish comparison
                     foreach (DataColumn column in columnsToCompare)
                     {
-                        //DataRow columnComparison = 
                         sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs);
-                        //if (columnComparison != null)
-                        //{
-                        //    comparisonDiffs.ImportRow(columnComparison);
-                        //}
                     }
                 }
 
@@ -158,10 +136,7 @@
         public static void CompareWith(this object p1, object p2, DataColumn column , object[] primaryKeyValues, DataTable diffsTable)
         {
             string difference = null;
-            string original = null;
-            string newValue = null;
 
-            //throw new NotImplementedException();
             //get the type as an "enum"
             var type = column.DataType.GetDataType();
 
@@ -303,8 +278,8 @@
                 //join the primary key values
                 diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
                 diffRow["column"] = column.ColumnName;
-                diffRow["original"] = original;
-                diffRow["newValue"] = newValue;
+                diffRow["original"] = p1;
+                diffRow["newValue"] = p2;
                 diffRow["difference"] = difference;
                 diffRow["type"] = type;
                 diffsTable.Rows.Add(diffRow);
