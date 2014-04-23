@@ -4,6 +4,9 @@ As a quant user
 I want a reconciliation of ARS QDF against CC
 
 Scenario: Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes ago
+	#Given I have QDF Deal Data
+	#| server | symbol | startTime | endTime |
+	#| C1     | EURUSD | -2H       | -5MIN   |
 	Given I have QDF Deal Data
 	| server | symbol | 
 	| C1     | EURUSD |  

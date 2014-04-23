@@ -11,6 +11,18 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
     /// </summary>
     public static class DateTimeUtils
     {
+
+        /// <summary>
+        /// use this where MySql expects date time in the format yyyy-MM-dd H:mm:ss e.g. 2014-04-17 10:47:34
+        /// </summary>
+        public static readonly string MySqlDateFormatToSeconds = "yyyy-MM-dd H:mm:ss";
+
+        public static string ConvertDateTimeToMySqlDateFormatToSeconds(this DateTime dateTime)
+        {
+            string dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2), dateTime.Day.padZeros(2), dateTime.Hour.padZeros(2), dateTime.Minute.padZeros(2), dateTime.Second.padZeros(2));
+            return dateAsString;
+        }
+
         /// <summary>
         /// Create a datetime from a shorthand string code relative to current date
         /// </summary>

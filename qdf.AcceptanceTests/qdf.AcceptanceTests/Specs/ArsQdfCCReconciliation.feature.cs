@@ -81,13 +81,13 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "C1",
                         "EURUSD"});
-#line 7
- testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
 #line 10
+ testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
+#line 13
   testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 11
+#line 14
  testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 15
  testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

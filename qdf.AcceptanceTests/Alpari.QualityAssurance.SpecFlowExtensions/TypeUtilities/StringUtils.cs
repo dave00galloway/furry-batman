@@ -45,5 +45,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return Letters;
         }
 
+        public static string padZeros(this object digit,int length)
+        {
+            string padZeros = digit.ToString();
+            while (padZeros.Length < length)
+            {
+                padZeros = "0" + padZeros;
+            }
+            return padZeros;
+        }
+
     }
 }

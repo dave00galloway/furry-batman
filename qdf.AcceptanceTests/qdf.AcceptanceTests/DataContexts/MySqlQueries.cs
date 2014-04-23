@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,11 +12,6 @@ namespace qdf.AcceptanceTests.DataContexts
     /// </summary>
     public static class MySqlQueries
     {
-        /// <summary>
-        /// use this where MySql expects date time in the format yyyy-MM-dd H:mm:ss e.g. 2014-04-17 10:47:34
-        /// </summary>
-        public static readonly string MySqlDateFormatToSeconds = "yyyy-MM-dd H:mm:ss";
-
         /// <summary>
         /// Create the query string used by CC Tool
         /// </summary>
@@ -50,7 +46,7 @@ namespace qdf.AcceptanceTests.DataContexts
             "     INNER JOIN cc.cc_tbl_position_section AS ctps "+
             "       ON p.SectionId = ctps.Id" +
             "	WHERE s.UpdateDateTime BETWEEN '{0}' AND '{1}' 	" +
-            "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode", start.ToString(MySqlDateFormatToSeconds), end.ToString(MySqlDateFormatToSeconds));
+            "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode", start.ToString(DateTimeUtils.MySqlDateFormatToSeconds), end.ToString(DateTimeUtils.MySqlDateFormatToSeconds));
 
         }
     }

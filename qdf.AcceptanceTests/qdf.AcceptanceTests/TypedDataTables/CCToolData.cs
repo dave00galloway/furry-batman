@@ -20,6 +20,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
     {
         public CCToolData()
         {
+            Columns.Add(new DataColumn("Section", typeof(string)));
             Columns.Add(new DataColumn("ServerName", typeof(string)));
             //Columns.Add(new DataColumn("PlatformId", typeof(int)));
             //Columns.Add(new DataColumn("Id", typeof(int)));
@@ -73,6 +74,12 @@ namespace qdf.AcceptanceTests.TypedDataTables
         internal CCtoolRow(DataRowBuilder builder):base(builder)
         {
             this.builder = builder;
+        }
+
+        public string Section
+        {
+            get { return (string)base["Section"]; }
+            set { base["Section"] = value; }
         }
 
         public string ServerName
