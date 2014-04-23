@@ -176,7 +176,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
- testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the person data should contain 1 \"mismatch\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -186,7 +186,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareTwoDataSetsOneMissing()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one missing", ((string[])(null)));
-#line 32
+#line 31
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -207,7 +207,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Kerry",
                         "100",
                         "stand up comic"});
-#line 33
+#line 32
  testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table5, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -222,12 +222,12 @@ this.ScenarioSetup(scenarioInfo);
                         "Putin",
                         "98",
                         "Impaler"});
-#line 37
+#line 36
  testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table6, "And ");
-#line 40
+#line 39
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 41
- testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.Then("the person data should contain 1 \"missing\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -237,7 +237,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareTwoDataSetsOneExtra()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one extra", ((string[])(null)));
-#line 43
+#line 42
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -252,7 +252,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Putin",
                         "98",
                         "Impaler"});
-#line 44
+#line 43
  testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table7, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -273,12 +273,12 @@ this.ScenarioSetup(scenarioInfo);
                         "Kerry",
                         "100",
                         "stand up comic"});
-#line 47
+#line 46
  testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table8, "And ");
-#line 51
+#line 50
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 52
- testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 51
+ testRunner.Then("the person data should contain 1 \"extra\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

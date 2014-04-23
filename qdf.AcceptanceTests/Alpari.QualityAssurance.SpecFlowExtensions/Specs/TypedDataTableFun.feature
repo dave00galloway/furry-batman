@@ -26,8 +26,7 @@ Scenario: Compare Two data sets one mismatch
 	| 1  | Vladimir  | Putin    | 98  | Impaler        |
 	| 2  | John      | Kerry    | 100 | stand up comic |
 	When I compare the "expected" and "actual" person data
-	Then the person data should match exactly
-
+	Then the person data should contain 1 "mismatch"
 
 Scenario: Compare Two data sets one missing
 	Given I have the following "expected" person data:
@@ -38,7 +37,7 @@ Scenario: Compare Two data sets one missing
 	| ID | Forenames | Lastname | Age | Occupation     |
 	| 1  | Vladimir  | Putin    | 98  | Impaler        |
 	When I compare the "expected" and "actual" person data
-	Then the person data should match exactly
+	Then the person data should contain 1 "missing"
 
 Scenario: Compare Two data sets one extra
 	Given I have the following "expected" person data:
@@ -49,4 +48,4 @@ Scenario: Compare Two data sets one extra
 	| 1  | Vladimir  | Putin    | 98  | Impaler        |
 	| 2  | John      | Kerry    | 100 | stand up comic |
 	When I compare the "expected" and "actual" person data
-	Then the person data should match exactly
+	Then the person data should contain 1 "extra"

@@ -58,5 +58,30 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
             diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
+
+        [Then(@"the person data should contain (.*) ""(.*)""")]
+        public void ThenThePersonDataShouldContain(int diffCount, string diffType)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences().Should().NotBeNullOrWhiteSpace();
+            switch (diffType.ToLower())
+            {
+                case "mismatch":
+                case "mismatches":
+                case "field diffs":
+                case "field diff":
+                    diffs.FieldDifferences.Rows.Should().HaveCount(diffCount);
+                    break;
+                case "extra":
+                    diffs.AdditionalInCompareWith.Should().HaveCount(diffCount);
+                    break;
+                case "missing":
+                    diffs.MissingInCompareWith.Should().HaveCount(diffCount);
+                    break;
+                default:
+                    throw new ArgumentException("diffType {0} not recognised", diffType);
+            }
+        }
+
     }
 }
