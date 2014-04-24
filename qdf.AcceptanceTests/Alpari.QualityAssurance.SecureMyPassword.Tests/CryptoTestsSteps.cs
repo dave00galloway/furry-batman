@@ -18,6 +18,27 @@ namespace Alpari.QualityAssurance.SecureMyPassword.Tests
             ScenarioContext.Current["toEncrypt"] = toEncrypt;
         }
 
+        [Given(@"my unencrypted password is ""(.*)""")]
+        public void GivenMyUnencryptedPasswordIs(string password)
+        {
+            ScenarioContext.Current["toEncrypt"] = password;
+        }
+
+        [When(@"I directly encrypt my password")]
+        public void WhenIDirectlyEncryptMyPassword()
+        {
+            var toEncrypt = ScenarioContext.Current["toEncrypt"].ToString();
+            ScenarioContext.Current["encrypted"] = toEncrypt.Protect("-");
+        }
+
+        [When(@"I directly decrypt the encrypted password")]
+        public void WhenIDirectlyDecryptTheEncryptedPassword()
+        {
+            var toUnEnCrypt = ScenarioContext.Current["encrypted"].ToString();
+            ScenarioContext.Current["unEncrypted"] = toUnEnCrypt.UnProtect('-');
+        }
+
+
         [When(@"encypt my password")]
         public void WhenEncyptMyPassword()
         {

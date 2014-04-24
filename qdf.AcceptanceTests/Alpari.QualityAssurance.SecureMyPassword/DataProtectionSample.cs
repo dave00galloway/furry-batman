@@ -28,6 +28,11 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             }
         }
 
+        public static string Protect(this string data, string seperator)
+        {
+            return data.ConvertStringToByteArray().Protect().ByteArrayToString(seperator);
+        }
+
         public static byte[] Unprotect(this byte[] data)
         {
             try
@@ -41,6 +46,22 @@ namespace Alpari.QualityAssurance.SecureMyPassword
                 Console.WriteLine(e.ToString());
                 return null;
             }
+        }
+
+        public static string UnProtect(this string data, char seperator)
+        {
+            //var b = data.StringToByteArray(seperator);
+            //var u = b.Unprotect();
+            //var ub = u.CharByteArrayToString();
+            ////var bs = b.ByteArrayToString(seperator.ToString());
+            //return ub;
+            return data.StringToByteArray(seperator).Unprotect().CharByteArrayToString();
+        }
+
+        public static byte[] ConvertStringToByteArray(this string stringToConvert)
+        {
+            var query = stringToConvert.ToArray<char>().Select(x => Convert.ToByte(x));
+            return query.ToArray<byte>();
         }
 
         public static string ByteArrayToString(this byte[] data,string separator)
