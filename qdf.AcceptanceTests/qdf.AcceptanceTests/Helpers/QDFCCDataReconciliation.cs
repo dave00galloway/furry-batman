@@ -30,42 +30,22 @@ namespace qdf.AcceptanceTests.Helpers
 
         public void AggregateQDFDeals()
         {
-            //should work, but always ends up with non-unique groupings, and the same number of deals as groups!
-            //var aggregatedDeals = QDFDeals.GroupBy(x => new QDFDealPositionGrouping()
-            //                                                    {
-            //                                                        Book = x.Book,
-            //                                                        Instrument = x.Instrument,
-            //                                                        ServerId = x.ServerId//,
-            //                                                        //Side = x.Side
-            //                                                    }
-            //                                       )
-            //answer - group using an anonymous type. This works!
-            var aggregatedDeals = QDFDeals.GroupBy(x => new
-                                                            {
-                                                                Book = x.Book,
-                                                                Instrument = x.Instrument,
-                                                                ServerId = x.ServerId,
-                                                                TimeStamp = x.TimeStamp
-                                                                //Side = x.Side
-                                                            }
-                                                   )
-                                    .Select(x => new QDFDealPosition()
-                                                    {
-                                                        PositionName = String.Format("{0} {1} {2} {3}",x.Key.Book , x.Key.Instrument , x.Key.ServerId , x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
-                                                        Book = x.Key.Book,
-                                                        Instrument = x.Key.Instrument,
-                                                        ServerId = x.Key.ServerId,
-                                                        TimeStamp = x.Key.TimeStamp,
-                                                        QDFDeals = x.ToList()
-                                                    }
-                                                ).ToList<QDFDealPosition>();
+            var aggregatedDeals = GetAggregatedQDFDeal();
 
             foreach (var position in aggregatedDeals)
             {
                 position.CalculatePosition();
                 Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
             }
+
+            //CalculateCumulativePosition(aggregatedDeals);
+
             QDFDealPositions = aggregatedDeals;
+        }
+
+        private void CalculateCumulativePosition(List<QDFDealPosition> aggregatedDeals)
+        {
+            throw new NotImplementedException();
         }
 
         public void AggregateCCToolData()
@@ -98,7 +78,7 @@ namespace qdf.AcceptanceTests.Helpers
             foreach (CCToolPosition position in aggregatedPositions)
             {
                 position.CalculatePosition();
-                Console.WriteLine("CCTool position {0} contains {1} deals and has a value of {2}", position.PositionName, position.Positions.Count.ToString(), position.Position.ToString());
+                Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}", position.PositionName, position.Positions.Count.ToString(), position.Position.ToString());
             }
             CCToolPositions = aggregatedPositions;
         }
@@ -153,6 +133,41 @@ namespace qdf.AcceptanceTests.Helpers
         }
 
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
+
+        private List<QDFDealPosition> GetAggregatedQDFDeal()
+        {
+            //should work, but always ends up with non-unique groupings, and the same number of deals as groups!
+            //var aggregatedDeals = QDFDeals.GroupBy(x => new QDFDealPositionGrouping()
+            //                                                    {
+            //                                                        Book = x.Book,
+            //                                                        Instrument = x.Instrument,
+            //                                                        ServerId = x.ServerId//,
+            //                                                        //Side = x.Side
+            //                                                    }
+            //                                       )
+            //answer - group using an anonymous type. This works!
+            var aggregatedDeals = QDFDeals.GroupBy(x => new
+            {
+                Book = x.Book,
+                Instrument = x.Instrument,
+                ServerId = x.ServerId,
+                TimeStamp = x.TimeStamp
+                //Side = x.Side
+            }
+                                                   )
+                                    .Select(x => new QDFDealPosition()
+                                    {
+                                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
+                                        Book = x.Key.Book,
+                                        Instrument = x.Key.Instrument,
+                                        ServerId = x.Key.ServerId,
+                                        TimeStamp = x.Key.TimeStamp,
+                                        QDFDeals = x.ToList()
+                                    }
+                                                ).ToList<QDFDealPosition>();
+            return aggregatedDeals;
+        }
+
     }
 
     public class QDFDealPosition
@@ -171,6 +186,8 @@ namespace qdf.AcceptanceTests.Helpers
         public List<Deal> QDFDeals { get; set; }
 
         public decimal Position { get; private set; }
+
+        public decimal CumulativePosition { get; private set; }
 
         public void CalculatePosition()
         {

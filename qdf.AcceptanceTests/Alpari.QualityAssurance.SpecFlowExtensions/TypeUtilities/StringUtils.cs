@@ -55,5 +55,32 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return padZeros;
         }
 
+        public static byte[] ConvertStringToByteArray(this string stringToConvert)
+        {
+            var query = stringToConvert.ToArray<char>().Select(x => Convert.ToByte(x));
+            return query.ToArray<byte>();
+        }
+
+        public static string ByteArrayToString(this byte[] data, string separator)
+        {
+            string byteArrayAsString = null;
+            // returns unprintable charactes and quouation marks which would be a pain to work around
+            // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
+            byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
+            //
+            return byteArrayAsString;
+        }
+
+        public static byte[] StringToByteArray(this string data, char separator)
+        {
+
+            // returns unprintable charactes and quouation marks which would be a pain to work around
+            // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
+            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            //
+
+            return byteArray;
+        }
+
     }
 }
