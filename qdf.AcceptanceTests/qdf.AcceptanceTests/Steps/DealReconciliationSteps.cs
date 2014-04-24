@@ -1,17 +1,18 @@
-﻿using qdf.AcceptanceTests.Helpers;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using FluentAssertions;
+using qdf.AcceptanceTests.DataContexts;
+using qdf.AcceptanceTests.Helpers;
+using qdf.AcceptanceTests.TypedDataTables;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Data;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using Alpari.QualityAssurance.SpecFlowExtensions;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using qdf.AcceptanceTests.DataContexts;
-using qdf.AcceptanceTests.TypedDataTables;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -110,6 +111,13 @@ namespace qdf.AcceptanceTests.Steps
             ScenarioContext.Current["ccToolData"] = ccToolData;
         }
 
+        [When(@"I retrieve cc_tbl_position_section data from cc")]
+        public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
+        {
+            contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
+            DataTable data = contextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
+            ScenarioContext.Current["cc_tbl_position_section"] = data;
+        }
 
 
         [When(@"I compare QDF and CC data")]
@@ -126,6 +134,14 @@ namespace qdf.AcceptanceTests.Steps
         {
             ScenarioContext.Current.Pending();
         }
+
+        [Then(@"the cc_tbl_position_section data from cc has (.*) records")]
+        public void ThenTheCc_Tbl_Position_SectionDataFromCcHasRecords(int expectedCount)
+        {
+            var data = (DataTable) ScenarioContext.Current["cc_tbl_position_section"];
+            data.Rows.Should().HaveCount(expectedCount);
+        }
+
 
         [AfterScenario]
         public void Teardown()

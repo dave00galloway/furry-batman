@@ -49,5 +49,10 @@ namespace qdf.AcceptanceTests.DataContexts
             "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode", start.ToString(DateTimeUtils.MySqlDateFormatToSeconds), end.ToString(DateTimeUtils.MySqlDateFormatToSeconds));
 
         }
+
+        public static string cc_tbl_position_section()
+        {
+            return String.Format("SELECT * FROM cc_tbl_position_section");
+        }
     }
 }

@@ -76,7 +76,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I have created a connection to \"MySqlDataContextSubstitute\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("I retrieve", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I retrieve cc_tbl_position_section data from cc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("the cc_tbl_position_section data from cc has 4 records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -6,6 +6,5 @@
 @SelfTest
 Scenario: Create connection
 	Given I have created a connection to "MySqlDataContextSubstitute"
-	When I retrieve 
-	#When I press add
-	#Then the result should be 120 on the screen
+	When I retrieve cc_tbl_position_section data from cc
+	Then the cc_tbl_position_section data from cc has 4 records
