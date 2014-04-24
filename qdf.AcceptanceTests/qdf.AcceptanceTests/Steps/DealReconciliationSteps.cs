@@ -64,7 +64,15 @@ namespace qdf.AcceptanceTests.Steps
             redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
             SetupQdfDealQuery(qdfDealParameters);
             redisConnectionHelper.GetDealData(qdfDealParameters);
-            redisConnectionHelper.OutputAllDeals((string)ScenarioContext.Current["ScenarioOutputDirectory"] + "AllDeals.csv");
+            //added a try catch here to cope with changes in QDF Deal format
+            try
+            {
+                redisConnectionHelper.OutputAllDeals((string)ScenarioContext.Current["ScenarioOutputDirectory"] + "AllDeals.csv");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message + e.StackTrace);
+            }
             //redisConnectionHelper.FilterDeals(qdfDealParameters);
 
             this.qdfDealParameters = qdfDealParameters;

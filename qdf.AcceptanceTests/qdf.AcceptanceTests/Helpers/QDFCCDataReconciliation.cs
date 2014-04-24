@@ -103,6 +103,10 @@ namespace qdf.AcceptanceTests.Helpers
             CCToolPositions = aggregatedPositions;
         }
 
+        /// <summary>
+        /// Add a column called VolumeSize to hold the calculated value of the Volume
+        /// TODO:- add to the CCTool Data table definiton so that code from this pont on can still be strongly typed
+        /// </summary>
         private void CalculateCCVolumeSize()
         {
             CCToolData.Columns.Add(new DataColumn("VolumeSize", typeof(decimal)));
@@ -135,12 +139,12 @@ namespace qdf.AcceptanceTests.Helpers
                 row["VolumeSize"] = (decimal)row["Volume"] * (decimal)row["ContractSize"];
             }
 
-            foreach (DataRow row in rowQuery)
-            {
-                Console.WriteLine("CC position {0} has a value of {1}",
-                    GetCCToolPositionName(row), 
-                    row["VolumeSize"]);
-            }
+            //foreach (DataRow row in rowQuery)
+            //{
+            //    Console.WriteLine("CC position {0} has a value of {1}",
+            //        GetCCToolPositionName(row), 
+            //        row["VolumeSize"]);
+            //}
         }
 
         private static string GetCCToolPositionName(DataRow row)

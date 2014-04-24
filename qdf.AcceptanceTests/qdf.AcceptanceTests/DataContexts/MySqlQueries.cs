@@ -24,9 +24,6 @@ namespace qdf.AcceptanceTests.DataContexts
             "	SELECT	" +
             "     ctps.Name AS Section,"+
             "	  srv.Name AS ServerName,	" +
-            "	  srv.PlatformId,	" +
-            "	  srv.Id,	" +
-            "	  srv.DatabaseName,	" +
             "	  cr.SymbolCode,	" +
             "	  cr.IsBookA,	" +
             "	  cr.BidPrice,	" +
@@ -34,20 +31,19 @@ namespace qdf.AcceptanceTests.DataContexts
             "	  p.Volume AS Volume,	" +
             "	  smb.EffectiveContractSize AS ContractSize,	" +
             "	  s.UpdateDateTime	" +
-            "	FROM cc.cc_tbl_snapshot s	" +
+            "	FROM cc_tbl_snapshot s	" +
             "	  INNER JOIN cc_tbl_snapshot_currency_rate cr	" +
             "	    ON s.Id = cr.SnapshotId	" +
             "	  INNER JOIN cc_tbl_snapshot_postition p	" +
             "	    ON cr.Id = p.SnapshotCurrencyRateId	" +
             "	  INNER JOIN cc_tbl_server AS srv	" +
             "	    ON p.ServerId = srv.Id	" +
-            "	  INNER JOIN cc.cc_tbl_symbol AS smb	" +
+            "	  INNER JOIN cc_tbl_symbol AS smb	" +
             "	    ON cr.SymbolCode = smb.Code AND smb.IsSpreadBetting = 0	" +
-            "     INNER JOIN cc.cc_tbl_position_section AS ctps "+
+            "     INNER JOIN cc_tbl_position_section AS ctps "+
             "       ON p.SectionId = ctps.Id" +
             "	WHERE s.UpdateDateTime BETWEEN '{0}' AND '{1}' 	" +
             "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode", start.ToString(DateTimeUtils.MySqlDateFormatToSeconds), end.ToString(DateTimeUtils.MySqlDateFormatToSeconds));
-
         }
 
         public static string cc_tbl_position_section()
