@@ -43,6 +43,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         /// <summary>
         /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
+        public static IEnumerable<decimal> CumulativeSumToDecimal<T>(this IEnumerable<T> sequence)
+        {
+            decimal sum = 0;
+            foreach (var item in sequence)
+            {
+                sum += Convert.ToDecimal(item);
+                yield return sum;
+            }
+        }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
         /// take a set of numbers of any type and return as a set of doubles, cumulatively summed
         /// not quite as generic as hoped as the output type is fixed as double, but  better than creating all variations of this manually
         /// will throw errors if T is not convertable to a double

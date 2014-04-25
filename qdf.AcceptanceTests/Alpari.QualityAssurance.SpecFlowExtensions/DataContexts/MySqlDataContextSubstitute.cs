@@ -31,7 +31,7 @@
             {
                 myConnection.Open();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                OutputQueryToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
                 adapter.Fill(dataSet);
             }
             finally
@@ -55,7 +55,7 @@
             {
                 myConnection.Open();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                OutputQueryToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
                 adapter.Fill(dataTable);
             }
             finally
@@ -79,7 +79,7 @@
             {
                 myConnection.Open();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
-                OutputQueryToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
                 adapter.Fill(dataTable);
             }
             finally
@@ -96,7 +96,8 @@
         /// <param name="mySelectQuery"></param>
         /// <param name="adapter"></param>
         /// <param name="myConnection"></param>
-        private static void OutputQueryToConsole(string mySelectQuery, MySqlDataAdapter adapter, MySqlConnection myConnection)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities", Justification = "It is safe to suppress a warning from this rule if the command text does not contain any user input.")]
+        private static void SetSelectCommandAndOutputToConsole(string mySelectQuery, MySqlDataAdapter adapter, MySqlConnection myConnection)
         {
             Console.WriteLine("executing query: \r\n {0}", mySelectQuery);
             adapter.SelectCommand = new MySqlCommand(mySelectQuery, myConnection);

@@ -19,6 +19,7 @@ namespace qdf.AcceptanceTests.Helpers
     {
         public CCToolData CCToolData { get; private set; }
         public List<Deal> QDFDeals { get; private set; }
+        public List<QDFDealPositionGrouping> QDFDealPositionGroupings { get; private set; }
         public List<QDFDealPosition> QDFDealPositions { get; private set; }
         public List<CCToolPosition> CCToolPositions { get; private set; }
 
@@ -30,46 +31,42 @@ namespace qdf.AcceptanceTests.Helpers
 
         public void AggregateQDFDeals()
         {
-            var aggregatedDeals = GetAggregatedQDFDeal();
+            QDFDealPositionGroupings = GetAggregatedQDFDeals();
 
-            foreach (var position in aggregatedDeals)
-            {
-                position.CalculatePosition();
-                Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
-            }
+            CalculateQDFCumulativePosition();
 
-            CalculateCumulativePosition(aggregatedDeals);
+            QDFDealPositions = QDFDealPositionGroupings.SelectMany<QDFDealPositionGrouping, QDFDealPosition>(x => x.QDFDealPositions).ToList();
 
-            QDFDealPositions = aggregatedDeals;
+            Console.WriteLine("Print flattened list of cumulative sums");
+            QDFDealPositions.ForEach(x=>Console.WriteLine("{0} {1} {2}",x.PositionName,x.Position,x.CumulativePosition));
         }
 
-        private void CalculateCumulativePosition(List<QDFDealPosition> aggregatedDeals)
+        private void CalculateQDFCumulativePosition()
         {
-            //sort ascending. n.b. revers x&y to sort descending
-            aggregatedDeals.Sort((x,y)=>x.TimeStamp.CompareTo(y.TimeStamp));
-            Console.WriteLine("sort Positions");
-            foreach (QDFDealPosition item in aggregatedDeals)
+            foreach (QDFDealPositionGrouping grouping in QDFDealPositionGroupings)
             {
-                Console.WriteLine("{0} {1}", item.PositionName, item.Position);
-            }
-            Console.WriteLine();
+                Console.WriteLine("get position values for {0}",grouping.PositionGroupingName);
+                List<decimal> positions = grouping.QDFDealPositions.Select(deal => deal.Position).ToList();
+                foreach (var item in positions)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine();
 
-            //get all the positions and store in an iEnumerable
-            IEnumerable<decimal> positions = aggregatedDeals.Select(deal => deal.Position); //concerned that this doesn't preserve order (should do but didn't appear to in debugger. printing to console seems to show it does work)
+                Console.WriteLine("get cumulative position values");
+                List<decimal> cumulativePositions = positions.CumulativeSum().ToList();
+                //IEnumerable<double> cumulativePositions = positions.CumulativeSum<decimal>();
+                foreach (var item in cumulativePositions)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.WriteLine();
 
-            Console.WriteLine("get position values");
-            foreach (var item in positions)
-            {
-                Console.WriteLine(item);
+                for (int i = 0; i < cumulativePositions.Count(); i++)
+                {
+                    grouping.QDFDealPositions[i].CumulativePosition = cumulativePositions[i];
+                }
             }
-            Console.WriteLine();
-            var cumulativePositions = NumericExtensions.CumulativeSum<decimal>(positions);
-            Console.WriteLine("get cumulative position values");
-            foreach (var item in cumulativePositions)
-            {
-                Console.WriteLine(item);
-            }
-            throw new NotImplementedException();
         }
 
         public void AggregateCCToolData()
@@ -133,16 +130,17 @@ namespace qdf.AcceptanceTests.Helpers
                 ServerId = x["ServerName"].ToString(),
                 TimeStamp = (DateTime)x["UpdateDateTime"]
             }
-                                                        )
-                                                        .Select(x => new CCToolPosition()
-                                                        {
-                                                            PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
-                                                            Book = x.Key.Book,
-                                                            Instrument = x.Key.Instrument,
-                                                            ServerId = x.Key.ServerId,
-                                                            TimeStamp = x.Key.TimeStamp,
-                                                            Positions = x.ToList()
-                                                        }).ToList<CCToolPosition>();
+                )
+                .Select(x => new CCToolPosition()
+                    {
+                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+                        Book = x.Key.Book,
+                        Instrument = x.Key.Instrument,
+                        ServerId = x.Key.ServerId,
+                        TimeStamp = x.Key.TimeStamp,
+                        Positions = x.ToList()
+                    }
+                ).ToList<CCToolPosition>();
             foreach (CCToolPosition position in aggregatedPositions)
             {
                 position.CalculatePosition();
@@ -158,7 +156,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
 
-        private List<QDFDealPosition> GetAggregatedQDFDeal()
+        private List<QDFDealPositionGrouping> GetAggregatedQDFDeals()
         {
             //should work, but always ends up with non-unique groupings, and the same number of deals as groups!
             //var aggregatedDeals = QDFDeals.GroupBy(x => new QDFDealPositionGrouping()
@@ -178,18 +176,52 @@ namespace qdf.AcceptanceTests.Helpers
                 TimeStamp = x.TimeStamp
                 //Side = x.Side
             }
-            //                                       ).Select(x => new QDFDealPosition()).ToList<QDFDealPosition>();
-                                    ).Select(x => new QDFDealPosition()
-                                    {
-                                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server, x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
-                                        Book = x.Key.Book,
-                                        Instrument = x.Key.Instrument,
-                                        Server = x.Key.Server,
-                                        TimeStamp = x.Key.TimeStamp,
-                                        QDFDeals = x.ToList()
-                                    }
-                                                ).ToList<QDFDealPosition>();
-            return aggregatedDeals;
+//                                       ).Select(x => new QDFDealPosition()).ToList<QDFDealPosition>();
+            )
+                .Select(x => new QDFDealPosition()
+                    {
+                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server, x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
+                        Book = x.Key.Book,
+                        Instrument = x.Key.Instrument,
+                        Server = x.Key.Server,
+                        TimeStamp = x.Key.TimeStamp,
+                        QDFDeals = x.ToList()
+                    }
+            ).ToList<QDFDealPosition>();
+
+            foreach (var position in aggregatedDeals)
+            {
+                position.CalculatePosition();
+                Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
+            }
+
+            //group the positions by the above factors except Timestamp, then order by timestamp
+            var groupedAggregation = aggregatedDeals.GroupBy(x => new
+            {
+                PositionGroupingName = String.Format("{0} {1} {2}", x.Book, x.Instrument, x.Server),
+                Book = x.Book,
+                Instrument = x.Instrument,
+                Server = x.Server
+            }
+                );
+
+            //should be able to combine the ordering and then adding the groupings to the list
+            foreach (var item in groupedAggregation)
+            {
+                item.OrderBy(x => x.TimeStamp);
+            }
+
+            List<QDFDealPositionGrouping> groupedPositions = groupedAggregation.Select(x=> new QDFDealPositionGrouping()
+                {
+                    PositionGroupingName = x.Key.PositionGroupingName,
+                    Book = x.Key.Book,
+                    Instrument = x.Key.Instrument,
+                    Server = x.Key.Server,
+                    QDFDealPositions = x.ToList()
+                }
+            ).ToList<QDFDealPositionGrouping>();
+
+            return groupedPositions;
         }
 
     }
@@ -197,13 +229,12 @@ namespace qdf.AcceptanceTests.Helpers
     public class QDFDealPosition
     {
         public string PositionName { get; set; }
+
         public Book Book { get; set; }
 
         public string Instrument { get; set; }
 
         public TradingServer Server { get; set; }
-
-        //public Side Side { get; set; }
 
         public DateTime TimeStamp { get; set; }
 
@@ -211,7 +242,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public decimal Position { get; private set; }
 
-        public decimal CumulativePosition { get; private set; }
+        public decimal CumulativePosition { get; set; }
 
         public void CalculatePosition()
         {
@@ -225,6 +256,7 @@ namespace qdf.AcceptanceTests.Helpers
     public class CCToolPosition
     {
         public string PositionName { get; set; }
+
         public Book Book { get; set; }
 
         public string Instrument { get; set; }
@@ -243,26 +275,23 @@ namespace qdf.AcceptanceTests.Helpers
         {
             Positions.ForEach(delegate(DataRow position)
             {
-                Position += (decimal) position["VolumeSize"];
+                Position += (decimal)position["VolumeSize"];
             });
         }
     }
 
-    //public class QDFDealPositionGrouping
-    //{
-    //    public Book Book { get; set; }
+    public class QDFDealPositionGrouping
+    {
+        public Book Book { get; set; }
 
-    //    public string Instrument { get; set; }
+        public string Instrument { get; set; }
 
-    //    public string ServerId { get; set; }
+        public TradingServer Server { get; set; }
+        
+        public List<QDFDealPosition> QDFDealPositions { get; set; }
 
-    //    //public Side Side { get; set; }
-
-    //    // public DateTime TimeStamp { get; set; }
-
-    //    // public List<Deal> QDFDeals { get; set; }
-
-    //}
+        public string PositionGroupingName { get; set; }
+    }
 
 
 }

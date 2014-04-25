@@ -125,6 +125,7 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTests\CumulativeSumTest.xlsx" />
     <None Include="Specs\SelfTests\MySqlQUickStart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MySqlQUickStart.feature.cs</LastGenOutput>

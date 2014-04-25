@@ -1,10 +1,10 @@
-﻿using System.Data;
-namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
+﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 {
     using System;
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using System.Runtime.Serialization;
     using System.Text;
     
     public class Person
@@ -15,8 +15,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         public UInt16 Age {get;set;}
         public string Occupation  {get;set;}
     }
-
-    public class PersonData : DataTable, Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities.ITypedDataTable
+    [Serializable]
+    public class PersonData : DataTable, Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities.ITypedDataTable, ISerializable 
     {
         #region Constructor and StronglyTypedDataTable required methods
         /// <summary>
@@ -116,6 +116,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             this.TableName = tableName;
             this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
+        }
+
+        /// <summary>
+        /// Implemented to staisfy 
+        /// CA2237: Mark ISerializable types with SerializableAttribute 
+        /// and CA2229: Implement serialization constructors
+        /// If this overload is ever used, then an instance will be created with serialisation context
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected PersonData(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+            var serialisationInstance = this;
         }
 
         private static PersonData SetupDataTable(IEnumerable<Person> enumeratedObjects, PersonData dataTable)

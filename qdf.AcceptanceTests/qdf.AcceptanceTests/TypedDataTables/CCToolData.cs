@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace qdf.AcceptanceTests.TypedDataTables
+﻿namespace qdf.AcceptanceTests.TypedDataTables
 {
+    using System;
+    using System.Data;
+    using System.Runtime.Serialization;
+
     /// <summary>
     /// with thanks to 
     /// http://www.codeproject.com/Articles/30490/How-to-Manually-Create-a-Typed-DataTable
@@ -16,7 +13,8 @@ namespace qdf.AcceptanceTests.TypedDataTables
     /// e.g.:-
     /// 'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>
-    public class CCToolData : DataTable
+    [Serializable]
+    public class CCToolData : DataTable, ISerializable 
     {
         public CCToolData()
         {
@@ -64,6 +62,20 @@ namespace qdf.AcceptanceTests.TypedDataTables
         protected override DataRow NewRowFromBuilder(DataRowBuilder builder)
         {
             return new CCtoolRow(builder);
+        }
+
+        /// <summary>
+        /// Implemented to staisfy 
+        /// CA2237: Mark ISerializable types with SerializableAttribute 
+        /// and CA2229: Implement serialization constructors
+        /// If this overload is ever used, then an instance will be created with serialisation context
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="context"></param>
+        protected CCToolData(SerializationInfo info, StreamingContext context)
+            : base(info, context)
+        {
+            var serialisationInstance = this;
         }
     }
 
