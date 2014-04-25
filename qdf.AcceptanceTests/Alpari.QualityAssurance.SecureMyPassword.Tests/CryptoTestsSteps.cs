@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TechTalk.SpecFlow;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+//using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 
 namespace Alpari.QualityAssurance.SecureMyPassword.Tests

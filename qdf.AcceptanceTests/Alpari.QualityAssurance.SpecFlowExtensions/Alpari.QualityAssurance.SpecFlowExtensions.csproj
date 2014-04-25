@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
+    <Compile Include="TypeUtilities\DBUtils.cs" />
     <Compile Include="TypeUtilities\ITypedDataTable.cs" />
     <Compile Include="FileUtilities\CsvColumnDefinition.cs" />
     <Compile Include="FileUtilities\CsvParser.cs" />

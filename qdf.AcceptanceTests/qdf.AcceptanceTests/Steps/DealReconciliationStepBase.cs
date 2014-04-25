@@ -7,6 +7,7 @@ using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 using Alpari.QualityAssurance.SpecFlowExtensions;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using Alpari.QualityAssurance.SecureMyPassword;
 using System.Configuration;
 using qdf.AcceptanceTests.DataContexts;
 
@@ -40,7 +41,7 @@ namespace qdf.AcceptanceTests.Steps
             switch (dataContext)
             {
                 case "MySqlDataContextSubstitute":
-                    return new CCToolDataContext(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString);
+                    return new CCToolDataContext(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString.UnProtect('_'));
                 case "QuickStartMySqlDataContext":
                     //QuickStartMySqlDataContext context = new QuickStartMySqlDataContext();
                     throw new ArgumentException("data context {0} is licensed and there is no license available", dataContext);
@@ -51,16 +52,16 @@ namespace qdf.AcceptanceTests.Steps
 
         public static IDataContextSubstitute GetDataContextSubstituteForDB(string dbName)
         {
+            var connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString.UnProtect('_');
             switch (ConfigurationManager.ConnectionStrings[dbName].ProviderName)
             {
-                case "MySql.Data.MySqlClient":
-                   
+                case "MySql.Data.MySqlClient":                   
                     switch (dbName)
                     {
                         case MySqlDataContextSubstitute.CC:
-                            return new CCToolDataContext(ConfigurationManager.ConnectionStrings[dbName].ConnectionString);
+                            return new CCToolDataContext(connectionString);
                         default:
-                            throw new ArgumentException("dbName {0} is not a valid dbName", dbName);
+                            return new AdHocMySqlDataContext(connectionString);
                     }
                 default:
                     throw new ArgumentException("data provider {0} is not a valid data context", ConfigurationManager.ConnectionStrings[dbName].ProviderName);

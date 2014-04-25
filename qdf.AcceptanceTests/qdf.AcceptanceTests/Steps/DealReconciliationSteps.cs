@@ -122,7 +122,7 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I retrieve cc_tbl_position_section data from cc")]
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {
-            contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
+            //contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
             DataTable data = contextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
             ScenarioContext.Current["cc_tbl_position_section"] = data;
         }

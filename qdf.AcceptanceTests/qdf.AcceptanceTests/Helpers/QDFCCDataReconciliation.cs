@@ -150,17 +150,17 @@ namespace qdf.AcceptanceTests.Helpers
             {
                 Book = x.Book,
                 Instrument = x.Instrument,
-                ServerId = x.ServerId,
+                Server = x.Server,
                 TimeStamp = x.TimeStamp
                 //Side = x.Side
             }
-                                                   )
-                                    .Select(x => new QDFDealPosition()
+            //                                       ).Select(x => new QDFDealPosition()).ToList<QDFDealPosition>();
+                                    ).Select(x => new QDFDealPosition()
                                     {
-                                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
+                                        PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server, x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
                                         Book = x.Key.Book,
                                         Instrument = x.Key.Instrument,
-                                        ServerId = x.Key.ServerId,
+                                        Server = x.Key.Server,
                                         TimeStamp = x.Key.TimeStamp,
                                         QDFDeals = x.ToList()
                                     }
@@ -177,7 +177,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public string Instrument { get; set; }
 
-        public string ServerId { get; set; }
+        public TradingServer Server { get; set; }
 
         //public Side Side { get; set; }
 

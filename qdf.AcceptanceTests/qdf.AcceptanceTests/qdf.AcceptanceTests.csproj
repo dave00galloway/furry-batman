@@ -30,11 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpari.QDF">
-      <HintPath>..\packages\Alpari.QDF.0.1.29.0\lib\net45\Alpari.QDF.dll</HintPath>
+    <Reference Include="Alpari.QDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Alpari.QDF.0.1.30.0\lib\net45\Alpari.QDF.dll</HintPath>
     </Reference>
-    <Reference Include="Alpari.QDF.Domain">
-      <HintPath>..\packages\Alpari.QDF.Domain.0.1.29.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
+    <Reference Include="Alpari.QDF.Domain, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Alpari.QDF.Domain.0.1.30.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Autofac">
       <HintPath>..\packages\Autofac.2.6.3.862\lib\NET40\Autofac.dll</HintPath>
@@ -91,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\AdHocMySqlDataContext.cs" />
     <Compile Include="DataContexts\CCToolDataContext.cs" />
     <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
@@ -131,6 +134,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alpari.QualityAssurance.SecureMyPassword\Alpari.QualityAssurance.SecureMyPassword.csproj">
+      <Project>{27c0b243-5ccc-466c-bd7f-57f5bf6d3912}</Project>
+      <Name>Alpari.QualityAssurance.SecureMyPassword</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>

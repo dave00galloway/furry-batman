@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
-    <id>Alpari.QDF.Domain</id>
-    <version>0.1.29.0</version>
-    <title>Alpari.QDF.Domain</title>
+    <id>Alpari.QDF</id>
+    <version>0.1.30.0</version>
+    <title>Alpari.QDF</title>
     <authors>Alpari (UK) Limited</authors>
     <owners>Alpari (UK) Limited</owners>
     <projectUrl>https://kb.corp.alpari.com/pages/viewpage.action?pageId=37687309</projectUrl>
@@ -12,10 +12,11 @@
     <releaseNotes>This is pre-release software, use with caution.</releaseNotes>
     <tags>QDF Framework</tags>
     <dependencies>
-      <dependency id="Alpari.QDF" version="0.1.20" />
-      <dependency id="MsgPack.Cli" version="0.4.3" />
+      <dependency id="BookSleeve" version="1.3" />
       <dependency id="Newtonsoft.Json" version="6.0.1" />
-      <dependency id="protobuf-net" version="2.0.0.668" />
+      <dependency id="protobuf-net" version="2.0.0.0" />
+      <dependency id="C5" version="2.2.5073.27396" />
+      <dependency id="MsgPack.Cli" version="0.4.3" />
     </dependencies>
   </metadata>
 </package>
