@@ -38,13 +38,37 @@ namespace qdf.AcceptanceTests.Helpers
                 Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName, position.QDFDeals.Count.ToString(), position.Position.ToString());
             }
 
-            //CalculateCumulativePosition(aggregatedDeals);
+            CalculateCumulativePosition(aggregatedDeals);
 
             QDFDealPositions = aggregatedDeals;
         }
 
         private void CalculateCumulativePosition(List<QDFDealPosition> aggregatedDeals)
         {
+            //sort ascending. n.b. revers x&y to sort descending
+            aggregatedDeals.Sort((x,y)=>x.TimeStamp.CompareTo(y.TimeStamp));
+            Console.WriteLine("sort Positions");
+            foreach (QDFDealPosition item in aggregatedDeals)
+            {
+                Console.WriteLine("{0} {1}", item.PositionName, item.Position);
+            }
+            Console.WriteLine();
+
+            //get all the positions and store in an iEnumerable
+            IEnumerable<decimal> positions = aggregatedDeals.Select(deal => deal.Position); //concerned that this doesn't preserve order (should do but didn't appear to in debugger. printing to console seems to show it does work)
+
+            Console.WriteLine("get position values");
+            foreach (var item in positions)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+            var cumulativePositions = NumericExtensions.CumulativeSum<decimal>(positions);
+            Console.WriteLine("get cumulative position values");
+            foreach (var item in cumulativePositions)
+            {
+                Console.WriteLine(item);
+            }
             throw new NotImplementedException();
         }
 
@@ -52,35 +76,6 @@ namespace qdf.AcceptanceTests.Helpers
         {
             CalculateCCVolumeSize();
             CombineCCSectionData();
-        }
-
-        private void CombineCCSectionData()
-        {
-            var rowQuery = (from DataRow row in CCToolData.Rows
-                            select row);
-            var aggregatedPositions = rowQuery.GroupBy(x => new
-                                                            {
-                                                                Book = ((ulong)x["IsBookA"] == 0 ? Book.A : Book.B),
-                                                                Instrument = x["SymbolCode"].ToString(),
-                                                                ServerId = x["ServerName"].ToString(),
-                                                                TimeStamp = (DateTime) x["UpdateDateTime"] 
-                                                            }
-                                                        )
-                                                        .Select(x => new CCToolPosition()
-                                                        {
-                                                            PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
-                                                            Book = x.Key.Book,
-                                                            Instrument = x.Key.Instrument,
-                                                            ServerId = x.Key.ServerId,
-                                                            TimeStamp = x.Key.TimeStamp,
-                                                            Positions = x.ToList()
-                                                        }).ToList<CCToolPosition>();
-            foreach (CCToolPosition position in aggregatedPositions)
-            {
-                position.CalculatePosition();
-                Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}", position.PositionName, position.Positions.Count.ToString(), position.Position.ToString());
-            }
-            CCToolPositions = aggregatedPositions;
         }
 
         /// <summary>
@@ -125,6 +120,35 @@ namespace qdf.AcceptanceTests.Helpers
             //        GetCCToolPositionName(row), 
             //        row["VolumeSize"]);
             //}
+        }
+
+        private void CombineCCSectionData()
+        {
+            var rowQuery = (from DataRow row in CCToolData.Rows
+                            select row);
+            var aggregatedPositions = rowQuery.GroupBy(x => new
+            {
+                Book = ((ulong)x["IsBookA"] == 0 ? Book.A : Book.B),
+                Instrument = x["SymbolCode"].ToString(),
+                ServerId = x["ServerName"].ToString(),
+                TimeStamp = (DateTime)x["UpdateDateTime"]
+            }
+                                                        )
+                                                        .Select(x => new CCToolPosition()
+                                                        {
+                                                            PositionName = String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId, Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+                                                            Book = x.Key.Book,
+                                                            Instrument = x.Key.Instrument,
+                                                            ServerId = x.Key.ServerId,
+                                                            TimeStamp = x.Key.TimeStamp,
+                                                            Positions = x.ToList()
+                                                        }).ToList<CCToolPosition>();
+            foreach (CCToolPosition position in aggregatedPositions)
+            {
+                position.CalculatePosition();
+                Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}", position.PositionName, position.Positions.Count.ToString(), position.Position.ToString());
+            }
+            CCToolPositions = aggregatedPositions;
         }
 
         private static string GetCCToolPositionName(DataRow row)

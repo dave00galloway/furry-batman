@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 {
     public class AdHocMySqlDataContext : MySqlDataContextSubstitute
     {

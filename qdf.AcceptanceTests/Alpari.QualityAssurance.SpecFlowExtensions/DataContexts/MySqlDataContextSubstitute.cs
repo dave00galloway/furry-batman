@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MySql.Data;
-using MySql;
-using MySql.Data.MySqlClient;
-using System.Data;
-
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 {
+    using System;
+    using MySql.Data.MySqlClient;
+    using System.Data;
+
     /// <summary>
     /// Unable to get fully Linq compatible DataContext working either due to license contstrains (ALinq,  Devart) or not being able to get DBMetal working
     /// so using a substitute to connect to MySql
     /// strongly typed DataTables give us all the functionality we need for aggregating the returned data
     /// </summary>
-    public abstract class MySqlDataContextSubstitute : qdf.AcceptanceTests.DataContexts.IDataContextSubstitute
+    public abstract class MySqlDataContextSubstitute : Alpari.QualityAssurance.SpecFlowExtensions.DataContexts.IDataContextSubstitute
     {
-        public const string CC = "CC";
+        
         public MySqlConnection myConnection { get; private set; }
         public MySqlDataContextSubstitute(string connectionString)
         {

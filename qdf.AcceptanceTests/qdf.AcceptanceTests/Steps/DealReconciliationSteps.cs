@@ -1,21 +1,18 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using FluentAssertions;
-using qdf.AcceptanceTests.DataContexts;
-using qdf.AcceptanceTests.Helpers;
-using qdf.AcceptanceTests.TypedDataTables;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
-
-namespace qdf.AcceptanceTests.Steps
+﻿namespace qdf.AcceptanceTests.Steps
 {
+    using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+    using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+    using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+    using FluentAssertions;
+    using qdf.AcceptanceTests.DataContexts;
+    using qdf.AcceptanceTests.Helpers;
+    using qdf.AcceptanceTests.TypedDataTables;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using System.Data;
+    using TechTalk.SpecFlow;
+
     [Binding]
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
@@ -104,7 +101,7 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have CC data")]
         public void GivenIHaveCCData()
         {
-            contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
+            contextSubstitute = GetDataContextSubstituteForDB(CCToolDataContext.CC);
             //TODO: implement for multiple qdfDealParameters 
             //if (qdfDealParametersSet != null) etc.
 

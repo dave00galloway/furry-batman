@@ -1,12 +1,10 @@
-﻿using qdf.AcceptanceTests.TypedDataTables;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace qdf.AcceptanceTests.DataContexts
 {
+    using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+    using qdf.AcceptanceTests.TypedDataTables;
+    using System;
+    using System.Linq;
+
     public class CCToolDataContext : MySqlDataContextSubstitute
     {
         public CCToolDataContext(string connectionString)
@@ -14,6 +12,7 @@ namespace qdf.AcceptanceTests.DataContexts
         {
 
         }
+        public const string CC = "CC";
 
         /// <summary>
         /// Demo method to calculate spread for a server/symbol/time and also to show benefit of using strongly typed data tables

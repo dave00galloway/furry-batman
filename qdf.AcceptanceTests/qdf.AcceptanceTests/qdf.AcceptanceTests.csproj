@@ -93,10 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContexts\AdHocMySqlDataContext.cs" />
     <Compile Include="DataContexts\CCToolDataContext.cs" />
-    <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
-    <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlQueries.cs" />
     <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
     <Compile Include="Helpers\QDFCCDataReconciliation.cs" />

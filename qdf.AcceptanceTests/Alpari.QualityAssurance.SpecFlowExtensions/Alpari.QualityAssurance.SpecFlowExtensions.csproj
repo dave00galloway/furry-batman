@@ -34,6 +34,10 @@
       <HintPath>..\packages\FluentAssertions.2.2.0.0\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 6.8.3\Assemblies\v4.5\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -49,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\AdHocMySqlDataContext.cs" />
+    <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
+    <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
     <Compile Include="TypeUtilities\ITypedDataTable.cs" />
@@ -155,6 +162,7 @@
     <Compile Include="Steps\TypedDataTableFunSteps.cs" />
     <Compile Include="TypeUtilities\DataTableExtensions.cs" />
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
+    <Compile Include="TypeUtilities\NumericExtensions.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
   </ItemGroup>

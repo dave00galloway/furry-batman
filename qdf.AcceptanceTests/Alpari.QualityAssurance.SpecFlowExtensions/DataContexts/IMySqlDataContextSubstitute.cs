@@ -1,5 +1,4 @@
-﻿using System;
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 {
     public interface IDataContextSubstitute
     {

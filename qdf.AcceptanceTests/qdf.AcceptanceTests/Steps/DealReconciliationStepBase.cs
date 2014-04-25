@@ -1,18 +1,16 @@
-﻿using qdf.AcceptanceTests.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
-using Alpari.QualityAssurance.SpecFlowExtensions;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using Alpari.QualityAssurance.SecureMyPassword;
-using System.Configuration;
-using qdf.AcceptanceTests.DataContexts;
-
-namespace qdf.AcceptanceTests.Steps
+﻿namespace qdf.AcceptanceTests.Steps
 {
+    using Alpari.QualityAssurance.SecureMyPassword;
+    using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+    using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+    using qdf.AcceptanceTests.DataContexts;
+    using qdf.AcceptanceTests.Helpers;
+    using System;
+    using System.Collections.Generic;
+    using System.Configuration;
+    using TechTalk.SpecFlow;
+    using TechTalk.SpecFlow.Assist;
+
     [Binding]
     public class DealReconciliationStepBase
     {
@@ -58,7 +56,7 @@ namespace qdf.AcceptanceTests.Steps
                 case "MySql.Data.MySqlClient":                   
                     switch (dbName)
                     {
-                        case MySqlDataContextSubstitute.CC:
+                        case CCToolDataContext.CC:
                             return new CCToolDataContext(connectionString);
                         default:
                             return new AdHocMySqlDataContext(connectionString);
