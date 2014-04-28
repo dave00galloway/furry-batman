@@ -125,11 +125,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         /// <typeparam name="T"></typeparam>
         /// <param name="enumeratedObjects"></param>
         /// <returns></returns>
+// ReSharper disable once FunctionRecursiveOnAllPaths
         public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new()
         {
             return ConvertIEnumerableToDataTable(enumeratedObjects);
         }
 
+// ReSharper disable once FunctionRecursiveOnAllPaths
         public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
             string[] primaryKeys) where T : DataTable, new()
         {
@@ -171,11 +173,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
     public class PersonDataRow : DataRow
     {
-        private DataRowBuilder _builder;
+        //private DataRowBuilder _builder;
 
         public PersonDataRow(DataRowBuilder builder) : base(builder)
         {
-            this._builder = builder;
+            //this._builder = builder;
         }
 
         public ulong Id

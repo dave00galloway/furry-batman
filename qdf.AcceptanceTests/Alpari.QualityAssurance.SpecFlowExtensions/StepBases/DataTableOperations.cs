@@ -398,13 +398,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static IList<Dictionary<string, object>> ConvertIListIDictionaryToIlistDictionary(
             IList<IDictionary<string, object>> listOfIDictionaries)
         {
-            IList<Dictionary<string, object>> convertedIList = new List<Dictionary<string, object>>();
-            foreach (var iDict in listOfIDictionaries)
-            {
-                convertedIList.Add(ConvertIDictionaryToDictionary(iDict));
-            }
-
-            return convertedIList;
+            return listOfIDictionaries.Select(ConvertIDictionaryToDictionary).ToList();
         }
 
         public static Dictionary<string, object> ConvertIDictionaryToDictionary(IDictionary<string, object> iDict)

@@ -16,10 +16,8 @@ namespace qdf.AcceptanceTests.Steps
     {
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
-            var start = entry.StartTime != null
-                ? entry.StartTime
-                : ConfigurationManager.AppSettings["defaultStartTime"];
-            var end = entry.EndTime != null ? entry.EndTime : ConfigurationManager.AppSettings["defaultEndTime"];
+            var start = entry.StartTime ?? ConfigurationManager.AppSettings["defaultStartTime"];
+            var end = entry.EndTime ?? ConfigurationManager.AppSettings["defaultEndTime"];
             entry.ConvertedStartTime = start.GetTimeFromShortCode();
             entry.ConvertedEndTime = end.GetTimeFromShortCode(entry.ConvertedStartTime);
         }

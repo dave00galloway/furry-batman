@@ -72,7 +72,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         {
             string byteArrayAsString = null;
             var stringQuery =
-                data.Select(x => Convert.ToChar(x)).Select(x => byteArrayAsString += x.ToString(CultureInfo.InvariantCulture)).ToList();
+                data.Select(Convert.ToChar).Select(x => byteArrayAsString += x.ToString(CultureInfo.InvariantCulture)).ToList();
             // byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
             //
             return byteArrayAsString;

@@ -36,6 +36,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheTextFileParserContainsSomeTestCasesWithTags()
         {
             var testCases = GetTestCaseTextResults();
+// ReSharper disable once SuspiciousTypeConversion.Global
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
             testCases.Any(x => x.Tags.Count.Should().BeGreaterThan(0).Equals(true));
         }
 
@@ -43,6 +45,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheTextFileParserContainsSomeTestCasesWithAPrimaryTag()
         {
             var testCases = GetTestCaseTextResults();
+// ReSharper disable once ReturnValueOfPureMethodIsNotUsed
+// ReSharper disable once SuspiciousTypeConversion.Global
             testCases.Any(x => x.PrimaryTag.Should().NotBeNullOrWhiteSpace().Equals(true));
         }
 

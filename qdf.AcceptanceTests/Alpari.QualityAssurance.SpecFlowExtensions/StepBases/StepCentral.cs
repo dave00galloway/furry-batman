@@ -39,15 +39,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         {
             get
             {
-                var crossStepDefinitionFileOne =
+                return
                     (CrossStepDefinitionFileOne)
                         GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNamspace +
-                                          "CrossStepDefinitionFileOne");
-                if (crossStepDefinitionFileOne == null)
-                {
-                    crossStepDefinitionFileOne = new CrossStepDefinitionFileOne();
-                }
-                return crossStepDefinitionFileOne;
+                                          "CrossStepDefinitionFileOne") ?? new CrossStepDefinitionFileOne();
+                // return crossStepDefinitionFileOne;
+
+                //The ?? operator is called the null-coalescing operator. It returns the left-hand operand if the operand is not null; otherwise it returns the right hand operand.
+                //var crossStepDefinitionFileOne =
+                //    (CrossStepDefinitionFileOne)
+                //        GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNamspace +
+                //                          "CrossStepDefinitionFileOne");
+                //if (crossStepDefinitionFileOne == null)
+                //{
+                //    crossStepDefinitionFileOne = new CrossStepDefinitionFileOne();
+                //}
+                //return crossStepDefinitionFileOne;
             }
         }
 

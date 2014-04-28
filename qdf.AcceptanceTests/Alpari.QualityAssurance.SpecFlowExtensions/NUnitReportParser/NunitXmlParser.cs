@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 {
@@ -116,15 +117,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         {
             try
             {
-                var failure = new FailureType();
-                failure = (FailureType) testCase.Item;
+                var failure = (FailureType) testCase.Item;
                 testSuiteTestCasesDictionary["Message"] = failure.Message;
                 testSuiteTestCasesDictionary["Stack trace"] = failure.Stacktrace;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                ConsoleLogger.ConsoleExceptionLogger(e);
             }
         }
+
+
 
         private static string JoinTags(TestcaseType testCase)
         {
@@ -274,12 +277,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private CultureinfoType GetLastCultureinfoTypeNode(CultureinfoType cultureinfoType)
         {
             CultureinfoTypeList = XmlRoot.SelectNodes("culture-info");
+            if (CultureinfoTypeList == null) return cultureinfoType;
             foreach (XmlNode cultureinfoTypeListItem in CultureinfoTypeList)
             {
                 var cultureinfoTypeItem = new CultureinfoType();
                 var cultureinfoTypeItemAttributes = cultureinfoTypeListItem.Attributes;
-                cultureinfoTypeItem.Currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
-                cultureinfoTypeItem.Currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
+                if (cultureinfoTypeItemAttributes != null)
+                {
+                    cultureinfoTypeItem.Currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
+                    cultureinfoTypeItem.Currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
+                }
                 cultureinfoType = cultureinfoTypeItem;
             }
             return cultureinfoType;
@@ -318,20 +325,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private ResultType ParseAsTestResults()
         {
-            var TestResults = new ResultType();
+            var testResults = new ResultType();
             var rootAttributes = XmlRoot.Attributes;
-            TestResults.Name = rootAttributes["name"].Value;
-            TestResults.Total = decimal.Parse(rootAttributes["total"].Value);
-            TestResults.Errors = decimal.Parse(rootAttributes["errors"].Value);
-            TestResults.Failures = decimal.Parse(rootAttributes["failures"].Value);
-            TestResults.Notrun = decimal.Parse(rootAttributes["not-run"].Value);
-            TestResults.Inconclusive = decimal.Parse(rootAttributes["inconclusive"].Value);
-            TestResults.Ignored = decimal.Parse(rootAttributes["ignored"].Value);
-            TestResults.Skipped = decimal.Parse(rootAttributes["skipped"].Value);
-            TestResults.Invalid = decimal.Parse(rootAttributes["invalid"].Value);
-            TestResults.Date = rootAttributes["date"].Value;
-            TestResults.Time = rootAttributes["time"].Value;
-            return TestResults;
+            if (rootAttributes == null) return testResults;
+            testResults.Name = rootAttributes["name"].Value;
+            testResults.Total = decimal.Parse(rootAttributes["total"].Value);
+            testResults.Errors = decimal.Parse(rootAttributes["errors"].Value);
+            testResults.Failures = decimal.Parse(rootAttributes["failures"].Value);
+            testResults.Notrun = decimal.Parse(rootAttributes["not-run"].Value);
+            testResults.Inconclusive = decimal.Parse(rootAttributes["inconclusive"].Value);
+            testResults.Ignored = decimal.Parse(rootAttributes["ignored"].Value);
+            testResults.Skipped = decimal.Parse(rootAttributes["skipped"].Value);
+            testResults.Invalid = decimal.Parse(rootAttributes["invalid"].Value);
+            testResults.Date = rootAttributes["date"].Value;
+            testResults.Time = rootAttributes["time"].Value;
+            return testResults;
         }
 
         /// <summary>

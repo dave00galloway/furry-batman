@@ -14,6 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 "Unable to mark this class as abstract, so using an exceptional method to prevent direct inheritance")]
         public MasterStepBase()
         {
+// ReSharper disable once DoNotCallOverridableMethodsInConstructor
             ScenarioContext.Current.Add(ToString(), this);
             ThrowExceptionIfInMasterStepBase();
             TestRunContext = TestRunContext.Instance;
