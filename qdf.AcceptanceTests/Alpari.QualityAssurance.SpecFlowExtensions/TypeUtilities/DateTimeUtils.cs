@@ -110,11 +110,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         private static bool IsCharAPlus(char[] characters, int digit)
         {
-            var sign = false;
-            if (characters[digit] == '+' || Char.IsNumber(characters[digit]))
-            {
-                sign = true;
-            }
+            var sign = characters[digit] == '+' || Char.IsNumber(characters[digit]);
             return sign;
         }
     }

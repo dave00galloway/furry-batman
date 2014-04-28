@@ -309,6 +309,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             //TODO:- create a class in TypeUtilities that can return an enum representing type, and downcast the objects to their types based on the enum
             //this is required to work out the difference between vlaues (numbers dates, and if anything else, toString and assert them)
             var type = e.ProposedValue.GetType();
+// ReSharper disable once CheckForReferenceEqualityInstead.1
             if (type.Equals(typeof (string)))
             {
                 changed = (e.ProposedValue != e.Row[e.Column, DataRowVersion.Original]);
