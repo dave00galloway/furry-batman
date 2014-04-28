@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -56,7 +57,7 @@ namespace qdf.AcceptanceTests.Helpers
             foreach (var deal in retrievedDeals)
             {
                 csvFile.AppendLine(String.Join(",",
-                    deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCSVCell(x.ToString()))));
+                    deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCSVCell(x.ToString(CultureInfo.InvariantCulture)))));
             }
             File.WriteAllText(fileNamePath, csvFile.ToString());
         }
