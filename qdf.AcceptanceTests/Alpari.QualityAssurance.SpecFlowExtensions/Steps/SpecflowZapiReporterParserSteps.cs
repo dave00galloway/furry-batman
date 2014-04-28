@@ -24,14 +24,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             nunitXmlParser.SetTestResults();
         }
 
-        [Then(@"the xml has a content that can be read as a string")]
-        public void ThenTheXmlHasAContentThatCanBeReadAsAString()
-        {
-            var nunitXmlParser = GetNunitXmlParser();
-            var result = nunitXmlParser.XmlString;
-            Console.WriteLine("xml = {0}", result);
-            Assert.IsNotEmpty(result);
-        }
+        //[Then(@"the xml has a content that can be read as a string")]
+        //public void ThenTheXmlHasAContentThatCanBeReadAsAString()
+        //{
+        //    var nunitXmlParser = GetNunitXmlParser();
+        //    var result = nunitXmlParser.XmlString;
+        //    Console.WriteLine("xml = {0}", result);
+        //    Assert.IsNotEmpty(result);
+        //}
 
         [Then(@"the xml root Name property is ""(.*)""")]
         public void ThenTheXmlRootNamePropertyIs(string expectedName)
@@ -53,7 +53,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             var nunitXmlParser = GetNunitXmlParser();
             var TestResultsDictionary = GetTestResultsDictionary(nunitXmlParser);
-            var tableAsList = DataTableOperations.getTableAsList(expectedTestResults);
+            var tableAsList = DataTableOperations.GetTableAsList(expectedTestResults);
             var verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], TestResultsDictionary);
             Assert.IsEmpty(verificationErrors);
         }
@@ -64,7 +64,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var nunitXmlParser = GetNunitXmlParser();
             var HostTestEnvironmentDictionary = GetHostTestEnvironmentDictionary(nunitXmlParser);
             var tableAsList =
-                DataTableOperations.getTableAsList(expectedHostTestEnvironment);
+                DataTableOperations.GetTableAsList(expectedHostTestEnvironment);
             //make sure there is only 1 result to start with!
             Assert.AreEqual(1, nunitXmlParser.HostTestEnvironmentList.Count);
             var verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], HostTestEnvironmentDictionary);

@@ -62,7 +62,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Given(@"I have setup the following templated test data as ""(.*)"":")]
         public void GivenIHaveSetupTheFollowingTemplatedTestDataAs(string name, Table data)
         {
-            TestRunContext[name] = DataTableOperations.getTableAsList(data);
+            TestRunContext[name] = DataTableOperations.GetTableAsList(data);
         }
 
         /// <summary>

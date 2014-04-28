@@ -37,7 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             var TestResultsType = nunitXmlParser.TestResults.GetType();
             var TestResultsDictionary =
-                DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.TestResults, TestResultsType);
+                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.TestResults, TestResultsType);
             return TestResultsDictionary;
         }
 
@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             var HostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
             var HostTestEnvironmentDictionary =
-                DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.HostTestEnvironment,
+                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.HostTestEnvironment,
                     HostTestEnvironmentType);
             return HostTestEnvironmentDictionary;
         }
@@ -54,7 +54,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             var CultureinfoType = nunitXmlParser.CultureinfoType.GetType();
             var CultureinfoTypeDictionary =
-                DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, CultureinfoType);
+                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, CultureinfoType);
             return CultureinfoTypeDictionary;
         }
 
@@ -72,7 +72,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             foreach (var testSuiteTypeCollectionItem in testSuiteTypeCollection)
             {
                 var CultureinfoTypeDictionary =
-                    DataTableOperations.getObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, TestSuiteType);
+                    DataTableOperations.GetObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, TestSuiteType);
                 ListOfTestSuiteDictionaries.Add((Dictionary<string, object>) CultureinfoTypeDictionary);
             }
             return ListOfTestSuiteDictionaries;
@@ -93,7 +93,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             Table testCasesInTestSuites)
         {
             var expectedAndActualTestCases = new ExpectedAndActualTestCasesBySuiteAsIlIsts();
-            expectedAndActualTestCases.Expected = DataTableOperations.getTableAsList(testCasesInTestSuites);
+            expectedAndActualTestCases.Expected = DataTableOperations.GetTableAsList(testCasesInTestSuites);
             expectedAndActualTestCases.Actual = GetNunitXmlParser().GetTestCasesByTestSuiteAsList();
             return expectedAndActualTestCases;
         }

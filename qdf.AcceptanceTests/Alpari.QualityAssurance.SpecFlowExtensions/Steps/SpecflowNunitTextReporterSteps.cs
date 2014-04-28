@@ -67,6 +67,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
                 expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
+            combinedResults.Should().NotBeEmpty();
         }
 
 
@@ -74,7 +75,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheTextFileParserContainsSomeText()
         {
             var nunitXmlParser = GetNunitTextParser();
-            nunitXmlParser.fileText.Should().NotBeEmpty();
+            nunitXmlParser.FileText.Should().NotBeEmpty();
         }
     }
 }

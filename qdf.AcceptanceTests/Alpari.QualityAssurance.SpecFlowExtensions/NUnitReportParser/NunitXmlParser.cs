@@ -44,7 +44,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public XmlReader XmlReader { get; private set; }
         public XmlDocument XmlDocument { get; private set; }
         public XmlNode XmlRoot { get; private set; }
-        public string XmlString { get; private set; }
+        //public string XmlString { get; private set; }
         public ResultType TestResults { get; private set; }
 
         /// <summary>
@@ -287,29 +287,33 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private EnvironmentType ParseAsHostTestEnvironment()
         {
-            var EnvironmentType = new EnvironmentType();
-            EnvironmentType = getLastEnvironmentTypeNode(EnvironmentType);
-            return EnvironmentType;
+            var environmentType = new EnvironmentType();
+            environmentType = GetLastEnvironmentTypeNode(environmentType);
+            return environmentType;
         }
 
-        private EnvironmentType getLastEnvironmentTypeNode(EnvironmentType EnvironmentType)
+        private EnvironmentType GetLastEnvironmentTypeNode(EnvironmentType environmentType)
         {
             HostTestEnvironmentList = XmlRoot.SelectNodes("//environment");
-            foreach (XmlNode hostTestEnvironment in HostTestEnvironmentList)
-            {
-                var hostTestEnvironmentType = new EnvironmentType();
-                var hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
-                hostTestEnvironmentType.Nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
-                hostTestEnvironmentType.Clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
-                hostTestEnvironmentType.Osversion = hostTestEnvironmentAttributes["os-version"].Value;
-                hostTestEnvironmentType.Platform = hostTestEnvironmentAttributes["platform"].Value;
-                hostTestEnvironmentType.Cwd = hostTestEnvironmentAttributes["cwd"].Value;
-                hostTestEnvironmentType.Machinename = hostTestEnvironmentAttributes["machine-name"].Value;
-                hostTestEnvironmentType.User = hostTestEnvironmentAttributes["user"].Value;
-                hostTestEnvironmentType.Userdomain = hostTestEnvironmentAttributes["user-domain"].Value;
-                EnvironmentType = hostTestEnvironmentType;
-            }
-            return EnvironmentType;
+            if (HostTestEnvironmentList != null)
+                foreach (XmlNode hostTestEnvironment in HostTestEnvironmentList)
+                {
+                    var hostTestEnvironmentType = new EnvironmentType();
+                    var hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
+                    if (hostTestEnvironmentAttributes != null)
+                    {
+                        hostTestEnvironmentType.Nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
+                        hostTestEnvironmentType.Clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
+                        hostTestEnvironmentType.Osversion = hostTestEnvironmentAttributes["os-version"].Value;
+                        hostTestEnvironmentType.Platform = hostTestEnvironmentAttributes["platform"].Value;
+                        hostTestEnvironmentType.Cwd = hostTestEnvironmentAttributes["cwd"].Value;
+                        hostTestEnvironmentType.Machinename = hostTestEnvironmentAttributes["machine-name"].Value;
+                        hostTestEnvironmentType.User = hostTestEnvironmentAttributes["user"].Value;
+                        hostTestEnvironmentType.Userdomain = hostTestEnvironmentAttributes["user-domain"].Value;
+                    }
+                    environmentType = hostTestEnvironmentType;
+                }
+            return environmentType;
         }
 
         private ResultType ParseAsTestResults()

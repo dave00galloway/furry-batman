@@ -24,7 +24,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         /// <param name="objectToGetPropertiesFrom"></param>
         /// <param name="objectType"></param>
         /// <returns></returns>
-        public static IDictionary<string, object> getObjectPropertiesAsDictionary(object objectToGetPropertiesFrom,
+        public static IDictionary<string, object> GetObjectPropertiesAsDictionary(object objectToGetPropertiesFrom,
             Type objectType)
         {
             var propertyInfoArray = objectType.GetProperties();
@@ -43,13 +43,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         ///     Candidate for simplifications using Linq, generics etc.
         /// </summary>
         /// <param name="matchingCriteria"></param>
-        /// <param name="ListOfDictionaries"></param>
+        /// <param name="listOfDictionaries"></param>
         /// <returns></returns>
         public static Dictionary<string, object> GetDictionaryFromListOfDictionariesByKeyValuePair(
-            KeyValuePair<string, object> matchingCriteria, IList<Dictionary<string, object>> ListOfDictionaries)
+            KeyValuePair<string, object> matchingCriteria, IList<Dictionary<string, object>> listOfDictionaries)
         {
             var matchingDictionary = new Dictionary<string, object>();
-            foreach (var dictionary in ListOfDictionaries)
+            foreach (var dictionary in listOfDictionaries)
             {
                 if (dictionary.Contains(matchingCriteria))
                 {
@@ -100,7 +100,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         /// </summary>
         /// <param name="tableToConvert"></param>
         /// <returns></returns>
-        public static IList<IDictionary<string, object>> getTableAsList(Table tableToConvert)
+        public static IList<IDictionary<string, object>> GetTableAsList(Table tableToConvert)
         {
             IList<IDictionary<string, object>> tableAsList = new List<IDictionary<string, object>>();
             var rows = tableToConvert.Rows;
@@ -166,7 +166,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 }
                 catch (Exception e)
                 {
-                    comparisonDescription = getComparisonDescription(entryKey, expectedValue, actualValue,
+                    comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
                         comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
@@ -198,7 +198,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 }
                 catch (Exception e)
                 {
-                    comparisonDescription = getComparisonDescription(entryKey, expectedValue, actualValue,
+                    comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
                         comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
@@ -239,7 +239,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 }
                 catch (Exception e)
                 {
-                    comparisonDescription = getComparisonDescription(entryKey, expectedValue, actualValue,
+                    comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
                         comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
@@ -258,14 +258,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             entryKey = entry.Key;
             expectedValue = entry.Value.ToString();
             actualValue = actualDictionary[entryKey].ToString();
-            comparisonDescription = getComparisonDescription(entryKey, expectedValue, actualValue, comparisonDescription);
+            comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue, comparisonDescription);
             try
             {
                 Assert.AreEqual(expectedValue, actualValue, comparisonDescription);
             }
             catch (Exception e)
             {
-                comparisonDescription = getComparisonDescription(entryKey, expectedValue, actualValue,
+                comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
                     comparisonDescription);
                 throw new Exception(comparisonDescription, e);
             }
@@ -412,12 +412,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             return iDict.ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
         }
 
-        public static Dictionary<string, object> ConvertDictionaryToDictionary(Dictionary<string, int> Dict)
+        public static Dictionary<string, object> ConvertDictionaryToDictionary(Dictionary<string, int> dict)
         {
-            return Dict.ToDictionary(kvp => kvp.Key, kvp => (object) kvp.Value);
+            return dict.ToDictionary(kvp => kvp.Key, kvp => (object) kvp.Value);
         }
 
-        private static string getComparisonDescription(string entryKey, string expectedValue, string actualValue,
+        private static string GetComparisonDescription(string entryKey, string expectedValue, string actualValue,
             string comparisonDescription)
         {
             comparisonDescription = String.Format("Comparing key '{0}' expected value '{1}' with actual value '{2}'",
@@ -444,8 +444,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
     }
 
 
-    public class IDictionaryAsIlist
+    public class DictionaryAsIlist
     {
-        public IList<IDictionary<string, object>> iDictionaryAsIlist { get; set; }
+        public IList<IDictionary<string, object>> IDictionaryAsIlist { get; set; }
     }
 }

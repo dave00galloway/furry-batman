@@ -12,19 +12,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             TestCases = new List<TestCaseTextResult>();
         }
 
-        public IEnumerable<string> fileText { get; private set; }
+        public IEnumerable<string> FileText { get; private set; }
 
         public IList<TestCaseTextResult> TestCases { get; set; }
 
         private void ReadTextFile(string fileNamePath)
         {
-            fileText = File.ReadAllLines(fileNamePath);
+            FileText = File.ReadAllLines(fileNamePath);
         }
 
         public void ParseTextTestResultFileAsTestSuiteCollection()
         {
             //throw new NotImplementedException();
-            foreach (var line in fileText)
+            foreach (var line in FileText)
             {
                 if (AddNewTestCase(line))
                 {
@@ -73,9 +73,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 
         private void AddTestCaseShortName(string line)
         {
-            if ((TestCases.Last().shortName == null) && line.Trim().Length > 0)
+            if ((TestCases.Last().ShortName == null) && line.Trim().Length > 0)
             {
-                TestCases.Last().shortName = line;
+                TestCases.Last().ShortName = line;
                 //TestCases.ElementAt(TestCases.Count-1).shortName = line;
             }
         }
@@ -98,7 +98,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
                 var taglist = line.Replace("Tags:- ", "");
                 //var testCase = TestCases.ElementAt(TestCases.Count-1);
                 var testCase = TestCases.Last();
-                testCase.setTags(taglist, primaryTagId);
+                testCase.SetTags(taglist, primaryTagId);
                 return true;
             }
             return false;
@@ -134,7 +134,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             //var sdq = textResults.AsEnumerable().Select(textResult => new CombinedTextAndXmlResult(textResult.Value, actualXmlTestCaseResults));
             return TestCaseTextResultsToDictionary() //.AsEnumerable() // Do I need this?
                 .Select(textResult => new CombinedTextAndXmlResult(textResult.Value, actualXmlTestCaseResults))
-                .ToDictionary(x => x.textResult.PrimaryTag);
+                .ToDictionary(x => x.TextResult.PrimaryTag);
         }
     }
 }

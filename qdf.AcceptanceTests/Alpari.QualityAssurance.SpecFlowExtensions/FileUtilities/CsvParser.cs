@@ -107,12 +107,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             return cleansedString;
         }
 
-        private List<string> GetValues(string row, string delimiter)
+        private static List<string> GetValues(string row, string delimiter)
         {
             using (var sr = new StringReader(row))
             {
                 var parser = new TextFieldParser(sr);
                 parser.SetDelimiters(delimiter);
+// ReSharper disable once AssignNullToNotNullAttribute
                 return parser.ReadFields().Select(x => x.Trim()).ToList();
             }
         }

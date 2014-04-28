@@ -7,17 +7,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
     {
         public TestCaseTextResult(string longName)
         {
-            this.longName = longName;
+            this.LongName = longName;
             TestStepResults = new List<TestStepResult>();
         }
 
-        public string longName { get; private set; }
-        public string shortName { get; set; }
+        public string LongName { get; private set; }
+        public string ShortName { get; set; }
         public List<string> Tags { get; private set; }
         public string PrimaryTag { get; private set; }
         public List<TestStepResult> TestStepResults { get; private set; }
 
-        public void setTags(string taglist, string primaryTagId)
+        public void SetTags(string taglist, string primaryTagId)
         {
             Tags = taglist.Split(',').Select(x => x.Trim()).ToList();
             PrimaryTag = Tags.Where(x => x.StartsWith(primaryTagId)).ToList().First();
