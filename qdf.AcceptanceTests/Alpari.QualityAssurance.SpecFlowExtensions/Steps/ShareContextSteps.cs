@@ -8,8 +8,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     [Binding]
     public class ShareContextSteps : CrossStepDefinitionStepBase
     {
-        private static readonly string RANDOM_FILENAME = "randomFileName";
-        private static readonly string TIME_NOW_IS = "timeNowIs";
+        private const string RANDOM_FILENAME = "randomFileName";
+        private const string TIME_NOW_IS = "timeNowIs";
 
         [Given(@"I access the static object")]
         public void GivenIAccessTheStaticObject()

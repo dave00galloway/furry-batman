@@ -17,8 +17,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
     [Serializable]
     public class TestRunContext : Dictionary<string, Object>, ISerializable
     {
-        private static readonly string Instantiated = "Instantiated";
-        private static readonly string RandomFileName = "RandomFileName";
+        private const string Instantiated = "Instantiated";
+        private const string RandomFileName = "RandomFileName";
 
         private static volatile TestRunContext instance;
         private static readonly object syncRoot = new Object();
