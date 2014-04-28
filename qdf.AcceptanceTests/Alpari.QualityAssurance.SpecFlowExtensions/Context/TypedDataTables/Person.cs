@@ -51,7 +51,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         public void SetPrimaryKey(string[] primaryKeyColumns)
         {
             var size = primaryKeyColumns.Length;
-            var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
+           //var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
+            var keyColumns = new DataColumn[size] as DataColumn[];
             for (var i = 0; i < size; i++)
             {
                 keyColumns[i] = Columns[primaryKeyColumns[i]];

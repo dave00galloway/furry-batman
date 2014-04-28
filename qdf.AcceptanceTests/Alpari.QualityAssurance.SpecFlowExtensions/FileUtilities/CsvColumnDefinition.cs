@@ -5,7 +5,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public abstract class CsvColumnDefinition : ICsvColumnDefinition
     {
-        public CsvColumnDefinition(List<string> columns)
+        protected CsvColumnDefinition(List<string> columns)
         {
             SetupPropertiesAndDictionary(columns);
         }

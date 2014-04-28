@@ -10,7 +10,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     {
         private string _lazyProperty;
 
-        public CrossStepDefinitionFileOneStepBase()
+        protected CrossStepDefinitionFileOneStepBase()
         {
             _lazyProperty = null;
         }

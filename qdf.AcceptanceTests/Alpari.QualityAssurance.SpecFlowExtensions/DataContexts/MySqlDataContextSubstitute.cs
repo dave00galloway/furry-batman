@@ -13,7 +13,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
     /// </summary>
     public abstract class MySqlDataContextSubstitute : IDataContextSubstitute
     {
-        public MySqlDataContextSubstitute(string connectionString)
+        protected MySqlDataContextSubstitute(string connectionString)
         {
             myConnection = new MySqlConnection(connectionString);
         }
