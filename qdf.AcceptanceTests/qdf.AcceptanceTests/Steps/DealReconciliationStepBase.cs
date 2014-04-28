@@ -1,23 +1,25 @@
-﻿namespace qdf.AcceptanceTests.Steps
-{
-    using Alpari.QualityAssurance.SecureMyPassword;
-    using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
-    using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-    using qdf.AcceptanceTests.DataContexts;
-    using qdf.AcceptanceTests.Helpers;
-    using System;
-    using System.Collections.Generic;
-    using System.Configuration;
-    using TechTalk.SpecFlow;
-    using TechTalk.SpecFlow.Assist;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using Alpari.QualityAssurance.SecureMyPassword;
+using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.DataContexts;
+using qdf.AcceptanceTests.Helpers;
+using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
+namespace qdf.AcceptanceTests.Steps
+{
     [Binding]
     public class DealReconciliationStepBase
     {
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
-            var start = entry.startTime != null ? entry.startTime : ConfigurationManager.AppSettings["defaultStartTime"];
-            var end = entry.endTime != null ? entry.endTime : ConfigurationManager.AppSettings["defaultEndTime"];
+            string start = entry.startTime != null
+                ? entry.startTime
+                : ConfigurationManager.AppSettings["defaultStartTime"];
+            string end = entry.endTime != null ? entry.endTime : ConfigurationManager.AppSettings["defaultEndTime"];
             entry.convertedStartTime = start.GetTimeFromShortCode();
             entry.convertedEndTime = end.GetTimeFromShortCode(entry.convertedStartTime);
         }
@@ -39,10 +41,15 @@
             switch (dataContext)
             {
                 case "MySqlDataContextSubstitute":
-                    return new CCToolDataContext(ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString.UnProtect('_'));
+                    return
+                        new CCToolDataContext(
+                            ConfigurationManager.ConnectionStrings[
+                                ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString.UnProtect(
+                                    '_'));
                 case "QuickStartMySqlDataContext":
                     //QuickStartMySqlDataContext context = new QuickStartMySqlDataContext();
-                    throw new ArgumentException("data context {0} is licensed and there is no license available", dataContext);
+                    throw new ArgumentException("data context {0} is licensed and there is no license available",
+                        dataContext);
                 default:
                     throw new ArgumentException("data context {0} is not a valid data context", dataContext);
             }
@@ -50,10 +57,12 @@
 
         public static IDataContextSubstitute GetDataContextSubstituteForDB(string dbName)
         {
-            var connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString.UnProtect('_');
+            string connectionString =
+                ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString
+                    .UnProtect('_');
             switch (ConfigurationManager.ConnectionStrings[dbName].ProviderName)
             {
-                case "MySql.Data.MySqlClient":                   
+                case "MySql.Data.MySqlClient":
                     switch (dbName)
                     {
                         case CCToolDataContext.CC:
@@ -62,7 +71,8 @@
                             return new AdHocMySqlDataContext(connectionString);
                     }
                 default:
-                    throw new ArgumentException("data provider {0} is not a valid data context", ConfigurationManager.ConnectionStrings[dbName].ProviderName);
+                    throw new ArgumentException("data provider {0} is not a valid data context",
+                        ConfigurationManager.ConnectionStrings[dbName].ProviderName);
             }
         }
     }

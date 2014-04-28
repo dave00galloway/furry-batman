@@ -1,11 +1,9 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
@@ -23,7 +21,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I parse the text test result file as a test-suite collection")]
         public void WhenIParseTheTextTestResultFileAsATest_SuiteCollection()
         {
-            var nunitXmlParser = GetNunitTextParser();
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             nunitXmlParser.ParseTextTestResultFileAsTestSuiteCollection();
         }
 
@@ -48,19 +46,26 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             testCases.Any(x => x.PrimaryTag.Should().NotBeNullOrWhiteSpace().Equals(true));
         }
 
-        [Then(@"the following test case text results are found for these test suites keyed by containing a ""(.*)"" value:")]
-        public void ThenTheFollowingTestCaseTextResultsAreFoundForTheseTestSuitesKeyedByContainingAValue(string tableKey, Table testCasesInTestSuites)
+        [Then(
+            @"the following test case text results are found for these test suites keyed by containing a ""(.*)"" value:"
+            )]
+        public void ThenTheFollowingTestCaseTextResultsAreFoundForTheseTestSuitesKeyedByContainingAValue(
+            string tableKey, Table testCasesInTestSuites)
         {
             //Currently still just looking at the XML results here - need to add the txt results too!
-            var expectedAndActualTestCases = GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
-            var nunitXmlParser = GetNunitTextParser();
+            ExpectedAndActualTestCasesBySuiteAsIlIsts expectedAndActualTestCases =
+                GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             //var linqD = nunitXmlParser.TestCaseTextResultsToDictionary();
-            var actualXmlTestCaseResults = expectedAndActualTestCases.Actual; // now, do we add the txt results to this dict? Why not create a new type keyed by primary tag?
-            var combinedResults = nunitXmlParser.MergeTestResults(actualXmlTestCaseResults);
+            IList<IDictionary<string, object>> actualXmlTestCaseResults = expectedAndActualTestCases.Actual;
+                // now, do we add the txt results to this dict? Why not create a new type keyed by primary tag?
+            Dictionary<string, CombinedTextAndXmlResult> combinedResults =
+                nunitXmlParser.MergeTestResults(actualXmlTestCaseResults);
             //join the List of xml tests to the txt test using the primary tag, replacing the _ in the xml tag with the - in the primary tag.
             //Add some fields from txt to the expecte result set to prove the txt result has been joined
             /* Broken verification - can't check a tag is both _ and - so need to sort out in source, then change all the tests (or the other way round!)*/
-            string verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry", expectedAndActualTestCases);
+            string verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
+                expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
         }
 
@@ -68,7 +73,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the text file parser contains some text")]
         public void ThenTheTextFileParserContainsSomeText()
         {
-            var nunitXmlParser = GetNunitTextParser();
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             nunitXmlParser.fileText.Should().NotBeEmpty();
         }
     }

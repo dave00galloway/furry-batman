@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
-using System.Xml.Serialization;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 {
@@ -16,17 +12,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public NunitXmlParser(string path, FileMode mode)
         {
             SetupFileStreamAndXmlReader(path, mode);
-            loadDocumentAndSetRootNode();            
+            loadDocumentAndSetRootNode();
         }
+
         #region relative path constructor oveload
+
         //was going to overload the constrcutor to allow relative paths, but it was a bit of a specific solution to the problem, so instead the build copies the "Content" of the project (all the "other" files not directly used by the build) to the output folder.
         //  <Target Name="AfterBuild">
-          //  <Copy
-          //  DestinationFolder="$(OutputPath)\TestData"
-          //  SourceFiles="@(Content)"
-          //  SkipUnchangedFiles="false"
-          //      />
-          //</Target>
+        //  <Copy
+        //  DestinationFolder="$(OutputPath)\TestData"
+        //  SourceFiles="@(Content)"
+        //  SkipUnchangedFiles="false"
+        //      />
+        //</Target>
         //public NunitXmlParser(string fileNamePath, bool isRelative, FileMode fileMode)
         //{
         //    if (isRelative)
@@ -39,6 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         //    SetupFileStreamAndXmlReader(fileNamePath, fileMode);
         //    loadDocumentAndSetRootNode();  
         //}
+
         #endregion
 
         public FileStream fileStream { get; private set; }
@@ -47,31 +46,38 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public XmlNode xmlRoot { get; private set; }
         public string xmlString { get; private set; }
         public resultType TestResults { get; private set; }
+
         /// <summary>
-        /// the LAST environmentType node found in the report
+        ///     the LAST environmentType node found in the report
         /// </summary>
         public environmentType HostTestEnvironment { get; private set; }
+
         /// <summary>
-        /// provided so a check can be done on number of envts (should be 1)
-        /// If multiple envts are supported in a single report, then a List"environmentType" will be needed in place of a single environmentType property
+        ///     provided so a check can be done on number of envts (should be 1)
+        ///     If multiple envts are supported in a single report, then a List"environmentType" will be needed in place of a
+        ///     single environmentType property
         /// </summary>
         public XmlNodeList HostTestEnvironmentList { get; private set; }
 
         /// <summary>
-        /// the LAST cultureinfoType node found in the report
+        ///     the LAST cultureinfoType node found in the report
         /// </summary>
         public cultureinfoType CultureinfoType { get; private set; }
+
         /// <summary>
-        /// provided so a check can be done on number of cultureinfoType (should be 1)
-        /// If multiple CultureinfoTypes are supported in a single report, then a List"CultureinfoType" will be needed in place of a single environmentType property
+        ///     provided so a check can be done on number of cultureinfoType (should be 1)
+        ///     If multiple CultureinfoTypes are supported in a single report, then a List"CultureinfoType" will be needed in place
+        ///     of a single environmentType property
         /// </summary>
         public XmlNodeList CultureinfoTypeList { get; private set; }
 
         /// <summary>
-        /// List of test suites in the entire TestResults (resultType)
-        /// May need to replace this with String,testSuiteType dictionary, but at the moment there'sno way of guaranteeing a unique key - testSuiteType will need a method to build one based on it's ancestry in the TestResult
+        ///     List of test suites in the entire TestResults (resultType)
+        ///     May need to replace this with String,testSuiteType dictionary, but at the moment there'sno way of guaranteeing a
+        ///     unique key - testSuiteType will need a method to build one based on it's ancestry in the TestResult
         /// </summary>
         public List<testsuiteType> TestSuiteTypeCollection { get; private set; }
+
         public XmlNodeList TestSuiteTypeList { get; private set; }
 
         public void SetTestSuiteCollection()
@@ -99,8 +105,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
                         testSuiteTestCasesDictionary["asserts"] = testCase.asserts;
                         testSuiteTestCasesDictionary["tags"] = JoinTags(testCase);
                         addFailure(testCase, testSuiteTestCasesDictionary);
-                        testCasesByTestSuiteAsList.Add(testSuiteTestCasesDictionary);                          
-                    }                  
+                        testCasesByTestSuiteAsList.Add(testSuiteTestCasesDictionary);
+                    }
                 }
             }
             return testCasesByTestSuiteAsList;
@@ -110,17 +116,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         {
             try
             {
-                failureType failure = new failureType();
-                failure = (failureType)testCase.Item;
+                var failure = new failureType();
+                failure = (failureType) testCase.Item;
                 testSuiteTestCasesDictionary["message"] = failure.message;
                 testSuiteTestCasesDictionary["stack trace"] = failure.stacktrace;
             }
-            catch (Exception) { }
+            catch (Exception)
+            {
+            }
         }
 
         private static string JoinTags(testcaseType testCase)
         {
-            var ret = String.Format("@{0}", String.Join(",@", testCase.categories.Select(x => x.name.Replace('_', '-')).ToArray()));
+            string ret = String.Format("@{0}",
+                String.Join(",@", testCase.categories.Select(x => x.name.Replace('_', '-')).ToArray()));
             return ret;
         }
 
@@ -130,7 +139,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             TestSuiteTypeList = xmlRoot.SelectNodes("//test-suite");
             foreach (XmlNode TestSuiteTypeListItem in TestSuiteTypeList)
             {
-                testsuiteType testSuiteType = new testsuiteType();
+                var testSuiteType = new testsuiteType();
                 testSuiteType.type = TestSuiteTypeListItem.Attributes["type"].Value;
                 testSuiteType.name = TestSuiteTypeListItem.Attributes["name"].Value;
                 testSuiteType.executed = TestSuiteTypeListItem.Attributes["executed"].Value;
@@ -150,16 +159,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             {
                 if (testSuiteType.type == "TestFixture")
                 {
-                    resultsType Result = new resultsType();
+                    var Result = new resultsType();
                     XmlNode resultNode = TestSuiteTypeListItem.SelectSingleNode("descendant::results");
                     Result.Items = getTestCasesForResultsItem(resultNode);
                     testSuiteType.results = Result;
                 }
-
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception thrown while looking for results in testSuite {0}, Exception details {1} {2} {3}", testSuiteType.name, e.Message, e.Source, e.StackTrace);
+                Console.WriteLine(
+                    "Exception thrown while looking for results in testSuite {0}, Exception details {1} {2} {3}",
+                    testSuiteType.name, e.Message, e.Source, e.StackTrace);
                 //throw;
             }
         }
@@ -170,7 +180,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             XmlNodeList testCaseNodes = resultNode.SelectNodes("descendant::test-case");
             foreach (XmlNode testCaseNode in testCaseNodes)
             {
-                testcaseType testCase = new testcaseType();
+                var testCase = new testcaseType();
                 //testCase.categories = testCaseNode.Attributes["categories"].Value;
                 //private propertyType[] propertiesField;
                 //private object itemField;
@@ -198,7 +208,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
                 var failure = new failureType();
                 failure.message = itemNode.SelectSingleNode("descendant::message").InnerText;
                 failure.stacktrace = itemNode.SelectSingleNode("descendant::stack-trace").InnerText;
-                itemList = failure; 
+                itemList = failure;
             }
             //could potentially be a reasonType added here instead, but ignoring that for now as there aren't any in the current data sets
             return itemList;
@@ -231,7 +241,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         public void SetTestResults()
         {
-             TestResults = ParseAsTestResults();
+            TestResults = ParseAsTestResults();
         }
 
         public void SetTestEnvironment()
@@ -246,7 +256,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private cultureinfoType ParseAsCultureinfoType()
         {
-            cultureinfoType CultureinfoType = new cultureinfoType();
+            var CultureinfoType = new cultureinfoType();
             CultureinfoType = getLastCultureinfoTypeNode(CultureinfoType);
             return CultureinfoType;
         }
@@ -256,7 +266,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             CultureinfoTypeList = xmlRoot.SelectNodes("culture-info");
             foreach (XmlNode cultureinfoTypeListItem in CultureinfoTypeList)
             {
-                cultureinfoType cultureinfoTypeItem = new cultureinfoType();
+                var cultureinfoTypeItem = new cultureinfoType();
                 XmlAttributeCollection cultureinfoTypeItemAttributes = cultureinfoTypeListItem.Attributes;
                 cultureinfoTypeItem.currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
                 cultureinfoTypeItem.currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
@@ -267,7 +277,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private environmentType ParseAsHostTestEnvironment()
         {
-            environmentType EnvironmentType = new environmentType();
+            var EnvironmentType = new environmentType();
             EnvironmentType = getLastEnvironmentTypeNode(EnvironmentType);
             return EnvironmentType;
         }
@@ -277,7 +287,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             HostTestEnvironmentList = xmlRoot.SelectNodes("//environment");
             foreach (XmlNode hostTestEnvironment in HostTestEnvironmentList)
             {
-                environmentType hostTestEnvironmentType = new environmentType();
+                var hostTestEnvironmentType = new environmentType();
                 XmlAttributeCollection hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
                 hostTestEnvironmentType.nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
                 hostTestEnvironmentType.clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
@@ -294,7 +304,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private resultType ParseAsTestResults()
         {
-            resultType TestResults = new resultType();
+            var TestResults = new resultType();
             XmlAttributeCollection rootAttributes = xmlRoot.Attributes;
             TestResults.name = rootAttributes["name"].Value;
             TestResults.total = decimal.Parse(rootAttributes["total"].Value);
@@ -311,14 +321,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         }
 
         /// <summary>
-        /// Use this to check there is some xml content, but don't use it for vlaidating the content!
-        /// based on
-        /// http://msdn.microsoft.com/en-us/library/xaxy929c.aspx
+        ///     Use this to check there is some xml content, but don't use it for vlaidating the content!
+        ///     based on
+        ///     http://msdn.microsoft.com/en-us/library/xaxy929c.aspx
         /// </summary>
         /// <returns>a string containing some of the xml</returns>
         public string DebugReadXmlAsString()
         {
-            StringBuilder xmlAsString = new StringBuilder();
+            var xmlAsString = new StringBuilder();
             while (xmlReader.Read())
             {
                 if (xmlReader.IsStartElement())
@@ -412,8 +422,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         //    //throw new NotImplementedException();
         //    return (resultType)xmlSerializer.Deserialize(xmlReader);
         //}
-        
-        #endregion
 
+        #endregion
     }
 }

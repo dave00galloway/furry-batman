@@ -1,9 +1,6 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions;
+﻿using System;
+using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
@@ -14,28 +11,23 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         private static readonly string RANDOM_FILENAME = "randomFileName";
         private static readonly string TIME_NOW_IS = "timeNowIs";
 
-        public ShareContextSteps()
-        {
-
-        }
-
         [Given(@"I access the static object")]
         public void GivenIAccessTheStaticObject()
         {
-            var timeNowIs = Context.TestRunContext.StaticTime;
-            var randomFileName = Context.TestRunContext.StaticRandom;
+            string timeNowIs = TestRunContext.StaticTime;
+            string randomFileName = TestRunContext.StaticRandom;
             ScenarioContext.Current.Add(TIME_NOW_IS, timeNowIs);
             ScenarioContext.Current.Add(RANDOM_FILENAME, randomFileName);
 
             if (!FeatureContext.Current.ContainsKey(TIME_NOW_IS))
             {
-                FeatureContext.Current.Add(TIME_NOW_IS, timeNowIs);   
+                FeatureContext.Current.Add(TIME_NOW_IS, timeNowIs);
             }
 
             if (!FeatureContext.Current.ContainsKey(RANDOM_FILENAME))
             {
                 FeatureContext.Current.Add(RANDOM_FILENAME, randomFileName);
-            }   
+            }
         }
 
         [When(@"I display the static object ""(.*)"" property")]

@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FluentAssertions;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
 {
     /// <summary>
-    /// Provides a static method (that) for catching the output of Fluent Assertion exceptions to use as verifications
+    ///     Provides a static method (that) for catching the output of Fluent Assertion exceptions to use as verifications
     /// </summary>
     public class Verify
     {
@@ -20,7 +17,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                 case CompareUsing.SHOULD_BE:
                     try
                     {
-                        First.Should().Be(Second,Message);
+                        First.Should().Be(Second, Message);
                     }
                     catch (Exception e)
                     {
@@ -31,7 +28,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     try
                     {
                         var firstAsEnumerable = First.As<IEnumerable<object>>();
-                        firstAsEnumerable.Should().HaveCount((int)(Second), Message);
+                        firstAsEnumerable.Should().HaveCount((int) (Second), Message);
                     }
                     catch (Exception e)
                     {
@@ -39,7 +36,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     }
                     break;
                 default:
-                    that = String.Format("unable to compare First value {0} with Second value {1} using comparer Is {2}", First.ToString(), Second.ToString(), Enum.GetName(typeof(CompareUsing), Is));
+                    that = String.Format(
+                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", First, Second,
+                        Enum.GetName(typeof (CompareUsing), Is));
                     break;
             }
             if (that != "")
@@ -89,11 +88,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     }
                     catch (Exception e)
                     {
-                        that = e.Message; //.Replace("\\",""); TODO:- properly escape  Fluent Assertion formatting                     
+                        that = e.Message;
+                            //.Replace("\\",""); TODO:- properly escape  Fluent Assertion formatting                     
                     }
                     break;
                 default:
-                    that = String.Format("unable to compare First value {0} with Second value {1} using comparer Is {2}", First.ToString(), Second.ToString(), Enum.GetName(typeof(CompareUsing),Is));
+                    that = String.Format(
+                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", First, Second,
+                        Enum.GetName(typeof (CompareUsing), Is));
                     break;
             }
             if (that != "")
@@ -113,6 +115,5 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
             }
             return verificationString;
         }
-      
     }
 }

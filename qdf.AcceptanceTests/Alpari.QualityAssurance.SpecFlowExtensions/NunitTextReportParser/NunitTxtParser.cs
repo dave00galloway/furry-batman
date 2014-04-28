@@ -1,28 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 {
     public class NunitTxtParser
     {
-        public IEnumerable<string> fileText { get; private set; }
-
         public NunitTxtParser(string fileNamePath)
         {
             ReadTextFile(fileNamePath);
-            this.TestCases = new List<TestCaseTextResult>();
-
+            TestCases = new List<TestCaseTextResult>();
         }
+
+        public IEnumerable<string> fileText { get; private set; }
+
+        public IList<TestCaseTextResult> TestCases { get; set; }
 
         private void ReadTextFile(string fileNamePath)
         {
             fileText = File.ReadAllLines(fileNamePath);
         }
-
-        public IList<TestCaseTextResult> TestCases { get; set; }
 
         public void ParseTextTestResultFileAsTestSuiteCollection()
         {
@@ -31,31 +28,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             {
                 if (AddNewTestCase(line))
                 {
-                    continue;
                 }
                     //todo : parameterise for projet name / primary tag key being different
-                else if (AddTagList(line, "@TES-"))
+                if (AddTagList(line, "@TES-"))
                 {
-                    continue;
                 }
-                else if (AddTestStepResult(line))
+                if (AddTestStepResult(line))
                 {
-                    continue;
                 }
-                else if (AddTestStepResultDetail(line))
+                if (AddTestStepResultDetail(line))
                 {
-                    continue;
                 }
-                else
-                {
-                    AddTestCaseShortName(line);
-                }
+                AddTestCaseShortName(line);
             }
         }
 
         private bool AddTestStepResultDetail(string line)
         {
-            if (TestCases.Last().TestStepResults.Count > 0 )
+            if (TestCases.Last().TestStepResults.Count > 0)
             {
                 TestCases.Last().TestStepResults.Last().StepDetails.Add(line);
                 return true;
@@ -65,7 +55,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 
         private bool AddTestStepResult(string line)
         {
-            var firstWord = line.Split(' ').ToList().First();
+            string firstWord = line.Split(' ').ToList().First();
 
             switch (firstWord)
             {
@@ -105,9 +95,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
         {
             if (line.StartsWith("Tags:- "))
             {
-                var taglist = line.Replace("Tags:- ", "");
+                string taglist = line.Replace("Tags:- ", "");
                 //var testCase = TestCases.ElementAt(TestCases.Count-1);
-                var testCase = TestCases.Last();
+                TestCaseTextResult testCase = TestCases.Last();
                 testCase.setTags(taglist, primaryTagId);
                 return true;
             }
@@ -125,10 +115,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             //}
             // is equivalent to:-
             //var linqD = testCases.ToDictionary(x => x.PrimaryTag); //  now has all the correct data - Now don't need to converttestcase results to dictionaries
-            return this.TestCases.ToDictionary(x => x.PrimaryTag); //  now has all the correct data - Now don't need to converttestcase results to dictionaries
+            return TestCases.ToDictionary(x => x.PrimaryTag);
+                //  now has all the correct data - Now don't need to converttestcase results to dictionaries
         }
 
-        public Dictionary<string, CombinedTextAndXmlResult> MergeTestResults(IList<IDictionary<string, object>> actualXmlTestCaseResults)
+        public Dictionary<string, CombinedTextAndXmlResult> MergeTestResults(
+            IList<IDictionary<string, object>> actualXmlTestCaseResults)
         {
             // Dictionary<string, CombinedTextAndXmlResult> mergedResults = new Dictionary<string, CombinedTextAndXmlResult>() ;
             // Dictionary<string, TestCaseTextResult> textResults = this.TestCaseTextResultsToDictionary();
@@ -140,9 +132,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             //}
             //return query.ToDictionary(x => x.textResult.PrimaryTag);
             //var sdq = textResults.AsEnumerable().Select(textResult => new CombinedTextAndXmlResult(textResult.Value, actualXmlTestCaseResults));
-            return this.TestCaseTextResultsToDictionary()//.AsEnumerable() // Do I need this?
+            return TestCaseTextResultsToDictionary() //.AsEnumerable() // Do I need this?
                 .Select(textResult => new CombinedTextAndXmlResult(textResult.Value, actualXmlTestCaseResults))
-                .ToDictionary(x => x.textResult.PrimaryTag);            
+                .ToDictionary(x => x.textResult.PrimaryTag);
         }
     }
 }

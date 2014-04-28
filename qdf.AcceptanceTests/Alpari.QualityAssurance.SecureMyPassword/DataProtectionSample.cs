@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QualityAssurance.SecureMyPassword
 {
     public static class DataProtectionSample
     {
         // Create byte array for additional entropy when using Protect method. 
-        private static byte[] s_aditionalEntropy = { 9, 4, 7, 3, 5 };
+        private static byte[] s_aditionalEntropy = {9, 4, 7, 3, 5};
 
         public static byte[] Protect(this byte[] data)
         {
@@ -18,7 +16,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             {
                 // Encrypt the data using DataProtectionScope.CurrentUser. The result can be decrypted 
                 //  only by the same current user. 
-                return ProtectedData.Protect(data, null, DataProtectionScope.CurrentUser);                
+                return ProtectedData.Protect(data, null, DataProtectionScope.CurrentUser);
             }
             catch (CryptographicException e)
             {
@@ -60,16 +58,16 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            var query = stringToConvert.ToArray<char>().Select(x => Convert.ToByte(x));
-            return query.ToArray<byte>();
+            IEnumerable<byte> query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
+            return query.ToArray();
         }
 
-        public static string ByteArrayToString(this byte[] data,string separator)
+        public static string ByteArrayToString(this byte[] data, string separator)
         {
             string byteArrayAsString = null;
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            byteArrayAsString = String.Join(separator,data.Select(x => x.ToString()).ToArray());
+            byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
             //
             return byteArrayAsString;
         }
@@ -77,7 +75,8 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         public static string CharByteArrayToString(this byte[] data)
         {
             string byteArrayAsString = null;
-            var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
+            List<string> stringQuery =
+                data.Select(x => Convert.ToChar(x)).Select(x => byteArrayAsString += x.ToString()).ToList();
             // byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
             //
             return byteArrayAsString;
@@ -85,10 +84,9 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static byte[] StringToByteArray(this string data, char separator)
         {
-            
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            byte[]  byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             //
 
             return byteArray;

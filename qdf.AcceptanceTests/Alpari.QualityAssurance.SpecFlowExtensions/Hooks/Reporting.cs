@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Hooks
@@ -17,7 +15,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Hooks
             Console.WriteLine(ScenarioContext.Current.ScenarioInfo.Title);
             //TODO:- parameterise the replacement tag so that it's not Jira project specific!
             // string tags = JoinedTags().Replace("TES_", "TES-");
-            Console.WriteLine(String.Format("Tags:- @{0}", JoinedTags()));
+            Console.WriteLine("Tags:- @{0}", JoinedTags());
             Console.WriteLine("");
         }
 

@@ -1,9 +1,10 @@
-﻿using System;
+﻿using System.Collections.Generic;
+
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public interface ICsvColumnDefinition
     {
-        System.Collections.Generic.Dictionary<string, int> ColumnDefinitionDictionary { get; }
-        void SetupPropertiesAndDictionary(System.Collections.Generic.List<string> columns);
+        Dictionary<string, int> ColumnDefinitionDictionary { get; }
+        void SetupPropertiesAndDictionary(List<string> columns);
     }
 }

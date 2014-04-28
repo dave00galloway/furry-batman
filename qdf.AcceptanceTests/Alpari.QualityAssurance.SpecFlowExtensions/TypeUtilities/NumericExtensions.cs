@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
-    /// Contains methods for performing operations on numeric types, e.g. maths, rounding etc.
+    ///     Contains methods for performing operations on numeric types, e.g. maths, rounding etc.
     /// </summary>
     public static class NumericExtensions
     {
         /// <summary>
-        /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
+        ///     http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<double> CumulativeSum(this IEnumerable<double> sequence)
         {
             double sum = 0;
-            foreach (var item in sequence)
+            foreach (double item in sequence)
             {
                 sum += item;
                 yield return sum;
@@ -27,14 +24,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
+        ///     http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<decimal> CumulativeSum(this IEnumerable<decimal> sequence)
         {
             decimal sum = 0;
-            foreach (var item in sequence)
+            foreach (decimal item in sequence)
             {
                 sum += item;
                 yield return sum;
@@ -42,14 +39,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
+        ///     http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<decimal> CumulativeSumToDecimal<T>(this IEnumerable<T> sequence)
         {
             decimal sum = 0;
-            foreach (var item in sequence)
+            foreach (T item in sequence)
             {
                 sum += Convert.ToDecimal(item);
                 yield return sum;
@@ -57,17 +54,18 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
-        /// take a set of numbers of any type and return as a set of doubles, cumulatively summed
-        /// not quite as generic as hoped as the output type is fixed as double, but  better than creating all variations of this manually
-        /// will throw errors if T is not convertable to a double
+        ///     http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
+        ///     take a set of numbers of any type and return as a set of doubles, cumulatively summed
+        ///     not quite as generic as hoped as the output type is fixed as double, but  better than creating all variations of
+        ///     this manually
+        ///     will throw errors if T is not convertable to a double
         /// </summary>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<double> CumulativeSum<T>(this IEnumerable<T> sequence)
         {
             double sum = 0;
-            foreach (var item in sequence)
+            foreach (T item in sequence)
             {
                 sum += Convert.ToDouble(item);
                 yield return sum;

@@ -9,109 +9,130 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
+
 #region Designer generated code
+
+using TechTalk.SpecFlow;
+
 #pragma warning disable
+
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Specs
 {
-    using TechTalk.SpecFlow;
-    
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("EnableCrossStepDefinitionCallsOne")]
     public partial class EnableCrossStepDefinitionCallsOneFeature
     {
-        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-        
+
 #line 1 "EnableCrossStepDefinitionCallsOne.feature"
 #line hidden
-        
+
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "EnableCrossStepDefinitionCallsOne", "In order to avoid circular dependencies\r\nAs a Test Designer\r\nI want to be able to" +
-                    " store and retrieve references to step definitions via the scenario context", ProgrammingLanguage.CSharp, ((string[])(null)));
+            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"),
+                "EnableCrossStepDefinitionCallsOne",
+                "In order to avoid circular dependencies\r\nAs a Test Designer\r\nI want to be able to" +
+                " store and retrieve references to step definitions via the scenario context",
+                ProgrammingLanguage.CSharp, ((string[]) (null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-        
+
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-        
+
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-        
+
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-        
+
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-        
+
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A lazy write once property set in an earlier call to a step def remains the same " +
+        [NUnit.Framework.DescriptionAttribute(
+            "A lazy write once property set in an earlier call to a step def remains the same " +
             "value after subsequent calls to the same step def")]
         [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void ALazyWriteOncePropertySetInAnEarlierCallToAStepDefRemainsTheSameValueAfterSubsequentCallsToTheSameStepDef()
+        public virtual void
+            ALazyWriteOncePropertySetInAnEarlierCallToAStepDefRemainsTheSameValueAfterSubsequentCallsToTheSameStepDef()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A lazy write once property set in an earlier call to a step def remains the same " +
-                    "value after subsequent calls to the same step def", new string[] {
-                        "mytag"});
+            var scenarioInfo =
+                new TechTalk.SpecFlow.ScenarioInfo(
+                    "A lazy write once property set in an earlier call to a step def remains the same " +
+                    "value after subsequent calls to the same step def", new string[]
+                    {
+                        "mytag"
+                    });
 #line 7
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("I have called a method which sets a lazy property in step definition file one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given("I have called a method which sets a lazy property in step definition file one",
+                ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Given ");
 #line 9
- testRunner.When("I call a method in step definition two that calls the same method in step definit" +
-                    "ion file one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When("I call a method in step definition two that calls the same method in step definit" +
+                            "ion file one", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
 #line 10
- testRunner.Then("The current and new lazy property values are the same", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.Then("The current and new lazy property values are the same", ((string) (null)),
+                ((TechTalk.SpecFlow.Table) (null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-        
+
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("A call to a step def via another step def when the called step def has not been d" +
+        [NUnit.Framework.DescriptionAttribute(
+            "A call to a step def via another step def when the called step def has not been d" +
             "irectly instantiated")]
         [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void ACallToAStepDefViaAnotherStepDefWhenTheCalledStepDefHasNotBeenDirectlyInstantiated()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("A call to a step def via another step def when the called step def has not been d" +
-                    "irectly instantiated", new string[] {
-                        "mytag"});
+            var scenarioInfo =
+                new TechTalk.SpecFlow.ScenarioInfo(
+                    "A call to a step def via another step def when the called step def has not been d" +
+                    "irectly instantiated", new string[]
+                    {
+                        "mytag"
+                    });
 #line 13
-this.ScenarioSetup(scenarioInfo);
+            this.ScenarioSetup(scenarioInfo);
 #line 14
- testRunner.Given("I create an instance of step definition one from step definition two", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            testRunner.Given("I create an instance of step definition one from step definition two", ((string) (null)),
+                ((TechTalk.SpecFlow.Table) (null)), "Given ");
 #line 15
-  testRunner.And("I call a method in step definition two that calls the same method in step definit" +
-                    "ion file one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+            testRunner.And("I call a method in step definition two that calls the same method in step definit" +
+                           "ion file one", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "And ");
 #line 16
- testRunner.When("I call a method in step definition two that calls the same method in step definit" +
-                    "ion file one", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+            testRunner.When("I call a method in step definition two that calls the same method in step definit" +
+                            "ion file one", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
 #line 17
- testRunner.Then("The current and new lazy property values are the same", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+            testRunner.Then("The current and new lazy property values are the same", ((string) (null)),
+                ((TechTalk.SpecFlow.Table) (null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
+
 #pragma warning restore
+
 #endregion

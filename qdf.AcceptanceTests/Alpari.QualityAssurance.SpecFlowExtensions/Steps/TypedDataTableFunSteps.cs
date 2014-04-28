@@ -1,12 +1,10 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
-using FluentAssertions;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 {
@@ -41,10 +39,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I compare the ""(.*)"" and ""(.*)"" person data")]
         public void WhenICompareTheAndPersonData(string first, string second)
         {
-            var keys = new string[] { "ID", "Lastname" };
-            var exp = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,"expected",keys);
-            var act = new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,"actual",keys);
-            var diffs = exp.Compare(act);
+            var keys = new[] {"ID", "Lastname"};
+            PersonData exp =
+                new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,
+                    "expected", keys);
+            PersonData act =
+                new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,
+                    "actual", keys);
+            DataTableComparison diffs = exp.Compare(act);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
@@ -62,7 +64,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the person data should contain (.*) ""(.*)""")]
         public void ThenThePersonDataShouldContain(int diffCount, string diffType)
         {
-            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            var diffs = (DataTableComparison) ScenarioContext.Current["diffs"];
             diffs.CheckForDifferences().Should().NotBeNullOrWhiteSpace();
             switch (diffType.ToLower())
             {
@@ -82,6 +84,5 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
                     throw new ArgumentException("diffType {0} not recognised", diffType);
             }
         }
-
     }
 }

@@ -1,48 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17929")]
-    [System.SerializableAttribute()]
+    /// <remarks />
+    [GeneratedCode("xsd", "4.0.30319.17929")]
+    [Serializable]
     //[System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName = "culture-infoType")]
+    [DesignerCategory("code")]
+    [XmlType(TypeName = "culture-infoType")]
     public class cultureinfoType
     {
         private string currentcultureField;
         private string currentuicultureField;
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("current-culture")]
+        /// <remarks />
+        [XmlAttribute("current-culture")]
         public string currentculture
         {
-            get
-            {
-                return this.currentcultureField;
-            }
-            set
-            {
-                this.currentcultureField = value;
-            }
+            get { return currentcultureField; }
+            set { currentcultureField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("current-uiculture")]
+        /// <remarks />
+        [XmlAttribute("current-uiculture")]
         public string currentuiculture
         {
-            get
-            {
-                return this.currentuicultureField;
-            }
-            set
-            {
-                this.currentuicultureField = value;
-            }
+            get { return currentuicultureField; }
+            set { currentuicultureField = value; }
         }
     }
 }

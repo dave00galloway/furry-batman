@@ -1,9 +1,11 @@
-﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
+﻿using System.Data;
+
+namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 {
     public interface IDataContextSubstitute
     {
-        System.Data.DataSet SelectDataAsDataSet(string mySelectQuery);
-        System.Data.DataTable SelectDataAsDataTable(string mySelectQuery);
-        System.Data.DataView SelectDataAsDataView(string mySelectQuery);
+        DataSet SelectDataAsDataSet(string mySelectQuery);
+        DataTable SelectDataAsDataTable(string mySelectQuery);
+        DataView SelectDataAsDataView(string mySelectQuery);
     }
 }

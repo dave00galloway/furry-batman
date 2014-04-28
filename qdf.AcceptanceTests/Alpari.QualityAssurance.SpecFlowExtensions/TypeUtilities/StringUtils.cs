@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
-    /// methods for converting to/from strings
+    ///     methods for converting to/from strings
     /// </summary>
     public static class StringUtils
     {
         /// <summary>
-        /// get all numbers from the char array and create a double from it
-        /// additional overloads may be required if non-contiguous numbers are to be treated as seperate numbers or ignored
+        ///     get all numbers from the char array and create a double from it
+        ///     additional overloads may be required if non-contiguous numbers are to be treated as seperate numbers or ignored
         /// </summary>
         /// <param name="characters"></param>
         /// <returns></returns>
@@ -45,7 +43,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return Letters;
         }
 
-        public static string padZeros(this object digit,int length)
+        public static string padZeros(this object digit, int length)
         {
             string padZeros = digit.ToString();
             while (padZeros.Length < length)
@@ -57,8 +55,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            var query = stringToConvert.ToArray<char>().Select(x => Convert.ToByte(x));
-            return query.ToArray<byte>();
+            IEnumerable<byte> query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
+            return query.ToArray();
         }
 
         public static string ByteArrayToString(this byte[] data, string separator)
@@ -74,6 +72,5 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             return byteArray;
         }
-
     }
 }

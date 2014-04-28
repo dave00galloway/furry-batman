@@ -1,30 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
-    /// methods for converting to/from datetime
+    ///     methods for converting to/from datetime
     /// </summary>
     public static class DateTimeUtils
     {
-
         /// <summary>
-        /// use this where MySql expects date time in the format yyyy-MM-dd H:mm:ss e.g. 2014-04-17 10:47:34
+        ///     use this where MySql expects date time in the format yyyy-MM-dd H:mm:ss e.g. 2014-04-17 10:47:34
         /// </summary>
         public static readonly string MySqlDateFormatToSeconds = "yyyy-MM-dd H:mm:ss";
 
         public static string ConvertDateTimeToMySqlDateFormatToSeconds(this DateTime dateTime)
         {
-            string dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2), dateTime.Day.padZeros(2), dateTime.Hour.padZeros(2), dateTime.Minute.padZeros(2), dateTime.Second.padZeros(2));
+            string dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2),
+                dateTime.Day.padZeros(2), dateTime.Hour.padZeros(2), dateTime.Minute.padZeros(2),
+                dateTime.Second.padZeros(2));
             return dateAsString;
         }
 
         /// <summary>
-        /// Create a datetime from a shorthand string code relative to current date
+        ///     Create a datetime from a shorthand string code relative to current date
         /// </summary>
         /// <param name="shortCode">format +\- magnitude units</param>
         /// <returns>equivalent datetime</returns>
@@ -39,11 +36,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             string units;
             ParseShortCode(shortCode, out magnitude, out units);
             return ConvertShortCodeToDate(DateTime.UtcNow, magnitude, units);
-            
         }
 
         /// <summary>
-        /// overload that allows a refernce start date
+        ///     overload that allows a refernce start date
         /// </summary>
         /// <param name="shortCode">format +\- magnitude units</param>
         /// <param name="startDate">reference date</param>
@@ -90,7 +86,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     return startDate.AddSeconds(magnitude);
                 case "TICKS":
                 case "T":
-                    return startDate.AddTicks((long)magnitude);
+                    return startDate.AddTicks((long) magnitude);
                 case "YEARS":
                 case "YRS":
                 case "YR":
@@ -98,7 +94,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 case "Y":
                     return startDate.AddYears(Convert.ToInt32(magnitude));
                 default:
-                    throw new ArgumentException(String.Format("parameter units '{0}' is not recognised as a valid time period", units));
+                    throw new ArgumentException(
+                        String.Format("parameter units '{0}' is not recognised as a valid time period", units));
             }
         }
 
@@ -107,7 +104,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             char[] characters = shortCode.ToCharArray();
             //get the sign. if plus or a number then assume +
             bool sign = IsCharAPlus(characters, 0);
-            magnitude = sign ? characters.ExtractDoubleFromCharArray() : characters.ExtractDoubleFromCharArray() * -1;
+            magnitude = sign ? characters.ExtractDoubleFromCharArray() : characters.ExtractDoubleFromCharArray()*-1;
             units = characters.ExtractLettersFromCharArray();
         }
 
@@ -120,6 +117,5 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             return sign;
         }
-
     }
 }

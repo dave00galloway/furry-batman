@@ -5,7 +5,6 @@
         public AdHocMySqlDataContext(string connectionString)
             : base(connectionString)
         {
-
         }
     }
 }

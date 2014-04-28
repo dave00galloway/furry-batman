@@ -23,13 +23,13 @@
 ////[System.ComponentModel.DesignerCategoryAttribute("code")]
 ////[System.Xml.Serialization.XmlRootAttribute("test-results", Namespace="", IsNullable=false)]
 ////public partial class resultType {
-    
+
 ////    private environmentType environmentField;
-    
+
 ////    private cultureinfoType cultureinfoField;
-    
+
 ////   // private testsuiteType testsuiteField;
-    
+
 ////    private string nameField;    
 ////    private decimal totalField;    
 ////    private decimal errorsField;    
@@ -41,7 +41,7 @@
 ////    private decimal invalidField;    
 ////    private string dateField;    
 ////    private string timeField;
-       
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string name {
@@ -52,7 +52,7 @@
 ////            this.nameField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal total {
@@ -63,7 +63,7 @@
 ////            this.totalField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal errors {
@@ -74,7 +74,7 @@
 ////            this.errorsField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal failures {
@@ -85,7 +85,7 @@
 ////            this.failuresField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal inconclusive {
@@ -96,7 +96,7 @@
 ////            this.inconclusiveField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("not-run")]
 ////    public decimal notrun {
@@ -107,7 +107,7 @@
 ////            this.notrunField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal ignored {
@@ -118,7 +118,7 @@
 ////            this.ignoredField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal skipped {
@@ -129,7 +129,7 @@
 ////            this.skippedField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public decimal invalid {
@@ -140,7 +140,7 @@
 ////            this.invalidField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string date {
@@ -151,7 +151,7 @@
 ////            this.dateField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string time {
@@ -170,23 +170,23 @@
 ////[System.Diagnostics.DebuggerStepThroughAttribute()]
 ////[System.ComponentModel.DesignerCategoryAttribute("code")]
 ////public partial class environmentType {
-    
+
 ////    private string nunitversionField;
-    
+
 ////    private string clrversionField;
-    
+
 ////    private string osversionField;
-    
+
 ////    private string platformField;
-    
+
 ////    private string cwdField;
-    
+
 ////    private string machinenameField;
-    
+
 ////    private string userField;
-    
+
 ////    private string userdomainField;
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("nunit-version")]
 ////    public string nunitversion {
@@ -197,7 +197,7 @@
 ////            this.nunitversionField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("clr-version")]
 ////    public string clrversion {
@@ -208,7 +208,7 @@
 ////            this.clrversionField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("os-version")]
 ////    public string osversion {
@@ -219,7 +219,7 @@
 ////            this.osversionField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string platform {
@@ -230,7 +230,7 @@
 ////            this.platformField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string cwd {
@@ -241,7 +241,7 @@
 ////            this.cwdField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("machine-name")]
 ////    public string machinename {
@@ -252,7 +252,7 @@
 ////            this.machinenameField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string user {
@@ -263,7 +263,7 @@
 ////            this.userField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute("user-domain")]
 ////    public string userdomain {
@@ -283,27 +283,27 @@
 ////[System.ComponentModel.DesignerCategoryAttribute("code")]
 ////[System.Xml.Serialization.XmlTypeAttribute(TypeName="test-caseType")]
 ////public partial class testcaseType {
-    
+
 ////    private categoryType[] categoriesField;
-    
+
 ////    private propertyType[] propertiesField;
-    
+
 ////    private object itemField;
-    
+
 ////    private string nameField;
-    
+
 ////    private string descriptionField;
-    
+
 ////    private string successField;
-    
+
 ////    private string timeField;
-    
+
 ////    private string executedField;
-    
+
 ////    private string assertsField;
-    
+
 ////    private string resultField;
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlArrayItemAttribute("category", IsNullable=false)]
 ////    public categoryType[] categories {
@@ -314,7 +314,7 @@
 ////            this.categoriesField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlArrayItemAttribute("property", IsNullable=false)]
 ////    public propertyType[] properties {
@@ -325,7 +325,7 @@
 ////            this.propertiesField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlElementAttribute("failure", typeof(failureType))]
 ////    [System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
@@ -337,7 +337,7 @@
 ////            this.itemField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string name {
@@ -348,7 +348,7 @@
 ////            this.nameField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string description {
@@ -359,7 +359,7 @@
 ////            this.descriptionField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string success {
@@ -370,7 +370,7 @@
 ////            this.successField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string time {
@@ -381,7 +381,7 @@
 ////            this.timeField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string executed {
@@ -392,7 +392,7 @@
 ////            this.executedField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string asserts {
@@ -403,7 +403,7 @@
 ////            this.assertsField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string result {
@@ -422,9 +422,9 @@
 ////[System.Diagnostics.DebuggerStepThroughAttribute()]
 ////[System.ComponentModel.DesignerCategoryAttribute("code")]
 ////public partial class categoryType {
-    
+
 ////    private string nameField;
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string name {
@@ -443,11 +443,11 @@
 //[System.Diagnostics.DebuggerStepThroughAttribute()]
 //[System.ComponentModel.DesignerCategoryAttribute("code")]
 //public partial class propertyType {
-    
+
 //    private string nameField;
-    
+
 //    private string valueField;
-    
+
 //    /// <remarks/>
 //    [System.Xml.Serialization.XmlAttributeAttribute()]
 //    public string name {
@@ -458,7 +458,7 @@
 //            this.nameField = value;
 //        }
 //    }
-    
+
 //    /// <remarks/>
 //    [System.Xml.Serialization.XmlAttributeAttribute()]
 //    public string value {
@@ -517,9 +517,9 @@
 //[System.Diagnostics.DebuggerStepThroughAttribute()]
 //[System.ComponentModel.DesignerCategoryAttribute("code")]
 //public partial class reasonType {
-    
+
 //    private string messageField;
-    
+
 //    /// <remarks/>
 //    public string message {
 //        get {
@@ -565,31 +565,31 @@
 ////[System.ComponentModel.DesignerCategoryAttribute("code")]
 ////[System.Xml.Serialization.XmlTypeAttribute(TypeName="test-suiteType")]
 ////public partial class testsuiteType {
-    
+
 ////    private categoryType[] categoriesField;
-    
+
 ////    private propertyType[] propertiesField;
-    
+
 ////    private object itemField;
-    
+
 ////    private resultsType resultsField;
-    
+
 ////    private string typeField;
-    
+
 ////    private string nameField;
-    
+
 ////    private string descriptionField;
-    
+
 ////    private string successField;
-    
+
 ////    private string timeField;
-    
+
 ////    private string executedField;
-    
+
 ////    private string assertsField;
-    
+
 ////    private string resultField;
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlArrayItemAttribute("category", IsNullable=false)]
 ////    public categoryType[] categories {
@@ -600,7 +600,7 @@
 ////            this.categoriesField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlArrayItemAttribute("property", IsNullable=false)]
 ////    public propertyType[] properties {
@@ -611,7 +611,7 @@
 ////            this.propertiesField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlElementAttribute("failure", typeof(failureType))]
 ////    [System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
@@ -623,7 +623,7 @@
 ////            this.itemField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    public resultsType results {
 ////        get {
@@ -633,7 +633,7 @@
 ////            this.resultsField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string type {
@@ -644,7 +644,7 @@
 ////            this.typeField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string name {
@@ -655,7 +655,7 @@
 ////            this.nameField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string description {
@@ -666,7 +666,7 @@
 ////            this.descriptionField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string success {
@@ -677,7 +677,7 @@
 ////            this.successField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string time {
@@ -688,7 +688,7 @@
 ////            this.timeField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string executed {
@@ -699,7 +699,7 @@
 ////            this.executedField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string asserts {
@@ -710,7 +710,7 @@
 ////            this.assertsField = value;
 ////        }
 ////    }
-    
+
 ////    /// <remarks/>
 ////    [System.Xml.Serialization.XmlAttributeAttribute()]
 ////    public string result {
@@ -730,11 +730,11 @@
 //[System.ComponentModel.DesignerCategoryAttribute("code")]
 //[System.Xml.Serialization.XmlTypeAttribute(TypeName="culture-infoType")]
 //public partial class cultureinfoType {
-    
+
 //    private string currentcultureField;
-    
+
 //    private string currentuicultureField;
-    
+
 //    /// <remarks/>
 //    [System.Xml.Serialization.XmlAttributeAttribute("current-culture")]
 //    public string currentculture {
@@ -745,7 +745,7 @@
 //            this.currentcultureField = value;
 //        }
 //    }
-    
+
 //    /// <remarks/>
 //    [System.Xml.Serialization.XmlAttributeAttribute("current-uiculture")]
 //    public string currentuiculture {
@@ -757,3 +757,4 @@
 //        }
 //    }
 //}
+

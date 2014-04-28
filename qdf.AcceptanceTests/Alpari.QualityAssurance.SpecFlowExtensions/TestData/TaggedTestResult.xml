@@ -1,24 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
 <!--This file represents the results of running a test suite-->
-<test-results name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll" total="9" errors="0" failures="2" not-run="0" inconclusive="4" ignored="0" skipped="0" invalid="0" date="2014-02-05" time="09:09:58">
-  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5472" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.3\bin" machine-name="AUK0231NB" user="dgalloway" user-domain="ALPARI-UK" />
+<test-results
+  name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll"
+  total="9" errors="0" failures="2" not-run="0" inconclusive="4" ignored="0" skipped="0" invalid="0" date="2014-02-05"
+  time="09:09:58">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.5472"
+               os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT"
+               cwd="C:\Program Files (x86)\NUnit 2.6.3\bin" machine-name="AUK0231NB" user="dgalloway"
+               user-domain="ALPARI-UK" />
   <culture-info current-culture="en-GB" current-uiculture="en-US" />
-  <test-suite type="Assembly" name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll" executed="True" result="Failure" success="False" time="1.282" asserts="0">
+  <test-suite type="Assembly"
+              name="C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\Alpari.QualityAssurance.SpecFlowExtensions\bin\Debug\Alpari.QualityAssurance.SpecFlowExtensions.dll"
+              executed="True" result="Failure" success="False" time="1.282" asserts="0">
     <results>
-      <test-suite type="Namespace" name="Alpari" executed="True" result="Failure" success="False" time="1.263" asserts="0">
+      <test-suite type="Namespace" name="Alpari" executed="True" result="Failure" success="False" time="1.263"
+                  asserts="0">
         <results>
-          <test-suite type="Namespace" name="QualityAssurance" executed="True" result="Failure" success="False" time="1.263" asserts="0">
+          <test-suite type="Namespace" name="QualityAssurance" executed="True" result="Failure" success="False"
+                      time="1.263" asserts="0">
             <results>
-              <test-suite type="Namespace" name="SpecFlowExtensions" executed="True" result="Failure" success="False" time="1.263" asserts="0">
+              <test-suite type="Namespace" name="SpecFlowExtensions" executed="True" result="Failure" success="False"
+                          time="1.263" asserts="0">
                 <results>
-                  <test-suite type="Namespace" name="Specs" executed="True" result="Failure" success="False" time="1.262" asserts="0">
+                  <test-suite type="Namespace" name="Specs" executed="True" result="Failure" success="False"
+                              time="1.262" asserts="0">
                     <results>
-                      <test-suite type="TestFixture" name="CreateMixtureOfTestResults001Feature" description="CreateMixtureOfTestResults001" executed="True" result="Failure" success="False" time="1.238" asserts="0">
+                      <test-suite type="TestFixture" name="CreateMixtureOfTestResults001Feature"
+                                  description="CreateMixtureOfTestResults001" executed="True" result="Failure"
+                                  success="False" time="1.238" asserts="0">
                         <categories>
                           <category name="textToXmlReconciliation" />
                         </categories>
                         <results>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.FailingTestOne" description="failing test one" executed="True" result="Failure" success="False" time="0.477" asserts="1">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.FailingTestOne"
+                            description="failing test one" executed="True" result="Failure" success="False"
+                            time="0.477" asserts="1">
                             <categories>
                               <category name="TES_80" />
                               <category name="negative" />
@@ -38,13 +56,19 @@ at Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults00
 ]]></stack-trace>
                             </failure>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PassingTestOne" description="Passing test one" executed="True" result="Success" success="True" time="0.005" asserts="1">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PassingTestOne"
+                            description="Passing test one" executed="True" result="Success" success="True" time="0.005"
+                            asserts="1">
                             <categories>
                               <category name="TES_77" />
                               <category name="UAT" />
                             </categories>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PendingTestOne" description="Pending test one" executed="True" result="Inconclusive" success="False" time="0.162" asserts="0">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PendingTestOne"
+                            description="Pending test one" executed="True" result="Inconclusive" success="False"
+                            time="0.162" asserts="0">
                             <categories>
                               <category name="negative" />
                               <category name="TES_78" />
@@ -70,7 +94,10 @@ namespace MyNamespace
 ]]></message>
                             </reason>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PendingTestTwo" description="Pending test two" executed="True" result="Inconclusive" success="False" time="0.006" asserts="0">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PendingTestTwo"
+                            description="Pending test two" executed="True" result="Inconclusive" success="False"
+                            time="0.006" asserts="0">
                             <categories>
                               <category name="negative" />
                               <category name="UAT" />
@@ -83,12 +110,17 @@ namespace MyNamespace
                           </test-case>
                         </results>
                       </test-suite>
-                      <test-suite type="TestFixture" name="CreateMixtureOfTestResults002Feature" description="CreateMixtureOfTestResults002" executed="True" result="Failure" success="False" time="0.018" asserts="0">
+                      <test-suite type="TestFixture" name="CreateMixtureOfTestResults002Feature"
+                                  description="CreateMixtureOfTestResults002" executed="True" result="Failure"
+                                  success="False" time="0.018" asserts="0">
                         <categories>
                           <category name="textToXmlReconciliation" />
                         </categories>
                         <results>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.FailingTestOne" description="failing test one" executed="True" result="Failure" success="False" time="0.003" asserts="1">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.FailingTestOne"
+                            description="failing test one" executed="True" result="Failure" success="False"
+                            time="0.003" asserts="1">
                             <categories>
                               <category name="negative" />
                               <category name="TES_85" />
@@ -108,19 +140,28 @@ at Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults00
 ]]></stack-trace>
                             </failure>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PassingTestOne" description="Passing test one" executed="True" result="Success" success="True" time="0.001" asserts="1">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PassingTestOne"
+                            description="Passing test one" executed="True" result="Success" success="True" time="0.001"
+                            asserts="1">
                             <categories>
                               <category name="TES_81" />
                               <category name="UAT" />
                             </categories>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PassingTestOneTwo" description="Passing test one two" executed="True" result="Success" success="True" time="0.001" asserts="1">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PassingTestOneTwo"
+                            description="Passing test one two" executed="True" result="Success" success="True"
+                            time="0.001" asserts="1">
                             <categories>
                               <category name="UAT" />
                               <category name="TES_82" />
                             </categories>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PendingTestOneTwo" description="Pending test one two" executed="True" result="Inconclusive" success="False" time="0.003" asserts="0">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PendingTestOneTwo"
+                            description="Pending test one two" executed="True" result="Inconclusive" success="False"
+                            time="0.003" asserts="0">
                             <categories>
                               <category name="UAT" />
                               <category name="TES_83" />
@@ -146,7 +187,10 @@ namespace MyNamespace
 ]]></message>
                             </reason>
                           </test-case>
-                          <test-case name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PendingTestTwoTwo" description="Pending test two two" executed="True" result="Inconclusive" success="False" time="0.002" asserts="0">
+                          <test-case
+                            name="Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults002Feature.PendingTestTwoTwo"
+                            description="Pending test two two" executed="True" result="Inconclusive" success="False"
+                            time="0.002" asserts="0">
                             <categories>
                               <category name="UAT" />
                               <category name="TES_84" />

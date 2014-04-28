@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 {
     public class TestStepResult
     {
-        public string TestStep { get; private set; }
-        public List<string> StepDetails { get; private set; }
-
         public TestStepResult()
         {
             StepDetails = new List<string>();
@@ -18,8 +11,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 
         public TestStepResult(string testStep)
         {
-            this.TestStep = testStep;
+            TestStep = testStep;
             StepDetails = new List<string>();
         }
+
+        public string TestStep { get; private set; }
+        public List<string> StepDetails { get; private set; }
     }
 }

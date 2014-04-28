@@ -1,18 +1,22 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Data;
-using System.Collections.Generic;
+
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
-    /// a non-exhaustive definition of methods needed to implement a typed data table.
-    /// some of the required methods are protected or internal, so can't be in an interface
-    /// Implement the methods, then unlink the interface
+    ///     a non-exhaustive definition of methods needed to implement a typed data table.
+    ///     some of the required methods are protected or internal, so can't be in an interface
+    ///     Implement the methods, then unlink the interface
     /// </summary>
     public interface ITypedDataTable
     {
         T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new();
-        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects,string tableName,string[] primaryKeys) where T : DataTable, new();
+
+        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys)
+            where T : DataTable, new();
+
         #region Constructor and StronglyTypedDataTable required methods
+
         //public PersonData()
         //{
         //    Columns.Add(new DataColumn("ID", typeof(ulong)));
@@ -52,6 +56,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         //{
         //    return new PersonDataRow(builder);
         //}
+
         #endregion
     }
 }

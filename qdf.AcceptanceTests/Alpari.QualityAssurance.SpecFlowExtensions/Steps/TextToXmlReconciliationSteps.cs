@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using NUnit.Framework;
 using TechTalk.SpecFlow;
-using NUnit.Framework;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 {
@@ -21,6 +17,5 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             Assert.AreEqual(false, true);
         }
-
     }
 }

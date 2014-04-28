@@ -1,137 +1,88 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom.Compiler;
+using System.ComponentModel;
+using System.Xml.Serialization;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17929")]
-    [System.SerializableAttribute()]
+    /// <remarks />
+    [GeneratedCode("xsd", "4.0.30319.17929")]
+    [Serializable]
     //[System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [DesignerCategory("code")]
     public class environmentType
     {
-        private string nunitversionField;
         private string clrversionField;
-        private string osversionField;
-        private string platformField;
         private string cwdField;
         private string machinenameField;
+        private string nunitversionField;
+        private string osversionField;
+        private string platformField;
         private string userField;
         private string userdomainField;
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("nunit-version")]
+        /// <remarks />
+        [XmlAttribute("nunit-version")]
         public string nunitversion
         {
-            get
-            {
-                return this.nunitversionField;
-            }
-            set
-            {
-                this.nunitversionField = value;
-            }
+            get { return nunitversionField; }
+            set { nunitversionField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("clr-version")]
+        /// <remarks />
+        [XmlAttribute("clr-version")]
         public string clrversion
         {
-            get
-            {
-                return this.clrversionField;
-            }
-            set
-            {
-                this.clrversionField = value;
-            }
+            get { return clrversionField; }
+            set { clrversionField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("os-version")]
+        /// <remarks />
+        [XmlAttribute("os-version")]
         public string osversion
         {
-            get
-            {
-                return this.osversionField;
-            }
-            set
-            {
-                this.osversionField = value;
-            }
+            get { return osversionField; }
+            set { osversionField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string platform
         {
-            get
-            {
-                return this.platformField;
-            }
-            set
-            {
-                this.platformField = value;
-            }
+            get { return platformField; }
+            set { platformField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string cwd
         {
-            get
-            {
-                return this.cwdField;
-            }
-            set
-            {
-                this.cwdField = value;
-            }
+            get { return cwdField; }
+            set { cwdField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("machine-name")]
+        /// <remarks />
+        [XmlAttribute("machine-name")]
         public string machinename
         {
-            get
-            {
-                return this.machinenameField;
-            }
-            set
-            {
-                this.machinenameField = value;
-            }
+            get { return machinenameField; }
+            set { machinenameField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string user
         {
-            get
-            {
-                return this.userField;
-            }
-            set
-            {
-                this.userField = value;
-            }
+            get { return userField; }
+            set { userField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute("user-domain")]
+        /// <remarks />
+        [XmlAttribute("user-domain")]
         public string userdomain
         {
-            get
-            {
-                return this.userdomainField;
-            }
-            set
-            {
-                this.userdomainField = value;
-            }
+            get { return userdomainField; }
+            set { userdomainField = value; }
         }
     }
 }

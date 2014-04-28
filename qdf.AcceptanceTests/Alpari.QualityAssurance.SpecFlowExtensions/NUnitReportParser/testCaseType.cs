@@ -1,42 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.CodeDom.Compiler;
+using System.Diagnostics;
+using System.Xml.Serialization;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 {
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("xsd", "4.0.30319.17929")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    /// <remarks />
+    [GeneratedCode("xsd", "4.0.30319.17929")]
+    [Serializable]
+    [DebuggerStepThrough]
     //[System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName = "test-caseType")]
+    [XmlType(TypeName = "test-caseType")]
     public class testcaseType
     {
+        private string assertsField;
         private categoryType[] categoriesField;
+        private string descriptionField;
+        private string executedField;
         //private propertyType[] propertiesField;
         private object itemField;
         private string nameField;
-        private string descriptionField;
+        private string resultField;
         private string successField;
         private string timeField;
-        private string executedField;
-        private string assertsField;
-        private string resultField;
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlArrayItemAttribute("category", IsNullable = false)]
+        /// <remarks />
+        [XmlArrayItem("category", IsNullable = false)]
         public categoryType[] categories
         {
-            get
-            {
-                return this.categoriesField;
-            }
-            set
-            {
-                this.categoriesField = value;
-            }
+            get { return categoriesField; }
+            set { categoriesField = value; }
         }
 
         ///// <remarks/>
@@ -53,117 +46,69 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         //    }
         //}
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("failure", typeof(failureType))]
+        /// <remarks />
+        [XmlElement("failure", typeof (failureType))]
         //[System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
         public object Item
         {
-            get
-            {
-                return this.itemField;
-            }
-            set
-            {
-                this.itemField = value;
-            }
+            get { return itemField; }
+            set { itemField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string name
         {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
+            get { return nameField; }
+            set { nameField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string description
         {
-            get
-            {
-                return this.descriptionField;
-            }
-            set
-            {
-                this.descriptionField = value;
-            }
+            get { return descriptionField; }
+            set { descriptionField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string success
         {
-            get
-            {
-                return this.successField;
-            }
-            set
-            {
-                this.successField = value;
-            }
+            get { return successField; }
+            set { successField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string time
         {
-            get
-            {
-                return this.timeField;
-            }
-            set
-            {
-                this.timeField = value;
-            }
+            get { return timeField; }
+            set { timeField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string executed
         {
-            get
-            {
-                return this.executedField;
-            }
-            set
-            {
-                this.executedField = value;
-            }
+            get { return executedField; }
+            set { executedField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string asserts
         {
-            get
-            {
-                return this.assertsField;
-            }
-            set
-            {
-                this.assertsField = value;
-            }
+            get { return assertsField; }
+            set { assertsField = value; }
         }
 
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        /// <remarks />
+        [XmlAttribute]
         public string result
         {
-            get
-            {
-                return this.resultField;
-            }
-            set
-            {
-                this.resultField = value;
-            }
+            get { return resultField; }
+            set { resultField = value; }
         }
     }
 }
