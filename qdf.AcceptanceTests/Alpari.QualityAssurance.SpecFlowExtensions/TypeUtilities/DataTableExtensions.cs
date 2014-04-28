@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using NUnit.Framework;
 
@@ -151,119 +152,119 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     var bdiff = (byte) p1 - (byte) p2;
                     if (bdiff != 0)
                     {
-                        difference = bdiff.ToString();
+                        difference = bdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.SBYTE:
                     var sdiff = (sbyte) p1 - (sbyte) p2;
                     if (sdiff != 0)
                     {
-                        difference = sdiff.ToString();
+                        difference = sdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.SHORT:
                     var shdiff = (short) p1 - (short) p2;
                     if (shdiff != 0)
                     {
-                        difference = shdiff.ToString();
+                        difference = shdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.USHORT:
                     var ushdiff = (short) p1 - (short) p2;
                     if (ushdiff != 0)
                     {
-                        difference = ushdiff.ToString();
+                        difference = ushdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.INT:
                     var idiff = (int) p1 - (int) p2;
                     if (idiff != 0)
                     {
-                        difference = idiff.ToString();
+                        difference = idiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT16":
                     var i16diff = (Int16) p1 - (Int16) p2;
                     if (i16diff != 0)
                     {
-                        difference = i16diff.ToString();
+                        difference = i16diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT32":
                     var i32diff = (Int32) p1 - (Int32) p2;
                     if (i32diff != 0)
                     {
-                        difference = i32diff.ToString();
+                        difference = i32diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT64":
                     var i64diff = (Int64) p1 - (Int64) p2;
                     if (i64diff != 0)
                     {
-                        difference = i64diff.ToString();
+                        difference = i64diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.UINT:
                     var uidiff = (uint) p1 - (uint) p2;
                     if (uidiff != 0)
                     {
-                        difference = uidiff.ToString();
+                        difference = uidiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT16":
                     var ui16diff = (UInt16) p1 - (UInt16) p2;
                     if (ui16diff != 0)
                     {
-                        difference = ui16diff.ToString();
+                        difference = ui16diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT32":
                     var ui32diff = (UInt32) p1 - (UInt32) p2;
                     if (ui32diff != 0)
                     {
-                        difference = ui32diff.ToString();
+                        difference = ui32diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT64":
                     var ui64diff = (UInt64) p1 - (UInt64) p2;
                     if (ui64diff != 0)
                     {
-                        difference = ui64diff.ToString();
+                        difference = ui64diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.LONG:
                     var ldiff = (long) p1 - (long) p2;
                     if (ldiff != 0)
                     {
-                        difference = ldiff.ToString();
+                        difference = ldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.ULONG:
                     var uldiff = (ulong) p1 - (ulong) p2;
                     if (uldiff != 0)
                     {
-                        difference = uldiff.ToString();
+                        difference = uldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.FLOAT:
                     var fdiff = (float) p1 - (float) p2;
                     if (fdiff != 0)
                     {
-                        difference = fdiff.ToString();
+                        difference = fdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.DOUBLE:
                     var dbldiff = (double) p1 - (double) p2;
                     if (dbldiff != 0)
                     {
-                        difference = dbldiff.ToString();
+                        difference = dbldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.DECIMAL:
                     var decdiff = (decimal) p1 - (decimal) p2;
                     if (decdiff != 0)
                     {
-                        difference = decdiff.ToString();
+                        difference = decdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                     //TypeExtensions.CHAR
@@ -271,7 +272,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     //TypeExtensions.BOOL
                     //TypeExtensions.OBJECT // date - although maybe create a subtraction for date?
                 default:
-                    difference = catchAssertion(p1, p2);
+                    difference = CatchAssertion(p1, p2);
                     break;
             }
 
@@ -291,7 +292,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        public static string catchAssertion(object p1, object p2)
+        public static string CatchAssertion(object p1, object p2)
         {
             string difference = null;
             try

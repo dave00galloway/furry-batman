@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using qdf.AcceptanceTests.TypedDataTables;
@@ -21,13 +22,12 @@ namespace qdf.AcceptanceTests.DataContexts
         /// <param name="ccToolData"></param>
         public static void OutputCalculatedSpread(CCToolData ccToolData)
         {
-            var typedTableResult = from CCtoolRow myRow in ccToolData.Rows
-                select new
-                {
-                    Server = myRow.ServerName,
-                    Spread = (myRow.BidPrice - myRow.AskPrice).ToString(),
-                    Time = myRow.UpdateDateTime.ToString()
-                };
+            var typedTableResult = ccToolData.Rows.Cast<CCtoolRow>().Select(myRow => new
+            {
+                Server = myRow.ServerName,
+                Spread = (myRow.BidPrice - myRow.AskPrice).ToString(CultureInfo.InvariantCulture),
+                Time = myRow.UpdateDateTime.ToString(CultureInfo.InvariantCulture)
+            });
 
             foreach (var item in typedTableResult)
             {
