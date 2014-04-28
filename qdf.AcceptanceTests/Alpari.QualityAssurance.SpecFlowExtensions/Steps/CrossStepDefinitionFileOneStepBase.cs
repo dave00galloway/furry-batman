@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             return
                 (CrossStepDefinitionFileOne)
-                    GetStepDefinition(MasterStepBase.STEP_BASE_ROOT_NAMSPACE + "CrossStepDefinitionFileOne");
+                    GetStepDefinition(MasterStepBase.StepBaseRootNamspace + "CrossStepDefinitionFileOne");
         }
     }
 }

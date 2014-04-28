@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
@@ -13,7 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         ///     The key that will be used to set the NunitXmlParser in the Scenario Context
         ///     TODO:- Get these strings from Reflection!
         /// </summary>
-        public static readonly string NUNIT_XML_PARSER_FULLY_QUALIFIED_NAME =
+        public static readonly string NunitXmlParserFullyQualifiedName =
             "Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser.NunitXmlParser";
 
         public static void SetNunitXmlParser(string fileNamePath)
@@ -21,7 +22,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var nunitXmlParser = new NunitXmlParser(fileNamePath, FileMode.Open);
             // var nunitXmlParser = new NunitXmlParser(fileNamePath,true, FileMode.Open);
             //ScenarioContext.Current[nunitXmlParser.ToString()] = nunitXmlParser;
-            ScenarioContext.Current[NUNIT_XML_PARSER_FULLY_QUALIFIED_NAME] = nunitXmlParser;
+            ScenarioContext.Current[NunitXmlParserFullyQualifiedName] = nunitXmlParser;
         }
 
         /// <summary>
@@ -30,32 +31,32 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         /// <returns></returns>
         public static NunitXmlParser GetNunitXmlParser()
         {
-            return (NunitXmlParser) ScenarioContext.Current[NUNIT_XML_PARSER_FULLY_QUALIFIED_NAME];
+            return (NunitXmlParser) ScenarioContext.Current[NunitXmlParserFullyQualifiedName];
         }
 
         public static IDictionary<string, object> GetTestResultsDictionary(NunitXmlParser nunitXmlParser)
         {
-            var TestResultsType = nunitXmlParser.TestResults.GetType();
-            var TestResultsDictionary =
-                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.TestResults, TestResultsType);
-            return TestResultsDictionary;
+            var testResultsType = nunitXmlParser.TestResults.GetType();
+            var testResultsDictionary =
+                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.TestResults, testResultsType);
+            return testResultsDictionary;
         }
 
         public static IDictionary<string, object> GetHostTestEnvironmentDictionary(NunitXmlParser nunitXmlParser)
         {
-            var HostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
-            var HostTestEnvironmentDictionary =
+            var hostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
+            var hostTestEnvironmentDictionary =
                 DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.HostTestEnvironment,
-                    HostTestEnvironmentType);
-            return HostTestEnvironmentDictionary;
+                    hostTestEnvironmentType);
+            return hostTestEnvironmentDictionary;
         }
 
         public static IDictionary<string, object> GetCultureInfoDictionary(NunitXmlParser nunitXmlParser)
         {
-            var CultureinfoType = nunitXmlParser.CultureinfoType.GetType();
-            var CultureinfoTypeDictionary =
-                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, CultureinfoType);
-            return CultureinfoTypeDictionary;
+            var cultureinfoType = nunitXmlParser.CultureinfoType.GetType();
+            var cultureinfoTypeDictionary =
+                DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, cultureinfoType);
+            return cultureinfoTypeDictionary;
         }
 
         /// <summary>
@@ -67,34 +68,29 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public IList<Dictionary<string, object>> GetTestSuiteCollectionAsListOfTestSuiteDictionaries(
             List<TestsuiteType> testSuiteTypeCollection)
         {
-            IList<Dictionary<string, object>> ListOfTestSuiteDictionaries = new List<Dictionary<string, object>>();
-            var TestSuiteType = testSuiteTypeCollection[0].GetType();
-            foreach (var testSuiteTypeCollectionItem in testSuiteTypeCollection)
-            {
-                var CultureinfoTypeDictionary =
-                    DataTableOperations.GetObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, TestSuiteType);
-                ListOfTestSuiteDictionaries.Add((Dictionary<string, object>) CultureinfoTypeDictionary);
-            }
-            return ListOfTestSuiteDictionaries;
+            var testSuiteType = testSuiteTypeCollection[0].GetType();
+            return testSuiteTypeCollection.Select(testSuiteTypeCollectionItem => DataTableOperations.GetObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, testSuiteType)).Select(cultureinfoTypeDictionary => cultureinfoTypeDictionary).Cast<Dictionary<string, object>>().ToList();
         }
 
         public IList<Dictionary<string, object>> SaveTestSuiteCollectionAsListOfDictionaries()
         {
             var nunitXmlParser = GetNunitXmlParser();
             var testSuiteTypeCollection = nunitXmlParser.TestSuiteTypeCollection;
-            var TestSuiteCollectionAsListOfTestSuiteDictionaries =
+            var testSuiteCollectionAsListOfTestSuiteDictionaries =
                 GetTestSuiteCollectionAsListOfTestSuiteDictionaries(testSuiteTypeCollection);
-            ScenarioContext.Current[TestSuiteCollectionAsListOfTestSuiteDictionaries.ToString()] =
-                TestSuiteCollectionAsListOfTestSuiteDictionaries;
-            return TestSuiteCollectionAsListOfTestSuiteDictionaries;
+            ScenarioContext.Current[testSuiteCollectionAsListOfTestSuiteDictionaries.ToString()] =
+                testSuiteCollectionAsListOfTestSuiteDictionaries;
+            return testSuiteCollectionAsListOfTestSuiteDictionaries;
         }
 
         public static ExpectedAndActualTestCasesBySuiteAsIlIsts GetExpectedAndActualTestCasesBySuiteAsILists(
             Table testCasesInTestSuites)
         {
-            var expectedAndActualTestCases = new ExpectedAndActualTestCasesBySuiteAsIlIsts();
-            expectedAndActualTestCases.Expected = DataTableOperations.GetTableAsList(testCasesInTestSuites);
-            expectedAndActualTestCases.Actual = GetNunitXmlParser().GetTestCasesByTestSuiteAsList();
+            var expectedAndActualTestCases = new ExpectedAndActualTestCasesBySuiteAsIlIsts
+            {
+                Expected = DataTableOperations.GetTableAsList(testCasesInTestSuites),
+                Actual = GetNunitXmlParser().GetTestCasesByTestSuiteAsList()
+            };
             return expectedAndActualTestCases;
         }
     }

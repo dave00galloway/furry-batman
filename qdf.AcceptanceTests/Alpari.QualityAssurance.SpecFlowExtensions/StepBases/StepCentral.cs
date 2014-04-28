@@ -39,21 +39,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         {
             get
             {
-                var CrossStepDefinitionFileOne =
+                var crossStepDefinitionFileOne =
                     (CrossStepDefinitionFileOne)
-                        GetStepDefinition(CrossStepDefinitionStepBase.STEP_BASE_ROOT_NAMSPACE +
+                        GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNamspace +
                                           "CrossStepDefinitionFileOne");
-                if (CrossStepDefinitionFileOne == null)
+                if (crossStepDefinitionFileOne == null)
                 {
-                    CrossStepDefinitionFileOne = new CrossStepDefinitionFileOne();
+                    crossStepDefinitionFileOne = new CrossStepDefinitionFileOne();
                 }
-                return CrossStepDefinitionFileOne;
+                return crossStepDefinitionFileOne;
             }
         }
 
         private void ThrowExceptionIfNotInSpecFlowExtensionsNamespace()
         {
-            if (!ToString().StartsWith(STEP_BASE_ROOT_NAMSPACE))
+            if (!ToString().StartsWith(StepBaseRootNamspace))
             {
                 throw new NotSupportedException(
                     "Don't inherit directly from this class, define your own StepCentral inheriting from MasterStepBase!");

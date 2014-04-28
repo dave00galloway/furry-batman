@@ -8,25 +8,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     [Binding]
     public class ShareContextSteps : CrossStepDefinitionStepBase
     {
-        private const string RANDOM_FILENAME = "randomFileName";
-        private const string TIME_NOW_IS = "timeNowIs";
+        private const string RandomFilename = "randomFileName";
+        private const string TimeNowIs = "timeNowIs";
 
         [Given(@"I access the static object")]
         public void GivenIAccessTheStaticObject()
         {
             var timeNowIs = TestRunContext.StaticTime;
             var randomFileName = TestRunContext.StaticRandom;
-            ScenarioContext.Current.Add(TIME_NOW_IS, timeNowIs);
-            ScenarioContext.Current.Add(RANDOM_FILENAME, randomFileName);
+            ScenarioContext.Current.Add(TimeNowIs, timeNowIs);
+            ScenarioContext.Current.Add(RandomFilename, randomFileName);
 
-            if (!FeatureContext.Current.ContainsKey(TIME_NOW_IS))
+            if (!FeatureContext.Current.ContainsKey(TimeNowIs))
             {
-                FeatureContext.Current.Add(TIME_NOW_IS, timeNowIs);
+                FeatureContext.Current.Add(TimeNowIs, timeNowIs);
             }
 
-            if (!FeatureContext.Current.ContainsKey(RANDOM_FILENAME))
+            if (!FeatureContext.Current.ContainsKey(RandomFilename))
             {
-                FeatureContext.Current.Add(RANDOM_FILENAME, randomFileName);
+                FeatureContext.Current.Add(RandomFilename, randomFileName);
             }
         }
 

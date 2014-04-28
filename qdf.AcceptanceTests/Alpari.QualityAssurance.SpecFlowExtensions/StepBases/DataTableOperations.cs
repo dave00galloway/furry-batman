@@ -446,6 +446,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 
     public class DictionaryAsIlist
     {
-        public IList<IDictionary<string, object>> IDictionaryAsIlist { get; set; }
+        public IList<IDictionary<string, object>> IdictionaryAsIlist { get; set; }
     }
 }

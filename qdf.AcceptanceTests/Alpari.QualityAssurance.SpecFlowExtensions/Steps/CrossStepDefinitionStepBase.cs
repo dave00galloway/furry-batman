@@ -6,7 +6,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     [Binding]
     public class CrossStepDefinitionStepBase : StepCentral
     {
-        public new static readonly string STEP_BASE_ROOT_NAMSPACE = "Alpari.QualityAssurance.SpecFlowExtensions.Steps.";
+        public new static readonly string StepBaseRootNamspace = "Alpari.QualityAssurance.SpecFlowExtensions.Steps.";
 
         public CrossStepDefinitionStepBase()
             : base(true)
