@@ -20,7 +20,7 @@ namespace qdf.AcceptanceTests.DataContexts
         ///     tables
         /// </summary>
         /// <param name="ccToolData"></param>
-        public static void OutputCalculatedSpread(CCToolData ccToolData)
+        public static void OutputCalculatedSpread(CcToolData ccToolData)
         {
             var typedTableResult = ccToolData.Rows.Cast<CCtoolRow>().Select(myRow => new
             {

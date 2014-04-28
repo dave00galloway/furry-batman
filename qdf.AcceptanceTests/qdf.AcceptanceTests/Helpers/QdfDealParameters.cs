@@ -8,11 +8,11 @@ namespace qdf.AcceptanceTests.Helpers
     /// </summary>
     public class QdfDealParameters
     {
-        public string server { get; set; }
-        public string symbol { get; set; }
-        public string startTime { get; set; }
-        public string endTime { get; set; }
-        public DateTime convertedStartTime { get; set; }
-        public DateTime convertedEndTime { get; set; }
+        public string Server { get; set; }
+        public string Symbol { get; set; }
+        public string StartTime { get; set; }
+        public string EndTime { get; set; }
+        public DateTime ConvertedStartTime { get; set; }
+        public DateTime ConvertedEndTime { get; set; }
     }
 }

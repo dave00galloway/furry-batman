@@ -16,12 +16,12 @@ namespace qdf.AcceptanceTests.Steps
     {
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
-            var start = entry.startTime != null
-                ? entry.startTime
+            var start = entry.StartTime != null
+                ? entry.StartTime
                 : ConfigurationManager.AppSettings["defaultStartTime"];
-            var end = entry.endTime != null ? entry.endTime : ConfigurationManager.AppSettings["defaultEndTime"];
-            entry.convertedStartTime = start.GetTimeFromShortCode();
-            entry.convertedEndTime = end.GetTimeFromShortCode(entry.convertedStartTime);
+            var end = entry.EndTime != null ? entry.EndTime : ConfigurationManager.AppSettings["defaultEndTime"];
+            entry.ConvertedStartTime = start.GetTimeFromShortCode();
+            entry.ConvertedEndTime = end.GetTimeFromShortCode(entry.ConvertedStartTime);
         }
 
         [StepArgumentTransformation(@"Deal Data for these parameter sets:")]
@@ -55,7 +55,7 @@ namespace qdf.AcceptanceTests.Steps
             }
         }
 
-        public static IDataContextSubstitute GetDataContextSubstituteForDB(string dbName)
+        public static IDataContextSubstitute GetDataContextSubstituteForDb(string dbName)
         {
             var connectionString =
                 ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString

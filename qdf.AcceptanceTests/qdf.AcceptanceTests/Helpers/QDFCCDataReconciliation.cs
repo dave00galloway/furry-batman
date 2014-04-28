@@ -13,37 +13,37 @@ namespace qdf.AcceptanceTests.Helpers
     /// </summary>
     public class QdfccDataReconciliation
     {
-        public QdfccDataReconciliation(CCToolData cCToolData, List<Deal> qDFDeals)
+        public QdfccDataReconciliation(CcToolData cCToolData, List<Deal> qDfDeals)
         {
             CcToolData = cCToolData;
-            QDFDeals = qDFDeals;
+            QdfDeals = qDfDeals;
         }
 
-        public CCToolData CcToolData { get; private set; }
-        public List<Deal> QDFDeals { get; private set; }
-        public List<QDFDealPositionGrouping> QDFDealPositionGroupings { get; private set; }
-        public List<QDFDealPosition> QDFDealPositions { get; private set; }
-        public List<CCToolPosition> CCToolPositions { get; private set; }
+        public CcToolData CcToolData { get; private set; }
+        public List<Deal> QdfDeals { get; private set; }
+        public List<QdfDealPositionGrouping> QdfDealPositionGroupings { get; private set; }
+        public List<QdfDealPosition> QdfDealPositions { get; private set; }
+        public List<CcToolPosition> CcToolPositions { get; private set; }
 
-        public void AggregateQDFDeals()
+        public void AggregateQdfDeals()
         {
-            QDFDealPositionGroupings = GetAggregatedQDFDeals();
+            QdfDealPositionGroupings = GetAggregatedQdfDeals();
 
-            CalculateQDFCumulativePosition();
+            CalculateQdfCumulativePosition();
 
-            QDFDealPositions = QDFDealPositionGroupings.SelectMany(x => x.QDFDealPositions).ToList();
+            QdfDealPositions = QdfDealPositionGroupings.SelectMany(x => x.QdfDealPositions).ToList();
 
             Console.WriteLine("Print flattened list of cumulative sums");
-            QDFDealPositions.ForEach(
+            QdfDealPositions.ForEach(
                 x => Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position, x.CumulativePosition));
         }
 
-        private void CalculateQDFCumulativePosition()
+        private void CalculateQdfCumulativePosition()
         {
-            foreach (var grouping in QDFDealPositionGroupings)
+            foreach (var grouping in QdfDealPositionGroupings)
             {
                 Console.WriteLine("get position values for {0}", grouping.PositionGroupingName);
-                var positions = grouping.QDFDealPositions.Select(deal => deal.Position).ToList();
+                var positions = grouping.QdfDealPositions.Select(deal => deal.Position).ToList();
                 foreach (var item in positions)
                 {
                     Console.WriteLine(item);
@@ -61,22 +61,22 @@ namespace qdf.AcceptanceTests.Helpers
 
                 for (var i = 0; i < cumulativePositions.Count(); i++)
                 {
-                    grouping.QDFDealPositions[i].CumulativePosition = cumulativePositions[i];
+                    grouping.QdfDealPositions[i].CumulativePosition = cumulativePositions[i];
                 }
             }
         }
 
-        public void AggregateCCToolData()
+        public void AggregateCcToolData()
         {
-            CalculateCCVolumeSize();
-            CombineCCSectionData();
+            CalculateCcVolumeSize();
+            CombineCcSectionData();
         }
 
         /// <summary>
         ///     Add a column called VolumeSize to hold the calculated value of the Volume
         ///     TODO:- add to the CCTool Data table definiton so that code from this pont on can still be strongly typed
         /// </summary>
-        private void CalculateCCVolumeSize()
+        private void CalculateCcVolumeSize()
         {
             CcToolData.Columns.Add(new DataColumn("VolumeSize", typeof (decimal)));
 
@@ -118,7 +118,7 @@ namespace qdf.AcceptanceTests.Helpers
             //}
         }
 
-        private void CombineCCSectionData()
+        private void CombineCcSectionData()
         {
             var rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
@@ -130,7 +130,7 @@ namespace qdf.AcceptanceTests.Helpers
                 TimeStamp = (DateTime) x["UpdateDateTime"]
             }
                 )
-                .Select(x => new CCToolPosition
+                .Select(x => new CcToolPosition
                 {
                     PositionName =
                         String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId,
@@ -148,9 +148,10 @@ namespace qdf.AcceptanceTests.Helpers
                 Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}",
                     position.PositionName, position.Positions.Count, position.Position);
             }
-            CCToolPositions = aggregatedPositions;
+            CcToolPositions = aggregatedPositions;
         }
 
+// ReSharper disable once InconsistentNaming - used in code that is currently commented out, but will be more generally applicable
         private static string GetCCToolPositionName(DataRow row)
         {
             return String.Format("{0} {1} {2} {3}", row["IsBookA"], row["SymbolCode"], row["ServerName"],
@@ -159,7 +160,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
 
-        private List<QDFDealPositionGrouping> GetAggregatedQDFDeals()
+        private List<QdfDealPositionGrouping> GetAggregatedQdfDeals()
         {
             //should work, but always ends up with non-unique groupings, and the same number of deals as groups!
             //var aggregatedDeals = QDFDeals.GroupBy(x => new QDFDealPositionGrouping()
@@ -171,7 +172,7 @@ namespace qdf.AcceptanceTests.Helpers
             //                                                    }
             //                                       )
             //answer - group using an anonymous type. This works!
-            var aggregatedDeals = QDFDeals.GroupBy(x => new
+            var aggregatedDeals = QdfDeals.GroupBy(x => new
             {
                 x.Book,
                 x.Instrument,
@@ -181,7 +182,7 @@ namespace qdf.AcceptanceTests.Helpers
             }
 //                                       ).Select(x => new QDFDealPosition()).ToList<QDFDealPosition>();
                 )
-                .Select(x => new QDFDealPosition
+                .Select(x => new QdfDealPosition
                 {
                     PositionName =
                         String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server,
@@ -190,7 +191,7 @@ namespace qdf.AcceptanceTests.Helpers
                     Instrument = x.Key.Instrument,
                     Server = x.Key.Server,
                     TimeStamp = x.Key.TimeStamp,
-                    QDFDeals = x.ToList()
+                    QdfDeals = x.ToList()
                 }
                 ).ToList();
 
@@ -198,7 +199,7 @@ namespace qdf.AcceptanceTests.Helpers
             {
                 position.CalculatePosition();
                 Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName,
-                    position.QDFDeals.Count, position.Position);
+                    position.QdfDeals.Count, position.Position);
             }
 
             //group the positions by the above factors except Timestamp, then order by timestamp
@@ -217,13 +218,13 @@ namespace qdf.AcceptanceTests.Helpers
                 item.OrderBy(x => x.TimeStamp);
             }
 
-            var groupedPositions = groupedAggregation.Select(x => new QDFDealPositionGrouping
+            var groupedPositions = groupedAggregation.Select(x => new QdfDealPositionGrouping
             {
                 PositionGroupingName = x.Key.PositionGroupingName,
                 Book = x.Key.Book,
                 Instrument = x.Key.Instrument,
                 Server = x.Key.Server,
-                QDFDealPositions = x.ToList()
+                QdfDealPositions = x.ToList()
             }
                 ).ToList();
 
@@ -231,7 +232,7 @@ namespace qdf.AcceptanceTests.Helpers
         }
     }
 
-    public class QDFDealPosition
+    public class QdfDealPosition
     {
         public string PositionName { get; set; }
 
@@ -243,7 +244,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public DateTime TimeStamp { get; set; }
 
-        public List<Deal> QDFDeals { get; set; }
+        public List<Deal> QdfDeals { get; set; }
 
         public decimal Position { get; private set; }
 
@@ -251,11 +252,11 @@ namespace qdf.AcceptanceTests.Helpers
 
         public void CalculatePosition()
         {
-            QDFDeals.ForEach(delegate(Deal deal) { Position += deal.Volume*(deal.Side == Side.Buy ? 1 : -1); });
+            QdfDeals.ForEach(delegate(Deal deal) { Position += deal.Volume*(deal.Side == Side.Buy ? 1 : -1); });
         }
     }
 
-    public class CCToolPosition
+    public class CcToolPosition
     {
         public string PositionName { get; set; }
 
@@ -279,7 +280,7 @@ namespace qdf.AcceptanceTests.Helpers
         }
     }
 
-    public class QDFDealPositionGrouping
+    public class QdfDealPositionGrouping
     {
         public Book Book { get; set; }
 
@@ -287,7 +288,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public TradingServer Server { get; set; }
 
-        public List<QDFDealPosition> QDFDealPositions { get; set; }
+        public List<QdfDealPosition> QdfDealPositions { get; set; }
 
         public string PositionGroupingName { get; set; }
     }

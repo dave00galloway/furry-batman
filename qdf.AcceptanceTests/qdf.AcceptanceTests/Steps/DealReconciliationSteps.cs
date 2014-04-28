@@ -16,10 +16,10 @@ namespace qdf.AcceptanceTests.Steps
     [Binding]
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
-        public RedisConnectionHelper redisConnectionHelper { get; private set; }
-        public IDataContextSubstitute contextSubstitute { get; private set; }
-        public QdfDealParameters qdfDealParameters { get; private set; }
-        public IEnumerable<QdfDealParameters> qdfDealParametersSet { get; private set; }
+        public RedisConnectionHelper RedisConnectionHelper { get; private set; }
+        public IDataContextSubstitute ContextSubstitute { get; private set; }
+        public QdfDealParameters QdfDealParameters { get; private set; }
+        public IEnumerable<QdfDealParameters> QdfDealParametersSet { get; private set; }
 
         /// <summary>
         ///     Clear the test output directory for the feature
@@ -52,23 +52,23 @@ namespace qdf.AcceptanceTests.Steps
         }
 
         [Given(@"I have QDF Data")]
-        public void GivenIHaveQDFData()
+        public void GivenIHaveQdfData()
         {
             //ScenarioContext.Current.Pending();
-            redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
+            RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
             throw new NotImplementedException();
         }
 
         [Given(@"I have QDF Deal Data")]
-        public void GivenIHaveQDFDealData(QdfDealParameters qdfDealParameters)
+        public void GivenIHaveQdfDealData(QdfDealParameters qdfDealParameters)
         {
-            redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
+            RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
             SetupQdfDealQuery(qdfDealParameters);
-            redisConnectionHelper.GetDealData(qdfDealParameters);
+            RedisConnectionHelper.GetDealData(qdfDealParameters);
             //added a try catch here to cope with changes in QDF Deal format
             try
             {
-                redisConnectionHelper.OutputAllDeals((string) ScenarioContext.Current["ScenarioOutputDirectory"] +
+                RedisConnectionHelper.OutputAllDeals((string) ScenarioContext.Current["ScenarioOutputDirectory"] +
                                                      "AllDeals.csv");
             }
             catch (Exception e)
@@ -77,19 +77,19 @@ namespace qdf.AcceptanceTests.Steps
             }
             //redisConnectionHelper.FilterDeals(qdfDealParameters);
 
-            this.qdfDealParameters = qdfDealParameters;
+            this.QdfDealParameters = qdfDealParameters;
         }
 
         [Given(@"I have QDF Deal Data for these parameter sets:")]
-        public void GivenIHaveQDFDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
+        public void GivenIHaveQdfDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
         {
-            redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
+            RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
             foreach (var entry in qdfDealParameters)
             {
                 SetupQdfDealQuery(entry);
-                redisConnectionHelper.GetDealData(entry);
+                RedisConnectionHelper.GetDealData(entry);
             }
-            qdfDealParametersSet = qdfDealParameters;
+            QdfDealParametersSet = qdfDealParameters;
             throw new NotImplementedException();
         }
 
@@ -100,19 +100,19 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have created a connection to ""(.*)""")]
         public void GivenIHaveCreatedAConnectionTo(string dataContext)
         {
-            contextSubstitute = GetDataContextSubstitute(dataContext);
+            ContextSubstitute = GetDataContextSubstitute(dataContext);
         }
 
         [Given(@"I have CC data")]
-        public void GivenIHaveCCData()
+        public void GivenIHaveCcData()
         {
-            contextSubstitute = GetDataContextSubstituteForDB(CcToolDataContext.Cc);
+            ContextSubstitute = GetDataContextSubstituteForDb(CcToolDataContext.Cc);
             //TODO: implement for multiple qdfDealParameters 
             //if (qdfDealParametersSet != null) etc.
 
             var ccToolData =
-                contextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(qdfDealParameters.convertedStartTime,
-                    qdfDealParameters.convertedEndTime)).ConvertToTypedDataTable<CCToolData>();
+                ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
+                    QdfDealParameters.ConvertedEndTime)).ConvertToTypedDataTable<CcToolData>();
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
             /*undecided whether to use properties for this data. 
@@ -127,18 +127,18 @@ namespace qdf.AcceptanceTests.Steps
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {
             //contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
-            var data = contextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
+            var data = ContextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
             ScenarioContext.Current["cc_tbl_position_section"] = data;
         }
 
 
         [When(@"I compare QDF and CC data")]
-        public void WhenICompareQDFAndCCData()
+        public void WhenICompareQdfAndCcData()
         {
-            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["ccToolData"] as CCToolData,
-                redisConnectionHelper.retrievedDeals);
-            aggregator.AggregateQDFDeals();
-            aggregator.AggregateCCToolData();
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["ccToolData"] as CcToolData,
+                RedisConnectionHelper.RetrievedDeals);
+            aggregator.AggregateQdfDeals();
+            aggregator.AggregateCcToolData();
             ScenarioContext.Current.Pending();
         }
 
@@ -159,12 +159,12 @@ namespace qdf.AcceptanceTests.Steps
         [AfterScenario]
         public void Teardown()
         {
-            if (redisConnectionHelper != null)
+            if (RedisConnectionHelper != null)
             {
                 //try
                 //{
                 //removed try/catch as might as well see full stack trace - this is likely to be the last operation
-                redisConnectionHelper.connection.Close(true);
+                RedisConnectionHelper.Connection.Close(true);
                 //}
                 //catch (Exception e)
                 //{

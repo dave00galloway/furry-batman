@@ -16,15 +16,15 @@ namespace qdf.AcceptanceTests.Helpers
     {
         public RedisConnectionHelper(string redisHost)
         {
-            this.redisHost = redisHost;
-            connection = new RedisConnection(this.redisHost);
-            connection.Open();
+            this.RedisHost = redisHost;
+            Connection = new RedisConnection(this.RedisHost);
+            Connection.Open();
         }
 
-        public RedisDataStore dealsStore { get; private set; }
-        public List<Deal> retrievedDeals { get; private set; }
-        public RedisConnection connection { get; private set; }
-        public string redisHost { get; private set; }
+        public RedisDataStore DealsStore { get; private set; }
+        public List<Deal> RetrievedDeals { get; private set; }
+        public RedisConnection Connection { get; private set; }
+        public string RedisHost { get; private set; }
 
         /// <summary>
         ///     Query QDF using the deal paramerters specified.
@@ -34,18 +34,18 @@ namespace qdf.AcceptanceTests.Helpers
         /// <param name="qdfDealParameters"></param>
         public void GetDealData(QdfDealParameters qdfDealParameters)
         {
-            dealsStore = new RedisDataStore(connection,
-                new SortedSetBasedStorageStrategy(connection, new JsonSerializer()));
+            DealsStore = new RedisDataStore(Connection,
+                new SortedSetBasedStorageStrategy(Connection, new JsonSerializer()));
             //might need to adjust the time slice, for now leaving as Day
-            var deals = dealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
-                qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime, TimeSlice.Day);
-            if (retrievedDeals == null)
+            var deals = DealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
+                qdfDealParameters.ConvertedStartTime, qdfDealParameters.ConvertedEndTime, TimeSlice.Day);
+            if (RetrievedDeals == null)
             {
-                retrievedDeals = deals.ToList();
+                RetrievedDeals = deals.ToList();
             }
             else
             {
-                retrievedDeals.Concat(deals.ToList());
+                RetrievedDeals.Concat(deals.ToList());
             }
         }
 
@@ -54,7 +54,7 @@ namespace qdf.AcceptanceTests.Helpers
             var csvFile = new StringBuilder();
             var headers = String.Join(",", typeof (Deal).GetPropertyNamesAsList()); //.Select(x => x));
             csvFile.AppendLine(headers);
-            foreach (var deal in retrievedDeals)
+            foreach (var deal in RetrievedDeals)
             {
                 csvFile.AppendLine(String.Join(",",
                     deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCsvCell(x.ToString(CultureInfo.InvariantCulture)))));

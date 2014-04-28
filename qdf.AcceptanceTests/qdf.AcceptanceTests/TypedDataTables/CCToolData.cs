@@ -16,9 +16,9 @@ namespace qdf.AcceptanceTests.TypedDataTables
     ///     'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>
     [Serializable]
-    public class CCToolData : DataTable, ISerializable
+    public class CcToolData : DataTable, ISerializable
     {
-        public CCToolData()
+        public CcToolData()
         {
             Columns.Add(new DataColumn("Section", typeof (string)));
             Columns.Add(new DataColumn("ServerName", typeof (string)));
@@ -42,7 +42,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        protected CCToolData(SerializationInfo info, StreamingContext context)
+        protected CcToolData(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
             var serialisationInstance = this;
@@ -83,11 +83,11 @@ namespace qdf.AcceptanceTests.TypedDataTables
 
     public class CCtoolRow : DataRow
     {
-        private DataRowBuilder builder;
+        private DataRowBuilder _builder;
 
         internal CCtoolRow(DataRowBuilder builder) : base(builder)
         {
-            this.builder = builder;
+            _builder = builder;
         }
 
         public string Section
