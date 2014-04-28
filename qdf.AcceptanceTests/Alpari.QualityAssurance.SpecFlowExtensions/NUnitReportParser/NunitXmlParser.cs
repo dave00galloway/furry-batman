@@ -12,7 +12,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public NunitXmlParser(string path, FileMode mode)
         {
             SetupFileStreamAndXmlReader(path, mode);
-            loadDocumentAndSetRootNode();
+            LoadDocumentAndSetRootNode();
         }
 
         #region relative path constructor oveload
@@ -40,17 +40,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         #endregion
 
-        public FileStream fileStream { get; private set; }
-        public XmlReader xmlReader { get; private set; }
-        public XmlDocument xmlDocument { get; private set; }
-        public XmlNode xmlRoot { get; private set; }
-        public string xmlString { get; private set; }
+        public FileStream FileStream { get; private set; }
+        public XmlReader XmlReader { get; private set; }
+        public XmlDocument XmlDocument { get; private set; }
+        public XmlNode XmlRoot { get; private set; }
+        public string XmlString { get; private set; }
         public resultType TestResults { get; private set; }
 
         /// <summary>
         ///     the LAST environmentType node found in the report
         /// </summary>
-        public environmentType HostTestEnvironment { get; private set; }
+        public EnvironmentType HostTestEnvironment { get; private set; }
 
         /// <summary>
         ///     provided so a check can be done on number of envts (should be 1)
@@ -62,7 +62,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         /// <summary>
         ///     the LAST cultureinfoType node found in the report
         /// </summary>
-        public cultureinfoType CultureinfoType { get; private set; }
+        public CultureinfoType CultureinfoType { get; private set; }
 
         /// <summary>
         ///     provided so a check can be done on number of cultureinfoType (should be 1)
@@ -104,7 +104,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
                         testSuiteTestCasesDictionary["time"] = testCase.time;
                         testSuiteTestCasesDictionary["asserts"] = testCase.asserts;
                         testSuiteTestCasesDictionary["tags"] = JoinTags(testCase);
-                        addFailure(testCase, testSuiteTestCasesDictionary);
+                        AddFailure(testCase, testSuiteTestCasesDictionary);
                         testCasesByTestSuiteAsList.Add(testSuiteTestCasesDictionary);
                     }
                 }
@@ -112,14 +112,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return testCasesByTestSuiteAsList;
         }
 
-        private static void addFailure(testcaseType testCase, Dictionary<string, object> testSuiteTestCasesDictionary)
+        private static void AddFailure(testcaseType testCase, Dictionary<string, object> testSuiteTestCasesDictionary)
         {
             try
             {
-                var failure = new failureType();
-                failure = (failureType) testCase.Item;
-                testSuiteTestCasesDictionary["message"] = failure.message;
-                testSuiteTestCasesDictionary["stack trace"] = failure.stacktrace;
+                var failure = new FailureType();
+                failure = (FailureType) testCase.Item;
+                testSuiteTestCasesDictionary["message"] = failure.Message;
+                testSuiteTestCasesDictionary["stack trace"] = failure.Stacktrace;
             }
             catch (Exception)
             {
@@ -129,40 +129,44 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private static string JoinTags(testcaseType testCase)
         {
             var ret = String.Format("@{0}",
-                String.Join(",@", testCase.categories.Select(x => x.name.Replace('_', '-')).ToArray()));
+                String.Join(",@", testCase.categories.Select(x => x.Name.Replace('_', '-')).ToArray()));
             return ret;
         }
 
         private List<testsuiteType> ParseAsTestSuiteTypeList()
         {
             TestSuiteTypeCollection = new List<testsuiteType>();
-            TestSuiteTypeList = xmlRoot.SelectNodes("//test-suite");
-            foreach (XmlNode TestSuiteTypeListItem in TestSuiteTypeList)
+            TestSuiteTypeList = XmlRoot.SelectNodes("//test-suite");
+            if (TestSuiteTypeList == null) return TestSuiteTypeCollection;
+            foreach (XmlNode testSuiteTypeListItem in TestSuiteTypeList)
             {
                 var testSuiteType = new testsuiteType();
-                testSuiteType.type = TestSuiteTypeListItem.Attributes["type"].Value;
-                testSuiteType.name = TestSuiteTypeListItem.Attributes["name"].Value;
-                testSuiteType.executed = TestSuiteTypeListItem.Attributes["executed"].Value;
-                testSuiteType.result = TestSuiteTypeListItem.Attributes["result"].Value;
-                testSuiteType.success = TestSuiteTypeListItem.Attributes["success"].Value;
-                testSuiteType.time = TestSuiteTypeListItem.Attributes["time"].Value;
-                testSuiteType.asserts = TestSuiteTypeListItem.Attributes["asserts"].Value;
+                if (testSuiteTypeListItem.Attributes != null)
+                {
+                    testSuiteType.type = testSuiteTypeListItem.Attributes["type"].Value;
+                    testSuiteType.name = testSuiteTypeListItem.Attributes["name"].Value;
+                    testSuiteType.executed = testSuiteTypeListItem.Attributes["executed"].Value;
+                    testSuiteType.result = testSuiteTypeListItem.Attributes["result"].Value;
+                    testSuiteType.success = testSuiteTypeListItem.Attributes["success"].Value;
+                    testSuiteType.time = testSuiteTypeListItem.Attributes["time"].Value;
+                    testSuiteType.asserts = testSuiteTypeListItem.Attributes["asserts"].Value;
+                }
                 TestSuiteTypeCollection.Add(testSuiteType);
-                getResultsForTestSuite(TestSuiteTypeListItem, testSuiteType);
+                GetResultsForTestSuite(testSuiteTypeListItem, testSuiteType);
             }
             return TestSuiteTypeCollection;
         }
 
-        private static void getResultsForTestSuite(XmlNode TestSuiteTypeListItem, testsuiteType testSuiteType)
+        private static void GetResultsForTestSuite(XmlNode testSuiteTypeListItem, testsuiteType testSuiteType)
         {
             try
             {
                 if (testSuiteType.type == "TestFixture")
                 {
-                    var Result = new resultsType();
-                    var resultNode = TestSuiteTypeListItem.SelectSingleNode("descendant::results");
-                    Result.Items = getTestCasesForResultsItem(resultNode);
-                    testSuiteType.results = Result;
+                    var result = new resultsType();
+                    var resultNode = testSuiteTypeListItem.SelectSingleNode("descendant::results");
+                    result.Items = GetTestCasesForResultsItem(resultNode);
+                    testSuiteType.results = result;
                 }
             }
             catch (Exception e)
@@ -174,47 +178,52 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             }
         }
 
-        private static object[] getTestCasesForResultsItem(XmlNode resultNode)
+        private static object[] GetTestCasesForResultsItem(XmlNode resultNode)
         {
             IList<testcaseType> testCaseList = new List<testcaseType>();
             var testCaseNodes = resultNode.SelectNodes("descendant::test-case");
+            if (testCaseNodes == null) return testCaseList.Cast<object>().ToArray();
             foreach (XmlNode testCaseNode in testCaseNodes)
             {
                 var testCase = new testcaseType();
-                //testCase.categories = testCaseNode.Attributes["categories"].Value;
-                //private propertyType[] propertiesField;
-                //private object itemField;
-                testCase.name = testCaseNode.Attributes["name"].Value;
-                testCase.description = testCaseNode.Attributes["description"].Value;
-                testCase.success = testCaseNode.Attributes["success"].Value;
-                testCase.time = testCaseNode.Attributes["time"].Value;
-                testCase.executed = testCaseNode.Attributes["executed"].Value;
-                testCase.asserts = testCaseNode.Attributes["asserts"].Value;
-                testCase.result = testCaseNode.Attributes["result"].Value;
-                testCase.categories = getTestcaseCategories(testCaseNode);
-                testCase.Item = getTestCaseItem(testCaseNode);
+                if (testCaseNode.Attributes != null)
+                {
+                    testCase.name = testCaseNode.Attributes["name"].Value;
+                    testCase.description = testCaseNode.Attributes["description"].Value;
+                    testCase.success = testCaseNode.Attributes["success"].Value;
+                    testCase.time = testCaseNode.Attributes["time"].Value;
+                    testCase.executed = testCaseNode.Attributes["executed"].Value;
+                    testCase.asserts = testCaseNode.Attributes["asserts"].Value;
+                    testCase.result = testCaseNode.Attributes["result"].Value;
+                }
+                testCase.categories = GetTestcaseCategories(testCaseNode);
+                testCase.Item = GetTestCaseItem(testCaseNode);
                 testCaseList.Add(testCase);
             }
 
             return testCaseList.Cast<object>().ToArray();
         }
 
-        private static object getTestCaseItem(XmlNode testCaseNode)
+        private static object GetTestCaseItem(XmlNode testCaseNode)
         {
             var itemList = new object();
             var itemNode = testCaseNode.SelectSingleNode("descendant::failure");
             if (itemNode != null)
             {
-                var failure = new failureType();
-                failure.message = itemNode.SelectSingleNode("descendant::message").InnerText;
-                failure.stacktrace = itemNode.SelectSingleNode("descendant::stack-trace").InnerText;
+                var failure = new FailureType();
+                var selectSingleNode = itemNode.SelectSingleNode("descendant::message");
+                if (selectSingleNode != null)
+                    failure.Message = selectSingleNode.InnerText;
+                var singleNode = itemNode.SelectSingleNode("descendant::stack-trace");
+                if (singleNode != null)
+                    failure.Stacktrace = singleNode.InnerText;
                 itemList = failure;
             }
             //could potentially be a reasonType added here instead, but ignoring that for now as there aren't any in the current data sets
             return itemList;
         }
 
-        private static XmlNode findChildNodeByName(XmlNode itemNode, string nodeName)
+        private static XmlNode FindChildNodeByName(XmlNode itemNode, string nodeName)
         {
             for (var i = 0; i < itemNode.ChildNodes.Count; i++)
             {
@@ -226,17 +235,18 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return null;
         }
 
-        private static categoryType[] getTestcaseCategories(XmlNode testCaseNode)
+        private static CategoryType[] GetTestcaseCategories(XmlNode testCaseNode)
         {
-            IList<categoryType> categoryList = new List<categoryType>();
+            IList<CategoryType> categoryList = new List<CategoryType>();
             var categoryNodes = testCaseNode.SelectNodes("descendant::category");
-            foreach (XmlNode categoryNode in categoryNodes)
-            {
-                var category = new categoryType();
-                category.name = categoryNode.Attributes["name"].Value;
-                categoryList.Add(category);
-            }
-            return categoryList.Cast<categoryType>().ToArray();
+            if (categoryNodes != null)
+                foreach (XmlNode categoryNode in categoryNodes)
+                {
+                    var category = new CategoryType();
+                    if (categoryNode.Attributes != null) category.Name = categoryNode.Attributes["name"].Value;
+                    categoryList.Add(category);
+                }
+            return categoryList.Cast<CategoryType>().ToArray();
         }
 
         public void SetTestResults()
@@ -254,49 +264,49 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             CultureinfoType = ParseAsCultureinfoType();
         }
 
-        private cultureinfoType ParseAsCultureinfoType()
+        private CultureinfoType ParseAsCultureinfoType()
         {
-            var CultureinfoType = new cultureinfoType();
-            CultureinfoType = getLastCultureinfoTypeNode(CultureinfoType);
-            return CultureinfoType;
+            var cultureinfoType = new CultureinfoType();
+            cultureinfoType = GetLastCultureinfoTypeNode(cultureinfoType);
+            return cultureinfoType;
         }
 
-        private cultureinfoType getLastCultureinfoTypeNode(cultureinfoType CultureinfoType)
+        private CultureinfoType GetLastCultureinfoTypeNode(CultureinfoType cultureinfoType)
         {
-            CultureinfoTypeList = xmlRoot.SelectNodes("culture-info");
+            CultureinfoTypeList = XmlRoot.SelectNodes("culture-info");
             foreach (XmlNode cultureinfoTypeListItem in CultureinfoTypeList)
             {
-                var cultureinfoTypeItem = new cultureinfoType();
+                var cultureinfoTypeItem = new CultureinfoType();
                 var cultureinfoTypeItemAttributes = cultureinfoTypeListItem.Attributes;
-                cultureinfoTypeItem.currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
-                cultureinfoTypeItem.currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
-                CultureinfoType = cultureinfoTypeItem;
+                cultureinfoTypeItem.Currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
+                cultureinfoTypeItem.Currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
+                cultureinfoType = cultureinfoTypeItem;
             }
-            return CultureinfoType;
+            return cultureinfoType;
         }
 
-        private environmentType ParseAsHostTestEnvironment()
+        private EnvironmentType ParseAsHostTestEnvironment()
         {
-            var EnvironmentType = new environmentType();
+            var EnvironmentType = new EnvironmentType();
             EnvironmentType = getLastEnvironmentTypeNode(EnvironmentType);
             return EnvironmentType;
         }
 
-        private environmentType getLastEnvironmentTypeNode(environmentType EnvironmentType)
+        private EnvironmentType getLastEnvironmentTypeNode(EnvironmentType EnvironmentType)
         {
-            HostTestEnvironmentList = xmlRoot.SelectNodes("//environment");
+            HostTestEnvironmentList = XmlRoot.SelectNodes("//environment");
             foreach (XmlNode hostTestEnvironment in HostTestEnvironmentList)
             {
-                var hostTestEnvironmentType = new environmentType();
+                var hostTestEnvironmentType = new EnvironmentType();
                 var hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
-                hostTestEnvironmentType.nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
-                hostTestEnvironmentType.clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
-                hostTestEnvironmentType.osversion = hostTestEnvironmentAttributes["os-version"].Value;
-                hostTestEnvironmentType.platform = hostTestEnvironmentAttributes["platform"].Value;
-                hostTestEnvironmentType.cwd = hostTestEnvironmentAttributes["cwd"].Value;
-                hostTestEnvironmentType.machinename = hostTestEnvironmentAttributes["machine-name"].Value;
-                hostTestEnvironmentType.user = hostTestEnvironmentAttributes["user"].Value;
-                hostTestEnvironmentType.userdomain = hostTestEnvironmentAttributes["user-domain"].Value;
+                hostTestEnvironmentType.Nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
+                hostTestEnvironmentType.Clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
+                hostTestEnvironmentType.Osversion = hostTestEnvironmentAttributes["os-version"].Value;
+                hostTestEnvironmentType.Platform = hostTestEnvironmentAttributes["platform"].Value;
+                hostTestEnvironmentType.Cwd = hostTestEnvironmentAttributes["cwd"].Value;
+                hostTestEnvironmentType.Machinename = hostTestEnvironmentAttributes["machine-name"].Value;
+                hostTestEnvironmentType.User = hostTestEnvironmentAttributes["user"].Value;
+                hostTestEnvironmentType.Userdomain = hostTestEnvironmentAttributes["user-domain"].Value;
                 EnvironmentType = hostTestEnvironmentType;
             }
             return EnvironmentType;
@@ -305,7 +315,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private resultType ParseAsTestResults()
         {
             var TestResults = new resultType();
-            var rootAttributes = xmlRoot.Attributes;
+            var rootAttributes = XmlRoot.Attributes;
             TestResults.name = rootAttributes["name"].Value;
             TestResults.total = decimal.Parse(rootAttributes["total"].Value);
             TestResults.errors = decimal.Parse(rootAttributes["errors"].Value);
@@ -329,22 +339,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public string DebugReadXmlAsString()
         {
             var xmlAsString = new StringBuilder();
-            while (xmlReader.Read())
+            while (XmlReader.Read())
             {
-                if (xmlReader.IsStartElement())
+                if (XmlReader.IsStartElement())
                 {
-                    if (xmlReader.IsEmptyElement)
-                        xmlAsString.AppendFormat("<{0}/>", xmlReader.Name);
+                    if (XmlReader.IsEmptyElement)
+                        xmlAsString.AppendFormat("<{0}/>", XmlReader.Name);
                     else
                     {
-                        xmlAsString.AppendFormat("<{0}/>", xmlReader.Name);
+                        xmlAsString.AppendFormat("<{0}/>", XmlReader.Name);
                         // Read the start tag. 
-                        xmlReader.Read();
+                        XmlReader.Read();
                         // Handle nested elements.
-                        if (xmlReader.IsStartElement())
-                            xmlAsString.AppendFormat("<{0}/>", xmlReader.Name);
+                        if (XmlReader.IsStartElement())
+                            xmlAsString.AppendFormat("<{0}/>", XmlReader.Name);
                         //Read the text content of the element.
-                        xmlAsString.AppendFormat(xmlReader.ReadString());
+                        xmlAsString.AppendFormat(XmlReader.ReadString());
                     }
                 }
             }
@@ -353,27 +363,27 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private void SetupFileStreamAndXmlReader(string path, FileMode mode)
         {
-            fileStream = new FileStream(path, mode);
-            xmlReader = XmlReader.Create(fileStream);
+            FileStream = new FileStream(path, mode);
+            XmlReader = XmlReader.Create(FileStream);
         }
 
-        private void setXmlDocument()
+        private void SetXmlDocument()
         {
-            xmlDocument = new XmlDocument();
-            xmlDocument.Load(xmlReader);
-            xmlReader.Close();
-            fileStream.Close();
+            XmlDocument = new XmlDocument();
+            XmlDocument.Load(XmlReader);
+            XmlReader.Close();
+            FileStream.Close();
         }
 
-        private void setXmlRoot()
+        private void SetXmlRoot()
         {
-            xmlRoot = xmlDocument.DocumentElement;
+            XmlRoot = XmlDocument.DocumentElement;
         }
 
-        private void loadDocumentAndSetRootNode()
+        private void LoadDocumentAndSetRootNode()
         {
-            setXmlDocument();
-            setXmlRoot();
+            SetXmlDocument();
+            SetXmlRoot();
         }
 
         #region obsolete code

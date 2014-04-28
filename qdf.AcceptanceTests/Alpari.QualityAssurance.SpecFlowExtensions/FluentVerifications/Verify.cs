@@ -9,26 +9,26 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
     /// </summary>
     public class Verify
     {
-        public static string That(object First, CompareUsing Is, Object Second, string Message)
+        public static string That(object first, CompareUsing Is, Object second, string message)
         {
             var that = "";
             switch (Is)
             {
-                case CompareUsing.SHOULD_BE:
+                case CompareUsing.ShouldBe:
                     try
                     {
-                        First.Should().Be(Second, Message);
+                        first.Should().Be(second, message);
                     }
                     catch (Exception e)
                     {
                         that = e.Message; //.Replace("\\",""); TODO:- properly escape  Fluent Assertion formatting
                     }
                     break;
-                case CompareUsing.HAVE_COUNT:
+                case CompareUsing.HaveCount:
                     try
                     {
-                        var firstAsEnumerable = First.As<IEnumerable<object>>();
-                        firstAsEnumerable.Should().HaveCount((int) (Second), Message);
+                        var firstAsEnumerable = first.As<IEnumerable<object>>();
+                        firstAsEnumerable.Should().HaveCount((int) (second), message);
                     }
                     catch (Exception e)
                     {
@@ -37,7 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     break;
                 default:
                     that = String.Format(
-                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", First, Second,
+                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", first, second,
                         Enum.GetName(typeof (CompareUsing), Is));
                     break;
             }
@@ -76,15 +76,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
         //    return that;
         //} 
 
-        public static string That(object First, CompareUsing Is, Object Second)
+        public static string That(object first, CompareUsing Is, Object second)
         {
             var that = "";
             switch (Is)
             {
-                case CompareUsing.SHOULD_BE:
+                case CompareUsing.ShouldBe:
                     try
                     {
-                        First.Should().Be(Second);
+                        first.Should().Be(second);
                     }
                     catch (Exception e)
                     {
@@ -94,7 +94,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     break;
                 default:
                     that = String.Format(
-                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", First, Second,
+                        "unable to compare First value {0} with Second value {1} using comparer Is {2}", first, second,
                         Enum.GetName(typeof (CompareUsing), Is));
                     break;
             }

@@ -10,79 +10,79 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [Serializable]
     //[System.Diagnostics.DebuggerStepThroughAttribute()]
     [DesignerCategory("code")]
-    public class environmentType
+    public class EnvironmentType
     {
-        private string clrversionField;
-        private string cwdField;
-        private string machinenameField;
-        private string nunitversionField;
-        private string osversionField;
-        private string platformField;
-        private string userField;
-        private string userdomainField;
+        private string _clrversionField;
+        private string _cwdField;
+        private string _machinenameField;
+        private string _nunitversionField;
+        private string _osversionField;
+        private string _platformField;
+        private string _userField;
+        private string _userdomainField;
 
         /// <remarks />
         [XmlAttribute("nunit-version")]
-        public string nunitversion
+        public string Nunitversion
         {
-            get { return nunitversionField; }
-            set { nunitversionField = value; }
+            get { return _nunitversionField; }
+            set { _nunitversionField = value; }
         }
 
         /// <remarks />
         [XmlAttribute("clr-version")]
-        public string clrversion
+        public string Clrversion
         {
-            get { return clrversionField; }
-            set { clrversionField = value; }
+            get { return _clrversionField; }
+            set { _clrversionField = value; }
         }
 
         /// <remarks />
         [XmlAttribute("os-version")]
-        public string osversion
+        public string Osversion
         {
-            get { return osversionField; }
-            set { osversionField = value; }
+            get { return _osversionField; }
+            set { _osversionField = value; }
         }
 
         /// <remarks />
         [XmlAttribute]
-        public string platform
+        public string Platform
         {
-            get { return platformField; }
-            set { platformField = value; }
+            get { return _platformField; }
+            set { _platformField = value; }
         }
 
         /// <remarks />
         [XmlAttribute]
-        public string cwd
+        public string Cwd
         {
-            get { return cwdField; }
-            set { cwdField = value; }
+            get { return _cwdField; }
+            set { _cwdField = value; }
         }
 
         /// <remarks />
         [XmlAttribute("machine-name")]
-        public string machinename
+        public string Machinename
         {
-            get { return machinenameField; }
-            set { machinenameField = value; }
+            get { return _machinenameField; }
+            set { _machinenameField = value; }
         }
 
         /// <remarks />
         [XmlAttribute]
-        public string user
+        public string User
         {
-            get { return userField; }
-            set { userField = value; }
+            get { return _userField; }
+            set { _userField = value; }
         }
 
         /// <remarks />
         [XmlAttribute("user-domain")]
-        public string userdomain
+        public string Userdomain
         {
-            get { return userdomainField; }
-            set { userdomainField = value; }
+            get { return _userdomainField; }
+            set { _userdomainField = value; }
         }
     }
 }

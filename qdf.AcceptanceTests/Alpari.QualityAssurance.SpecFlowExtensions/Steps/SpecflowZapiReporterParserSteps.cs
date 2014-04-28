@@ -28,7 +28,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheXmlHasAContentThatCanBeReadAsAString()
         {
             var nunitXmlParser = GetNunitXmlParser();
-            var result = nunitXmlParser.xmlString;
+            var result = nunitXmlParser.XmlString;
             Console.WriteLine("xml = {0}", result);
             Assert.IsNotEmpty(result);
         }
@@ -37,7 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheXmlRootNamePropertyIs(string expectedName)
         {
             var nunitXmlParser = GetNunitXmlParser();
-            Assert.AreEqual(expectedName, nunitXmlParser.xmlRoot.Name);
+            Assert.AreEqual(expectedName, nunitXmlParser.XmlRoot.Name);
         }
 
         [Then(@"test-results with a ""(.*)"" attribute value of ""(.*)"" exists")]

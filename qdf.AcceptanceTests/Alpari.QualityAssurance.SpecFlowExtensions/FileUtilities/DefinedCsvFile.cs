@@ -8,11 +8,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
     /// </summary>
     public class DefinedCsvFile
     {
-        public DefinedCsvFile(List<List<string>> ParsedFile, ICsvColumnDefinition CsvColumnDefinition)
+        public DefinedCsvFile(List<List<string>> parsedFile, ICsvColumnDefinition csvColumnDefinition)
         {
-            this.CsvColumnDefinition = CsvColumnDefinition;
-            FileType = CsvColumnDefinition.GetType();
-            this.ParsedFile = ParsedFile;
+            this.CsvColumnDefinition = csvColumnDefinition;
+            FileType = csvColumnDefinition.GetType();
+            this.ParsedFile = parsedFile;
         }
 
         public ICsvColumnDefinition CsvColumnDefinition { get; private set; }

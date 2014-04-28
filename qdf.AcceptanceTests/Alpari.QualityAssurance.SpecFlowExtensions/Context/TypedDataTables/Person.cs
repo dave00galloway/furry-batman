@@ -8,7 +8,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 {
     public class Person
     {
-        public ulong ID { get; set; }
+        public ulong Id { get; set; }
         public string Forenames { get; set; }
         public string Lastname { get; set; }
         public UInt16 Age { get; set; }
@@ -162,7 +162,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             foreach (var person in enumeratedObjects)
             {
                 dataTable.Rows.Add(new Object[]
-                {person.ID, person.Forenames, person.Lastname, person.Age, person.Occupation});
+                {person.Id, person.Forenames, person.Lastname, person.Age, person.Occupation});
             }
             dataTable.AcceptChanges();
             return dataTable;
@@ -171,14 +171,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
     public class PersonDataRow : DataRow
     {
-        private DataRowBuilder builder;
+        private DataRowBuilder _builder;
 
         public PersonDataRow(DataRowBuilder builder) : base(builder)
         {
-            this.builder = builder;
+            this._builder = builder;
         }
 
-        public ulong ID
+        public ulong Id
         {
             get { return (ulong) base["ID"]; }
             set { base["SymbolCIDode"] = value; }

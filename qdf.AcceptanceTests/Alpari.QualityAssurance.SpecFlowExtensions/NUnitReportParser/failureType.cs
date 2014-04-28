@@ -9,25 +9,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
     [DesignerCategory("code")]
-    public class failureType
+    public class FailureType
     {
-        private string messageField;
+        private string _messageField;
 
-        private string stacktraceField;
+        private string _stacktraceField;
 
         /// <remarks />
-        public string message
+        public string Message
         {
-            get { return messageField; }
-            set { messageField = value; }
+            get { return _messageField; }
+            set { _messageField = value; }
         }
 
         /// <remarks />
         [XmlElement("stack-trace")]
-        public string stacktrace
+        public string Stacktrace
         {
-            get { return stacktraceField; }
-            set { stacktraceField = value; }
+            get { return _stacktraceField; }
+            set { _stacktraceField = value; }
         }
     }
 }

@@ -4,11 +4,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public class FileComparisonResult
     {
-        public FileComparisonResult(List<string> ExpectedResults, List<string> ActualResults, string Comparison)
+        public FileComparisonResult(List<string> expectedResults, List<string> actualResults, string comparison)
         {
-            this.ExpectedResults = ExpectedResults;
-            this.ActualResults = ActualResults;
-            this.Comparison = Comparison;
+            this.ExpectedResults = expectedResults;
+            this.ActualResults = actualResults;
+            this.Comparison = comparison;
         }
 
         public List<string> ExpectedResults { get; private set; }

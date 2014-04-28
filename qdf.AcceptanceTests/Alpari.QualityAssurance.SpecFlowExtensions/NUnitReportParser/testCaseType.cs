@@ -14,7 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     public class testcaseType
     {
         private string assertsField;
-        private categoryType[] categoriesField;
+        private CategoryType[] categoriesField;
         private string descriptionField;
         private string executedField;
         //private propertyType[] propertiesField;
@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         /// <remarks />
         [XmlArrayItem("category", IsNullable = false)]
-        public categoryType[] categories
+        public CategoryType[] categories
         {
             get { return categoriesField; }
             set { categoriesField = value; }
@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         //}
 
         /// <remarks />
-        [XmlElement("failure", typeof (failureType))]
+        [XmlElement("failure", typeof (FailureType))]
         //[System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
         public object Item
         {

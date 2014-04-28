@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private string typeField;
 
         /// <remarks />
-        [XmlElement("failure", typeof (failureType))]
+        [XmlElement("failure", typeof (FailureType))]
         //[System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
         public object Item
         {

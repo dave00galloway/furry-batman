@@ -36,12 +36,12 @@ Scenario: Load an xml result file and find a test result's values negative
 
 Scenario: Load an xml result file and find an environment
 	When I parse the xml test result file as an environment
-	Then an environment with a "nunitversion" attribute value of "2.6.3.13283" exists
+	Then an environment with a "Nunitversion" attribute value of "2.6.3.13283" exists
 
 Scenario: Load an xml result file and find an environment's value
 	When I parse the xml test result file as an environment
 	Then an environment object with the following attribute values exists:
-	| nunitversion | clrversion     | osversion                                    | platform | cwd                                                         | machinename | user      | userdomain |
+	| Nunitversion | Clrversion     | Osversion                                    | Platform | Cwd                                                         | Machinename | User      | Userdomain |
 	| 2.6.3.13283  | 2.0.50727.5472 | Microsoft Windows NT 6.1.7601 Service Pack 1 | Win32NT  | C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects | AUK0231NB   | dgalloway | ALPARI-UK  |
 
 
@@ -113,8 +113,8 @@ Scenario: Find a test case with a test failure
 Scenario: Load an xml result file and find culture-info
 	When I parse the xml test result file as culture-info
 	Then a single culture-info object exists
-		And a culture-info with a "currentculture" attribute value of "en-GB" exists
-		And a culture-info with a "currentuiculture" attribute value of "en-US" exists
+		And a culture-info with a "Currentculture" attribute value of "en-GB" exists
+		And a culture-info with a "Currentuiculture" attribute value of "en-US" exists
 
 ###############################################################
 ####out of scope tests#########################################

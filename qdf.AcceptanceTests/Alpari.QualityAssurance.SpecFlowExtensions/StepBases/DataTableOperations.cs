@@ -71,7 +71,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             KeyValuePair<string, object> matchingCriteria, string comparisonMode,
             IList<Dictionary<string, object>> listOfDictionaries)
         {
-
             switch (comparisonMode)
             {
                 case "ContainsListEntry":
@@ -279,7 +278,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         ///     Extra entries in either the actual list of dictionaries or in the actual dictionaries in the list are ignored
         ///     There's no key supplied, so the dictionaries have to be in the same order
         /// </summary>
-        /// <param name="ExpectedAndActualIDictionariesAsIlIsts"></param>
+        /// <param name="dictionariesAsLists"></param>
         /// <returns></returns>
         public static string VerifyTables(ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
@@ -309,8 +308,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         ///     dictionary in the expected list to compare with which in the actual list
         /// </summary>
         /// <param name="tableKey"></param>
-        /// <param name="tableAsList"></param>
-        /// <param name="testCasesBySuite"></param>
+        /// <param name="dictionariesAsLists"></param>
         /// <returns></returns>
         public static string VerifyTables(string tableKey, ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
@@ -350,10 +348,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         ///     TODO:- implement an enum for comparison types
         /// </summary>
         /// <param name="tableKey"></param>
-        /// <param name="ComparisonMode"></param>
-        /// <param name="expectedAndActualTestCases"></param>
+        /// <param name="comparisonMode"></param>
+        /// <param name="dictionariesAsLists"></param>
         /// <returns></returns>
-        public static string VerifyTables(string tableKey, string ComparisonMode,
+        public static string VerifyTables(string tableKey, string comparisonMode,
             ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
             var diffs = new StringBuilder();
@@ -365,7 +363,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 {
                     var matcher = new KeyValuePair<string, object>(tableKey, expectedDictionary[tableKey]);
                     var actualDictionary =
-                        GetDictionaryFromListOfDictionariesByKeyValuePair(matcher, ComparisonMode,
+                        GetDictionaryFromListOfDictionariesByKeyValuePair(matcher, comparisonMode,
                             actualListOfDictionaries);
                     var diff = VerifyTables(tableKey, expectedDictionary, actualDictionary);
                     if (diff.Length > 0)

@@ -9,14 +9,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public class CsvParser : IDisposable
     {
-        private bool disposed;
+        private bool _disposed;
 
         public CsvParser(string fileNamePath)
         {
-            this.fileNamePath = fileNamePath;
+            this.FileNamePath = fileNamePath;
         }
 
-        public string fileNamePath { get; private set; }
+        public string FileNamePath { get; private set; }
 
         public void Dispose()
         {
@@ -36,7 +36,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <returns></returns>
         public List<List<string>> ParseAsList(string delimiter)
         {
-            IEnumerable<string> unparsedFile = File.ReadAllLines(fileNamePath);
+            IEnumerable<string> unparsedFile = File.ReadAllLines(FileNamePath);
             var parsedFile = new List<List<string>>();
             long lineId = 0;
             foreach (var line in unparsedFile)
@@ -50,7 +50,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 {
                     Console.WriteLine(
                         "Error reading values for line {0} in file {1}. Line contents = {2}. Exception Details = {3}",
-                        lineId, fileNamePath, line, e.Message);
+                        lineId, FileNamePath, line, e.Message);
                 }
             }
             return parsedFile;
@@ -69,7 +69,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// </summary>
         /// <param name="str">String to output</param>
         /// <returns>The CSV cell formatted string</returns>
-        public static string StringToCSVCell(string str)
+        public static string StringToCsvCell(string str)
         {
             var mustQuote = (str.Contains(",") || str.Contains("\"") || str.Contains("\r") || str.Contains("\n"));
             if (mustQuote)
@@ -124,10 +124,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         protected virtual void Dispose(bool disposing)
         {
             // Check to see if Dispose has already been called. 
-            if (!disposed)
+            if (!_disposed)
             {
                 // Note disposing has been done.
-                disposed = true;
+                _disposed = true;
             }
         }
     }

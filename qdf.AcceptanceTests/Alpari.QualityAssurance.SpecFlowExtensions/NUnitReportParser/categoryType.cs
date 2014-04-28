@@ -9,16 +9,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
     [DesignerCategory("code")]
-    public class categoryType
+    public class CategoryType
     {
-        private string nameField;
+        private string _nameField;
 
         /// <remarks />
         [XmlAttribute]
-        public string name
+        public string Name
         {
-            get { return nameField; }
-            set { nameField = value; }
+            get { return _nameField; }
+            set { _nameField = value; }
         }
     }
 }

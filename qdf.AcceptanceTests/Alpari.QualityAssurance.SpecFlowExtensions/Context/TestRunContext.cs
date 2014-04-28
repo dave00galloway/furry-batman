@@ -20,8 +20,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         private const string Instantiated = "Instantiated";
         private const string RandomFileName = "RandomFileName";
 
-        private static volatile TestRunContext instance;
-        private static readonly object syncRoot = new Object();
+        private static volatile TestRunContext _instance;
+        private static readonly object SyncRoot = new Object();
 
         private TestRunContext()
         {
@@ -47,17 +47,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    lock (syncRoot)
+                    lock (SyncRoot)
                     {
-                        if (instance == null)
+                        if (_instance == null)
                         {
-                            instance = new TestRunContext();
+                            _instance = new TestRunContext();
                         }
                     }
                 }
-                return instance;
+                return _instance;
             }
         }
 

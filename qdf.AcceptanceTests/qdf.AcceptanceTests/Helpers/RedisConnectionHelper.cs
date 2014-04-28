@@ -31,7 +31,7 @@ namespace qdf.AcceptanceTests.Helpers
         ///     Currently only the start and end times are in use for retreiveing deals from Redis as this is how the deal data is
         ///     indexed, but the rest of the parameters can be used to filter the returned data
         /// </summary>
-        /// <param name="entry"></param>
+        /// <param name="qdfDealParameters"></param>
         public void GetDealData(QdfDealParameters qdfDealParameters)
         {
             dealsStore = new RedisDataStore(connection,
@@ -57,7 +57,7 @@ namespace qdf.AcceptanceTests.Helpers
             foreach (var deal in retrievedDeals)
             {
                 csvFile.AppendLine(String.Join(",",
-                    deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCSVCell(x.ToString(CultureInfo.InvariantCulture)))));
+                    deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCsvCell(x.ToString(CultureInfo.InvariantCulture)))));
             }
             File.WriteAllText(fileNamePath, csvFile.ToString());
         }

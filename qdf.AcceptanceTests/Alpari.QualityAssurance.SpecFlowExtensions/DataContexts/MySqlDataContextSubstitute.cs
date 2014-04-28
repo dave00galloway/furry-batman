@@ -15,10 +15,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
     {
         protected MySqlDataContextSubstitute(string connectionString)
         {
-            myConnection = new MySqlConnection(connectionString);
+            MyConnection = new MySqlConnection(connectionString);
         }
 
-        public MySqlConnection myConnection { get; private set; }
+        public MySqlConnection MyConnection { get; private set; }
 
         /// <summary>
         ///     retreives
@@ -31,14 +31,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             dataSet.Clear();
             try
             {
-                myConnection.Open();
+                MyConnection.Open();
                 var adapter = new MySqlDataAdapter();
-                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection);
                 adapter.Fill(dataSet);
             }
             finally
             {
-                myConnection.Close();
+                MyConnection.Close();
             }
 
             return dataSet;
@@ -55,14 +55,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             dataTable.Clear();
             try
             {
-                myConnection.Open();
+                MyConnection.Open();
                 var adapter = new MySqlDataAdapter();
-                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection);
                 adapter.Fill(dataTable);
             }
             finally
             {
-                myConnection.Close();
+                MyConnection.Close();
             }
 
             return dataTable;
@@ -79,14 +79,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             dataTable.Clear();
             try
             {
-                myConnection.Open();
+                MyConnection.Open();
                 var adapter = new MySqlDataAdapter();
-                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, myConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection);
                 adapter.Fill(dataTable);
             }
             finally
             {
-                myConnection.Close();
+                MyConnection.Close();
             }
 
             return dataTable.AsDataView();

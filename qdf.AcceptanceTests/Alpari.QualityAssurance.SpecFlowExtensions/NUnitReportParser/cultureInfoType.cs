@@ -11,25 +11,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     //[System.Diagnostics.DebuggerStepThroughAttribute()]
     [DesignerCategory("code")]
     [XmlType(TypeName = "culture-infoType")]
-    public class cultureinfoType
+    public class CultureinfoType
     {
-        private string currentcultureField;
-        private string currentuicultureField;
+        private string _currentcultureField;
+        private string _currentuicultureField;
 
         /// <remarks />
         [XmlAttribute("current-culture")]
-        public string currentculture
+        public string Currentculture
         {
-            get { return currentcultureField; }
-            set { currentcultureField = value; }
+            get { return _currentcultureField; }
+            set { _currentcultureField = value; }
         }
 
         /// <remarks />
         [XmlAttribute("current-uiculture")]
-        public string currentuiculture
+        public string Currentuiculture
         {
-            get { return currentuicultureField; }
-            set { currentuicultureField = value; }
+            get { return _currentuicultureField; }
+            set { _currentuicultureField = value; }
         }
     }
 }
