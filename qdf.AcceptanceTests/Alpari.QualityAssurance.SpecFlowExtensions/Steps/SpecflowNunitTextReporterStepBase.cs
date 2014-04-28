@@ -20,8 +20,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public static IList<TestCaseTextResult> GetTestCaseTextResults()
         {
-            NunitTxtParser nunitXmlParser = GetNunitTextParser();
-            IList<TestCaseTextResult> testCases = nunitXmlParser.TestCases;
+            var nunitXmlParser = GetNunitTextParser();
+            var testCases = nunitXmlParser.TestCases;
             return testCases;
         }
 

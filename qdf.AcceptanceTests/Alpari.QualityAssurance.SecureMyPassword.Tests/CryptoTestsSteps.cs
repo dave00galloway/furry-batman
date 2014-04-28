@@ -10,7 +10,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword.Tests
         [Given(@"my unencypted password is ""(.*)""")]
         public void GivenMyUnencyptedPasswordIs(string password)
         {
-            byte[] toEncrypt = password.ConvertStringToByteArray();
+            var toEncrypt = password.ConvertStringToByteArray();
             ScenarioContext.Current["toEncrypt"] = toEncrypt;
         }
 
@@ -23,14 +23,14 @@ namespace Alpari.QualityAssurance.SecureMyPassword.Tests
         [When(@"I directly encrypt my password")]
         public void WhenIDirectlyEncryptMyPassword()
         {
-            string toEncrypt = ScenarioContext.Current["toEncrypt"].ToString();
+            var toEncrypt = ScenarioContext.Current["toEncrypt"].ToString();
             ScenarioContext.Current["encrypted"] = toEncrypt.Protect("-");
         }
 
         [When(@"I directly decrypt the encrypted password")]
         public void WhenIDirectlyDecryptTheEncryptedPassword()
         {
-            string toUnEnCrypt = ScenarioContext.Current["encrypted"].ToString();
+            var toUnEnCrypt = ScenarioContext.Current["encrypted"].ToString();
             ScenarioContext.Current["unEncrypted"] = toUnEnCrypt.UnProtect('-');
         }
 
@@ -47,16 +47,16 @@ namespace Alpari.QualityAssurance.SecureMyPassword.Tests
         [When(@"I decrypt the encrypted password")]
         public void WhenIDecryptTheEncryptedPassword()
         {
-            string toUnEnCrypt = ScenarioContext.Current["encryptedAsString"].ToString();
-            byte[] unEncryptArray = toUnEnCrypt.StringToByteArray('-');
-            byte[] unEncrypted = unEncryptArray.Unprotect();
+            var toUnEnCrypt = ScenarioContext.Current["encryptedAsString"].ToString();
+            var unEncryptArray = toUnEnCrypt.StringToByteArray('-');
+            var unEncrypted = unEncryptArray.Unprotect();
             ScenarioContext.Current["unEncrypted"] = unEncrypted.CharByteArrayToString();
         }
 
         [Then(@"the decrypted password is ""(.*)""")]
         public void ThenTheDecryptedPasswordIs(string password)
         {
-            string unencrypted = ScenarioContext.Current["unEncrypted"].ToString();
+            var unencrypted = ScenarioContext.Current["unEncrypted"].ToString();
             unencrypted.Should().Be(password);
         }
     }

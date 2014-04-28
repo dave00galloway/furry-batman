@@ -24,10 +24,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             //TODO: - linqify!
             ColumnDefinitionDictionary = new Dictionary<string, int>();
-            int colIndex = 0;
-            foreach (string col in columns)
+            var colIndex = 0;
+            foreach (var col in columns)
             {
-                PropertyInfo columnDefinition = GetType().GetProperty(col.Replace(" ", ""));
+                var columnDefinition = GetType().GetProperty(col.Replace(" ", ""));
                 columnDefinition.SetValue(this, colIndex);
                 ColumnDefinitionDictionary[col] = colIndex;
                 colIndex++;

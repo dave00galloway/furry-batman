@@ -40,26 +40,26 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void CalculateQDFCumulativePosition()
         {
-            foreach (QDFDealPositionGrouping grouping in QDFDealPositionGroupings)
+            foreach (var grouping in QDFDealPositionGroupings)
             {
                 Console.WriteLine("get position values for {0}", grouping.PositionGroupingName);
-                List<decimal> positions = grouping.QDFDealPositions.Select(deal => deal.Position).ToList();
-                foreach (decimal item in positions)
+                var positions = grouping.QDFDealPositions.Select(deal => deal.Position).ToList();
+                foreach (var item in positions)
                 {
                     Console.WriteLine(item);
                 }
                 Console.WriteLine();
 
                 Console.WriteLine("get cumulative position values");
-                List<decimal> cumulativePositions = positions.CumulativeSum().ToList();
+                var cumulativePositions = positions.CumulativeSum().ToList();
                 //IEnumerable<double> cumulativePositions = positions.CumulativeSum<decimal>();
-                foreach (decimal item in cumulativePositions)
+                foreach (var item in cumulativePositions)
                 {
                     Console.WriteLine(item);
                 }
                 Console.WriteLine();
 
-                for (int i = 0; i < cumulativePositions.Count(); i++)
+                for (var i = 0; i < cumulativePositions.Count(); i++)
                 {
                     grouping.QDFDealPositions[i].CumulativePosition = cumulativePositions[i];
                 }
@@ -103,9 +103,9 @@ namespace qdf.AcceptanceTests.Helpers
 
             #endregion
 
-            IEnumerable<DataRow> rowQuery = (from DataRow row in CCToolData.Rows
+            var rowQuery = (from DataRow row in CCToolData.Rows
                 select row);
-            foreach (DataRow row in rowQuery)
+            foreach (var row in rowQuery)
             {
                 row["VolumeSize"] = (decimal) row["Volume"]*(decimal) row["ContractSize"];
             }
@@ -120,9 +120,9 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void CombineCCSectionData()
         {
-            IEnumerable<DataRow> rowQuery = (from DataRow row in CCToolData.Rows
+            var rowQuery = (from DataRow row in CCToolData.Rows
                 select row);
-            List<CCToolPosition> aggregatedPositions = rowQuery.GroupBy(x => new
+            var aggregatedPositions = rowQuery.GroupBy(x => new
             {
                 Book = ((ulong) x["IsBookA"] == 0 ? Book.A : Book.B),
                 Instrument = x["SymbolCode"].ToString(),
@@ -142,7 +142,7 @@ namespace qdf.AcceptanceTests.Helpers
                     Positions = x.ToList()
                 }
                 ).ToList();
-            foreach (CCToolPosition position in aggregatedPositions)
+            foreach (var position in aggregatedPositions)
             {
                 position.CalculatePosition();
                 Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}",
@@ -171,7 +171,7 @@ namespace qdf.AcceptanceTests.Helpers
             //                                                    }
             //                                       )
             //answer - group using an anonymous type. This works!
-            List<QDFDealPosition> aggregatedDeals = QDFDeals.GroupBy(x => new
+            var aggregatedDeals = QDFDeals.GroupBy(x => new
             {
                 x.Book,
                 x.Instrument,
@@ -194,7 +194,7 @@ namespace qdf.AcceptanceTests.Helpers
                 }
                 ).ToList();
 
-            foreach (QDFDealPosition position in aggregatedDeals)
+            foreach (var position in aggregatedDeals)
             {
                 position.CalculatePosition();
                 Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName,
@@ -217,7 +217,7 @@ namespace qdf.AcceptanceTests.Helpers
                 item.OrderBy(x => x.TimeStamp);
             }
 
-            List<QDFDealPositionGrouping> groupedPositions = groupedAggregation.Select(x => new QDFDealPositionGrouping
+            var groupedPositions = groupedAggregation.Select(x => new QDFDealPositionGrouping
             {
                 PositionGroupingName = x.Key.PositionGroupingName,
                 Book = x.Key.Book,

@@ -13,15 +13,15 @@ namespace Alpari.QualityAssurance.SecureMyPassword
     {
         public static void Main(string[] args)
         {
-            byte[] toEncrypt = ConsoleReader.GetPasswordAsByteArray();
-            byte[] encrypted = toEncrypt.Protect();
+            var toEncrypt = ConsoleReader.GetPasswordAsByteArray();
+            var encrypted = toEncrypt.Protect();
             Console.WriteLine("this is your encrypted password.");
             encrypted.PrintValues();
             Console.WriteLine("this is your encrypted password in human readable format. copy and keep safe!");
-            string encrypedAsString = encrypted.ByteArrayToString("_");
+            var encrypedAsString = encrypted.ByteArrayToString("_");
             Console.WriteLine(encrypedAsString);
             Console.WriteLine("this is your decrypted password. please check this is what you meant to be encrypted!");
-            byte[] decrypted = encrypted.Unprotect();
+            var decrypted = encrypted.Unprotect();
             decrypted.PrintValues();
             Console.WriteLine(
                 "this is your decrypted password in human readable format. please check this is what you meant to be encrypted!");

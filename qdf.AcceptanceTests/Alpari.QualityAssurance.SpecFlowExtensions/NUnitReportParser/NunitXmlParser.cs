@@ -88,7 +88,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public IList<IDictionary<string, object>> GetTestCasesByTestSuiteAsList()
         {
             IList<IDictionary<string, object>> testCasesByTestSuiteAsList = new List<IDictionary<string, object>>();
-            foreach (testsuiteType testSuite in TestSuiteTypeCollection)
+            foreach (var testSuite in TestSuiteTypeCollection)
             {
                 if (testSuite.type == "TestFixture")
                 {
@@ -128,7 +128,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private static string JoinTags(testcaseType testCase)
         {
-            string ret = String.Format("@{0}",
+            var ret = String.Format("@{0}",
                 String.Join(",@", testCase.categories.Select(x => x.name.Replace('_', '-')).ToArray()));
             return ret;
         }
@@ -160,7 +160,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
                 if (testSuiteType.type == "TestFixture")
                 {
                     var Result = new resultsType();
-                    XmlNode resultNode = TestSuiteTypeListItem.SelectSingleNode("descendant::results");
+                    var resultNode = TestSuiteTypeListItem.SelectSingleNode("descendant::results");
                     Result.Items = getTestCasesForResultsItem(resultNode);
                     testSuiteType.results = Result;
                 }
@@ -177,7 +177,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private static object[] getTestCasesForResultsItem(XmlNode resultNode)
         {
             IList<testcaseType> testCaseList = new List<testcaseType>();
-            XmlNodeList testCaseNodes = resultNode.SelectNodes("descendant::test-case");
+            var testCaseNodes = resultNode.SelectNodes("descendant::test-case");
             foreach (XmlNode testCaseNode in testCaseNodes)
             {
                 var testCase = new testcaseType();
@@ -202,7 +202,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private static object getTestCaseItem(XmlNode testCaseNode)
         {
             var itemList = new object();
-            XmlNode itemNode = testCaseNode.SelectSingleNode("descendant::failure");
+            var itemNode = testCaseNode.SelectSingleNode("descendant::failure");
             if (itemNode != null)
             {
                 var failure = new failureType();
@@ -216,7 +216,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         private static XmlNode findChildNodeByName(XmlNode itemNode, string nodeName)
         {
-            for (int i = 0; i < itemNode.ChildNodes.Count; i++)
+            for (var i = 0; i < itemNode.ChildNodes.Count; i++)
             {
                 if (itemNode.ChildNodes[i].Name == nodeName)
                 {
@@ -229,7 +229,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private static categoryType[] getTestcaseCategories(XmlNode testCaseNode)
         {
             IList<categoryType> categoryList = new List<categoryType>();
-            XmlNodeList categoryNodes = testCaseNode.SelectNodes("descendant::category");
+            var categoryNodes = testCaseNode.SelectNodes("descendant::category");
             foreach (XmlNode categoryNode in categoryNodes)
             {
                 var category = new categoryType();
@@ -267,7 +267,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             foreach (XmlNode cultureinfoTypeListItem in CultureinfoTypeList)
             {
                 var cultureinfoTypeItem = new cultureinfoType();
-                XmlAttributeCollection cultureinfoTypeItemAttributes = cultureinfoTypeListItem.Attributes;
+                var cultureinfoTypeItemAttributes = cultureinfoTypeListItem.Attributes;
                 cultureinfoTypeItem.currentculture = cultureinfoTypeItemAttributes["current-culture"].Value;
                 cultureinfoTypeItem.currentuiculture = cultureinfoTypeItemAttributes["current-uiculture"].Value;
                 CultureinfoType = cultureinfoTypeItem;
@@ -288,7 +288,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             foreach (XmlNode hostTestEnvironment in HostTestEnvironmentList)
             {
                 var hostTestEnvironmentType = new environmentType();
-                XmlAttributeCollection hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
+                var hostTestEnvironmentAttributes = hostTestEnvironment.Attributes;
                 hostTestEnvironmentType.nunitversion = hostTestEnvironmentAttributes["nunit-version"].Value;
                 hostTestEnvironmentType.clrversion = hostTestEnvironmentAttributes["clr-version"].Value;
                 hostTestEnvironmentType.osversion = hostTestEnvironmentAttributes["os-version"].Value;
@@ -305,7 +305,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         private resultType ParseAsTestResults()
         {
             var TestResults = new resultType();
-            XmlAttributeCollection rootAttributes = xmlRoot.Attributes;
+            var rootAttributes = xmlRoot.Attributes;
             TestResults.name = rootAttributes["name"].Value;
             TestResults.total = decimal.Parse(rootAttributes["total"].Value);
             TestResults.errors = decimal.Parse(rootAttributes["errors"].Value);

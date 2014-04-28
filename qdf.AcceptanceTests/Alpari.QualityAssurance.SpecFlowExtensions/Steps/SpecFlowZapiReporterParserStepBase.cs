@@ -35,16 +35,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public static IDictionary<string, object> GetTestResultsDictionary(NunitXmlParser nunitXmlParser)
         {
-            Type TestResultsType = nunitXmlParser.TestResults.GetType();
-            IDictionary<string, object> TestResultsDictionary =
+            var TestResultsType = nunitXmlParser.TestResults.GetType();
+            var TestResultsDictionary =
                 DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.TestResults, TestResultsType);
             return TestResultsDictionary;
         }
 
         public static IDictionary<string, object> GetHostTestEnvironmentDictionary(NunitXmlParser nunitXmlParser)
         {
-            Type HostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
-            IDictionary<string, object> HostTestEnvironmentDictionary =
+            var HostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
+            var HostTestEnvironmentDictionary =
                 DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.HostTestEnvironment,
                     HostTestEnvironmentType);
             return HostTestEnvironmentDictionary;
@@ -52,8 +52,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public static IDictionary<string, object> GetCultureInfoDictionary(NunitXmlParser nunitXmlParser)
         {
-            Type CultureinfoType = nunitXmlParser.CultureinfoType.GetType();
-            IDictionary<string, object> CultureinfoTypeDictionary =
+            var CultureinfoType = nunitXmlParser.CultureinfoType.GetType();
+            var CultureinfoTypeDictionary =
                 DataTableOperations.getObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, CultureinfoType);
             return CultureinfoTypeDictionary;
         }
@@ -68,10 +68,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             List<testsuiteType> testSuiteTypeCollection)
         {
             IList<Dictionary<string, object>> ListOfTestSuiteDictionaries = new List<Dictionary<string, object>>();
-            Type TestSuiteType = testSuiteTypeCollection[0].GetType();
-            foreach (testsuiteType testSuiteTypeCollectionItem in testSuiteTypeCollection)
+            var TestSuiteType = testSuiteTypeCollection[0].GetType();
+            foreach (var testSuiteTypeCollectionItem in testSuiteTypeCollection)
             {
-                IDictionary<string, object> CultureinfoTypeDictionary =
+                var CultureinfoTypeDictionary =
                     DataTableOperations.getObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, TestSuiteType);
                 ListOfTestSuiteDictionaries.Add((Dictionary<string, object>) CultureinfoTypeDictionary);
             }
@@ -80,9 +80,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public IList<Dictionary<string, object>> SaveTestSuiteCollectionAsListOfDictionaries()
         {
-            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
-            List<testsuiteType> testSuiteTypeCollection = nunitXmlParser.TestSuiteTypeCollection;
-            IList<Dictionary<string, object>> TestSuiteCollectionAsListOfTestSuiteDictionaries =
+            var nunitXmlParser = GetNunitXmlParser();
+            var testSuiteTypeCollection = nunitXmlParser.TestSuiteTypeCollection;
+            var TestSuiteCollectionAsListOfTestSuiteDictionaries =
                 GetTestSuiteCollectionAsListOfTestSuiteDictionaries(testSuiteTypeCollection);
             ScenarioContext.Current[TestSuiteCollectionAsListOfTestSuiteDictionaries.ToString()] =
                 TestSuiteCollectionAsListOfTestSuiteDictionaries;

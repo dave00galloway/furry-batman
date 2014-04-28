@@ -12,7 +12,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             //TODO:- convert to LINQ if possible
             foreach (var item in testCasesByTestSuiteAsList)
             {
-                string taglist = item["tags"].ToString();
+                var taglist = item["tags"].ToString();
                     //.Replace('_', '-'); //TODO:- would be more efficient to do this at source, but would have to change tests!
                 if (taglist.Contains(this.textResult.PrimaryTag))
                 {

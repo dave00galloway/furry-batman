@@ -8,14 +8,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             if (Directory.Exists(reportRoot))
             {
-                foreach (string file in Directory.GetFiles(reportRoot))
+                foreach (var file in Directory.GetFiles(reportRoot))
                 {
                     File.Delete(file);
                 }
 
-                foreach (string subDirectory in Directory.GetDirectories(reportRoot))
+                foreach (var subDirectory in Directory.GetDirectories(reportRoot))
                 {
-                    foreach (string file in Directory.GetFiles(subDirectory))
+                    foreach (var file in Directory.GetFiles(subDirectory))
                     {
                         File.Delete(file);
                     }

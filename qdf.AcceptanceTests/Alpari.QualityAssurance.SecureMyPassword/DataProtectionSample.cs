@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Cryptography;
 
@@ -8,7 +9,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
     public static class DataProtectionSample
     {
         // Create byte array for additional entropy when using Protect method. 
-        private static byte[] s_aditionalEntropy = {9, 4, 7, 3, 5};
+        // private static byte[] s_aditionalEntropy = {9, 4, 7, 3, 5};
 
         public static byte[] Protect(this byte[] data)
         {
@@ -48,17 +49,12 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static string UnProtect(this string data, char seperator)
         {
-            //var b = data.StringToByteArray(seperator);
-            //var u = b.Unprotect();
-            //var ub = u.CharByteArrayToString();
-            ////var bs = b.ByteArrayToString(seperator.ToString());
-            //return ub;
             return data.StringToByteArray(seperator).Unprotect().CharByteArrayToString();
         }
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            IEnumerable<byte> query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
+            var query = stringToConvert.ToArray().Select(Convert.ToByte);
             return query.ToArray();
         }
 
@@ -67,7 +63,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             string byteArrayAsString = null;
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
+            byteArrayAsString = String.Join(separator, data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             //
             return byteArrayAsString;
         }
@@ -75,7 +71,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         public static string CharByteArrayToString(this byte[] data)
         {
             string byteArrayAsString = null;
-            List<string> stringQuery =
+            var stringQuery =
                 data.Select(x => Convert.ToChar(x)).Select(x => byteArrayAsString += x.ToString()).ToList();
             // byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
             //
@@ -86,7 +82,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         {
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            var byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             //
 
             return byteArray;
@@ -94,7 +90,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static void PrintValues(this Byte[] myArr)
         {
-            foreach (Byte i in myArr)
+            foreach (var i in myArr)
             {
                 Console.Write("\t{0}", i);
             }

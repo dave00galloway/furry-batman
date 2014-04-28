@@ -14,7 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string ConvertDateTimeToMySqlDateFormatToSeconds(this DateTime dateTime)
         {
-            string dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2),
+            var dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2),
                 dateTime.Day.padZeros(2), dateTime.Hour.padZeros(2), dateTime.Minute.padZeros(2),
                 dateTime.Second.padZeros(2));
             return dateAsString;
@@ -101,16 +101,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         private static void ParseShortCode(string shortCode, out double magnitude, out string units)
         {
-            char[] characters = shortCode.ToCharArray();
+            var characters = shortCode.ToCharArray();
             //get the sign. if plus or a number then assume +
-            bool sign = IsCharAPlus(characters, 0);
+            var sign = IsCharAPlus(characters, 0);
             magnitude = sign ? characters.ExtractDoubleFromCharArray() : characters.ExtractDoubleFromCharArray()*-1;
             units = characters.ExtractLettersFromCharArray();
         }
 
         private static bool IsCharAPlus(char[] characters, int digit)
         {
-            bool sign = false;
+            var sign = false;
             if (characters[digit] == '+' || Char.IsNumber(characters[digit]))
             {
                 sign = true;

@@ -16,7 +16,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static IEnumerable<double> CumulativeSum(this IEnumerable<double> sequence)
         {
             double sum = 0;
-            foreach (double item in sequence)
+            foreach (var item in sequence)
             {
                 sum += item;
                 yield return sum;
@@ -31,7 +31,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static IEnumerable<decimal> CumulativeSum(this IEnumerable<decimal> sequence)
         {
             decimal sum = 0;
-            foreach (decimal item in sequence)
+            foreach (var item in sequence)
             {
                 sum += item;
                 yield return sum;
@@ -46,7 +46,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static IEnumerable<decimal> CumulativeSumToDecimal<T>(this IEnumerable<T> sequence)
         {
             decimal sum = 0;
-            foreach (T item in sequence)
+            foreach (var item in sequence)
             {
                 sum += Convert.ToDecimal(item);
                 yield return sum;
@@ -65,7 +65,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static IEnumerable<double> CumulativeSum<T>(this IEnumerable<T> sequence)
         {
             double sum = 0;
-            foreach (T item in sequence)
+            foreach (var item in sequence)
             {
                 sum += Convert.ToDouble(item);
                 yield return sum;

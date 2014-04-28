@@ -39,7 +39,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             IEnumerable<string> unparsedFile = File.ReadAllLines(fileNamePath);
             var parsedFile = new List<List<string>>();
             long lineId = 0;
-            foreach (string line in unparsedFile)
+            foreach (var line in unparsedFile)
             {
                 lineId++;
                 try
@@ -71,12 +71,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <returns>The CSV cell formatted string</returns>
         public static string StringToCSVCell(string str)
         {
-            bool mustQuote = (str.Contains(",") || str.Contains("\"") || str.Contains("\r") || str.Contains("\n"));
+            var mustQuote = (str.Contains(",") || str.Contains("\"") || str.Contains("\r") || str.Contains("\n"));
             if (mustQuote)
             {
                 var sb = new StringBuilder();
                 sb.Append("\"");
-                foreach (char nextChar in str)
+                foreach (var nextChar in str)
                 {
                     sb.Append(nextChar);
                     if (nextChar == '"')
@@ -96,7 +96,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <returns></returns>
         public static string RemoveWindowsUnfriendlyChars(object stringToCleanse)
         {
-            string cleansedString =
+            var cleansedString =
                 stringToCleanse.ToString()
                     .Replace(" ", "")
                     .Replace(@"\", "")

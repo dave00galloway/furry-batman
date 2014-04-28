@@ -16,10 +16,10 @@ namespace qdf.AcceptanceTests.Steps
     {
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
-            string start = entry.startTime != null
+            var start = entry.startTime != null
                 ? entry.startTime
                 : ConfigurationManager.AppSettings["defaultStartTime"];
-            string end = entry.endTime != null ? entry.endTime : ConfigurationManager.AppSettings["defaultEndTime"];
+            var end = entry.endTime != null ? entry.endTime : ConfigurationManager.AppSettings["defaultEndTime"];
             entry.convertedStartTime = start.GetTimeFromShortCode();
             entry.convertedEndTime = end.GetTimeFromShortCode(entry.convertedStartTime);
         }
@@ -57,7 +57,7 @@ namespace qdf.AcceptanceTests.Steps
 
         public static IDataContextSubstitute GetDataContextSubstituteForDB(string dbName)
         {
-            string connectionString =
+            var connectionString =
                 ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString
                     .UnProtect('_');
             switch (ConfigurationManager.ConnectionStrings[dbName].ProviderName)

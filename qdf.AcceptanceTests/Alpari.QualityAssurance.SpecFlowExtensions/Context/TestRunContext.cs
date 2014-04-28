@@ -25,7 +25,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
 
         private TestRunContext()
         {
-            DateTime now = DateTime.Now;
+            var now = DateTime.Now;
             Add(Instantiated, now + "  " + now.Ticks);
             Add(RandomFileName, GenerateRandomStringFromFileName());
         }
@@ -40,7 +40,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         /// <param name="context"></param>
         protected TestRunContext(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            TestRunContext serialisationInstance = Instance;
+            var serialisationInstance = Instance;
         }
 
         public static TestRunContext Instance

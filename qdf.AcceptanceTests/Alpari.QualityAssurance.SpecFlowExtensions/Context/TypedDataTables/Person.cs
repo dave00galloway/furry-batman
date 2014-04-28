@@ -50,9 +50,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
         public void SetPrimaryKey(string[] primaryKeyColumns)
         {
-            int size = primaryKeyColumns.Length;
+            var size = primaryKeyColumns.Length;
             var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
-            for (int i = 0; i < size; i++)
+            for (var i = 0; i < size; i++)
             {
                 keyColumns[i] = Columns[primaryKeyColumns[i]];
             }
@@ -112,7 +112,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         protected PersonData(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            PersonData serialisationInstance = this;
+            var serialisationInstance = this;
         }
 
         /// <summary>
@@ -158,7 +158,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
         private static PersonData SetupDataTable(IEnumerable<Person> enumeratedObjects, PersonData dataTable)
         {
-            foreach (Person person in enumeratedObjects)
+            foreach (var person in enumeratedObjects)
             {
                 dataTable.Rows.Add(new Object[]
                 {person.ID, person.Forenames, person.Lastname, person.Age, person.Occupation});

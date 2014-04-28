@@ -18,13 +18,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <returns></returns>
         public static ConcurrentDictionary<String, Object> ParseXmlAsDictionary(this string pathToYourXmlFile, String id)
         {
-            XDocument database = XDocument.Load(pathToYourXmlFile);
+            var database = XDocument.Load(pathToYourXmlFile);
 
             var map = new ConcurrentDictionary<string, Object>();
 
-            foreach (XElement element in database.Elements(id))
+            foreach (var element in database.Elements(id))
             {
-                foreach (XElement subElement in element.Elements())
+                foreach (var subElement in element.Elements())
                 {
                     map[subElement.Name.ToString()] = subElement.Value;
                 }
@@ -41,13 +41,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <returns></returns>
         public static ConcurrentDictionary<String, Object> ParseXmlAsDictionary(this string pathToYourXmlFile)
         {
-            XDocument database = XDocument.Load(pathToYourXmlFile);
+            var database = XDocument.Load(pathToYourXmlFile);
 
             var map = new ConcurrentDictionary<string, Object>();
 
-            foreach (XElement element in database.Root.Elements())
+            foreach (var element in database.Root.Elements())
             {
-                foreach (XElement subElement in element.Elements())
+                foreach (var subElement in element.Elements())
                 {
                     map[subElement.Name.ToString()] = subElement.Value;
                 }

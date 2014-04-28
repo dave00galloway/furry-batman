@@ -24,7 +24,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
         public void ParseTextTestResultFileAsTestSuiteCollection()
         {
             //throw new NotImplementedException();
-            foreach (string line in fileText)
+            foreach (var line in fileText)
             {
                 if (AddNewTestCase(line))
                 {
@@ -55,7 +55,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 
         private bool AddTestStepResult(string line)
         {
-            string firstWord = line.Split(' ').ToList().First();
+            var firstWord = line.Split(' ').ToList().First();
 
             switch (firstWord)
             {
@@ -95,9 +95,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
         {
             if (line.StartsWith("Tags:- "))
             {
-                string taglist = line.Replace("Tags:- ", "");
+                var taglist = line.Replace("Tags:- ", "");
                 //var testCase = TestCases.ElementAt(TestCases.Count-1);
-                TestCaseTextResult testCase = TestCases.Last();
+                var testCase = TestCases.Last();
                 testCase.setTags(taglist, primaryTagId);
                 return true;
             }

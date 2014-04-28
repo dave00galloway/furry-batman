@@ -19,7 +19,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             double magnitude;
             string doubleAsString = null;
-            foreach (char character in characters)
+            foreach (var character in characters)
             {
                 if (char.IsNumber(character))
                 {
@@ -33,7 +33,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static string ExtractLettersFromCharArray(this char[] characters)
         {
             string Letters = null;
-            foreach (char character in characters)
+            foreach (var character in characters)
             {
                 if (char.IsLetter(character))
                 {
@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string padZeros(this object digit, int length)
         {
-            string padZeros = digit.ToString();
+            var padZeros = digit.ToString();
             while (padZeros.Length < length)
             {
                 padZeros = "0" + padZeros;
@@ -55,7 +55,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            IEnumerable<byte> query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
+            var query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
             return query.ToArray();
         }
 
@@ -69,7 +69,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static byte[] StringToByteArray(this string data, char separator)
         {
-            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            var byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             return byteArray;
         }
     }

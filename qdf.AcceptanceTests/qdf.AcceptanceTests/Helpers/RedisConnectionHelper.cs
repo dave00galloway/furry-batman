@@ -36,7 +36,7 @@ namespace qdf.AcceptanceTests.Helpers
             dealsStore = new RedisDataStore(connection,
                 new SortedSetBasedStorageStrategy(connection, new JsonSerializer()));
             //might need to adjust the time slice, for now leaving as Day
-            IEnumerable<Deal> deals = dealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
+            var deals = dealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
                 qdfDealParameters.convertedStartTime, qdfDealParameters.convertedEndTime, TimeSlice.Day);
             if (retrievedDeals == null)
             {
@@ -51,9 +51,9 @@ namespace qdf.AcceptanceTests.Helpers
         public void OutputAllDeals(string fileNamePath)
         {
             var csvFile = new StringBuilder();
-            string headers = String.Join(",", typeof (Deal).GetPropertyNamesAsList()); //.Select(x => x));
+            var headers = String.Join(",", typeof (Deal).GetPropertyNamesAsList()); //.Select(x => x));
             csvFile.AppendLine(headers);
-            foreach (Deal deal in retrievedDeals)
+            foreach (var deal in retrievedDeals)
             {
                 csvFile.AppendLine(String.Join(",",
                     deal.GetObjectPropertyValuesAsList().Select(x => CsvParser.StringToCSVCell(x.ToString()))));

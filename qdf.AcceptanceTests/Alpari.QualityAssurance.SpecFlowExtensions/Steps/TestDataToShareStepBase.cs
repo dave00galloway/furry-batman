@@ -17,8 +17,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void BeforeScenario()
         {
             //save the current Scenario and Feature contexts
-            FeatureContext featureContext = FeatureContext.Current;
-            ScenarioContext scenarioContext = ScenarioContext.Current;
+            var featureContext = FeatureContext.Current;
+            var scenarioContext = ScenarioContext.Current;
 
             var TestDataToShareFeature = new TestDataToShareFeature();
             TestDataToShareFeature.FeatureSetup();

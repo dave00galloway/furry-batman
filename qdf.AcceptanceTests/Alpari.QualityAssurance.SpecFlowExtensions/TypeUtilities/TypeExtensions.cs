@@ -54,7 +54,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string GetDataType(this Type type)
         {
-            string typeShortName = type.FullName.Split('.')[type.FullName.Split('.').Length - 1];
+            var typeShortName = type.FullName.Split('.')[type.FullName.Split('.').Length - 1];
             return typeShortName;
         }
     }

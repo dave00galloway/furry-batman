@@ -11,7 +11,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
     {
         public static string That(object First, CompareUsing Is, Object Second, string Message)
         {
-            string that = "";
+            var that = "";
             switch (Is)
             {
                 case CompareUsing.SHOULD_BE:
@@ -78,7 +78,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
 
         public static string That(object First, CompareUsing Is, Object Second)
         {
-            string that = "";
+            var that = "";
             switch (Is)
             {
                 case CompareUsing.SHOULD_BE:
