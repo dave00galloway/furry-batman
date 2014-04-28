@@ -226,7 +226,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return itemList;
         }
 
-        private static XmlNode FindChildNodeByName(XmlNode itemNode, string nodeName)
+        public static XmlNode FindChildNodeByName(XmlNode itemNode, string nodeName)
         {
             for (var i = 0; i < itemNode.ChildNodes.Count; i++)
             {
@@ -249,7 +249,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
                     if (categoryNode.Attributes != null) category.Name = categoryNode.Attributes["name"].Value;
                     categoryList.Add(category);
                 }
-            return categoryList.Cast<CategoryType>().ToArray();
+            return categoryList.ToArray();
         }
 
         public void SetTestResults()

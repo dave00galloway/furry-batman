@@ -2,13 +2,14 @@
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
+// ReSharper disable once UnusedMember.Global - used in client tests
     public class FileComparisonResult
     {
         public FileComparisonResult(List<string> expectedResults, List<string> actualResults, string comparison)
         {
-            this.ExpectedResults = expectedResults;
-            this.ActualResults = actualResults;
-            this.Comparison = comparison;
+            ExpectedResults = expectedResults;
+            ActualResults = actualResults;
+            Comparison = comparison;
         }
 
         public List<string> ExpectedResults { get; private set; }

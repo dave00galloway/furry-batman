@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 
@@ -84,11 +84,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                         }
                         catch (Exception e)
                         {
-                            Console.WriteLine(String.Format("{0} {1}",e.Message,e.StackTrace));
+                            ConsoleLogger.ConsoleExceptionLogger(e);
                         }
                     }
-                    break;
-                default:
                     break;
             }
             throw new Exception(String.Format("couldn't find a match for {0}",matchingCriteria.Key));
@@ -158,16 +156,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 var entryKey = "";
                 var expectedValue = "";
                 var actualValue = "";
-                var comparisonDescription = "";
+                string comparisonDescription;
                 try
                 {
-                    CompareDictionaryEntries(actualDictionaryAsDictionary, entry, ref entryKey, ref expectedValue,
-                        ref actualValue, ref comparisonDescription);
+                    CompareDictionaryEntries(actualDictionaryAsDictionary, entry, out entryKey, out expectedValue,
+                        out actualValue, out comparisonDescription);
                 }
                 catch (Exception e)
                 {
                     comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
-                        comparisonDescription);
+                        out comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
                     {
@@ -190,16 +188,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 var entryKey = "";
                 var expectedValue = "";
                 var actualValue = "";
-                var comparisonDescription = "";
+                string comparisonDescription;
                 try
                 {
-                    CompareDictionaryEntries(actualDictionaryToObjectDictionary, entry, ref entryKey, ref expectedValue,
-                        ref actualValue, ref comparisonDescription);
+                    CompareDictionaryEntries(actualDictionaryToObjectDictionary, entry, out entryKey, out expectedValue,
+                        out actualValue, out comparisonDescription);
                 }
                 catch (Exception e)
                 {
                     comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
-                        comparisonDescription);
+                        out comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
                     {
@@ -228,19 +226,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 var entryKey = "";
                 var expectedValue = "";
                 var actualValue = "";
-                var comparisonDescription = "";
+                string comparisonDescription;
                 try
                 {
                     if (entry.Key != tableKey)
                     {
-                        CompareDictionaryEntries(actualDictionary, entry, ref entryKey, ref expectedValue,
-                            ref actualValue, ref comparisonDescription);
+                        CompareDictionaryEntries(actualDictionary, entry, out entryKey, out expectedValue,
+                            out actualValue, out comparisonDescription);
                     }
                 }
                 catch (Exception e)
                 {
                     comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
-                        comparisonDescription);
+                        out comparisonDescription);
                     diffs.AppendLine(String.Format("{0} threw exception {1}", comparisonDescription, e.Message));
                     if (e.InnerException != null)
                     {
@@ -252,13 +250,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         }
 
         private static void CompareDictionaryEntries(Dictionary<string, object> actualDictionary,
-            KeyValuePair<string, object> entry, ref string entryKey, ref string expectedValue, ref string actualValue,
-            ref string comparisonDescription)
+            KeyValuePair<string, object> entry, out string entryKey, out string expectedValue, out string actualValue,
+            out string comparisonDescription)
         {
             entryKey = entry.Key;
             expectedValue = entry.Value.ToString();
             actualValue = actualDictionary[entryKey].ToString();
-            comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue, comparisonDescription);
+            comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue, out comparisonDescription);
             try
             {
                 Assert.AreEqual(expectedValue, actualValue, comparisonDescription);
@@ -266,7 +264,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             catch (Exception e)
             {
                 comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
-                    comparisonDescription);
+                    out comparisonDescription);
                 throw new Exception(comparisonDescription, e);
             }
         }
@@ -412,7 +410,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         }
 
         private static string GetComparisonDescription(string entryKey, string expectedValue, string actualValue,
-            string comparisonDescription)
+            out string comparisonDescription)
         {
             comparisonDescription = String.Format("Comparing key '{0}' expected value '{1}' with actual value '{2}'",
                 entryKey, expectedValue, actualValue);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+using System.Linq;
 using System.Xml.Linq;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
@@ -11,7 +12,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
     {
         /// <summary>
         ///     Extension method for turning a flat xml file into a concurrent dictionary.
-        ///     code from David Lindsay, adapted to work as an extenion method
+        ///     code from David Lindsay, adapted to work as an extension method
         /// </summary>
         /// <param name="pathToYourXmlFile">the path to the xml</param>
         /// <param name="id">the id of the element look under, usually the root element</param>
@@ -22,12 +23,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
             var map = new ConcurrentDictionary<string, Object>();
 
-            foreach (var element in database.Elements(id))
+            foreach (var subElement in database.Elements(id).SelectMany(element => element.Elements()))
             {
-                foreach (var subElement in element.Elements())
-                {
-                    map[subElement.Name.ToString()] = subElement.Value;
-                }
+                map[subElement.Name.ToString()] = subElement.Value;
             }
             return map;
         }
@@ -45,12 +43,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
             var map = new ConcurrentDictionary<string, Object>();
 
-            foreach (var element in database.Root.Elements())
+            if (database.Root == null) return map;
+            foreach (var subElement in database.Root.Elements().SelectMany(element => element.Elements()))
             {
-                foreach (var subElement in element.Elements())
-                {
-                    map[subElement.Name.ToString()] = subElement.Value;
-                }
+                map[subElement.Name.ToString()] = subElement.Value;
             }
             return map;
         }

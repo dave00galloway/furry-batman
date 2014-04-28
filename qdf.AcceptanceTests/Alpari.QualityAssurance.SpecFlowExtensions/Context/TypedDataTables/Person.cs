@@ -16,7 +16,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
     }
 
     [Serializable]
-    public class PersonData : DataTable, ITypedDataTable, ISerializable
+    public class PersonData : DataTable, ITypedDataTable
     {
         #region Constructor and StronglyTypedDataTable required methods
 
@@ -48,11 +48,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             get { return (PersonDataRow) Rows[idx]; }
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global - used externally
         public void SetPrimaryKey(string[] primaryKeyColumns)
         {
             var size = primaryKeyColumns.Length;
            //var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
-            var keyColumns = new DataColumn[size] as DataColumn[];
+            var keyColumns = new DataColumn[size];
             for (var i = 0; i < size; i++)
             {
                 keyColumns[i] = Columns[primaryKeyColumns[i]];
@@ -64,7 +65,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         /// <summary>
         ///     TODO:- set up an abstract base class implementing ITypedDataTable with abstract or virtual methods to override
         /// </summary>
-        internal void SetupColumns()
+        private void SetupColumns()
         {
             Columns.Add(new DataColumn("ID", typeof (ulong)));
             Columns.Add(new DataColumn("Forenames", typeof (string)));
@@ -83,6 +84,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             Rows.Remove(row);
         }
 
+// ReSharper disable once UnusedMember.Global - required overload
         public PersonDataRow GetNewRow()
         {
             var row = (PersonDataRow) NewRow();
@@ -113,7 +115,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         protected PersonData(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            var serialisationInstance = this;
         }
 
         /// <summary>
@@ -140,20 +141,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
         public PersonData ConvertIEnumerableToDataTable(IEnumerable<Person> enumeratedObjects)
         {
-            //PersonData dataTable = new PersonData();
             return SetupDataTable(enumeratedObjects, this);
-            //foreach (Person person in enumeratedObjects)
-            //{
-            //    dataTable.Rows.Add(new Object[] { person.ID, person.Forenames, person.Lastname, person.Age, person.Occupation });
-            //}
-            //dataTable.AcceptChanges();
-            //return dataTable;
         }
 
         public PersonData ConvertIEnumerableToDataTable(IEnumerable<Person> enumeratedObjects, string tableName,
             string[] primaryKeys)
         {
-            //PersonData dataTable = new PersonData();
             TableName = tableName;
             SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
@@ -173,11 +166,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
     public class PersonDataRow : DataRow
     {
-        //private DataRowBuilder _builder;
 
         public PersonDataRow(DataRowBuilder builder) : base(builder)
         {
-            //this._builder = builder;
         }
 
         public ulong Id

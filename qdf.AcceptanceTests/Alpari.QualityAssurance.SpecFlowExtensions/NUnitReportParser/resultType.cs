@@ -13,7 +13,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     /// </summary>
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute]
     [DesignerCategory("code")]
     [XmlType(AnonymousType = true)]
     [XmlRoot("test-results", Namespace = "", IsNullable = false)]

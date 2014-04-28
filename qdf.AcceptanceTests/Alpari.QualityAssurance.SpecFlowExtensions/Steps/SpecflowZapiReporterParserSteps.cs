@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser;
+﻿using System.Collections.Generic;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;

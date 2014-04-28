@@ -7,15 +7,17 @@ using Microsoft.VisualBasic.FileIO;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
+// ReSharper disable once ClassNeverInstantiated.Global - used by client tests
     public class CsvParser : IDisposable
     {
         private bool _disposed;
 
         public CsvParser(string fileNamePath)
         {
-            this.FileNamePath = fileNamePath;
+            FileNamePath = fileNamePath;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global  - used by client tests
         public string FileNamePath { get; private set; }
 
         public void Dispose()

@@ -10,9 +10,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
     {
         public DefinedCsvFile(List<List<string>> parsedFile, ICsvColumnDefinition csvColumnDefinition)
         {
-            this.CsvColumnDefinition = csvColumnDefinition;
+            CsvColumnDefinition = csvColumnDefinition;
             FileType = csvColumnDefinition.GetType();
-            this.ParsedFile = parsedFile;
+            ParsedFile = parsedFile;
         }
 
         public ICsvColumnDefinition CsvColumnDefinition { get; private set; }

@@ -8,7 +8,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     /// <remarks />
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute]
     [DesignerCategory("code")]
     [XmlType(TypeName = "culture-infoType")]
     public class CultureinfoType

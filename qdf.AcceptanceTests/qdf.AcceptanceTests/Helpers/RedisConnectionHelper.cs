@@ -16,8 +16,8 @@ namespace qdf.AcceptanceTests.Helpers
     {
         public RedisConnectionHelper(string redisHost)
         {
-            this.RedisHost = redisHost;
-            Connection = new RedisConnection(this.RedisHost);
+            RedisHost = redisHost;
+            Connection = new RedisConnection(RedisHost);
             Connection.Open();
         }
 

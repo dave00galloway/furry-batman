@@ -83,11 +83,9 @@ namespace qdf.AcceptanceTests.TypedDataTables
 
     public class CCtoolRow : DataRow
     {
-        private DataRowBuilder _builder;
-
         internal CCtoolRow(DataRowBuilder builder) : base(builder)
         {
-            _builder = builder;
+
         }
 
         public string Section

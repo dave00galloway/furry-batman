@@ -9,8 +9,10 @@ namespace Alpari.QualityAssurance.SecureMyPassword
     ///     http://msdn.microsoft.com/en-us/library/system.security.cryptography.protecteddata.aspx
     ///     to create a password
     /// </summary>
+// ReSharper disable once ClassNeverInstantiated.Global
     public class Program
     {
+// ReSharper disable once UnusedParameter.Global
         public static void Main(string[] args)
         {
             var toEncrypt = ConsoleReader.GetPasswordAsByteArray();

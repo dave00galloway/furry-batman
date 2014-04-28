@@ -7,8 +7,8 @@
 //using MySql.Data.MySqlClient;
 
 
-namespace qdf.AcceptanceTests.DataContexts
-{
+//namespace qdf.AcceptanceTests.DataContexts
+//{
 //    /// <summary>
 //    /// not a true data context, just the one that's provided in 
 //    /// http://www.alinq.org/Document/Document.aspx?element=T%3AQuick_Start
@@ -32,4 +32,4 @@ namespace qdf.AcceptanceTests.DataContexts
 //                                        typeof(ALinq.MySQL.MySqlProvider));
 //        }
 //    }
-}
+//}

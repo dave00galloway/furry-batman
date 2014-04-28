@@ -151,7 +151,8 @@ namespace qdf.AcceptanceTests.Helpers
             CcToolPositions = aggregatedPositions;
         }
 
-// ReSharper disable once InconsistentNaming - used in code that is currently commented out, but will be more generally applicable
+// ReSharper disable once InconsistentNaming 
+        // ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
         private static string GetCCToolPositionName(DataRow row)
         {
             return String.Format("{0} {1} {2} {3}", row["IsBookA"], row["SymbolCode"], row["ServerName"],

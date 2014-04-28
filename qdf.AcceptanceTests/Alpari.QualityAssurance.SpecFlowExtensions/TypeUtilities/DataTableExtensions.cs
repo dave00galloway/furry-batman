@@ -39,14 +39,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 var comparison = new DataTableComparison();
 
                 //get rows missing in compare with
-                var baseRows = from DataRow row in dtBase.Rows
-                    select row;
+                var baseRows = dtBase.Rows.Cast<DataRow>().Select(row => row).ToList();
 
-                var compRows = from DataRow row in compareWith.Rows
-                    select row;
+                var compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
 
                 comparison.MissingInCompareWith =
-                    baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList(); //.Select(x => x).ToList();
+                    baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList();
                 comparison.AdditionalInCompareWith =
                     compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).ToList();
 
@@ -293,6 +291,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
 // ReSharper disable once UnusedMember.Local
+// ReSharper disable once UnusedParameter.Local
         private static void dtBase_ColumnChanged(object sender, DataColumnChangeEventArgs e)
         {
             bool changed;

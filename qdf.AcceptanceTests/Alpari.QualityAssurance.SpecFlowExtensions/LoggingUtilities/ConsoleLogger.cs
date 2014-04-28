@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities
 {
@@ -14,7 +10,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities
         /// <param name="e"></param>
         public static void ConsoleExceptionLogger(Exception e)
         {
-            Console.WriteLine(String.Format("{0} {1}", e.Message, e.StackTrace));
+            Console.WriteLine("{0} {1}", e.Message, e.StackTrace);
         }
     }
 }

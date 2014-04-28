@@ -18,6 +18,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             MyConnection = new MySqlConnection(connectionString);
         }
 
+// ReSharper disable once MemberCanBePrivate.Global - might be needed for external querying
         public MySqlConnection MyConnection { get; private set; }
 
         /// <summary>

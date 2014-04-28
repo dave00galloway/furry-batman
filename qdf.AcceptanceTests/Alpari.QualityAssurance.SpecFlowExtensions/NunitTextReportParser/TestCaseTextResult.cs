@@ -7,7 +7,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
     {
         public TestCaseTextResult(string longName)
         {
-            this.LongName = longName;
+            LongName = longName;
             TestStepResults = new List<TestStepResult>();
         }
 

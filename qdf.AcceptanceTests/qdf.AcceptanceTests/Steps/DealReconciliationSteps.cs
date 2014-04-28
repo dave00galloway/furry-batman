@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
@@ -73,11 +74,11 @@ namespace qdf.AcceptanceTests.Steps
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message + e.StackTrace);
+                ConsoleLogger.ConsoleExceptionLogger(e);
             }
             //redisConnectionHelper.FilterDeals(qdfDealParameters);
 
-            this.QdfDealParameters = qdfDealParameters;
+            QdfDealParameters = qdfDealParameters;
         }
 
         [Given(@"I have QDF Deal Data for these parameter sets:")]

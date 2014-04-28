@@ -17,6 +17,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void BeforeScenario()
         {
             //save the current Scenario and Feature contexts
+// ReSharper disable once UnusedVariable - ignoring since this feature data- sharing is experimental
             var featureContext = FeatureContext.Current;
             var scenarioContext = ScenarioContext.Current;
 

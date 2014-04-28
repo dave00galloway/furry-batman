@@ -15,6 +15,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
     ///     guarantee that 2 scenarios were run as prt of the same test run if so desired
     /// </summary>
     [Serializable]
+// ReSharper disable once RedundantExtendsListEntry - conflicts with Visual Studio Code analysis
     public class TestRunContext : Dictionary<string, Object>, ISerializable
     {
         private const string Instantiated = "Instantiated";
@@ -40,7 +41,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         /// <param name="context"></param>
         protected TestRunContext(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-            var serialisationInstance = Instance;
         }
 
         public static TestRunContext Instance

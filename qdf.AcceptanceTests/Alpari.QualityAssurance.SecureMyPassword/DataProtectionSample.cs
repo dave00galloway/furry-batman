@@ -58,23 +58,24 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             return query.ToArray();
         }
 
-        public static string ByteArrayToString(this byte[] data, string separator)
+        public static string ByteArrayToString(this IEnumerable<byte> data, string separator)
         {
-            string byteArrayAsString = null;
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            byteArrayAsString = String.Join(separator, data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
+            string byteArrayAsString = String.Join(separator, data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             //
             return byteArrayAsString;
         }
 
-        public static string CharByteArrayToString(this byte[] data)
+        public static string CharByteArrayToString(this IEnumerable<byte> data)
         {
-            string byteArrayAsString = null;
-            var stringQuery =
-                data.Select(Convert.ToChar).Select(x => byteArrayAsString += x.ToString(CultureInfo.InvariantCulture)).ToList();
-            // byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
-            //
+            //string byteArrayAsString = null;
+            //data.Select(x => byteArrayAsString += x.ToString(CultureInfo.InvariantCulture)).ToList();
+            //// byteArrayAsString = String.Join(separator, data.Select(x => x.ToString()).ToArray());
+            ////
+            //return byteArrayAsString;
+
+            var byteArrayAsString = String.Join("", data.Select(Convert.ToChar).Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             return byteArrayAsString;
         }
 
@@ -88,7 +89,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             return byteArray;
         }
 
-        public static void PrintValues(this Byte[] myArr)
+        public static void PrintValues(this IEnumerable<byte> myArr)
         {
             foreach (var i in myArr)
             {

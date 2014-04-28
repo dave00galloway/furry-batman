@@ -5,6 +5,8 @@ using TechTalk.SpecFlow;
 namespace Alpari.QualityAssurance.SecureMyPassword.Tests
 {
     [Binding]
+
+// ReSharper disable once UnusedMember.Global - called internally by Specflow
     public class CryptoTestsSteps
     {
         [Given(@"my unencypted password is ""(.*)""")]
