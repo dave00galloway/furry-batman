@@ -100,36 +100,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             var table = new DataTable("comparsionDiffs");
 
-            DataColumn column;
-
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "comparisonKey";
+            var column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "comparisonKey"};
             table.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "column";
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "column"};
             table.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "original";
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "original"};
             table.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "newValue";
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "newValue"};
             table.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "difference";
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "difference"};
             table.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = Type.GetType("System.String");
-            column.ColumnName = "type";
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "type"};
             table.Columns.Add(column);
 
             return table;

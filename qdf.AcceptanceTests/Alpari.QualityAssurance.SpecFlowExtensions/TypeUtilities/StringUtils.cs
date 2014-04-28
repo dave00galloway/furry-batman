@@ -18,16 +18,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns></returns>
         public static double ExtractDoubleFromCharArray(this char[] characters)
         {
-            double magnitude;
-            string doubleAsString = null;
-            foreach (var character in characters)
-            {
-                if (char.IsNumber(character))
-                {
-                    doubleAsString += character;
-                }
-            }
-            magnitude = Convert.ToDouble(doubleAsString);
+            var doubleAsString = characters.Where(char.IsNumber).Aggregate<char, string>(null, (current, character) => current + character);
+            var magnitude = Convert.ToDouble(doubleAsString);
             return magnitude;
         }
 
