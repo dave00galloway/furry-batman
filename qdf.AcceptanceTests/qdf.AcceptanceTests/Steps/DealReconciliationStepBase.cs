@@ -42,7 +42,7 @@ namespace qdf.AcceptanceTests.Steps
             {
                 case "MySqlDataContextSubstitute":
                     return
-                        new CCToolDataContext(
+                        new CcToolDataContext(
                             ConfigurationManager.ConnectionStrings[
                                 ConfigurationManager.AppSettings["defaultConnectionString"]].ConnectionString.UnProtect(
                                     '_'));
@@ -65,8 +65,8 @@ namespace qdf.AcceptanceTests.Steps
                 case "MySql.Data.MySqlClient":
                     switch (dbName)
                     {
-                        case CCToolDataContext.CC:
-                            return new CCToolDataContext(connectionString);
+                        case CcToolDataContext.Cc:
+                            return new CcToolDataContext(connectionString);
                         default:
                             return new AdHocMySqlDataContext(connectionString);
                     }

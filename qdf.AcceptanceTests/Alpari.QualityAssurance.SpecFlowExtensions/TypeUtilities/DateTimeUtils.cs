@@ -14,9 +14,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string ConvertDateTimeToMySqlDateFormatToSeconds(this DateTime dateTime)
         {
-            var dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.padZeros(2),
-                dateTime.Day.padZeros(2), dateTime.Hour.padZeros(2), dateTime.Minute.padZeros(2),
-                dateTime.Second.padZeros(2));
+            var dateAsString = String.Format("{0}-{1}-{2} {3}:{4}:{5}", dateTime.Year, dateTime.Month.PadZeros(2),
+                dateTime.Day.PadZeros(2), dateTime.Hour.PadZeros(2), dateTime.Minute.PadZeros(2),
+                dateTime.Second.PadZeros(2));
             return dateAsString;
         }
 

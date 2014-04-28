@@ -6,11 +6,11 @@ using qdf.AcceptanceTests.TypedDataTables;
 
 namespace qdf.AcceptanceTests.DataContexts
 {
-    public class CCToolDataContext : MySqlDataContextSubstitute
+    public class CcToolDataContext : MySqlDataContextSubstitute
     {
-        public const string CC = "CC";
+        public const string Cc = "CC";
 
-        public CCToolDataContext(string connectionString)
+        public CcToolDataContext(string connectionString)
             : base(connectionString)
         {
         }

@@ -11,15 +11,15 @@ namespace qdf.AcceptanceTests.Helpers
     /// <summary>
     ///     Class containing methods for aggregating CC and QDF Data to put them into comparable formats
     /// </summary>
-    public class QDFCCDataReconciliation
+    public class QdfccDataReconciliation
     {
-        public QDFCCDataReconciliation(CCToolData cCToolData, List<Deal> qDFDeals)
+        public QdfccDataReconciliation(CCToolData cCToolData, List<Deal> qDFDeals)
         {
-            CCToolData = cCToolData;
+            CcToolData = cCToolData;
             QDFDeals = qDFDeals;
         }
 
-        public CCToolData CCToolData { get; private set; }
+        public CCToolData CcToolData { get; private set; }
         public List<Deal> QDFDeals { get; private set; }
         public List<QDFDealPositionGrouping> QDFDealPositionGroupings { get; private set; }
         public List<QDFDealPosition> QDFDealPositions { get; private set; }
@@ -78,7 +78,7 @@ namespace qdf.AcceptanceTests.Helpers
         /// </summary>
         private void CalculateCCVolumeSize()
         {
-            CCToolData.Columns.Add(new DataColumn("VolumeSize", typeof (decimal)));
+            CcToolData.Columns.Add(new DataColumn("VolumeSize", typeof (decimal)));
 
             #region nice little demo of not using deferred execution
 
@@ -103,7 +103,7 @@ namespace qdf.AcceptanceTests.Helpers
 
             #endregion
 
-            var rowQuery = (from DataRow row in CCToolData.Rows
+            var rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
             foreach (var row in rowQuery)
             {
@@ -120,7 +120,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void CombineCCSectionData()
         {
-            var rowQuery = (from DataRow row in CCToolData.Rows
+            var rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
             var aggregatedPositions = rowQuery.GroupBy(x => new
             {

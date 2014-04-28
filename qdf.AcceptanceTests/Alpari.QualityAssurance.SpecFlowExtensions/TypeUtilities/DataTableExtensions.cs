@@ -133,7 +133,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             switch (type.ToUpper())
             {
-                case TypeExtensions.BYTE:
+                case TypeExtensions.Byte:
                     // difference = ((byte) p1 - (byte) p2 == 0 )? null : (byte) p1 - (byte) p2
                     var bdiff = (byte) p1 - (byte) p2;
                     if (bdiff != 0)
@@ -141,28 +141,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                         difference = bdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.SBYTE:
+                case TypeExtensions.Sbyte:
                     var sdiff = (sbyte) p1 - (sbyte) p2;
                     if (sdiff != 0)
                     {
                         difference = sdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.SHORT:
+                case TypeExtensions.Short:
                     var shdiff = (short) p1 - (short) p2;
                     if (shdiff != 0)
                     {
                         difference = shdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.USHORT:
+                case TypeExtensions.Ushort:
                     var ushdiff = (short) p1 - (short) p2;
                     if (ushdiff != 0)
                     {
                         difference = ushdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.INT:
+                case TypeExtensions.Int:
                     var idiff = (int) p1 - (int) p2;
                     if (idiff != 0)
                     {
@@ -170,27 +170,27 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     }
                     break;
                 case "INT16":
-                    var i16diff = (Int16) p1 - (Int16) p2;
-                    if (i16diff != 0)
+                    var i16Diff = (Int16) p1 - (Int16) p2;
+                    if (i16Diff != 0)
                     {
-                        difference = i16diff.ToString(CultureInfo.InvariantCulture);
+                        difference = i16Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT32":
-                    var i32diff = (Int32) p1 - (Int32) p2;
-                    if (i32diff != 0)
+                    var i32Diff = (Int32) p1 - (Int32) p2;
+                    if (i32Diff != 0)
                     {
-                        difference = i32diff.ToString(CultureInfo.InvariantCulture);
+                        difference = i32Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT64":
-                    var i64diff = (Int64) p1 - (Int64) p2;
-                    if (i64diff != 0)
+                    var i64Diff = (Int64) p1 - (Int64) p2;
+                    if (i64Diff != 0)
                     {
-                        difference = i64diff.ToString(CultureInfo.InvariantCulture);
+                        difference = i64Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.UINT:
+                case TypeExtensions.Uint:
                     var uidiff = (uint) p1 - (uint) p2;
                     if (uidiff != 0)
                     {
@@ -198,55 +198,55 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     }
                     break;
                 case "UINT16":
-                    var ui16diff = (UInt16) p1 - (UInt16) p2;
-                    if (ui16diff != 0)
+                    var ui16Diff = (UInt16) p1 - (UInt16) p2;
+                    if (ui16Diff != 0)
                     {
-                        difference = ui16diff.ToString(CultureInfo.InvariantCulture);
+                        difference = ui16Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT32":
-                    var ui32diff = (UInt32) p1 - (UInt32) p2;
-                    if (ui32diff != 0)
+                    var ui32Diff = (UInt32) p1 - (UInt32) p2;
+                    if (ui32Diff != 0)
                     {
-                        difference = ui32diff.ToString(CultureInfo.InvariantCulture);
+                        difference = ui32Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT64":
-                    var ui64diff = (UInt64) p1 - (UInt64) p2;
-                    if (ui64diff != 0)
+                    var ui64Diff = (UInt64) p1 - (UInt64) p2;
+                    if (ui64Diff != 0)
                     {
-                        difference = ui64diff.ToString(CultureInfo.InvariantCulture);
+                        difference = ui64Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.LONG:
+                case TypeExtensions.Long:
                     var ldiff = (long) p1 - (long) p2;
                     if (ldiff != 0)
                     {
                         difference = ldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.ULONG:
+                case TypeExtensions.Ulong:
                     var uldiff = (ulong) p1 - (ulong) p2;
                     if (uldiff != 0)
                     {
                         difference = uldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.FLOAT:
+                case TypeExtensions.Float:
                     var fdiff = (float) p1 - (float) p2;
-                    if (fdiff != 0)
+                    if (Math.Abs(fdiff) > 0)
                     {
                         difference = fdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.DOUBLE:
+                case TypeExtensions.Double:
                     var dbldiff = (double) p1 - (double) p2;
-                    if (dbldiff != 0)
+                    if (Math.Abs(dbldiff) > 0)
                     {
                         difference = dbldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
-                case TypeExtensions.DECIMAL:
+                case TypeExtensions.Decimal:
                     var decdiff = (decimal) p1 - (decimal) p2;
                     if (decdiff != 0)
                     {
@@ -292,9 +292,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return difference;
         }
 
+// ReSharper disable once UnusedMember.Local
         private static void dtBase_ColumnChanged(object sender, DataColumnChangeEventArgs e)
         {
-            var changed = false;
+            bool changed;
             //throw new NotImplementedException();
             //if (e.ProposedValue.Equals(e.Row[e.Column, DataRowVersion.Original])) // will fail on reference types including string
             //if (e.ProposedValue == e.Row[e.Column, DataRowVersion.Original]) // will fail on reference types other than string, but we probably shouldn't have complex datatypes in these comparisons - doesn't work for numbers!
@@ -341,24 +342,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow
         {
-            private static volatile DataTableComparer<T> instance;
-            private static object syncRoot = new Object();
+            private static volatile DataTableComparer<T> _instance;
+// ReSharper disable once StaticFieldInGenericType
+            private static readonly object SyncRoot = new Object();
 
             public static DataTableComparer<T> Instance
             {
                 get
                 {
-                    if (instance == null)
+                    if (_instance == null)
                     {
-                        lock (syncRoot)
+                        lock (SyncRoot)
                         {
-                            if (instance == null)
+                            if (_instance == null)
                             {
-                                instance = new DataTableComparer<T>();
+                                _instance = new DataTableComparer<T>();
                             }
                         }
                     }
-                    return instance;
+                    return _instance;
                 }
             }
 
@@ -380,8 +382,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             public int GetHashCode(T rowBase)
             {
-                var hashcode = 0;
-                var hashcodeBase = 1;
+                //var hashcode = 0;
                 var keyValues = GetKeyValues(rowBase);
                 var hashCodes = from value in keyValues
                     select value.GetHashCode();
@@ -389,11 +390,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 //var hashcodeList = hashCodes.ToList();
                 //hashcodeBase = hashcodeList.GetHashCode();
                 //hashing the list doesn't give reliable hashcodes, so iterate over the values, multiply them and then hash the result
-                foreach (var hash in hashCodes)
-                {
-                    hashcodeBase *= hash;
-                }
-                hashcode = hashcodeBase.GetHashCode();
+                var hashcode = hashCodes.Aggregate(1, (current, hash) => current * hash);
+                //foreach (var hash in hashCodes)
+                //{
+                //    hashcodeBase *= hash;
+                //}
+                //hashcode = hashcodeBase.GetHashCode();
                     // always seems to return the same value as the input, so could save a method call here
                 return hashcode;
             }
@@ -403,10 +405,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             /// </summary>
             public void ResetInstance()
             {
-                if (instance != null)
-                {
-                    instance = null;
-                }
+                _instance = null;
             }
 
             private static List<object> GetKeyValues(T rowBase)

@@ -14,7 +14,7 @@ namespace qdf.AcceptanceTests.DataContexts
         /// <param name="start">start cc_tbl_snapshot.UpdateDateTime</param>
         /// <param name="end">end cc_tbl_snapshot.UpdateDateTime</param>
         /// <returns></returns>
-        public static string CCToolQuery(DateTime start, DateTime end)
+        public static string CcToolQuery(DateTime start, DateTime end)
         {
             return String.Format(
                 "	SELECT	" +

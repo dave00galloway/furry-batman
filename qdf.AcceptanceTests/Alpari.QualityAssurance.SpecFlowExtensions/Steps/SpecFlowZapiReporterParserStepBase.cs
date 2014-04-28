@@ -36,16 +36,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public static IDictionary<string, object> GetTestResultsDictionary(NunitXmlParser nunitXmlParser)
         {
-            var testResultsType = nunitXmlParser.TestResults.GetType();
-            var testResultsDictionary =
+            Type testResultsType = nunitXmlParser.TestResults.GetType();
+            IDictionary<string, object> testResultsDictionary =
                 DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.TestResults, testResultsType);
             return testResultsDictionary;
         }
 
         public static IDictionary<string, object> GetHostTestEnvironmentDictionary(NunitXmlParser nunitXmlParser)
         {
-            var hostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
-            var hostTestEnvironmentDictionary =
+            Type hostTestEnvironmentType = nunitXmlParser.HostTestEnvironment.GetType();
+            IDictionary<string, object> hostTestEnvironmentDictionary =
                 DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.HostTestEnvironment,
                     hostTestEnvironmentType);
             return hostTestEnvironmentDictionary;
@@ -53,8 +53,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public static IDictionary<string, object> GetCultureInfoDictionary(NunitXmlParser nunitXmlParser)
         {
-            var cultureinfoType = nunitXmlParser.CultureinfoType.GetType();
-            var cultureinfoTypeDictionary =
+            Type cultureinfoType = nunitXmlParser.CultureinfoType.GetType();
+            IDictionary<string, object> cultureinfoTypeDictionary =
                 DataTableOperations.GetObjectPropertiesAsDictionary(nunitXmlParser.CultureinfoType, cultureinfoType);
             return cultureinfoTypeDictionary;
         }
@@ -69,7 +69,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             List<TestsuiteType> testSuiteTypeCollection)
         {
             var testSuiteType = testSuiteTypeCollection[0].GetType();
-            return testSuiteTypeCollection.Select(testSuiteTypeCollectionItem => DataTableOperations.GetObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, testSuiteType)).Select(cultureinfoTypeDictionary => cultureinfoTypeDictionary).Cast<Dictionary<string, object>>().ToList();
+            return
+                testSuiteTypeCollection.Select(
+                    testSuiteTypeCollectionItem =>
+                        DataTableOperations.GetObjectPropertiesAsDictionary(testSuiteTypeCollectionItem, testSuiteType))
+                    .Select(cultureinfoTypeDictionary => cultureinfoTypeDictionary)
+                    .Cast<Dictionary<string, object>>()
+                    .ToList();
         }
 
         public IList<Dictionary<string, object>> SaveTestSuiteCollectionAsListOfDictionaries()

@@ -106,12 +106,12 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have CC data")]
         public void GivenIHaveCCData()
         {
-            contextSubstitute = GetDataContextSubstituteForDB(CCToolDataContext.CC);
+            contextSubstitute = GetDataContextSubstituteForDB(CcToolDataContext.Cc);
             //TODO: implement for multiple qdfDealParameters 
             //if (qdfDealParametersSet != null) etc.
 
             var ccToolData =
-                contextSubstitute.SelectDataAsDataTable(MySqlQueries.CCToolQuery(qdfDealParameters.convertedStartTime,
+                contextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(qdfDealParameters.convertedStartTime,
                     qdfDealParameters.convertedEndTime)).ConvertToTypedDataTable<CCToolData>();
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
@@ -135,7 +135,7 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I compare QDF and CC data")]
         public void WhenICompareQDFAndCCData()
         {
-            var aggregator = new QDFCCDataReconciliation(ScenarioContext.Current["ccToolData"] as CCToolData,
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["ccToolData"] as CCToolData,
                 redisConnectionHelper.retrievedDeals);
             aggregator.AggregateQDFDeals();
             aggregator.AggregateCCToolData();

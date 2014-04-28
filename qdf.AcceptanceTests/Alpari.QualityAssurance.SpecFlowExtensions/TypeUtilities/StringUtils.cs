@@ -25,30 +25,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string ExtractLettersFromCharArray(this char[] characters)
         {
-            string Letters = null;
-            foreach (var character in characters)
-            {
-                if (char.IsLetter(character))
-                {
-                    Letters += character;
-                }
-            }
-            return Letters;
+            return characters.Where(char.IsLetter).Aggregate<char, string>(null, (current, character) => current + character);
+            //foreach (var character in characters)
+            //{
+            //    if (char.IsLetter(character))
+            //    {
+            //        letters += character;
+            //    }
+            //}
+            //return letters;
         }
 
-        public static string padZeros(this object digit, int length)
+        public static string PadZeros(this object digit, int length)
         {
             var padZeros = digit.ToString();
             while (padZeros.Length < length)
-            {
-                padZeros = "0" + padZeros;
-            }
+                padZeros = string.Format("0{0}", padZeros);
             return padZeros;
         }
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            var query = stringToConvert.ToArray().Select(x => Convert.ToByte(x));
+            var query = stringToConvert.ToArray().Select(Convert.ToByte);
             return query.ToArray();
         }
 

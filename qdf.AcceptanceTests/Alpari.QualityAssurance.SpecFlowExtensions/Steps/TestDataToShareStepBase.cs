@@ -20,33 +20,33 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var featureContext = FeatureContext.Current;
             var scenarioContext = ScenarioContext.Current;
 
-            var TestDataToShareFeature = new TestDataToShareFeature();
-            TestDataToShareFeature.FeatureSetup();
-            TestDataToShareFeature.ScenarioSetup(new ScenarioInfo("setup", new string[] {}));
-            TestDataToShareFeature.SetupTestData();
+            var testDataToShareFeature = new TestDataToShareFeature();
+            testDataToShareFeature.FeatureSetup();
+            testDataToShareFeature.ScenarioSetup(new ScenarioInfo("setup", new string[] {}));
+            testDataToShareFeature.SetupTestData();
             //problem - if these cleanup/teardowns aren't called then there is a warning in the output
             // if they are called, the present scenario is killed. May have to add an after sceanrio hook to call these cleanup/Teardowns to avoid a memory leak, and just live with the warnings.
             //TestDataToShareFeature.ScenarioCleanup();
             //TestDataToShareFeature.ScenarioTearDown();
             //TestDataToShareFeature.FeatureTearDown();
-            TestRunContext["TestDataToShareFeature"] = TestDataToShareFeature;
+            TestRunContext["TestDataToShareFeature"] = testDataToShareFeature;
 
             //reanimate the contexts - todo - get the type of the feature from the feature context
             //FeatureContext.Current = featureContext; -- can't do this - read only
             //ScenarioContext.Current = scenarioContext; -- can't do this - read only
-            var TestDataToShareClientTwoFeature = new TestDataToShareClientTwoFeature();
-            TestDataToShareClientTwoFeature.FeatureSetup();
-            TestDataToShareClientTwoFeature.ScenarioSetup(scenarioContext.ScenarioInfo);
+            var testDataToShareClientTwoFeature = new TestDataToShareClientTwoFeature();
+            testDataToShareClientTwoFeature.FeatureSetup();
+            testDataToShareClientTwoFeature.ScenarioSetup(scenarioContext.ScenarioInfo);
                 //works, but calls the scenario setup which calls this event again!
         }
 
         [AfterScenario("DataSetup")]
         public void AfterScenario()
         {
-            var TestDataToShareFeature = (TestDataToShareFeature) TestRunContext["TestDataToShareFeature"];
-            TestDataToShareFeature.ScenarioCleanup();
-            TestDataToShareFeature.ScenarioTearDown();
-            TestDataToShareFeature.FeatureTearDown();
+            var testDataToShareFeature = (TestDataToShareFeature) TestRunContext["TestDataToShareFeature"];
+            testDataToShareFeature.ScenarioCleanup();
+            testDataToShareFeature.ScenarioTearDown();
+            testDataToShareFeature.FeatureTearDown();
         }
 
         /// <summary>
@@ -94,10 +94,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             if (!TestRunContext.ContainsKey(baseName))
             {
-                var TestDataToShareFeature = new TestDataToShareFeature();
-                TestDataToShareFeature.FeatureSetup();
-                TestDataToShareFeature.ScenarioSetup(ScenarioContext.Current.ScenarioInfo);
-                TestDataToShareFeature.SetupTestData();
+                var testDataToShareFeature = new TestDataToShareFeature();
+                testDataToShareFeature.FeatureSetup();
+                testDataToShareFeature.ScenarioSetup(ScenarioContext.Current.ScenarioInfo);
+                testDataToShareFeature.SetupTestData();
                 //problem - if these cleanup/teardowns aren't called then there is a warning in the output
                 // if they are called, the present scenario is killed. May have to add an after sceanrio hook to call these cleanup/Teardowns to avoid a memory leak, and just live with the warnings.
                 //TestDataToShareFeature.ScenarioCleanup();
