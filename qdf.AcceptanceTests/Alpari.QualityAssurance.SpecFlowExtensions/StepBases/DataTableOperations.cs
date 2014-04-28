@@ -61,39 +61,38 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         }
 
         /// <summary>
-        ///     TODO:- implement differnt matching types
+        /// Find a dictionary in a list of dictionaries 
         /// </summary>
-        /// <param name="matcher"></param>
-        /// <param name="ComparisonMode"></param>
-        /// <param name="actualListOfDictionaries"></param>
+        /// <param name="matchingCriteria">KVP to search for</param>
+        /// <param name="comparisonMode">type of check to do - ony contains supported so far</param>
+        /// <param name="listOfDictionaries"></param>
         /// <returns></returns>
         public static Dictionary<string, object> GetDictionaryFromListOfDictionariesByKeyValuePair(
-            KeyValuePair<string, object> matchingCriteria, string ComparisonMode,
-            IList<Dictionary<string, object>> ListOfDictionaries)
+            KeyValuePair<string, object> matchingCriteria, string comparisonMode,
+            IList<Dictionary<string, object>> listOfDictionaries)
         {
-            var matchingDictionary = new Dictionary<string, object>();
-            switch (ComparisonMode)
+
+            switch (comparisonMode)
             {
                 case "ContainsListEntry":
-                    foreach (var dictionary in ListOfDictionaries)
+                    foreach (var dictionary in listOfDictionaries)
                     {
                         try
                         {
-                            if (dictionary[matchingCriteria.Key].ToString().Split(',').Contains(matchingCriteria.Value))
-                            {
-                                matchingDictionary = dictionary;
-                                break;
-                            }
+                            if (!dictionary[matchingCriteria.Key].ToString().Split(',').Contains(matchingCriteria.Value))
+                                continue;
+                            return dictionary;
                         }
-                        catch (Exception)
+                        catch (Exception e)
                         {
+                            Console.WriteLine(String.Format("{0} {1}",e.Message,e.StackTrace));
                         }
                     }
                     break;
                 default:
                     break;
             }
-            return matchingDictionary;
+            throw new Exception(String.Format("couldn't find a match for {0}",matchingCriteria.Key));
         }
 
         /// <summary>
