@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         public XmlDocument XmlDocument { get; private set; }
         public XmlNode XmlRoot { get; private set; }
         public string XmlString { get; private set; }
-        public resultType TestResults { get; private set; }
+        public ResultType TestResults { get; private set; }
 
         /// <summary>
         ///     the LAST environmentType node found in the report
@@ -76,7 +76,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
         ///     May need to replace this with String,testSuiteType dictionary, but at the moment there'sno way of guaranteeing a
         ///     unique key - testSuiteType will need a method to build one based on it's ancestry in the TestResult
         /// </summary>
-        public List<testsuiteType> TestSuiteTypeCollection { get; private set; }
+        public List<TestsuiteType> TestSuiteTypeCollection { get; private set; }
 
         public XmlNodeList TestSuiteTypeList { get; private set; }
 
@@ -90,20 +90,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             IList<IDictionary<string, object>> testCasesByTestSuiteAsList = new List<IDictionary<string, object>>();
             foreach (var testSuite in TestSuiteTypeCollection)
             {
-                if (testSuite.type == "TestFixture")
+                if (testSuite.Type == "TestFixture")
                 {
-                    foreach (testcaseType testCase in testSuite.results.Items)
+                    foreach (TestcaseType testCase in testSuite.Results.Items)
                     {
                         var testSuiteTestCasesDictionary = new Dictionary<string, object>();
-                        testSuiteTestCasesDictionary["test suite name"] = testSuite.name;
-                        testSuiteTestCasesDictionary["test case name"] = testCase.name;
-                        testSuiteTestCasesDictionary["test case short name"] = testCase.name.Split('.').Last();
-                        testSuiteTestCasesDictionary["executed"] = testCase.executed;
-                        testSuiteTestCasesDictionary["result"] = testCase.result;
-                        testSuiteTestCasesDictionary["success"] = testCase.success;
-                        testSuiteTestCasesDictionary["time"] = testCase.time;
-                        testSuiteTestCasesDictionary["asserts"] = testCase.asserts;
-                        testSuiteTestCasesDictionary["tags"] = JoinTags(testCase);
+                        testSuiteTestCasesDictionary["Test suite name"] = testSuite.Name;
+                        testSuiteTestCasesDictionary["Test case name"] = testCase.Name;
+                        testSuiteTestCasesDictionary["Test case short name"] = testCase.Name.Split('.').Last();
+                        testSuiteTestCasesDictionary["Executed"] = testCase.Executed;
+                        testSuiteTestCasesDictionary["Result"] = testCase.Result;
+                        testSuiteTestCasesDictionary["Success"] = testCase.Success;
+                        testSuiteTestCasesDictionary["Time"] = testCase.Time;
+                        testSuiteTestCasesDictionary["Asserts"] = testCase.Asserts;
+                        testSuiteTestCasesDictionary["Tags"] = JoinTags(testCase);
                         AddFailure(testCase, testSuiteTestCasesDictionary);
                         testCasesByTestSuiteAsList.Add(testSuiteTestCasesDictionary);
                     }
@@ -112,44 +112,44 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return testCasesByTestSuiteAsList;
         }
 
-        private static void AddFailure(testcaseType testCase, Dictionary<string, object> testSuiteTestCasesDictionary)
+        private static void AddFailure(TestcaseType testCase, Dictionary<string, object> testSuiteTestCasesDictionary)
         {
             try
             {
                 var failure = new FailureType();
                 failure = (FailureType) testCase.Item;
-                testSuiteTestCasesDictionary["message"] = failure.Message;
-                testSuiteTestCasesDictionary["stack trace"] = failure.Stacktrace;
+                testSuiteTestCasesDictionary["Message"] = failure.Message;
+                testSuiteTestCasesDictionary["Stack trace"] = failure.Stacktrace;
             }
             catch (Exception)
             {
             }
         }
 
-        private static string JoinTags(testcaseType testCase)
+        private static string JoinTags(TestcaseType testCase)
         {
             var ret = String.Format("@{0}",
-                String.Join(",@", testCase.categories.Select(x => x.Name.Replace('_', '-')).ToArray()));
+                String.Join(",@", testCase.Categories.Select(x => x.Name.Replace('_', '-')).ToArray()));
             return ret;
         }
 
-        private List<testsuiteType> ParseAsTestSuiteTypeList()
+        private List<TestsuiteType> ParseAsTestSuiteTypeList()
         {
-            TestSuiteTypeCollection = new List<testsuiteType>();
+            TestSuiteTypeCollection = new List<TestsuiteType>();
             TestSuiteTypeList = XmlRoot.SelectNodes("//test-suite");
             if (TestSuiteTypeList == null) return TestSuiteTypeCollection;
             foreach (XmlNode testSuiteTypeListItem in TestSuiteTypeList)
             {
-                var testSuiteType = new testsuiteType();
+                var testSuiteType = new TestsuiteType();
                 if (testSuiteTypeListItem.Attributes != null)
                 {
-                    testSuiteType.type = testSuiteTypeListItem.Attributes["type"].Value;
-                    testSuiteType.name = testSuiteTypeListItem.Attributes["name"].Value;
-                    testSuiteType.executed = testSuiteTypeListItem.Attributes["executed"].Value;
-                    testSuiteType.result = testSuiteTypeListItem.Attributes["result"].Value;
-                    testSuiteType.success = testSuiteTypeListItem.Attributes["success"].Value;
-                    testSuiteType.time = testSuiteTypeListItem.Attributes["time"].Value;
-                    testSuiteType.asserts = testSuiteTypeListItem.Attributes["asserts"].Value;
+                    testSuiteType.Type = testSuiteTypeListItem.Attributes["type"].Value;
+                    testSuiteType.Name = testSuiteTypeListItem.Attributes["name"].Value;
+                    testSuiteType.Executed = testSuiteTypeListItem.Attributes["executed"].Value;
+                    testSuiteType.Result = testSuiteTypeListItem.Attributes["result"].Value;
+                    testSuiteType.Success = testSuiteTypeListItem.Attributes["success"].Value;
+                    testSuiteType.Time = testSuiteTypeListItem.Attributes["time"].Value;
+                    testSuiteType.Asserts = testSuiteTypeListItem.Attributes["asserts"].Value;
                 }
                 TestSuiteTypeCollection.Add(testSuiteType);
                 GetResultsForTestSuite(testSuiteTypeListItem, testSuiteType);
@@ -157,46 +157,46 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return TestSuiteTypeCollection;
         }
 
-        private static void GetResultsForTestSuite(XmlNode testSuiteTypeListItem, testsuiteType testSuiteType)
+        private static void GetResultsForTestSuite(XmlNode testSuiteTypeListItem, TestsuiteType testSuiteType)
         {
             try
             {
-                if (testSuiteType.type == "TestFixture")
+                if (testSuiteType.Type == "TestFixture")
                 {
-                    var result = new resultsType();
+                    var result = new ResultsType();
                     var resultNode = testSuiteTypeListItem.SelectSingleNode("descendant::results");
                     result.Items = GetTestCasesForResultsItem(resultNode);
-                    testSuiteType.results = result;
+                    testSuiteType.Results = result;
                 }
             }
             catch (Exception e)
             {
                 Console.WriteLine(
                     "Exception thrown while looking for results in testSuite {0}, Exception details {1} {2} {3}",
-                    testSuiteType.name, e.Message, e.Source, e.StackTrace);
+                    testSuiteType.Name, e.Message, e.Source, e.StackTrace);
                 //throw;
             }
         }
 
         private static object[] GetTestCasesForResultsItem(XmlNode resultNode)
         {
-            IList<testcaseType> testCaseList = new List<testcaseType>();
+            IList<TestcaseType> testCaseList = new List<TestcaseType>();
             var testCaseNodes = resultNode.SelectNodes("descendant::test-case");
             if (testCaseNodes == null) return testCaseList.Cast<object>().ToArray();
             foreach (XmlNode testCaseNode in testCaseNodes)
             {
-                var testCase = new testcaseType();
+                var testCase = new TestcaseType();
                 if (testCaseNode.Attributes != null)
                 {
-                    testCase.name = testCaseNode.Attributes["name"].Value;
-                    testCase.description = testCaseNode.Attributes["description"].Value;
-                    testCase.success = testCaseNode.Attributes["success"].Value;
-                    testCase.time = testCaseNode.Attributes["time"].Value;
-                    testCase.executed = testCaseNode.Attributes["executed"].Value;
-                    testCase.asserts = testCaseNode.Attributes["asserts"].Value;
-                    testCase.result = testCaseNode.Attributes["result"].Value;
+                    testCase.Name = testCaseNode.Attributes["name"].Value;
+                    testCase.Description = testCaseNode.Attributes["description"].Value;
+                    testCase.Success = testCaseNode.Attributes["success"].Value;
+                    testCase.Time = testCaseNode.Attributes["time"].Value;
+                    testCase.Executed = testCaseNode.Attributes["executed"].Value;
+                    testCase.Asserts = testCaseNode.Attributes["asserts"].Value;
+                    testCase.Result = testCaseNode.Attributes["result"].Value;
                 }
-                testCase.categories = GetTestcaseCategories(testCaseNode);
+                testCase.Categories = GetTestcaseCategories(testCaseNode);
                 testCase.Item = GetTestCaseItem(testCaseNode);
                 testCaseList.Add(testCase);
             }
@@ -312,21 +312,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
             return EnvironmentType;
         }
 
-        private resultType ParseAsTestResults()
+        private ResultType ParseAsTestResults()
         {
-            var TestResults = new resultType();
+            var TestResults = new ResultType();
             var rootAttributes = XmlRoot.Attributes;
-            TestResults.name = rootAttributes["name"].Value;
-            TestResults.total = decimal.Parse(rootAttributes["total"].Value);
-            TestResults.errors = decimal.Parse(rootAttributes["errors"].Value);
-            TestResults.failures = decimal.Parse(rootAttributes["failures"].Value);
-            TestResults.notrun = decimal.Parse(rootAttributes["not-run"].Value);
-            TestResults.inconclusive = decimal.Parse(rootAttributes["inconclusive"].Value);
-            TestResults.ignored = decimal.Parse(rootAttributes["ignored"].Value);
-            TestResults.skipped = decimal.Parse(rootAttributes["skipped"].Value);
-            TestResults.invalid = decimal.Parse(rootAttributes["invalid"].Value);
-            TestResults.date = rootAttributes["date"].Value;
-            TestResults.time = rootAttributes["time"].Value;
+            TestResults.Name = rootAttributes["name"].Value;
+            TestResults.Total = decimal.Parse(rootAttributes["total"].Value);
+            TestResults.Errors = decimal.Parse(rootAttributes["errors"].Value);
+            TestResults.Failures = decimal.Parse(rootAttributes["failures"].Value);
+            TestResults.Notrun = decimal.Parse(rootAttributes["not-run"].Value);
+            TestResults.Inconclusive = decimal.Parse(rootAttributes["inconclusive"].Value);
+            TestResults.Ignored = decimal.Parse(rootAttributes["ignored"].Value);
+            TestResults.Skipped = decimal.Parse(rootAttributes["skipped"].Value);
+            TestResults.Invalid = decimal.Parse(rootAttributes["invalid"].Value);
+            TestResults.Date = rootAttributes["date"].Value;
+            TestResults.Time = rootAttributes["time"].Value;
             return TestResults;
         }
 

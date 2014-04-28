@@ -8,19 +8,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     /// <remarks />
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
-    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [DesignerCategory("code")]
-    public class resultsType
+    public class ResultsType
     {
-        private object[] itemsField;
-
         /// <remarks />
-        [XmlElement("test-case", typeof (testcaseType))]
-        [XmlElement("test-suite", typeof (testsuiteType))]
-        public object[] Items
-        {
-            get { return itemsField; }
-            set { itemsField = value; }
-        }
+        [XmlElement("test-case", typeof (TestcaseType)), XmlElement("test-suite", typeof (TestsuiteType))]
+        public object[] Items { get; set; }
     }
 }

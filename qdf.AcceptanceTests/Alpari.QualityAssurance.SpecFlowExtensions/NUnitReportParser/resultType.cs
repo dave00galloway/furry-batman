@@ -13,24 +13,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     /// </summary>
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
-    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [DesignerCategory("code")]
     [XmlType(AnonymousType = true)]
     [XmlRoot("test-results", Namespace = "", IsNullable = false)]
-    public class resultType
+    public class ResultType
     {
-        private string dateField;
-        private decimal errorsField;
-        private decimal failuresField;
-        private decimal ignoredField;
-        private decimal inconclusiveField;
-        private decimal invalidField;
-        private string nameField;
-        private decimal notrunField;
-        private decimal skippedField;
-        private string timeField;
-        private decimal totalField;
-
         # region ignored fields and properties
 
         //private environmentType environmentField;
@@ -84,90 +72,46 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
 
         /// <remarks />
         [XmlAttribute]
-        public string name
-        {
-            get { return nameField; }
-            set { nameField = value; }
-        }
+        public string Name { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal total
-        {
-            get { return totalField; }
-            set { totalField = value; }
-        }
+        public decimal Total { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal errors
-        {
-            get { return errorsField; }
-            set { errorsField = value; }
-        }
+        public decimal Errors { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal failures
-        {
-            get { return failuresField; }
-            set { failuresField = value; }
-        }
+        public decimal Failures { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal inconclusive
-        {
-            get { return inconclusiveField; }
-            set { inconclusiveField = value; }
-        }
+        public decimal Inconclusive { get; set; }
 
         /// <remarks />
         [XmlAttribute("not-run")]
-        public decimal notrun
-        {
-            get { return notrunField; }
-            set { notrunField = value; }
-        }
+        public decimal Notrun { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal ignored
-        {
-            get { return ignoredField; }
-            set { ignoredField = value; }
-        }
+        public decimal Ignored { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal skipped
-        {
-            get { return skippedField; }
-            set { skippedField = value; }
-        }
+        public decimal Skipped { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public decimal invalid
-        {
-            get { return invalidField; }
-            set { invalidField = value; }
-        }
+        public decimal Invalid { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string date
-        {
-            get { return dateField; }
-            set { dateField = value; }
-        }
+        public string Date { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string time
-        {
-            get { return timeField; }
-            set { timeField = value; }
-        }
+        public string Time { get; set; }
     }
 }

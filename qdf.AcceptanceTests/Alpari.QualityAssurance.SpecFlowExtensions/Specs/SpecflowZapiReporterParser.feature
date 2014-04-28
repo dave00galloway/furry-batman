@@ -16,12 +16,12 @@ Scenario: Load an xml result file and find a single test result
 
 Scenario: Load an xml result file and find a test result
 	When I parse the xml test result file as test-results
-	Then test-results with a "name" attribute value of "C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Release\FIX_SpecflowTests.dll" exists
+	Then test-results with a "Name" attribute value of "C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Release\FIX_SpecflowTests.dll" exists
 
 Scenario: Load an xml result file and find a test result's values
 	When I parse the xml test result file as test-results
 	Then a test-results object with the following attribute values exists:
-	| name                                                                                                            | total | errors | failures | notrun | inconclusive | ignored | skipped | invalid | date       | time     |
+	| Name                                                                                                            | Total | Errors | Failures | Notrun | Inconclusive | Ignored | Skipped | Invalid | Date       | Time     |
 	| C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Release\FIX_SpecflowTests.dll | 7     | 1      | 0        | 0      | 0            | 0       | 0       | 0       | 2014-01-27 | 14:07:06 |
 
 #TODO:- create a vertical table in field/value format with optional comparison type (exact/case insensitive contais etc)
@@ -30,7 +30,7 @@ Scenario: Load an xml result file and find a test result's values
 Scenario: Load an xml result file and find a test result's values negative
 	When I parse the xml test result file as test-results
 	Then a test-results object with the following attribute values exists:
-	| name                                                                                                          | total | errors | failures | notrun | inconclusive | ignored | skipped | invalid | date       | time     |
+	| Name                                                                                                          | Total | Errors | Failures | Notrun | Inconclusive | Ignored | Skipped | Invalid | Date       | Time     |
 	| C:\svn\local\BakeryDemoTest\trunk\AllBakeryDemoTestProjects\FIX_SpecflowTests\bin\Debug\FIX_SpecflowTests.dll | 6     | 2      | 2        | 1      | 1            | 4       | 6       | 8       | 2014-03-27 | 14:05:06 |
 
 
@@ -47,22 +47,22 @@ Scenario: Load an xml result file and find an environment's value
 
 Scenario: Load an xml result file and find a suite
 	When I parse the xml test result file as a test-suite collection
-	Then a test-suite with a "name" attribute value of "FIX_SpecflowTests" exists
+	Then a test-suite with a "Name" attribute value of "FIX_SpecflowTests" exists
 
 @negative
 Scenario: Load an xml result file and fail to find a suite
 	When I parse the xml test result file as a test-suite collection
-	Then a test-suite with a "name" attribute value of "made up suite" exists
+	Then a test-suite with a "Name" attribute value of "made up suite" exists
 
 Scenario: Load an xml result file and find a TestFixture suite
 	When I parse the xml test result file as a test-suite collection
-	Then a test-suite with a "type" attribute value of "TestFixture" exists
+	Then a test-suite with a "Type" attribute value of "TestFixture" exists
 
 @negative
 Scenario: Load an xml result file and find test cases
 	When I parse the xml test result file as a test-suite collection
 	Then the following test cases are found for these test suites:
-	| test suite name                | test case name                                                                                                            | executed | result  | success | time  | asserts |
+	| Test suite name                | Test case name                                                                                                            | Executed | Result  | Success | Time  | Asserts |
 	| ShareContextOneFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioOne | True     | Success | True    | 0.352 | 2       |
 	| ShareContextOneFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioTwo | True     | Success | True    | 0.001 | 2       |
 	| ShareContextTwoFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextTwoFeature.AccessAStaticObjectFromShareContextTwoScenarioOne | True     | Success | True    | 0.002 | 2       |
@@ -74,8 +74,8 @@ Scenario: Load an xml result file and find test cases
 @Jira1234
 Scenario: Load an xml result file and find test cases by test case name
 	When I parse the xml test result file as a test-suite collection
-	Then the following test cases are found for these test suites keyed by "test case name":
-	| test case short name                                          | test suite name                | test case name                                                                                                            | executed | result  | success | time  | asserts |
+	Then the following test cases are found for these test suites keyed by "Test case name":
+	| Test case short name                                          | Test suite name                | Test case name                                                                                                            | Executed | Result  | Success | Time  | Asserts |
 	| AccessAStaticObjectFromShareContextOneScenarioOne             | ShareContextOneFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioOne | True     | Success | True    | 0.352 | 2       |
 	| AccessAStaticObjectFromShareContextOneScenarioTwo             | ShareContextOneFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioTwo | True     | Success | True    | 0.001 | 2       |
 	| AccessAStaticObjectFromShareContextTwoScenarioOne             | ShareContextTwoFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextTwoFeature.AccessAStaticObjectFromShareContextTwoScenarioOne | True     | Success | True    | 0.002 | 2       |
@@ -87,8 +87,8 @@ Scenario: Load an xml result file and find test cases by test case name
 @negative
 Scenario: Load an xml result file and find test cases by test case name with some comparsion differences
 	When I parse the xml test result file as a test-suite collection
-	Then the following test cases are found for these test suites keyed by "test case name":
-	| test case short name                                          | test suite name                | test case name                                                                                                            | executed | result  | success | time  | asserts |
+	Then the following test cases are found for these test suites keyed by "Test case name":
+	| Test case short name                                          | Test suite name                | Test case name                                                                                                            | Executed | Result  | Success | Time  | Asserts |
 	| AccessAStaticObjectFromShareContextOneScenarioOne             | ShareContextOneFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioOne | True     | Success | false   | 0.352 | 2       |
 	| AccessAStaticObjectFromShareContextOneScenarioTwo             | dtyjdtyjf                      | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessAStaticObjectFromShareContextOneScenarioTwo | True     | Success | True    | 0.001 | 2       |
 	| AccessAStaticObjectFromShareContextTwoScenarioOne             | ShareContextTwoFeature         | Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextTwoFeature.AccessAStaticObjectFromShareContextTwoScenarioOne | True     | srfjyj  | True    | 0.002 | 2       |
@@ -100,14 +100,14 @@ Scenario: Load an xml result file and find test cases by test case name with som
 #More data will be needed to test this functionality properly!
 Scenario: Find a test case by tag name
 	When I parse the xml test result file as a test-suite collection
-	Then the following test cases are found for these test suites keyed by containing a "tags" value:
-	| tags      | test case short name                                 | test suite name                |
+	Then the following test cases are found for these test suites keyed by containing a "Tags" value:
+	| Tags      | Test case short name                                 | Test suite name                |
 	| @negative | QuoteRequestForAnInvalidCurrencySymbolReceivesAQuote | QuoteRequestAndResponseFeature |
 
 Scenario: Find a test case with a test failure
 	When I parse the xml test result file as a test-suite collection
-	Then the following test cases are found for these test suites keyed by "test case short name":
-	| test case short name                                 | message                                                                                            |
+	Then the following test cases are found for these test suites keyed by "Test case short name":
+	| Test case short name                                 | Message                                                                                            |
 	| QuoteRequestForAnInvalidCurrencySymbolReceivesAQuote | System.Collections.Generic.KeyNotFoundException : The given key was not present in the dictionary. |
 
 Scenario: Load an xml result file and find culture-info

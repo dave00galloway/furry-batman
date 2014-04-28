@@ -11,14 +11,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [DesignerCategory("code")]
     public class CategoryType
     {
-        private string _nameField;
-
         /// <remarks />
         [XmlAttribute]
-        public string Name
-        {
-            get { return _nameField; }
-            set { _nameField = value; }
-        }
+        public string Name { get; set; }
     }
 }

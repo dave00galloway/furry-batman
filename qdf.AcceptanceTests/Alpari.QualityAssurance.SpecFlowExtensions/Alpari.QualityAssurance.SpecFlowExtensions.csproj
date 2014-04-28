@@ -75,7 +75,6 @@
     <Compile Include="NUnitReportParser\environmentType.cs" />
     <Compile Include="NUnitReportParser\failureType.cs" />
     <Compile Include="NUnitReportParser\NunitXmlParser.cs" />
-    <Compile Include="NUnitReportParser\Results.cs" />
     <Compile Include="NUnitReportParser\resultsType.cs" />
     <Compile Include="NUnitReportParser\resultType.cs" />
     <Compile Include="NUnitReportParser\testCaseType.cs" />

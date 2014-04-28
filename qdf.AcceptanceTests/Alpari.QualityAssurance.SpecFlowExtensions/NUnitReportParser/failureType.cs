@@ -11,23 +11,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [DesignerCategory("code")]
     public class FailureType
     {
-        private string _messageField;
-
-        private string _stacktraceField;
-
         /// <remarks />
-        public string Message
-        {
-            get { return _messageField; }
-            set { _messageField = value; }
-        }
+        public string Message { get; set; }
 
         /// <remarks />
         [XmlElement("stack-trace")]
-        public string Stacktrace
-        {
-            get { return _stacktraceField; }
-            set { _stacktraceField = value; }
-        }
+        public string Stacktrace { get; set; }
     }
 }

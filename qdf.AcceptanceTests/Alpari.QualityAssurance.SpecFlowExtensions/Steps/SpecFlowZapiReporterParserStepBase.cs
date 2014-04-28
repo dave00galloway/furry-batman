@@ -65,7 +65,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         /// <param name="testSuiteTypeCollection"></param>
         /// <returns></returns>
         public IList<Dictionary<string, object>> GetTestSuiteCollectionAsListOfTestSuiteDictionaries(
-            List<testsuiteType> testSuiteTypeCollection)
+            List<TestsuiteType> testSuiteTypeCollection)
         {
             IList<Dictionary<string, object>> ListOfTestSuiteDictionaries = new List<Dictionary<string, object>>();
             var TestSuiteType = testSuiteTypeCollection[0].GetType();

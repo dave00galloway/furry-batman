@@ -103,7 +103,7 @@ this.FeatureBackground();
 #line 18
  testRunner.When("I parse the xml test result file as test-results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
- testRunner.Then("test-results with a \"name\" attribute value of \"C:\\svn\\local\\BakeryDemoTest\\trunk\\" +
+ testRunner.Then("test-results with a \"Name\" attribute value of \"C:\\svn\\local\\BakeryDemoTest\\trunk\\" +
                     "AllBakeryDemoTestProjects\\FIX_SpecflowTests\\bin\\Release\\FIX_SpecflowTests.dll\" e" +
                     "xists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -123,17 +123,17 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as test-results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "total",
-                        "errors",
-                        "failures",
-                        "notrun",
-                        "inconclusive",
-                        "ignored",
-                        "skipped",
-                        "invalid",
-                        "date",
-                        "time"});
+                        "Name",
+                        "Total",
+                        "Errors",
+                        "Failures",
+                        "Notrun",
+                        "Inconclusive",
+                        "Ignored",
+                        "Skipped",
+                        "Invalid",
+                        "Date",
+                        "Time"});
             table1.AddRow(new string[] {
                         "C:\\svn\\local\\BakeryDemoTest\\trunk\\AllBakeryDemoTestProjects\\FIX_SpecflowTests\\bin" +
                             "\\Release\\FIX_SpecflowTests.dll",
@@ -168,17 +168,17 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as test-results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "name",
-                        "total",
-                        "errors",
-                        "failures",
-                        "notrun",
-                        "inconclusive",
-                        "ignored",
-                        "skipped",
-                        "invalid",
-                        "date",
-                        "time"});
+                        "Name",
+                        "Total",
+                        "Errors",
+                        "Failures",
+                        "Notrun",
+                        "Inconclusive",
+                        "Ignored",
+                        "Skipped",
+                        "Invalid",
+                        "Date",
+                        "Time"});
             table2.AddRow(new string[] {
                         "C:\\svn\\local\\BakeryDemoTest\\trunk\\AllBakeryDemoTestProjects\\FIX_SpecflowTests\\bin" +
                             "\\Debug\\FIX_SpecflowTests.dll",
@@ -263,7 +263,7 @@ this.FeatureBackground();
 #line 49
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 50
- testRunner.Then("a test-suite with a \"name\" attribute value of \"FIX_SpecflowTests\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a test-suite with a \"Name\" attribute value of \"FIX_SpecflowTests\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -282,7 +282,7 @@ this.FeatureBackground();
 #line 54
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 55
- testRunner.Then("a test-suite with a \"name\" attribute value of \"made up suite\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a test-suite with a \"Name\" attribute value of \"made up suite\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -299,7 +299,7 @@ this.FeatureBackground();
 #line 58
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
- testRunner.Then("a test-suite with a \"type\" attribute value of \"TestFixture\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("a test-suite with a \"Type\" attribute value of \"TestFixture\" exists", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -319,13 +319,13 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "test suite name",
-                        "test case name",
-                        "executed",
-                        "result",
-                        "success",
-                        "time",
-                        "asserts"});
+                        "Test suite name",
+                        "Test case name",
+                        "Executed",
+                        "Result",
+                        "Success",
+                        "Time",
+                        "Asserts"});
             table4.AddRow(new string[] {
                         "ShareContextOneFeature",
                         "Alpari.QualityAssurance.SpecFlowExtensions.Specs.ShareContextOneFeature.AccessASt" +
@@ -410,14 +410,14 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "test case short name",
-                        "test suite name",
-                        "test case name",
-                        "executed",
-                        "result",
-                        "success",
-                        "time",
-                        "asserts"});
+                        "Test case short name",
+                        "Test suite name",
+                        "Test case name",
+                        "Executed",
+                        "Result",
+                        "Success",
+                        "Time",
+                        "Asserts"});
             table5.AddRow(new string[] {
                         "AccessAStaticObjectFromShareContextOneScenarioOne",
                         "ShareContextOneFeature",
@@ -489,7 +489,7 @@ this.FeatureBackground();
                         "0.009",
                         "1"});
 #line 77
- testRunner.Then("the following test cases are found for these test suites keyed by \"test case name" +
+ testRunner.Then("the following test cases are found for these test suites keyed by \"Test case name" +
                     "\":", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -512,14 +512,14 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "test case short name",
-                        "test suite name",
-                        "test case name",
-                        "executed",
-                        "result",
-                        "success",
-                        "time",
-                        "asserts"});
+                        "Test case short name",
+                        "Test suite name",
+                        "Test case name",
+                        "Executed",
+                        "Result",
+                        "Success",
+                        "Time",
+                        "Asserts"});
             table6.AddRow(new string[] {
                         "AccessAStaticObjectFromShareContextOneScenarioOne",
                         "ShareContextOneFeature",
@@ -590,7 +590,7 @@ this.FeatureBackground();
                         "0.009",
                         "1"});
 #line 90
- testRunner.Then("the following test cases are found for these test suites keyed by \"test case name" +
+ testRunner.Then("the following test cases are found for these test suites keyed by \"Test case name" +
                     "\":", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -609,15 +609,15 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "tags",
-                        "test case short name",
-                        "test suite name"});
+                        "Tags",
+                        "Test case short name",
+                        "Test suite name"});
             table7.AddRow(new string[] {
                         "@negative",
                         "QuoteRequestForAnInvalidCurrencySymbolReceivesAQuote",
                         "QuoteRequestAndResponseFeature"});
 #line 103
- testRunner.Then("the following test cases are found for these test suites keyed by containing a \"t" +
+ testRunner.Then("the following test cases are found for these test suites keyed by containing a \"T" +
                     "ags\" value:", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -636,14 +636,14 @@ this.FeatureBackground();
  testRunner.When("I parse the xml test result file as a test-suite collection", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "test case short name",
-                        "message"});
+                        "Test case short name",
+                        "Message"});
             table8.AddRow(new string[] {
                         "QuoteRequestForAnInvalidCurrencySymbolReceivesAQuote",
                         "System.Collections.Generic.KeyNotFoundException : The given key was not present i" +
                             "n the dictionary."});
 #line 109
- testRunner.Then("the following test cases are found for these test suites keyed by \"test case shor" +
+ testRunner.Then("the following test cases are found for these test suites keyed by \"Test case shor" +
                     "t name\":", ((string)(null)), table8, "Then ");
 #line hidden
             this.ScenarioCleanup();

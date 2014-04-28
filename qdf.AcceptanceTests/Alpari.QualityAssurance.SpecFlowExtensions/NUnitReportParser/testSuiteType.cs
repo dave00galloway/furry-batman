@@ -12,99 +12,47 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [DebuggerStepThrough]
     [DesignerCategory("code")]
     [XmlType(TypeName = "test-suiteType")]
-    public class testsuiteType
+    public class TestsuiteType
     {
-        private string assertsField;
-        private string descriptionField;
-        private string executedField;
-        private object itemField;
-        private string nameField;
-        private string resultField;
-        private resultsType resultsField;
-        private string successField;
-        private string timeField;
-        private string typeField;
-
         /// <remarks />
         [XmlElement("failure", typeof (FailureType))]
-        //[System.Xml.Serialization.XmlElementAttribute("reason", typeof(reasonType))]
-        public object Item
-        {
-            get { return itemField; }
-            set { itemField = value; }
-        }
+        public object Item { get; set; }
 
 
         /// <remarks />
         [XmlAttribute]
-        public string type
-        {
-            get { return typeField; }
-            set { typeField = value; }
-        }
+        public string Type { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string name
-        {
-            get { return nameField; }
-            set { nameField = value; }
-        }
+        public string Name { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string description
-        {
-            get { return descriptionField; }
-            set { descriptionField = value; }
-        }
+        public string Description { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string success
-        {
-            get { return successField; }
-            set { successField = value; }
-        }
+        public string Success { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string time
-        {
-            get { return timeField; }
-            set { timeField = value; }
-        }
+        public string Time { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string executed
-        {
-            get { return executedField; }
-            set { executedField = value; }
-        }
+        public string Executed { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string asserts
-        {
-            get { return assertsField; }
-            set { assertsField = value; }
-        }
+        public string Asserts { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string result
-        {
-            get { return resultField; }
-            set { resultField = value; }
-        }
+        public string Result { get; set; }
 
         /// <remarks />
-        public resultsType results
-        {
-            get { return resultsField; }
-            set { resultsField = value; }
-        }
+        public ResultsType Results { get; set; }
 
         #region ignored code
 

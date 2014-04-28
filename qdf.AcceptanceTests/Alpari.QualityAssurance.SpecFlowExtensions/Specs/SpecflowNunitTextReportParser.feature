@@ -13,8 +13,8 @@ Background:	Load Xml to a generic parser
 
 Scenario: Load an xml result file and find test cases by test case name
 	When I parse the xml test result file as a test-suite collection
-	Then the following test cases are found for these test suites keyed by "test case name":
-	| test case short name | test suite name                      | test case name                                                                                          | executed | result       | success | time  | asserts |
+	Then the following test cases are found for these test suites keyed by "Test case name":
+	| Test case short name | Test suite name                      | Test case name                                                                                          | Executed | Result       | Success | Time  | Asserts |
 	| FailingTestOne       | CreateMixtureOfTestResults001Feature | Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.FailingTestOne    | True     | Failure      | False   | 0.477 | 1       |
 	| PassingTestOne       | CreateMixtureOfTestResults001Feature | Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PassingTestOne    | True     | Success      | True    | 0.005 | 1       |
 	| PendingTestOne       | CreateMixtureOfTestResults001Feature | Alpari.QualityAssurance.SpecFlowExtensions.Specs.CreateMixtureOfTestResults001Feature.PendingTestOne    | True     | Inconclusive | False   | 0.162 | 0       |
@@ -43,8 +43,8 @@ Scenario: Load a text file and check test cases with a primary tag are present
 Scenario: Load a text result file and find test cases by tag
 	When I parse the xml test result file as a test-suite collection
 	And I parse the text test result file as a test-suite collection
-	Then the following test case text results are found for these test suites keyed by containing a "tags" value:
-	| tags    | test case short name | test suite name                      |
+	Then the following test case text results are found for these test suites keyed by containing a "Tags" value:
+	| Tags    | Test case short name | Test suite name                      |
 	| @TES-84 | PendingTestTwoTwo    | CreateMixtureOfTestResults002Feature |
 
 #@TES-1000

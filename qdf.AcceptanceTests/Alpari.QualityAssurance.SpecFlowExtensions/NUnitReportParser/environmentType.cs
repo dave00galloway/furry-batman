@@ -12,77 +12,36 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [DesignerCategory("code")]
     public class EnvironmentType
     {
-        private string _clrversionField;
-        private string _cwdField;
-        private string _machinenameField;
-        private string _nunitversionField;
-        private string _osversionField;
-        private string _platformField;
-        private string _userField;
-        private string _userdomainField;
-
         /// <remarks />
         [XmlAttribute("nunit-version")]
-        public string Nunitversion
-        {
-            get { return _nunitversionField; }
-            set { _nunitversionField = value; }
-        }
+        public string Nunitversion { get; set; }
 
         /// <remarks />
         [XmlAttribute("clr-version")]
-        public string Clrversion
-        {
-            get { return _clrversionField; }
-            set { _clrversionField = value; }
-        }
+        public string Clrversion { get; set; }
 
         /// <remarks />
         [XmlAttribute("os-version")]
-        public string Osversion
-        {
-            get { return _osversionField; }
-            set { _osversionField = value; }
-        }
+        public string Osversion { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string Platform
-        {
-            get { return _platformField; }
-            set { _platformField = value; }
-        }
+        public string Platform { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string Cwd
-        {
-            get { return _cwdField; }
-            set { _cwdField = value; }
-        }
+        public string Cwd { get; set; }
 
         /// <remarks />
         [XmlAttribute("machine-name")]
-        public string Machinename
-        {
-            get { return _machinenameField; }
-            set { _machinenameField = value; }
-        }
+        public string Machinename { get; set; }
 
         /// <remarks />
         [XmlAttribute]
-        public string User
-        {
-            get { return _userField; }
-            set { _userField = value; }
-        }
+        public string User { get; set; }
 
         /// <remarks />
         [XmlAttribute("user-domain")]
-        public string Userdomain
-        {
-            get { return _userdomainField; }
-            set { _userdomainField = value; }
-        }
+        public string Userdomain { get; set; }
     }
 }
