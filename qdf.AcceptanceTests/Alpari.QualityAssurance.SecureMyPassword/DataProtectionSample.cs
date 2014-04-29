@@ -54,7 +54,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            var query = stringToConvert.ToArray().Select(Convert.ToByte);
+            IEnumerable<byte> query = stringToConvert.ToArray().Select(Convert.ToByte);
             return query.ToArray();
         }
 
@@ -62,7 +62,8 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         {
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            string byteArrayAsString = String.Join(separator, data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
+            string byteArrayAsString = String.Join(separator,
+                data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             //
             return byteArrayAsString;
         }
@@ -75,7 +76,8 @@ namespace Alpari.QualityAssurance.SecureMyPassword
             ////
             //return byteArrayAsString;
 
-            var byteArrayAsString = String.Join("", data.Select(Convert.ToChar).Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
+            string byteArrayAsString = String.Join("",
+                data.Select(Convert.ToChar).Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             return byteArrayAsString;
         }
 
@@ -83,7 +85,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
         {
             // returns unprintable charactes and quouation marks which would be a pain to work around
             // var stringQuery = data.Select(x => Convert.ToChar(x)).Select(x=>byteArrayAsString+=x.ToString()).ToList();
-            var byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             //
 
             return byteArray;
@@ -91,7 +93,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 
         public static void PrintValues(this IEnumerable<byte> myArr)
         {
-            foreach (var i in myArr)
+            foreach (byte i in myArr)
             {
                 Console.Write("\t{0}", i);
             }
