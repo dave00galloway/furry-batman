@@ -163,39 +163,46 @@ namespace qdf.AcceptanceTests.Helpers
 
         private List<QdfDealPositionGrouping> GetAggregatedQdfDeals()
         {
-            List<QdfDealPosition> aggregatedDeals = QdfDeals.GroupBy(x => new
-            {
-                x.Book,
-                x.Instrument,
-                x.Server,
-                x.TimeStamp
-            }
-                )
-                .Select(x => new QdfDealPosition
+            //List<QdfDealPosition> aggregatedDeals = QdfDeals.GroupBy(x => new
+            //{
+            //    x.Book,
+            //    x.Instrument,
+            //    x.Server,
+            //    x.TimeStamp
+            //}
+            //    )
+            //    .Select(x => new QdfDealPosition
+            //    {
+            //        PositionName =
+            //            String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server,
+            //                x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
+            //        Book = x.Key.Book,
+            //        Instrument = x.Key.Instrument,
+            //        Server = x.Key.Server,
+            //        TimeStamp = x.Key.TimeStamp,
+            //        QdfDeals = x.ToList()
+            //    }
+            //    ).ToList();
+
+            List<QdfDealPosition> aggregatedDeals = (from deal in QdfDeals
+                let groupTimeStamp =
+                    new DateTime(deal.TimeStamp.Year, deal.TimeStamp.Month, deal.TimeStamp.Day, deal.TimeStamp.Hour,
+                        deal.TimeStamp.Minute,
+                        0)
+
+                group deal by new {deal.Book, deal.Instrument, deal.Server, groupTimeStamp}
+                into dealGroup
+                select new QdfDealPosition
                 {
                     PositionName =
-                        String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server,
-                            x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
-                    Book = x.Key.Book,
-                    Instrument = x.Key.Instrument,
-                    Server = x.Key.Server,
-                    TimeStamp = x.Key.TimeStamp,
-                    QdfDeals = x.ToList()
-                }
-                ).ToList();
-
-            //var aggregatedDeals = from deal in QdfDeals
-            //    let groupKey =
-            //        new DateTime(deal.TimeStamp.Year, deal.TimeStamp.Month, deal.TimeStamp.Day, deal.TimeStamp.Hour, deal.TimeStamp.Minute,
-            //            0)
-            //    //group deal by groupKey into g
-            //    //select new
-            //    //{ 
-            //    //    TimeStamp = g.Key
-            //    //};
-            //    group deal by new {deal.Book, deal.Instrument, deal.Server, groupKey}
-            //    into grp
-            //    select new QdfDealPosition();
+                        String.Format("{0} {1} {2} {3}", dealGroup.Key.Book, dealGroup.Key.Instrument, dealGroup.Key.Server,
+                            dealGroup.Key.groupTimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
+                    Book = dealGroup.Key.Book,
+                    Instrument = dealGroup.Key.Instrument,
+                    Server = dealGroup.Key.Server,
+                    TimeStamp = dealGroup.Key.groupTimeStamp,
+                    QdfDeals = dealGroup.ToList()
+                }).ToList();
 
 
             foreach (QdfDealPosition position in aggregatedDeals)
