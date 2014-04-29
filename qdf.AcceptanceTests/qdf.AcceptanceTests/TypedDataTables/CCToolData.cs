@@ -45,7 +45,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
         protected CcToolData(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            var serialisationInstance = this;
+            CcToolData serialisationInstance = this;
         }
 
         public CCtoolRow this[int idx]
@@ -85,7 +85,6 @@ namespace qdf.AcceptanceTests.TypedDataTables
     {
         internal CCtoolRow(DataRowBuilder builder) : base(builder)
         {
-
         }
 
         public string Section

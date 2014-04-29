@@ -40,13 +40,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void WhenICompareTheAndPersonData(string first, string second)
         {
             var keys = new[] {"ID", "Lastname"};
-            var exp =
+            PersonData exp =
                 new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,
                     "expected", keys);
-            var act =
+            PersonData act =
                 new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,
                     "actual", keys);
-            var diffs = exp.Compare(act);
+            DataTableComparison diffs = exp.Compare(act);
             ScenarioContext.Current["diffs"] = diffs;
         }
 

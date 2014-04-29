@@ -68,7 +68,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public IList<Dictionary<string, object>> GetTestSuiteCollectionAsListOfTestSuiteDictionaries(
             List<TestsuiteType> testSuiteTypeCollection)
         {
-            var testSuiteType = testSuiteTypeCollection[0].GetType();
+            Type testSuiteType = testSuiteTypeCollection[0].GetType();
             return
                 testSuiteTypeCollection.Select(
                     testSuiteTypeCollectionItem =>
@@ -80,9 +80,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 
         public IList<Dictionary<string, object>> SaveTestSuiteCollectionAsListOfDictionaries()
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var testSuiteTypeCollection = nunitXmlParser.TestSuiteTypeCollection;
-            var testSuiteCollectionAsListOfTestSuiteDictionaries =
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            List<TestsuiteType> testSuiteTypeCollection = nunitXmlParser.TestSuiteTypeCollection;
+            IList<Dictionary<string, object>> testSuiteCollectionAsListOfTestSuiteDictionaries =
                 GetTestSuiteCollectionAsListOfTestSuiteDictionaries(testSuiteTypeCollection);
             ScenarioContext.Current[testSuiteCollectionAsListOfTestSuiteDictionaries.ToString()] =
                 testSuiteCollectionAsListOfTestSuiteDictionaries;

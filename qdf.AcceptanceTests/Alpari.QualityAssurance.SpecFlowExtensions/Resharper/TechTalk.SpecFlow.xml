@@ -1,0 +1,64 @@
+<!--Deploy to %ReSharperInstallDir%\Bin\ExternalAnnotations
+    to check the ExternalAnnotations have worked, highlight one and press Ctrl-Shift-F1
+    see http://stackoverflow.com/questions/23359738/how-can-i-get-resharper-to-treat-specflow-bindings-step-def-etc-annotations-as
+    for additional info
+-->
+<assembly name="TechTalk.SpecFlow">
+  <member name="T:TechTalk.SpecFlow.BindingAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.GivenAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.WhenAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.ThenAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeTestRunAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterTestRunAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeFeatureAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterFeatureAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeScenarioAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterScenarioAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeScenarioBlockAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterScenarioBlockAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.BeforeStepAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.AfterStepAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.StepArgumentTransformationAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.StepDefinitionAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+  <member name="T:TechTalk.SpecFlow.ScopeAttribute">
+    <attribute ctor="M:JetBrains.Annotations.MeansImplicitUseAttribute.#ctor" />
+  </member>
+</assembly>

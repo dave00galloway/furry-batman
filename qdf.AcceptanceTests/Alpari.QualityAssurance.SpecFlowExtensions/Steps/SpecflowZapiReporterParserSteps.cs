@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;
@@ -18,7 +19,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I parse the xml test result file as test-results")]
         public void WhenIParseTheXmlTestResultFileAsTest_Results()
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             nunitXmlParser.SetTestResults();
         }
 
@@ -34,71 +35,71 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the xml root Name property is ""(.*)""")]
         public void ThenTheXmlRootNamePropertyIs(string expectedName)
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             Assert.AreEqual(expectedName, nunitXmlParser.XmlRoot.Name);
         }
 
         [Then(@"test-results with a ""(.*)"" attribute value of ""(.*)"" exists")]
         public void ThenTest_ResultsWithAAttributeValueOfExists(string attributeName, string attributeValue)
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var testResultsDictionary = GetTestResultsDictionary(nunitXmlParser);
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            IDictionary<string, object> testResultsDictionary = GetTestResultsDictionary(nunitXmlParser);
             Assert.AreEqual(attributeValue, testResultsDictionary[attributeName]);
         }
 
         [Then(@"a test-results object with the following attribute values exists:")]
         public void ThenATest_ResultsObjectWithTheFollowingAttributeValuesExists(Table expectedTestResults)
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var testResultsDictionary = GetTestResultsDictionary(nunitXmlParser);
-            var tableAsList = DataTableOperations.GetTableAsList(expectedTestResults);
-            var verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], testResultsDictionary);
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            IDictionary<string, object> testResultsDictionary = GetTestResultsDictionary(nunitXmlParser);
+            IList<IDictionary<string, object>> tableAsList = DataTableOperations.GetTableAsList(expectedTestResults);
+            string verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], testResultsDictionary);
             Assert.IsEmpty(verificationErrors);
         }
 
         [Then(@"an environment object with the following attribute values exists:")]
         public void ThenAnEnvironmentObjectWithTheFollowingAttributeValuesExists(Table expectedHostTestEnvironment)
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var hostTestEnvironmentDictionary = GetHostTestEnvironmentDictionary(nunitXmlParser);
-            var tableAsList =
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            IDictionary<string, object> hostTestEnvironmentDictionary = GetHostTestEnvironmentDictionary(nunitXmlParser);
+            IList<IDictionary<string, object>> tableAsList =
                 DataTableOperations.GetTableAsList(expectedHostTestEnvironment);
             //make sure there is only 1 result to start with!
             Assert.AreEqual(1, nunitXmlParser.HostTestEnvironmentList.Count);
-            var verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], hostTestEnvironmentDictionary);
+            string verificationErrors = DataTableOperations.VerifyTables(tableAsList[0], hostTestEnvironmentDictionary);
             Assert.IsEmpty(verificationErrors);
         }
 
         [When(@"I parse the xml test result file as an environment")]
         public void WhenIParseTheXmlTestResultFileAsAnEnvironment()
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             nunitXmlParser.SetTestEnvironment();
         }
 
         [Then(@"an environment with a ""(.*)"" attribute value of ""(.*)"" exists")]
         public void ThenAnEnvironmentWithAAttributeValueOfExists(string attributeName, string attributeValue)
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var hostTestEnvironmentDictionary = GetHostTestEnvironmentDictionary(nunitXmlParser);
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            IDictionary<string, object> hostTestEnvironmentDictionary = GetHostTestEnvironmentDictionary(nunitXmlParser);
             Assert.AreEqual(attributeValue, hostTestEnvironmentDictionary[attributeName]);
         }
 
         [When(@"I parse the xml test result file as a test-suite collection")]
         public void WhenIParseTheXmlTestResultFileAsATest_SuiteCollection()
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             nunitXmlParser.SetTestSuiteCollection();
         }
 
         [Then(@"a test-suite with a ""(.*)"" attribute value of ""(.*)"" exists")]
         public void ThenATest_SuiteWithAAttributeValueOfExists(string attributeName, string attributeValue)
         {
-            var testSuiteCollectionAsListOfTestSuiteDictionaries =
+            IList<Dictionary<string, object>> testSuiteCollectionAsListOfTestSuiteDictionaries =
                 SaveTestSuiteCollectionAsListOfDictionaries();
             //build a KVP with expected values
             var item = new KeyValuePair<string, object>(attributeName, attributeValue);
-            var actual =
+            Dictionary<string, object> actual =
                 DataTableOperations.GetDictionaryFromListOfDictionariesByKeyValuePair(item,
                     testSuiteCollectionAsListOfTestSuiteDictionaries);
             actual.Should().Contain(item);
@@ -107,9 +108,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the following test cases are found for these test suites:")]
         public void ThenTheFollowingTestCasesAreFoundForTheseTestSuites(Table testCasesInTestSuites)
         {
-            var expectedAndActualTestCases =
+            ExpectedAndActualTestCasesBySuiteAsIlIsts expectedAndActualTestCases =
                 GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
-            var verificationErrors = DataTableOperations.VerifyTables(expectedAndActualTestCases);
+            string verificationErrors = DataTableOperations.VerifyTables(expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
         }
 
@@ -117,9 +118,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheFollowingTestCasesAreFoundForTheseTestSuitesKeyedBy(string tableKey,
             Table testCasesInTestSuites)
         {
-            var expectedAndActualTestCases =
+            ExpectedAndActualTestCasesBySuiteAsIlIsts expectedAndActualTestCases =
                 GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
-            var verificationErrors = DataTableOperations.VerifyTables(tableKey, expectedAndActualTestCases);
+            string verificationErrors = DataTableOperations.VerifyTables(tableKey, expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
         }
 
@@ -127,9 +128,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenTheFollowingTestCasesAreFoundForTheseTestSuitesKeyedByContainingA(string tableKey,
             Table testCasesInTestSuites)
         {
-            var expectedAndActualTestCases =
+            ExpectedAndActualTestCasesBySuiteAsIlIsts expectedAndActualTestCases =
                 GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
-            var verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
+            string verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
                 expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
         }
@@ -145,22 +146,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I parse the xml test result file as culture-info")]
         public void WhenIParseTheXmlTestResultFileAsCulture_Info()
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             nunitXmlParser.SetCultureInfo();
         }
 
         [Then(@"a single culture-info object exists")]
         public void ThenASingleCulture_InfoObjectExists()
         {
-            var nunitXmlParser = GetNunitXmlParser();
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
             Assert.AreEqual(1, nunitXmlParser.CultureinfoTypeList.Count);
         }
 
         [Then(@"a culture-info with a ""(.*)"" attribute value of ""(.*)"" exists")]
         public void ThenACulture_InfoWithAAttributeValueOfExists(string attributeName, string attributeValue)
         {
-            var nunitXmlParser = GetNunitXmlParser();
-            var cultureInfoDictionary = GetCultureInfoDictionary(nunitXmlParser);
+            NunitXmlParser nunitXmlParser = GetNunitXmlParser();
+            IDictionary<string, object> cultureInfoDictionary = GetCultureInfoDictionary(nunitXmlParser);
             Assert.AreEqual(attributeValue, cultureInfoDictionary[attributeName]);
         }
 

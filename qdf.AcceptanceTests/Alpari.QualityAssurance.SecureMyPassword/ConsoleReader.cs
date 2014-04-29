@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SecureMyPassword
                 // Exit if Enter key is pressed.
             } while (key.Key != ConsoleKey.Enter);
             Console.WriteLine("done");
-            var query = keys.Select(Convert.ToByte);
+            IEnumerable<byte> query = keys.Select(Convert.ToByte);
             return query.ToArray();
         }
     }

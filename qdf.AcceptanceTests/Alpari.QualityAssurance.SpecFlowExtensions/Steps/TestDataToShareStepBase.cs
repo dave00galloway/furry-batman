@@ -18,8 +18,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             //save the current Scenario and Feature contexts
 // ReSharper disable once UnusedVariable - ignoring since this feature data- sharing is experimental
-            var featureContext = FeatureContext.Current;
-            var scenarioContext = ScenarioContext.Current;
+            FeatureContext featureContext = FeatureContext.Current;
+            ScenarioContext scenarioContext = ScenarioContext.Current;
 
             var testDataToShareFeature = new TestDataToShareFeature();
             testDataToShareFeature.FeatureSetup();
@@ -38,7 +38,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             var testDataToShareClientTwoFeature = new TestDataToShareClientTwoFeature();
             testDataToShareClientTwoFeature.FeatureSetup();
             testDataToShareClientTwoFeature.ScenarioSetup(scenarioContext.ScenarioInfo);
-                //works, but calls the scenario setup which calls this event again!
+            //works, but calls the scenario setup which calls this event again!
         }
 
         [AfterScenario("DataSetup")]

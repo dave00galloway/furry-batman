@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using NUnit.Framework;
@@ -27,12 +28,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static IDictionary<string, object> GetObjectPropertiesAsDictionary(object objectToGetPropertiesFrom,
             Type objectType)
         {
-            var propertyInfoArray = objectType.GetProperties();
+            PropertyInfo[] propertyInfoArray = objectType.GetProperties();
             IDictionary<string, object> dict = new Dictionary<string, object>();
             var indexer = new object[0];
-            foreach (var propertyInfoItem in propertyInfoArray)
+            foreach (PropertyInfo propertyInfoItem in propertyInfoArray)
             {
-                var value = propertyInfoItem.GetValue(objectToGetPropertiesFrom, indexer);
+                object value = propertyInfoItem.GetValue(objectToGetPropertiesFrom, indexer);
                 dict.Add(propertyInfoItem.Name, value);
             }
             return dict;
@@ -61,7 +62,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         }
 
         /// <summary>
-        /// Find a dictionary in a list of dictionaries 
+        ///     Find a dictionary in a list of dictionaries
         /// </summary>
         /// <param name="matchingCriteria">KVP to search for</param>
         /// <param name="comparisonMode">type of check to do - ony contains supported so far</param>
@@ -89,7 +90,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                     }
                     break;
             }
-            throw new Exception(String.Format("couldn't find a match for {0}",matchingCriteria.Key));
+            throw new Exception(String.Format("couldn't find a match for {0}", matchingCriteria.Key));
         }
 
         /// <summary>
@@ -101,8 +102,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static IList<IDictionary<string, object>> GetTableAsList(Table tableToConvert)
         {
             IList<IDictionary<string, object>> tableAsList = new List<IDictionary<string, object>>();
-            var rows = tableToConvert.Rows;
-            foreach (var rowRecord in rows)
+            TableRows rows = tableToConvert.Rows;
+            foreach (TableRow rowRecord in rows)
             {
                 IDictionary<string, object> rowAsDictionary = new Dictionary<string, object>();
                 foreach (var itemCell in rowRecord)
@@ -125,7 +126,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 
             //tableAsList.Add(results);
 
-            foreach (var key in results.Keys)
+            foreach (string key in results.Keys)
             {
                 IDictionary<string, object> rowAsDictionary = new Dictionary<string, object>();
                 rowAsDictionary.Add(key, results[key]);
@@ -149,13 +150,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             IDictionary<string, object> actualDictionary)
         {
             var diffs = new StringBuilder();
-            var actualDictionaryAsDictionary = ConvertIDictionaryToDictionary(actualDictionary);
+            Dictionary<string, object> actualDictionaryAsDictionary = ConvertIDictionaryToDictionary(actualDictionary);
             foreach (var entry in expectedDictionary)
             {
                 //pull all the data out first in case retrieving one or more data parts returns an error and the assertion doesn't take place
-                var entryKey = "";
-                var expectedValue = "";
-                var actualValue = "";
+                string entryKey = "";
+                string expectedValue = "";
+                string actualValue = "";
                 string comparisonDescription;
                 try
                 {
@@ -180,14 +181,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             Dictionary<string, int> actualDictionary)
         {
             var diffs = new StringBuilder();
-            var actualDictionaryToObjectDictionary =
+            Dictionary<string, object> actualDictionaryToObjectDictionary =
                 ConvertDictionaryToDictionary(actualDictionary);
             foreach (var entry in expectedDictionary)
             {
                 //pull all the data out first in case retrieving one or more data parts returns an error and the assertion doesn't take place
-                var entryKey = "";
-                var expectedValue = "";
-                var actualValue = "";
+                string entryKey = "";
+                string expectedValue = "";
+                string actualValue = "";
                 string comparisonDescription;
                 try
                 {
@@ -223,9 +224,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             foreach (var entry in expectedDictionary)
             {
                 //pull all the data out first in case retrieving one or more data parts returns an error and the assertion doesn't take place
-                var entryKey = "";
-                var expectedValue = "";
-                var actualValue = "";
+                string entryKey = "";
+                string expectedValue = "";
+                string actualValue = "";
                 string comparisonDescription;
                 try
                 {
@@ -256,7 +257,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             entryKey = entry.Key;
             expectedValue = entry.Value.ToString();
             actualValue = actualDictionary[entryKey].ToString();
-            comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue, out comparisonDescription);
+            comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
+                out comparisonDescription);
             try
             {
                 Assert.AreEqual(expectedValue, actualValue, comparisonDescription);
@@ -281,11 +283,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static string VerifyTables(ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
             var diffs = new StringBuilder();
-            for (var i = 0; i < dictionariesAsLists.Expected.Count - 1; i++)
+            for (int i = 0; i < dictionariesAsLists.Expected.Count - 1; i++)
             {
                 try
                 {
-                    var diff = VerifyTables(dictionariesAsLists.Expected[i], dictionariesAsLists.Actual[i]);
+                    string diff = VerifyTables(dictionariesAsLists.Expected[i], dictionariesAsLists.Actual[i]);
                     if (diff.Length > 0)
                     {
                         diffs.AppendLine(diff);
@@ -311,16 +313,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static string VerifyTables(string tableKey, ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
             var diffs = new StringBuilder();
-            var actualListOfDictionaries =
+            IList<Dictionary<string, object>> actualListOfDictionaries =
                 ConvertIListIDictionaryToIlistDictionary(dictionariesAsLists.Actual);
             foreach (var expectedDictionary in dictionariesAsLists.Expected)
             {
                 try
                 {
                     var matcher = new KeyValuePair<string, object>(tableKey, expectedDictionary[tableKey]);
-                    var actualDictionary =
+                    Dictionary<string, object> actualDictionary =
                         GetDictionaryFromListOfDictionariesByKeyValuePair(matcher, actualListOfDictionaries);
-                    var diff = VerifyTables(expectedDictionary, actualDictionary);
+                    string diff = VerifyTables(expectedDictionary, actualDictionary);
                     if (diff.Length > 0)
                     {
                         //diffs.AppendLine("####################################");
@@ -353,17 +355,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
         {
             var diffs = new StringBuilder();
-            var actualListOfDictionaries =
+            IList<Dictionary<string, object>> actualListOfDictionaries =
                 ConvertIListIDictionaryToIlistDictionary(dictionariesAsLists.Actual);
             foreach (var expectedDictionary in dictionariesAsLists.Expected)
             {
                 try
                 {
                     var matcher = new KeyValuePair<string, object>(tableKey, expectedDictionary[tableKey]);
-                    var actualDictionary =
+                    Dictionary<string, object> actualDictionary =
                         GetDictionaryFromListOfDictionariesByKeyValuePair(matcher, comparisonMode,
                             actualListOfDictionaries);
-                    var diff = VerifyTables(tableKey, expectedDictionary, actualDictionary);
+                    string diff = VerifyTables(tableKey, expectedDictionary, actualDictionary);
                     if (diff.Length > 0)
                     {
                         //diffs.AppendLine("####################################");

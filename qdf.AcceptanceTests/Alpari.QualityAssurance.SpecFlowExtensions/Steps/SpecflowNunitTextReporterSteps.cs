@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;
@@ -19,21 +21,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I parse the text test result file as a test-suite collection")]
         public void WhenIParseTheTextTestResultFileAsATest_SuiteCollection()
         {
-            var nunitXmlParser = GetNunitTextParser();
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             nunitXmlParser.ParseTextTestResultFileAsTestSuiteCollection();
         }
 
         [Then(@"the text file parser contains some test cases")]
         public void ThenTheTextFileParserContainsSomeTestCases()
         {
-            var testCases = GetTestCaseTextResults();
+            IList<TestCaseTextResult> testCases = GetTestCaseTextResults();
             testCases.Count.Should().BeGreaterThan(0);
         }
 
         [Then(@"the text file parser contains some test cases with tags")]
         public void ThenTheTextFileParserContainsSomeTestCasesWithTags()
         {
-            var testCases = GetTestCaseTextResults();
+            IList<TestCaseTextResult> testCases = GetTestCaseTextResults();
 // ReSharper disable once SuspiciousTypeConversion.Global
 // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
             testCases.Any(x => x.Tags.Count.Should().BeGreaterThan(0).Equals(true));
@@ -42,7 +44,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the text file parser contains some test cases with a primary tag")]
         public void ThenTheTextFileParserContainsSomeTestCasesWithAPrimaryTag()
         {
-            var testCases = GetTestCaseTextResults();
+            IList<TestCaseTextResult> testCases = GetTestCaseTextResults();
 // ReSharper disable once ReturnValueOfPureMethodIsNotUsed
 // ReSharper disable once SuspiciousTypeConversion.Global
             testCases.Any(x => x.PrimaryTag.Should().NotBeNullOrWhiteSpace().Equals(true));
@@ -55,18 +57,18 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             string tableKey, Table testCasesInTestSuites)
         {
             //Currently still just looking at the XML results here - need to add the txt results too!
-            var expectedAndActualTestCases =
+            ExpectedAndActualTestCasesBySuiteAsIlIsts expectedAndActualTestCases =
                 GetExpectedAndActualTestCasesBySuiteAsILists(testCasesInTestSuites);
-            var nunitXmlParser = GetNunitTextParser();
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             //var linqD = nunitXmlParser.TestCaseTextResultsToDictionary();
-            var actualXmlTestCaseResults = expectedAndActualTestCases.Actual;
-                // now, do we add the txt results to this dict? Why not create a new type keyed by primary tag?
-            var combinedResults =
+            IList<IDictionary<string, object>> actualXmlTestCaseResults = expectedAndActualTestCases.Actual;
+            // now, do we add the txt results to this dict? Why not create a new type keyed by primary tag?
+            Dictionary<string, CombinedTextAndXmlResult> combinedResults =
                 nunitXmlParser.MergeTestResults(actualXmlTestCaseResults);
             //join the List of xml tests to the txt test using the primary tag, replacing the _ in the xml tag with the - in the primary tag.
             //Add some fields from txt to the expecte result set to prove the txt result has been joined
             /* Broken verification - can't check a tag is both _ and - so need to sort out in source, then change all the tests (or the other way round!)*/
-            var verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
+            string verificationErrors = DataTableOperations.VerifyTables(tableKey, "ContainsListEntry",
                 expectedAndActualTestCases);
             Assert.IsEmpty(verificationErrors);
             combinedResults.Should().NotBeEmpty();
@@ -76,7 +78,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the text file parser contains some text")]
         public void ThenTheTextFileParserContainsSomeText()
         {
-            var nunitXmlParser = GetNunitTextParser();
+            NunitTxtParser nunitXmlParser = GetNunitTextParser();
             nunitXmlParser.FileText.Should().NotBeEmpty();
         }
     }

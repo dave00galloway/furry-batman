@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
 
         private TestRunContext()
         {
-            var now = DateTime.Now;
+            DateTime now = DateTime.Now;
             Add(Instantiated, now + "  " + now.Ticks);
             Add(RandomFileName, GenerateRandomStringFromFileName());
         }

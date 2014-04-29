@@ -11,7 +11,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
     {
         public static string That(object first, CompareUsing Is, Object second, string message)
         {
-            var that = "";
+            string that = "";
             switch (Is)
             {
                 case CompareUsing.ShouldBe:
@@ -78,7 +78,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
 
         public static string That(object first, CompareUsing Is, Object second)
         {
-            var that = "";
+            string that = "";
             switch (Is)
             {
                 case CompareUsing.ShouldBe:
@@ -89,7 +89,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications
                     catch (Exception e)
                     {
                         that = e.Message;
-                            //.Replace("\\",""); TODO:- properly escape  Fluent Assertion formatting                     
+                        //.Replace("\\",""); TODO:- properly escape  Fluent Assertion formatting                     
                     }
                     break;
                 default:

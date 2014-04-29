@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
@@ -17,14 +18,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns></returns>
         public static double ExtractDoubleFromCharArray(this char[] characters)
         {
-            var doubleAsString = characters.Where(char.IsNumber).Aggregate<char, string>(null, (current, character) => current + character);
-            var magnitude = Convert.ToDouble(doubleAsString);
+            string doubleAsString = characters.Where(char.IsNumber)
+                .Aggregate<char, string>(null, (current, character) => current + character);
+            double magnitude = Convert.ToDouble(doubleAsString);
             return magnitude;
         }
 
         public static string ExtractLettersFromCharArray(this char[] characters)
         {
-            return characters.Where(char.IsLetter).Aggregate<char, string>(null, (current, character) => current + character);
+            return characters.Where(char.IsLetter)
+                .Aggregate<char, string>(null, (current, character) => current + character);
             //foreach (var character in characters)
             //{
             //    if (char.IsLetter(character))
@@ -37,7 +40,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static string PadZeros(this object digit, int length)
         {
-            var padZeros = digit.ToString();
+            string padZeros = digit.ToString();
             while (padZeros.Length < length)
                 padZeros = string.Format("0{0}", padZeros);
             return padZeros;
@@ -45,20 +48,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         public static byte[] ConvertStringToByteArray(this string stringToConvert)
         {
-            var query = stringToConvert.ToArray().Select(Convert.ToByte);
+            IEnumerable<byte> query = stringToConvert.ToArray().Select(Convert.ToByte);
             return query.ToArray();
         }
 
         public static string ByteArrayToString(this byte[] data, string separator)
         {
-            string byteArrayAsString = String.Join(separator, data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
+            string byteArrayAsString = String.Join(separator,
+                data.Select(x => x.ToString(CultureInfo.InvariantCulture)).ToArray());
             //
             return byteArrayAsString;
         }
 
         public static byte[] StringToByteArray(this string data, char separator)
         {
-            var byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
+            byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             return byteArray;
         }
     }

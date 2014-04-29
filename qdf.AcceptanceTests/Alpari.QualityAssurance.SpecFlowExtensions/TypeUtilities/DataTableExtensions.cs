@@ -39,46 +39,46 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 var comparison = new DataTableComparison();
 
                 //get rows missing in compare with
-                var baseRows = dtBase.Rows.Cast<DataRow>().Select(row => row).ToList();
+                List<DataRow> baseRows = dtBase.Rows.Cast<DataRow>().Select(row => row).ToList();
 
-                var compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
+                List<DataRow> compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
 
                 comparison.MissingInCompareWith =
                     baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList();
                 comparison.AdditionalInCompareWith =
                     compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).ToList();
 
-                var commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
+                IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
 
                 //todo:- allow an ovelroad to specify a delegate which writes to csv or db instead of console
                 // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
 
 
                 //get the non-primary key field columns
-                var columnsToCompare = (from DataColumn col in dtBase.Columns
+                List<DataColumn> columnsToCompare = (from DataColumn col in dtBase.Columns
                     where dtBase.PrimaryKey.Contains(col) == false
                     select col).ToList();
 
                 //when the format for this is agreed, could create a strongly typed datatable for the comparisons
 
-                var comparisonDiffs = SetupComparisonDiffsTable();
+                DataTable comparisonDiffs = SetupComparisonDiffsTable();
                 comparison.FieldDifferences = comparisonDiffs;
-                foreach (var row in commonRows)
+                foreach (DataRow row in commonRows)
                 {
                     //get the primary key values for the comp row
                     var findTheseVals = new object[dtBase.PrimaryKey.Count()];
-                    for (var i = 0; i < findTheseVals.Length; i++)
+                    for (int i = 0; i < findTheseVals.Length; i++)
                     {
                         findTheseVals[i] = row[dtBase.PrimaryKey[i]];
                     }
 
                     //get the equivalent row in the base table
-                    var sourceRow = dtBase.Rows.Find(findTheseVals);
+                    DataRow sourceRow = dtBase.Rows.Find(findTheseVals);
 
                     //get the equivalent row in the comp table
-                    var newRow = compareWith.Rows.Find(findTheseVals);
+                    DataRow newRow = compareWith.Rows.Find(findTheseVals);
 
-                    foreach (var column in columnsToCompare)
+                    foreach (DataColumn column in columnsToCompare)
                     {
                         sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs);
                     }
@@ -125,7 +125,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             string difference = null;
 
             //get the type as an "enum"
-            var type = column.DataType.GetDataType();
+            string type = column.DataType.GetDataType();
 
             #region downcast the object to its type, and compare. if different, create a new row and return it and a calcualtion of difference
 
@@ -133,119 +133,119 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             {
                 case TypeExtensions.Byte:
                     // difference = ((byte) p1 - (byte) p2 == 0 )? null : (byte) p1 - (byte) p2
-                    var bdiff = (byte) p1 - (byte) p2;
+                    int bdiff = (byte) p1 - (byte) p2;
                     if (bdiff != 0)
                     {
                         difference = bdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Sbyte:
-                    var sdiff = (sbyte) p1 - (sbyte) p2;
+                    int sdiff = (sbyte) p1 - (sbyte) p2;
                     if (sdiff != 0)
                     {
                         difference = sdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Short:
-                    var shdiff = (short) p1 - (short) p2;
+                    int shdiff = (short) p1 - (short) p2;
                     if (shdiff != 0)
                     {
                         difference = shdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Ushort:
-                    var ushdiff = (short) p1 - (short) p2;
+                    int ushdiff = (short) p1 - (short) p2;
                     if (ushdiff != 0)
                     {
                         difference = ushdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Int:
-                    var idiff = (int) p1 - (int) p2;
+                    int idiff = (int) p1 - (int) p2;
                     if (idiff != 0)
                     {
                         difference = idiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT16":
-                    var i16Diff = (Int16) p1 - (Int16) p2;
+                    int i16Diff = (Int16) p1 - (Int16) p2;
                     if (i16Diff != 0)
                     {
                         difference = i16Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT32":
-                    var i32Diff = (Int32) p1 - (Int32) p2;
+                    int i32Diff = (Int32) p1 - (Int32) p2;
                     if (i32Diff != 0)
                     {
                         difference = i32Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "INT64":
-                    var i64Diff = (Int64) p1 - (Int64) p2;
+                    long i64Diff = (Int64) p1 - (Int64) p2;
                     if (i64Diff != 0)
                     {
                         difference = i64Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Uint:
-                    var uidiff = (uint) p1 - (uint) p2;
+                    uint uidiff = (uint) p1 - (uint) p2;
                     if (uidiff != 0)
                     {
                         difference = uidiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT16":
-                    var ui16Diff = (UInt16) p1 - (UInt16) p2;
+                    int ui16Diff = (UInt16) p1 - (UInt16) p2;
                     if (ui16Diff != 0)
                     {
                         difference = ui16Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT32":
-                    var ui32Diff = (UInt32) p1 - (UInt32) p2;
+                    uint ui32Diff = (UInt32) p1 - (UInt32) p2;
                     if (ui32Diff != 0)
                     {
                         difference = ui32Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case "UINT64":
-                    var ui64Diff = (UInt64) p1 - (UInt64) p2;
+                    ulong ui64Diff = (UInt64) p1 - (UInt64) p2;
                     if (ui64Diff != 0)
                     {
                         difference = ui64Diff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Long:
-                    var ldiff = (long) p1 - (long) p2;
+                    long ldiff = (long) p1 - (long) p2;
                     if (ldiff != 0)
                     {
                         difference = ldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Ulong:
-                    var uldiff = (ulong) p1 - (ulong) p2;
+                    ulong uldiff = (ulong) p1 - (ulong) p2;
                     if (uldiff != 0)
                     {
                         difference = uldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Float:
-                    var fdiff = (float) p1 - (float) p2;
+                    float fdiff = (float) p1 - (float) p2;
                     if (Math.Abs(fdiff) > 0)
                     {
                         difference = fdiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Double:
-                    var dbldiff = (double) p1 - (double) p2;
+                    double dbldiff = (double) p1 - (double) p2;
                     if (Math.Abs(dbldiff) > 0)
                     {
                         difference = dbldiff.ToString(CultureInfo.InvariantCulture);
                     }
                     break;
                 case TypeExtensions.Decimal:
-                    var decdiff = (decimal) p1 - (decimal) p2;
+                    decimal decdiff = (decimal) p1 - (decimal) p2;
                     if (decdiff != 0)
                     {
                         difference = decdiff.ToString(CultureInfo.InvariantCulture);
@@ -264,7 +264,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             if (difference != null)
             {
-                var diffRow = diffsTable.NewRow();
+                DataRow diffRow = diffsTable.NewRow();
                 //join the primary key values
                 diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
                 diffRow["column"] = column.ColumnName;
@@ -308,7 +308,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             //TODO:- create a class in TypeUtilities that can return an enum representing type, and downcast the objects to their types based on the enum
             //this is required to work out the difference between vlaues (numbers dates, and if anything else, toString and assert them)
-            var type = e.ProposedValue.GetType();
+            Type type = e.ProposedValue.GetType();
 // ReSharper disable once CheckForReferenceEqualityInstead.1
             if (type.Equals(typeof (string)))
             {
@@ -365,10 +365,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             public bool Equals(T rowBase, T rowCompareWith)
             {
-                var equals = true;
-                var keyValuesBase = GetKeyValues(rowBase);
-                var keyValuesComp = GetKeyValues(rowCompareWith);
-                for (var i = 0; i < keyValuesBase.Count(); i++)
+                bool equals = true;
+                List<object> keyValuesBase = GetKeyValues(rowBase);
+                List<object> keyValuesComp = GetKeyValues(rowCompareWith);
+                for (int i = 0; i < keyValuesBase.Count(); i++)
                 {
                     if (keyValuesBase[i].ToString() != keyValuesComp[i].ToString())
                     {
@@ -382,20 +382,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             public int GetHashCode(T rowBase)
             {
                 //var hashcode = 0;
-                var keyValues = GetKeyValues(rowBase);
-                var hashCodes = from value in keyValues
+                List<object> keyValues = GetKeyValues(rowBase);
+                IEnumerable<int> hashCodes = from value in keyValues
                     select value.GetHashCode();
                 //hashcodeBase = hashCodes.ToList().GetHashCode();
                 //var hashcodeList = hashCodes.ToList();
                 //hashcodeBase = hashcodeList.GetHashCode();
                 //hashing the list doesn't give reliable hashcodes, so iterate over the values, multiply them and then hash the result
-                var hashcode = hashCodes.Aggregate(1, (current, hash) => current * hash);
+                int hashcode = hashCodes.Aggregate(1, (current, hash) => current*hash);
                 //foreach (var hash in hashCodes)
                 //{
                 //    hashcodeBase *= hash;
                 //}
                 //hashcode = hashcodeBase.GetHashCode();
-                    // always seems to return the same value as the input, so could save a method call here
+                // always seems to return the same value as the input, so could save a method call here
                 return hashcode;
             }
 
@@ -410,7 +410,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             private static List<object> GetKeyValues(T rowBase)
             {
                 //could store the primary key in a static field too (and clear it in the ResetInstance method)
-                var getKeyValues = from keyColumn in rowBase.Table.PrimaryKey
+                IEnumerable<object> getKeyValues = from keyColumn in rowBase.Table.PrimaryKey
                     select rowBase[keyColumn.ColumnName];
 
                 return getKeyValues.ToList();

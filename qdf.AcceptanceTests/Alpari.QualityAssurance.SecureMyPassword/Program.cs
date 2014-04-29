@@ -15,15 +15,15 @@ namespace Alpari.QualityAssurance.SecureMyPassword
 // ReSharper disable once UnusedParameter.Global
         public static void Main(string[] args)
         {
-            var toEncrypt = ConsoleReader.GetPasswordAsByteArray();
-            var encrypted = toEncrypt.Protect();
+            byte[] toEncrypt = ConsoleReader.GetPasswordAsByteArray();
+            byte[] encrypted = toEncrypt.Protect();
             Console.WriteLine("this is your encrypted password.");
             encrypted.PrintValues();
             Console.WriteLine("this is your encrypted password in human readable format. copy and keep safe!");
-            var encrypedAsString = encrypted.ByteArrayToString("_");
+            string encrypedAsString = encrypted.ByteArrayToString("_");
             Console.WriteLine(encrypedAsString);
             Console.WriteLine("this is your decrypted password. please check this is what you meant to be encrypted!");
-            var decrypted = encrypted.Unprotect();
+            byte[] decrypted = encrypted.Unprotect();
             decrypted.PrintValues();
             Console.WriteLine(
                 "this is your decrypted password in human readable format. please check this is what you meant to be encrypted!");

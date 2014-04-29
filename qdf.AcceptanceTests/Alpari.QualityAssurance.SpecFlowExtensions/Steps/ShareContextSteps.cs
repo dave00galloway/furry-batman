@@ -14,8 +14,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Given(@"I access the static object")]
         public void GivenIAccessTheStaticObject()
         {
-            var timeNowIs = TestRunContext.StaticTime;
-            var randomFileName = TestRunContext.StaticRandom;
+            string timeNowIs = TestRunContext.StaticTime;
+            string randomFileName = TestRunContext.StaticRandom;
             ScenarioContext.Current.Add(TimeNowIs, timeNowIs);
             ScenarioContext.Current.Add(RandomFilename, randomFileName);
 

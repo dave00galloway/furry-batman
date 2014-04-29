@@ -10,10 +10,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             ICollection<IDictionary<string, object>> testCasesByTestSuiteAsList)
         {
             TextResult = textResult;
-            foreach (var item in from item in testCasesByTestSuiteAsList 
-                                 let taglist = item["Tags"].ToString() 
-                                 where taglist.Contains(TextResult.PrimaryTag) 
-                                 select item)
+            foreach (var item in from item in testCasesByTestSuiteAsList
+                let taglist = item["Tags"].ToString()
+                where taglist.Contains(TextResult.PrimaryTag)
+                select item)
             {
                 XmlResult = DataTableOperations.ConvertIDictionaryToDictionary(item);
                 testCasesByTestSuiteAsList.Remove(XmlResult);

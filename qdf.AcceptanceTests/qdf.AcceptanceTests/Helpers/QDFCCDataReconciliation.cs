@@ -40,26 +40,26 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void CalculateQdfCumulativePosition()
         {
-            foreach (var grouping in QdfDealPositionGroupings)
+            foreach (QdfDealPositionGrouping grouping in QdfDealPositionGroupings)
             {
                 Console.WriteLine("get position values for {0}", grouping.PositionGroupingName);
-                var positions = grouping.QdfDealPositions.Select(deal => deal.Position).ToList();
-                foreach (var item in positions)
+                List<decimal> positions = grouping.QdfDealPositions.Select(deal => deal.Position).ToList();
+                foreach (decimal item in positions)
                 {
                     Console.WriteLine(item);
                 }
                 Console.WriteLine();
 
                 Console.WriteLine("get cumulative position values");
-                var cumulativePositions = positions.CumulativeSum().ToList();
+                List<decimal> cumulativePositions = positions.CumulativeSum().ToList();
                 //IEnumerable<double> cumulativePositions = positions.CumulativeSum<decimal>();
-                foreach (var item in cumulativePositions)
+                foreach (decimal item in cumulativePositions)
                 {
                     Console.WriteLine(item);
                 }
                 Console.WriteLine();
 
-                for (var i = 0; i < cumulativePositions.Count(); i++)
+                for (int i = 0; i < cumulativePositions.Count(); i++)
                 {
                     grouping.QdfDealPositions[i].CumulativePosition = cumulativePositions[i];
                 }
@@ -103,9 +103,9 @@ namespace qdf.AcceptanceTests.Helpers
 
             #endregion
 
-            var rowQuery = (from DataRow row in CcToolData.Rows
+            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
-            foreach (var row in rowQuery)
+            foreach (DataRow row in rowQuery)
             {
                 row["VolumeSize"] = (decimal) row["Volume"]*(decimal) row["ContractSize"];
             }
@@ -120,9 +120,9 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void CombineCcSectionData()
         {
-            var rowQuery = (from DataRow row in CcToolData.Rows
+            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
-            var aggregatedPositions = rowQuery.GroupBy(x => new
+            List<CcToolPosition> aggregatedPositions = rowQuery.GroupBy(x => new
             {
                 Book = ((ulong) x["IsBookA"] == 0 ? Book.A : Book.B),
                 Instrument = x["SymbolCode"].ToString(),
@@ -142,7 +142,7 @@ namespace qdf.AcceptanceTests.Helpers
                     Positions = x.ToList()
                 }
                 ).ToList();
-            foreach (var position in aggregatedPositions)
+            foreach (CcToolPosition position in aggregatedPositions)
             {
                 position.CalculatePosition();
                 Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}",
@@ -163,25 +163,13 @@ namespace qdf.AcceptanceTests.Helpers
 
         private List<QdfDealPositionGrouping> GetAggregatedQdfDeals()
         {
-            //should work, but always ends up with non-unique groupings, and the same number of deals as groups!
-            //var aggregatedDeals = QDFDeals.GroupBy(x => new QDFDealPositionGrouping()
-            //                                                    {
-            //                                                        Book = x.Book,
-            //                                                        Instrument = x.Instrument,
-            //                                                        ServerId = x.ServerId//,
-            //                                                        //Side = x.Side
-            //                                                    }
-            //                                       )
-            //answer - group using an anonymous type. This works!
-            var aggregatedDeals = QdfDeals.GroupBy(x => new
+            List<QdfDealPosition> aggregatedDeals = QdfDeals.GroupBy(x => new
             {
                 x.Book,
                 x.Instrument,
                 x.Server,
                 x.TimeStamp
-                //Side = x.Side
             }
-//                                       ).Select(x => new QDFDealPosition()).ToList<QDFDealPosition>();
                 )
                 .Select(x => new QdfDealPosition
                 {
@@ -196,7 +184,21 @@ namespace qdf.AcceptanceTests.Helpers
                 }
                 ).ToList();
 
-            foreach (var position in aggregatedDeals)
+            //var aggregatedDeals = from deal in QdfDeals
+            //    let groupKey =
+            //        new DateTime(deal.TimeStamp.Year, deal.TimeStamp.Month, deal.TimeStamp.Day, deal.TimeStamp.Hour, deal.TimeStamp.Minute,
+            //            0)
+            //    //group deal by groupKey into g
+            //    //select new
+            //    //{ 
+            //    //    TimeStamp = g.Key
+            //    //};
+            //    group deal by new {deal.Book, deal.Instrument, deal.Server, groupKey}
+            //    into grp
+            //    select new QdfDealPosition();
+
+
+            foreach (QdfDealPosition position in aggregatedDeals)
             {
                 position.CalculatePosition();
                 Console.WriteLine("QDF position {0} contains {1} deals and has a value of {2}", position.PositionName,
@@ -219,7 +221,7 @@ namespace qdf.AcceptanceTests.Helpers
                 item.OrderBy(x => x.TimeStamp);
             }
 
-            var groupedPositions = groupedAggregation.Select(x => new QdfDealPositionGrouping
+            List<QdfDealPositionGrouping> groupedPositions = groupedAggregation.Select(x => new QdfDealPositionGrouping
             {
                 PositionGroupingName = x.Key.PositionGroupingName,
                 Book = x.Key.Book,

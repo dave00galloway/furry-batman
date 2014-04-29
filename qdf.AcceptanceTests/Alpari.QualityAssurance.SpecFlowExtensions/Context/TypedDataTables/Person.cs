@@ -51,10 +51,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         // ReSharper disable once MemberCanBePrivate.Global - used externally
         public void SetPrimaryKey(string[] primaryKeyColumns)
         {
-            var size = primaryKeyColumns.Length;
-           //var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
+            int size = primaryKeyColumns.Length;
+            //var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
             var keyColumns = new DataColumn[size];
-            for (var i = 0; i < size; i++)
+            for (int i = 0; i < size; i++)
             {
                 keyColumns[i] = Columns[primaryKeyColumns[i]];
             }
@@ -154,7 +154,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
         private static PersonData SetupDataTable(IEnumerable<Person> enumeratedObjects, PersonData dataTable)
         {
-            foreach (var person in enumeratedObjects)
+            foreach (Person person in enumeratedObjects)
             {
                 dataTable.Rows.Add(new Object[]
                 {person.Id, person.Forenames, person.Lastname, person.Age, person.Occupation});
@@ -166,7 +166,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 
     public class PersonDataRow : DataRow
     {
-
         public PersonDataRow(DataRowBuilder builder) : base(builder)
         {
         }

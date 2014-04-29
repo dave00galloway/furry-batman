@@ -223,6 +223,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="NugetSetup.txt" />
+    <Content Include="Resharper\TechTalk.SpecFlow.xml" />
     <Content Include="TestData\RunTests.txt" />
     <Content Include="TestData\TaggedTestResult.txt" />
     <Content Include="TestData\TaggedTestResult.xml" />

@@ -24,12 +24,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
         public void ParseTextTestResultFileAsTestSuiteCollection()
         {
             //throw new NotImplementedException();
-            foreach (var line in FileText)
+            foreach (string line in FileText)
             {
                 if (AddNewTestCase(line))
                 {
                 }
-                    //todo : parameterise for projet name / primary tag key being different
+                //todo : parameterise for projet name / primary tag key being different
                 if (AddTagList(line, "@TES-"))
                 {
                 }
@@ -55,7 +55,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
 
         private bool AddTestStepResult(string line)
         {
-            var firstWord = line.Split(' ').ToList().First();
+            string firstWord = line.Split(' ').ToList().First();
 
             switch (firstWord)
             {
@@ -95,9 +95,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
         {
             if (line.StartsWith("Tags:- "))
             {
-                var taglist = line.Replace("Tags:- ", "");
+                string taglist = line.Replace("Tags:- ", "");
                 //var testCase = TestCases.ElementAt(TestCases.Count-1);
-                var testCase = TestCases.Last();
+                TestCaseTextResult testCase = TestCases.Last();
                 testCase.SetTags(taglist, primaryTagId);
                 return true;
             }
@@ -116,7 +116,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser
             // is equivalent to:-
             //var linqD = testCases.ToDictionary(x => x.PrimaryTag); //  now has all the correct data - Now don't need to converttestcase results to dictionaries
             return TestCases.ToDictionary(x => x.PrimaryTag);
-                //  now has all the correct data - Now don't need to converttestcase results to dictionaries
+            //  now has all the correct data - Now don't need to converttestcase results to dictionaries
         }
 
         public Dictionary<string, CombinedTextAndXmlResult> MergeTestResults(

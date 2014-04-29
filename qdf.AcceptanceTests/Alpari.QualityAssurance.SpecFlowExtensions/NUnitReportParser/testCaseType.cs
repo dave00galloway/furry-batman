@@ -1,5 +1,6 @@
 ﻿using System;
 using System.CodeDom.Compiler;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
@@ -9,11 +10,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.NUnitReportParser
     [GeneratedCode("xsd", "4.0.30319.17929")]
     [Serializable]
     [DebuggerStepThrough]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [DesignerCategory("code")]
     [XmlType(TypeName = "test-caseType")]
     public class TestcaseType
     {
-
         /// <remarks />
         [XmlArrayItem("category", IsNullable = false)]
         public CategoryType[] Categories { get; set; }

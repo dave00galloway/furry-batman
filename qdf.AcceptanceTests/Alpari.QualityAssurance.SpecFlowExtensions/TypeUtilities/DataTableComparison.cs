@@ -20,7 +20,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             var diffs = new StringBuilder();
             if (MissingInCompareWith.Count > 0)
             {
-                var diff = String.Format("MissingInCompareWith = {0}",
+                string diff = String.Format("MissingInCompareWith = {0}",
                     Verify.That(MissingInCompareWith.Count, CompareUsing.ShouldBe, 0));
                 //Verify.That(MissingInCompareWith.Count,CompareUsing.SHOULD_BE,0)
                 diffs.AppendLine(diff);
@@ -28,7 +28,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 Console.WriteLine(diff);
                 Console.WriteLine(String.Join(",",
                     (from DataColumn column in MissingInCompareWith.First().Table.Columns select column.ColumnName)));
-                foreach (var item in MissingInCompareWith)
+                foreach (DataRow item in MissingInCompareWith)
                 {
                     Console.WriteLine(String.Join(",",
                         item.ItemArray.Select(x => CsvParser.StringToCsvCell(x.ToString()))));
@@ -37,7 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             if (AdditionalInCompareWith.Count > 0)
             {
-                var diff = String.Format("AdditionalInCompareWith = {0}",
+                string diff = String.Format("AdditionalInCompareWith = {0}",
                     Verify.That(AdditionalInCompareWith.Count, CompareUsing.ShouldBe, 0));
                 //Verify.That(MissingInCompareWith.Count,CompareUsing.SHOULD_BE,0)
                 diffs.AppendLine(diff);
@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 Console.WriteLine(diff);
                 Console.WriteLine(String.Join(",",
                     (from DataColumn column in AdditionalInCompareWith.First().Table.Columns select column.ColumnName)));
-                foreach (var item in AdditionalInCompareWith)
+                foreach (DataRow item in AdditionalInCompareWith)
                 {
                     Console.WriteLine(String.Join(",",
                         item.ItemArray.Select(x => CsvParser.StringToCsvCell(x.ToString()))));
@@ -54,7 +54,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             if (FieldDifferences.Rows.Count > 0)
             {
-                var diff = String.Format("FieldDifferences.Rows.Count = {0}",
+                string diff = String.Format("FieldDifferences.Rows.Count = {0}",
                     Verify.That(FieldDifferences.Rows.Count, CompareUsing.ShouldBe, 0));
                 diffs.AppendLine(diff);
                 //this is the bit to swap out with a delegate:-

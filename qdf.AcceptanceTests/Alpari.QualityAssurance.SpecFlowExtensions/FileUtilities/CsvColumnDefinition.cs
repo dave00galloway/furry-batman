@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
@@ -23,10 +24,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             //TODO: - linqify!
             ColumnDefinitionDictionary = new Dictionary<string, int>();
-            var colIndex = 0;
-            foreach (var col in columns)
+            int colIndex = 0;
+            foreach (string col in columns)
             {
-                var columnDefinition = GetType().GetProperty(col.Replace(" ", ""));
+                PropertyInfo columnDefinition = GetType().GetProperty(col.Replace(" ", ""));
                 columnDefinition.SetValue(this, colIndex);
                 ColumnDefinitionDictionary[col] = colIndex;
                 colIndex++;

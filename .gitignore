@@ -28,3 +28,5 @@ qdf.AcceptanceTests/qdf.AcceptanceTests/qdf.AcceptanceTests.csproj.user
 qdf.AcceptanceTests/TestResults/qdf.AcceptanceTests.TE.Tests.mdf
 qdf.AcceptanceTests/TestResults/qdf.AcceptanceTests.TE.Tests_log.ldf
 ~$CumulativeSumTest.xlsx
+*.user
+/qdf.AcceptanceTests/*.user

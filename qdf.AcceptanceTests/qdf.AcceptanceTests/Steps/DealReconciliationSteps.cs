@@ -85,7 +85,7 @@ namespace qdf.AcceptanceTests.Steps
         public void GivenIHaveQdfDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
         {
             RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
-            foreach (var entry in qdfDealParameters)
+            foreach (QdfDealParameters entry in qdfDealParameters)
             {
                 SetupQdfDealQuery(entry);
                 RedisConnectionHelper.GetDealData(entry);
@@ -128,7 +128,7 @@ namespace qdf.AcceptanceTests.Steps
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {
             //contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
-            var data = ContextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
+            DataTable data = ContextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
             ScenarioContext.Current["cc_tbl_position_section"] = data;
         }
 
