@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
@@ -17,6 +18,8 @@ namespace qdf.AcceptanceTests.Steps
     [Binding]
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
+        public static readonly string FullName = typeof(DealReconciliationSteps).FullName;
+
         public RedisConnectionHelper RedisConnectionHelper { get; private set; }
         public IDataContextSubstitute ContextSubstitute { get; private set; }
         public QdfDealParameters QdfDealParameters { get; private set; }
@@ -32,6 +35,7 @@ namespace qdf.AcceptanceTests.Steps
         public static void BeforeFeature()
         {
             FeatureContext.Current["FeatureOutputDirectory"] = ConfigurationManager.AppSettings["reportRoot"] +
+                                                               TestRunContext.StaticFriendlyTime +
                                                                FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
                                                                @"\";
             ((string) FeatureContext.Current["FeatureOutputDirectory"]).ClearOutputDirectory();

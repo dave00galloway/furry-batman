@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Runtime.CompilerServices;
 using Alpari.QualityAssurance.SecureMyPassword;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
@@ -12,8 +13,10 @@ using TechTalk.SpecFlow.Assist;
 namespace qdf.AcceptanceTests.Steps
 {
     [Binding]
-    public class DealReconciliationStepBase
+    public class DealReconciliationStepBase :StepCentral
     {
+        public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
+
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
             string start = entry.StartTime ?? ConfigurationManager.AppSettings["defaultStartTime"];

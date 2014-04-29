@@ -110,12 +110,12 @@ namespace qdf.AcceptanceTests.Helpers
                 row["VolumeSize"] = (decimal) row["Volume"]*(decimal) row["ContractSize"];
             }
 
-            //foreach (DataRow row in rowQuery)
-            //{
-            //    Console.WriteLine("CC position {0} has a value of {1}",
-            //        GetCCToolPositionName(row), 
-            //        row["VolumeSize"]);
-            //}
+            foreach (DataRow row in rowQuery)
+            {
+                Console.WriteLine("CC position {0} has a value of {1}",
+                    GetCCToolPositionName(row),
+                    row["VolumeSize"]);
+            }
         }
 
         private void CombineCcSectionData()

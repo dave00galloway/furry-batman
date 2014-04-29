@@ -110,8 +110,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MySqlQUickStart.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReuseDealReconciliationSteps.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
+    <Compile Include="Steps\SelfTest\ReuseDealReconStepsSteps.cs" />
+    <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CCToolData.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -129,6 +136,10 @@
     <None Include="Specs\SelfTests\MySqlQUickStart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MySqlQUickStart.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ReuseDealReconciliationSteps.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

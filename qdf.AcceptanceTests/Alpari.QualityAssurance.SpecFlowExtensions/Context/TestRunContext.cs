@@ -19,6 +19,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
     public class TestRunContext : Dictionary<string, Object>, ISerializable
     {
         private const string Instantiated = "Instantiated";
+        private static string _friendlyInstantiated;
         private const string RandomFileName = "RandomFileName";
 
         private static volatile TestRunContext _instance;
@@ -67,6 +68,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         public static string StaticTime
         {
             get { return Instance[Instantiated].ToString(); }
+        }
+
+        /// <summary>
+        ///     The time when the TestRunContext object was first instantiated in a filepath friendly format
+        /// </summary>
+        public static string StaticFriendlyTime
+        {
+            get
+            {
+                return _friendlyInstantiated ?? (_friendlyInstantiated = StaticTime.Replace(" ", "")
+                    .Replace(@"\", "")
+                    .Replace(@"/", "")
+                    .Replace(@":", ""));
+            }
         }
 
 

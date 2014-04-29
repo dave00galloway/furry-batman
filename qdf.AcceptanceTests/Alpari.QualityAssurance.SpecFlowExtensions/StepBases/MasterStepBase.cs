@@ -15,7 +15,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public MasterStepBase()
         {
 // ReSharper disable once DoNotCallOverridableMethodsInConstructor
-            ScenarioContext.Current.Add(ToString(), this);
+            ScenarioContext.Current[ToString()] = this;
             ThrowExceptionIfInMasterStepBase();
             TestRunContext = TestRunContext.Instance;
         }
