@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
+﻿using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps.SelfTest
 {
@@ -12,7 +8,9 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
         [Given(@"I have connected to ""(.*)""")]
         public void GivenIHaveConnectedTo(string connectionName)
         {
-            DealReconciliationSteps steps = StepCentral.DealReconciliationSteps;
+            DealReconciliationSteps steps = DealReconciliationSteps;
+            DealReconciliationStepBase stepBase = DealReconciliationStepBase;
+            ScenarioContext.Current["holdThis"] = stepBase;
             steps.GivenIHaveCreatedAConnectionTo(connectionName);
         }
 

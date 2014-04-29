@@ -6,6 +6,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     [Binding]
     public class CrossStepDefinitionFileOne : CrossStepDefinitionFileOneStepBase
     {
+        new public static readonly string FullName = typeof(CrossStepDefinitionFileOne).FullName;
         public string SetLazyProperty
         {
             set { LazyProperty = value; }

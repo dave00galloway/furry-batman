@@ -18,7 +18,7 @@ namespace qdf.AcceptanceTests.Steps
     [Binding]
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
-        public static readonly string FullName = typeof(DealReconciliationSteps).FullName;
+        new public static readonly string FullName = typeof(DealReconciliationSteps).FullName;
 
         public RedisConnectionHelper RedisConnectionHelper { get; private set; }
         public IDataContextSubstitute ContextSubstitute { get; private set; }

@@ -41,14 +41,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             {
                 return
                     (CrossStepDefinitionFileOne)
-                        GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNamspace +
-                                          "CrossStepDefinitionFileOne") ?? new CrossStepDefinitionFileOne();
+                        GetStepDefinition(CrossStepDefinitionFileOne.FullName) ?? new CrossStepDefinitionFileOne();
                 // return crossStepDefinitionFileOne;
 
                 //The ?? operator is called the null-coalescing operator. It returns the left-hand operand if the operand is not null; otherwise it returns the right hand operand.
                 //var crossStepDefinitionFileOne =
                 //    (CrossStepDefinitionFileOne)
-                //        GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNamspace +
+                //        GetStepDefinition(CrossStepDefinitionStepBase.StepBaseRootNameSpace +
                 //                          "CrossStepDefinitionFileOne");
                 //if (crossStepDefinitionFileOne == null)
                 //{
@@ -60,7 +59,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 
         private void ThrowExceptionIfNotInSpecFlowExtensionsNamespace()
         {
-            if (!ToString().StartsWith(StepBaseRootNamspace))
+            if (!ToString().StartsWith(StepBaseRootNameSpace))
             {
                 throw new NotSupportedException(
                     "Don't inherit directly from this class, define your own StepCentral inheriting from MasterStepBase!");

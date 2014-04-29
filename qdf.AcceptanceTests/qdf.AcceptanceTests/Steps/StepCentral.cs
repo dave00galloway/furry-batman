@@ -19,7 +19,7 @@ namespace qdf.AcceptanceTests.Steps
         {
             get
             {
-                return (DealReconciliationSteps)GetStepDefinition(DealReconciliationStepBase.FullName) ??
+                return (DealReconciliationSteps)GetStepDefinition(DealReconciliationSteps.FullName) ??
                        new DealReconciliationSteps();
             }
         }

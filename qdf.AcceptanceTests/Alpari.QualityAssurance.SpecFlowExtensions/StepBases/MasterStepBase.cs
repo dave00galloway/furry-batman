@@ -7,7 +7,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 {
     public class MasterStepBase
     {
-        public static readonly string StepBaseRootNamspace = "Alpari.QualityAssurance.SpecFlowExtensions.StepBases.";
+        private static readonly string FullName = typeof(MasterStepBase).FullName;
+        protected static readonly string StepBaseRootNameSpace = typeof(MasterStepBase).Namespace;
 
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors",
             Justification =
@@ -51,7 +52,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         /// </summary>
         private void ThrowExceptionIfInMasterStepBase()
         {
-            if (ToString().Equals(StepBaseRootNamspace + "MasterStepBase"))
+            if (ToString().Equals(FullName))
             {
                 throw new NotSupportedException("Don't inherit directly from this class, define your own StepCentral inheriting from MasterStepBase!"
                                                 +

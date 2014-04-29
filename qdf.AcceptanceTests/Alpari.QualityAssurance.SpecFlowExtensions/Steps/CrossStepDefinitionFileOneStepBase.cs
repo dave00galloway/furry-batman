@@ -9,7 +9,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
     public abstract class CrossStepDefinitionFileOneStepBase : CrossStepDefinitionStepBase
     {
         private string _lazyProperty;
-
+        
         protected CrossStepDefinitionFileOneStepBase()
         {
             _lazyProperty = null;
@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         {
             return
                 (CrossStepDefinitionFileOne)
-                    GetStepDefinition(MasterStepBase.StepBaseRootNamspace + "CrossStepDefinitionFileOne");
+                    GetStepDefinition(MasterStepBase.StepBaseRootNameSpace + "CrossStepDefinitionFileOne");
         }
     }
 }
