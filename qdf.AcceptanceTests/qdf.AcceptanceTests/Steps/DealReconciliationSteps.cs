@@ -35,10 +35,16 @@ namespace qdf.AcceptanceTests.Steps
         public static void BeforeFeature()
         {
             FeatureContext.Current["FeatureOutputDirectory"] = ConfigurationManager.AppSettings["reportRoot"] +
-                                                               TestRunContext.StaticFriendlyTime +
+                                                               TestRunContext.StaticFriendlyTime + @"\" +
                                                                FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
                                                                @"\";
             ((string) FeatureContext.Current["FeatureOutputDirectory"]).ClearOutputDirectory();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            TestRunContext.Instance["TestRunContext"] = TestRunContext.Instance;
         }
 
         /// <summary>

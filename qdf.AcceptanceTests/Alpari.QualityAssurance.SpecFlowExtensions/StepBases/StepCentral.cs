@@ -35,7 +35,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             }
         }
 
-        public static CrossStepDefinitionFileOne GetCrossStepDefinitionFileOne
+        public static CrossStepDefinitionFileOne CrossStepDefinitionFileOne
         {
             get
             {

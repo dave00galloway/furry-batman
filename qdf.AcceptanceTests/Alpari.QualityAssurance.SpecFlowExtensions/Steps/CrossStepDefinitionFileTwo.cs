@@ -9,7 +9,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Given(@"I create an instance of step definition one from step definition two")]
         public void GivenICreateAnInstanceOfStepDefinitionOneFromStepDefinitionTwo()
         {
-            CrossStepDefinitionFileOne stepDefOne = GetCrossStepDefinitionFileOne;
+            CrossStepDefinitionFileOne stepDefOne = CrossStepDefinitionFileOne;
             // don't need to qualify this, but it's clearer if you do
             //using Alpari.QualityAssurance.SpecFlowExtensions.Context;
             stepDefOne.SetLazyProperty = TestRunContext.GenerateRandomStringFromFileName();
@@ -18,7 +18,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [When(@"I call a method in step definition two that calls the same method in step definition file one")]
         public void WhenICallAMethodInStepDefinitionTwoThatCallsTheSameMethodInStepDefinitionFileOne()
         {
-            CrossStepDefinitionFileOne stepDefOne = GetCrossStepDefinitionFileOne;
+            CrossStepDefinitionFileOne stepDefOne = CrossStepDefinitionFileOne;
             // don't need to qualify this, but it's clearer if you do
             string currentLazyPropertyValue = stepDefOne.LazyProperty;
             stepDefOne.GivenIHaveCalledAMethodWhichSetsALazyPropertyInStepDefinitionFileOne();

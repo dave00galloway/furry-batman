@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
 {
@@ -19,6 +20,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
     public class TestRunContext : Dictionary<string, Object>, ISerializable
     {
         private const string Instantiated = "Instantiated";
+        private static DateTime _dateTimeNow;
         private static string _friendlyInstantiated;
         private const string RandomFileName = "RandomFileName";
 
@@ -27,8 +29,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
 
         private TestRunContext()
         {
-            DateTime now = DateTime.Now;
-            Add(Instantiated, now + "  " + now.Ticks);
+            _dateTimeNow = DateTime.Now;
+            Add(Instantiated, _dateTimeNow + "  " + _dateTimeNow.Ticks);
             Add(RandomFileName, GenerateRandomStringFromFileName());
         }
 
@@ -77,10 +79,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         {
             get
             {
-                return _friendlyInstantiated ?? (_friendlyInstantiated = StaticTime.Replace(" ", "")
-                    .Replace(@"\", "")
-                    .Replace(@"/", "")
-                    .Replace(@":", ""));
+                return _friendlyInstantiated ?? (_friendlyInstantiated = _dateTimeNow.ConvertDateTimeToFileFriendlyTime());
             }
         }
 

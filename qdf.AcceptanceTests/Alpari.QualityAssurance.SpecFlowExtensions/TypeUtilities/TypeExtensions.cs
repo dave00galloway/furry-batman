@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -36,9 +39,84 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return type.GetProperties().Select(x => x.Name).ToList();
         }
 
+        /// <summary>
+        ///     Get a list of all the names of properties of a Type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="safeMode"></param>
+        /// <returns></returns>
+        public static List<string> GetPropertyNamesAsList(this Type type, bool safeMode)
+        {
+            return safeMode ? GetPropertyNamesAsList(type) : type.GetProperties().Select(Name).ToList();
+        }
+
+        private static string Name(PropertyInfo x)
+        {
+            try
+            {
+                return x.Name;
+            }
+            catch (Exception e)
+            {
+                ConsoleLogger.ConsoleExceptionLogger(e);
+                return Path.GetRandomFileName().Replace(".", "");
+            }
+        }
+
+        /// <summary>
+        /// use this method to get a list of property values when you are confident that the actual instantiated objects will have the properties expected of its type
+        /// use the overload GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable string  propertyList) when you suspect the object defiiton may have changed
+        /// </summary>
+        /// <param name="objectToSearch"></param>
+        /// <returns></returns>
         public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch)
         {
             return objectToSearch.GetType().GetProperties().Select(x => x.GetValue(objectToSearch).ToString()).ToList();
+        }
+
+        /// <summary>
+        /// use this overload if you suspect an object's defeinition may be out of date
+        /// </summary>
+        /// <param name="objectToSearch"></param>
+        /// <param name="propertyList"></param>
+        /// <returns></returns>
+        public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable<string> propertyList)
+        {
+            return GetProperties(objectToSearch,propertyList).Select(x => GetValue(objectToSearch,x).ToString()).ToList();
+        }
+
+        private static PropertyInfo[] GetProperties(object objectToSearch, IEnumerable<string> propertyList)
+        {
+            var enumerable = propertyList as IList<string> ?? propertyList.ToList();
+            PropertyInfo[] propertyInfo = new PropertyInfo[enumerable.Count()];
+            for (int i = 0; i < enumerable.Count; i++)
+            {
+                var prop = enumerable[i];
+                try
+                {
+                    propertyInfo[i] = objectToSearch.GetType().GetProperty(prop);
+                }
+                catch (Exception e)
+                {
+                    ConsoleLogger.ConsoleExceptionLogger(e);
+                    propertyInfo[i] = null;
+                }
+            }
+            return propertyInfo;
+        }
+
+        private static object GetValue(object objectToSearch, PropertyInfo x)
+        {
+            try
+            {
+                var value = x.GetValue(objectToSearch)??"";
+                return value;
+            }
+            catch (Exception e)
+            {
+                ConsoleLogger.ConsoleExceptionLogger(e);
+                return Path.GetRandomFileName().Replace(".", "");
+            }
         }
 
         public static bool IsNumber(this string s)

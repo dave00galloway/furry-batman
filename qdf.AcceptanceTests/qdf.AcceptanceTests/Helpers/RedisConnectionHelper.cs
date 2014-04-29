@@ -52,12 +52,13 @@ namespace qdf.AcceptanceTests.Helpers
         public void OutputAllDeals(string fileNamePath)
         {
             var csvFile = new StringBuilder();
-            string headers = String.Join(",", typeof (Deal).GetPropertyNamesAsList()); //.Select(x => x));
+            string headers = String.Join(",", typeof (Deal).GetPropertyNamesAsList(false)); //.Select(x => x));
             csvFile.AppendLine(headers);
             foreach (Deal deal in RetrievedDeals)
             {
                 csvFile.AppendLine(String.Join(",",
-                    deal.GetObjectPropertyValuesAsList()
+                    //deal.GetObjectPropertyValuesAsList()
+                    deal.GetObjectPropertyValuesAsList(headers.Split(','))
                         .Select(x => CsvParser.StringToCsvCell(x.ToString(CultureInfo.InvariantCulture)))));
             }
             File.WriteAllText(fileNamePath, csvFile.ToString());
