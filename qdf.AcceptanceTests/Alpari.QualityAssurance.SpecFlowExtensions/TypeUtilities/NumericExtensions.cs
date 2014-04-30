@@ -107,7 +107,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        public static IEnumerable<decimal> CalculateDeltas(this IEnumerable<decimal> sequence,bool absolute)
+        /// <summary>
+        /// http://stackoverflow.com/questions/23391119/error-iterator-cannot-contain-return-statement-when-calling-a-method-that-ret
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <param name="absolute"></param>
+        /// <returns></returns>
+        public static IEnumerable<decimal> CalculateDeltas(this IEnumerable<decimal> sequence, bool absolute)
         {
             if (absolute)
             {
@@ -122,15 +128,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             else
             {
-                decimal prev = default(decimal);
-                foreach (var item in sequence)
-                {
-                    var current = item;
-                    decimal diff = current - prev;
-                    prev = item;
-                    yield return diff;
-                }
-                // return CalculateDeltas(sequence);//won't compile
+                foreach (var item in sequence.CalculateDeltas())
+                    yield return item;
             }
         }
 

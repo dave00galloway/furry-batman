@@ -33,8 +33,7 @@ namespace qdf.AcceptanceTests.Helpers
 
             QdfDealPositions =
                 QdfDealPositionGroupings.SelectMany(x => x.QdfDealPositions).ToList();
-            //QdfDealPositionGroupings.Clear();
-            //QdfDealPositionGroupings = null;
+
             //QdfDealPositions = QdfDealPositions.OrderBy(x => x.Book)
             //    .ThenBy(x => x.Instrument)
             //    .ThenBy(x => x.Server)
@@ -42,29 +41,38 @@ namespace qdf.AcceptanceTests.Helpers
             Console.WriteLine("Print flattened list of cumulative sums");
             QdfDealPositions.ForEach(
                 x => Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position, x.CumulativePosition));
-            foreach (QdfDealPositionGrouping positionGrouping in QdfDealPositionGroupings)
-            {
-                var positionValues = positionGrouping.QdfDealPositions.Select(position => position.Position);
-                decimal [] deltas = positionValues.CalculateDeltas().ToArray();
-                List<QdfDealPosition> positions = positionGrouping.QdfDealPositions.Select(position => position).ToList();
-                for (int i = 0; i < positions.Count(); i++)
-                {
-                    positions[i].PositionDelta = deltas[i];
-                }
-            }
-
-            Console.WriteLine("Print Deltas");
+            
+            CalculateQdfDeltas();
+            QdfDealPositionGroupings.Clear();
+            QdfDealPositionGroupings = null;
+            Console.WriteLine("Print QDF Deltas");
             Console.WriteLine("PositionName, Position, CumulativePosition, PositionDelta");
+
             QdfDealPositions.ForEach(
                 x =>
                     Console.WriteLine("{0} {1} {2} {3}", x.PositionName, x.Position, x.CumulativePosition,
                         x.PositionDelta));
+
+
         }
 
         public void AggregateCcToolData()
         {
             CalculateCcVolumeSize();
             CombineCcSectionData();
+            CalculateCcDeltas();
+            Console.WriteLine("Print CC Deltas");
+            Console.WriteLine("PositionName, Position, PositionDelta");
+            CcToolPositions.ForEach(
+                x =>
+                    Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position,
+                        x.PositionDelta));
+        }
+
+        private static decimal[] GetDeltas(IEnumerable<decimal> positionValues)
+        {
+            decimal[] deltas = positionValues.CalculateDeltas().ToArray();
+            return deltas;
         }
 
         private List<QdfDealPositionGrouping> GetAggregatedQdfDeals()
@@ -154,6 +162,19 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
 
+        private void CalculateQdfDeltas()
+        {
+            foreach (QdfDealPositionGrouping positionGrouping in QdfDealPositionGroupings)
+            {
+                var deltas = GetDeltas(positionGrouping.QdfDealPositions.Select(position => position.Position));
+                List<QdfDealPosition> positions = positionGrouping.QdfDealPositions.Select(position => position).ToList();
+                for (int i = 0; i < positions.Count(); i++)
+                {
+                    positions[i].PositionDelta = deltas[i];
+                }
+            }
+        }
+
         /// <summary>
         ///     Add a column called VolumeSize to hold the calculated value of the Volume
         ///     TODO:- add to the CCTool Data table definiton so that code from this pont on can still be strongly typed
@@ -239,6 +260,15 @@ namespace qdf.AcceptanceTests.Helpers
             CcToolPositions = aggregatedPositions;
         }
 
+        private void CalculateCcDeltas()
+        {
+            var deltas = GetDeltas(CcToolPositions.Select(position => position.Position));
+            for (int i = 0; i < CcToolPositions.Count(); i++)
+            {
+                CcToolPositions[i].PositionDelta = deltas[i];
+            }
+        }        
+        
         // ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
         private static string GetCcToolPositionName(DataRow row)
         {
@@ -249,7 +279,7 @@ namespace qdf.AcceptanceTests.Helpers
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
     }
 
-    public class QdfDealPosition
+    public class QdfDealPosition : IAnalyzeablePosition
     {
         public string PositionName { get; set; }
 
@@ -277,7 +307,22 @@ namespace qdf.AcceptanceTests.Helpers
         }
     }
 
-    public class CcToolPosition
+    /// <summary>
+    /// common fields between QDF and CC Data needed for anaylysis
+    /// </summary>
+    public interface IAnalyzeablePosition
+    {
+        string PositionName { get; set; }
+        Book Book { get; set; }
+        string Instrument { get; set; }
+        string ServerId { get; set; }
+        DateTime TimeStamp { get; set; }
+        decimal Position { get; }
+        decimal PositionDelta { get; }
+        void CalculatePosition();
+    }
+
+    public class CcToolPosition : IAnalyzeablePosition
     {
         public string PositionName { get; set; }
 
@@ -295,7 +340,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public decimal Position { get; private set; }
 
-        public decimal PositionDelta { get; private set; }
+        public decimal PositionDelta { get; set; }
 
         public void CalculatePosition()
         {
