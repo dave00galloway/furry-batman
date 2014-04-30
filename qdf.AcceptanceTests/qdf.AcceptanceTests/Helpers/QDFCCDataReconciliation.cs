@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.Helpers;
 using qdf.AcceptanceTests.TypedDataTables;
 
 namespace qdf.AcceptanceTests.Helpers
@@ -22,6 +24,7 @@ namespace qdf.AcceptanceTests.Helpers
         public CcToolData CcToolData { get; private set; }
         public List<Deal> QdfDeals { get; private set; }
         public List<QdfDealPositionGrouping> QdfDealPositionGroupings { get; private set; }
+        public List<CcToolPositionGrouping> CcToolPositionGroupings { get; private set; }
         public List<QdfDealPosition> QdfDealPositions { get; private set; }
         public List<CcToolPosition> CcToolPositions { get; private set; }
 
@@ -59,7 +62,7 @@ namespace qdf.AcceptanceTests.Helpers
         public void AggregateCcToolData()
         {
             CalculateCcVolumeSize();
-            CombineCcSectionData();
+            CcToolPositionGroupings = CombineCcSectionData();
             CalculateCcDeltas();
             Console.WriteLine("Print CC Deltas");
             Console.WriteLine("PositionName, Position, PositionDelta");
@@ -221,7 +224,7 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
 
-        private void CombineCcSectionData()
+        private List<CcToolPositionGrouping> CombineCcSectionData()
         {
             IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
@@ -258,14 +261,38 @@ namespace qdf.AcceptanceTests.Helpers
                     position.PositionName, position.Positions.Count, position.Position);
             }
             CcToolPositions = aggregatedPositions;
+            var positionGroupingQuery = (from position in aggregatedPositions
+                group position by new
+                {
+                    PositionGroupingName =
+                        String.Format("{0} {1} {2}", position.Book, position.Instrument, position.ServerId),
+                    Book = position.Book,
+                    Instrument = position.Instrument,
+                    ServerId = position.ServerId
+                }
+                into positionGroup
+                select new CcToolPositionGrouping
+                {
+                    PositionGroupingName = positionGroup.Key.PositionGroupingName,
+                    Book = positionGroup.Key.Book,
+                    Instrument = positionGroup.Key.Instrument,
+                    ServerId = positionGroup.Key.ServerId,
+                    CcToolPositions = positionGroup.ToList()
+                }
+                );
+            return positionGroupingQuery.ToList();
         }
 
         private void CalculateCcDeltas()
         {
-            var deltas = GetDeltas(CcToolPositions.Select(position => position.Position));
-            for (int i = 0; i < CcToolPositions.Count(); i++)
+            foreach (CcToolPositionGrouping grouping in CcToolPositionGroupings)
             {
-                CcToolPositions[i].PositionDelta = deltas[i];
+                var deltas = GetDeltas(grouping.CcToolPositions.Select(position => position.Position));
+                List<CcToolPosition> positions = grouping.CcToolPositions.Select(position => position).ToList();
+                for (int i = 0; i < positions.Count(); i++)
+                {
+                    positions[i].PositionDelta = deltas[i];
+                }
             }
         }        
         
@@ -348,8 +375,17 @@ namespace qdf.AcceptanceTests.Helpers
         }
     }
 
-    public class QdfDealPositionGrouping
+    public interface IAnalyzeablePositionGrouping
     {
+        Book Book { get; set; }
+        string Instrument { get; set; }
+        string PositionGroupingName { get; set; }
+        //List<IAnalyzeablePosition> Positions { get; set; }
+    }
+    
+    public class QdfDealPositionGrouping : IAnalyzeablePositionGrouping
+    {
+        //private List<IAnalyzeablePosition> _positions;
         public Book Book { get; set; }
 
         public string Instrument { get; set; }
@@ -357,6 +393,30 @@ namespace qdf.AcceptanceTests.Helpers
         public TradingServer Server { get; set; }
 
         public List<QdfDealPosition> QdfDealPositions { get; set; }
+
+        public string PositionGroupingName { get; set; }
+
+        //public List<IAnalyzeablePosition> Positions
+        //{
+        //    get
+        //    {
+        //        if (_positions != null) return _positions;
+        //        _positions = (List<IAnalyzeablePosition>) QdfDealPositions;
+        //        return null;
+        //    }
+        //    set { _positions = value; }
+        //}
+    }
+
+    public class CcToolPositionGrouping : IAnalyzeablePositionGrouping
+    {
+        public Book Book { get; set; }
+
+        public string Instrument { get; set; }
+
+        public string ServerId { get; set; }
+
+        public List<CcToolPosition> CcToolPositions { get; set; }
 
         public string PositionGroupingName { get; set; }
     }
