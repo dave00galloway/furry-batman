@@ -41,6 +41,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <summary>
         ///     http://stackoverflow.com/questions/4823467/using-linq-to-find-the-cumulative-sum-of-an-array-of-numbers-in-c-sharp
         /// </summary>
+        /// /// <typeparam name="T"></typeparam>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<decimal> CumulativeSumToDecimal<T>(this IEnumerable<T> sequence)
@@ -60,6 +61,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         ///     this manually
         ///     will throw errors if T is not convertable to a double
         /// </summary>
+        /// /// <typeparam name="T"></typeparam>
         /// <param name="sequence"></param>
         /// <returns></returns>
         public static IEnumerable<double> CumulativeSum<T>(this IEnumerable<T> sequence)
@@ -87,5 +89,50 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         //        yield return sum;
         //    }
         //}
+
+        /// <summary>
+        /// returns the list of differences between each number in the sequence
+        /// </summary>
+        /// <param name="sequence"></param>
+        /// <returns></returns>
+        public static IEnumerable<decimal> CalculateDeltas(this IEnumerable<decimal> sequence)
+        {
+            decimal prev = default(decimal);
+            foreach (var item in sequence)
+            {
+                var current = item;
+                decimal diff = current - prev;
+                prev = item;
+                yield return diff;
+            }
+        }
+
+        public static IEnumerable<decimal> CalculateDeltas(this IEnumerable<decimal> sequence,bool absolute)
+        {
+            if (absolute)
+            {
+                decimal prev = default(decimal);
+                foreach (var item in sequence)
+                {
+                    var current = item;
+                    decimal diff = Math.Abs(current - prev);
+                    prev = item;
+                    yield return diff;
+                }
+            }
+            else
+            {
+                decimal prev = default(decimal);
+                foreach (var item in sequence)
+                {
+                    var current = item;
+                    decimal diff = current - prev;
+                    prev = item;
+                    yield return diff;
+                }
+                // return CalculateDeltas(sequence);//won't compile
+            }
+        }
+
     }
 }
