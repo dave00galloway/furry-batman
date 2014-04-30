@@ -146,7 +146,7 @@ namespace qdf.AcceptanceTests.Helpers
                     ServerId = snapshotGroup.Key.ServerId,
                     TimeStamp = snapshotGroup.Key.TimeStamp,
                     Positions = snapshotGroup.ToList()
-                }).ToList();
+                }).OrderBy(x=>x.PositionName).ThenBy(x=>x.TimeStamp).ToList();
 
             foreach (CcToolPosition position in aggregatedPositions)
             {
