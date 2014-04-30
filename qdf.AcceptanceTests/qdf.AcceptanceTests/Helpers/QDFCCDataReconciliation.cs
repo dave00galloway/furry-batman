@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Alpari.QDF.Domain;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.TypedDataTables;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Alpari.QDF.Domain;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using qdf.AcceptanceTests.TypedDataTables;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -123,50 +123,30 @@ namespace qdf.AcceptanceTests.Helpers
             IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
 
-            //List<CcToolPosition> aggregatedPositions = rowQuery.GroupBy(x => new
-            //{
-            //    Book = ((ulong) x["IsBookA"] == 0 ? Book.A : Book.B),
-            //    Instrument = x["SymbolCode"].ToString(),
-            //    ServerId = x["ServerName"].ToString(),
-            //    TimeStamp = (DateTime) x["UpdateDateTime"]
-            //}
-            //    )
-            //    .Select(x => new CcToolPosition
-            //    {
-            //        PositionName =
-            //            String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId,
-            //                Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
-            //        Book = x.Key.Book,
-            //        Instrument = x.Key.Instrument,
-            //        ServerId = x.Key.ServerId,
-            //        TimeStamp = x.Key.TimeStamp,
-            //        Positions = x.ToList()
-            //    }
-            //    ).ToList();
-
             List<CcToolPosition> aggregatedPositions = (from row in rowQuery
-                                                        let timeStamp = (DateTime) row["UpdateDateTime"]
-                                                        let groupTimeStamp = new DateTime(timeStamp.Year,timeStamp.Month, timeStamp.Day, timeStamp.Hour,timeStamp.Minute,0)
-                                                        group rowQuery by new
-                                                        {
-                                                            Book =  ((ulong) row["IsBookA"] == 0 ? Book.A : Book.B),
-                                                            Instrument = row["SymbolCode"].ToString(),
-                                                            ServerId = row["ServerName"].ToString(),
-                                                            TimeStamp = (DateTime) groupTimeStamp
-                                                        }
-                                                        into snapshotGroup
-                                                        select new CcToolPosition
-                                                        {
-                                                            PositionName = String.Format("{0} {1} {2} {3}", snapshotGroup.Key.Book, snapshotGroup.Key.Instrument, snapshotGroup.Key.ServerId,
-                                                            snapshotGroup.Key.TimeStamp.ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
-                                                            Book = snapshotGroup.Key.Book,
-                                                            Instrument = snapshotGroup.Key.Instrument,
-                                                            ServerId = snapshotGroup.Key.ServerId,
-                                                            TimeStamp = snapshotGroup.Key.TimeStamp
-                                                            //,
-                                                            //Positions = snapshotGroup.ToList()
-                                                        }
-                                                        ).ToList();
+                let timeStamp = (DateTime) row["UpdateDateTime"]
+                let groupTimeStamp =
+                    new DateTime(timeStamp.Year, timeStamp.Month, timeStamp.Day, timeStamp.Hour, timeStamp.Minute, 0)
+                group row by new
+                {
+                    Book = ((ulong) row["IsBookA"] == 0 ? Book.A : Book.B),
+                    Instrument = row["SymbolCode"].ToString(),
+                    ServerId = row["ServerName"].ToString(),
+                    TimeStamp = groupTimeStamp
+                }
+                into snapshotGroup
+                select new CcToolPosition
+                {
+                    PositionName =
+                        String.Format("{0} {1} {2} {3}", snapshotGroup.Key.Book, snapshotGroup.Key.Instrument,
+                            snapshotGroup.Key.ServerId,
+                            snapshotGroup.Key.TimeStamp.ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+                    Book = snapshotGroup.Key.Book,
+                    Instrument = snapshotGroup.Key.Instrument,
+                    ServerId = snapshotGroup.Key.ServerId,
+                    TimeStamp = snapshotGroup.Key.TimeStamp,
+                    Positions = snapshotGroup.ToList()
+                }).ToList();
 
             foreach (CcToolPosition position in aggregatedPositions)
             {
