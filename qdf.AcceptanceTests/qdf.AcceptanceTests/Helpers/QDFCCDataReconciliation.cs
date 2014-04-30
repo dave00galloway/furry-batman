@@ -113,7 +113,7 @@ namespace qdf.AcceptanceTests.Helpers
             foreach (DataRow row in rowQuery)
             {
                 Console.WriteLine("CC position {0} has a value of {1}",
-                    GetCCToolPositionName(row),
+                    GetCcToolPositionName(row),
                     row["VolumeSize"]);
             }
         }
@@ -122,26 +122,52 @@ namespace qdf.AcceptanceTests.Helpers
         {
             IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
                 select row);
-            List<CcToolPosition> aggregatedPositions = rowQuery.GroupBy(x => new
-            {
-                Book = ((ulong) x["IsBookA"] == 0 ? Book.A : Book.B),
-                Instrument = x["SymbolCode"].ToString(),
-                ServerId = x["ServerName"].ToString(),
-                TimeStamp = (DateTime) x["UpdateDateTime"]
-            }
-                )
-                .Select(x => new CcToolPosition
-                {
-                    PositionName =
-                        String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId,
-                            Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
-                    Book = x.Key.Book,
-                    Instrument = x.Key.Instrument,
-                    ServerId = x.Key.ServerId,
-                    TimeStamp = x.Key.TimeStamp,
-                    Positions = x.ToList()
-                }
-                ).ToList();
+
+            //List<CcToolPosition> aggregatedPositions = rowQuery.GroupBy(x => new
+            //{
+            //    Book = ((ulong) x["IsBookA"] == 0 ? Book.A : Book.B),
+            //    Instrument = x["SymbolCode"].ToString(),
+            //    ServerId = x["ServerName"].ToString(),
+            //    TimeStamp = (DateTime) x["UpdateDateTime"]
+            //}
+            //    )
+            //    .Select(x => new CcToolPosition
+            //    {
+            //        PositionName =
+            //            String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.ServerId,
+            //                Convert.ToDateTime(x.Key.TimeStamp).ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+            //        Book = x.Key.Book,
+            //        Instrument = x.Key.Instrument,
+            //        ServerId = x.Key.ServerId,
+            //        TimeStamp = x.Key.TimeStamp,
+            //        Positions = x.ToList()
+            //    }
+            //    ).ToList();
+
+            List<CcToolPosition> aggregatedPositions = (from row in rowQuery
+                                                        let timeStamp = (DateTime) row["UpdateDateTime"]
+                                                        let groupTimeStamp = new DateTime(timeStamp.Year,timeStamp.Month, timeStamp.Day, timeStamp.Hour,timeStamp.Minute,0)
+                                                        group rowQuery by new
+                                                        {
+                                                            Book =  ((ulong) row["IsBookA"] == 0 ? Book.A : Book.B),
+                                                            Instrument = row["SymbolCode"].ToString(),
+                                                            ServerId = row["ServerName"].ToString(),
+                                                            TimeStamp = (DateTime) groupTimeStamp
+                                                        }
+                                                        into snapshotGroup
+                                                        select new CcToolPosition
+                                                        {
+                                                            PositionName = String.Format("{0} {1} {2} {3}", snapshotGroup.Key.Book, snapshotGroup.Key.Instrument, snapshotGroup.Key.ServerId,
+                                                            snapshotGroup.Key.TimeStamp.ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+                                                            Book = snapshotGroup.Key.Book,
+                                                            Instrument = snapshotGroup.Key.Instrument,
+                                                            ServerId = snapshotGroup.Key.ServerId,
+                                                            TimeStamp = snapshotGroup.Key.TimeStamp
+                                                            //,
+                                                            //Positions = snapshotGroup.ToList()
+                                                        }
+                                                        ).ToList();
+
             foreach (CcToolPosition position in aggregatedPositions)
             {
                 position.CalculatePosition();
@@ -151,9 +177,8 @@ namespace qdf.AcceptanceTests.Helpers
             CcToolPositions = aggregatedPositions;
         }
 
-// ReSharper disable once InconsistentNaming 
         // ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
-        private static string GetCCToolPositionName(DataRow row)
+        private static string GetCcToolPositionName(DataRow row)
         {
             return String.Format("{0} {1} {2} {3}", row["IsBookA"], row["SymbolCode"], row["ServerName"],
                 Convert.ToDateTime(row["UpdateDateTime"]).ToString(DateTimeUtils.MySqlDateFormatToSeconds));
@@ -163,27 +188,6 @@ namespace qdf.AcceptanceTests.Helpers
 
         private List<QdfDealPositionGrouping> GetAggregatedQdfDeals()
         {
-            //List<QdfDealPosition> aggregatedDeals = QdfDeals.GroupBy(x => new
-            //{
-            //    x.Book,
-            //    x.Instrument,
-            //    x.Server,
-            //    x.TimeStamp
-            //}
-            //    )
-            //    .Select(x => new QdfDealPosition
-            //    {
-            //        PositionName =
-            //            String.Format("{0} {1} {2} {3}", x.Key.Book, x.Key.Instrument, x.Key.Server,
-            //                x.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),
-            //        Book = x.Key.Book,
-            //        Instrument = x.Key.Instrument,
-            //        Server = x.Key.Server,
-            //        TimeStamp = x.Key.TimeStamp,
-            //        QdfDeals = x.ToList()
-            //    }
-            //    ).ToList();
-
             List<QdfDealPosition> aggregatedDeals = (from deal in QdfDeals
                 let groupTimeStamp =
                     new DateTime(deal.TimeStamp.Year, deal.TimeStamp.Month, deal.TimeStamp.Day, deal.TimeStamp.Hour,

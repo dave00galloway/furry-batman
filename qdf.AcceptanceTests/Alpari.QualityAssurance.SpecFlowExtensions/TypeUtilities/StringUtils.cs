@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -64,6 +65,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             byte[] byteArray = data.Split(separator).Select(x => Convert.ToByte(x)).ToArray();
             return byteArray;
+        }
+
+        /// <summary>
+        /// will always return the default ToString defined for the objectToSafeString, or an empty string instead of null
+        /// if objectToSafeString is likley to be numeric or a date, and the format is important, 
+        /// then consider creating an oveload to detect these types and specify a CultureInfo or use Invariant as a default
+        /// </summary>
+        /// <param name="objectToSafeString"></param>
+        /// <returns></returns>
+        public static string ToSafeString(this object objectToSafeString)
+        {
+            try
+            {
+                return objectToSafeString.ToString();
+            }
+            catch (Exception)
+            {
+                return String.Empty;
+            }
         }
     }
 }

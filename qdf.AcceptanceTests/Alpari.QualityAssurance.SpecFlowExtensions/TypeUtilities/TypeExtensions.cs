@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -82,7 +82,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns></returns>
         public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable<string> propertyList)
         {
-            return GetProperties(objectToSearch,propertyList).Select(x => GetValue(objectToSearch,x).ToString()).ToList();
+            //return GetProperties(objectToSearch,propertyList).Select(x => GetValue(objectToSearch,x).ToString()).ToList();
+            return GetProperties(objectToSearch, propertyList).Select(x=> x.GetValue(objectToSearch).ToSafeString()).ToList();
         }
 
         private static PropertyInfo[] GetProperties(object objectToSearch, IEnumerable<string> propertyList)
@@ -105,12 +106,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return propertyInfo;
         }
 
-        private static object GetValue(object objectToSearch, PropertyInfo x)
+        public static object GetValue(object objectToSearch, PropertyInfo x)
         {
             try
             {
-                var value = x.GetValue(objectToSearch)??"";
-                return value;
+                var defValtype = x.PropertyType.GetDataType();
+            return GetdefaultValueFortype(objectToSearch, x, defValtype);
             }
             catch (Exception e)
             {
@@ -119,16 +120,61 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
+        public static object GetdefaultValueFortype(object objectToSearch, PropertyInfo x, string defValtype)
+        {
+            switch (defValtype.ToUpper())
+            {
+                case Byte:
+                    return x.GetValue(objectToSearch) ?? default(byte);
+                case Sbyte:
+                    return x.GetValue(objectToSearch) ?? default(sbyte);
+                case Short:
+                    return x.GetValue(objectToSearch) ?? default(short);
+                case Ushort:
+                    return x.GetValue(objectToSearch) ?? default(ushort);
+                case Int:
+                    return x.GetValue(objectToSearch) ?? default(int);
+                case "INT16":
+                    return x.GetValue(objectToSearch) ?? default(Int16);
+                case "INT32":
+                    return x.GetValue(objectToSearch) ?? default(Int32);
+                case "INT64":
+                    return x.GetValue(objectToSearch) ?? default(Int64);
+                case Uint:
+                    return x.GetValue(objectToSearch) ?? default(uint);
+                case "UINT16":
+                    return x.GetValue(objectToSearch) ?? default(UInt16);
+                case "UINT32":
+                    return x.GetValue(objectToSearch) ?? default(UInt32);
+                case "UINT64":
+                    return x.GetValue(objectToSearch) ?? default(UInt64);
+                case Long:
+                    return x.GetValue(objectToSearch) ?? default(long);
+                case Ulong:
+                    return x.GetValue(objectToSearch) ?? default(ulong);
+                case Float:
+                    return x.GetValue(objectToSearch) ?? default(float);
+                case Double:
+                    return x.GetValue(objectToSearch) ?? default(double);
+                case Decimal:
+                    return x.GetValue(objectToSearch) ?? default(Decimal);
+                case Char:
+                    return x.GetValue(objectToSearch) ?? default(char);
+                case String:
+                    return x.GetValue(objectToSearch) ?? String.Empty;
+                case Bool:
+                    return x.GetValue(objectToSearch) ?? default(bool);
+                default:
+                    return new object();
+            }
+        }
+
+
         public static bool IsNumber(this string s)
         {
             float output;
             return float.TryParse(s, out output);
         }
-
-        //public static List<string> GetPropertyNamesAsList<T>()
-        //{
-        //    return T.GetProperties().Select(x => x.Name).ToList();
-        //}
 
         public static string GetDataType(this Type type)
         {
