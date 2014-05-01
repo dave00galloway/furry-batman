@@ -15,6 +15,7 @@ namespace Alpari.QualityAssurance.RefData
     /// http://stackoverflow.com/questions/9765686/include-referenced-projects-config-file
     /// http://stackoverflow.com/questions/594298/c-sharp-dll-config-file
     /// note suggestions to set the type as System.Configuration.AppSettingsSection
+    /// you can't use the NameValueCollection when the config is used in an external application
     /// </summary>
     public class RefDataDictionaryBase
     {
@@ -25,21 +26,13 @@ namespace Alpari.QualityAssurance.RefData
         {
             Name = Enum.GetName(typeof(Dictionaries), dictionaryName);
             IDictionary<string, string> dataDictionary = new Dictionary<string, string>();
-            var data = ConfigurationManager.GetSection(Name) as NameValueCollection;
-            if (data == null)
-            {
-                var config = ConfigurationManager.OpenExeConfiguration("Alpari.QualityAssurance.RefData.dll");
-                var section = config.GetSection(Name) ;
-                var rawXml = section.SectionInformation.GetRawXml();
-                var xmlDocument = new XmlDocument();
-                xmlDocument.Load(rawXml);
-                var sectionHandlerType = Type.GetType(section.SectionInformation.Type);
-                IConfigurationSectionHandler sectionHandler = (IConfigurationSectionHandler)Activator.CreateInstance(sectionHandlerType);
-                data = (NameValueCollection)sectionHandler.Create(null, null, xmlDocument.DocumentElement);
-            }
+            var config = ConfigurationManager.OpenExeConfiguration("Alpari.QualityAssurance.RefData.dll");
+            var section = (AppSettingsSection)config.GetSection(Name);
+            var data = section.Settings;
+
             foreach (string key in data.AllKeys)
             {
-                dataDictionary[key] = data.Get(key);
+                dataDictionary[key] = data[key].Value;
             }   
 
             Data = new ReadOnlyDictionary<string, string>(dataDictionary);
