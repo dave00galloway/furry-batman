@@ -1,5 +1,41 @@
 jsonPWrapper ([
   {
+    "RelativeFolder": "SelfTests\\ReuseDealReconciliationSteps.feature",
+    "Feature": {
+      "Name": "ReuseDealReconciliationSteps",
+      "Description": "In order to show deal recon steps are inherited from master step base\r\nAs a tester\r\nI want to see methods available between step definition files",
+      "FeatureElements": [
+        {
+          "Name": "reuse the deal recon steps",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have connected to \"MySqlDataContextSubstitute\""
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": true,
+        "WasSuccessful": true
+      },
+      "Tags": []
+    },
+    "Result": {
+      "WasExecuted": true,
+      "WasSuccessful": true
+    }
+  },
+  {
     "RelativeFolder": "SelfTests\\MySqlQUickStart.feature",
     "Feature": {
       "Name": "MySqlQUickStart",
