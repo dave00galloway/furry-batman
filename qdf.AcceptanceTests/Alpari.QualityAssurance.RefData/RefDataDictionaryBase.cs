@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.RefData
         {
             Name = Enum.GetName(typeof(Dictionaries), dictionaryName);
             IDictionary<string, string> dataDictionary = new Dictionary<string, string>();
-            var config = ConfigurationManager.OpenExeConfiguration(String.Format("{0}.dll",GetType().Assembly.GetName().ToString()));//("Alpari.QualityAssurance.RefData.dll");
+            var config = ConfigurationManager.OpenExeConfiguration(String.Format("{0}.dll",GetType().Assembly.GetName().Name.ToString()));//("Alpari.QualityAssurance.RefData.dll");
             var section = (AppSettingsSection)config.GetSection(Name);
             var data = section.Settings;
 
