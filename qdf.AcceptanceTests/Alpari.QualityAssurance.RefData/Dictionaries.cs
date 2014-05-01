@@ -4,5 +4,6 @@
     {
         Unknown = 0,
         QdfToCcServerMapping = 1,
+        CcToQdfServerMapping = 2,
     }
 }

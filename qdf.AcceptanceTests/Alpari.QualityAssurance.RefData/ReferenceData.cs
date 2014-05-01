@@ -9,6 +9,7 @@ namespace Alpari.QualityAssurance.RefData
 // ReSharper disable once UnassignedReadonlyField.Compiler
         private static readonly object SyncRoot = new Object();
         private ReadOnlyDictionary<string, string> _qdfToCcServerMapping;
+        private ReadOnlyDictionary<string, string> _ccToQdfServerMapping;
 
         private ReferenceData()
         {
@@ -48,6 +49,24 @@ namespace Alpari.QualityAssurance.RefData
                     }                    
                 }
                 return _qdfToCcServerMapping;
+            }
+        }
+
+        public ReadOnlyDictionary<string, string> CcToQdfServerMapping
+        {
+            get
+            {
+                if (_ccToQdfServerMapping == null)
+                {
+                    lock (SyncRoot)
+                    {
+                        if (_ccToQdfServerMapping == null)
+                        {
+                            _ccToQdfServerMapping = new RefDataDictionaryBase(Dictionaries.CcToQdfServerMapping).Data;
+                        }
+                    }                    
+                }
+                return _ccToQdfServerMapping;
             }
         }
     }

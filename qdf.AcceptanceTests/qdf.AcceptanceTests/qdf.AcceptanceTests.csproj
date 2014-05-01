@@ -143,6 +143,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
+      <Project>{4c580f04-b06a-4cf2-a646-6139a2bb1fff}</Project>
+      <Name>Alpari.QualityAssurance.RefData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SecureMyPassword\Alpari.QualityAssurance.SecureMyPassword.csproj">
       <Project>{27c0b243-5ccc-466c-bd7f-57f5bf6d3912}</Project>
       <Name>Alpari.QualityAssurance.SecureMyPassword</Name>

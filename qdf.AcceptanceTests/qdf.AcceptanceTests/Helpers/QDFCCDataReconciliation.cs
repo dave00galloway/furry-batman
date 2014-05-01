@@ -4,6 +4,7 @@ using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using Alpari.QDF.Domain;
+using Alpari.QualityAssurance.RefData;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using qdf.AcceptanceTests.Helpers;
 using qdf.AcceptanceTests.TypedDataTables;
@@ -36,11 +37,6 @@ namespace qdf.AcceptanceTests.Helpers
 
             QdfDealPositions =
                 QdfDealPositionGroupings.SelectMany(x => x.QdfDealPositions).ToList();
-
-            //QdfDealPositions = QdfDealPositions.OrderBy(x => x.Book)
-            //    .ThenBy(x => x.Instrument)
-            //    .ThenBy(x => x.Server)
-            //    .ThenBy(x => x.TimeStamp).ToList();
             Console.WriteLine("Print flattened list of cumulative sums");
             QdfDealPositions.ForEach(
                 x => Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position, x.CumulativePosition));
@@ -63,6 +59,7 @@ namespace qdf.AcceptanceTests.Helpers
         {
             CalculateCcVolumeSize();
             CcToolPositionGroupings = CombineCcSectionData();
+            RemapCcServerIdsToQdfServerIds();
             CalculateCcDeltas();
             Console.WriteLine("Print CC Deltas");
             Console.WriteLine("PositionName, Position, PositionDelta");
@@ -294,7 +291,15 @@ namespace qdf.AcceptanceTests.Helpers
                     positions[i].PositionDelta = deltas[i];
                 }
             }
-        }        
+        }
+
+        private void RemapCcServerIdsToQdfServerIds()
+        {
+            foreach (CcToolPosition ccToolPosition in CcToolPositions)
+            {
+                ccToolPosition.ServerId = ReferenceData.Instance.CcToQdfServerMapping[ccToolPosition.ServerId];
+            }
+        }
         
         // ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
         private static string GetCcToolPositionName(DataRow row)
