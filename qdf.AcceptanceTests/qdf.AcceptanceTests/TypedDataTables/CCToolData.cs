@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Runtime.Serialization;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace qdf.AcceptanceTests.TypedDataTables
 {
@@ -16,9 +17,14 @@ namespace qdf.AcceptanceTests.TypedDataTables
     ///     'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>
     [Serializable]
-    public class CcToolData : DataTable, ISerializable
+    public class CcToolData : TypedDataTable
     {
         public CcToolData()
+        {
+            SetupColumns();
+        }
+
+        protected override void SetupColumns()
         {
             Columns.Add(new DataColumn("Section", typeof (string)));
             Columns.Add(new DataColumn("ServerName", typeof (string)));
@@ -78,6 +84,16 @@ namespace qdf.AcceptanceTests.TypedDataTables
         protected override DataRow NewRowFromBuilder(DataRowBuilder builder)
         {
             return new CCtoolRow(builder);
+        }
+
+        public override T ConvertIEnumerableToDataTable<T>(System.Collections.Generic.IEnumerable<T> enumeratedObjects)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override T ConvertIEnumerableToDataTable<T>(System.Collections.Generic.IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys)
+        {
+            throw new NotImplementedException();
         }
     }
 

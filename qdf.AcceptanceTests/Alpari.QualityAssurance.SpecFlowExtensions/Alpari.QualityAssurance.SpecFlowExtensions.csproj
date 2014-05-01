@@ -141,9 +141,7 @@
     <Compile Include="Steps\CrossStepDefinitionFileTwo.cs" />
     <Compile Include="Steps\CrossStepDefinitionStepBase.cs" />
     <Compile Include="NunitTextReportParser\NunitTxtParser.cs" />
-    <Compile Include="Context\TypedDataTables\Person.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="Context\TypedDataTables\Person.cs" />
     <Compile Include="Steps\ShareContextSteps.cs" />
     <Compile Include="Steps\SpecflowNunitTextReporterStepBase.cs" />
     <Compile Include="Steps\SpecflowNunitTextReporterSteps.cs" />
@@ -164,6 +162,7 @@
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
     <Compile Include="TypeUtilities\NumericExtensions.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
+    <Compile Include="TypeUtilities\TypedDataTable.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>

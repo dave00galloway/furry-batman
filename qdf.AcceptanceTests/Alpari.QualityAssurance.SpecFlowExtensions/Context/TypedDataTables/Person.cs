@@ -15,8 +15,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         public string Occupation { get; set; }
     }
 
-    [Serializable]
-    public class PersonData : DataTable, ITypedDataTable
+    [System.ComponentModel.DesignerCategory("")]
+    public class PersonData : TypedDataTable
     {
         #region Constructor and StronglyTypedDataTable required methods
 
@@ -48,24 +48,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             get { return (PersonDataRow) Rows[idx]; }
         }
 
-        // ReSharper disable once MemberCanBePrivate.Global - used externally
-        public void SetPrimaryKey(string[] primaryKeyColumns)
-        {
-            int size = primaryKeyColumns.Length;
-            //var keyColumns = Array.CreateInstance(typeof (DataColumn), size) as DataColumn[];
-            var keyColumns = new DataColumn[size];
-            for (int i = 0; i < size; i++)
-            {
-                keyColumns[i] = Columns[primaryKeyColumns[i]];
-            }
-            PrimaryKey = keyColumns;
-        }
-
-
-        /// <summary>
-        ///     TODO:- set up an abstract base class implementing ITypedDataTable with abstract or virtual methods to override
-        /// </summary>
-        private void SetupColumns()
+        protected override void SetupColumns()
         {
             Columns.Add(new DataColumn("ID", typeof (ulong)));
             Columns.Add(new DataColumn("Forenames", typeof (string)));
@@ -127,14 +110,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         /// <param name="enumeratedObjects"></param>
         /// <returns></returns>
 // ReSharper disable once FunctionRecursiveOnAllPaths
-        public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new()
+        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
         {
             return ConvertIEnumerableToDataTable(enumeratedObjects);
         }
 
 // ReSharper disable once FunctionRecursiveOnAllPaths
-        public T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
-            string[] primaryKeys) where T : DataTable, new()
+        public  override  T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
+            string[] primaryKeys)
         {
             return ConvertIEnumerableToDataTable(enumeratedObjects, tableName, primaryKeys);
         }

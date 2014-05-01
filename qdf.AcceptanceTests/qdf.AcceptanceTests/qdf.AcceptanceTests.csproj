@@ -119,9 +119,7 @@
     <Compile Include="Steps\DealReconciliationSteps.cs" />
     <Compile Include="Steps\SelfTest\ReuseDealReconStepsSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
-    <Compile Include="TypedDataTables\CCToolData.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="TypedDataTables\CCToolData.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
