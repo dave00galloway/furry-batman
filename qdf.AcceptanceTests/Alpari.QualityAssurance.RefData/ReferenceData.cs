@@ -4,6 +4,16 @@ using System.Collections.ObjectModel;
 namespace Alpari.QualityAssurance.RefData
 {
     /// <summary>
+    /// Lazy threadsafe singleton which lazy loads ReadOnly dictionaries from config
+    /// To Use this in a client app:-
+    /// add this property group to the project's .csproj and rebuild
+    ///     <PropertyGroup>
+    ///     <AllowedReferenceRelatedFileExtensions>
+    ///     .pdb;
+    ///     .xml;
+    ///     .dll.config
+    ///     </AllowedReferenceRelatedFileExtensions>
+    ///     </PropertyGroup>
     /// TODO:- investigate using Lazy<typeparam name=">">to set up the dictionaries</typeparam>
     /// </summary>
     public class ReferenceData
