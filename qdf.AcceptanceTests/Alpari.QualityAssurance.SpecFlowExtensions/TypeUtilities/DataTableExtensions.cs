@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Text;
 using NUnit.Framework;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
@@ -21,6 +23,44 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             dtTyped.Merge(dtBase);
 
             return dtTyped;
+        }
+
+        /// <summary>
+        /// send the datatable to csv file. if the file exosts, append and don't write headers
+        /// </summary>
+        /// <param name="dataTable"></param>
+        /// <param name="fileNamePath"></param>
+        public static void DataTableToCsv(this DataTable dataTable, string fileNamePath)
+        {
+            var csvFile = new StringBuilder();
+            if (!File.Exists(fileNamePath))
+            {
+                string headers = String.Join(",",
+                    (dataTable.Columns.Cast<DataColumn>().Select(dataColumn => dataColumn.ColumnName).ToArray()));
+                if (headers.Length>0)
+                {
+                    csvFile.AppendLine(headers);
+                }
+            }
+            AppendRowValuesAsCsvRecords(dataTable, csvFile);
+            if (File.Exists(fileNamePath))
+            {
+                File.AppendAllText(fileNamePath,csvFile.ToString());
+            }
+            else
+            {
+                File.WriteAllText(fileNamePath, csvFile.ToString());
+            }
+        }
+
+        private static void AppendRowValuesAsCsvRecords(DataTable dataTable, StringBuilder csvFile)
+        {
+            if (dataTable.Rows == null) return;
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                csvFile.AppendLine(String.Join(",",
+                    (dataRow.ItemArray.Select(x => x.ToSafeString().StringToCsvCell()).ToArray())));
+            }
         }
 
         /// <summary>

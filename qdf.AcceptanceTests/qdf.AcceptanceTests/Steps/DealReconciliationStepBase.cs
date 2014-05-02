@@ -17,6 +17,14 @@ namespace qdf.AcceptanceTests.Steps
     {
         public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
 
+        /// <summary>
+        /// TODO:- move to MasterStepBase, add setter and bypass ScenarioContext altogether?
+        /// </summary>
+        protected static string ScenarioOutputDirectory
+        {
+            get { return (string)ScenarioContext.Current["ScenarioOutputDirectory"]; }
+        }
+
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
             string start = entry.StartTime ?? ConfigurationManager.AppSettings["defaultStartTime"];

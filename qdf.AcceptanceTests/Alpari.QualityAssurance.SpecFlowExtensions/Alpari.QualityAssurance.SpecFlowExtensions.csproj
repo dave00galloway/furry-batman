@@ -56,6 +56,7 @@
     <Compile Include="DataContexts\AdHocMySqlDataContext.cs" />
     <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
+    <Compile Include="FileUtilities\ExportTypes.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />

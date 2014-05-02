@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -125,5 +126,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             PrimaryKey = keyColumns;
         }
 
+        /// <summary>
+        /// TODO:- replace/create overload which uses delegates instead of a switch
+        /// </summary>
+        /// <param name="exportType"></param>
+        /// <param name="parameters"></param>
+        public void ExportData(ExportTypes exportType, string[] parameters)
+        {
+            switch (exportType)
+            {
+                case ExportTypes.Csv:
+                    this.DataTableToCsv(parameters[(int) ExportParams.FileNamePath]);
+                    break;
+                case ExportTypes.Database:
+                    throw new ArgumentException("Export type not implemented yet",
+                        Enum.GetName(typeof (ExportTypes), exportType));
+                default:
+                    throw new ArgumentException("Export type not valid", Enum.GetName(typeof (ExportTypes), exportType));
+            }
+        }
     }
 }

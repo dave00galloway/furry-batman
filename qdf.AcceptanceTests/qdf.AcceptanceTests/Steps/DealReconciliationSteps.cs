@@ -59,7 +59,7 @@ namespace qdf.AcceptanceTests.Steps
             ScenarioContext.Current["ScenarioOutputDirectory"] =
                 (string) FeatureContext.Current["FeatureOutputDirectory"] +
                 ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
-            ((string) ScenarioContext.Current["ScenarioOutputDirectory"]).ClearOutputDirectory();
+            (ScenarioOutputDirectory).ClearOutputDirectory();
         }
 
         [Given(@"I have QDF Data")]
@@ -79,8 +79,8 @@ namespace qdf.AcceptanceTests.Steps
             //added a try catch here to cope with changes in QDF Deal format
             try
             {
-                RedisConnectionHelper.OutputAllDeals((string) ScenarioContext.Current["ScenarioOutputDirectory"] +
-                                                     "AllDeals.csv");
+                RedisConnectionHelper.OutputAllDeals(ScenarioOutputDirectory +
+                                                     "AllQdfDeals.csv");
             }
             catch (Exception e)
             {
@@ -124,6 +124,7 @@ namespace qdf.AcceptanceTests.Steps
             var ccToolData =
                 ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
                     QdfDealParameters.ConvertedEndTime)).ConvertToTypedDataTable<CcToolData>();
+            ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", ScenarioOutputDirectory)});
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
             /*undecided whether to use properties for this data. 

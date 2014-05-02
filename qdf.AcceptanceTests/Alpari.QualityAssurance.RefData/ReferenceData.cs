@@ -3,6 +3,9 @@ using System.Collections.ObjectModel;
 
 namespace Alpari.QualityAssurance.RefData
 {
+    /// <summary>
+    /// TODO:- investigate using Lazy<typeparam name=">">to set up the dictionaries</typeparam>
+    /// </summary>
     public class ReferenceData
     {
         private static volatile ReferenceData _instance;
