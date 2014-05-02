@@ -10,7 +10,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
     {
         Unknown = 0,
         Csv = 1,
-        Database = 2
+        Database = 2,
+        Console = 3
     }
 
     public enum ExportParams

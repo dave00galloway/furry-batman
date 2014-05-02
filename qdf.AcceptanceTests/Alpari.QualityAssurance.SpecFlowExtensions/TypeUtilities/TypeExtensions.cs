@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns></returns>
         public static List<string> GetPropertyNamesAsList(this Type type, bool safeMode)
         {
-            return safeMode ? GetPropertyNamesAsList(type) : type.GetProperties().Select(Name).ToList();
+            return safeMode ? type.GetProperties().Select(Name).ToList() : GetPropertyNamesAsList(type);
         }
 
         private static string Name(PropertyInfo x)
