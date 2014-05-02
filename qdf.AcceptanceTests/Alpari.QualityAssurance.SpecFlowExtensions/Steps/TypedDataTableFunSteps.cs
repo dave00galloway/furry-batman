@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -9,8 +10,14 @@ using TechTalk.SpecFlow.Assist;
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
 {
     [Binding]
-    public class TypedDataTableFunSteps
+    public class TypedDataTableFunSteps : StepCentral
     {
+        public static readonly string FullName = typeof(TypedDataTableFunSteps).FullName;
+        public TypedDataTableFunSteps()
+            : base(true)
+        {
+        }
+
         [Given(@"I have the following person data:")]
         public void GivenIHaveTheFollowingPersonData(Table table)
         {
@@ -84,5 +91,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
                     throw new ArgumentException("diffType {0} not recognised", diffType);
             }
         }
+
+        
     }
 }

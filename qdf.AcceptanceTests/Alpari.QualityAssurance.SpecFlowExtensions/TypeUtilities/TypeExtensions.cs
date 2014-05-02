@@ -120,6 +120,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
+        /// <summary>
+        /// based on http://stackoverflow.com/questions/1398796/casting-with-reflection
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="info"></param>
+        /// <param name="value"></param>
+        public static void SetValue(this object instance, PropertyInfo info, object value)
+        {
+            info.SetValue(instance, Convert.ChangeType(value, info.PropertyType));
+        }
+
         public static object GetdefaultValueFortype(object objectToSearch, PropertyInfo x, string defValtype)
         {
             switch (defValtype.ToUpper())

@@ -58,6 +58,12 @@
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="FileUtilities\ExportTypes.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />
+    <Compile Include="Specs\CsvConversions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CsvConversions.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\CsvConversionSteps.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
     <Compile Include="TypeUtilities\IEnumerableExtensions.cs" />
@@ -178,6 +184,10 @@
     <None Include="Specs\CreateMixtureOfTestResults001.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CreateMixtureOfTestResults001.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\CsvConversions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CsvConversions.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\EnableCrossStepDefinitionCallsOne.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

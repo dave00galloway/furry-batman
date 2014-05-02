@@ -8,9 +8,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities
         ///     use this for simple exceoption logging if no other logging is coinfigured
         /// </summary>
         /// <param name="e"></param>
-        public static void ConsoleExceptionLogger(Exception e)
+        public static void ConsoleExceptionLogger(this Exception e)
         {
             Console.WriteLine("{0} {1}", e.Message, e.StackTrace);
+        }
+
+        /// <summary>
+        ///     use this for simple exceoption logging if no other logging is coinfigured
+        /// </summary>
+        /// <param name="e"></param>
+        /// <param name="message"></param>
+        public static void ConsoleExceptionLogger(this Exception e, string message)
+        {
+            Console.WriteLine("{0} {1} {2}",message, e.Message, e.StackTrace);
         }
     }
 }

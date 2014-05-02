@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 lineId++;
                 try
                 {
-                    parsedFile.Add(GetValues(line, delimiter));
+                    parsedFile.Add(line.GetValuesFromCsvRow(delimiter));
                 }
                 catch (Exception e)
                 {
@@ -92,17 +92,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     .Replace(@")", "")
                     .Replace("-", "");
             return cleansedString;
-        }
-
-        private static List<string> GetValues(string row, string delimiter)
-        {
-            using (var sr = new StringReader(row))
-            {
-                var parser = new TextFieldParser(sr);
-                parser.SetDelimiters(delimiter);
-// ReSharper disable once AssignNullToNotNullAttribute
-                return parser.ReadFields().Select(x => x.Trim()).ToList();
-            }
         }
 
         // Implement IDisposable. 
