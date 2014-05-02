@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Linq;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
@@ -20,10 +21,10 @@ namespace qdf.AcceptanceTests.Steps
     {
         new public static readonly string FullName = typeof(DealReconciliationSteps).FullName;
 
-        public RedisConnectionHelper RedisConnectionHelper { get; private set; }
-        public IDataContextSubstitute ContextSubstitute { get; private set; }
-        public QdfDealParameters QdfDealParameters { get; private set; }
-        public IEnumerable<QdfDealParameters> QdfDealParametersSet { get; private set; }
+        private RedisConnectionHelper RedisConnectionHelper { get; set; }
+        private IDataContextSubstitute ContextSubstitute { get; set; }
+        private QdfDealParameters QdfDealParameters { get; set; }
+        //private IEnumerable<QdfDealParameters> QdfDealParametersSet { get; set; }
 
         /// <summary>
         ///     Clear the test output directory for the feature
@@ -95,12 +96,13 @@ namespace qdf.AcceptanceTests.Steps
         public void GivenIHaveQdfDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
         {
             RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
-            foreach (QdfDealParameters entry in qdfDealParameters)
+            var qdfDealParametersSet = qdfDealParameters as QdfDealParameters[] ?? qdfDealParameters.ToArray();
+            foreach (QdfDealParameters entry in qdfDealParametersSet)
             {
                 SetupQdfDealQuery(entry);
                 RedisConnectionHelper.GetDealData(entry);
             }
-            QdfDealParametersSet = qdfDealParameters;
+            //QdfDealParametersSet = qdfDealParametersSet;
             throw new NotImplementedException();
         }
 
