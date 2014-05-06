@@ -51,7 +51,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         public void OutputAllDeals(string fileNamePath)
         {
-            RetrievedDeals.EnumerableToCsv(fileNamePath);//, true, true);
+            RetrievedDeals.EnumerableToCsv(fileNamePath,true);
         }
     }
 }

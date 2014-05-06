@@ -19,7 +19,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="fileNamePath">output filename and path</param>
         /// <param name="useHeadersToGetData">set to true if the header list should be used to query the object. use this if you suspect the object definition may have changes, and the actual object contains different properties to those expected</param>
         /// <param name="headerSafeMode">set to true if ther might be errors retrieving some property names.  use this if you suspect the object definition may have changes, and the actual object contains different properties to those expected </param>
-        public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath,bool useHeadersToGetData = false, bool headerSafeMode = false)
+        public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath,bool removeReturns,bool useHeadersToGetData = false, bool headerSafeMode = false)
         {
             string headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode));
             var csvFile = new StringBuilder();
@@ -36,7 +36,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 {
                     csvFile.AppendLine(String.Join(",",
                         item.GetObjectPropertyValuesAsList(headers.Split(','))
-                            .Select(x => x.ToSafeString().StringToCsvCell())));
+                            .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
                 }                
             }
             else
@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 {
                     csvFile.AppendLine(String.Join(",",
                         item.GetObjectPropertyValuesAsList()
-                            .Select(x => x.ToSafeString().StringToCsvCell())));
+                            .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
                 }                  
             }
             if (File.Exists(fileNamePath))

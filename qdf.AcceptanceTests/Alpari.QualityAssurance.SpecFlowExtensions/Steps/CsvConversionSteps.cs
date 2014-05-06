@@ -35,7 +35,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void WhenIAppendThePersonDataToCsv(string dataRef, string path)
         {
             var people = ScenarioContext.Current[dataRef] as IEnumerable<Person>;
-            people.EnumerableToCsv(path);
+            people.EnumerableToCsv(path, true);
         }
 
     }

@@ -9,102 +9,94 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-
 #region Designer generated code
-
-using TechTalk.SpecFlow;
-
 #pragma warning disable
-
 namespace qdf.AcceptanceTests.Specs
 {
+    using TechTalk.SpecFlow;
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("Deal Reconciliation")]
     public partial class DealReconciliationFeature
     {
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
 #line 1 "ArsQdfCCReconciliation.feature"
 #line hidden
-
+        
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"),
-                "Deal Reconciliation",
-                "In Order to have faith in the QDF data \r\nAs a quant user\r\nI want a reconciliation" +
-                " of ARS QDF against CC", ProgrammingLanguage.CSharp, ((string[]) (null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Deal Reconciliation", "In Order to have faith in the QDF data \r\nAs a quant user\r\nI want a reconciliation" +
+                    " of ARS QDF against CC", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-
+        
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute(
-            "Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
+        [NUnit.Framework.DescriptionAttribute("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
             " ago")]
         public virtual void BookADealsForServerC1InSymbolEURUSDInQDFShouldEqualCCFrom5MinutesAgo()
         {
-            var scenarioInfo =
-                new TechTalk.SpecFlow.ScenarioInfo(
-                    "Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
-                    " ago", ((string[]) (null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
+                    " ago", ((string[])(null)));
 #line 6
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line hidden
-            var table1 = new TechTalk.SpecFlow.Table(new string[]
-            {
-                "server",
-                "symbol"
-            });
-            table1.AddRow(new string[]
-            {
-                "C1",
-                "EURUSD"
-            });
-#line 10
-            testRunner.Given("I have QDF Deal Data", ((string) (null)), table1, "Given ");
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table1.AddRow(new string[] {
+                        "C1",
+                        "EURUSD",
+                        "-5H",
+                        "+3H"});
+#line 7
+ testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
 #line 13
-            testRunner.And("I have CC data", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "And ");
+  testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
-            testRunner.When("I compare QDF and CC data", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
+ testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
-            testRunner.Then("the data should match", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Then ");
+ testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
-
 #pragma warning restore
-
 #endregion

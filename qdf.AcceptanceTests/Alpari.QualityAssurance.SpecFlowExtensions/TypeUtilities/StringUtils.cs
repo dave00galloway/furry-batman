@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -95,7 +94,49 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns>The CSV cell formatted string</returns>
         public static string StringToCsvCell(this string str)
         {
+            //if (str.Contains("O43387686"))
+            //{
+            //    Console.WriteLine(str);
+            //}
             bool mustQuote = (str.Contains(",") || str.Contains("\"") || str.Contains("\r") || str.Contains("\n"));
+            if (mustQuote)
+            {
+                var sb = new StringBuilder();
+                sb.Append("\"");
+                foreach (char nextChar in str)
+                {
+                    sb.Append(nextChar);
+                    if (nextChar == '"')
+                        sb.Append("\"");
+                }
+                sb.Append("\"");
+                return sb.ToString();
+            }
+
+            return str;
+        }
+
+        /// <summary>
+        ///     Turn a string into a CSV cell output
+        ///    http://stackoverflow.com/questions/6377454/escaping-tricky-string-to-csv-format
+        /// TODO:- create an overload that outputs \r and \n as those literal characters instead of return characters
+        /// </summary>
+        /// <param name="str">String to output</param>
+        /// <param name="removeReturns">if true then \n and \r instances will be removed</param>
+        /// <returns>The CSV cell formatted string</returns>
+        public static string StringToCsvCell(this string str, bool removeReturns)
+        {
+            bool mustQuote;
+            if (removeReturns)
+            {
+                str = str.Replace("\r", "").Replace("\n","");
+                mustQuote = (str.Contains(",") || str.Contains("\""));// || str.Contains("\r") || str.Contains("\n"));
+            }
+            else
+            {
+                mustQuote = (str.Contains(",") || str.Contains("\"") || str.Contains("\r") || str.Contains("\n"));
+            }
+            
             if (mustQuote)
             {
                 var sb = new StringBuilder();
