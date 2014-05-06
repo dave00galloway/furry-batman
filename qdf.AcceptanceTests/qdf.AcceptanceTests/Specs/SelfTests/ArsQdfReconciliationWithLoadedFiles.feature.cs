@@ -79,7 +79,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.And("I have loaded CCTool data from \"TestData\\CcToolData.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
- testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I compare the loaded QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
  testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

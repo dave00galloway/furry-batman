@@ -43,8 +43,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             List<T> parsedFile;
             long line;
             Type type;
-            var unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap, out parsedFile, out line, out type);
-            CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile,null);
+            IEnumerable<string> unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap,
+                out parsedFile, out line, out type);
+            CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile, null);
             return parsedFile;
         }
 
@@ -55,12 +56,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             List<T> parsedFile;
             long line;
             Type type;
-            var unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap, out parsedFile, out line, out type);
+            IEnumerable<string> unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap,
+                out parsedFile, out line, out type);
             CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile, ignoreProps);
-            return parsedFile;           
+            return parsedFile;
         }
 
-        private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter, out Dictionary<string, int> columnMap,
+        private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter,
+            out Dictionary<string, int> columnMap,
             out List<T> parsedFile, out long line, out Type type) where T : new()
         {
             string[] unparsedFile = File.ReadAllLines(fileNamePath);
@@ -71,11 +74,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             Type getType;
             try
             {
-                getType = Type.GetType(typeof(T).FullName, true);
+                getType = Type.GetType(typeof (T).FullName, true);
             }
             catch (Exception e)
             {
-                var assemblyQualifiedName = typeof(T).AssemblyQualifiedName;
+                string assemblyQualifiedName = typeof (T).AssemblyQualifiedName;
 
                 if (assemblyQualifiedName != null)
                 {
@@ -90,7 +93,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             return unparsedFile;
         }
 
-        private static void CreateObjectsInList<T>(string fileNamePath, string delimiter, IEnumerable<string> unparsedFile, Type type, Dictionary<string, int> columnMap, long line, List<T> parsedFile, string[] ignoreProps) where T : new()
+        private static void CreateObjectsInList<T>(string fileNamePath, string delimiter,
+            IEnumerable<string> unparsedFile, Type type, Dictionary<string, int> columnMap, long line,
+            List<T> parsedFile, string[] ignoreProps) where T : new()
         {
             foreach (string s in unparsedFile.Skip(1))
             {
@@ -100,7 +105,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     try
                     {
                         IList<string> row = s.GetValuesFromCsvRow(delimiter);
-                        var instance = (T)Activator.CreateInstance(type);
+                        var instance = (T) Activator.CreateInstance(type);
                         foreach (var pair in columnMap)
                         {
                             if (ignoreProps == null || ignoreProps != null && !ignoreProps.Contains(pair.Key))
@@ -116,8 +121,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                                     {
                                         try
                                         {
-                                            var enumProp = type.GetProperty(pair.Key).PropertyType;
-                                            var value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
+                                            Type enumProp = type.GetProperty(pair.Key).PropertyType;
+                                            object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
                                             instance.SetValue(prop, value);
                                         }
                                         catch (Exception)

@@ -19,10 +19,10 @@ namespace qdf.AcceptanceTests.DataContexts
         ///     Demo method to calculate spread for a server/symbol/time and also to show benefit of using strongly typed data
         ///     tables
         /// </summary>
-        /// <param name="ccToolData"></param>
-        public static void OutputCalculatedSpread(CcToolData ccToolData)
+        /// <param name="ccToolDataTable"></param>
+        public static void OutputCalculatedSpread(CcToolDataTable ccToolDataTable)
         {
-            var typedTableResult = ccToolData.Rows.Cast<CCtoolRow>().Select(myRow => new
+            var typedTableResult = ccToolDataTable.Rows.Cast<CCtoolRow>().Select(myRow => new
             {
                 Server = myRow.ServerName,
                 Spread = (myRow.BidPrice - myRow.AskPrice).ToString(CultureInfo.InvariantCulture),

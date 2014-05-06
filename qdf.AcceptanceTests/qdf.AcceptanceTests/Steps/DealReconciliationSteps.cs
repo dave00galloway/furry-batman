@@ -1,4 +1,9 @@
-﻿using Alpari.QDF.Domain;
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
+using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
@@ -8,11 +13,6 @@ using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
 using qdf.AcceptanceTests.TypedDataTables;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
@@ -20,7 +20,7 @@ namespace qdf.AcceptanceTests.Steps
     [Binding]
     public class DealReconciliationSteps : DealReconciliationStepBase
     {
-        new public static readonly string FullName = typeof(DealReconciliationSteps).FullName;
+        public new static readonly string FullName = typeof (DealReconciliationSteps).FullName;
 
         private RedisConnectionHelper RedisConnectionHelper { get; set; }
         private IDataContextSubstitute ContextSubstitute { get; set; }
@@ -86,7 +86,7 @@ namespace qdf.AcceptanceTests.Steps
             }
             catch (Exception e)
             {
-                ConsoleLogger.ConsoleExceptionLogger(e);
+                e.ConsoleExceptionLogger();
             }
             //redisConnectionHelper.FilterDeals(qdfDealParameters);
 
@@ -97,7 +97,8 @@ namespace qdf.AcceptanceTests.Steps
         public void GivenIHaveQdfDealDataForTheseParameterSets(IEnumerable<QdfDealParameters> qdfDealParameters)
         {
             RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
-            var qdfDealParametersSet = qdfDealParameters as QdfDealParameters[] ?? qdfDealParameters.ToArray();
+            QdfDealParameters[] qdfDealParametersSet = qdfDealParameters as QdfDealParameters[] ??
+                                                       qdfDealParameters.ToArray();
             foreach (QdfDealParameters entry in qdfDealParametersSet)
             {
                 SetupQdfDealQuery(entry);
@@ -126,7 +127,7 @@ namespace qdf.AcceptanceTests.Steps
 
             var ccToolData =
                 ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
-                    QdfDealParameters.ConvertedEndTime)).ConvertToTypedDataTable<CcToolData>();
+                    QdfDealParameters.ConvertedEndTime)).ConvertToTypedDataTable<CcToolDataTable>();
             ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", ScenarioOutputDirectory)});
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
@@ -135,22 +136,24 @@ namespace qdf.AcceptanceTests.Steps
              * but for the ars/cnx/ecn data there might or might not be 
              * maybe the base class should hold properties for QDF, and specialised subclasses should hold properties for comparing with the QDF data
              * */
-            ScenarioContext.Current["ccToolData"] = ccToolData;
+            ScenarioContext.Current["CcToolDataTable"] = ccToolData;
         }
 
         [Given(@"I have loaded QDF deal data from ""(.*)""")]
         public void GivenIHaveLoadedQdfDealDataFrom(string fileNamePath)
         {
-            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",",new []{"Data"});
-            ((IEnumerable<Deal>)ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(ScenarioOutputDirectory +
-                                                     "AllQdfDeals.csv", true, true);
+            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",", new[] {"Data"});
+            ((IEnumerable<Deal>) ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(ScenarioOutputDirectory +
+                                                                                         "AllQdfDeals.csv", true, true);
         }
 
         [Given(@"I have loaded CCTool data from ""(.*)""")]
         public void GivenIHaveLoadedCcToolDataFrom(string fileNamePath)
         {
-            object ccToolData = null;
-            ScenarioContext.Current["ccToolData"] = ccToolData;
+            CcToolDataTable ccToolData =
+                new CcToolDataTable().ConvertIEnumerableToDataTable(fileNamePath.CsvToList<CcToolData>(","),
+                    "CcToolDataTable", new[] { "Section", "ServerName", "SymbolCode", "IsBookA", "UpdateDateTime" });
+            ScenarioContext.Current["CcToolDataTable"] = ccToolData;
         }
 
 
@@ -166,12 +169,23 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I compare QDF and CC data")]
         public void WhenICompareQdfAndCcData()
         {
-            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["ccToolData"] as CcToolData,
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
                 RedisConnectionHelper.RetrievedDeals);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
             ScenarioContext.Current.Pending();
         }
+
+        [When(@"I compare the loaded QDF and CC data")]
+        public void WhenICompareTheLoadedQdfAndCcData()
+        {
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
+                ScenarioContext.Current["QDFDealData"] as List<Deal>);
+            aggregator.AggregateQdfDeals();
+            aggregator.AggregateCcToolData();
+            ScenarioContext.Current.Pending();
+        }
+
 
         [Then(@"the data should match")]
         public void ThenTheDataShouldMatch()

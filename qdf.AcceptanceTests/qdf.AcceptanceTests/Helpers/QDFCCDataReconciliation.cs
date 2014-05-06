@@ -16,13 +16,13 @@ namespace qdf.AcceptanceTests.Helpers
     /// </summary>
     public class QdfccDataReconciliation
     {
-        public QdfccDataReconciliation(CcToolData cCToolData, List<Deal> qDfDeals)
+        public QdfccDataReconciliation(CcToolDataTable cCToolDataTable, List<Deal> qDfDeals)
         {
-            CcToolData = cCToolData;
+            CcToolDataTable = cCToolDataTable;
             QdfDeals = qDfDeals;
         }
 
-        public CcToolData CcToolData { get; private set; }
+        public CcToolDataTable CcToolDataTable { get; private set; }
         public List<Deal> QdfDeals { get; private set; }
         public List<QdfDealPositionGrouping> QdfDealPositionGroupings { get; private set; }
         public List<CcToolPositionGrouping> CcToolPositionGroupings { get; private set; }
@@ -181,7 +181,7 @@ namespace qdf.AcceptanceTests.Helpers
         /// </summary>
         private void CalculateCcVolumeSize()
         {
-            CcToolData.Columns.Add(new DataColumn("VolumeSize", typeof (decimal)));
+            CcToolDataTable.Columns.Add(new DataColumn("VolumeSize", typeof (decimal)));
 
             #region nice little demo of not using deferred execution
 
@@ -206,7 +206,7 @@ namespace qdf.AcceptanceTests.Helpers
 
             #endregion
 
-            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
+            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolDataTable.Rows
                 select row);
             foreach (DataRow row in rowQuery)
             {
@@ -223,7 +223,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         private List<CcToolPositionGrouping> CombineCcSectionData()
         {
-            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolData.Rows
+            IEnumerable<DataRow> rowQuery = (from DataRow row in CcToolDataTable.Rows
                 select row);
 
             List<CcToolPosition> aggregatedPositions = (from row in rowQuery

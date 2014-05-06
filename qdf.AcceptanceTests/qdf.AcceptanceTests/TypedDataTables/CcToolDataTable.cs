@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Runtime.Serialization;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
@@ -17,9 +19,10 @@ namespace qdf.AcceptanceTests.TypedDataTables
     ///     'myRow.IsBookA' threw an exception of type 'System.InvalidCastException'
     /// </summary>
     [Serializable]
-    public class CcToolData : TypedDataTable
+    [DesignerCategory("")]
+    public class CcToolDataTable : TypedDataTable
     {
-        public CcToolData()
+        public CcToolDataTable()
         {
             SetupColumns();
         }
@@ -48,10 +51,10 @@ namespace qdf.AcceptanceTests.TypedDataTables
         /// </summary>
         /// <param name="info"></param>
         /// <param name="context"></param>
-        protected CcToolData(SerializationInfo info, StreamingContext context)
+        protected CcToolDataTable(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
-            CcToolData serialisationInstance = this;
+            CcToolDataTable serialisationInstance = this;
         }
 
         public CCtoolRow this[int idx]
@@ -86,15 +89,61 @@ namespace qdf.AcceptanceTests.TypedDataTables
             return new CCtoolRow(builder);
         }
 
-        public override T ConvertIEnumerableToDataTable<T>(System.Collections.Generic.IEnumerable<T> enumeratedObjects)
+        // ReSharper disable once FunctionRecursiveOnAllPaths
+        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
         {
-            throw new NotImplementedException();
+            return ConvertIEnumerableToDataTable(enumeratedObjects);
         }
 
-        public override T ConvertIEnumerableToDataTable<T>(System.Collections.Generic.IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys)
+        // ReSharper disable once FunctionRecursiveOnAllPaths
+        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
+            string[] primaryKeys)
         {
-            throw new NotImplementedException();
+            return ConvertIEnumerableToDataTable(enumeratedObjects, tableName, primaryKeys);
         }
+
+        public CcToolDataTable ConvertIEnumerableToDataTable(IEnumerable<CcToolData> enumeratedObjects)
+        {
+            return SetupDataTable(enumeratedObjects, this);
+        }
+
+        public CcToolDataTable ConvertIEnumerableToDataTable(IEnumerable<CcToolData> enumeratedObjects, string tableName,
+            string[] primaryKeys)
+        {
+            TableName = tableName;
+            SetPrimaryKey(primaryKeys);
+            return SetupDataTable(enumeratedObjects, this);
+        }
+
+        private static CcToolDataTable SetupDataTable(IEnumerable<CcToolData> enumeratedObjects,
+            CcToolDataTable ccToolDataTable)
+        {
+            foreach (CcToolData ccToolData in enumeratedObjects)
+            {
+                ccToolDataTable.Rows.Add(new object[]
+                {
+                    ccToolData.Section, ccToolData.ServerName, ccToolData.SymbolCode, ccToolData.IsBookA,
+                    ccToolData.BidPrice, ccToolData.AskPrice, ccToolData.Volume, ccToolData.ContractSize,
+                    ccToolData.UpdateDateTime
+                }
+                    );
+            }
+            ccToolDataTable.AcceptChanges();
+            return ccToolDataTable;
+        }
+    }
+
+    public class CcToolData
+    {
+        public string Section { get; set; }
+        public string ServerName { get; set; }
+        public string SymbolCode { get; set; }
+        public ulong IsBookA { get; set; }
+        public decimal BidPrice { get; set; }
+        public decimal AskPrice { get; set; }
+        public decimal Volume { get; set; }
+        public decimal ContractSize { get; set; }
+        public DateTime UpdateDateTime { get; set; }
     }
 
     public class CCtoolRow : DataRow
@@ -114,24 +163,6 @@ namespace qdf.AcceptanceTests.TypedDataTables
             get { return (string) base["ServerName"]; }
             set { base["ServerName"] = value; }
         }
-
-        //public int PlatformId
-        //{
-        //    get { return (int)base["PlatformId"]; }
-        //    set { base["PlatformId"] = value; }
-        //}
-
-        //public int Id
-        //{
-        //    get { return (int)base["Id"]; }
-        //    set { base["Id"] = value; }
-        //}
-
-        //public string DatabaseName
-        //{
-        //    get { return (string)base["DatabaseName"]; }
-        //    set { base["DatabaseName"] = value; }
-        //}
 
         public string SymbolCode
         {
