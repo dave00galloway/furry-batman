@@ -35,7 +35,7 @@
       .xml;
       .dll.config
     </AllowedReferenceRelatedFileExtensions>
-  </PropertyGroup>  
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpari.QDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -146,6 +146,8 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ReuseDealReconciliationSteps.feature.cs</LastGenOutput>
     </None>
+    <None Include="TestData\AllQdfDeals.csv" />
+    <None Include="TestData\CcToolData.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
@@ -164,6 +166,11 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="TestData\AllQdfDeals.csv" />
+    <Content Include="TestData\CcToolData.csv" />
+  </ItemGroup>  
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>
