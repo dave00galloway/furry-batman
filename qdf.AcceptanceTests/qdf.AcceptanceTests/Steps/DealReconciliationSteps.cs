@@ -170,7 +170,7 @@ namespace qdf.AcceptanceTests.Steps
         public void WhenICompareQdfAndCcData()
         {
             var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
-                RedisConnectionHelper.RetrievedDeals);
+                RedisConnectionHelper.RetrievedDeals, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
             ScenarioContext.Current.Pending();
@@ -180,7 +180,7 @@ namespace qdf.AcceptanceTests.Steps
         public void WhenICompareTheLoadedQdfAndCcData()
         {
             var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
-                ScenarioContext.Current["QDFDealData"] as List<Deal>);
+                ScenarioContext.Current["QDFDealData"] as List<Deal>, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
             ScenarioContext.Current.Pending();
