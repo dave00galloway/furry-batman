@@ -39,61 +39,100 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
         public static List<T> CsvToList<T>(this string fileNamePath, string delimiter) where T : new()
         {
+            Dictionary<string, int> columnMap;
+            List<T> parsedFile;
+            long line;
+            Type type;
+            var unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap, out parsedFile, out line, out type);
+            CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile,null);
+            return parsedFile;
+        }
+
+        public static List<T> CsvToList<T>(this string fileNamePath, string delimiter, string[] ignoreProps)
+            where T : new()
+        {
+            Dictionary<string, int> columnMap;
+            List<T> parsedFile;
+            long line;
+            Type type;
+            var unparsedFile = ReadFileAndSetupList(fileNamePath, delimiter, out columnMap, out parsedFile, out line, out type);
+            CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile, ignoreProps);
+            return parsedFile;           
+        }
+
+        private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter, out Dictionary<string, int> columnMap,
+            out List<T> parsedFile, out long line, out Type type) where T : new()
+        {
             string[] unparsedFile = File.ReadAllLines(fileNamePath);
             IList<string> headers = unparsedFile.First().GetValuesFromCsvRow(delimiter);
-            Dictionary<string, int> columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
-            List<T> parsedFile = new List<T>();
-            long line = 1;
-            Type type;
+            columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
+            parsedFile = new List<T>();
+            line = 1;
+            Type getType;
             try
             {
-                type = Type.GetType(typeof(T).FullName, true);
+                getType = Type.GetType(typeof(T).FullName, true);
             }
             catch (Exception e)
             {
-                var assemblyQualifiedName = typeof (T).AssemblyQualifiedName;
+                var assemblyQualifiedName = typeof(T).AssemblyQualifiedName;
 
                 if (assemblyQualifiedName != null)
                 {
-                    type = Type.GetType(assemblyQualifiedName, true);
+                    getType = Type.GetType(assemblyQualifiedName, true);
                 }
                 else
                 {
-                    throw new Exception("could not resolve a fully qualifed name for T ",e);
+                    throw new Exception("could not resolve a fully qualifed name for T ", e);
                 }
             }
+            type = getType;
+            return unparsedFile;
+        }
+
+        private static void CreateObjectsInList<T>(string fileNamePath, string delimiter, IEnumerable<string> unparsedFile, Type type, Dictionary<string, int> columnMap, long line, List<T> parsedFile, string[] ignoreProps) where T : new()
+        {
             foreach (string s in unparsedFile.Skip(1))
             {
-                T newT = default (T);
+                T newT = default(T);
                 try
                 {
                     try
                     {
                         IList<string> row = s.GetValuesFromCsvRow(delimiter);
-                        var instance = (T) Activator.CreateInstance(type);
+                        var instance = (T)Activator.CreateInstance(type);
                         foreach (var pair in columnMap)
                         {
-                            try
+                            if (ignoreProps == null || ignoreProps != null && !ignoreProps.Contains(pair.Key))
                             {
-                                PropertyInfo prop = type.GetProperty(pair.Key);
                                 try
                                 {
-                                    instance.SetValue(prop, row[columnMap[pair.Key]]);
+                                    PropertyInfo prop = type.GetProperty(pair.Key);
+                                    try
+                                    {
+                                        instance.SetValue(prop, row[columnMap[pair.Key]]);
+                                    }
+                                    catch (InvalidCastException i)
+                                    {
+                                        try
+                                        {
+                                            var enumProp = type.GetProperty(pair.Key).PropertyType;
+                                            var value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
+                                            instance.SetValue(prop, value);
+                                        }
+                                        catch (Exception)
+                                        {
+                                            throw new Exception("unable to parse as enum or other value", i);
+                                        }
+                                    }
                                 }
-                                catch (InvalidCastException e)
+                                catch (Exception e)
                                 {
-                                    //var value = Enum.Parse(prop.GetType(), row[columnMap[pair.Key]]);
-                                    var enumProp = type.GetProperty(pair.Key).PropertyType;
-                                    var value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
-                                    instance.SetValue(prop, value);
+                                    e.ConsoleExceptionLogger(
+                                        string.Format(
+                                            "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
+                                            pair.Key, line, s, fileNamePath));
                                 }
-                            }
-                            catch (Exception e)
-                            {
-                                e.ConsoleExceptionLogger(
-                                    string.Format(
-                                        "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
-                                        pair.Key, line, s, fileNamePath));
                             }
                         }
                         newT = instance;
@@ -113,7 +152,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 parsedFile.Add(newT);
                 line++;
             }
-            return parsedFile;
         }
     }
 }

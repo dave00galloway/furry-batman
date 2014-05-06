@@ -99,7 +99,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 }
                 catch (Exception e)
                 {
-                    ConsoleLogger.ConsoleExceptionLogger(e);
+                    e.ConsoleExceptionLogger();
                     propertyInfo[i] = null;
                 }
             }
@@ -115,7 +115,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             catch (Exception e)
             {
-                ConsoleLogger.ConsoleExceptionLogger(e);
+                e.ConsoleExceptionLogger();
                 return Path.GetRandomFileName().Replace(".", "");
             }
         }

@@ -141,7 +141,7 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have loaded QDF deal data from ""(.*)""")]
         public void GivenIHaveLoadedQdfDealDataFrom(string fileNamePath)
         {
-            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",");
+            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",",new []{"Data"});
             ((IEnumerable<Deal>)ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(ScenarioOutputDirectory +
                                                      "AllQdfDeals.csv", true, true);
         }
