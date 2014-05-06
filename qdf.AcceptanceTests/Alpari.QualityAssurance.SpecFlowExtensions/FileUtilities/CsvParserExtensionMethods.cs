@@ -44,7 +44,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             Dictionary<string, int> columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
             List<T> parsedFile = new List<T>();
             long line = 1;
-            Type type = Type.GetType(typeof(T).FullName, true);
+            Type type;
+            try
+            {
+                type = Type.GetType(typeof(T).FullName, true);
+            }
+            catch (Exception e)
+            {
+                var assemblyQualifiedName = typeof (T).AssemblyQualifiedName;
+
+                if (assemblyQualifiedName != null)
+                {
+                    type = Type.GetType(assemblyQualifiedName, true);
+                }
+                else
+                {
+                    throw new Exception("could not resolve a fully qualifed name for T ",e);
+                }
+            }
             foreach (string s in unparsedFile.Skip(1))
             {
                 T newT = default (T);
@@ -59,7 +76,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                             try
                             {
                                 PropertyInfo prop = type.GetProperty(pair.Key);
-                                instance.SetValue(prop, row[columnMap[pair.Key]]);
+                                try
+                                {
+                                    instance.SetValue(prop, row[columnMap[pair.Key]]);
+                                }
+                                catch (InvalidCastException e)
+                                {
+                                    //var value = Enum.Parse(prop.GetType(), row[columnMap[pair.Key]]);
+                                    var enumProp = type.GetProperty(pair.Key).PropertyType;
+                                    var value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
+                                    instance.SetValue(prop, value);
+                                }
                             }
                             catch (Exception e)
                             {

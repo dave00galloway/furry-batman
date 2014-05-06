@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
+﻿using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
@@ -12,6 +8,11 @@ using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
 using qdf.AcceptanceTests.TypedDataTables;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
@@ -136,6 +137,22 @@ namespace qdf.AcceptanceTests.Steps
              * */
             ScenarioContext.Current["ccToolData"] = ccToolData;
         }
+
+        [Given(@"I have loaded QDF deal data from ""(.*)""")]
+        public void GivenIHaveLoadedQdfDealDataFrom(string fileNamePath)
+        {
+            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",");
+            ((IEnumerable<Deal>)ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(ScenarioOutputDirectory +
+                                                     "AllQdfDeals.csv", true, true);
+        }
+
+        [Given(@"I have loaded CCTool data from ""(.*)""")]
+        public void GivenIHaveLoadedCcToolDataFrom(string fileNamePath)
+        {
+            object ccToolData = null;
+            ScenarioContext.Current["ccToolData"] = ccToolData;
+        }
+
 
         [When(@"I retrieve cc_tbl_position_section data from cc")]
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()

@@ -66,6 +66,7 @@
     <Compile Include="Steps\CsvConversionSteps.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
+    <Compile Include="TypeUtilities\EnumExtensions.cs" />
     <Compile Include="TypeUtilities\IEnumerableExtensions.cs" />
     <Compile Include="TypeUtilities\ITypedDataTable.cs" />
     <Compile Include="FileUtilities\CsvColumnDefinition.cs" />
@@ -252,8 +253,8 @@
     <CallTarget Targets="SpicNSpan" />
   </Target>
   <Target Name="SpicNSpan">
-    <RemoveDir Directories="$(OUTDIR)" Condition="Exists('$(OutputPath)')"/>
-    <MakeDir Directories="$(OUTDIR)" Condition="!Exists('$(OutputPath)')"/>
+    <RemoveDir Directories="$(OUTDIR)" Condition="Exists('$(OutputPath)')" />
+    <MakeDir Directories="$(OUTDIR)" Condition="!Exists('$(OutputPath)')" />
   </Target>
   <Target Name="AfterBuild">
     <Copy DestinationFolder="$(OutputPath)\TestData" SourceFiles="@(Content)" SkipUnchangedFiles="false" />

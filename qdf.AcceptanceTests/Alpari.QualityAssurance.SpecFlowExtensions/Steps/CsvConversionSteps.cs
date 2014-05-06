@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System.Collections.Generic;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps

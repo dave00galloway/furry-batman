@@ -112,6 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ArsQdfReconciliationWithLoadedFiles.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\MySqlQUickStart.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +142,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ArsQdfReconciliationWithLoadedFiles.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTests\CumulativeSumTest.xlsx" />
     <None Include="Specs\SelfTests\MySqlQUickStart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -146,8 +155,6 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ReuseDealReconciliationSteps.feature.cs</LastGenOutput>
     </None>
-    <None Include="TestData\AllQdfDeals.csv" />
-    <None Include="TestData\CcToolData.csv" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
@@ -170,7 +177,7 @@
   <ItemGroup>
     <Content Include="TestData\AllQdfDeals.csv" />
     <Content Include="TestData\CcToolData.csv" />
-  </ItemGroup>  
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>
@@ -182,8 +189,8 @@
     <CallTarget Targets="SpicNSpan" />
   </Target>
   <Target Name="SpicNSpan">
-    <RemoveDir Directories="$(OUTDIR)" Condition="Exists('$(OutputPath)')"/>
-    <MakeDir Directories="$(OUTDIR)" Condition="!Exists('$(OutputPath)')"/>
+    <RemoveDir Directories="$(OUTDIR)" Condition="Exists('$(OutputPath)')" />
+    <MakeDir Directories="$(OUTDIR)" Condition="!Exists('$(OutputPath)')" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
