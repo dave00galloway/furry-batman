@@ -100,28 +100,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         {
         }
 
-        /// <summary>
-        ///     Not sure about this design - whatever T is, the return type will always be PersonData
-        ///     could do this for all the non protected/internal methods in this class, so that implementing the interaface gives
-        ///     stubs, but will it actually help?
-        ///     Time might be better spent creating a code generator, or getting DBMetal to work properly!
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="enumeratedObjects"></param>
-        /// <returns></returns>
-// ReSharper disable once FunctionRecursiveOnAllPaths
-        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
-        {
-            return ConvertIEnumerableToDataTable(enumeratedObjects);
-        }
-
-// ReSharper disable once FunctionRecursiveOnAllPaths
-        public  override  T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
-            string[] primaryKeys)
-        {
-            return ConvertIEnumerableToDataTable(enumeratedObjects, tableName, primaryKeys);
-        }
-
         public PersonData ConvertIEnumerableToDataTable(IEnumerable<Person> enumeratedObjects)
         {
             return SetupDataTable(enumeratedObjects, this);

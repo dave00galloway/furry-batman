@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Runtime.Serialization;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.Annotations;
 
 namespace qdf.AcceptanceTests.TypedDataTables
 {
@@ -57,21 +59,25 @@ namespace qdf.AcceptanceTests.TypedDataTables
             CcToolDataTable serialisationInstance = this;
         }
 
+        [UsedImplicitly]
         public CCtoolRow this[int idx]
         {
             get { return (CCtoolRow) Rows[idx]; }
         }
 
+        [UsedImplicitly]
         public void Add(CCtoolRow row)
         {
             Rows.Add(row);
         }
 
+        [UsedImplicitly]
         public void Remove(CCtoolRow row)
         {
             Rows.Remove(row);
         }
 
+        [UsedImplicitly]
         public CCtoolRow GetNewRow()
         {
             var row = (CCtoolRow) NewRow();
@@ -89,19 +95,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
             return new CCtoolRow(builder);
         }
 
-        // ReSharper disable once FunctionRecursiveOnAllPaths
-        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
-        {
-            return ConvertIEnumerableToDataTable(enumeratedObjects);
-        }
-
-        // ReSharper disable once FunctionRecursiveOnAllPaths
-        public override T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
-            string[] primaryKeys)
-        {
-            return ConvertIEnumerableToDataTable(enumeratedObjects, tableName, primaryKeys);
-        }
-
+        [UsedImplicitly]
         public CcToolDataTable ConvertIEnumerableToDataTable(IEnumerable<CcToolData> enumeratedObjects)
         {
             return SetupDataTable(enumeratedObjects, this);
@@ -152,6 +146,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
         {
         }
 
+        [UsedImplicitly]
         public string Section
         {
             get { return (string) base["Section"]; }
@@ -164,12 +159,14 @@ namespace qdf.AcceptanceTests.TypedDataTables
             set { base["ServerName"] = value; }
         }
 
+        [UsedImplicitly]
         public string SymbolCode
         {
             get { return (string) base["SymbolCode"]; }
             set { base["SymbolCode"] = value; }
         }
 
+        [UsedImplicitly]
         public ulong IsBookA
         {
             get { return (ulong) base["IsBookA"]; }
@@ -188,12 +185,14 @@ namespace qdf.AcceptanceTests.TypedDataTables
             set { base["AskPrice"] = value; }
         }
 
+        [UsedImplicitly]
         public decimal Volume
         {
             get { return (decimal) base["Volume"]; }
             set { base["Volume"] = value; }
         }
 
+        [UsedImplicitly]
         public decimal ContractSize
         {
             get { return (decimal) base["ContractSize"]; }

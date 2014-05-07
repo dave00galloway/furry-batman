@@ -108,11 +108,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
 //        #endregion
 
-        public abstract T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
-            where T : System.Data.DataTable, new();
+        //public abstract T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects)
+        //    where T : System.Data.DataTable, new();
 
-        public abstract T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
-            string[] primaryKeys) where T : System.Data.DataTable, new();
+        //public abstract T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName,
+        //    string[] primaryKeys) where T : System.Data.DataTable, new();
 
         // ReSharper disable once MemberCanBePrivate.Global - used externally
         public void SetPrimaryKey(string[] primaryKeyColumns)

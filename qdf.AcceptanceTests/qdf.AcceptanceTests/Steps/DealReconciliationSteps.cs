@@ -184,6 +184,18 @@ namespace qdf.AcceptanceTests.Steps
                 ScenarioContext.Current["QDFDealData"] as List<Deal>, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
+            var keys = new[] {"PositionName", "Book", "Instrument", "ServerId", "TimeStamp"};
+            CcToolPositionDataTable ccToolPositionDataTable =
+                new CcToolPositionDataTable().ConvertIEnumerableToDataTable(
+                    aggregator.CcToolPositions.Where(x => x.ServerId != TradingServer.Unknown.ToString()),
+                    "CcToolPositions",
+                    keys);
+
+            QdfPositionDataTable qdfPositionDataTable =
+                new QdfPositionDataTable().ConvertIEnumerableToDataTable(aggregator.QdfDealPositions,
+                    "QdfPositionDataTable", keys);
+            DataTableComparison diffs = ccToolPositionDataTable.Compare(qdfPositionDataTable);
+            ScenarioContext.Current["diffs"] = diffs;
         }
 
 

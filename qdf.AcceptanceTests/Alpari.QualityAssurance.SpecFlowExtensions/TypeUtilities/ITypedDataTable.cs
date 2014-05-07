@@ -10,10 +10,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
     /// </summary>
     public interface ITypedDataTable
     {
-        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new();
+        //can't actually think of a way of iomplemeting these without gnerating recursive call errors
+        //T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects) where T : DataTable, new();
 
-        T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys)
-            where T : DataTable, new();
+        //T ConvertIEnumerableToDataTable<T>(IEnumerable<T> enumeratedObjects, string tableName, string[] primaryKeys)
+        //    where T : DataTable, new();
 
         #region Constructor and StronglyTypedDataTable required methods
 

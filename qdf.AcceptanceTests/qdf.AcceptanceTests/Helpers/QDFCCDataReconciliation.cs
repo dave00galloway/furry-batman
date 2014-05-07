@@ -330,50 +330,6 @@ namespace qdf.AcceptanceTests.Helpers
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
     }
 
-    public class QdfDealPosition : IAnalyzeablePosition
-    {
-        public string PositionName { get; set; }
-
-        public Book Book { get; set; }
-
-        public string Instrument { get; set; }
-
-        public string ServerId
-        {
-            get { return Enum.ToObject(typeof(TradingServer),Server).ToString(); }
-            set { Server = (TradingServer) Enum.Parse(typeof(TradingServer), value); }
-        }
-
-        public TradingServer Server { get; set; }
-
-        public DateTime TimeStamp { get; set; }
-
-        public List<Deal> QdfDeals { get; set; }
-
-        /// <summary>
-        /// QdfDealCount is used when outputting deals to csv so the count of the deals for the position can be obtained
-        /// </summary>
-        [UsedImplicitly]
-        public int QdfDealCount
-        {
-            get { return QdfDeals.Count(); }
-        }
-
-        public decimal Position { get; private set; }
-
-        /// <summary>
-        /// CumulativePosition is used when outputting deals to csv and may be used as a comparison
-        /// </summary>
-        public decimal CumulativePosition { [UsedImplicitly] get; set; }
-
-        public decimal PositionDelta { get; set; }
-
-        public void CalculatePosition()
-        {
-            QdfDeals.ForEach(delegate(Deal deal) { Position += deal.Volume*(deal.Side == Side.Buy ? 1 : -1); });
-        }
-    }
-
     /// <summary>
     /// common fields between QDF and CC Data needed for anaylysis
     /// </summary>
@@ -387,41 +343,6 @@ namespace qdf.AcceptanceTests.Helpers
         decimal Position { get; }
         decimal PositionDelta { get; }
         void CalculatePosition();
-    }
-
-    public class CcToolPosition : IAnalyzeablePosition
-    {
-        public string PositionName { get; set; }
-
-        public Book Book { get; set; }
-
-        public string Instrument { get; set; }
-
-        public string ServerId { get; set; }
-
-        //public Side Side { get; set; }
-
-        public DateTime TimeStamp { get; set; }
-
-        /// <summary>
-        /// CcPositionCount is used when positions to csv so the count of the deals for the position can be obtained
-        /// </summary>
-        [UsedImplicitly]
-        public int CcPositionCount
-        {
-            get { return Positions.Count(); }
-        }
-
-        public List<DataRow> Positions { get; set; }
-
-        public decimal Position { get; private set; }
-
-        public decimal PositionDelta { get; set; }
-
-        public void CalculatePosition()
-        {
-            Positions.ForEach(delegate(DataRow position) { Position += (decimal) position["VolumeSize"]; });
-        }
     }
 
     public interface IAnalyzeablePositionGrouping

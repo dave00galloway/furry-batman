@@ -253,8 +253,8 @@
     <CallTarget Targets="SpicNSpan" />
   </Target>
   <Target Name="SpicNSpan">
-    <RemoveDir Directories="$(OUTDIR)" Condition="Exists('$(OutputPath)')" />
-    <MakeDir Directories="$(OUTDIR)" Condition="!Exists('$(OutputPath)')" />
+    <RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" />
+    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
   </Target>
   <Target Name="AfterBuild">
     <Copy DestinationFolder="$(OutputPath)\TestData" SourceFiles="@(Content)" SkipUnchangedFiles="false" />
