@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// send the datatable to csv file. if the file exosts, append and don't write headers
+        ///     send the datatable to csv file. if the file exosts, append and don't write headers
         /// </summary>
         /// <param name="dataTable"></param>
         /// <param name="fileNamePath"></param>
@@ -37,7 +37,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             {
                 string headers = String.Join(",",
                     (dataTable.Columns.Cast<DataColumn>().Select(dataColumn => dataColumn.ColumnName).ToArray()));
-                if (headers.Length>0)
+                if (headers.Length > 0)
                 {
                     csvFile.AppendLine(headers);
                 }
@@ -45,7 +45,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             AppendRowValuesAsCsvRecords(dataTable, csvFile);
             if (File.Exists(fileNamePath))
             {
-                File.AppendAllText(fileNamePath,csvFile.ToString());
+                File.AppendAllText(fileNamePath, csvFile.ToString());
             }
             else
             {
@@ -69,8 +69,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// </summary>
         /// <param name="dtBase"></param>
         /// <param name="compareWith"></param>
+        /// <param name="excludeColumns"></param>
+        /// <param name="includeColumns"></param>
         /// <returns></returns>
-        public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith)
+        public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
+            string[] excludeColumns = null, string[] includeColumns = null)
             //, DataColumn[] keyColumns)
         {
             DataTableComparer<DataRow>.Instance.ResetInstance();
@@ -95,9 +98,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
 
                 //get the non-primary key field columns
-                List<DataColumn> columnsToCompare = (from DataColumn col in dtBase.Columns
+                var columnQuery = from DataColumn col in dtBase.Columns
                     where dtBase.PrimaryKey.Contains(col) == false
-                    select col).ToList();
+                    //where excludeColumns != null && !excludeColumns.Contains(col.ColumnName)
+                    //where includeColumns != null && includeColumns.Contains(col.ColumnName)
+                    select col;
+                if (excludeColumns != null)
+                {
+                    columnQuery = columnQuery.Where(col => !excludeColumns.Contains(col.ColumnName));
+                }
+                if (includeColumns != null)
+                {
+                    columnQuery = columnQuery.Where(col => includeColumns.Contains(col.ColumnName));
+                }
+                List<DataColumn> columnsToCompare = columnQuery.ToList();
 
                 //when the format for this is agreed, could create a strongly typed datatable for the comparisons
 

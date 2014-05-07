@@ -194,7 +194,8 @@ namespace qdf.AcceptanceTests.Steps
             QdfPositionDataTable qdfPositionDataTable =
                 new QdfPositionDataTable().ConvertIEnumerableToDataTable(aggregator.QdfDealPositions,
                     "QdfPositionDataTable", keys);
-            DataTableComparison diffs = ccToolPositionDataTable.Compare(qdfPositionDataTable);
+            var colsToExclude = new[] {"CcPositionCount", "Positions", "Position"};
+            DataTableComparison diffs = ccToolPositionDataTable.Compare(qdfPositionDataTable, colsToExclude);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
@@ -202,7 +203,9 @@ namespace qdf.AcceptanceTests.Steps
         [Then(@"the data should match")]
         public void ThenTheDataShouldMatch()
         {
-            ScenarioContext.Current.Pending();
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+
+            diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
 
         [Then(@"the cc_tbl_position_section data from cc has (.*) records")]

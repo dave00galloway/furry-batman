@@ -20,8 +20,6 @@ namespace qdf.AcceptanceTests.TypedDataTables
 
         public string ServerId { get; set; }
 
-        //public Side Side { get; set; }
-
         public DateTime TimeStamp { get; set; }
 
         /// <summary>
@@ -126,7 +124,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
                 {
                     ccToolPosition.PositionName, ccToolPosition.Book, ccToolPosition.Instrument, ccToolPosition.ServerId,
                     ccToolPosition.TimeStamp, ccToolPosition.CcPositionCount, ccToolPosition.Positions,
-                    ccToolPosition.PositionDelta
+                    ccToolPosition.Position,ccToolPosition.PositionDelta
                 }
                     );
             }
@@ -145,7 +143,14 @@ namespace qdf.AcceptanceTests.TypedDataTables
         public string PositionName
         {
             get { return (string) base["PositionName"]; }
-            set { base["PositionName"] = value; }
+            set
+            {
+                //if (value == "A AUDUSD Mt4Classic2 2014-05-06 08:09:00")
+                //{
+                //    Console.WriteLine(this.ToString());
+                //}
+                base["PositionName"] = value;
+            }
         }
 
         [UsedImplicitly]
@@ -194,7 +199,14 @@ namespace qdf.AcceptanceTests.TypedDataTables
         public decimal PositionDelta
         {
             get { return (decimal) base["PositionDelta"]; }
-            set { base["PositionDelta"] = value; }
+            set
+            {
+                //if (this.PositionName == "A AUDUSD Mt4Classic2 2014-05-06 08:09:00")
+                //{
+                //    Console.WriteLine(this.ToString());
+                //}
+                base["PositionDelta"] = value;
+            }
         }
     }
 }

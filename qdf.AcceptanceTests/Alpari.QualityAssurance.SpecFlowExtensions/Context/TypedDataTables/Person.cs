@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Runtime.Serialization;
+using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
 {
     public class Person
     {
-        public ulong Id { get; set; }
-        public string Forenames { get; set; }
-        public string Lastname { get; set; }
-        public UInt16 Age { get; set; }
-        public string Occupation { get; set; }
+        public ulong Id { get; [UsedImplicitly] set; }
+        public string Forenames { get; [UsedImplicitly] set; }
+        public string Lastname { get; [UsedImplicitly] set; }
+        public UInt16 Age { get; [UsedImplicitly] set; }
+        public string Occupation { get; [UsedImplicitly] set; }
     }
 
     [System.ComponentModel.DesignerCategory("")]
@@ -48,7 +49,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             get { return (PersonDataRow) Rows[idx]; }
         }
 
-        protected override void SetupColumns()
+        protected sealed override void SetupColumns()
         {
             Columns.Add(new DataColumn("ID", typeof (ulong)));
             Columns.Add(new DataColumn("Forenames", typeof (string)));
