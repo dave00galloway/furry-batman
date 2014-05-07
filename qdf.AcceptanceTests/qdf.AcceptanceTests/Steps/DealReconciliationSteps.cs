@@ -175,7 +175,6 @@ namespace qdf.AcceptanceTests.Steps
                 RedisConnectionHelper.RetrievedDeals, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
-            ScenarioContext.Current.Pending();
         }
 
         [When(@"I compare the loaded QDF and CC data")]
@@ -185,7 +184,6 @@ namespace qdf.AcceptanceTests.Steps
                 ScenarioContext.Current["QDFDealData"] as List<Deal>, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
-            ScenarioContext.Current.Pending();
         }
 
 

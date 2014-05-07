@@ -64,7 +64,7 @@ namespace qdf.AcceptanceTests.Helpers
         {
             CalculateCcVolumeSize();
             CcToolPositionGroupings = CombineCcSectionData();
-            RemapCcServerIdsToQdfServerIds();
+            //RemapCcServerIdsToQdfServerIds();
             CalculateCcDeltas();
             //Console.WriteLine("Print CC Deltas");
             //Console.WriteLine("PositionName, Position, PositionDelta");
@@ -257,11 +257,11 @@ namespace qdf.AcceptanceTests.Helpers
                 {
                     PositionName =
                         String.Format("{0} {1} {2} {3}", snapshotGroup.Key.Book, snapshotGroup.Key.Instrument,
-                            snapshotGroup.Key.ServerId,
-                            snapshotGroup.Key.TimeStamp.ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
+                            RemapCcServerIdToQdfServerId(snapshotGroup.Key.ServerId),
+                            snapshotGroup.Key.TimeStamp.ConvertDateTimeToMySqlDateFormatToSeconds()),//.ToString(DateTimeUtils.MySqlDateFormatToSeconds)),
                     Book = snapshotGroup.Key.Book,
                     Instrument = snapshotGroup.Key.Instrument,
-                    ServerId = snapshotGroup.Key.ServerId,
+                    ServerId = RemapCcServerIdToQdfServerId(snapshotGroup.Key.ServerId),
                     TimeStamp = snapshotGroup.Key.TimeStamp,
                     Positions = snapshotGroup.ToList()
                 }).OrderBy(x => x.PositionName).ThenBy(x => x.TimeStamp).ToList();
@@ -294,6 +294,11 @@ namespace qdf.AcceptanceTests.Helpers
             return positionGroupingQuery.ToList();
         }
 
+        private string RemapCcServerIdToQdfServerId(string ccToolServer)
+        {
+            return ReferenceData.Instance.CcToQdfServerMapping[ccToolServer];
+        }
+
         private void CalculateCcDeltas()
         {
             foreach (CcToolPositionGrouping grouping in CcToolPositionGroupings)
@@ -307,13 +312,13 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
 
-        private void RemapCcServerIdsToQdfServerIds()
-        {
-            foreach (CcToolPosition ccToolPosition in CcToolPositions)
-            {
-                ccToolPosition.ServerId = ReferenceData.Instance.CcToQdfServerMapping[ccToolPosition.ServerId];
-            }
-        }
+        //private void RemapCcServerIdsToQdfServerIds()
+        //{
+        //    foreach (CcToolPosition ccToolPosition in CcToolPositions)
+        //    {
+        //        ccToolPosition.ServerId = ReferenceData.Instance.CcToQdfServerMapping[ccToolPosition.ServerId];
+        //    }
+        //}
         
 //// ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
 //        private static string GetCcToolPositionName(DataRow row)
