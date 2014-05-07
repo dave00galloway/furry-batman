@@ -93,15 +93,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
                 IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
 
-                //todo:- allow an ovelroad to specify a delegate which writes to csv or db instead of console
                 // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
 
 
                 //get the non-primary key field columns
                 var columnQuery = from DataColumn col in dtBase.Columns
                     where dtBase.PrimaryKey.Contains(col) == false
-                    //where excludeColumns != null && !excludeColumns.Contains(col.ColumnName)
-                    //where includeColumns != null && includeColumns.Contains(col.ColumnName)
                     select col;
                 if (excludeColumns != null)
                 {
@@ -115,7 +112,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
                 //when the format for this is agreed, could create a strongly typed datatable for the comparisons
 
-                DataTable comparisonDiffs = SetupComparisonDiffsTable();
+                DataTable comparisonDiffs = SetupComparisonDiffsTable(dtBase.PrimaryKey);
                 comparison.FieldDifferences = comparisonDiffs;
                 foreach (DataRow row in commonRows)
                 {
@@ -148,30 +145,57 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        public static DataTable SetupComparisonDiffsTable()
+        private static DataTable SetupComparisonDiffsTable(DataColumn[] primaryKeys)
         {
             var table = new DataTable("comparsionDiffs");
+            for (int i = 0; i < primaryKeys.Count(); i++)
+            {
+                var keyColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = string.Format("comparisonKey{0}", i) };
+                table.Columns.Add(keyColumn);                
+            }
 
-            var column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "comparisonKey"};
+            var column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "column" };
             table.Columns.Add(column);
 
-            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "column"};
+            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "original" };
             table.Columns.Add(column);
 
-            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "original"};
+            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "newValue" };
             table.Columns.Add(column);
 
-            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "newValue"};
+            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "difference" };
             table.Columns.Add(column);
 
-            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "difference"};
-            table.Columns.Add(column);
-
-            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "type"};
+            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "type" };
             table.Columns.Add(column);
 
             return table;
         }
+
+        //public static DataTable SetupComparisonDiffsTable()
+        //{
+        //    var table = new DataTable("comparsionDiffs");
+
+        //    var column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "comparisonKey"};
+        //    table.Columns.Add(column);
+
+        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "column"};
+        //    table.Columns.Add(column);
+
+        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "original"};
+        //    table.Columns.Add(column);
+
+        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "newValue"};
+        //    table.Columns.Add(column);
+
+        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "difference"};
+        //    table.Columns.Add(column);
+
+        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "type"};
+        //    table.Columns.Add(column);
+
+        //    return table;
+        //}
 
         public static void CompareWith(this object p1, object p2, DataColumn column, object[] primaryKeyValues,
             DataTable diffsTable)
@@ -319,8 +343,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             if (difference != null)
             {
                 DataRow diffRow = diffsTable.NewRow();
-                //join the primary key values
-                diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
+                for (int i = 0; i < primaryKeyValues.Count(); i++)
+                {
+                    diffRow[string.Format("comparisonKey{0}", i)] = primaryKeyValues[i];
+                }
+                //diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
                 diffRow["column"] = column.ColumnName;
                 diffRow["original"] = p1;
                 diffRow["newValue"] = p2;
@@ -384,11 +411,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        //public static DataTableComparison Compare<T>(this T dtBase, T compareWith) where T : DataTable,new()
-        //{
-        //    return dtBase.Compare(compareWith);
-        //}
-
         /// <summary>
         ///     class providing a comparer for Linq functions Except, intersect, distinct etc for Data tables
         /// </summary>
@@ -435,21 +457,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             public int GetHashCode(T rowBase)
             {
-                //var hashcode = 0;
                 List<object> keyValues = GetKeyValues(rowBase);
                 IEnumerable<int> hashCodes = from value in keyValues
                     select value.GetHashCode();
-                //hashcodeBase = hashCodes.ToList().GetHashCode();
-                //var hashcodeList = hashCodes.ToList();
-                //hashcodeBase = hashcodeList.GetHashCode();
-                //hashing the list doesn't give reliable hashcodes, so iterate over the values, multiply them and then hash the result
+                //iterate over the values, multiply them and then hash the result
                 int hashcode = hashCodes.Aggregate(1, (current, hash) => current*hash);
-                //foreach (var hash in hashCodes)
-                //{
-                //    hashcodeBase *= hash;
-                //}
-                //hashcode = hashcodeBase.GetHashCode();
-                // always seems to return the same value as the input, so could save a method call here
                 return hashcode;
             }
 
@@ -463,7 +475,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             private static List<object> GetKeyValues(T rowBase)
             {
-                //could store the primary key in a static field too (and clear it in the ResetInstance method)
+                //could store the primary key in a static field too (and clear it in the ResetInstance method), but it's probably not worth creating the field, which would have to be queired anyway
                 IEnumerable<object> getKeyValues = from keyColumn in rowBase.Table.PrimaryKey
                     select rowBase[keyColumn.ColumnName];
 
