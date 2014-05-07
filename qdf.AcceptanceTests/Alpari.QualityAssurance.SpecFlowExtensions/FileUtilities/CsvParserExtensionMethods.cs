@@ -113,22 +113,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                                 try
                                 {
                                     PropertyInfo prop = type.GetProperty(pair.Key);
-                                    try
+                                    if (prop.PropertyType.BaseType.Name == "Enum")
+                                    {
+                                        Type enumProp = type.GetProperty(pair.Key).PropertyType;
+                                        object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
+                                        instance.SetValue(prop, value);                                        
+                                    }
+                                    else
                                     {
                                         instance.SetValue(prop, row[columnMap[pair.Key]]);
-                                    }
-                                    catch (InvalidCastException i)
-                                    {
-                                        try
-                                        {
-                                            Type enumProp = type.GetProperty(pair.Key).PropertyType;
-                                            object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
-                                            instance.SetValue(prop, value);
-                                        }
-                                        catch (Exception)
-                                        {
-                                            throw new Exception("unable to parse as enum or other value", i);
-                                        }
                                     }
                                 }
                                 catch (Exception e)

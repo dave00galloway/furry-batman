@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Linq;
 using System.Linq;
 using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
@@ -154,6 +155,7 @@ namespace qdf.AcceptanceTests.Steps
                 new CcToolDataTable().ConvertIEnumerableToDataTable(fileNamePath.CsvToList<CcToolData>(","),
                     "CcToolDataTable", new[] { "Section", "ServerName", "SymbolCode", "IsBookA", "UpdateDateTime" });
             ScenarioContext.Current["CcToolDataTable"] = ccToolData;
+            ccToolData.ExportData(ExportTypes.Csv, new[] { string.Format("{0}CcToolData.csv", ScenarioOutputDirectory) });
         }
 
 

@@ -131,3 +131,11 @@ qdf.AcceptanceTests/packages/FluentAssertions.3.0.107/lib/windowsphone8/FluentAs
 /qdf.AcceptanceTests/packages/BookSleeve.1.3.41
 /qdf.AcceptanceTests/packages/FluentAssertions.3.0.107
 /qdf.AcceptanceTests/packages/Pickles.0.13.1.0
+SpecFlow.NUnit.1.1.1
+NUnit.Runners.2.6.3
+qdf.AcceptanceTests/Microsoft.VisualBasic.pdb
+qdf.AcceptanceTests/System.Configuration.pdb
+qdf.AcceptanceTests/System.Core.pdb
+qdf.AcceptanceTests/System.Data.pdb
+qdf.AcceptanceTests/System.pdb
+qdf.AcceptanceTests/System.Xml.pdb

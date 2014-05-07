@@ -57,7 +57,7 @@ namespace qdf.AcceptanceTests.Helpers
             //            x.PositionDelta));
             //QdfDealPositions = QdfDealPositions.OrderBy(x=>x.PositionName).ThenBy(x => x.TimeStamp).ToList();
             QdfDealPositions = QdfDealPositions.OrderBy(x => x.PositionName).ToList(); //don't need the sort by timestamp as it's part of the position name
-            QdfDealPositions.EnumerableToCsv(FileOutputDirectory + "CalculateQdfDeltas.csv", true);
+            QdfDealPositions.EnumerableToCsv(string.Format("{0}CalculateQdfDeltas.csv", FileOutputDirectory), true);
         }
 
         public void AggregateCcToolData()
@@ -66,12 +66,13 @@ namespace qdf.AcceptanceTests.Helpers
             CcToolPositionGroupings = CombineCcSectionData();
             RemapCcServerIdsToQdfServerIds();
             CalculateCcDeltas();
-            Console.WriteLine("Print CC Deltas");
-            Console.WriteLine("PositionName, Position, PositionDelta");
-            CcToolPositions.ForEach(
-                x =>
-                    Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position,
-                        x.PositionDelta));
+            //Console.WriteLine("Print CC Deltas");
+            //Console.WriteLine("PositionName, Position, PositionDelta");
+            //CcToolPositions.ForEach(
+            //    x =>
+            //        Console.WriteLine("{0} {1} {2}", x.PositionName, x.Position,
+            //            x.PositionDelta));
+            CcToolPositions.EnumerableToCsv(string.Format("{0}CalculateCcDeltas.csv", FileOutputDirectory),true);
         }
 
         private static decimal[] GetDeltas(IEnumerable<decimal> positionValues)
@@ -110,7 +111,7 @@ namespace qdf.AcceptanceTests.Helpers
             //        position.QdfDeals.Count, position.Position);
             //}
             aggregatedDeals.ForEach(position=>position.CalculatePosition());
-            aggregatedDeals.EnumerableToCsv(FileOutputDirectory+"GroupedQdfDeals.csv",true);
+            //aggregatedDeals.EnumerableToCsv(string.Format("{0}GroupedQdfDeals.csv", FileOutputDirectory),true);
 
             //group the positions by the above factors except Timestamp, then order by timestamp
             var groupedAggregation = aggregatedDeals.GroupBy(x => new
@@ -226,12 +227,13 @@ namespace qdf.AcceptanceTests.Helpers
                 row["VolumeSize"] = (decimal) row["Volume"]*(decimal) row["ContractSize"];
             }
 
-            foreach (DataRow row in rowQuery)
-            {
-                Console.WriteLine("CC position {0} has a value of {1}",
-                    GetCcToolPositionName(row),
-                    row["VolumeSize"]);
-            }
+            //foreach (DataRow row in rowQuery)
+            //{
+            //    Console.WriteLine("CC position {0} has a value of {1}",
+            //        GetCcToolPositionName(row),
+            //        row["VolumeSize"]);
+            //}
+            //rowQuery.EnumerableToCsv(string.Format("{0}CalculateCcVolumeSize.csv", FileOutputDirectory), true);
         }
 
         private List<CcToolPositionGrouping> CombineCcSectionData()
@@ -264,12 +266,13 @@ namespace qdf.AcceptanceTests.Helpers
                     Positions = snapshotGroup.ToList()
                 }).OrderBy(x => x.PositionName).ThenBy(x => x.TimeStamp).ToList();
 
-            foreach (CcToolPosition position in aggregatedPositions)
-            {
-                position.CalculatePosition();
-                Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}",
-                    position.PositionName, position.Positions.Count, position.Position);
-            }
+            //foreach (CcToolPosition position in aggregatedPositions)
+            //{
+            //    position.CalculatePosition();
+            //    Console.WriteLine("CCTool position {0} contains {1} positions and has a value of {2}",
+            //        position.PositionName, position.Positions.Count, position.Position);
+            //}
+            aggregatedPositions.ForEach(position=>position.CalculatePosition());
             CcToolPositions = aggregatedPositions;
             var positionGroupingQuery = (from position in aggregatedPositions
                 group position by new
@@ -312,12 +315,12 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
         
-        // ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
-        private static string GetCcToolPositionName(DataRow row)
-        {
-            return String.Format("{0} {1} {2} {3}", row["IsBookA"], row["SymbolCode"], row["ServerName"],
-                Convert.ToDateTime(row["UpdateDateTime"]).ToString(DateTimeUtils.MySqlDateFormatToSeconds));
-        }
+//// ReSharper disable once UnusedMember.Local- used in code that is currently commented out, but will be more generally applicable
+//        private static string GetCcToolPositionName(DataRow row)
+//        {
+//            return String.Format("{0} {1} {2} {3}", row["IsBookA"], row["SymbolCode"], row["ServerName"],
+//                Convert.ToDateTime(row["UpdateDateTime"]).ToString(DateTimeUtils.MySqlDateFormatToSeconds));
+//        }
 
         //check console output by dumping to excel, sorting and applying this formula =IF(CONCATENATE(C2,D2,E2,F2,G2)<>CONCATENATE(C1,D1,E1,F1,G1),"ok","dup")
     }
@@ -394,6 +397,15 @@ namespace qdf.AcceptanceTests.Helpers
         //public Side Side { get; set; }
 
         public DateTime TimeStamp { get; set; }
+
+        /// <summary>
+        /// CcPositionCount is used when positions to csv so the count of the deals for the position can be obtained
+        /// </summary>
+        [UsedImplicitly]
+        public int CcPositionCount
+        {
+            get { return Positions.Count(); }
+        }
 
         public List<DataRow> Positions { get; set; }
 
