@@ -118,6 +118,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfReconciliationWithLoadedFiles.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\LoadDailySnapshot.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoadDailySnapshot.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTests\GetDailySnapshotFromCC.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetDailySnapshotFromCC.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\MySqlQUickStart.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -150,6 +160,14 @@
       <LastGenOutput>ArsQdfReconciliationWithLoadedFiles.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTests\CumulativeSumTest.xlsx" />
+    <None Include="Specs\SelfTests\LoadDailySnapshot.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoadDailySnapshot.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTests\GetDailySnapshotFromCC.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GetDailySnapshotFromCC.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTests\MySqlQUickStart.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MySqlQUickStart.feature.cs</LastGenOutput>

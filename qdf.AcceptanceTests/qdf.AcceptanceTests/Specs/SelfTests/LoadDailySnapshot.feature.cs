@@ -19,21 +19,21 @@ namespace qdf.AcceptanceTests.Specs.SelfTests
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ArsQdfReconciliationWithLoadedFiles")]
-    public partial class ArsQdfReconciliationWithLoadedFilesFeature
+    [NUnit.Framework.DescriptionAttribute("LoadDataOnce")]
+    public partial class LoadDataOnceFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ArsQdfReconciliationWithLoadedFiles.feature"
+#line 1 "LoadDailySnapshot.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ArsQdfReconciliationWithLoadedFiles", "In order to test the reconciliation functionality\r\nAs a tester\r\nI want to be able" +
-                    " to re-use the same input data", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LoadDataOnce", "In order to avoid multiple data loads\r\nAs a tester\r\nI want to be to load data onc" +
+                    "e for a feature and have it available for all scenarios", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -65,23 +65,46 @@ namespace qdf.AcceptanceTests.Specs.SelfTests
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Load Test Data and Compare")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        public virtual void LoadTestDataAndCompare()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Test Data and Compare", new string[] {
-                        "mytag"});
+#line 6
 #line 7
-this.ScenarioSetup(scenarioInfo);
+ testRunner.Given("I have already loaded QDF deal data from \"TestData\\AllQdfDeals.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
- testRunner.Given("I have loaded QDF deal data from \"TestData\\AllQdfDeals.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.And("I have already loaded CCTool data from \"TestData\\CcToolData.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 9
- testRunner.And("I have loaded CCTool data from \"TestData\\CcToolData.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 10
- testRunner.When("I compare the loaded QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
- testRunner.Then("the data should not match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("I have already aggregated the QdfDeal Data and CcToolData", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load Test Data and Check it\'s there")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void LoadTestDataAndCheckItSThere()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Test Data and Check it\'s there", new string[] {
+                        "mytag"});
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 13
+ testRunner.Then("there are 350 deals in AllQdfDeals and 3722 records in CcToolData", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load Test Data and Check it\'s there again")]
+        public virtual void LoadTestDataAndCheckItSThereAgain()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Test Data and Check it\'s there again", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 16
+ testRunner.Then("there are 350 deals in AllQdfDeals and 3722 records in CcToolData", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

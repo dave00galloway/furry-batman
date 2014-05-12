@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using Alpari.QualityAssurance.SecureMyPassword;
+using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
@@ -17,11 +19,56 @@ namespace qdf.AcceptanceTests.Steps
         public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
 
         /// <summary>
+        ///     Clear the test output directory for the feature
+        ///     to limit this set the tag to
+        ///     //[BeforeFeature("CreateOutput")]
+        ///     and apply tags to features
+        /// </summary>
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            FeatureContext.Current["FeatureOutputDirectory"] = ConfigurationManager.AppSettings["reportRoot"] +
+                                                               TestRunContext.StaticFriendlyTime + @"\" +
+                                                               FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
+                                                               @"\";
+            ((string)FeatureContext.Current["FeatureOutputDirectory"]).ClearOutputDirectory();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            TestRunContext.Instance["TestRunContext"] = TestRunContext.Instance;
+        }
+
+        /// <summary>
+        ///     Clear the test output directory for the feature
+        ///     to limit this set the tag to
+        ///     //[BeforeScenario("CreateOutput")]
+        ///     and apply tags to features
+        /// </summary>
+        [BeforeScenario]
+        public static void BeforeScenario()
+        {
+            ScenarioContext.Current["ScenarioOutputDirectory"] =
+                (string)FeatureContext.Current["FeatureOutputDirectory"] +
+                ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
+            (ScenarioOutputDirectory).ClearOutputDirectory();
+        }
+
+        /// <summary>
         /// TODO:- move to MasterStepBase, add setter and bypass ScenarioContext altogether?
         /// </summary>
         protected static string ScenarioOutputDirectory
         {
             get { return (string)ScenarioContext.Current["ScenarioOutputDirectory"]; }
+        }
+
+        /// <summary>
+        /// TODO:- move to MasterStepBase, add setter and bypass FeatureContext altogether?
+        /// </summary>
+        protected static string FeatureOutputDirectory
+        {
+            get { return (string)FeatureContext.Current["FeatureOutputDirectory"]; }
         }
 
         public static void SetupQdfDealQuery(QdfDealParameters entry)

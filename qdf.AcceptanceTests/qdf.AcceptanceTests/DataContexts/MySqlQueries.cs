@@ -48,5 +48,25 @@ namespace qdf.AcceptanceTests.DataContexts
         {
             return String.Format("SELECT * FROM cc_tbl_position_section");
         }
+
+        /// <summary>
+        /// return the snapshot time closest to midday on the specified date
+        /// </summary>
+        /// <param name="snapshotDate"></param>
+        /// <returns></returns>
+        public static string CcDailySnapshotTimeQuery(DateTime snapshotDate)
+        {
+            return string.Format(
+                "SELECT" +
+                "s.UpdateDateTime" +
+                "FROM cc.cc_tbl_snapshot s" +
+                "WHERE s.UpdateDateTime BETWEEN STR_TO_DATE('{0} 11:59:00', '%Y-%m-%d %H:%i:%s') AND STR_TO_DATE('{0} 12:59:00', '%Y-%m-%d %H:%i:%s')" +
+                "ORDER BY ABS(STR_TO_DATE('{0} 12:00:00', '%Y-%m-%d %H:%i:%s') - s.UpdateDateTime) LIMIT 1;", snapshotDate);
+                //SELECT
+                //  s.UpdateDateTime
+                //FROM cc.cc_tbl_snapshot s
+                //  WHERE s.UpdateDateTime BETWEEN STR_TO_DATE('2014-04-19 11:59:00', '%Y-%m-%d %H:%i:%s') AND STR_TO_DATE('2014-04-19 12:59:00', '%Y-%m-%d %H:%i:%s')
+                //ORDER BY ABS(STR_TO_DATE('2014-05-10 12:00:00', '%Y-%m-%d %H:%i:%s') - s.UpdateDateTime) LIMIT 1;
+        }
     }
 }

@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Data.Linq;
 using System.Linq;
 using Alpari.QDF.Domain;
-using Alpari.QualityAssurance.SpecFlowExtensions.Context;
+// using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
@@ -27,43 +26,6 @@ namespace qdf.AcceptanceTests.Steps
         private IDataContextSubstitute ContextSubstitute { get; set; }
         private QdfDealParameters QdfDealParameters { get; set; }
         //private IEnumerable<QdfDealParameters> QdfDealParametersSet { get; set; }
-
-        /// <summary>
-        ///     Clear the test output directory for the feature
-        ///     to limit this set the tag to
-        ///     //[BeforeFeature("CreateOutput")]
-        ///     and apply tags to features
-        /// </summary>
-        [BeforeFeature]
-        public static void BeforeFeature()
-        {
-            FeatureContext.Current["FeatureOutputDirectory"] = ConfigurationManager.AppSettings["reportRoot"] +
-                                                               TestRunContext.StaticFriendlyTime + @"\" +
-                                                               FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
-                                                               @"\";
-            ((string) FeatureContext.Current["FeatureOutputDirectory"]).ClearOutputDirectory();
-        }
-
-        [BeforeTestRun]
-        public static void BeforeTestRun()
-        {
-            TestRunContext.Instance["TestRunContext"] = TestRunContext.Instance;
-        }
-
-        /// <summary>
-        ///     Clear the test output directory for the feature
-        ///     to limit this set the tag to
-        ///     //[BeforeScenario("CreateOutput")]
-        ///     and apply tags to features
-        /// </summary>
-        [BeforeScenario]
-        public static void BeforeScenario()
-        {
-            ScenarioContext.Current["ScenarioOutputDirectory"] =
-                (string) FeatureContext.Current["FeatureOutputDirectory"] +
-                ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
-            (ScenarioOutputDirectory).ClearOutputDirectory();
-        }
 
         [Given(@"I have QDF Data")]
         public void GivenIHaveQdfData()
@@ -129,7 +91,7 @@ namespace qdf.AcceptanceTests.Steps
             var ccToolData =
                 ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
                     QdfDealParameters.ConvertedEndTime),1000).ConvertToTypedDataTable<CcToolDataTable>();
-            ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", ScenarioOutputDirectory)});
+            ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", FeatureOutputDirectory)});
 
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
@@ -145,8 +107,22 @@ namespace qdf.AcceptanceTests.Steps
         public void GivenIHaveLoadedQdfDealDataFrom(string fileNamePath)
         {
             ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",", new[] {"Data"});
-            ((IEnumerable<Deal>) ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(ScenarioOutputDirectory +
+            ((IEnumerable<Deal>)ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(FeatureOutputDirectory +
                                                                                          "AllQdfDeals.csv", true, true);
+        }
+
+        [Given(@"I have already loaded QDF deal data from ""(.*)""")]
+        public void GivenIHaveAlreadyLoadedQdfDealDataFrom(string fileNamePath)
+        {
+            if (FeatureContext.Current.ContainsKey("QDFDealData"))
+            {
+                ScenarioContext.Current["QDFDealData"] = FeatureContext.Current["QDFDealData"];
+            }
+            else
+            {
+                GivenIHaveLoadedQdfDealDataFrom(fileNamePath);
+                FeatureContext.Current["QDFDealData"] = ScenarioContext.Current["QDFDealData"];
+            }
         }
 
         [Given(@"I have loaded CCTool data from ""(.*)""")]
@@ -156,14 +132,48 @@ namespace qdf.AcceptanceTests.Steps
                 new CcToolDataTable().ConvertIEnumerableToDataTable(fileNamePath.CsvToList<CcToolData>(","),
                     "CcToolDataTable", new[] { "Section", "ServerName", "SymbolCode", "IsBookA", "UpdateDateTime" });
             ScenarioContext.Current["CcToolDataTable"] = ccToolData;
-            ccToolData.ExportData(ExportTypes.Csv, new[] { string.Format("{0}CcToolData.csv", ScenarioOutputDirectory) });
+            ccToolData.ExportData(ExportTypes.Csv, new[] { string.Format("{0}CcToolData.csv", FeatureOutputDirectory) });
         }
+
+        [Given(@"I have already loaded CCTool data from ""(.*)""")]
+        public void GivenIHaveAlreadyLoadedCcToolDataFrom(string fileNamePath)
+        {
+            if (FeatureContext.Current.ContainsKey("CcToolDataTable"))
+            {
+                ScenarioContext.Current["CcToolDataTable"] = FeatureContext.Current["CcToolDataTable"];
+            }
+            else
+            {
+                GivenIHaveLoadedCcToolDataFrom(fileNamePath);
+                FeatureContext.Current["CcToolDataTable"] = ScenarioContext.Current["CcToolDataTable"];
+            }
+        }
+
+        [Given(@"I have daily ccTool snapshot data from ""(.*)"" to ""(.*)""")]
+        public void GivenIHaveDailyCcToolSnapshotDataFromTo(string startDate, string endDate)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+        [Given(@"I have already aggregated the QdfDeal Data and CcToolData")]
+        public void GivenIHaveAlreadyAggregatedTheQdfDealDataAndCcToolData()
+        {
+            if (!FeatureContext.Current.ContainsKey("QdfccDataReconciliation"))
+            {
+                var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
+                    ScenarioContext.Current["QDFDealData"] as List<Deal>, FeatureOutputDirectory);
+                aggregator.AggregateQdfDeals();
+                aggregator.AggregateCcToolData();
+                FeatureContext.Current["QdfccDataReconciliation"] = aggregator;
+            }
+        }
+
 
 
         [When(@"I retrieve cc_tbl_position_section data from cc")]
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {
-            //contextSubstitute = GetDataContextSubstituteForDB(MySqlDataContextSubstitute.CC);
             DataTable data = ContextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
             ScenarioContext.Current["cc_tbl_position_section"] = data;
         }
@@ -205,15 +215,30 @@ namespace qdf.AcceptanceTests.Steps
         public void ThenTheDataShouldMatch()
         {
             var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
-
             diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
+
+        [Then(@"the data should not match")]
+        public void ThenTheDataShouldNotMatch()
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences().Should().NotBeNullOrWhiteSpace();
+        }
+
 
         [Then(@"the cc_tbl_position_section data from cc has (.*) records")]
         public void ThenTheCc_Tbl_Position_SectionDataFromCcHasRecords(int expectedCount)
         {
             var data = (DataTable) ScenarioContext.Current["cc_tbl_position_section"];
             data.Rows.Should().HaveCount(expectedCount);
+        }
+
+        [Then(@"there are (.*) deals in AllQdfDeals and (.*) records in CcToolData")]
+        public void ThenThereAreDealsInAllQdfDealsAndRecordsInCcToolData(int qdfDealCount, int ccToolDataCount)
+        {
+            (ScenarioContext.Current["QDFDealData"] as List<Deal>).Should().HaveCount(qdfDealCount);
+            ((CcToolDataTable) ScenarioContext.Current["CcToolDataTable"]).Rows.Should().HaveCount(ccToolDataCount);
+
         }
 
 
