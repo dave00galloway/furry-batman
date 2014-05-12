@@ -1,9 +1,9 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -58,14 +58,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             catch (Exception e)
             {
-                ConsoleLogger.ConsoleExceptionLogger(e);
+                e.ConsoleExceptionLogger();
                 return Path.GetRandomFileName().Replace(".", "");
             }
         }
 
         /// <summary>
-        /// use this method to get a list of property values when you are confident that the actual instantiated objects will have the properties expected of its type
-        /// use the overload GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable string  propertyList) when you suspect the object defiiton may have changed
+        ///     use this method to get a list of property values when you are confident that the actual instantiated objects will
+        ///     have the properties expected of its type
+        ///     use the overload GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable string  propertyList) when
+        ///     you suspect the object defiiton may have changed
         /// </summary>
         /// <param name="objectToSearch"></param>
         /// <returns></returns>
@@ -75,24 +77,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// use this overload if you suspect an object's defeinition may be out of date
+        ///     use this overload if you suspect an object's defeinition may be out of date
         /// </summary>
         /// <param name="objectToSearch"></param>
         /// <param name="propertyList"></param>
         /// <returns></returns>
-        public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch,IEnumerable<string> propertyList)
+        public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch,
+            IEnumerable<string> propertyList)
         {
             //return GetProperties(objectToSearch,propertyList).Select(x => GetValue(objectToSearch,x).ToString()).ToList();
-            return GetProperties(objectToSearch, propertyList).Select(x=> x.GetValue(objectToSearch).ToSafeString()).ToList();
+            return
+                GetProperties(objectToSearch, propertyList)
+                    .Select(x => x.GetValue(objectToSearch).ToSafeString())
+                    .ToList();
         }
 
         private static PropertyInfo[] GetProperties(object objectToSearch, IEnumerable<string> propertyList)
         {
-            var enumerable = propertyList as IList<string> ?? propertyList.ToList();
-            PropertyInfo[] propertyInfo = new PropertyInfo[enumerable.Count()];
+            IList<string> enumerable = propertyList as IList<string> ?? propertyList.ToList();
+            var propertyInfo = new PropertyInfo[enumerable.Count()];
             for (int i = 0; i < enumerable.Count; i++)
             {
-                var prop = enumerable[i];
+                string prop = enumerable[i];
                 try
                 {
                     propertyInfo[i] = objectToSearch.GetType().GetProperty(prop);
@@ -111,7 +117,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             try
             {
                 var defValtype = x.PropertyType.GetDataType();
-            return GetdefaultValueFortype(objectToSearch, x, defValtype);
+                return GetDefaultValueForType(objectToSearch, x, defValtype);
             }
             catch (Exception e)
             {
@@ -121,7 +127,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// based on http://stackoverflow.com/questions/1398796/casting-with-reflection
+        ///     based on http://stackoverflow.com/questions/1398796/casting-with-reflection
         /// </summary>
         /// <param name="instance"></param>
         /// <param name="info"></param>
@@ -131,7 +137,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             info.SetValue(instance, Convert.ChangeType(value, info.PropertyType));
         }
 
-        public static object GetdefaultValueFortype(object objectToSearch, PropertyInfo x, string defValtype)
+        /// <summary>
+        ///     returns a sensible default for the object type
+        /// </summary>
+        /// <param name="objectToSearch"></param>
+        /// <param name="x"></param>
+        /// <param name="defValtype"></param>
+        /// <returns></returns>
+        public static object GetDefaultValueForType(this object objectToSearch, PropertyInfo x, string defValtype)
         {
             switch (defValtype.ToUpper())
             {
@@ -180,6 +193,59 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
+        /// <summary>
+        /// returns a sensible default for the object type
+        /// </summary>
+        /// <param name="defValtype"></param>
+        /// <returns></returns>
+        public static object GetDefaultValueForType(this string defValtype)
+        {
+            switch (defValtype.ToUpper())
+            {
+                case Byte:
+                    return default(byte);
+                case Sbyte:
+                    return default(sbyte);
+                case Short:
+                    return default(short);
+                case Ushort:
+                    return default(ushort);
+                case Int:
+                    return default(int);
+                case "INT16":
+                    return default(Int16);
+                case "INT32":
+                    return default(Int32);
+                case "INT64":
+                    return default(Int64);
+                case Uint:
+                    return default(uint);
+                case "UINT16":
+                    return default(UInt16);
+                case "UINT32":
+                    return default(UInt32);
+                case "UINT64":
+                    return default(UInt64);
+                case Long:
+                    return default(long);
+                case Ulong:
+                    return default(ulong);
+                case Float:
+                    return default(float);
+                case Double:
+                    return default(double);
+                case Decimal:
+                    return default(Decimal);
+                case Char:
+                    return default(char);
+                case String:
+                    return String.Empty;
+                case Bool:
+                    return default(bool);
+                default:
+                    return new object();
+            }
+        }
 
         public static bool IsNumber(this string s)
         {

@@ -73,7 +73,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="includeColumns"></param>
         /// <returns></returns>
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
-            string[] excludeColumns = null, string[] includeColumns = null)
+            string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false)
             //, DataColumn[] keyColumns)
         {
             DataTableComparer<DataRow>.Instance.ResetInstance();
@@ -131,7 +131,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
                     foreach (DataColumn column in columnsToCompare)
                     {
-                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs);
+                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs, outputMatches);
                     }
                 }
 
@@ -172,33 +172,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return table;
         }
 
-        //public static DataTable SetupComparisonDiffsTable()
-        //{
-        //    var table = new DataTable("comparsionDiffs");
-
-        //    var column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "comparisonKey"};
-        //    table.Columns.Add(column);
-
-        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "column"};
-        //    table.Columns.Add(column);
-
-        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "original"};
-        //    table.Columns.Add(column);
-
-        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "newValue"};
-        //    table.Columns.Add(column);
-
-        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "difference"};
-        //    table.Columns.Add(column);
-
-        //    column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "type"};
-        //    table.Columns.Add(column);
-
-        //    return table;
-        //}
-
         public static void CompareWith(this object p1, object p2, DataColumn column, object[] primaryKeyValues,
-            DataTable diffsTable)
+            DataTable diffsTable, bool outputMatches = false)
         {
             string difference = null;
 
@@ -340,18 +315,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             #endregion
 
-            if (difference != null)
+            if (difference != null | outputMatches)
             {
                 DataRow diffRow = diffsTable.NewRow();
                 for (int i = 0; i < primaryKeyValues.Count(); i++)
                 {
                     diffRow[string.Format("comparisonKey{0}", i)] = primaryKeyValues[i];
                 }
-                //diffRow["comparisonKey"] = String.Join("~", primaryKeyValues);
                 diffRow["column"] = column.ColumnName;
                 diffRow["original"] = p1;
                 diffRow["newValue"] = p2;
-                diffRow["difference"] = difference;
+                if (difference != null)
+                {
+                    diffRow["difference"] = difference; 
+                }
+                else
+                {
+                    diffRow["difference"] = ""; //type.GetDefaultValueForType();
+                }
+                    
                 diffRow["type"] = type;
                 diffsTable.Rows.Add(diffRow);
             }

@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -54,11 +54,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             if (FieldDifferences.Rows.Count > 0)
             {
-                string diff = String.Format("FieldDifferences.Rows.Count = {0}",
-                    Verify.That(FieldDifferences.Rows.Count, CompareUsing.ShouldBe, 0));
-                diffs.AppendLine(diff);
-                //this is the bit to swap out with a delegate:-
-                Console.WriteLine(diff);
+                //check the diffs aren't empty
+                var emptyDiffQuery = (from DataRow row in FieldDifferences.Rows
+                    where row["difference"].ToString() != ""
+                    select row).ToList();
+                if (emptyDiffQuery.Count > 0)
+                {
+                    string diff = String.Format("emptyDiffQuery.Count = {0}",
+                        Verify.That(emptyDiffQuery.Count, CompareUsing.ShouldBe, 0));
+                    diffs.AppendLine(diff);
+                    //this is the bit to swap out with a delegate:-
+                    Console.WriteLine(diff);                    
+                }
+
                 Console.WriteLine(String.Join(",",
                     (from DataColumn column in FieldDifferences.Columns select column.ColumnName)));
                 foreach (DataRow item in FieldDifferences.Rows)
