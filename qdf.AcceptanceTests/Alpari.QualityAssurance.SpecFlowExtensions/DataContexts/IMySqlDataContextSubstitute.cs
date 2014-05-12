@@ -6,6 +6,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
     {
         DataSet SelectDataAsDataSet(string mySelectQuery);
         DataTable SelectDataAsDataTable(string mySelectQuery);
+        DataTable SelectDataAsDataTable(string mySelectQuery, int timeout);
         DataView SelectDataAsDataView(string mySelectQuery);
+
+        
     }
 }

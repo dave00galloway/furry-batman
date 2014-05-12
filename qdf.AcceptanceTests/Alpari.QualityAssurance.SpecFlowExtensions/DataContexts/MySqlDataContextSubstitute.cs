@@ -45,12 +45,18 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             return dataSet;
         }
 
+        public DataTable SelectDataAsDataTable(string mySelectQuery)
+        {
+            return SelectDataAsDataTable(mySelectQuery, 30);
+        }
+
         /// <summary>
         ///     retreives
         /// </summary>
         /// <param name="mySelectQuery"></param>
+        /// <param name="timeout"></param>
         /// <returns></returns>
-        public DataTable SelectDataAsDataTable(string mySelectQuery)
+        public DataTable SelectDataAsDataTable(string mySelectQuery, int timeout)
         {
             var dataTable = new DataTable();
             dataTable.Clear();
@@ -58,7 +64,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             {
                 MyConnection.Open();
                 var adapter = new MySqlDataAdapter();
-                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection, timeout);
                 adapter.Fill(dataTable);
             }
             finally
@@ -99,14 +105,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
         /// <param name="mySelectQuery"></param>
         /// <param name="adapter"></param>
         /// <param name="myConnection"></param>
+        /// <param name="timeout"></param>
         [SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities",
             Justification =
                 "It is safe to suppress a warning from this rule if the command text does not contain any user input.")]
         private static void SetSelectCommandAndOutputToConsole(string mySelectQuery, MySqlDataAdapter adapter,
-            MySqlConnection myConnection)
+            MySqlConnection myConnection, int timeout = 30)
         {
             Console.WriteLine("executing query: \r\n {0}", mySelectQuery);
-            adapter.SelectCommand = new MySqlCommand(mySelectQuery, myConnection);
+            adapter.SelectCommand = timeout != 30
+                ? new MySqlCommand(mySelectQuery, myConnection) {CommandTimeout = timeout}
+                : new MySqlCommand(mySelectQuery, myConnection);
         }
     }
 }

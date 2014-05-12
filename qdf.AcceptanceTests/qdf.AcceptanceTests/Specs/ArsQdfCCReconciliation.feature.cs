@@ -77,11 +77,15 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "server",
-                        "symbol"});
+                        "symbol",
+                        "startTime",
+                        "endTime"});
             table1.AddRow(new string[] {
                         "C1",
-                        "EURUSD"});
-#line 10
+                        "EURUSD",
+                        "-3D",
+                        "+2D"});
+#line 7
  testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
 #line 13
   testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

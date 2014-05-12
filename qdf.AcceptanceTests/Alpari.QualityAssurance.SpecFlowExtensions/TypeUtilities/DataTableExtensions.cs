@@ -26,13 +26,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        ///     send the datatable to csv file. if the file exosts, append and don't write headers
+        ///     send the datatable to csv file. if the file exists, append and don't write headers
         /// </summary>
         /// <param name="dataTable"></param>
         /// <param name="fileNamePath"></param>
-        public static void DataTableToCsv(this DataTable dataTable, string fileNamePath)
+        /// <param name="setCapacity"></param>
+        public static void DataTableToCsv(this DataTable dataTable, string fileNamePath, bool setCapacity = false)
         {
-            var csvFile = new StringBuilder();
+            StringBuilder csvFile;
+            if (setCapacity)
+            {
+                csvFile = new StringBuilder(10000000 * 2);
+            }
+            else
+            {
+                csvFile = new StringBuilder();
+            }
+            
+            
             if (!File.Exists(fileNamePath))
             {
                 string headers = String.Join(",",
@@ -42,7 +53,29 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     csvFile.AppendLine(headers);
                 }
             }
-            AppendRowValuesAsCsvRecords(dataTable, csvFile);
+            AppendRowValuesAsCsvRecords(dataTable, csvFile, fileNamePath);
+        }
+
+        private static void AppendRowValuesAsCsvRecords(DataTable dataTable, StringBuilder csvFile, string fileNamePath)
+        {
+            if (dataTable.Rows == null) return;
+            int lineCounter = 0;
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                csvFile.AppendLine(String.Join(",",
+                    (dataRow.ItemArray.Select(x => x.ToSafeString().StringToCsvCell()).ToArray())));
+                lineCounter++;
+                if (lineCounter>1000)
+                {
+                    DumpToCsv(fileNamePath, csvFile);
+                    csvFile.Clear();
+                    lineCounter = 0;
+                }
+            }
+        }
+
+        private static void DumpToCsv(string fileNamePath, StringBuilder csvFile)
+        {
             if (File.Exists(fileNamePath))
             {
                 File.AppendAllText(fileNamePath, csvFile.ToString());
@@ -50,16 +83,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             else
             {
                 File.WriteAllText(fileNamePath, csvFile.ToString());
-            }
-        }
-
-        private static void AppendRowValuesAsCsvRecords(DataTable dataTable, StringBuilder csvFile)
-        {
-            if (dataTable.Rows == null) return;
-            foreach (DataRow dataRow in dataTable.Rows)
-            {
-                csvFile.AppendLine(String.Join(",",
-                    (dataRow.ItemArray.Select(x => x.ToSafeString().StringToCsvCell()).ToArray())));
             }
         }
 
@@ -71,6 +94,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="compareWith"></param>
         /// <param name="excludeColumns"></param>
         /// <param name="includeColumns"></param>
+        /// <param name="outputMatches"></param>
         /// <returns></returns>
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
             string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false)

@@ -136,7 +136,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             switch (exportType)
             {
                 case ExportTypes.Csv:
-                    this.DataTableToCsv(parameters[(int) ExportParams.FileNamePath]);
+                    this.DataTableToCsv(parameters[(int) ExportParams.FileNamePath],true);
                     break;
                 case ExportTypes.Database:
                     throw new ArgumentException("Export type not implemented yet",

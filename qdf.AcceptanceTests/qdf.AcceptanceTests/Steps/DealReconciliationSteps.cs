@@ -128,8 +128,9 @@ namespace qdf.AcceptanceTests.Steps
 
             var ccToolData =
                 ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
-                    QdfDealParameters.ConvertedEndTime)).ConvertToTypedDataTable<CcToolDataTable>();
+                    QdfDealParameters.ConvertedEndTime),1000).ConvertToTypedDataTable<CcToolDataTable>();
             ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", ScenarioOutputDirectory)});
+
             //get server and spread combos as a demo
             //CCToolDataContext.OutputCalculatedSpread(ccToolData);
             /*undecided whether to use properties for this data. 

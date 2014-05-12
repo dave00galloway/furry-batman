@@ -35,11 +35,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns>equivalent datetime</returns>
         public static DateTime GetTimeFromShortCode(this string shortCode)
         {
-            //char[] characters = shortCode.ToCharArray();
-            ////get the sign. if plus or a number then assume +
-            //bool sign = IsCharAPlus(characters, 0);
-            //double magnitude = sign ? characters.ExtractDoubleFromCharArray() : characters.ExtractDoubleFromCharArray()*-1;
-            //string units = characters.ExtractLettersFromCharArray();
             double magnitude;
             string units;
             ParseShortCode(shortCode, out magnitude, out units);
@@ -57,7 +52,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             double magnitude;
             string units;
             ParseShortCode(shortCode, out magnitude, out units);
-
             return ConvertShortCodeToDate(startDate, magnitude, units);
         }
 
