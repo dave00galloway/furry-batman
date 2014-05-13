@@ -65,6 +65,25 @@ namespace qdf.AcceptanceTests.Specs
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 6
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "startTime",
+                        "endTime"});
+            table1.AddRow(new string[] {
+                        "-3D",
+                        "+2D"});
+#line 7
+ testRunner.Given("I have already loaded QDF deal data", ((string)(null)), table1, "Given ");
+#line 10
+ testRunner.And("I have already loaded CCTool data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 11
+ testRunner.And("I have already aggregated the QdfDeal Data and CcToolData", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
             " ago")]
@@ -72,27 +91,12 @@ namespace qdf.AcceptanceTests.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
                     " ago", ((string[])(null)));
-#line 6
+#line 24
 this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "server",
-                        "symbol",
-                        "startTime",
-                        "endTime"});
-            table1.AddRow(new string[] {
-                        "C1",
-                        "EURUSD",
-                        "-3D",
-                        "+2D"});
-#line 7
- testRunner.Given("I have QDF Deal Data", ((string)(null)), table1, "Given ");
-#line 13
-  testRunner.And("I have CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 14
+#line 6
+this.FeatureBackground();
+#line 25
  testRunner.When("I compare QDF and CC data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
- testRunner.Then("the data should match", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

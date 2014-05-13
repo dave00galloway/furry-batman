@@ -5,9 +5,9 @@ using System.Data;
 using System.Linq;
 using Alpari.QDF.Domain;
 // using Alpari.QualityAssurance.SpecFlowExtensions.Context;
-using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+//using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+//using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
@@ -22,9 +22,6 @@ namespace qdf.AcceptanceTests.Steps
     {
         public new static readonly string FullName = typeof (DealReconciliationSteps).FullName;
 
-        private RedisConnectionHelper RedisConnectionHelper { get; set; }
-        private IDataContextSubstitute ContextSubstitute { get; set; }
-        private QdfDealParameters QdfDealParameters { get; set; }
         //private IEnumerable<QdfDealParameters> QdfDealParametersSet { get; set; }
 
         [Given(@"I have QDF Data")]
@@ -38,22 +35,30 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have QDF Deal Data")]
         public void GivenIHaveQdfDealData(QdfDealParameters qdfDealParameters)
         {
-            RedisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings["redisHost"]);
-            SetupQdfDealQuery(qdfDealParameters);
-            RedisConnectionHelper.GetDealData(qdfDealParameters);
-            //added a try catch here to cope with changes in QDF Deal format
-            try
-            {
-                RedisConnectionHelper.OutputAllDeals(ScenarioOutputDirectory +
-                                                     "AllQdfDeals.csv");
-            }
-            catch (Exception e)
-            {
-                e.ConsoleExceptionLogger();
-            }
-            //redisConnectionHelper.FilterDeals(qdfDealParameters);
+            LoadQdfDealsForParameters(qdfDealParameters);
+            OutputQdfDeals(ScenarioOutputDirectory);
+        }
 
-            QdfDealParameters = qdfDealParameters;
+        [Given(@"I have already loaded QDF deal data")]
+        public void GivenIHaveAlreadyLoadedQdfDealData(QdfDealParameters qdfDealParameters)
+        {
+            if (!FeatureContext.Current.ContainsKey(QDF_DEAL_DATA))
+            {
+                LoadQdfDealsForParameters(qdfDealParameters);
+                OutputQdfDeals(FeatureOutputDirectory);
+                FeatureContext.Current[QDF_DEAL_DATA] = RedisConnectionHelper.RetrievedDeals;
+            }
+        }
+
+        [Given(@"I have already loaded CCTool data")]
+        public void GivenIHaveAlreadyLoadedCcToolData()
+        {
+            if (!FeatureContext.Current.ContainsKey(CC_TOOL_DATA_TABLE))
+            {
+                var ccToolData = LoadCcToolDailySnapshotData(QdfDealParameters.ConvertedStartTime, QdfDealParameters.ConvertedEndTime);
+                OutputCcToolDataIfNew(ccToolData);
+                FeatureContext.Current[CC_TOOL_DATA_TABLE] = ccToolData;
+            }
         }
 
         [Given(@"I have QDF Deal Data for these parameter sets:")]
@@ -84,44 +89,29 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have CC data")]
         public void GivenIHaveCcData()
         {
-            ContextSubstitute = GetDataContextSubstituteForDb(CcToolDataContext.Cc);
-            //TODO: implement for multiple qdfDealParameters 
-            //if (qdfDealParametersSet != null) etc.
-
-            var ccToolData =
-                ContextSubstitute.SelectDataAsDataTable(CcToolDataContext.CcToolQuery(QdfDealParameters.ConvertedStartTime,
-                    QdfDealParameters.ConvertedEndTime), MySqlQueryTimeout).ConvertToTypedDataTable<CcToolDataTable>();
-            ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", FeatureOutputDirectory)});
-
-            //get server and spread combos as a demo
-            //CCToolDataContext.OutputCalculatedSpread(ccToolData);
-            /*undecided whether to use properties for this data. 
-             * with the QDF data, there always willbe some, 
-             * but for the ars/cnx/ecn data there might or might not be 
-             * maybe the base class should hold properties for QDF, and specialised subclasses should hold properties for comparing with the QDF data
-             * */
-            ScenarioContext.Current["CcToolDataTable"] = ccToolData;
+            var ccToolData = LoadCcToolDataForParameters();
+            OutputCcToolData(ccToolData,ScenarioOutputDirectory);
         }
 
         [Given(@"I have loaded QDF deal data from ""(.*)""")]
         public void GivenIHaveLoadedQdfDealDataFrom(string fileNamePath)
         {
-            ScenarioContext.Current["QDFDealData"] = fileNamePath.CsvToList<Deal>(",", new[] {"Data"});
-            ((IEnumerable<Deal>)ScenarioContext.Current["QDFDealData"]).EnumerableToCsv(FeatureOutputDirectory +
-                                                                                         "AllQdfDeals.csv", true, true);
+            ScenarioContext.Current[QDF_DEAL_DATA] = fileNamePath.CsvToList<Deal>(",", new[] {"Data"});
+            ((IEnumerable<Deal>)ScenarioContext.Current[QDF_DEAL_DATA]).EnumerableToCsv(FeatureOutputDirectory +
+                                                                                         ALL_QDF_DEALS_CSV, true, true);
         }
 
         [Given(@"I have already loaded QDF deal data from ""(.*)""")]
         public void GivenIHaveAlreadyLoadedQdfDealDataFrom(string fileNamePath)
         {
-            if (FeatureContext.Current.ContainsKey("QDFDealData"))
+            if (FeatureContext.Current.ContainsKey(QDF_DEAL_DATA))
             {
-                ScenarioContext.Current["QDFDealData"] = FeatureContext.Current["QDFDealData"];
+                ScenarioContext.Current[QDF_DEAL_DATA] = FeatureContext.Current[QDF_DEAL_DATA];
             }
             else
             {
                 GivenIHaveLoadedQdfDealDataFrom(fileNamePath);
-                FeatureContext.Current["QDFDealData"] = ScenarioContext.Current["QDFDealData"];
+                FeatureContext.Current[QDF_DEAL_DATA] = ScenarioContext.Current[QDF_DEAL_DATA];
             }
         }
 
@@ -130,48 +120,40 @@ namespace qdf.AcceptanceTests.Steps
         {
             CcToolDataTable ccToolData =
                 new CcToolDataTable().ConvertIEnumerableToDataTable(fileNamePath.CsvToList<CcToolData>(","),
-                    "CcToolDataTable", new[] { "Section", "ServerName", "SymbolCode", "IsBookA", "UpdateDateTime" });
-            ScenarioContext.Current["CcToolDataTable"] = ccToolData;
-            ccToolData.ExportData(ExportTypes.Csv, new[] { string.Format("{0}CcToolData.csv", FeatureOutputDirectory) });
+                    CC_TOOL_DATA_TABLE, new[] { "Section", "ServerName", "SymbolCode", "IsBookA", "UpdateDateTime" });
+            ScenarioContext.Current[CC_TOOL_DATA_TABLE] = ccToolData;
+            ccToolData.ExportData(ExportTypes.Csv, new[] { string.Format("{0}{1}", FeatureOutputDirectory,CCTOOL_DATA_CSV) });
         }
 
         [Given(@"I have already loaded CCTool data from ""(.*)""")]
         public void GivenIHaveAlreadyLoadedCcToolDataFrom(string fileNamePath)
         {
-            if (FeatureContext.Current.ContainsKey("CcToolDataTable"))
+            if (FeatureContext.Current.ContainsKey(CC_TOOL_DATA_TABLE))
             {
-                ScenarioContext.Current["CcToolDataTable"] = FeatureContext.Current["CcToolDataTable"];
+                ScenarioContext.Current[CC_TOOL_DATA_TABLE] = FeatureContext.Current[CC_TOOL_DATA_TABLE];
             }
             else
             {
                 GivenIHaveLoadedCcToolDataFrom(fileNamePath);
-                FeatureContext.Current["CcToolDataTable"] = ScenarioContext.Current["CcToolDataTable"];
+                FeatureContext.Current[CC_TOOL_DATA_TABLE] = ScenarioContext.Current[CC_TOOL_DATA_TABLE];
             }
         }
 
         [Given(@"I have daily ccTool snapshot data from ""(.*)"" to ""(.*)""")]
         public void GivenIHaveDailyCcToolSnapshotDataFromTo(string startDate, string endDate)
         {
-            ContextSubstitute = GetDataContextSubstituteForDb(CcToolDataContext.Cc);
-            if (FeatureContext.Current.ContainsKey("CcToolDataTableDailySnapshots"))
-            {
-                ScenarioContext.Current["CcToolDataTableDailySnapshots"] = FeatureContext.Current["CcToolDataTableDailySnapshots"];
-            }
-            else
-            {
-                ScenarioContext.Current["CcToolDataTableDailySnapshots"] = GetDailySnapshotDataFromDateRange(startDate,
-                    endDate, ContextSubstitute);
-                FeatureContext.Current["CcToolDataTableDailySnapshots"] = ScenarioContext.Current["CcToolDataTableDailySnapshots"];
-            }
+            var ccToolData = LoadCcToolDailySnapshotData(startDate, endDate);
+            OutputCcToolDataIfNew(ccToolData);
         }
+
 
         [Given(@"I have already aggregated the QdfDeal Data and CcToolData")]
         public void GivenIHaveAlreadyAggregatedTheQdfDealDataAndCcToolData()
         {
             if (!FeatureContext.Current.ContainsKey("QdfccDataReconciliation"))
             {
-                var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
-                    ScenarioContext.Current["QDFDealData"] as List<Deal>, FeatureOutputDirectory);
+                var aggregator = new QdfccDataReconciliation(ScenarioContext.Current[CC_TOOL_DATA_TABLE] as CcToolDataTable,
+                    ScenarioContext.Current[QDF_DEAL_DATA] as List<Deal>, FeatureOutputDirectory);
                 aggregator.AggregateQdfDeals();
                 aggregator.AggregateCcToolData();
                 FeatureContext.Current["QdfccDataReconciliation"] = aggregator;
@@ -191,7 +173,7 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I compare QDF and CC data")]
         public void WhenICompareQdfAndCcData()
         {
-            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current[CC_TOOL_DATA_TABLE] as CcToolDataTable,
                 RedisConnectionHelper.RetrievedDeals, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
@@ -200,8 +182,8 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I compare the loaded QDF and CC data")]
         public void WhenICompareTheLoadedQdfAndCcData()
         {
-            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current["CcToolDataTable"] as CcToolDataTable,
-                ScenarioContext.Current["QDFDealData"] as List<Deal>, ScenarioOutputDirectory);
+            var aggregator = new QdfccDataReconciliation(ScenarioContext.Current[CC_TOOL_DATA_TABLE] as CcToolDataTable,
+                ScenarioContext.Current[QDF_DEAL_DATA] as List<Deal>, ScenarioOutputDirectory);
             aggregator.AggregateQdfDeals();
             aggregator.AggregateCcToolData();
             var keys = new[] {"PositionName", "Book", "Instrument", "ServerId", "TimeStamp"};
@@ -245,27 +227,9 @@ namespace qdf.AcceptanceTests.Steps
         [Then(@"there are (.*) deals in AllQdfDeals and (.*) records in CcToolData")]
         public void ThenThereAreDealsInAllQdfDealsAndRecordsInCcToolData(int qdfDealCount, int ccToolDataCount)
         {
-            (ScenarioContext.Current["QDFDealData"] as List<Deal>).Should().HaveCount(qdfDealCount);
-            ((CcToolDataTable) ScenarioContext.Current["CcToolDataTable"]).Rows.Should().HaveCount(ccToolDataCount);
+            (ScenarioContext.Current[QDF_DEAL_DATA] as List<Deal>).Should().HaveCount(qdfDealCount);
+            ((CcToolDataTable) ScenarioContext.Current[CC_TOOL_DATA_TABLE]).Rows.Should().HaveCount(ccToolDataCount);
 
-        }
-
-
-        [AfterScenario]
-        public void Teardown()
-        {
-            if (RedisConnectionHelper != null)
-            {
-                //try
-                //{
-                //removed try/catch as might as well see full stack trace - this is likely to be the last operation
-                RedisConnectionHelper.Connection.Close(true);
-                //}
-                //catch (Exception e)
-                //{
-                //    Console.WriteLine(e.Message);
-                //}
-            }
         }
     }
 }

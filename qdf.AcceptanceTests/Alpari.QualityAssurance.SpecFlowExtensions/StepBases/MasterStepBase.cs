@@ -9,6 +9,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
     {
         private static readonly string FullName = typeof(MasterStepBase).FullName;
         protected static readonly string StepBaseRootNameSpace = typeof(MasterStepBase).Namespace;
+        public const string FEATURE_OUTPUT_DIRECTORY = "FeatureOutputDirectory";
+        public const string TEST_RUN_CONTEXT = "TestRunContext";
 
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors",
             Justification =
