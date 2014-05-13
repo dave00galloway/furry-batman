@@ -89,8 +89,8 @@ namespace qdf.AcceptanceTests.Steps
             //if (qdfDealParametersSet != null) etc.
 
             var ccToolData =
-                ContextSubstitute.SelectDataAsDataTable(MySqlQueries.CcToolQuery(QdfDealParameters.ConvertedStartTime,
-                    QdfDealParameters.ConvertedEndTime),1000).ConvertToTypedDataTable<CcToolDataTable>();
+                ContextSubstitute.SelectDataAsDataTable(CcToolDataContext.CcToolQuery(QdfDealParameters.ConvertedStartTime,
+                    QdfDealParameters.ConvertedEndTime), MySqlQueryTimeout).ConvertToTypedDataTable<CcToolDataTable>();
             ccToolData.ExportData(ExportTypes.Csv, new[] {string.Format("{0}CcToolData.csv", FeatureOutputDirectory)});
 
             //get server and spread combos as a demo
@@ -152,9 +152,18 @@ namespace qdf.AcceptanceTests.Steps
         [Given(@"I have daily ccTool snapshot data from ""(.*)"" to ""(.*)""")]
         public void GivenIHaveDailyCcToolSnapshotDataFromTo(string startDate, string endDate)
         {
-            ScenarioContext.Current.Pending();
+            ContextSubstitute = GetDataContextSubstituteForDb(CcToolDataContext.Cc);
+            if (FeatureContext.Current.ContainsKey("CcToolDataTableDailySnapshots"))
+            {
+                ScenarioContext.Current["CcToolDataTableDailySnapshots"] = FeatureContext.Current["CcToolDataTableDailySnapshots"];
+            }
+            else
+            {
+                ScenarioContext.Current["CcToolDataTableDailySnapshots"] = GetDailySnapshotDataFromDateRange(startDate,
+                    endDate, ContextSubstitute);
+                FeatureContext.Current["CcToolDataTableDailySnapshots"] = ScenarioContext.Current["CcToolDataTableDailySnapshots"];
+            }
         }
-
 
         [Given(@"I have already aggregated the QdfDeal Data and CcToolData")]
         public void GivenIHaveAlreadyAggregatedTheQdfDealDataAndCcToolData()
@@ -174,7 +183,7 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I retrieve cc_tbl_position_section data from cc")]
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {
-            DataTable data = ContextSubstitute.SelectDataAsDataTable(MySqlQueries.cc_tbl_position_section());
+            DataTable data = ContextSubstitute.SelectDataAsDataTable(CcToolDataContext.cc_tbl_position_section(), MySqlQueryTimeout);
             ScenarioContext.Current["cc_tbl_position_section"] = data;
         }
 

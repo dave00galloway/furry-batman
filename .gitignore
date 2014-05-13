@@ -140,3 +140,6 @@ qdf.AcceptanceTests/System.Data.pdb
 qdf.AcceptanceTests/System.pdb
 qdf.AcceptanceTests/System.Xml.pdb
 qdf.AcceptanceTests/UpgradeLog.htm
+qdf.AcceptanceTests/System.EnterpriseServices.pdb
+qdf.AcceptanceTests/System.Security.pdb
+qdf.AcceptanceTests/System.Transactions.pdb

@@ -8,6 +8,7 @@ using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
+using qdf.AcceptanceTests.TypedDataTables;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -17,6 +18,7 @@ namespace qdf.AcceptanceTests.Steps
     public class DealReconciliationStepBase :StepCentral
     {
         public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
+        
 
         /// <summary>
         ///     Clear the test output directory for the feature
@@ -38,6 +40,7 @@ namespace qdf.AcceptanceTests.Steps
         public static void BeforeTestRun()
         {
             TestRunContext.Instance["TestRunContext"] = TestRunContext.Instance;
+            TestRunContext.Instance["MySqlQueryTimeout"] = ConfigurationManager.AppSettings["MySqlQueryTimeout"];
         }
 
         /// <summary>
@@ -71,6 +74,11 @@ namespace qdf.AcceptanceTests.Steps
             get { return (string)FeatureContext.Current["FeatureOutputDirectory"]; }
         }
 
+        protected static int MySqlQueryTimeout
+        {
+            get { return Convert.ToInt32(TestRunContext.Instance["MySqlQueryTimeout"]); }
+        }
+
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
             string start = entry.StartTime ?? ConfigurationManager.AppSettings["defaultStartTime"];
@@ -91,7 +99,7 @@ namespace qdf.AcceptanceTests.Steps
             return table.CreateInstance<QdfDealParameters>();
         }
 
-        public static IDataContextSubstitute GetDataContextSubstitute(string dataContext)
+        protected static IDataContextSubstitute GetDataContextSubstitute(string dataContext)
         {
             switch (dataContext)
             {
@@ -110,7 +118,7 @@ namespace qdf.AcceptanceTests.Steps
             }
         }
 
-        public static IDataContextSubstitute GetDataContextSubstituteForDb(string dbName)
+        protected static IDataContextSubstitute GetDataContextSubstituteForDb(string dbName)
         {
             string connectionString =
                 ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[dbName]].ConnectionString
@@ -129,6 +137,25 @@ namespace qdf.AcceptanceTests.Steps
                     throw new ArgumentException("data provider {0} is not a valid data context",
                         ConfigurationManager.ConnectionStrings[dbName].ProviderName);
             }
+        }
+
+        protected static CcToolDataTable GetDailySnapshotDataFromDateRange(string start, string end, IDataContextSubstitute contextSubstitute)
+        {
+            var ccToolDataTable = new CcToolDataTable();
+            var startDate = start.GetTimeFromShortCode();
+            var endDate = end.GetTimeFromShortCode(startDate);
+            int days = endDate.Subtract(startDate).Days;
+            for (int i = 0; i < days; i++)
+            {
+                var date = (DateTime)contextSubstitute.SelectDataAsDataTable(CcToolDataContext.CcDailySnapshotTimeQuery(startDate.AddDays(i)), MySqlQueryTimeout).Rows[0]["UpdateDateTime"];
+                var ccToolData =
+                    contextSubstitute.SelectDataAsDataTable(CcToolDataContext.CcToolQuery(date,
+                        date), MySqlQueryTimeout).ConvertToTypedDataTable<CcToolDataTable>();
+                ccToolDataTable.Merge(ccToolData);
+                ccToolData.Clear();
+                ccToolDataTable.AcceptChanges();
+            }
+            return ccToolDataTable;
         }
     }
 }

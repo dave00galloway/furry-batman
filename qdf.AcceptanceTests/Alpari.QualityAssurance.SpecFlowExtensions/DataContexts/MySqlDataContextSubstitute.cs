@@ -47,7 +47,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 
         public DataTable SelectDataAsDataTable(string mySelectQuery)
         {
-            return SelectDataAsDataTable(mySelectQuery, 30);
+            return SelectDataAsDataTable(mySelectQuery, 0);
         }
 
         /// <summary>
@@ -110,10 +110,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             Justification =
                 "It is safe to suppress a warning from this rule if the command text does not contain any user input.")]
         private static void SetSelectCommandAndOutputToConsole(string mySelectQuery, MySqlDataAdapter adapter,
-            MySqlConnection myConnection, int timeout = 30)
+            MySqlConnection myConnection, int timeout = 0)
         {
             Console.WriteLine("executing query: \r\n {0}", mySelectQuery);
-            adapter.SelectCommand = timeout != 30
+            adapter.SelectCommand = timeout != 0
                 ? new MySqlCommand(mySelectQuery, myConnection) {CommandTimeout = timeout}
                 : new MySqlCommand(mySelectQuery, myConnection);
         }
