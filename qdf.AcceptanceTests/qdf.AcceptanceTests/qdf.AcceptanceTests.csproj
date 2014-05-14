@@ -200,8 +200,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="TestData\AllQdfDeals.csv" />
-    <Content Include="TestData\CcToolData.csv" />
+    <Content Include="TestData\AllQdfDeals.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\CcToolData.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
