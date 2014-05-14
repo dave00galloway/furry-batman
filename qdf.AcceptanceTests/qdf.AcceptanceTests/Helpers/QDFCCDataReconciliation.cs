@@ -1,4 +1,5 @@
-﻿using Alpari.QDF.Domain;
+﻿using System.Security.Cryptography;
+using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.RefData;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using qdf.AcceptanceTests.Annotations;
@@ -60,6 +61,148 @@ namespace qdf.AcceptanceTests.Helpers
             QdfDealPositions.EnumerableToCsv(string.Format("{0}CalculateQdfDeltas.csv", FileOutputDirectory), true);
         }
 
+        /// <summary>
+        ///     using the start and end snapshot times from the CCTool data, find the QDF Deals from the equivalent time periods
+        ///     and group them by time and by Book, Instrument, Server
+        /// </summary>
+        public void AggregateQdfDealsByDay()
+        {
+            List<DateTime> snapShotTimes =
+                CcToolDataTable.Rows.Cast<CCtoolRow>().Select(row => row.UpdateDateTime).Distinct().ToList();
+            snapShotTimes.Sort();
+            var groupedByDay = GroupQdfDealsByDay(snapShotTimes);
+
+            List<QdfDealPositionGrouping> groupedPositionsByDay = new List<QdfDealPositionGrouping>();
+
+            foreach (var t in groupedByDay)
+            {
+                Console.WriteLine("{0}", t.Key);
+            }
+
+            foreach (var kvp in groupedByDay)
+            {
+                KeyValuePair<DateTime, IEnumerable<Deal>> dealsOnDate = kvp;
+                List<QdfDealPosition> aggregatedDeals = (from deal in dealsOnDate.Value
+                //List<QdfDealPosition> aggregatedDeals = (from deal in QdfDeals
+                    group deal by new {deal.Book, deal.Instrument, deal.Server}
+                    into dealGroup
+                    select new QdfDealPosition
+                    {
+                        PositionName =
+                            String.Format("{0} {1} {2} {3}", dealGroup.Key.Book, dealGroup.Key.Instrument,
+                                dealGroup.Key.Server, dealsOnDate.Key),
+                        Book = dealGroup.Key.Book,
+                        Instrument = dealGroup.Key.Instrument,
+                        Server = dealGroup.Key.Server,
+                        QdfDeals = dealGroup.OrderBy(x => x.TimeStamp).ToList()
+                    }).ToList();
+                //calculate the positions
+                aggregatedDeals.ForEach(position => position.CalculatePosition());                
+            }
+
+
+
+            #region prob wrong
+
+            //List<QdfDealPosition> aggregatedDeals = (from deal in QdfDeals
+            //    group deal by new {deal.Book, deal.Instrument, deal.Server}
+            //    into dealGroup
+            //    select new QdfDealPosition
+            //    {
+            //        PositionName =
+            //            String.Format("{0} {1} {2}", dealGroup.Key.Book, dealGroup.Key.Instrument,
+            //                dealGroup.Key.Server),
+            //        Book = dealGroup.Key.Book,
+            //        Instrument = dealGroup.Key.Instrument,
+            //        Server = dealGroup.Key.Server,
+            //        QdfDeals = dealGroup.OrderBy(x => x.TimeStamp).ToList()
+            //    }).ToList();
+            //////calculate the positions
+            ////aggregatedDeals.ForEach(position => position.CalculatePosition());
+
+            ////group into groupings
+            //List<QdfDealPositionGrouping> groupedPositions = CreateQdfGroupedPositions(aggregatedDeals);
+
+            ////create subgroups broken up by time periods
+            //List<QdfDealPositionGrouping> groupedPositionsByDay = new List<QdfDealPositionGrouping>();
+            //foreach (QdfDealPositionGrouping qdfDealPositionGrouping in groupedPositions)
+            //{
+            //    foreach (QdfDealPosition qdfDealPosition in qdfDealPositionGrouping.QdfDealPositions)
+            //    {
+            //        for (int i = 0; i < snapShotTimes.Count - 1; i++)
+            //        {
+            //            int index = i;
+            //            DateTime snapShotTime = snapShotTimes[i];
+            //            var thisPositionGroupingByDayName = string.Format("{0} {1}",
+            //                qdfDealPositionGrouping.PositionGroupingName, snapShotTime.Date);
+
+            //            if (groupedPositionsByDay.Any(x => x.PositionGroupingName == thisPositionGroupingByDayName))
+            //            {
+            //                QdfDealPositionGrouping thisPositionGroupingByDay =
+            //                    groupedPositionsByDay.First(x => x.PositionGroupingName == thisPositionGroupingByDayName);
+            //                //var dealsToAdd = from position in qdfDealPositionGrouping.QdfDealPositions 
+            //                //                 where position.QdfDeals.
+
+
+            //                var dealsToAdd =
+            //                    GetQdfDealsToAdd(qdfDealPositionGrouping, snapShotTimes, index);
+            //                //thisPositionGroupingByDay.QdfDealPositions[]
+            //            }
+            //            else
+            //            {
+            //                groupedPositionsByDay.Add(new QdfDealPositionGrouping
+            //                {
+            //                    Book = qdfDealPositionGrouping.Book,
+            //                    Instrument = qdfDealPositionGrouping.Instrument,
+            //                    PositionGroupingName = thisPositionGroupingByDayName,
+            //                    //QdfDealPositions = new List<QdfDealPosition>
+            //                    //{
+            //                    //    GetQdfDealsToAdd(qdfDealPositionGrouping, snapShotTimes, index).ToList();
+            //                    //},
+            //                    QdfDealPositions = qdfDealPositionGrouping.QdfDealPositions,
+            //                    Server = qdfDealPositionGrouping.Server
+            //                });
+            //            }
+            //        }                    
+            //    }
+
+            //}
+
+            #endregion
+
+        }
+
+        private Dictionary<DateTime,IEnumerable<Deal>> GroupQdfDealsByDay(List<DateTime> snapShotTimes)
+        {
+            var datedDealsDictionary = new Dictionary<DateTime, IEnumerable<Deal>>();
+            for (int i = 0; i < snapShotTimes.Count - 1; i++)
+            {
+                int index = i;
+                IEnumerable<Deal> deals =
+                    QdfDeals.Where(
+                        deal => deal.TimeStamp >= snapShotTimes[index] && deal.TimeStamp <= snapShotTimes[index + 1]);
+                        //.Select(x => x);
+                    //from qdfDeal in QdfDeals
+                    //where qdfDeal.TimeStamp >= snapShotTimes[index]
+                    //where qdfDeal.TimeStamp <= snapShotTimes[index + 1]
+                    //select qdfDeal;
+                datedDealsDictionary.Add(snapShotTimes[index],deals );
+                
+            }
+            return datedDealsDictionary;
+        }
+
+        private static IEnumerable<Deal> GetQdfDealsToAdd(QdfDealPositionGrouping qdfDealPositionGrouping, List<DateTime> snapShotTimes, int index)
+        {
+            return qdfDealPositionGrouping.QdfDealPositions.SelectMany(
+                x =>
+                    x.QdfDeals.Where(
+                        y =>
+                            y.TimeStamp >= snapShotTimes[index] ||
+                            y.TimeStamp <= snapShotTimes[index + 1]));
+        }
+
+
         public void AggregateCcToolData()
         {
             CalculateCcVolumeSize();
@@ -113,7 +256,14 @@ namespace qdf.AcceptanceTests.Helpers
             aggregatedDeals.ForEach(position=>position.CalculatePosition());
             //aggregatedDeals.EnumerableToCsv(string.Format("{0}GroupedQdfDeals.csv", FileOutputDirectory),true);
 
-            //group the positions by the above factors except Timestamp, then order by timestamp
+            //group the positions by the above factors except Timestamp
+            var groupedPositions = CreateQdfGroupedPositions(aggregatedDeals);
+
+            return groupedPositions;
+        }
+
+        private static List<QdfDealPositionGrouping> CreateQdfGroupedPositions(List<QdfDealPosition> aggregatedDeals)
+        {
             var groupedAggregation = aggregatedDeals.GroupBy(x => new
             {
                 PositionGroupingName = String.Format("{0} {1} {2}", x.Book, x.Instrument, x.Server),
@@ -122,18 +272,6 @@ namespace qdf.AcceptanceTests.Helpers
                 x.Server
             }
                 );
-
-            ////should be able to combine the ordering and then adding the groupings to the list
-            //foreach (var item in groupedAggregation)
-            //{
-            //   item.OrderBy(x => x.TimeStamp);
-            //}
-
-            //for (int i = 0; i < groupedAggregation.Count(); i++)
-            //{
-            //    //groupedAggregation[i] = groupedAggregation[i]
-            //    var ordered = groupedAggregation[i].AsEnumerable();
-            //}
 
             List<QdfDealPositionGrouping> groupedPositions = groupedAggregation.Select(x => new QdfDealPositionGrouping
             {
@@ -144,7 +282,6 @@ namespace qdf.AcceptanceTests.Helpers
                 QdfDealPositions = x.ToList()
             }
                 ).ToList();
-
             return groupedPositions;
         }
 

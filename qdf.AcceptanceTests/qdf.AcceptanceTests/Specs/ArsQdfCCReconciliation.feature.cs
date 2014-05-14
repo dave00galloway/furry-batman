@@ -73,14 +73,14 @@ namespace qdf.AcceptanceTests.Specs
                         "startTime",
                         "endTime"});
             table1.AddRow(new string[] {
-                        "-3D",
-                        "+2D"});
+                        "-5D",
+                        "+4D"});
 #line 7
  testRunner.Given("I have already loaded QDF deal data", ((string)(null)), table1, "Given ");
 #line 10
  testRunner.And("I have already loaded CCTool data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("I have already aggregated the QdfDeal Data and CcToolData", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I have already aggregated the QdfDeal Data and CcToolData by day", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         

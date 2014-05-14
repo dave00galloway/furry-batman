@@ -6,9 +6,9 @@ I want a reconciliation of ARS QDF against CC
 Background:Load data
 	Given I have already loaded QDF deal data
 	| startTime | endTime |
-	| -3D       | +2D     |
+	| -5D       | +4D     |
 	And I have already loaded CCTool data
-	And I have already aggregated the QdfDeal Data and CcToolData
+	And I have already aggregated the QdfDeal Data and CcToolData by day
 
 #Scenario: Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes ago
 #	Given I have QDF Deal Data

@@ -56,7 +56,7 @@ namespace qdf.AcceptanceTests.Steps
             if (!FeatureContext.Current.ContainsKey(CC_TOOL_DATA_TABLE))
             {
                 var ccToolData = LoadCcToolDailySnapshotData(QdfDealParameters.ConvertedStartTime, QdfDealParameters.ConvertedEndTime);
-                OutputCcToolDataIfNew(ccToolData);
+                OutputCcToolData(ccToolData, FeatureOutputDirectory);
                 FeatureContext.Current[CC_TOOL_DATA_TABLE] = ccToolData;
             }
         }
@@ -146,6 +146,18 @@ namespace qdf.AcceptanceTests.Steps
             OutputCcToolDataIfNew(ccToolData);
         }
 
+        [Given(@"I have already aggregated the QdfDeal Data and CcToolData by day")]
+        public void GivenIHaveAlreadyAggregatedTheQdfDealDataAndCcToolDataByDay()
+        {
+            if (!FeatureContext.Current.ContainsKey("QdfccDataReconciliation"))
+            {
+                var aggregator = new QdfccDataReconciliation(ScenarioContext.Current[CC_TOOL_DATA_TABLE] as CcToolDataTable,
+                    ScenarioContext.Current[QDF_DEAL_DATA] as List<Deal>, FeatureOutputDirectory);
+                aggregator.AggregateQdfDealsByDay();
+                aggregator.AggregateCcToolData();
+                FeatureContext.Current["QdfccDataReconciliation"] = aggregator;
+            }
+        }
 
         [Given(@"I have already aggregated the QdfDeal Data and CcToolData")]
         public void GivenIHaveAlreadyAggregatedTheQdfDealDataAndCcToolData()
@@ -159,9 +171,7 @@ namespace qdf.AcceptanceTests.Steps
                 FeatureContext.Current["QdfccDataReconciliation"] = aggregator;
             }
         }
-
-
-
+        
         [When(@"I retrieve cc_tbl_position_section data from cc")]
         public void WhenIRetrieveCc_Tbl_Position_SectionDataFromCc()
         {

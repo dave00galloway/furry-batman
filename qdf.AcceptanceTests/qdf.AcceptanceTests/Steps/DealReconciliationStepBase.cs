@@ -261,7 +261,7 @@ namespace qdf.AcceptanceTests.Steps
 
         protected static void OutputCcToolDataIfNew(CcToolDataTable ccToolData)
         {
-            if (!FeatureContext.Current.ContainsKey(CC_TOOL_DATA_TABLE_DAILY_SNAPSHOTS))
+            if (!FeatureContext.Current.ContainsKey(CC_TOOL_DATA_TABLE_DAILY_SNAPSHOTS)) 
             {
                 OutputCcToolData(ccToolData, FeatureOutputDirectory);
             }
@@ -269,7 +269,7 @@ namespace qdf.AcceptanceTests.Steps
 
         protected static void OutputCcToolData(CcToolDataTable ccToolData, string outputTo)
         {
-            ccToolData.ExportData(ExportTypes.Csv, new[] { String.Format("{0}{1}",CCTOOL_DATA_CSV, outputTo) });
+            ccToolData.ExportData(ExportTypes.Csv, new[] { String.Format("{0}{1}", outputTo,CCTOOL_DATA_CSV) });
         }
 
         [AfterScenario]
