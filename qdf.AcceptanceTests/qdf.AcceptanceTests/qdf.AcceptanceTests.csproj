@@ -117,6 +117,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltas.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QdfAnalysisOfArsCcEcnDiffDeltas.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,6 +149,8 @@
     </Compile>
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
+    <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasStepBase.cs" />
+    <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasSteps.cs" />
     <Compile Include="Steps\SelfTest\ReuseDealReconStepsSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CcToolDataTable.cs" />
@@ -158,6 +165,10 @@
     <None Include="Specs\ArsQdfCCReconciliation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltas.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QdfAnalysisOfArsCcEcnDiffDeltas.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

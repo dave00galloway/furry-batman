@@ -23,5 +23,27 @@ namespace qdf.AcceptanceTests.Steps
                        new DealReconciliationSteps();
             }
         }
+
+        public static QdfAnalysisOfArsCcEcnDiffDeltasStepBase QdfAnalysisOfArsCcEcnDiffDeltasStepBase
+        {
+            get
+            {
+                return
+                    (QdfAnalysisOfArsCcEcnDiffDeltasStepBase)
+                        GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasStepBase.FullName) ??
+                    new QdfAnalysisOfArsCcEcnDiffDeltasStepBase();
+            }
+        }
+
+        public static QdfAnalysisOfArsCcEcnDiffDeltasSteps QdfAnalysisOfArsCcEcnDiffDeltasSteps
+        {
+            get
+            {
+                return
+                    (QdfAnalysisOfArsCcEcnDiffDeltasSteps)
+                        GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSteps.FullName) ??
+                    new QdfAnalysisOfArsCcEcnDiffDeltasSteps();
+            }
+        }
     }
 }
