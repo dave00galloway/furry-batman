@@ -1,4 +1,5 @@
 ﻿using System;
+using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -6,6 +7,7 @@ namespace qdf.AcceptanceTests.Helpers
     ///     Used as a table step conversion argument. if the table is missing some of the properties, the values for these
     ///     properties are null
     /// </summary>
+    [UsedImplicitly]
     public class QdfDealParameters
     {
         public string Server { get; set; }

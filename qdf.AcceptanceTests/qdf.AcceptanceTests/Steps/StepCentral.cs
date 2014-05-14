@@ -1,5 +1,6 @@
 ﻿using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using qdf.AcceptanceTests.DataContexts;
+using qdf.AcceptanceTests.Helpers;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -30,7 +31,7 @@ namespace qdf.AcceptanceTests.Steps
                 return
                     (QdfAnalysisOfArsCcEcnDiffDeltasStepBase)
                         GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasStepBase.FullName) ??
-                    new QdfAnalysisOfArsCcEcnDiffDeltasStepBase();
+                    new QdfAnalysisOfArsCcEcnDiffDeltasStepBase(new SignalsCompareData(), new DiffDeltaFinder());
             }
         }
 
@@ -41,7 +42,7 @@ namespace qdf.AcceptanceTests.Steps
                 return
                     (QdfAnalysisOfArsCcEcnDiffDeltasSteps)
                         GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSteps.FullName) ??
-                    new QdfAnalysisOfArsCcEcnDiffDeltasSteps(new SignalsCompareData());
+                    new QdfAnalysisOfArsCcEcnDiffDeltasSteps(new SignalsCompareData(), new DiffDeltaFinder());
             }
         }
     }

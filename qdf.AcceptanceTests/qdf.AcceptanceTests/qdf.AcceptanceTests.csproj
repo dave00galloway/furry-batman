@@ -115,6 +115,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SignalsCompareData.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DiffDelta.cs" />
+    <Compile Include="Helpers\DiffDeltaFinder.cs" />
+    <Compile Include="Helpers\DiffDeltaParameters.cs" />
     <Compile Include="Helpers\QDFCCDataReconciliation.cs" />
     <Compile Include="Helpers\QdfDealParameters.cs" />
     <Compile Include="Helpers\RedisConnectionHelper.cs" />
@@ -246,6 +249,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Queries\DiffDeltaQuery.sql" />
     <Content Include="TestData\AllQdfDeals.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -253,6 +257,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>

@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using System.Linq;
+using qdf.AcceptanceTests.Helpers;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
@@ -10,12 +11,12 @@ namespace qdf.AcceptanceTests.Steps
     {
         public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSteps).FullName;
 
-        public QdfAnalysisOfArsCcEcnDiffDeltasSteps(SignalsCompareData signalsCompareData)
+        public QdfAnalysisOfArsCcEcnDiffDeltasSteps(SignalsCompareData signalsCompareData, DiffDeltaFinder diffDeltaFinder)
+            : base(signalsCompareData, diffDeltaFinder)
         {
-            SignalsCompareDataDataContext = signalsCompareData.SignalsCompareDataDataContext;
         }
 
-        private SignalsCompareDataDataContext SignalsCompareDataDataContext { get; set; }
+        
 
         [Given(@"I have connected to SignalsCompareData")]
         public void GivenIHaveConnectedToSignalsCompareData()
@@ -41,15 +42,15 @@ namespace qdf.AcceptanceTests.Steps
         }
 
         [Given(@"I want to analyse diff deltas by timeslice in")]
-        public void GivenIWantToAnalyseDiffDeltasByTimesliceIn(Table table)
+        public void GivenIWantToAnalyseDiffDeltasByTimesliceIn(DiffDeltaParameters diffDeltaParameters)
         {
-            ScenarioContext.Current.Pending();
+            DiffDeltaParameters = diffDeltaParameters;
         }
 
         [When(@"I analyse the diff deltas by timeslice")]
         public void WhenIAnalyseTheDiffDeltasByTimeslice()
         {
-            ScenarioContext.Current.Pending();
+            DiffDeltaFinder.AnalyseDiffDeltas(DiffDeltaParameters);
         }
 
         [Then(@"The diff delta analysis is output to ""(.*)""")]

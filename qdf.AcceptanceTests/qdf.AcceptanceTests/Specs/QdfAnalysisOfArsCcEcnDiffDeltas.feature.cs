@@ -77,17 +77,17 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Book",
-                        "Instrument",
+                        "Symbol",
                         "Server",
                         "StartDate",
                         "EndDate",
                         "NumberOfDiffs"});
             table1.AddRow(new string[] {
                         "B",
-                        "GBPUSD",
+                        "GBP/USD",
                         "Mt4Pro",
-                        "03/02/2014",
-                        "09/03/2014",
+                        "03-Feb-2014",
+                        "09-Mar-2014",
                         "10"});
 #line 8
  testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table1, "Given ");
