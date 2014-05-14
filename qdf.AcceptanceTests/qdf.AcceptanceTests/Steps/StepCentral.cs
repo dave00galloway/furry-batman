@@ -1,12 +1,11 @@
-﻿using System;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
-using Alpari.QualityAssurance.SpecFlowExtensions.Steps;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Steps
 {
     public class StepCentral : MasterStepBase
     {
-        public static DealReconciliationStepBase DealReconciliationStepBase
+        protected static DealReconciliationStepBase DealReconciliationStepBase
         {
             get
             {
@@ -15,7 +14,7 @@ namespace qdf.AcceptanceTests.Steps
             }
         }
 
-        public static DealReconciliationSteps DealReconciliationSteps
+        protected static DealReconciliationSteps DealReconciliationSteps
         {
             get
             {
@@ -42,7 +41,7 @@ namespace qdf.AcceptanceTests.Steps
                 return
                     (QdfAnalysisOfArsCcEcnDiffDeltasSteps)
                         GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSteps.FullName) ??
-                    new QdfAnalysisOfArsCcEcnDiffDeltasSteps();
+                    new QdfAnalysisOfArsCcEcnDiffDeltasSteps(new SignalsCompareData());
             }
         }
     }

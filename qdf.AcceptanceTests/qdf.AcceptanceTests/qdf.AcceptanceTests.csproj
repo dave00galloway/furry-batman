@@ -107,11 +107,24 @@
   <ItemGroup>
     <Compile Include="DataContexts\CCToolDataContext.cs" />
     <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
+    <Compile Include="DataContexts\SignalsCompareData.cs">
+      <DependentUpon>SignalsCompareData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\SignalsCompareData.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignalsCompareData.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\QDFCCDataReconciliation.cs" />
     <Compile Include="Helpers\QdfDealParameters.cs" />
     <Compile Include="Helpers\RedisConnectionHelper.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Specs\ArsQdfCCReconciliation.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -126,6 +139,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfReconciliationWithLoadedFiles.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTests\ConnectToSignalsDb.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectToSignalsDb.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\SelfTests\LoadDailySnapshot.feature.cs">
       <AutoGen>True</AutoGen>
@@ -161,7 +179,16 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DataContexts\SignalsCompareData.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SignalsCompareData.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Specs\ArsQdfCCReconciliation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
@@ -173,6 +200,10 @@
     <None Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfReconciliationWithLoadedFiles.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTests\ConnectToSignalsDb.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConnectToSignalsDb.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTests\CumulativeSumTest.xlsx" />
     <None Include="Specs\SelfTests\LoadDailySnapshot.feature">
@@ -209,7 +240,11 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="DataContexts\SignalsCompareData.dbml.layout">
+      <DependentUpon>SignalsCompareData.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="TestData\AllQdfDeals.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

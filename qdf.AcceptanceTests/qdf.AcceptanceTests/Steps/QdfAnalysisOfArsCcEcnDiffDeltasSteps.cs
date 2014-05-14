@@ -1,4 +1,7 @@
-﻿using TechTalk.SpecFlow;
+﻿using FluentAssertions;
+using qdf.AcceptanceTests.DataContexts;
+using System.Linq;
+using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
 {
@@ -6,6 +9,36 @@ namespace qdf.AcceptanceTests.Steps
     public class QdfAnalysisOfArsCcEcnDiffDeltasSteps : QdfAnalysisOfArsCcEcnDiffDeltasStepBase
     {
         public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSteps).FullName;
+
+        public QdfAnalysisOfArsCcEcnDiffDeltasSteps(SignalsCompareData signalsCompareData)
+        {
+            SignalsCompareDataDataContext = signalsCompareData.SignalsCompareDataDataContext;
+        }
+
+        private SignalsCompareDataDataContext SignalsCompareDataDataContext { get; set; }
+
+        [Given(@"I have connected to SignalsCompareData")]
+        public void GivenIHaveConnectedToSignalsCompareData()
+        {
+            SignalsCompareDataDataContext.Should().NotBeNull();
+        }
+
+        [When(@"I query SignalsCompareData for server ""(.*)""")]
+        public void WhenIQuerySignalsCompareDataForServer(string serverName)
+        {
+            var server =
+                SignalsCompareDataDataContext.CompareDatas.Where(x => x.Server == serverName)
+                    .Select(x => x.Server)
+                    .First();
+            ScenarioContext.Current["ServerName"] = server;
+
+        }
+
+        [Then(@"the server should be ""(.*)""")]
+        public void ThenTheServerShouldBe(string serverName)
+        {
+            ScenarioContext.Current["ServerName"].ToString().Should().Be(serverName);
+        }
 
         [Given(@"I want to analyse diff deltas by timeslice in")]
         public void GivenIWantToAnalyseDiffDeltasByTimesliceIn(Table table)
