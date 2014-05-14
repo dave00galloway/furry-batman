@@ -186,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Nuget\specflow.exe.config" />
     <None Include="packages.config" />
     <None Include="PickleMyFeatures.ps1" />
     <None Include="Specs\CreateMixtureOfTestResults002.feature">
@@ -261,6 +262,7 @@
   -->
   <Target Name="BeforeBuild">
     <CallTarget Targets="SpicNSpan" />
+    <Copy SourceFiles="$(ProjectDir)Nuget\specflow.exe.config" DestinationFolder="$(SolutionDir)\packages\SpecFlow.1.9.0\tools" ContinueOnError="true" />
   </Target>
   <Target Name="SpicNSpan">
     <RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" />
