@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Helpers
@@ -13,40 +10,101 @@ namespace qdf.AcceptanceTests.Helpers
         private int MaxDiffs { get; set; }
         private SignalsCompareDataDataContext SignalsCompareDataDataContext { get; set; }
         private DiffDeltaParameters DiffDeltaParameters { get; set; }
+        public List<DiffDelta> DiffDeltas { get; set; }
 
         public void AnalyseDiffDeltas(DiffDeltaParameters diffDeltaParameters, SignalsCompareDataDataContext signalsCompareDataDataContext)
         {
             MaxDiffs = diffDeltaParameters.NumberOfDiffs;
             DiffDeltaParameters = diffDeltaParameters;
             SignalsCompareDataDataContext = signalsCompareDataDataContext;
-            var data  = GetComparisonData();//.ToList();
-            List<DiffDelta> analysed = GetDiffDeltas(data, MaxDiffs);
+            var data  = GetComparisonData();
+            DiffDeltas = GetDiffDeltas(data, MaxDiffs);
+            GetRelatedData(DiffDeltas);
         }
 
         private List<DiffDelta> GetDiffDeltas(IOrderedQueryable<CompareData> data, int maxDiffs)
         {
-            List<DiffDelta> list = new List<DiffDelta>(maxDiffs+1);
+            var list = new List<DiffDelta>(maxDiffs+1)
+            {
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta(),
+                new DiffDelta()
+            };
             DiffDelta prevDiffDelta = null;// = new DiffDelta();
             DiffDelta diffDelta = null;
             DiffDelta tempDiffDelta = null;
             foreach (CompareData compareData in data)
             {
-                if (compareData.Source == "ARS" && compareData.Section == "Clock")
+                switch ((Source)Enum.Parse(typeof(Source),compareData.Source))
                 {
-                    prevDiffDelta = diffDelta;
+                    case Source.ARS:
+                        if (prevDiffDelta != null) prevDiffDelta.EndTimeStamp = compareData.TimeStamp;
+                        prevDiffDelta = diffDelta;
+                        list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+                        diffDelta = prevDiffDelta != null ? new DiffDelta(prevDiffDelta) : new DiffDelta();
+                        tempDiffDelta = diffDelta;
+                        tempDiffDelta.StartTimeStamp = compareData.TimeStamp;
+                        tempDiffDelta.ArsPosition = compareData.Position;
+                        break;
 
-                    if (tempDiffDelta == null)
-                    {
-                        diffDelta = new DiffDelta();
-                    }
-                    else
-                    {
-                        diffDelta = new DiffDelta(prevDiffDelta);
-                    }
-                    tempDiffDelta = diffDelta;
+                    case Source.ECN:
+                        if (tempDiffDelta != null) tempDiffDelta.EcnPosition = compareData.Position;
+                        SetEndTimeStampToLatestTimeStamp(tempDiffDelta, compareData);
+                        break;
+
+                    case Source.CC:
+                        if (tempDiffDelta != null) tempDiffDelta.CcPosition += compareData.Position;
+                        SetEndTimeStampToLatestTimeStamp(tempDiffDelta, compareData);
+                        break;
                 }
             }
-            throw new NotImplementedException();
+            list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+            return list;
+        }
+
+        private void GetRelatedData(List<DiffDelta> diffDeltas)
+        {
+            var relatedData = from cd in SignalsCompareDataDataContext.CompareDatas
+                              where cd.Book == DiffDeltaParameters.Book
+                              where cd.Symbol == DiffDeltaParameters.Symbol
+                              where cd.Server == DiffDeltaParameters.Server
+                              orderby cd.TimeStamp
+                              select cd;
+
+            foreach (DiffDelta diffDelta in diffDeltas)
+            {
+                diffDelta.CompareData =
+                    new List<CompareData>(relatedData.Where(
+                        x => x.TimeStamp >= diffDelta.StartTimeStamp && x.TimeStamp < diffDelta.EndTimeStamp));
+            }
+        }
+
+        private static void SetEndTimeStampToLatestTimeStamp(DiffDelta tempDiffDelta, CompareData compareData)
+        {
+            if (tempDiffDelta != null && tempDiffDelta.EndTimeStamp < compareData.TimeStamp)
+            {
+                tempDiffDelta.EndTimeStamp = compareData.TimeStamp;
+            }
+        }
+
+        private static List<DiffDelta> AddSortAndTrimDiffDeltas(int maxDiffs, DiffDelta prevDiffDelta, List<DiffDelta> list)
+        {
+            if (prevDiffDelta != null)
+            {
+                prevDiffDelta.CalculateDiffDelta();
+                list.Add(prevDiffDelta);
+                list = list.OrderByDescending(x => x.Delta).ThenByDescending(x=>Math.Abs(x.Diff)).ToList();
+                list.RemoveAt(maxDiffs + 1);
+            }
+            return list;
         }
 
         private IOrderedQueryable<CompareData> GetComparisonData()

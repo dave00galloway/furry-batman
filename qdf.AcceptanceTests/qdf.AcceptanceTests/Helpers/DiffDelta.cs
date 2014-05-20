@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -20,6 +21,9 @@ namespace qdf.AcceptanceTests.Helpers
         public Decimal ArsPosition { get; set; }
         public Decimal CcPosition { get; set; }
         public Decimal EcnPosition { get; set; }
+        public DateTime StartTimeStamp { get; set; }
+        public DateTime EndTimeStamp { get; set; }
+        public List<CompareData> CompareData { get; set; }
 
         public DiffDelta PrevDiffDelta { get; private set; }
 
@@ -35,13 +39,12 @@ namespace qdf.AcceptanceTests.Helpers
 
         public void CalculateDiffDelta()
         {
-            // ArsCcDiff = Math.Abs(ArsPosition - CcPosition); // should we use Abs?
-            ArsCcDiff = ArsPosition - CcPosition;
-            ArsCcDelta = PrevDiffDelta != null ? PrevDiffDelta.ArsCcDiff - ArsCcDiff : ArsCcDiff;
-            ArsEcnDiff = ArsPosition - EcnPosition;
-            ArsEcnDelta = PrevDiffDelta != null ? PrevDiffDelta.ArsEcnDiff - ArsEcnDiff : ArsEcnDiff;
-            CcEcnDiff = CcPosition - EcnPosition;
-            CcEcnDelta = PrevDiffDelta != null ? PrevDiffDelta.CcEcnDelta - CcEcnDiff : CcEcnDiff;
+            ArsCcDiff = Math.Abs( Math.Abs(ArsPosition) - Math.Abs(CcPosition));
+            ArsCcDelta = PrevDiffDelta != null ? PrevDiffDelta.ArsCcDiff - ArsCcDiff : 0;
+            ArsEcnDiff = Math.Abs( Math.Abs(ArsPosition) - Math.Abs(EcnPosition));
+            ArsEcnDelta = PrevDiffDelta != null ? PrevDiffDelta.ArsEcnDiff - ArsEcnDiff : 0;
+            CcEcnDiff = Math.Abs( Math.Abs(CcPosition) - Math.Abs(EcnPosition));
+            CcEcnDelta = PrevDiffDelta != null ? PrevDiffDelta.CcEcnDiff - CcEcnDiff : 0;
             var dictionary = new Dictionary<Tuple<Source, Source>, Tuple<Decimal, Decimal>>
             {
                 {
@@ -57,12 +60,12 @@ namespace qdf.AcceptanceTests.Helpers
                     new Tuple<decimal, decimal>(CcEcnDiff, CcEcnDelta)
                 }
             };
-            //var maxDelta = dictionary.FirstOrDefault(x => Equals(x.Value, dictionary.Values.Max())).Key;
+
             var maxDelta =
                 default(KeyValuePair<Tuple<Source, Source>, Tuple<decimal, decimal>>);
             foreach (var keyValuePair in dictionary)
             {
-                if (Math.Abs(keyValuePair.Value.Item1) > Math.Abs(maxDelta.Value.Item1))
+                if (maxDelta.Value == null || Math.Abs(keyValuePair.Value.Item2) > Math.Abs(maxDelta.Value.Item2))
                 {
                     maxDelta = keyValuePair;
                 }
