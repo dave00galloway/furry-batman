@@ -22,11 +22,10 @@ namespace qdf.AcceptanceTests.Helpers
             GetRelatedData(DiffDeltas);
         }
 
-        private List<DiffDelta> GetDiffDeltas(IOrderedQueryable<CompareData> data, int maxDiffs)
+        private static List<DiffDelta> GetDiffDeltas(IOrderedQueryable<CompareData> data, int maxDiffs)
         {
-            var list = new List<DiffDelta>(maxDiffs+1)
+            var list = new List<DiffDelta>(maxDiffs)
             {
-                new DiffDelta(),
                 new DiffDelta(),
                 new DiffDelta(),
                 new DiffDelta(),
@@ -38,7 +37,7 @@ namespace qdf.AcceptanceTests.Helpers
                 new DiffDelta(),
                 new DiffDelta()
             };
-            DiffDelta prevDiffDelta = null;// = new DiffDelta();
+            DiffDelta prevDiffDelta = null;
             DiffDelta diffDelta = null;
             DiffDelta tempDiffDelta = null;
             foreach (CompareData compareData in data)
@@ -46,7 +45,7 @@ namespace qdf.AcceptanceTests.Helpers
                 switch ((Source)Enum.Parse(typeof(Source),compareData.Source))
                 {
                     case Source.ARS:
-                        if (prevDiffDelta != null) prevDiffDelta.EndTimeStamp = compareData.TimeStamp;
+                        if (tempDiffDelta != null) diffDelta.EndTimeStamp = compareData.TimeStamp;
                         prevDiffDelta = diffDelta;
                         list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
                         diffDelta = prevDiffDelta != null ? new DiffDelta(prevDiffDelta) : new DiffDelta();
@@ -102,7 +101,7 @@ namespace qdf.AcceptanceTests.Helpers
                 prevDiffDelta.CalculateDiffDelta();
                 list.Add(prevDiffDelta);
                 list = list.OrderByDescending(x => x.Delta).ThenByDescending(x=>Math.Abs(x.Diff)).ToList();
-                list.RemoveAt(maxDiffs + 1);
+                list.RemoveAt(maxDiffs);
             }
             return list;
         }
