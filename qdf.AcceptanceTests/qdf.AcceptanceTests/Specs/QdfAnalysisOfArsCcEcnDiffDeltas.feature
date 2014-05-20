@@ -6,7 +6,7 @@
 @mytag
 Scenario: Analyse diff deltas in B Book GBPUSD Mt4Pro 
 	Given I want to analyse diff deltas by timeslice in
-		| Book | Symbol | Server | StartDate   | EndDate     | NumberOfDiffs |
+		| Book | Symbol  | Server | StartDate   | EndDate     | NumberOfDiffs |
 		| B    | GBP/USD | Mt4Pro | 03-Feb-2014 | 09-Mar-2014 | 10            |
 	When I analyse the diff deltas by timeslice
 	Then The diff delta analysis is output to "csv"

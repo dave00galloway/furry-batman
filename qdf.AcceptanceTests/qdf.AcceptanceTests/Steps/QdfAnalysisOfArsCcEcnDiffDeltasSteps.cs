@@ -50,7 +50,7 @@ namespace qdf.AcceptanceTests.Steps
         [When(@"I analyse the diff deltas by timeslice")]
         public void WhenIAnalyseTheDiffDeltasByTimeslice()
         {
-            DiffDeltaFinder.AnalyseDiffDeltas(DiffDeltaParameters);
+            DiffDeltaFinder.AnalyseDiffDeltas(DiffDeltaParameters, SignalsCompareDataDataContext);
         }
 
         [Then(@"The diff delta analysis is output to ""(.*)""")]
