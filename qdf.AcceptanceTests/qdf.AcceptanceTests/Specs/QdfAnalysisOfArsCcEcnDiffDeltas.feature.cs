@@ -94,7 +94,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The diff delta analysis is output to \"Csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
  testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

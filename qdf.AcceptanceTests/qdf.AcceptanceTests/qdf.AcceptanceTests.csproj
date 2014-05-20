@@ -171,6 +171,7 @@
     </Compile>
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
+    <Compile Include="Helpers\DiffDeltaResult.cs" />
     <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasStepBase.cs" />
     <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasSteps.cs" />
     <Compile Include="Steps\SelfTest\ReuseDealReconStepsSteps.cs" />

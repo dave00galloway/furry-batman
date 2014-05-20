@@ -17,6 +17,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <typeparam name="T">The type of the enumerated items</typeparam>
         /// <param name="iEnumerable">the enumerated items</param>
         /// <param name="fileNamePath">output filename and path</param>
+        /// <param name="removeReturns"></param>
         /// <param name="useHeadersToGetData">set to true if the header list should be used to query the object. use this if you suspect the object definition may have changes, and the actual object contains different properties to those expected</param>
         /// <param name="headerSafeMode">set to true if ther might be errors retrieving some property names.  use this if you suspect the object definition may have changes, and the actual object contains different properties to those expected </param>
         public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath,bool removeReturns,bool useHeadersToGetData = false, bool headerSafeMode = false)

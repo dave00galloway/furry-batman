@@ -14,6 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         Console = 3
     }
 
+    [Obsolete("Use Export Parameters class instead")]
     public enum ExportParams
     {
         FileNamePath,

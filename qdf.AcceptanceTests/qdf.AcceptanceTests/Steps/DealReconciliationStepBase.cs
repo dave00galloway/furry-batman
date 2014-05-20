@@ -78,7 +78,7 @@ namespace qdf.AcceptanceTests.Steps
         /// <summary>
         /// TODO:- move to MasterStepBase, add setter and bypass ScenarioContext altogether?
         /// </summary>
-        protected static string ScenarioOutputDirectory
+        public static string ScenarioOutputDirectory
         {
             get { return (string)ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY]; }
         }

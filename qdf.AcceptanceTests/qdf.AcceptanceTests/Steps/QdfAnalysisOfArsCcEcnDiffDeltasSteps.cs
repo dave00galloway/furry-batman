@@ -1,4 +1,9 @@
-﻿using FluentAssertions;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using System.Linq;
 using qdf.AcceptanceTests.Helpers;
@@ -54,9 +59,36 @@ namespace qdf.AcceptanceTests.Steps
         }
 
         [Then(@"The diff delta analysis is output to ""(.*)""")]
-        public void ThenTheDiffDeltaAnalysisIsOutputTo(string p0)
+        public void ThenTheDiffDeltaAnalysisIsOutputTo(string exportMethod)
         {
-            ScenarioContext.Current.Pending();
+            List<DiffDeltaResult> diffDeltaQuery = DiffDeltaFinder.DiffDeltas.SelectMany(diffDelta => diffDelta.CompareData,
+                (diffDelta, compareData) =>
+                    new DiffDeltaResult
+                    {
+                        HiSource = diffDelta.HiSource.ToString(),
+                        LoSource = diffDelta.LoSource.ToString(),
+                        Diff = diffDelta.Diff,
+                        Delta = diffDelta.Delta,
+                        Id = compareData.Id,
+                        Position = compareData.Position,
+                        TimeStamp = compareData.TimeStamp
+                    }).ToList();
+
+
+            switch ((ExportTypes) Enum.Parse(typeof (ExportTypes), exportMethod))
+            {
+                case ExportTypes.Csv:
+                    diffDeltaQuery.EnumerableToCsv(DealReconciliationStepBase.ScenarioOutputDirectory+"diffDeltas.csv", false);
+                    break;
+                case ExportTypes.Console:
+                    throw new NotImplementedException();
+                case ExportTypes.Database:
+                    throw new NotImplementedException();
+
+                    //case ExportTypes.Unknown:
+                default:
+                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
+            }
         }
 
         [Then(@"no diff delta is greater than (.*) percent of the mean position for the timeslice")]
