@@ -153,3 +153,4 @@ qdf.AcceptanceTests/packages/Newtonsoft.*
 qdf.AcceptanceTests/packages/Pickles.*
 qdf.AcceptanceTests/packages/System.*
 System.Data.Linq.pdb
+*.zip

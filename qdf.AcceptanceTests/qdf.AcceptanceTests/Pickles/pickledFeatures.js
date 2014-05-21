@@ -196,6 +196,52 @@ jsonPWrapper ([
     }
   },
   {
+    "RelativeFolder": "SelfTests\\ConnectToSignalsDb.feature",
+    "Feature": {
+      "Name": "ConnectToSignalsDb",
+      "Description": "In order to get comparison data\r\nAs a Tester\r\nI want to be able to get data from the SignalsDB",
+      "FeatureElements": [
+        {
+          "Name": "Get a server name from Signals DB",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have connected to SignalsCompareData"
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I query SignalsCompareData for server \"Mt4Pro\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the server should be \"Mt4Pro\""
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": true,
+        "WasSuccessful": true
+      },
+      "Tags": []
+    },
+    "Result": {
+      "WasExecuted": true,
+      "WasSuccessful": true
+    }
+  },
+  {
     "RelativeFolder": "SelfTests\\ArsQdfReconciliationWithLoadedFiles.feature",
     "Feature": {
       "Name": "ArsQdfReconciliationWithLoadedFiles",
@@ -244,6 +290,77 @@ jsonPWrapper ([
     "Result": {
       "WasExecuted": true,
       "WasSuccessful": true
+    }
+  },
+  {
+    "RelativeFolder": "QdfAnalysisOfArsCcEcnDiffDeltas.feature",
+    "Feature": {
+      "Name": "QdfAnalysisOfArsCcEcnDiffDeltas",
+      "Description": "In order to reconcile Qdf Data\r\nAs a tester\r\nI want to be able to find the biggest differences in the data streams",
+      "FeatureElements": [
+        {
+          "Name": "Analyse diff deltas in B Book GBPUSD Mt4Pro",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "B",
+                    "GBP/USD",
+                    "Mt4Pro",
+                    "03-Feb-2014",
+                    "09-Mar-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"Csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": false,
+        "WasSuccessful": false
+      },
+      "Tags": []
+    },
+    "Result": {
+      "WasExecuted": false,
+      "WasSuccessful": false
     }
   },
   {

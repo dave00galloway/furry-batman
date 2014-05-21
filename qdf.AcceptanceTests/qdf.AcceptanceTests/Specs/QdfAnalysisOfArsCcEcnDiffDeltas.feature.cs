@@ -88,7 +88,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Mt4Pro",
                         "03-Feb-2014",
                         "09-Mar-2014",
-                        "10"});
+                        "20"});
 #line 8
  testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table1, "Given ");
 #line 11
