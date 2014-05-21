@@ -10,7 +10,7 @@ namespace qdf.AcceptanceTests.Helpers
         private int MaxDiffs { get; set; }
         private SignalsCompareDataDataContext SignalsCompareDataDataContext { get; set; }
         private DiffDeltaParameters DiffDeltaParameters { get; set; }
-        public List<DiffDelta> DiffDeltas { get; set; }
+        public List<DiffDelta> DiffDeltas { get; private set; }
 
         public void AnalyseDiffDeltas(DiffDeltaParameters diffDeltaParameters, SignalsCompareDataDataContext signalsCompareDataDataContext)
         {
@@ -24,19 +24,11 @@ namespace qdf.AcceptanceTests.Helpers
 
         private static List<DiffDelta> GetDiffDeltas(IOrderedQueryable<CompareData> data, int maxDiffs)
         {
-            var list = new List<DiffDelta>(maxDiffs)
+            var list = new List<DiffDelta>(maxDiffs);
+            for (int i = 0; i < maxDiffs; i++)
             {
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta(),
-                new DiffDelta()
-            };
+                list.Add(new DiffDelta());
+            }
             DiffDelta prevDiffDelta = null;
             DiffDelta diffDelta = null;
             DiffDelta tempDiffDelta = null;

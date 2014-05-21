@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
 using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Helpers
 {
     public class DiffDelta
     {
-        public Source LoSource { get; set; }
-        public Source HiSource { get; set; }
-        public Decimal Diff { get; set; }
-        public Decimal Delta { get; set; }
-        public Decimal ArsCcDiff { get; set; }
-        public Decimal ArsCcDelta { get; set; }
-        public Decimal ArsEcnDiff { get; set; }
-        public Decimal ArsEcnDelta { get; set; }
-        public Decimal CcEcnDiff { get; set; }
-        public Decimal CcEcnDelta { get; set; }
-        public Decimal ArsPosition { get; set; }
+        public Source LoSource { get; private set; }
+        public Source HiSource { get; private set; }
+        public Decimal Diff { get; private set; }
+        public Decimal Delta { get; private set; }
+        private Decimal ArsCcDiff { get; set; }
+        private Decimal ArsCcDelta { get; set; }
+        private Decimal ArsEcnDiff { get; set; }
+        private Decimal ArsEcnDelta { get; set; }
+        private Decimal CcEcnDiff { get; set; }
+        private Decimal CcEcnDelta { get; set; }
+        public Decimal ArsPosition { private get; set; }
         public Decimal CcPosition { get; set; }
-        public Decimal EcnPosition { get; set; }
+        public Decimal EcnPosition { private get; set; }
         public DateTime StartTimeStamp { get; set; }
         public DateTime EndTimeStamp { get; set; }
         public List<CompareData> CompareData { get; set; }

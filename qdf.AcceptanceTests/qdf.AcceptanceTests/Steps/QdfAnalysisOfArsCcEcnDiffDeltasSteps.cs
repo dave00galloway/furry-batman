@@ -67,18 +67,32 @@ namespace qdf.AcceptanceTests.Steps
                     {
                         HiSource = diffDelta.HiSource.ToString(),
                         LoSource = diffDelta.LoSource.ToString(),
+                        Section = compareData.Section,
                         Diff = diffDelta.Diff,
                         Delta = diffDelta.Delta,
                         Id = compareData.Id,
                         Position = compareData.Position,
-                        TimeStamp = compareData.TimeStamp
+                        Start = diffDelta.StartTimeStamp,
+                        TimeStamp = compareData.TimeStamp,
+                        End = diffDelta.EndTimeStamp
+                        
                     }).ToList();
+            var diffDelataSummaryQuery = DiffDeltaFinder.DiffDeltas.Select(diffDelta => new
+            {
+                HiSource = diffDelta.HiSource.ToString(),
+                LoSource = diffDelta.LoSource.ToString(),
+                Diff = diffDelta.Diff,
+                Delta = diffDelta.Delta,
+                Start = diffDelta.StartTimeStamp,
+                End = diffDelta.EndTimeStamp
+            }).ToList();
 
 
             switch ((ExportTypes) Enum.Parse(typeof (ExportTypes), exportMethod))
             {
                 case ExportTypes.Csv:
                     diffDeltaQuery.EnumerableToCsv(DealReconciliationStepBase.ScenarioOutputDirectory+"diffDeltas.csv", false);
+                    diffDelataSummaryQuery.EnumerableToCsv(DealReconciliationStepBase.ScenarioOutputDirectory + "diffDeltaSummary.csv", false);
                     break;
                 case ExportTypes.Console:
                     throw new NotImplementedException();
