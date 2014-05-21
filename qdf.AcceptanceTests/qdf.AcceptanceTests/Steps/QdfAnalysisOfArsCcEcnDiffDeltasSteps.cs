@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
-using System.Linq;
 using qdf.AcceptanceTests.Helpers;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
@@ -15,13 +12,13 @@ namespace qdf.AcceptanceTests.Steps
     public class QdfAnalysisOfArsCcEcnDiffDeltasSteps : QdfAnalysisOfArsCcEcnDiffDeltasStepBase
     {
         public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSteps).FullName;
+        
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSteps(SignalsCompareData signalsCompareData, DiffDeltaFinder diffDeltaFinder)
             : base(signalsCompareData, diffDeltaFinder)
         {
         }
 
-        
 
         [Given(@"I have connected to SignalsCompareData")]
         public void GivenIHaveConnectedToSignalsCompareData()
@@ -65,51 +62,30 @@ namespace qdf.AcceptanceTests.Steps
             DiffDeltaFinder.AnalyseDiffDeltas(DiffDeltaParameters, SignalsCompareDataDataContext);
         }
 
+        [When(@"I analyse the diff deltas by timeslice and output to ""(.*)""")]
+        public void WhenIAnalyseTheDiffDeltasByTimesliceAndOutputTo(string exportMethod)
+        {
+            foreach (DiffDeltaParameters diffDeltaParameters in DiffDeltaParameterList)
+            {
+                var paramSetName = diffDeltaParameters.Book + diffDeltaParameters.Symbol + diffDeltaParameters.Server;
+                DiffDeltaParameters = diffDeltaParameters;
+                DiffDeltaFinder.AnalyseDiffDeltas(DiffDeltaParameters, SignalsCompareDataDataContext);
+                List<DiffDeltaResult> diffDeltaQuery;
+                List<DiffDeltaSummary> diffDeltaSummaryQuery;
+                GetDeltaDiffsAndOutput(exportMethod, out diffDeltaQuery, out diffDeltaSummaryQuery, paramSetName + "DiffDeltaSummary", paramSetName+"DiffDeltas");
+                DiffDeltaList.Add(diffDeltaQuery);
+                DiffDeltaSummary.Add(diffDeltaSummaryQuery);
+                GC.Collect();
+            }
+        }
+
+
         [Then(@"The diff delta analysis is output to ""(.*)""")]
         public void ThenTheDiffDeltaAnalysisIsOutputTo(string exportMethod)
         {
-            List<DiffDeltaResult> diffDeltaQuery = DiffDeltaFinder.DiffDeltas.SelectMany(diffDelta => diffDelta.CompareData,
-                (diffDelta, compareData) =>
-                    new DiffDeltaResult
-                    {
-                        HiSource = diffDelta.HiSource.ToString(),
-                        LoSource = diffDelta.LoSource.ToString(),
-                        Section = compareData.Section,
-                        Diff = diffDelta.Diff,
-                        Delta = diffDelta.Delta,
-                        Id = compareData.Id,
-                        Position = compareData.Position,
-                        Start = diffDelta.StartTimeStamp,
-                        TimeStamp = compareData.TimeStamp,
-                        End = diffDelta.EndTimeStamp
-                        
-                    }).ToList();
-            var diffDelataSummaryQuery = DiffDeltaFinder.DiffDeltas.Select(diffDelta => new
-            {
-                HiSource = diffDelta.HiSource.ToString(),
-                LoSource = diffDelta.LoSource.ToString(),
-                Diff = diffDelta.Diff,
-                Delta = diffDelta.Delta,
-                Start = diffDelta.StartTimeStamp,
-                End = diffDelta.EndTimeStamp
-            }).ToList();
-
-
-            switch ((ExportTypes) Enum.Parse(typeof (ExportTypes), exportMethod))
-            {
-                case ExportTypes.Csv:
-                    diffDeltaQuery.EnumerableToCsv(DealReconciliationStepBase.ScenarioOutputDirectory+"diffDeltas.csv", false);
-                    diffDelataSummaryQuery.EnumerableToCsv(DealReconciliationStepBase.ScenarioOutputDirectory + "diffDeltaSummary.csv", false);
-                    break;
-                case ExportTypes.Console:
-                    throw new NotImplementedException();
-                case ExportTypes.Database:
-                    throw new NotImplementedException();
-
-                    //case ExportTypes.Unknown:
-                default:
-                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
-            }
+            List<DiffDeltaResult> diffDeltaQuery;
+            List<DiffDeltaSummary> diffDeltaSummaryQuery;
+            GetDeltaDiffsAndOutput(exportMethod, out diffDeltaQuery, out diffDeltaSummaryQuery);
         }
 
         [Then(@"no diff delta is greater than (.*) percent of the mean position for the timeslice")]

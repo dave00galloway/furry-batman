@@ -1,7 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using qdf.AcceptanceTests.DataContexts;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 
 namespace qdf.AcceptanceTests.Helpers
 {
@@ -63,18 +65,45 @@ namespace qdf.AcceptanceTests.Helpers
 
         private void GetRelatedData(List<DiffDelta> diffDeltas)
         {
-            var relatedData = from cd in SignalsCompareDataDataContext.CompareDatas
-                              where cd.Book == DiffDeltaParameters.Book
-                              where cd.Symbol == DiffDeltaParameters.Symbol
-                              where cd.Server == DiffDeltaParameters.Server
-                              orderby cd.TimeStamp
-                              select cd;
+            var relatedData =
+                SignalsCompareDataDataContext.CompareDatas.Where(cd => cd.Book == DiffDeltaParameters.Book)
+                    .Where(cd => cd.Symbol == DiffDeltaParameters.Symbol)
+                    .Where(cd => cd.Server == DiffDeltaParameters.Server)
+                    .OrderBy(cd => cd.TimeStamp);
 
             foreach (DiffDelta diffDelta in diffDeltas)
             {
                 diffDelta.CompareData =
-                    new List<CompareData>(relatedData.Where(
-                        x => x.TimeStamp >= diffDelta.StartTimeStamp && x.TimeStamp < diffDelta.EndTimeStamp));
+                    GetCompareDataForDiffDelta(relatedData, diffDelta);
+            }
+        }
+
+        private List<CompareData> GetCompareDataForDiffDelta(IOrderedQueryable<CompareData> relatedData, DiffDelta diffDelta)
+        {
+            try
+            {
+                return new List<CompareData>(relatedData.Where(
+                        x => x != null && (x.TimeStamp >= diffDelta.StartTimeStamp && x.TimeStamp < diffDelta.EndTimeStamp)));
+            }
+            catch (Exception e)
+            {
+                var message = string.Format("Unable to get related data for {0} {1} {2} ending at {3}", DiffDeltaParameters.Book.ToString(CultureInfo.InvariantCulture),DiffDeltaParameters.Symbol,DiffDeltaParameters.Server,diffDelta.EndTimeStamp);
+                e.ConsoleExceptionLogger(message);
+                return new List<CompareData>
+                {
+                    new CompareData
+                    {
+                        Book = DiffDeltaParameters.Book.ToString(CultureInfo.InvariantCulture),
+                        Symbol = DiffDeltaParameters.Symbol,
+                        Server = DiffDeltaParameters.Server,
+                        Position = diffDelta.ArsPosition,
+                        Section =  message,
+                        Id = 0,
+                        RawPosition = diffDelta.ArsPosition,
+                        Source = "?",
+                        TimeStamp = diffDelta.EndTimeStamp
+                    }
+                };
             }
         }
 

@@ -16,7 +16,10 @@ namespace qdf.AcceptanceTests.Helpers
         private Decimal ArsEcnDelta { get; set; }
         private Decimal CcEcnDiff { get; set; }
         private Decimal CcEcnDelta { get; set; }
-        public Decimal ArsPosition { private get; set; }
+        /// <summary>
+        /// Default position if a position is required e.g. for exception handling
+        /// </summary>
+        public Decimal ArsPosition { get; set; }
         public Decimal CcPosition { get; set; }
         public Decimal EcnPosition { private get; set; }
         public DateTime StartTimeStamp { get; set; }

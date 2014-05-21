@@ -11,6 +11,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     public static class CsvParserExtensionMethods
     {
+// ReSharper disable once InconsistentNaming
+        public static readonly string csv = "csv";
+
         public static string EscapeCommasIfInEscapeList(this string val, int[] columnsToEscape,
             KeyValuePair<string, int> column)
         {
@@ -60,6 +63,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 out parsedFile, out line, out type);
             CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile, ignoreProps);
             return parsedFile;
+        }
+
+        /// <summary>
+        ///     removes characters from a string which might cause Windows a problem when creationg files/directories
+        /// </summary>
+        /// <param name="stringToCleanse"></param>
+        /// <returns></returns>
+        public static string RemoveWindowsUnfriendlyChars(this object stringToCleanse)
+        {
+            string cleansedString =
+                stringToCleanse.ToString()
+                    .Replace(" ", "")
+                    .Replace(@"\", "")
+                    .Replace(@"/", "")
+                    .Replace(@"(", "")
+                    .Replace(@")", "")
+                    .Replace("-", "");
+            return cleansedString;
         }
 
         private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter,
@@ -127,7 +148,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                                 catch (Exception e)
                                 {
                                     e.ConsoleExceptionLogger(
-                                        string.Format(
+                                        String.Format(
                                             "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
                                             pair.Key, line, s, fileNamePath));
                                 }
@@ -138,13 +159,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     catch (Exception e)
                     {
                         e.ConsoleExceptionLogger(
-                            string.Format("unable to get values for line {0}. values = {1} , file = {2}", line, s,
+                            String.Format("unable to get values for line {0}. values = {1} , file = {2}", line, s,
                                 fileNamePath));
                     }
                 }
                 catch (Exception e)
                 {
-                    e.ConsoleExceptionLogger(string.Format("unable to get values for a line,  , file = {0}",
+                    e.ConsoleExceptionLogger(String.Format("unable to get values for a line,  , file = {0}",
                         fileNamePath));
                 }
                 parsedFile.Add(newT);

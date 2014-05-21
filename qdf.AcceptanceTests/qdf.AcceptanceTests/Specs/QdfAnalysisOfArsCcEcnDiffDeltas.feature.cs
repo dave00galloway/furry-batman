@@ -94,9 +94,33 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("The diff delta analysis is output to \"Csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
  testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse All Distinct DiffDeltas")]
+        public virtual void AnalyseAllDistinctDiffDeltas()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table2.AddRow(new string[] {
+                        "03-Feb-2014",
+                        "09-Mar-2014",
+                        "20"});
+#line 16
+ testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table2, "Given ");
+#line 19
+ testRunner.When("I analyse the diff deltas by timeslice and output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

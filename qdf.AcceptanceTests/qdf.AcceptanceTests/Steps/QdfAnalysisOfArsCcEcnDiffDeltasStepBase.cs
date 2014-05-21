@@ -1,4 +1,7 @@
-﻿using qdf.AcceptanceTests.DataContexts;
+﻿using System.Globalization;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
 using System;
 using System.Collections.Generic;
@@ -16,12 +19,16 @@ namespace qdf.AcceptanceTests.Steps
         protected SignalsCompareDataDataContext SignalsCompareDataDataContext { get; private set; }
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
-        protected DiffDeltaFinder DiffDeltaFinder { get; set; }    
+        protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
+        protected List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
+        protected List<List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
 
         public QdfAnalysisOfArsCcEcnDiffDeltasStepBase(SignalsCompareData signalsCompareData, DiffDeltaFinder diffDeltaFinder)
         {
             DiffDeltaFinder = diffDeltaFinder;
             SignalsCompareDataDataContext = signalsCompareData.SignalsCompareDataDataContext;
+            DiffDeltaList = new List<List<DiffDeltaResult>>();
+            DiffDeltaSummary = new List<List<DiffDeltaSummary>>();
         }
 
         [StepArgumentTransformation]
@@ -34,14 +41,6 @@ namespace qdf.AcceptanceTests.Steps
         public List<DiffDeltaParameters> DiffDeltaParametersListTransform(Table table)
         {
             //get distict combinations of data
-            //select distinct
-            //cd.Book,
-            //cd.Symbol,
-            //cd.Server
-            //from CompareData cd
-            //where cd.TimeStamp >= '03-Feb-2014'
-            //and cd.TimeStamp < '09-Mar-2014'
-            //order by cd.Server, cd.Book, cd.Symbol
             var start = table.Rows.First()["StartDate"];
             var startDate = Convert.ToDateTime(start);
             var end = table.Rows.First()["EndDate"];
@@ -61,6 +60,52 @@ namespace qdf.AcceptanceTests.Steps
 
             //return data
             return returnTable.CreateSet<DiffDeltaParameters>().ToList();
+        }
+
+        protected void GetDeltaDiffsAndOutput(string exportMethod, out List<DiffDeltaResult> diffDeltaQuery, out List<DiffDeltaSummary> diffDeltaSummaryQuery, string diffDeltaSummary = "diffDeltaSummary", string diffDeltas = "diffDeltas")
+        {
+            diffDeltaQuery = DiffDeltaFinder.DiffDeltas.SelectMany(diffDelta => diffDelta.CompareData,
+                (diffDelta, compareData) =>
+                    new DiffDeltaResult
+                    {
+                        HiSource = diffDelta.HiSource.ToString(),
+                        LoSource = diffDelta.LoSource.ToString(),
+                        Section = compareData.Section,
+                        Diff = diffDelta.Diff,
+                        Delta = diffDelta.Delta,
+                        Id = compareData.Id,
+                        Position = compareData.Position,
+                        Start = diffDelta.StartTimeStamp,
+                        TimeStamp = compareData.TimeStamp,
+                        End = diffDelta.EndTimeStamp
+                    }).ToList();
+            diffDeltaSummaryQuery = DiffDeltaFinder.DiffDeltas.Select(diffDelta => new DiffDeltaSummary
+            {
+                HiSource = diffDelta.HiSource.ToString(),
+                LoSource = diffDelta.LoSource.ToString(),
+                Diff = diffDelta.Diff,
+                Delta = diffDelta.Delta,
+                Start = diffDelta.StartTimeStamp,
+                End = diffDelta.EndTimeStamp
+            }).ToList();
+
+
+            switch ((ExportTypes)Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower())))
+            {
+                case ExportTypes.Csv:
+                    diffDeltaQuery.EnumerableToCsv(string.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltas.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
+                    diffDeltaSummaryQuery.EnumerableToCsv(
+                        string.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltaSummary.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
+                    break;
+                case ExportTypes.Console:
+                    throw new NotImplementedException();
+                case ExportTypes.Database:
+                    throw new NotImplementedException();
+
+                //case ExportTypes.Unknown:
+                default:
+                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
+            }
         }
     }
 }

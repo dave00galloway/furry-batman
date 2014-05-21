@@ -76,24 +76,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             return str.StringToCsvCell();
         }
 
-        /// <summary>
-        ///     removes characters from a string which might cause Windows a problem when creationg files/directories
-        /// </summary>
-        /// <param name="stringToCleanse"></param>
-        /// <returns></returns>
-        public static string RemoveWindowsUnfriendlyChars(object stringToCleanse)
-        {
-            string cleansedString =
-                stringToCleanse.ToString()
-                    .Replace(" ", "")
-                    .Replace(@"\", "")
-                    .Replace(@"/", "")
-                    .Replace(@"(", "")
-                    .Replace(@")", "")
-                    .Replace("-", "");
-            return cleansedString;
-        }
-
         // Implement IDisposable. 
         // Do not make this method virtual. 
         // A derived class should not be able to override this method. 
