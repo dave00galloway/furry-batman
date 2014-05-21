@@ -149,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToSignalsDb.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\GenerateDistinctDiffDeltas.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenerateDistinctDiffDeltas.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\LoadDailySnapshot.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -210,7 +215,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToSignalsDb.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\SelfTests\CumulativeSumTest.xlsx" />
+    <None Include="Specs\SelfTests\GenerateDistinctDiffDeltas.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GenerateDistinctDiffDeltas.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTests\LoadDailySnapshot.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoadDailySnapshot.feature.cs</LastGenOutput>

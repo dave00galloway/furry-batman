@@ -11,3 +11,12 @@ and TimeStamp >= '03-Feb-2014'
 and TimeStamp < '05-Feb-2014'
 and Section <> 'Deal'
 order by TimeStamp
+
+select distinct
+cd.Book,
+cd.Symbol,
+cd.Server
+from CompareData cd
+where cd.TimeStamp >= '03-Feb-2014'
+and cd.TimeStamp < '09-Mar-2014'
+order by cd.Server, cd.Book, cd.Symbol

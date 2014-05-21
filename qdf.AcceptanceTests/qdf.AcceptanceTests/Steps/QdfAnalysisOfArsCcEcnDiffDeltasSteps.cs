@@ -52,6 +52,13 @@ namespace qdf.AcceptanceTests.Steps
             DiffDeltaParameters = diffDeltaParameters;
         }
 
+        [Given(@"I want to analyse these diff deltas by timeslice in")]
+        public void GivenIWantToAnalyseTheseDiffDeltasByTimesliceIn(List<DiffDeltaParameters> diffDeltaParameters)
+        {
+            DiffDeltaParameterList = diffDeltaParameters;
+        }
+
+
         [When(@"I analyse the diff deltas by timeslice")]
         public void WhenIAnalyseTheDiffDeltasByTimeslice()
         {
@@ -110,5 +117,12 @@ namespace qdf.AcceptanceTests.Steps
         {
             ScenarioContext.Current.Pending();
         }
+
+        [Then(@"the number of parameter sets is (.*)")]
+        public void ThenTheNumberOfParameterSetsIs(int expectedCount)
+        {
+            DiffDeltaParameterList.Should().HaveCount(expectedCount);
+        }
+
     }
 }
