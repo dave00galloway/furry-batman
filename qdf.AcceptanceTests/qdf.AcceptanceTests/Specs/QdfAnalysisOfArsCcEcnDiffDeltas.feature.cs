@@ -103,10 +103,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Analyse All Distinct DiffDeltas")]
+        [NUnit.Framework.CategoryAttribute("LongRunning")]
         public virtual void AnalyseAllDistinctDiffDeltas()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", ((string[])(null)));
-#line 15
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", new string[] {
+                        "LongRunning"});
+#line 16
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -117,9 +119,9 @@ this.ScenarioSetup(scenarioInfo);
                         "03-Feb-2014",
                         "09-Mar-2014",
                         "20"});
-#line 16
+#line 17
  testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table2, "Given ");
-#line 19
+#line 20
  testRunner.When("I analyse the diff deltas by timeslice and output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

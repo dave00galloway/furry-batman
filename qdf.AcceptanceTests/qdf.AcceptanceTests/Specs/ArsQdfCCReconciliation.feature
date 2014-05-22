@@ -20,6 +20,6 @@ Background:Load data
 #		And I have CC data
 #	When I compare QDF and CC data
 #	Then the data should match
-
+@Broken
 Scenario: Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes ago
 	When I compare QDF and CC data

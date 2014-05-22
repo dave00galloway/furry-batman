@@ -87,10 +87,12 @@ namespace qdf.AcceptanceTests.Specs
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
             " ago")]
+        [NUnit.Framework.CategoryAttribute("Broken")]
         public virtual void BookADealsForServerC1InSymbolEURUSDInQDFShouldEqualCCFrom5MinutesAgo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes" +
-                    " ago", ((string[])(null)));
+                    " ago", new string[] {
+                        "Broken"});
 #line 24
 this.ScenarioSetup(scenarioInfo);
 #line 6

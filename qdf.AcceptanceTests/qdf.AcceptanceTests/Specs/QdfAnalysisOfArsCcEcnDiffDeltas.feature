@@ -12,6 +12,7 @@ Scenario: Analyse diff deltas in B Book GBPUSD Mt4Pro
 	Then The diff delta analysis is output to "csv"
 	And no diff delta is greater than 10 percent of the mean position for the timeslice
 
+@LongRunning
 Scenario: Analyse All Distinct DiffDeltas
 	Given I want to analyse these diff deltas by timeslice in
 		| StartDate   | EndDate     | NumberOfDiffs |

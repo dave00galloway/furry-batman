@@ -196,6 +196,61 @@ jsonPWrapper ([
     }
   },
   {
+    "RelativeFolder": "SelfTests\\GenerateDistinctDiffDeltas.feature",
+    "Feature": {
+      "Name": "GenerateDistinctDiffDeltas",
+      "Description": "In order to get all relevant data for diff delta comparisons\r\nAs a tester\r\nI want an exhaustive list of distinct book, symbol and server combinations for a specified date range",
+      "FeatureElements": [
+        {
+          "Name": "Generate Distinct DiffDeltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse these diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "03-Feb-2014",
+                    "09-Mar-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the number of parameter sets is 845"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": true,
+        "WasSuccessful": true
+      },
+      "Tags": []
+    },
+    "Result": {
+      "WasExecuted": true,
+      "WasSuccessful": true
+    }
+  },
+  {
     "RelativeFolder": "SelfTests\\ConnectToSignalsDb.feature",
     "Feature": {
       "Name": "ConnectToSignalsDb",
@@ -335,7 +390,7 @@ jsonPWrapper ([
             {
               "Keyword": "Then",
               "NativeKeyword": "Then ",
-              "Name": "The diff delta analysis is output to \"Csv\""
+              "Name": "The diff delta analysis is output to \"csv\""
             },
             {
               "Keyword": "And",
@@ -345,6 +400,43 @@ jsonPWrapper ([
           ],
           "Tags": [
             "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse All Distinct DiffDeltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse these diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "03-Feb-2014",
+                    "09-Mar-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice and output to \"csv\""
+            }
+          ],
+          "Tags": [
+            "@LongRunning"
           ],
           "Result": {
             "WasExecuted": false,
@@ -379,9 +471,11 @@ jsonPWrapper ([
               "Name": "I compare QDF and CC data"
             }
           ],
-          "Tags": [],
+          "Tags": [
+            "@Broken"
+          ],
           "Result": {
-            "WasExecuted": true,
+            "WasExecuted": false,
             "WasSuccessful": false
           }
         }
@@ -425,13 +519,13 @@ jsonPWrapper ([
         }
       },
       "Result": {
-        "WasExecuted": true,
+        "WasExecuted": false,
         "WasSuccessful": false
       },
       "Tags": []
     },
     "Result": {
-      "WasExecuted": true,
+      "WasExecuted": false,
       "WasSuccessful": false
     }
   }

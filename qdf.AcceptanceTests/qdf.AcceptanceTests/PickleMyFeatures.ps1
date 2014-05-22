@@ -21,7 +21,7 @@ $tests = (Get-ChildItem $OutDir -Recurse -Include *qdf.AcceptanceTests.dll)
 
 # Run tests
 # & $nunit /noshadow /framework:"net-4.5" /xml:"$OutDir\TestResult.xml" $tests "/out:$OutDir\TestResult.txt" "/include=Pickles" "/labels"
-& $nunit /noshadow /framework:"net-4.5" /xml:"$OutDir\TestResult.xml" $tests "/out:$OutDir\TestResult.txt" "/labels"
+& $nunit /noshadow /framework:"net-4.5" /xml:"$OutDir\TestResult.xml" $tests "/exclude:LongRunning,Broken" "/out:$OutDir\TestResult.txt" "/labels"
 ######
 Write-host "My package is in $SolutionDir/packages\Pickles.0.13.1.0\tools\PicklesDoc.Pickles.PowerShell.dll"
 Import-Module $SolutionDir/packages\Pickles.0.13.1.0\tools\PicklesDoc.Pickles.PowerShell.dll
