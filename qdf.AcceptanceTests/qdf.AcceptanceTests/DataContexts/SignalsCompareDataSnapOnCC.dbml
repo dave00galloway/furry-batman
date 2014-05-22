@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Signals" Class="SignalsCompareDataSnapOnCCDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=bgvmdevcms.alpari-uk.dom;Initial Catalog=Signals;Integrated Security=True" SettingsObjectName="qdf.AcceptanceTests.Properties.Settings" SettingsPropertyName="SignalsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CompareDataSnapOnCC" Member="CompareDataSnapOnCCs">
+    <Type Name="CompareDataSnapOnCC">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Server" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Symbol" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Position" Type="System.Decimal" DbType="Decimal(24,9) NOT NULL" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Source" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Book" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Section" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="UsdPosition" Type="System.Decimal" DbType="Decimal(24,9)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

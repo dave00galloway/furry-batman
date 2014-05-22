@@ -106,6 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContexts\CCToolDataContext.cs" />
+    <Compile Include="DataContexts\ICompareData.cs" />
     <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
     <Compile Include="DataContexts\SignalsCompareData.cs">
       <DependentUpon>SignalsCompareData.dbml</DependentUpon>
@@ -114,6 +115,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SignalsCompareData.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\SignalsCompareDataSnapOnCC.cs">
+      <DependentUpon>SignalsCompareDataSnapOnCC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\SignalsCompareDataSnapOnCC.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SignalsCompareDataSnapOnCC.dbml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DiffDelta.cs" />
     <Compile Include="Helpers\DiffDeltaFinder.cs" />
@@ -195,6 +204,11 @@
       <LastGenOutput>SignalsCompareData.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <None Include="DataContexts\SignalsCompareDataSnapOnCC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SignalsCompareDataSnapOnCC.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="KillScript.ps1" />
     <None Include="packages.config" />
     <None Include="PickleMyFeatures.ps1" />
@@ -270,7 +284,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="DataContexts\SignalsCompareDataSnapOnCC.dbml.layout">
+      <DependentUpon>SignalsCompareDataSnapOnCC.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)PickleMyFeatures.ps1)</PostBuildEvent>

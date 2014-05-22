@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="SignalsCompareDataSnapOnCC">
+  <DataContextMoniker Name="/SignalsCompareDataSnapOnCCDataContext" />
+  <nestedChildShapes>
+    <classShape Id="732b9b35-e935-4e60-a2c8-d35dfae5ede4" absoluteBounds="4.125, 4.125, 2, 2.24658447265625">
+      <DataClassMoniker Name="/SignalsCompareDataSnapOnCCDataContext/CompareDataSnapOnCC" />
+      <nestedChildShapes>
+        <elementListCompartment Id="75cf8426-2322-4935-8282-eb5ebf42be30" absoluteBounds="4.14, 4.585, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
