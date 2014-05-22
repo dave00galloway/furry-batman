@@ -7,7 +7,8 @@ namespace qdf.AcceptanceTests.DataContexts
     /// </summary>
     public interface ICompareData
     {
-        T Data<T>() where T : ICompareDataTable;
+        //ICompareDataTable Data();
+        System.Data.Linq.Table<ICompareDataTable> Data();
     }
 
     /// <summary>

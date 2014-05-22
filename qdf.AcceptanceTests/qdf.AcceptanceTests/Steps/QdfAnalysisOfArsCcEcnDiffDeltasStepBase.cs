@@ -17,16 +17,19 @@ namespace qdf.AcceptanceTests.Steps
 
         public static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasStepBase).FullName;
         protected SignalsCompareDataDataContext SignalsCompareDataDataContext { get; private set; }
+        //protected ICompareData CompareData { get; private set; }
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
         protected List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
         protected List<List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
 
-        public QdfAnalysisOfArsCcEcnDiffDeltasStepBase(SignalsCompareData signalsCompareData, DiffDeltaFinder diffDeltaFinder)
+        public QdfAnalysisOfArsCcEcnDiffDeltasStepBase(DiffDeltaFinder diffDeltaFinder)
         {
             DiffDeltaFinder = diffDeltaFinder;
-            SignalsCompareDataDataContext = signalsCompareData.SignalsCompareDataDataContext;
+            //SignalsCompareDataDataContext = signalsCompareData.SignalsCompareDataDataContext;
+            SignalsCompareDataDataContext = new SignalsCompareDataDataContext();
+            //CompareData = new SignalsCompareDataDataContext();
             DiffDeltaList = new List<List<DiffDeltaResult>>();
             DiffDeltaSummary = new List<List<DiffDeltaSummary>>();
         }
@@ -47,6 +50,7 @@ namespace qdf.AcceptanceTests.Steps
             var endDate = Convert.ToDateTime(end);
             var distinctCombosQuery =
                 SignalsCompareDataDataContext.CompareDatas.Where(
+                //CompareData.Data<>().Where(
                     cd => cd.TimeStamp >= startDate &&
                                cd.TimeStamp < endDate
                     )

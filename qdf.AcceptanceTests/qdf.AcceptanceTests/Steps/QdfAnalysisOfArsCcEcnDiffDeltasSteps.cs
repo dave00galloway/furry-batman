@@ -13,8 +13,8 @@ namespace qdf.AcceptanceTests.Steps
         public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSteps).FullName;
         
 
-        public QdfAnalysisOfArsCcEcnDiffDeltasSteps(SignalsCompareData signalsCompareData, DiffDeltaFinder diffDeltaFinder)
-            : base(signalsCompareData, diffDeltaFinder)
+        public QdfAnalysisOfArsCcEcnDiffDeltasSteps( DiffDeltaFinder diffDeltaFinder)
+            : base(diffDeltaFinder)
         {
         }
 

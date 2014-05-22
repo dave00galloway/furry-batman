@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Linq;
 
 namespace qdf.AcceptanceTests.DataContexts
 {
@@ -27,9 +28,14 @@ namespace qdf.AcceptanceTests.DataContexts
             CommandTimeout = 0;
         }
 
-        public T Data<T>() where T : ICompareDataTable
+        //public T Data<T>() where T : ICompareDataTable
+        //{
+        //    return (T) Convert.ChangeType(CompareDataSnapOnCCs,typeof(T));
+        //}
+
+        public Table<ICompareDataTable> Data()
         {
-            return (T) Convert.ChangeType(CompareDataSnapOnCCs,typeof(T));
+            throw new NotImplementedException();
         }
     }
 
