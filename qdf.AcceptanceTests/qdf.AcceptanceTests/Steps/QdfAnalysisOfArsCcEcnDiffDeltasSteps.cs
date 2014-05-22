@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
 using System.Collections.Generic;
@@ -75,7 +74,9 @@ namespace qdf.AcceptanceTests.Steps
                 GetDeltaDiffsAndOutput(exportMethod, out diffDeltaQuery, out diffDeltaSummaryQuery, paramSetName + "DiffDeltaSummary", paramSetName+"DiffDeltas");
                 DiffDeltaList.Add(diffDeltaQuery);
                 DiffDeltaSummary.Add(diffDeltaSummaryQuery);
-                GC.Collect();
+                
+                ResetDataContext();
+                //GC.Collect(); doesn't help!
             }
         }
 

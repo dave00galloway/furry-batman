@@ -107,5 +107,12 @@ namespace qdf.AcceptanceTests.Steps
                     throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
             }
         }
+
+        protected void ResetDataContext()
+        {
+            SignalsCompareDataDataContext.Dispose();
+            SignalsCompareDataDataContext = new SignalsCompareData().SignalsCompareDataDataContext;
+        }
+
     }
 }
