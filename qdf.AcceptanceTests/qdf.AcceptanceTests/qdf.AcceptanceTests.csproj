@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContexts\CCToolDataContext.cs" />
-    <Compile Include="DataContexts\ICompareData.cs" />
+    <Compile Include="DataContexts\ICompareDataTable.cs" />
     <Compile Include="DataContexts\QuickStartMySqlDataContext.cs" />
     <Compile Include="DataContexts\SignalsCompareData.cs">
       <DependentUpon>SignalsCompareData.dbml</DependentUpon>
@@ -148,6 +148,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QdfAnalysisOfArsCcEcnDiffDeltas.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +188,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ReuseDealReconciliationSteps.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.cs" />
+    <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase.cs" />
     <Compile Include="Steps\DealReconciliationStepBase.cs" />
     <Compile Include="Steps\DealReconciliationSteps.cs" />
     <Compile Include="Helpers\DiffDeltaResult.cs" />
@@ -223,6 +230,10 @@
     <None Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltas.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QdfAnalysisOfArsCcEcnDiffDeltas.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTests\ArsQdfReconciliationWithLoadedFiles.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

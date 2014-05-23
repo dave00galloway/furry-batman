@@ -11,6 +11,7 @@ namespace qdf.AcceptanceTests.Helpers
     {
         private int MaxDiffs { get; set; }
         private SignalsCompareDataDataContext SignalsCompareDataDataContext { get; set; }
+        private SignalsCompareDataSnapOnCCDataContext SignalsCompareDataSnapOnCcDataContext { get; set; }
         private DiffDeltaParameters DiffDeltaParameters { get; set; }
         public List<DiffDelta> DiffDeltas { get; private set; }
 
@@ -24,7 +25,17 @@ namespace qdf.AcceptanceTests.Helpers
             GetRelatedData(DiffDeltas);
         }
 
-        private static List<DiffDelta> GetDiffDeltas(IOrderedQueryable<CompareData> data, int maxDiffs)
+        public void AnalyseDiffDeltas(DiffDeltaParameters diffDeltaParameters, SignalsCompareDataSnapOnCCDataContext signalsCompareDataSnapOnCcDataContext)
+        {
+            MaxDiffs = diffDeltaParameters.NumberOfDiffs;
+            DiffDeltaParameters = diffDeltaParameters;
+            SignalsCompareDataSnapOnCcDataContext = signalsCompareDataSnapOnCcDataContext;
+            var data = GetComparisonData(typeof(SignalsCompareDataSnapOnCCDataContext));
+            DiffDeltas = GetDiffDeltas(data, MaxDiffs);
+            GetRelatedData(DiffDeltas, typeof(SignalsCompareDataSnapOnCCDataContext));
+        }
+
+        private static List<DiffDelta> GetDiffDeltas(IOrderedQueryable<ICompareDataTable> data, int maxDiffs)
         {
             var list = new List<DiffDelta>(maxDiffs);
             for (int i = 0; i < maxDiffs; i++)
@@ -34,7 +45,7 @@ namespace qdf.AcceptanceTests.Helpers
             DiffDelta prevDiffDelta = null;
             DiffDelta diffDelta = null;
             DiffDelta tempDiffDelta = null;
-            foreach (CompareData compareData in data)
+            foreach (var compareData in data)
             {
                 switch ((Source)Enum.Parse(typeof(Source),compareData.Source))
                 {
@@ -63,6 +74,27 @@ namespace qdf.AcceptanceTests.Helpers
             return list;
         }
 
+        private void GetRelatedData(List<DiffDelta> diffDeltas, Type type)
+        {
+            switch (type.FullName)
+            {
+                case SignalsCompareDataSnapOnCCDataContext.FULL_NAME:
+                    var relatedData =
+                        SignalsCompareDataSnapOnCcDataContext.CompareDataSnapOnCCs.Where(cd => cd.Book == DiffDeltaParameters.Book)
+                            .Where(cd => cd.Symbol == DiffDeltaParameters.Symbol)
+                            .Where(cd => cd.Server == DiffDeltaParameters.Server)
+                            .OrderBy(cd => cd.TimeStamp);
+
+                    GetCompareDataForDiffDeltas(diffDeltas, relatedData);
+                    break;
+                case SignalsCompareDataDataContext.FULL_NAME:
+                    GetRelatedData(diffDeltas);
+                    break;
+                default:
+                    throw new ArgumentException("unable to get data for type", type.FullName);                    
+            }
+        }
+
         private void GetRelatedData(List<DiffDelta> diffDeltas)
         {
             var relatedData =
@@ -71,6 +103,11 @@ namespace qdf.AcceptanceTests.Helpers
                     .Where(cd => cd.Server == DiffDeltaParameters.Server)
                     .OrderBy(cd => cd.TimeStamp);
 
+            GetCompareDataForDiffDeltas(diffDeltas, relatedData);
+        }
+
+        private void GetCompareDataForDiffDeltas(List<DiffDelta> diffDeltas, IOrderedQueryable<ICompareDataTable> relatedData)
+        {
             foreach (DiffDelta diffDelta in diffDeltas)
             {
                 diffDelta.CompareData =
@@ -78,18 +115,18 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
 
-        private List<CompareData> GetCompareDataForDiffDelta(IOrderedQueryable<CompareData> relatedData, DiffDelta diffDelta)
+        private List<ICompareDataTable> GetCompareDataForDiffDelta(IOrderedQueryable<ICompareDataTable> relatedData, DiffDelta diffDelta)
         {
             try
             {
-                return new List<CompareData>(relatedData.Where(
+                return new List<ICompareDataTable>(relatedData.Where(
                         x => x != null && (x.TimeStamp >= diffDelta.StartTimeStamp && x.TimeStamp < diffDelta.EndTimeStamp)));
             }
             catch (Exception e)
             {
                 var message = string.Format("Unable to get related data for {0} {1} {2} ending at {3}", DiffDeltaParameters.Book.ToString(CultureInfo.InvariantCulture),DiffDeltaParameters.Symbol,DiffDeltaParameters.Server,diffDelta.EndTimeStamp);
                 e.ConsoleExceptionLogger(message);
-                return new List<CompareData>
+                return new List<ICompareDataTable>
                 {
                     new CompareData
                     {
@@ -107,7 +144,7 @@ namespace qdf.AcceptanceTests.Helpers
             }
         }
 
-        private static void SetEndTimeStampToLatestTimeStamp(DiffDelta tempDiffDelta, CompareData compareData)
+        private static void SetEndTimeStampToLatestTimeStamp(DiffDelta tempDiffDelta, ICompareDataTable compareData)
         {
             if (tempDiffDelta != null && tempDiffDelta.EndTimeStamp < compareData.TimeStamp)
             {
@@ -140,5 +177,26 @@ namespace qdf.AcceptanceTests.Helpers
             return comparisonDataQuery;
 
         }
+
+        private IOrderedQueryable<ICompareDataTable> GetComparisonData(Type type)
+        {
+            switch (type.FullName)
+            {
+                case SignalsCompareDataSnapOnCCDataContext.FULL_NAME:
+                    var comparisonDataQuery = from cd in SignalsCompareDataSnapOnCcDataContext.CompareDataSnapOnCCs
+                        where cd.Book == DiffDeltaParameters.Book
+                        where cd.Symbol == DiffDeltaParameters.Symbol
+                        where cd.Server == DiffDeltaParameters.Server
+                        where cd.TimeStamp >= DiffDeltaParameters.StartDate && cd.TimeStamp < DiffDeltaParameters.EndDate
+                        where cd.Section != "Deal"
+                        orderby cd.TimeStamp
+                        select cd;
+                    return comparisonDataQuery;
+                case SignalsCompareDataDataContext.FULL_NAME:
+                    return GetComparisonData();
+                default:
+                    throw new ArgumentException("unable to get data for type", type.FullName);
+            }
+        }   
     }
 }

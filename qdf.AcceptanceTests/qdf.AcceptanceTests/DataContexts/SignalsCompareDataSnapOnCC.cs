@@ -21,27 +21,22 @@ namespace qdf.AcceptanceTests.DataContexts
     /// <summary>
     /// 
     /// </summary>
-    public partial class SignalsCompareDataSnapOnCCDataContext : ICompareData
+    public partial class SignalsCompareDataSnapOnCCDataContext
     {
+        //has to be a const to be used in a switch so can't do this:-
+        //public const string FULL_NAME = typeof(SignalsCompareDataSnapOnCCDataContext).FullName;
+        public const string FULL_NAME = "qdf.AcceptanceTests.DataContexts.SignalsCompareDataSnapOnCCDataContext";
+
         partial void OnCreated()
         {
             CommandTimeout = 0;
         }
-
-        //public T Data<T>() where T : ICompareDataTable
-        //{
-        //    return (T) Convert.ChangeType(CompareDataSnapOnCCs,typeof(T));
-        //}
-
-        public Table<ICompareDataTable> Data()
-        {
-            throw new NotImplementedException();
-        }
     }
 
-// ReSharper disable once InconsistentNaming
+    // ReSharper disable once InconsistentNaming
     public partial class CompareDataSnapOnCC : ICompareDataTable
     {
-         
+
     }
+
 }

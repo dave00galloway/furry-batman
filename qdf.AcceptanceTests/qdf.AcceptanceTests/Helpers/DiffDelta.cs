@@ -24,7 +24,7 @@ namespace qdf.AcceptanceTests.Helpers
         public Decimal EcnPosition { private get; set; }
         public DateTime StartTimeStamp { get; set; }
         public DateTime EndTimeStamp { get; set; }
-        public List<CompareData> CompareData { get; set; }
+        public List<ICompareDataTable> CompareData { get; set; }
 
         public DiffDelta PrevDiffDelta { get; private set; }
 

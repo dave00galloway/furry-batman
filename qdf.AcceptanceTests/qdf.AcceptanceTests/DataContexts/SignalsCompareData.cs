@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Linq;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace qdf.AcceptanceTests.DataContexts
 {
@@ -23,35 +18,18 @@ namespace qdf.AcceptanceTests.DataContexts
     /// <summary>
     /// Extensibility point of SignalsCompareDataDataContext
     /// </summary>
-    public partial class SignalsCompareDataDataContext : ICompareData
+    public partial class SignalsCompareDataDataContext
     {
+        //has to be a const to be used in a switch so can't do this:-
+        //public const string FULL_NAME = typeof(SignalsCompareDataDataContext).FullName;
+        public const string FULL_NAME = "qdf.AcceptanceTests.DataContexts.SignalsCompareDataDataContext";
+
         /// <summary>
         /// Set the command timeout to infinity
         /// </summary>
         partial void OnCreated()
         {
             CommandTimeout = 0;
-        }
-
-        public Table<ICompareDataTable> Data()
-        {
-            Table<CompareData> compareData = GetTable<CompareData>();
-            Table<ICompareDataTable> data = GetTable <ICompareDataTable>();
-
-            foreach (ICompareDataTable record in compareData)
-            {
-                ICompareDataTable newRecord = new CompareData();
-                newRecord.Book = record.Book;
-                newRecord.Id = record.Id;
-                newRecord.Position = record.Position;
-                newRecord.Section = record.Section;
-                newRecord.Server = record.Server;
-                newRecord.Source = record.Source;
-                newRecord.Symbol = record.Symbol;
-                newRecord.TimeStamp = record.TimeStamp;
-                data.InsertOnSubmit(newRecord);
-            }
-            return data;
         }
     }
 
@@ -60,4 +38,5 @@ namespace qdf.AcceptanceTests.DataContexts
     {
 
     }
+
 }
