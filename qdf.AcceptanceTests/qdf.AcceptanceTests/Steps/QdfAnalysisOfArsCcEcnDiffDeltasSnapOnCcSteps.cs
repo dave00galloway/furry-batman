@@ -1,4 +1,5 @@
-﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+﻿using System.Globalization;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
@@ -21,9 +22,6 @@ namespace qdf.AcceptanceTests.Steps
     public class QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps : QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase
     {
         public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps).FullName;
-
-        public Dictionary<string, decimal> DeltaSumDecimals { get; set; }
-
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc,
             DiffDeltaFinder diffDeltaFinder)
@@ -118,17 +116,10 @@ namespace qdf.AcceptanceTests.Steps
         [Then(@"I can summarise the analysis and output the result to ""(.*)""")]
         public void ThenICanSummariseTheAnalysisAndOutputTheResultTo(string exportMethod)
         {
-            DeltaSumDecimals = new Dictionary<string, decimal>();
-            foreach (var keyValuePair in DiffDeltaSummary)
-            {
-                var list = keyValuePair.Value;
-                var sum = list.Sum(summary => summary.Delta);
-                DeltaSumDecimals.Add(keyValuePair.Key, sum);
-            }
-
-            var sumQuery = (from d in DeltaSumDecimals
-                select new {Combination = d.Key,DeltaSum = d.Value}).OrderByDescending(x=>x.DeltaSum);
-            sumQuery.EnumerableToCsv(String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, "DiffDeltasByCombination", CsvParserExtensionMethods.csv),false);
+            AnalyseAndExportDiffDeltasByCombination(exportMethod);
+            AnalyseAndExportDiffDeltasByBook(exportMethod);
         }
+
+
     }
 }

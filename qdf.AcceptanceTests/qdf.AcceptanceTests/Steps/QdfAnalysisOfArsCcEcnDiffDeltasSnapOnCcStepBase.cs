@@ -16,13 +16,13 @@ namespace qdf.AcceptanceTests.Steps
     {
 
         public static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase).FullName;
-        //protected SignalsCompareDataDataContext SignalsCompareDataDataContext { get; private set; }
         protected SignalsCompareDataSnapOnCCDataContext SignalsCompareDataSnapOnCcDataContext { get; private set; }
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
         public List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
         public Dictionary<string,List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
+        public Dictionary<string, decimal> DeltaSumDecimals { get; set; }
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
         {
@@ -107,6 +107,66 @@ namespace qdf.AcceptanceTests.Steps
                 default:
                     throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
             }
+        }
+
+        protected void AnalyseAndExportDiffDeltasByCombination(string exportMethod)
+        {
+            DeltaSumDecimals = new Dictionary<string, decimal>();
+            foreach (var keyValuePair in DiffDeltaSummary)
+            {
+                var list = keyValuePair.Value;
+                var sum = list.Sum(summary => summary.Delta);
+                DeltaSumDecimals.Add(keyValuePair.Key, sum);
+            }
+
+            var sumQuery = (from d in DeltaSumDecimals
+                            select new { Combination = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+            switch (
+                (ExportTypes)
+                    Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower())))
+            {
+                case ExportTypes.Csv:
+                    sumQuery.EnumerableToCsv(
+                        String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory,
+                            "DiffDeltasByCombination", CsvParserExtensionMethods.csv), false);
+                    break;
+                case ExportTypes.Console:
+                    throw new NotImplementedException();
+                case ExportTypes.Database:
+                    throw new NotImplementedException();
+
+                //case ExportTypes.Unknown:
+                default:
+                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
+            }
+        }
+
+        protected void AnalyseAndExportDiffDeltasByBook(string exportMethod)
+        {
+            var deltaSumByBook = new Dictionary<char, decimal>();
+            //we've lost the query parameters, so we'll have to parse the names to get the book info etc.
+            var bookQuery = DiffDeltaSummary.Keys.GroupBy(x => x.ToCharArray()[0]);
+            foreach (IGrouping<char, string> bookGrouping in bookQuery)
+            {
+                foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
+                {
+                    if (keyValuePair.Key.ToCharArray()[0] == bookGrouping.Key)
+                    {
+                        var list = keyValuePair.Value;
+                        var sum = list.Sum(summary => summary.Delta);
+                        if (deltaSumByBook.ContainsKey(bookGrouping.Key))
+                        {
+                            deltaSumByBook[bookGrouping.Key] += sum;
+                        }
+                        else
+                        {
+                            deltaSumByBook[bookGrouping.Key] = sum;
+                        }
+                    }
+                    
+                }
+            }
+
         }
 
         protected void ResetDataContext()
