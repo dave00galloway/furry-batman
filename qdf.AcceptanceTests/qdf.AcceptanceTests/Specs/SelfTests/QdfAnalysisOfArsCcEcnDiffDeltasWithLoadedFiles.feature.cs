@@ -80,6 +80,9 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have loaded all \"Summary.csv\" files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
  testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 11
+ testRunner.And("the combination with the highest diffdelta sum is \"AGBPUSDMt4Micro2DiffDeltaSumma" +
+                    "ry.csv\" with 4662000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

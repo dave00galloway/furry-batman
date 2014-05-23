@@ -154,3 +154,9 @@ qdf.AcceptanceTests/packages/Pickles.*
 qdf.AcceptanceTests/packages/System.*
 System.Data.Linq.pdb
 *.zip
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/Microsoft.VisualBasic.pdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Configuration.pdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Core.pdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Data.pdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.pdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Xml.pdb/42CE759E73FA45089CA14A3CECBBEF451/System.Xml.pdb

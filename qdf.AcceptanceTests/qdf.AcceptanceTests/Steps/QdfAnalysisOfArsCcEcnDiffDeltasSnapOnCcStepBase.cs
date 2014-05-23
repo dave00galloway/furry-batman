@@ -22,14 +22,14 @@ namespace qdf.AcceptanceTests.Steps
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
         public List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
-        public List<List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
+        public Dictionary<string,List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
         {
             DiffDeltaFinder = diffDeltaFinder;
             SignalsCompareDataSnapOnCcDataContext = signalsCompareDataSnapOnCc.SignalsCompareDataSnapOnCcDataContext;
             DiffDeltaList = new List<List<DiffDeltaResult>>();
-            DiffDeltaSummary = new List<List<DiffDeltaSummary>>();
+            DiffDeltaSummary = new Dictionary<string, List<DiffDeltaSummary>>();
         }
 
         [StepArgumentTransformation]
@@ -94,9 +94,9 @@ namespace qdf.AcceptanceTests.Steps
             switch ((ExportTypes)Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower())))
             {
                 case ExportTypes.Csv:
-                    diffDeltaQuery.EnumerableToCsv(string.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltas.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
+                    diffDeltaQuery.EnumerableToCsv(String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltas.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
                     diffDeltaSummaryQuery.EnumerableToCsv(
-                        string.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltaSummary.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
+                        String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, diffDeltaSummary.RemoveWindowsUnfriendlyChars(), CsvParserExtensionMethods.csv), false);
                     break;
                 case ExportTypes.Console:
                     throw new NotImplementedException();

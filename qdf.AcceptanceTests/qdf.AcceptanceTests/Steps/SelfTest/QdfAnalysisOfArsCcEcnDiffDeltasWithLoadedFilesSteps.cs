@@ -6,6 +6,7 @@ using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Autofac.Core.Activators.Reflection;
+using FluentAssertions;
 using qdf.AcceptanceTests.Helpers;
 using TechTalk.SpecFlow;
 
@@ -17,7 +18,7 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
         [Given(@"I have loaded all ""(.*)"" files")]
         public void GivenIHaveLoadedAllFiles(string filePattern)
         {
-            var qdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps =
+            var sharedSteps =
                 QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
             var codeBase = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
             if (codeBase != null)
@@ -29,7 +30,7 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
                     var fileList = directoryInfo.GetFiles(String.Format("*{0}", filePattern), SearchOption.AllDirectories);
                     foreach (var fileInfo in fileList)
                     {
-                        qdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.DiffDeltaSummary.Add(
+                        sharedSteps.DiffDeltaSummary.Add(fileInfo.Name,
                             fileInfo.FullName.CsvToList<DiffDeltaSummary>(","));
                     }                    
                 }
@@ -44,6 +45,16 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
             }
 
         }
+
+        [Then(@"the combination with the highest diffdelta sum is ""(.*)"" with (.*)")]
+        public void ThenTheCombinationWithTheHighestDiffdeltaSumIsWith(string combination, decimal amount)
+        {
+            var sharedSteps =
+                QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
+            sharedSteps.DeltaSumDecimals.Values.Max().Should().Be(amount);
+            sharedSteps.DeltaSumDecimals[combination].Should().Be(amount);
+        }
+
 
     }
 }

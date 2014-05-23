@@ -50,11 +50,15 @@ namespace qdf.AcceptanceTests.Steps
         {
             get
             {
+                var toAdd = GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.FullName) == null;
                 var steps = (QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps)
                             GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.FullName) ??
                         new QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps(new SignalsCompareDataSnapOnCc(),
                             new DiffDeltaFinder());
-                ObjectContainer.RegisterInstanceAs<QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps>(steps);
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs<QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps>(steps);
+                }
                 return steps;
                 //return
                 //    (QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps)

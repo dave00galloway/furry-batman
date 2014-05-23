@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps
@@ -18,7 +20,9 @@ namespace qdf.AcceptanceTests.Steps
     [Binding, Scope(Tag = "SnapOnCc")]
     public class QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps : QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase
     {
-        public new static readonly string FullName = typeof (QdfAnalysisOfArsCcEcnDiffDeltasSteps).FullName;
+        public new static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps).FullName;
+
+        public Dictionary<string, decimal> DeltaSumDecimals { get; set; }
 
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc,
@@ -82,7 +86,7 @@ namespace qdf.AcceptanceTests.Steps
                 GetDeltaDiffsAndOutput(exportMethod, out diffDeltaQuery, out diffDeltaSummaryQuery,
                     paramSetName + "DiffDeltaSummary", paramSetName + "DiffDeltas");
                 DiffDeltaList.Add(diffDeltaQuery);
-                DiffDeltaSummary.Add(diffDeltaSummaryQuery);
+                DiffDeltaSummary.Add(paramSetName,diffDeltaSummaryQuery);
 
                 ResetDataContext();
                 //GC.Collect(); doesn't help!
@@ -114,10 +118,17 @@ namespace qdf.AcceptanceTests.Steps
         [Then(@"I can summarise the analysis and output the result to ""(.*)""")]
         public void ThenICanSummariseTheAnalysisAndOutputTheResultTo(string exportMethod)
         {
-            ScenarioContext.Current.Pending();
+            DeltaSumDecimals = new Dictionary<string, decimal>();
+            foreach (var keyValuePair in DiffDeltaSummary)
+            {
+                var list = keyValuePair.Value;
+                var sum = list.Sum(summary => summary.Delta);
+                DeltaSumDecimals.Add(keyValuePair.Key, sum);
+            }
+
+            var sumQuery = (from d in DeltaSumDecimals
+                select new {Combination = d.Key,DeltaSum = d.Value}).OrderByDescending(x=>x.DeltaSum);
+            sumQuery.EnumerableToCsv(String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory, "DiffDeltasByCombination", CsvParserExtensionMethods.csv),false);
         }
-
-
-
     }
 }
