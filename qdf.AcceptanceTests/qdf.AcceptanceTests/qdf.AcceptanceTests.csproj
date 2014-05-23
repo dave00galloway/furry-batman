@@ -183,6 +183,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MySqlQUickStart.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +201,7 @@
     <Compile Include="Helpers\DiffDeltaSummary.cs" />
     <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasStepBase.cs" />
     <Compile Include="Steps\QdfAnalysisOfArsCcEcnDiffDeltasSteps.cs" />
+    <Compile Include="Steps\SelfTest\QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFilesSteps.cs" />
     <Compile Include="Steps\SelfTest\ReuseDealReconStepsSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CcToolDataTable.cs" />
@@ -259,10 +265,32 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MySqlQUickStart.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTests\QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ReuseDealReconciliationSteps.feature.cs</LastGenOutput>
     </None>
+    <Content Include="TestData\AEURNZDMt4Micro2DiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AGBPUSDMt4Micro2DiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AGBPUSDMt4ProDiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BEURNZDMt4ProdiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BGBPUSDMt4Micro2DiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BGBPUSDMt4ProDiffDeltaSummary.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">

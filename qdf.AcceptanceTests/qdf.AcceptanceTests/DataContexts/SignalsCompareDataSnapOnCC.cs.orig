@@ -1,0 +1,55 @@
+﻿using System;
+using System.Data.Linq;
+
+namespace qdf.AcceptanceTests.DataContexts
+{
+    /// <summary>
+    /// wrapper class for SignalsCompareDataSnapOnCCDataContext to allow BoDi to set up contexts via DI
+    /// </summary>
+    public class SignalsCompareDataSnapOnCc
+    {
+        public SignalsCompareDataSnapOnCCDataContext SignalsCompareDataSnapOnCcDataContext { get; private set; }
+
+        public SignalsCompareDataSnapOnCc()
+        {
+            SignalsCompareDataSnapOnCcDataContext = new SignalsCompareDataSnapOnCCDataContext();
+        }
+    }
+
+    
+// ReSharper disable once InconsistentNaming
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class SignalsCompareDataSnapOnCCDataContext
+    {
+        //has to be a const to be used in a switch so can't do this:-
+        //public const string FULL_NAME = typeof(SignalsCompareDataSnapOnCCDataContext).FullName;
+        public const string FULL_NAME = "qdf.AcceptanceTests.DataContexts.SignalsCompareDataSnapOnCCDataContext";
+
+        partial void OnCreated()
+        {
+            CommandTimeout = 0;
+        }
+<<<<<<< HEAD
+
+        //public T Data<T>() where T : ICompareDataTable
+        //{
+        //    return (T) Convert.ChangeType(CompareDataSnapOnCCs,typeof(T));
+        //}
+
+        public Table<ICompareDataTable> Data()
+        {
+            throw new NotImplementedException();
+        }
+=======
+>>>>>>> Now have data pulling from the snap on CC database ok.
+    }
+
+    // ReSharper disable once InconsistentNaming
+    public partial class CompareDataSnapOnCC : ICompareDataTable
+    {
+
+    }
+
+}

@@ -102,26 +102,196 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse diff deltas in B Book EURNZD Mt4Pro")]
+        public virtual void AnalyseDiffDeltasInBBookEURNZDMt4Pro()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse diff deltas in B Book EURNZD Mt4Pro", ((string[])(null)));
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Server",
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table2.AddRow(new string[] {
+                        "B",
+                        "EUR/NZD",
+                        "Mt4Pro",
+                        "05-May-2014",
+                        "06-May-2014",
+                        "20"});
+#line 17
+ testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table2, "Given ");
+#line 20
+ testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse diff deltas in A Book GBPUSD Mt4Pro")]
+        public virtual void AnalyseDiffDeltasInABookGBPUSDMt4Pro()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse diff deltas in A Book GBPUSD Mt4Pro", ((string[])(null)));
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Server",
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table3.AddRow(new string[] {
+                        "A",
+                        "GBP/USD",
+                        "Mt4Pro",
+                        "05-May-2014",
+                        "06-May-2014",
+                        "20"});
+#line 25
+ testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table3, "Given ");
+#line 28
+ testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 30
+ testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse diff deltas in A Book GBPUSD Mt4Micro2")]
+        public virtual void AnalyseDiffDeltasInABookGBPUSDMt4Micro2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse diff deltas in A Book GBPUSD Mt4Micro2", ((string[])(null)));
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Server",
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table4.AddRow(new string[] {
+                        "A",
+                        "GBP/USD",
+                        "Mt4Micro2",
+                        "05-May-2014",
+                        "06-May-2014",
+                        "20"});
+#line 33
+ testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table4, "Given ");
+#line 36
+ testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 37
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 38
+ testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse diff deltas in A Book EURNZD Mt4Micro2")]
+        public virtual void AnalyseDiffDeltasInABookEURNZDMt4Micro2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse diff deltas in A Book EURNZD Mt4Micro2", ((string[])(null)));
+#line 40
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Server",
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table5.AddRow(new string[] {
+                        "A",
+                        "EUR/NZD",
+                        "Mt4Micro2",
+                        "05-May-2014",
+                        "06-May-2014",
+                        "20"});
+#line 41
+ testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table5, "Given ");
+#line 44
+ testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 45
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 46
+ testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Analyse diff deltas in B Book GBPUSD Mt4Micro2")]
+        public virtual void AnalyseDiffDeltasInBBookGBPUSDMt4Micro2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse diff deltas in B Book GBPUSD Mt4Micro2", ((string[])(null)));
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Server",
+                        "StartDate",
+                        "EndDate",
+                        "NumberOfDiffs"});
+            table6.AddRow(new string[] {
+                        "B",
+                        "GBP/USD",
+                        "Mt4Micro2",
+                        "05-May-2014",
+                        "06-May-2014",
+                        "20"});
+#line 49
+ testRunner.Given("I want to analyse diff deltas by timeslice in", ((string)(null)), table6, "Given ");
+#line 52
+ testRunner.When("I analyse the diff deltas by timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 53
+ testRunner.Then("The diff delta analysis is output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 54
+ testRunner.And("no diff delta is greater than 10 percent of the mean position for the timeslice", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Analyse All Distinct DiffDeltas")]
         [NUnit.Framework.CategoryAttribute("LongRunning")]
         public virtual void AnalyseAllDistinctDiffDeltas()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", new string[] {
                         "LongRunning"});
-#line 17
+#line 57
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "StartDate",
                         "EndDate",
                         "NumberOfDiffs"});
-            table2.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "03-Feb-2014",
                         "09-Mar-2014",
                         "20"});
-#line 18
- testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table2, "Given ");
-#line 21
+#line 58
+ testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table7, "Given ");
+#line 61
  testRunner.When("I analyse the diff deltas by timeslice and output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

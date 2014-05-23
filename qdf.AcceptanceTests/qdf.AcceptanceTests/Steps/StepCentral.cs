@@ -45,5 +45,23 @@ namespace qdf.AcceptanceTests.Steps
                     new QdfAnalysisOfArsCcEcnDiffDeltasSteps(new DiffDeltaFinder());
             }
         }
+
+        public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps
+        {
+            get
+            {
+                var steps = (QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps)
+                            GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.FullName) ??
+                        new QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps(new SignalsCompareDataSnapOnCc(),
+                            new DiffDeltaFinder());
+                ObjectContainer.RegisterInstanceAs<QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps>(steps);
+                return steps;
+                //return
+                //    (QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps)
+                //        GetStepDefinition(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps.FullName) ??
+                //    new QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps(new SignalsCompareDataSnapOnCc(),
+                //        new DiffDeltaFinder());
+            }
+        }
     }
 }

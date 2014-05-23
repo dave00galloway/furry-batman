@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
@@ -108,5 +109,15 @@ namespace qdf.AcceptanceTests.Steps
         {
             DiffDeltaParameterList.Should().HaveCount(expectedCount);
         }
+
+
+        [Then(@"I can summarise the analysis and output the result to ""(.*)""")]
+        public void ThenICanSummariseTheAnalysisAndOutputTheResultTo(string exportMethod)
+        {
+            ScenarioContext.Current.Pending();
+        }
+
+
+
     }
 }

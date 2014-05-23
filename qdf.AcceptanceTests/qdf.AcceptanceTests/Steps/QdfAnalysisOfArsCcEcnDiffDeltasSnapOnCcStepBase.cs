@@ -21,8 +21,8 @@ namespace qdf.AcceptanceTests.Steps
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
-        protected List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
-        protected List<List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
+        public List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
+        public List<List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
         {
