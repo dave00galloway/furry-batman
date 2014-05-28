@@ -121,25 +121,15 @@ namespace qdf.AcceptanceTests.Steps
 
             var sumQuery = (from d in DeltaSumDecimals
                             select new { Combination = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
-            switch (
-                (ExportTypes)
-                    Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower())))
-            {
-                case ExportTypes.Csv:
-                    sumQuery.EnumerableToCsv(
-                        String.Format("{0}{1}.{2}", DealReconciliationStepBase.ScenarioOutputDirectory,
-                            "DiffDeltasByCombination", CsvParserExtensionMethods.csv), false);
-                    break;
-                case ExportTypes.Console:
-                    throw new NotImplementedException();
-                case ExportTypes.Database:
-                    throw new NotImplementedException();
-
-                //case ExportTypes.Unknown:
-                default:
-                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
-            }
+            sumQuery.ExportEnumerableByMethod(exportMethod,
+                new ExportParameters
+                {
+                    ExportType = (ExportTypes) Enum.Parse(typeof (ExportTypes), exportMethod,true),
+                    FileNamePath = DealReconciliationStepBase.ScenarioOutputDirectory
+                });
         }
+
+
 
         protected void AnalyseAndExportDiffDeltasByBook(string exportMethod)
         {
