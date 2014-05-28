@@ -62,16 +62,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         }
 
-        public static void ExportEnumerableByMethod<T>(this IOrderedEnumerable<T> sumQuery, string exportMethod, ExportParameters exportParameters)
+        public static void ExportEnumerableByMethod<T>(this IEnumerable<T> sumQuery, ExportParameters exportParameters)
         {
             switch (
-                (ExportTypes)
-                    Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower())))
+                    exportParameters.ExportType
+                //(ExportTypes)
+                //    Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower()))
+                )
             {
                 case ExportTypes.Csv:
                     sumQuery.EnumerableToCsv(
-                        String.Format("{0}{1}.{2}",exportParameters.FileNamePath,// DealReconciliationStepBase.ScenarioOutputDirectory,
-                            "DiffDeltasByCombination", CsvParserExtensionMethods.csv), false);
+                        String.Format("{0}{1}.{2}", exportParameters.Path,// DealReconciliationStepBase.ScenarioOutputDirectory,
+                            exportParameters.FileName//"DiffDeltasByCombination"
+                            , CsvParserExtensionMethods.csv), false);
                     break;
                 case ExportTypes.Console:
                     throw new NotImplementedException();
@@ -80,7 +83,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
                 //case ExportTypes.Unknown:
                 default:
-                    throw new ArgumentException(exportMethod.ToString(CultureInfo.InvariantCulture));
+                    throw new ArgumentException(
+                        //exportMethod.ToString(CultureInfo.InvariantCulture)
+                        exportParameters.ExportType.ToString()
+                        );
             }
         }
     }

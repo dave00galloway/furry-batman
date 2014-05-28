@@ -16,13 +16,16 @@ namespace qdf.AcceptanceTests.Steps
     {
 
         public static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase).FullName;
+        
         protected SignalsCompareDataSnapOnCCDataContext SignalsCompareDataSnapOnCcDataContext { get; private set; }
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
         public List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
         public Dictionary<string,List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
-        public Dictionary<string, decimal> DeltaSumDecimals { get; set; }
+        public Dictionary<string, decimal> DeltaSumDecimals { get; private set; }
+        public Dictionary<char, decimal> DeltaSumByBook { get; private set; }
+
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
         {
@@ -121,20 +124,20 @@ namespace qdf.AcceptanceTests.Steps
 
             var sumQuery = (from d in DeltaSumDecimals
                             select new { Combination = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
-            sumQuery.ExportEnumerableByMethod(exportMethod,
+            sumQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {
                     ExportType = (ExportTypes) Enum.Parse(typeof (ExportTypes), exportMethod,true),
-                    FileNamePath = DealReconciliationStepBase.ScenarioOutputDirectory
+                    Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+                    FileName = "DiffDeltasByCombination"
                 });
         }
 
-
-
         protected void AnalyseAndExportDiffDeltasByBook(string exportMethod)
         {
-            var deltaSumByBook = new Dictionary<char, decimal>();
+            DeltaSumByBook = new Dictionary<char, decimal>();
             //we've lost the query parameters, so we'll have to parse the names to get the book info etc.
+            //TODO:- store query parameters in DiffDeltaSummary as well
             var bookQuery = DiffDeltaSummary.Keys.GroupBy(x => x.ToCharArray()[0]);
             foreach (IGrouping<char, string> bookGrouping in bookQuery)
             {
@@ -144,19 +147,31 @@ namespace qdf.AcceptanceTests.Steps
                     {
                         var list = keyValuePair.Value;
                         var sum = list.Sum(summary => summary.Delta);
-                        if (deltaSumByBook.ContainsKey(bookGrouping.Key))
+                        if (DeltaSumByBook.ContainsKey(bookGrouping.Key))
                         {
-                            deltaSumByBook[bookGrouping.Key] += sum;
+                            DeltaSumByBook[bookGrouping.Key] += sum;
                         }
                         else
                         {
-                            deltaSumByBook[bookGrouping.Key] = sum;
+                            DeltaSumByBook[bookGrouping.Key] = sum;
                         }
                     }
-                    
                 }
             }
+            var bookAnalysisQuery = (from d in DeltaSumByBook
+                select new {Book = d.Key, DeltaSum = d.Value}).OrderByDescending(x => x.DeltaSum);
+            bookAnalysisQuery.ExportEnumerableByMethod(
+                new ExportParameters
+                {
+                    ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
+                    Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+                    FileName = "DiffDeltasByBook"
+                });
+        }
 
+        protected void AnalyseAndExportDiffDeltasByServer(string exportMethod)
+        {
+            throw new NotImplementedException();
         }
 
         protected void ResetDataContext()

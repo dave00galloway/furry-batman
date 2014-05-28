@@ -9,4 +9,6 @@ Scenario: Load and analyse 6 summary files
 	Given I have loaded all "Summary.csv" files
 	Then I can summarise the analysis and output the result to "csv"
 	And the combination with the highest diffdelta sum is "AGBPUSDMt4Micro2DiffDeltaSummary.csv" with 4662000.000000004
+	And the book with the highest diffdelta sum is "A" with 7736000.000000004
+
 

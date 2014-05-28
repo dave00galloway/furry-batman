@@ -12,6 +12,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
     public class ExportParameters
     {
         public ExportTypes ExportType { get; set; }
-        public string FileNamePath { get; set; }
+        public string FileName { get; set; }
+        public string Path { get; set; }
     }
 }

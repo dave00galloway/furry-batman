@@ -83,6 +83,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.And("the combination with the highest diffdelta sum is \"AGBPUSDMt4Micro2DiffDeltaSumma" +
                     "ry.csv\" with 4662000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.And("the book with the highest diffdelta sum is \"A\" with 7736000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
