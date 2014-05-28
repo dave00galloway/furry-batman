@@ -6,6 +6,7 @@ using System.Reflection;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using Microsoft.VisualBasic.FileIO;
+using SearchOption = System.IO.SearchOption;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
@@ -81,6 +82,41 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     .Replace(@")", "")
                     .Replace("-", "");
             return cleansedString;
+        }
+
+        /// <summary>
+        /// Load files from the exe / dll directory or subdirectory matching a simple pattern (including the file extension)
+        /// and return a dictionary of lists of the specified type of data that is expected to be in those files
+        /// </summary>
+        /// <typeparam name="T">the type of data expected to be in the file, and also of the type that the list should contain</typeparam>
+        /// <param name="dictionary"> dicitionary to add the lists to. the key is the matched filename</param>
+        /// <param name="filePattern">the pattern to use to select the files to load, e.g. "People.csv" will load files "MyPeople.csv" and "NewPeople.csv"</param>
+        public static void LoadFilesToDictionary<T>(this Dictionary<string, List<T>> dictionary, string filePattern) where T : new()
+        {
+            var codeBase = Assembly.GetExecutingAssembly().GetName().CodeBase;
+            if (codeBase != null)
+            {
+                var path = Path.GetDirectoryName(codeBase);
+                if (path != null)
+                {
+                    var directoryInfo = new DirectoryInfo(new Uri(path).LocalPath);
+                    var fileList = directoryInfo.GetFiles(String.Format("*{0}", filePattern), SearchOption.AllDirectories);
+                    foreach (var fileInfo in fileList)
+                    {
+                        dictionary.Add
+                            (fileInfo.Name,
+                            fileInfo.FullName.CsvToList<T>(","));
+                    }
+                }
+                else
+                {
+                    throw new FileLoadException(codeBase);
+                }
+            }
+            else
+            {
+                throw new FileLoadException();
+            }
         }
 
         private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter,

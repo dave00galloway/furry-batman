@@ -28,5 +28,13 @@ Scenario: Load and analyse 6 summary files and check symbol deltas
 	When I summarise the analysis and output the result to "csv"
 	Then the symbol with the highest diffdelta sum is "GBPUSD" with 7983000.000000004
 
+@mytag
+Scenario: Load and analyse 6 Delta files and check for unknown data
+	Given I have loaded all "Deltas.csv" files as lists of deltas
+	Then these combinations contain unknown data
+	| Combinations                   |
+	| BGBPUSDMt4Micro2DiffDeltas.csv |
+	| BEURNZDMt4ProDiffDeltas.csv    |
+
 
 

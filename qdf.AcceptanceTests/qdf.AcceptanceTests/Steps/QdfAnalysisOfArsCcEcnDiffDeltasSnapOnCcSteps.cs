@@ -82,7 +82,7 @@ namespace qdf.AcceptanceTests.Steps
                 List<DiffDeltaSummary> diffDeltaSummaryQuery;
                 GetDeltaDiffsAndOutput(exportMethod, out diffDeltaQuery, out diffDeltaSummaryQuery,
                     paramSetName + "DiffDeltaSummary", paramSetName + "DiffDeltas");
-                DiffDeltaList.Add(diffDeltaQuery);
+                DiffDeltaList.Add(paramSetName,diffDeltaQuery);
                 DiffDeltaSummary.Add(paramSetName,diffDeltaSummaryQuery);
 
                 ResetDataContext();

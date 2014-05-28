@@ -143,6 +143,30 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load and analyse 6 Delta files and check for unknown data")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void LoadAndAnalyse6DeltaFilesAndCheckForUnknownData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load and analyse 6 Delta files and check for unknown data", new string[] {
+                        "mytag"});
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line 33
+ testRunner.Given("I have loaded all \"Deltas.csv\" files as lists of deltas", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Combinations"});
+            table1.AddRow(new string[] {
+                        "BGBPUSDMt4Micro2DiffDeltas.csv"});
+            table1.AddRow(new string[] {
+                        "BEURNZDMt4ProDiffDeltas.csv"});
+#line 34
+ testRunner.Then("these combinations contain unknown data", ((string)(null)), table1, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

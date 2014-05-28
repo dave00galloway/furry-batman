@@ -24,7 +24,7 @@ namespace qdf.AcceptanceTests.Steps
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
         protected DiffDeltaFinder DiffDeltaFinder { get; private set; }
-        public List<List<DiffDeltaResult>> DiffDeltaList { get; private set; }
+        public Dictionary<string, List<DiffDeltaResult>> DiffDeltaList { get; private set; }
         public Dictionary<string,List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
         public Dictionary<string, decimal> DeltaSumDecimals { get; private set; }
         public Dictionary<char, decimal> DeltaSumByBook { get; private set; }
@@ -36,7 +36,7 @@ namespace qdf.AcceptanceTests.Steps
         {
             DiffDeltaFinder = diffDeltaFinder;
             SignalsCompareDataSnapOnCcDataContext = signalsCompareDataSnapOnCc.SignalsCompareDataSnapOnCcDataContext;
-            DiffDeltaList = new List<List<DiffDeltaResult>>();
+            DiffDeltaList = new Dictionary<string, List<DiffDeltaResult>>();
             DiffDeltaSummary = new Dictionary<string, List<DiffDeltaSummary>>();
         }
 

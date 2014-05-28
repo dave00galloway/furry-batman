@@ -25,31 +25,31 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
         [Given(@"I have loaded all ""(.*)"" files")]
         public void GivenIHaveLoadedAllFiles(string filePattern)
         {
-            var codeBase = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
-            if (codeBase != null)
-            {
-                var path = Path.GetDirectoryName(codeBase);
-                if (path != null)
-                {
-                    var directoryInfo = new DirectoryInfo(new Uri(path).LocalPath);
-                    var fileList = directoryInfo.GetFiles(String.Format("*{0}", filePattern), SearchOption.AllDirectories);
-                    foreach (var fileInfo in fileList)
-                    {
-                        _sharedSteps.DiffDeltaSummary.Add(fileInfo.Name,
-                            fileInfo.FullName.CsvToList<DiffDeltaSummary>(","));
-                    }                    
-                }
-                else
-                {
-                    throw new FileLoadException(codeBase);
-                }
-            }
-            else
-            {
-                throw new FileLoadException();
-            }
-
+            _sharedSteps.DiffDeltaSummary.LoadFilesToDictionary(filePattern);
         }
+
+        [Given(@"I have loaded all ""(.*)"" files as lists of deltas")]
+        public void GivenIHaveLoadedAllFilesAsListsOfDeltas(string filePattern)
+        {
+            _sharedSteps.DiffDeltaList.LoadFilesToDictionary(filePattern);
+        }
+
+        [Then(@"these combinations contain unknown data")]
+        public void ThenTheseCombinationsContainUnknownData(Table table)
+        {
+            var expectedUnknowns = (table.Rows.Select(row => row["Combinations"])).ToList();
+            //TODO:- improve by using the Any() method on each list
+            var actualUnknowns = (from KeyValuePair<string, List<DiffDeltaResult>> list in _sharedSteps.DiffDeltaList
+                from DiffDeltaResult diff in list.Value
+                where diff.HiSource == "Unknown"
+                select list.Key).Distinct().ToList();
+            //TODO:- find is there's an assertion that can do this more concisely!
+            expectedUnknowns.Should().Contain(actualUnknowns);
+            actualUnknowns.Should().Contain(expectedUnknowns);
+            expectedUnknowns.Except(actualUnknowns).Should().BeNullOrEmpty();
+            actualUnknowns.Except(expectedUnknowns).Should().BeNullOrEmpty();
+        }
+
 
         [Then(@"the combination with the highest diffdelta sum is ""(.*)"" with (.*)")]
         public void ThenTheCombinationWithTheHighestDiffdeltaSumIsWith(string combination, decimal amount)

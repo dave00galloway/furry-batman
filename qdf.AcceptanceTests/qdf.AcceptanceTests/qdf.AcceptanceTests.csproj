@@ -291,6 +291,24 @@
     <Content Include="TestData\BGBPUSDMt4ProDiffDeltaSummary.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\AEURNZDMt4Micro2DiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AGBPUSDMt4Micro2DiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\AGBPUSDMt4ProDiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BEURNZDMt4ProDiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BGBPUSDMt4Micro2DiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BGBPUSDMt4ProDiffDeltas.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
