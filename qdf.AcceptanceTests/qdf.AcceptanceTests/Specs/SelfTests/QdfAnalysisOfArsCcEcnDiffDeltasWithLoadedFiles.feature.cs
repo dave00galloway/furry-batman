@@ -79,10 +79,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.Given("I have loaded all \"Summary.csv\" files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
- testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
- testRunner.And("the combination with the highest diffdelta sum is \"AGBPUSDMt4Micro2DiffDeltaSumma" +
-                    "ry.csv\" with 4662000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("the combination with the highest diffdelta sum is \"AGBPUSDMt4Micro2DiffDeltaSumma" +
+                    "ry.csv\" with 4662000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -99,9 +99,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 15
  testRunner.Given("I have loaded all \"Summary.csv\" files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 16
- testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
- testRunner.And("the book with the highest diffdelta sum is \"A\" with 7736000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("the book with the highest diffdelta sum is \"A\" with 7736000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -118,9 +118,28 @@ this.ScenarioSetup(scenarioInfo);
 #line 21
  testRunner.Given("I have loaded all \"Summary.csv\" files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
- testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.And("the server with the highest diffdelta sum is \"Mt4Micro2\" with 4696000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("the server with the highest diffdelta sum is \"Mt4Micro2\" with 4696000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load and analyse 6 summary files and check symbol deltas")]
+        [NUnit.Framework.CategoryAttribute("mytag")]
+        public virtual void LoadAndAnalyse6SummaryFilesAndCheckSymbolDeltas()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load and analyse 6 summary files and check symbol deltas", new string[] {
+                        "mytag"});
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line 27
+ testRunner.Given("I have loaded all \"Summary.csv\" files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 28
+ testRunner.When("I summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("the symbol with the highest diffdelta sum is \"GBPUSD\" with 7983000.000000004", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

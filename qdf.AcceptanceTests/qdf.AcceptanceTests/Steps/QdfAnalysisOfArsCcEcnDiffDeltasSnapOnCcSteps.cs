@@ -111,13 +111,14 @@ namespace qdf.AcceptanceTests.Steps
             DiffDeltaParameterList.Should().HaveCount(expectedCount);
         }
 
-
+        [When(@"I summarise the analysis and output the result to ""(.*)""")]
         [Then(@"I can summarise the analysis and output the result to ""(.*)""")]
         public void ThenICanSummariseTheAnalysisAndOutputTheResultTo(string exportMethod)
         {
             AnalyseAndExportDiffDeltasByCombination(exportMethod);
             AnalyseAndExportDiffDeltasByBook(exportMethod);
             AnalyseAndExportDiffDeltasByServer(exportMethod);
+            AnalyseAndExportDiffDeltasBySymbol(exportMethod);
         }
 
     }

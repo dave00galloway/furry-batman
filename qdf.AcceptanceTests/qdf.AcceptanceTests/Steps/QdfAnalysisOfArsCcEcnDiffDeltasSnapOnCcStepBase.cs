@@ -29,6 +29,7 @@ namespace qdf.AcceptanceTests.Steps
         public Dictionary<string, decimal> DeltaSumDecimals { get; private set; }
         public Dictionary<char, decimal> DeltaSumByBook { get; private set; }
         public Dictionary<string, decimal> DeltaSumByServer { get; private set; }
+        public Dictionary<string, decimal> DeltaSumBySymbol { get; private set; }
 
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
@@ -209,7 +210,7 @@ namespace qdf.AcceptanceTests.Steps
 
         protected void AnalyseAndExportDiffDeltasBySymbol(string exportMethod)
         {
-            var deltaSumBySymbol = new Dictionary<string, decimal>();
+            DeltaSumBySymbol = new Dictionary<string, decimal>();
             var symbolQuery = DiffDeltaSummary.Keys.GroupBy(x => x.Replace("DiffDeltaSummary.csv","").Replace("/","").Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX,DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX));
             foreach (IGrouping<string, string> grouping in symbolQuery)
             {
@@ -217,11 +218,28 @@ namespace qdf.AcceptanceTests.Steps
                 {
                     if (keyValuePair.Key.Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX,DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX) == grouping.Key )
                     {
-                        
+                        var list = keyValuePair.Value;
+                        var sum = list.Sum(summary => summary.Delta);
+                        if (DeltaSumBySymbol.ContainsKey(grouping.Key))
+                        {
+                            DeltaSumBySymbol[grouping.Key] += sum;
+                        }
+                        else
+                        {
+                            DeltaSumBySymbol[grouping.Key] = sum;
+                        }
                     }
                 }
             }
-            throw new NotImplementedException();
+            var symbolAnalysisQuery = (from d in DeltaSumBySymbol
+                                       select new { Server = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+            symbolAnalysisQuery.ExportEnumerableByMethod(
+                new ExportParameters
+                {
+                    ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
+                    Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+                    FileName = "DiffDeltasBySymbol"
+                });
         }
 
         protected void ResetDataContext()

@@ -72,7 +72,11 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
             _sharedSteps.DeltaSumByServer[server].Should().Be(amount);
         }
 
-
-
+        [Then(@"the symbol with the highest diffdelta sum is ""(.*)"" with (.*)")]
+        public void ThenTheSymbolWithTheHighestDiffdeltaSumIsWith(string symbol, Decimal amount)
+        {
+            _sharedSteps.DeltaSumBySymbol.Values.Max().Should().Be(amount);
+            _sharedSteps.DeltaSumBySymbol[symbol].Should().Be(amount);
+        }    
     }
 }
