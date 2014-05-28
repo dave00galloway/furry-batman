@@ -15,11 +15,16 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
     [Binding]
     public class QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFilesSteps : StepCentral
     {
+        private readonly QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps _sharedSteps;
+
+        public QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFilesSteps()
+        {
+            _sharedSteps = QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
+        }
+
         [Given(@"I have loaded all ""(.*)"" files")]
         public void GivenIHaveLoadedAllFiles(string filePattern)
         {
-            var sharedSteps =
-                QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
             var codeBase = System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase;
             if (codeBase != null)
             {
@@ -30,7 +35,7 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
                     var fileList = directoryInfo.GetFiles(String.Format("*{0}", filePattern), SearchOption.AllDirectories);
                     foreach (var fileInfo in fileList)
                     {
-                        sharedSteps.DiffDeltaSummary.Add(fileInfo.Name,
+                        _sharedSteps.DiffDeltaSummary.Add(fileInfo.Name,
                             fileInfo.FullName.CsvToList<DiffDeltaSummary>(","));
                     }                    
                 }
@@ -49,20 +54,24 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
         [Then(@"the combination with the highest diffdelta sum is ""(.*)"" with (.*)")]
         public void ThenTheCombinationWithTheHighestDiffdeltaSumIsWith(string combination, decimal amount)
         {
-            var sharedSteps =
-                QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
-            sharedSteps.DeltaSumDecimals.Values.Max().Should().Be(amount);
-            sharedSteps.DeltaSumDecimals[combination].Should().Be(amount);
+            _sharedSteps.DeltaSumDecimals.Values.Max().Should().Be(amount);
+            _sharedSteps.DeltaSumDecimals[combination].Should().Be(amount);
         }
 
         [Then(@"the book with the highest diffdelta sum is ""(.*)"" with (.*)")]
         public void ThenTheBookWithTheHighestDiffdeltaSumIsWith(string book, Decimal amount)
         {
-            var sharedSteps =
-                QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps;
-            sharedSteps.DeltaSumByBook.Values.Max().Should().Be(amount);
-            sharedSteps.DeltaSumByBook[Convert.ToChar(book)].Should().Be(amount);
+            _sharedSteps.DeltaSumByBook.Values.Max().Should().Be(amount);
+            _sharedSteps.DeltaSumByBook[Convert.ToChar(book)].Should().Be(amount);
         }
+
+        [Then(@"the server with the highest diffdelta sum is ""(.*)"" with (.*)")]
+        public void ThenTheServerWithTheHighestDiffdeltaSumIsWith(string server, Decimal amount)
+        {
+            _sharedSteps.DeltaSumByServer.Values.Max().Should().Be(amount);
+            _sharedSteps.DeltaSumByServer[server].Should().Be(amount);
+        }
+
 
 
     }

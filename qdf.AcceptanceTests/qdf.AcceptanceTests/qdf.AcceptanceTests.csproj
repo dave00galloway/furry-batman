@@ -282,7 +282,7 @@
     <Content Include="TestData\AGBPUSDMt4ProDiffDeltaSummary.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="TestData\BEURNZDMt4ProdiffDeltaSummary.csv">
+    <Content Include="TestData\BEURNZDMt4ProDiffDeltaSummary.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\BGBPUSDMt4Micro2DiffDeltaSummary.csv">

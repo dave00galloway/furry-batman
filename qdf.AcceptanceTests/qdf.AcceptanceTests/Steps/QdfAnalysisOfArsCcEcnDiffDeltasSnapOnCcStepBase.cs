@@ -14,9 +14,12 @@ namespace qdf.AcceptanceTests.Steps
     [Binding]
     public class QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase :StepCentral
     {
+        public const int DIFF_DELTA_SUMMARY_BOOK = 0;
+        public const int DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX = 1;
+        public const int DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX = 6;
+        public const int DIFF_DELTA_SUMMARY_SERVER_START_INDEX = 7;
 
         public static readonly string FullName = typeof(QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase).FullName;
-        
         protected SignalsCompareDataSnapOnCCDataContext SignalsCompareDataSnapOnCcDataContext { get; private set; }
         protected DiffDeltaParameters DiffDeltaParameters { get; set; }
         protected List<DiffDeltaParameters> DiffDeltaParameterList { get; set; }
@@ -25,6 +28,7 @@ namespace qdf.AcceptanceTests.Steps
         public Dictionary<string,List<DiffDeltaSummary>> DiffDeltaSummary { get; private set; }
         public Dictionary<string, decimal> DeltaSumDecimals { get; private set; }
         public Dictionary<char, decimal> DeltaSumByBook { get; private set; }
+        public Dictionary<string, decimal> DeltaSumByServer { get; private set; }
 
 
         public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcStepBase(SignalsCompareDataSnapOnCc signalsCompareDataSnapOnCc, DiffDeltaFinder diffDeltaFinder)
@@ -138,12 +142,12 @@ namespace qdf.AcceptanceTests.Steps
             DeltaSumByBook = new Dictionary<char, decimal>();
             //we've lost the query parameters, so we'll have to parse the names to get the book info etc.
             //TODO:- store query parameters in DiffDeltaSummary as well
-            var bookQuery = DiffDeltaSummary.Keys.GroupBy(x => x.ToCharArray()[0]);
+            var bookQuery = DiffDeltaSummary.Keys.GroupBy(x => x.ToCharArray()[DIFF_DELTA_SUMMARY_BOOK]);
             foreach (IGrouping<char, string> bookGrouping in bookQuery)
             {
                 foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
                 {
-                    if (keyValuePair.Key.ToCharArray()[0] == bookGrouping.Key)
+                    if (keyValuePair.Key.ToCharArray()[DIFF_DELTA_SUMMARY_BOOK] == bookGrouping.Key)
                     {
                         var list = keyValuePair.Value;
                         var sum = list.Sum(summary => summary.Delta);
@@ -171,6 +175,52 @@ namespace qdf.AcceptanceTests.Steps
 
         protected void AnalyseAndExportDiffDeltasByServer(string exportMethod)
         {
+            DeltaSumByServer = new Dictionary<string, decimal>();
+            var serverQuery = DiffDeltaSummary.Keys.GroupBy(x => x.Replace("DiffDeltaSummary.csv", "").Replace("/", "").Substring(DIFF_DELTA_SUMMARY_SERVER_START_INDEX));
+            foreach (IGrouping<string, string> grouping in serverQuery)
+            {
+                foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
+                {
+                    if (keyValuePair.Key.Substring(DIFF_DELTA_SUMMARY_SERVER_START_INDEX).Replace("DiffDeltaSummary.csv", "").Replace("/", "") == grouping.Key)
+                    {
+                        var list = keyValuePair.Value;
+                        var sum = list.Sum(summary => summary.Delta);
+                        if (DeltaSumByServer.ContainsKey(grouping.Key))
+                        {
+                            DeltaSumByServer[grouping.Key] += sum;
+                        }
+                        else
+                        {
+                            DeltaSumByServer[grouping.Key] = sum;
+                        }
+                    }
+                }
+            }
+            var serverAnalysisQuery = (from d in DeltaSumByServer
+                                     select new { Server = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+            serverAnalysisQuery.ExportEnumerableByMethod(
+                new ExportParameters
+                {
+                    ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
+                    Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+                    FileName = "DiffDeltasByServer"
+                });
+        }
+
+        protected void AnalyseAndExportDiffDeltasBySymbol(string exportMethod)
+        {
+            var deltaSumBySymbol = new Dictionary<string, decimal>();
+            var symbolQuery = DiffDeltaSummary.Keys.GroupBy(x => x.Replace("DiffDeltaSummary.csv","").Replace("/","").Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX,DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX));
+            foreach (IGrouping<string, string> grouping in symbolQuery)
+            {
+                foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
+                {
+                    if (keyValuePair.Key.Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX,DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX) == grouping.Key )
+                    {
+                        
+                    }
+                }
+            }
             throw new NotImplementedException();
         }
 

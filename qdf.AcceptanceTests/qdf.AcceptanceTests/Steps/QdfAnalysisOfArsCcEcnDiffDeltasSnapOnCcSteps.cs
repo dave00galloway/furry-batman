@@ -29,7 +29,6 @@ namespace qdf.AcceptanceTests.Steps
         {
         }
 
-
         [Given(@"I have connected to SignalsCompareData")]
         public void GivenIHaveConnectedToSignalsCompareData()
         {
@@ -120,5 +119,6 @@ namespace qdf.AcceptanceTests.Steps
             AnalyseAndExportDiffDeltasByBook(exportMethod);
             AnalyseAndExportDiffDeltasByServer(exportMethod);
         }
+
     }
 }
