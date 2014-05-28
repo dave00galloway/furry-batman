@@ -293,6 +293,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table7, "Given ");
 #line 61
  testRunner.When("I analyse the diff deltas by timeslice and output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 62
+ testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

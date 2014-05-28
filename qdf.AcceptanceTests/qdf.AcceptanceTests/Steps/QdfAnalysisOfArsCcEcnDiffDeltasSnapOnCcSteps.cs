@@ -119,7 +119,7 @@ namespace qdf.AcceptanceTests.Steps
             AnalyseAndExportDiffDeltasByBook(exportMethod);
             AnalyseAndExportDiffDeltasByServer(exportMethod);
             AnalyseAndExportDiffDeltasBySymbol(exportMethod);
+            AnalyzeAndExportUnknowns(exportMethod);
         }
-
     }
 }

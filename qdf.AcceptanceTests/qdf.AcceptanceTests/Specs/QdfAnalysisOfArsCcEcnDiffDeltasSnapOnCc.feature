@@ -59,3 +59,4 @@ Scenario: Analyse All Distinct DiffDeltas
 		| StartDate   | EndDate     | NumberOfDiffs |
 		| 03-Feb-2014 | 09-Mar-2014 | 20            |
 	When I analyse the diff deltas by timeslice and output to "csv"
+	Then I can summarise the analysis and output the result to "csv"

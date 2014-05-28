@@ -38,17 +38,16 @@ namespace qdf.AcceptanceTests.Steps.SelfTest
         public void ThenTheseCombinationsContainUnknownData(Table table)
         {
             var expectedUnknowns = (table.Rows.Select(row => row["Combinations"])).ToList();
-            //TODO:- improve by using the Any() method on each list
-            var actualUnknowns = (from KeyValuePair<string, List<DiffDeltaResult>> list in _sharedSteps.DiffDeltaList
-                from DiffDeltaResult diff in list.Value
-                where diff.HiSource == "Unknown"
-                select list.Key).Distinct().ToList();
+            var actualUnknowns = _sharedSteps.GetActualUnknowns();
             //TODO:- find is there's an assertion that can do this more concisely!
             expectedUnknowns.Should().Contain(actualUnknowns);
             actualUnknowns.Should().Contain(expectedUnknowns);
             expectedUnknowns.Except(actualUnknowns).Should().BeNullOrEmpty();
             actualUnknowns.Except(expectedUnknowns).Should().BeNullOrEmpty();
+            _sharedSteps.AnalyzeAndExportUnknowns("csv");
         }
+
+
 
 
         [Then(@"the combination with the highest diffdelta sum is ""(.*)"" with (.*)")]

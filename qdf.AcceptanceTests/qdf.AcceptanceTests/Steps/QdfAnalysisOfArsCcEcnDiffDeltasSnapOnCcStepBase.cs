@@ -242,6 +242,35 @@ namespace qdf.AcceptanceTests.Steps
                 });
         }
 
+        public void AnalyzeAndExportUnknowns(string exportMethod)
+        {
+            //GetActualUnknowns().ExportEnumerableByMethod(
+            //    new ExportParameters
+            //    {
+            //        ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
+            //        Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+            //        FileName = "DiffDeltasUnknown"
+            //    });
+            var unknownsQuery = GetActualUnknowns().Select(x => new {Combination = x});
+            unknownsQuery.ExportEnumerableByMethod(
+                new ExportParameters
+                {
+                    ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
+                    Path = DealReconciliationStepBase.ScenarioOutputDirectory,
+                    FileName = "DiffDeltasUnknown"
+                });
+        }
+
+        public List<string> GetActualUnknowns()
+        {
+            //TODO:- improve by using the Any() method on each list
+            var actualUnknowns = (from KeyValuePair<string, List<DiffDeltaResult>> list in DiffDeltaList
+                                  from DiffDeltaResult diff in list.Value
+                                  where diff.HiSource == "Unknown"
+                                  select list.Key).Distinct().ToList();
+            return actualUnknowns;
+        }
+
         protected void ResetDataContext()
         {
             SignalsCompareDataSnapOnCcDataContext.Dispose();
