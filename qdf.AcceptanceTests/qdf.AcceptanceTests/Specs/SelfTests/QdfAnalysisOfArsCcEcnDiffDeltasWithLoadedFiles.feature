@@ -25,6 +25,7 @@ Scenario: Load and analyse 6 summary files and check server deltas
 @mytag
 Scenario: Load and analyse 6 summary files and check symbol deltas
 	Given I have loaded all "Summary.csv" files
+	And I have loaded all "Deltas.csv" files as lists of deltas
 	When I summarise the analysis and output the result to "csv"
 	Then the symbol with the highest diffdelta sum is "GBPUSD" with 7983000.000000004
 
