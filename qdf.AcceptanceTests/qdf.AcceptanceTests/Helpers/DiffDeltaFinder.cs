@@ -20,7 +20,7 @@ namespace qdf.AcceptanceTests.Helpers
             MaxDiffs = diffDeltaParameters.NumberOfDiffs;
             DiffDeltaParameters = diffDeltaParameters;
             SignalsCompareDataDataContext = signalsCompareDataDataContext;
-            var data  = GetComparisonData();
+            var data  = GetComparisonData().ToList<ICompareDataTable>();
             DiffDeltas = GetDiffDeltas(data, MaxDiffs);
             GetRelatedData(DiffDeltas);
         }
@@ -35,7 +35,7 @@ namespace qdf.AcceptanceTests.Helpers
             GetRelatedData(DiffDeltas, typeof(SignalsCompareDataSnapOnCCDataContext));
         }
 
-        private static List<DiffDelta> GetDiffDeltas(IOrderedQueryable<ICompareDataTable> data, int maxDiffs)
+        private static List<DiffDelta> GetDiffDeltas(List<ICompareDataTable> data, int maxDiffs)
         {
             var list = new List<DiffDelta>(maxDiffs);
             for (int i = 0; i < maxDiffs; i++)
@@ -184,7 +184,7 @@ namespace qdf.AcceptanceTests.Helpers
 
         }
 
-        private IOrderedQueryable<ICompareDataTable> GetComparisonData(Type type)
+        private List<ICompareDataTable> GetComparisonData(Type type)
         {
             switch (type.FullName)
             {
@@ -197,9 +197,9 @@ namespace qdf.AcceptanceTests.Helpers
                         where cd.Section != "Deal"
                         orderby cd.TimeStamp
                         select cd;
-                    return comparisonDataQuery;
+                    return comparisonDataQuery.ToList<ICompareDataTable>();
                 case SignalsCompareDataDataContext.FULL_NAME:
-                    return GetComparisonData();
+                    return GetComparisonData().ToList<ICompareDataTable>();
                 default:
                     throw new ArgumentException("unable to get data for type", type.FullName);
             }
