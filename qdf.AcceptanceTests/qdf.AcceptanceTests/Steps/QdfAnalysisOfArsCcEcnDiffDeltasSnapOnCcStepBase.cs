@@ -244,13 +244,6 @@ namespace qdf.AcceptanceTests.Steps
 
         public void AnalyzeAndExportUnknowns(string exportMethod)
         {
-            //GetActualUnknowns().ExportEnumerableByMethod(
-            //    new ExportParameters
-            //    {
-            //        ExportType = (ExportTypes)Enum.Parse(typeof(ExportTypes), exportMethod, true),
-            //        Path = DealReconciliationStepBase.ScenarioOutputDirectory,
-            //        FileName = "DiffDeltasUnknown"
-            //    });
             var unknownsQuery = GetActualUnknowns().Select(x => new {Combination = x});
             unknownsQuery.ExportEnumerableByMethod(
                 new ExportParameters

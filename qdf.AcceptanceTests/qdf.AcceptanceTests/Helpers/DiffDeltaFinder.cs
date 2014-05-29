@@ -52,7 +52,12 @@ namespace qdf.AcceptanceTests.Helpers
                     case Source.ARS:
                         if (tempDiffDelta != null) diffDelta.EndTimeStamp = compareData.TimeStamp;
                         prevDiffDelta = diffDelta;
-                        list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+                        //list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+
+                        if (prevDiffDelta != null)
+                        {
+                            list.Add(prevDiffDelta);
+                        }
                         diffDelta = prevDiffDelta != null ? new DiffDelta(prevDiffDelta) : new DiffDelta();
                         tempDiffDelta = diffDelta;
                         tempDiffDelta.StartTimeStamp = compareData.TimeStamp;
@@ -70,7 +75,8 @@ namespace qdf.AcceptanceTests.Helpers
                         break;
                 }
             }
-            list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+            //list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
+            list = list.CalculateSortAndTrimDeltas(maxDiffs);
             return list;
         }
 

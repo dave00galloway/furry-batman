@@ -126,6 +126,7 @@
     </Compile>
     <Compile Include="Helpers\DiffDelta.cs" />
     <Compile Include="Helpers\DiffDeltaFinder.cs" />
+    <Compile Include="Helpers\DiffDeltaFinderExtensions.cs" />
     <Compile Include="Helpers\DiffDeltaParameters.cs" />
     <Compile Include="Helpers\QDFCCDataReconciliation.cs" />
     <Compile Include="Helpers\QdfDealParameters.cs" />
