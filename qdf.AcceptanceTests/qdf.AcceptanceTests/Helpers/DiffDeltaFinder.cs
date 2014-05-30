@@ -37,12 +37,12 @@ namespace qdf.AcceptanceTests.Helpers
 
         private static List<DiffDelta> GetDiffDeltas(List<ICompareDataTable> data, int maxDiffs)
         {
-            var list = new List<DiffDelta>(maxDiffs);
-            for (int i = 0; i < maxDiffs; i++)
-            {
-                list.Add(new DiffDelta());
-            }
-            DiffDelta prevDiffDelta = null;
+            var list = new List<DiffDelta>();
+            //var list = new List<DiffDelta>(maxDiffs); //should remove this since we are doing the sort and trim at the end
+            //for (int i = 0; i < maxDiffs; i++)
+            //{
+            //    list.Add(new DiffDelta());
+            //}
             DiffDelta diffDelta = null;
             DiffDelta tempDiffDelta = null;
             foreach (var compareData in data)
@@ -51,7 +51,7 @@ namespace qdf.AcceptanceTests.Helpers
                 {
                     case Source.ARS:
                         if (tempDiffDelta != null) diffDelta.EndTimeStamp = compareData.TimeStamp;
-                        prevDiffDelta = diffDelta;
+                        DiffDelta prevDiffDelta = diffDelta;
                         //list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
 
                         if (prevDiffDelta != null)

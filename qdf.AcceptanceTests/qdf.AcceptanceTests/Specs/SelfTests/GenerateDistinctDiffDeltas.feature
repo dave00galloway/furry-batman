@@ -8,5 +8,5 @@ Scenario: Generate Distinct DiffDeltas
 	Given I want to analyse these diff deltas by timeslice in
 		| StartDate   | EndDate     | NumberOfDiffs |
 		| 03-Feb-2014 | 09-Mar-2014 | 20            |
-	Then the number of parameter sets is 845
+	Then the number of parameter sets is 846
 
