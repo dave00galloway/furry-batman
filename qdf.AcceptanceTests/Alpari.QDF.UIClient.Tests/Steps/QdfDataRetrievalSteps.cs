@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -50,7 +52,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"the deals retrieved for each server will have the following counts")]
         public void ThenTheDealsRetrievedForEachServerWillHaveTheFollowingCounts(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var verificationErrors = GetVerificationErrorsForServerCounts(table);
+            Assert.IsEmpty(verificationErrors);
         }
 
         [Then(@"all retrieved deals will have be for symbol ""(.*)""")]

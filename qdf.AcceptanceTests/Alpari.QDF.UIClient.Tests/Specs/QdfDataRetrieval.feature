@@ -26,7 +26,7 @@ Scenario: Filter deals by server
 
 Scenario: Filter deals by multiple servers
 	Given I have the following search criteria for qdf deals
-	 | Server                           | ConvertedStartTime   | ConvertedEndTime     |
+	 | Servers                          | ConvertedStartTime   | ConvertedEndTime     |
 	 | Mt4Micro2,Mt4Classic1,Mt4Market1 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each server will have the following counts

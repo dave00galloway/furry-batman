@@ -31,6 +31,13 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <AllowedReferenceRelatedFileExtensions>
+      .pdb;
+      .xml;
+      .dll.config
+    </AllowedReferenceRelatedFileExtensions>
+  </PropertyGroup>  
   <ItemGroup>
     <Reference Include="Alpari.QDF">
       <HintPath>..\packages\Alpari.QDF.0.1.33.0\lib\net45\Alpari.QDF.dll</HintPath>

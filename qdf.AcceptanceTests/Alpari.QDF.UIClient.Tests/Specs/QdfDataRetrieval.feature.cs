@@ -131,7 +131,7 @@ this.ScenarioSetup(scenarioInfo);
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Server",
+                        "Servers",
                         "ConvertedStartTime",
                         "ConvertedEndTime"});
             table3.AddRow(new string[] {

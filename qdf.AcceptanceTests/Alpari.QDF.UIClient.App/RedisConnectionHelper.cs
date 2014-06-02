@@ -25,27 +25,6 @@ namespace Alpari.QDF.UIClient.App
         public RedisConnection Connection { get; private set; }
         public string RedisHost { get; private set; }
 
-        ///// <summary>
-        /////     Query QDF using the deal paramerters specified.
-        /////     Currently only the start and end times are in use for retreiveing deals from Redis as this is how the deal data is
-        /////     indexed, but the rest of the parameters can be used to filter the returned data
-        ///// </summary>
-        ///// <param name="qdfDealParameters"></param>
-        //[Obsolete("Provided for backwards compatibility for deal reconciliation tests, use GetDealData(DealSearchCriteria dealSearchCriteria) instead")]
-        //public void GetDealData(QdfDealParameters qdfDealParameters)
-        //{
-        //    IEnumerable<Deal> deals = GetDealsForDateRange(qdfDealParameters.ConvertedStartTime,
-        //        qdfDealParameters.ConvertedEndTime);
-        //    if (RetrievedDeals == null)
-        //    {
-        //        RetrievedDeals = deals.ToList();
-        //    }
-        //    else
-        //    {
-        //        RetrievedDeals.Concat(deals.ToList());
-        //    }
-        //}
-
         /// <summary>
         /// Get the deal data for the specified time range and then apply filtering to set the final retrieved deals set
         /// </summary>
@@ -68,6 +47,9 @@ namespace Alpari.QDF.UIClient.App
             if (dealSearchCriteria.Server != default(TradingServer))
             {
                 deals = deals.Where(x => x.Server == dealSearchCriteria.Server);
+            }else if (dealSearchCriteria.TradingServerList != null)
+            {
+                deals = deals.Where(x => dealSearchCriteria.TradingServerList.Contains(x.Server));
             }
             return deals.ToList();
         }
