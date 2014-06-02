@@ -44,14 +44,36 @@ namespace Alpari.QDF.UIClient.App
 
         private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
         {
+            deals = FilterDealsByServer(deals, dealSearchCriteria);
+            deals = FilterDealsBySymbol(deals, dealSearchCriteria);
+            return deals.ToList();
+        }
+
+        private IEnumerable<Deal> FilterDealsBySymbol(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        {
+            if (dealSearchCriteria.Instrument != null)
+            {
+                deals = deals.Where(x => x.Instrument == dealSearchCriteria.Instrument);
+            }
+            else if (dealSearchCriteria.InstrumentList.Count > 0)
+            {
+                deals = deals.Where(x => dealSearchCriteria.InstrumentList.Contains(x.Instrument));
+            }
+            return deals;
+
+        }
+
+        private static IEnumerable<Deal> FilterDealsByServer(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        {
             if (dealSearchCriteria.Server != default(TradingServer))
             {
                 deals = deals.Where(x => x.Server == dealSearchCriteria.Server);
-            }else if (dealSearchCriteria.TradingServerList.Count > 0)
+            }
+            else if (dealSearchCriteria.TradingServerList.Count > 0)
             {
                 deals = deals.Where(x => dealSearchCriteria.TradingServerList.Contains(x.Server));
             }
-            return deals.ToList();
+            return deals;
         }
 
         /// <summary>

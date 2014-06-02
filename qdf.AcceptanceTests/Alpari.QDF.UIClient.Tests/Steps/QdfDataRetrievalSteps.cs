@@ -57,9 +57,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         }
 
         [Then(@"all retrieved deals will have be for symbol ""(.*)""")]
-        public void ThenAllRetrievedDealsWillHaveBeForSymbol(string p0)
+        public void ThenAllRetrievedDealsWillHaveBeForSymbol(string expectedSymbol)
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.RetrievedDeals.ForEach(x => x.Instrument.Should().Be(expectedSymbol));
         }
 
         [Then(@"the deals retrieved for each symbol will have the following counts")]

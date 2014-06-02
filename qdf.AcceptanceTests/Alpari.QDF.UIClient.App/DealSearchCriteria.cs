@@ -29,6 +29,7 @@ namespace Alpari.QDF.UIClient.App
             var section = (AppSettingsSection)config.GetSection(BEHAVIOUR_SECTION_NAME);
             _separator = Convert.ToChar(section.Settings[LIST_SEPERATOR].Value);
             TradingServerList = new List<TradingServer>();
+            InstrumentList = new List<string>();
         }
 
         public DateTime ConvertedStartTime { get; set; }
@@ -37,11 +38,37 @@ namespace Alpari.QDF.UIClient.App
         public List<string> InstrumentList { get; private set; }
         public string Servers { get; set; }
         public List<TradingServer> TradingServerList { get; private set; }
+        /// <summary>
+        /// Synonym for Instrument
+        /// </summary>
+        public string Symbol { get; set; }
 
         /// <summary>
         /// run through the properties that have been passed and use logic to set up additional properties, e.g. Lists
         /// </summary>
         public void Resolve()
+        {
+            SetUpServers();
+            SetupSymbols();
+        }
+
+        private void SetupSymbols()
+        {
+            if (Symbol == null) return;
+            if (Symbol.Contains(_separator))
+            {
+                var symbols = Symbol.Split(_separator).Distinct().ToList();
+                symbols.ForEach(x => InstrumentList.Add(x));
+                Instrument = null;
+                Symbol = null;
+            }
+            else
+            {
+                Instrument = Symbol;
+            }
+        }
+
+        private void SetUpServers()
         {
             if (Servers != default (string) && Servers.Contains(_separator))
             {
