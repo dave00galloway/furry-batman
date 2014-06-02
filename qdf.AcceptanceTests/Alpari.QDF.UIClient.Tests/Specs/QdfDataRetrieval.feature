@@ -50,7 +50,7 @@ Scenario: Filter deals by multiple symbols
 	 | EURUSD,NZDUSD,AUDNZD | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each symbol will have the following counts
-	| Server | Count |
+	| Symbol | Count |
 	| EURUSD | 32    |
 	| NZDUSD | 3     |
 	| AUDNZD | 1     |

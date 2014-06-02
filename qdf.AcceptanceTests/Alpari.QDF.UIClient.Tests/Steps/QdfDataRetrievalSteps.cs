@@ -65,8 +65,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"the deals retrieved for each symbol will have the following counts")]
         public void ThenTheDealsRetrievedForEachSymbolWillHaveTheFollowingCounts(Table table)
         {
-            ScenarioContext.Current.Pending();
+            var verificationErrors = GetVerificationErrorsForSymbolCounts(table);
+            Assert.IsEmpty(verificationErrors);
         }
+
+
 
         [Then(@"all retrieved deals will have be for book ""(.*)""")]
         public void ThenAllRetrievedDealsWillHaveBeForBook(string p0)

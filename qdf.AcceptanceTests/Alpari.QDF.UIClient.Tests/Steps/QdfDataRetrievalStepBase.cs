@@ -16,9 +16,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         public const string SERVER_TABLE_KEY = "Server";
         public const string COUNT = "Count";
+        public const string SYMBOL_TABLE_KEY = "Symbol";
 
         public static readonly string FullName = typeof(QdfDataRetrievalStepBase).FullName;
         
+
 
         [StepArgumentTransformation]
         public static DealSearchCriteria DiffDeltaParametersTransform(Table table)
@@ -39,10 +41,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             var groupedByServer = RedisConnectionHelper.RetrievedDeals.GroupBy(x => x.Server);
             foreach (IGrouping<TradingServer, Deal> grouping in groupedByServer)
             {
-                var actualServerCount = new Dictionary<string, object>();
-                actualServerCount.Add(SERVER_TABLE_KEY,grouping.Key.ToString());
-                actualServerCount.Add(COUNT, grouping.Count());
-                actual.Add(actualServerCount);
+                var count = new Dictionary<string, object>
+                {
+                    {SERVER_TABLE_KEY, grouping.Key.ToString()},
+                    {COUNT, grouping.Count()}
+                };
+                actual.Add(count);
             }
             string verificationErrors = DataTableOperations.VerifyTables(SERVER_TABLE_KEY,
                 new ExpectedAndActualIDictionariesAsIlIsts(expected, actual));
@@ -52,6 +56,27 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             return verificationErrors;
         }
 
+        protected string GetVerificationErrorsForSymbolCounts(Table table)
+        {
+            var expected = DataTableOperations.GetTableAsList(table);
+            var actual = new List<IDictionary<string, object>>();
+            var groupedBySymbol = RedisConnectionHelper.RetrievedDeals.GroupBy(x => x.Instrument);
+            foreach (IGrouping<string, Deal> grouping in groupedBySymbol)
+            {
+                var count = new Dictionary<string, object>
+                {
+                    {SYMBOL_TABLE_KEY, grouping.Key},
+                    {COUNT, grouping.Count()}
+                };
+                actual.Add(count);
+            }
+            string verificationErrors = DataTableOperations.VerifyTables(SYMBOL_TABLE_KEY,
+                new ExpectedAndActualIDictionariesAsIlIsts(expected, actual));
+
+            verificationErrors += DataTableOperations.VerifyTables(SYMBOL_TABLE_KEY,
+                new ExpectedAndActualIDictionariesAsIlIsts(actual, expected));
+            return verificationErrors;
+        }
 
     }
 }
