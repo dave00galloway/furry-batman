@@ -20,5 +20,13 @@ namespace Alpari.QDF.UIClient.App
         public List<string> InstrumentList { get; private set; }
         public List<TradingServer> TradingServers { get; private set; }
 
+        /// <summary>
+        /// run through the properties that have been passed and use logic to set up additional properties, e.g. Lists
+        /// </summary>
+        public void Resolve()
+        {
+            
+        }
+
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Alpari.QDF.UIClient.App;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -11,30 +12,32 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfDataRetrievalSteps : QdfDataRetrievalStepBase
     {
         public new static readonly string FullName = typeof(QdfDataRetrievalSteps).FullName;
-
+        public DealSearchCriteria DealSearchCriteria { get; private set; }
 
         [Given(@"I have the following search criteria for qdf deals")]
         public void GivenIHaveTheFollowingSearchCriteriaForQdfDeals(DealSearchCriteria dealSearchCriteria)
         {
-            ScenarioContext.Current.Pending();
+            DealSearchCriteria = dealSearchCriteria;
         }
 
         [When(@"I retrieve the qdf deal data")]
         public void WhenIRetrieveTheQdfDealData()
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.GetDealData(DealSearchCriteria);
         }
 
         [Then(@"no retrieved deal will have a timestamp outside ""(.*)"" to ""(.*)""")]
-        public void ThenNoRetrievedDealWillHaveATimestampOutsideTo(string p0, string p1)
+        public void ThenNoRetrievedDealWillHaveATimestampOutsideTo(DateTime startDateTime, DateTime endDateTime)
         {
-            ScenarioContext.Current.Pending();
+            var dealsByTimestamp = RedisConnectionHelper.RetrievedDeals.OrderBy(x => x.TimeStamp).ToList();
+            dealsByTimestamp.First().TimeStamp.Should().BeOnOrAfter(startDateTime);
+            dealsByTimestamp.Last().TimeStamp.Should().BeOnOrBefore(endDateTime);
         }
 
         [Then(@"the count of retrieved deals will be (.*)")]
-        public void ThenTheCountOfRetrievedDealsWillBe(int p0)
+        public void ThenTheCountOfRetrievedDealsWillBe(int expectedCount)
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.RetrievedDeals.Should().HaveCount(expectedCount);
         }
 
         [Then(@"all retrieved deals will have be for server ""(.*)""")]

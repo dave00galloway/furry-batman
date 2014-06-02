@@ -10,6 +10,17 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         public const string REDIS_HOST = "redisHost";
 
+        private RedisConnectionHelper _redisConnectionHelper;
+
+        protected RedisConnectionHelper RedisConnectionHelper
+        {
+            get
+            {
+                return _redisConnectionHelper ??
+                       (_redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]));
+            }
+        }
+
         protected QdfDataRetrievalStepBase QdfDataRetrievalStepBase
         {
             get
@@ -26,17 +37,6 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             }
         }
 
-        private RedisConnectionHelper _redisConnectionHelper;
-
-        protected RedisConnectionHelper RedisConnectionHelper
-        {
-            get
-            {
-                return _redisConnectionHelper ??
-                       (_redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]));
-            }
-        }
-
         protected QdfDataRetrievalSteps QdfDataRetrievalSteps
         {
             get
@@ -50,6 +50,15 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                     ObjectContainer.RegisterInstanceAs(steps);
                 }
                 return steps;
+            }
+        }
+
+        [AfterScenario]
+        public void TearDown()
+        {
+            if (_redisConnectionHelper != null)
+            {
+                RedisConnectionHelper.Connection.Close(true);
             }
         }
     }
