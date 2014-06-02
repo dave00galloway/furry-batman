@@ -44,9 +44,19 @@ namespace Alpari.QDF.UIClient.App
 
         private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
         {
-            deals = FilterDealsByServer(deals, dealSearchCriteria);
+            deals = FilterDealsByBook(deals, dealSearchCriteria);
             deals = FilterDealsBySymbol(deals, dealSearchCriteria);
+            deals = FilterDealsByServer(deals, dealSearchCriteria);
             return deals.ToList();
+        }
+
+        private IEnumerable<Deal> FilterDealsByBook(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        {
+            if (dealSearchCriteria.Book != default (Book))
+            {
+                deals = deals.Where(x => x.Book == dealSearchCriteria.Book);
+            }
+            return deals;
         }
 
         private IEnumerable<Deal> FilterDealsBySymbol(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)

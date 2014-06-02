@@ -69,12 +69,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             Assert.IsEmpty(verificationErrors);
         }
 
-
-
         [Then(@"all retrieved deals will have be for book ""(.*)""")]
-        public void ThenAllRetrievedDealsWillHaveBeForBook(string p0)
+        public void ThenAllRetrievedDealsWillHaveBeForBook(string expectedBook)
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.RetrievedDeals.ForEach(x => x.Book.Should().Be(Enum.Parse(typeof(Book), expectedBook)));
         }
 
     }
