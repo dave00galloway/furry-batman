@@ -98,10 +98,13 @@ namespace qdf.AcceptanceTests.Steps
 
         public static void SetupQdfDealQuery(QdfDealParameters entry)
         {
-            string start = entry.StartTime ?? ConfigurationManager.AppSettings[DEFAULT_START_TIME];
-            string end = entry.EndTime ?? ConfigurationManager.AppSettings[DEFAULT_END_TIME];
-            entry.ConvertedStartTime = start.GetTimeFromShortCode();
-            entry.ConvertedEndTime = end.GetTimeFromShortCode(entry.ConvertedStartTime);
+            if (entry.ConvertedStartTime == default(DateTime))
+            {
+                string start = entry.StartTime ?? ConfigurationManager.AppSettings[DEFAULT_START_TIME];
+                string end = entry.EndTime ?? ConfigurationManager.AppSettings[DEFAULT_END_TIME];
+                entry.ConvertedStartTime = start.GetTimeFromShortCode();
+                entry.ConvertedEndTime = end.GetTimeFromShortCode(entry.ConvertedStartTime);
+            }
         }
 
         [StepArgumentTransformation(@"Deal Data for these parameter sets:")]

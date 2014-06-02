@@ -189,6 +189,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTests\RedisConnectionSelfTests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RedisConnectionSelfTests.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -269,6 +274,10 @@
     <None Include="Specs\SelfTests\QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTests\RedisConnectionSelfTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>RedisConnectionSelfTests.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTests\ReuseDealReconciliationSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
