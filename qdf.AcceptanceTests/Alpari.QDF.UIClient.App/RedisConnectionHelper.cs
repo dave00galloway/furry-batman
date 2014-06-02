@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Alpari.QDF;
 using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using BookSleeve;
+using qdf.AcceptanceTests.Helpers;
 
-namespace qdf.AcceptanceTests.Helpers
+namespace Alpari.QDF.UIClient.App
 {
     /// <summary>
-    /// warning - repeated this code in Alpari.QDF.UIClient.App
+    /// warning - repeated this code in qdf.AcceptanceTests.Helpers
     /// </summary>
     public class RedisConnectionHelper
     {

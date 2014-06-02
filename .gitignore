@@ -166,3 +166,7 @@ qdf.AcceptanceTests/packages/DotNetOpenAuth*
 qdf.AcceptanceTests/packages/EntityFramework*
 qdf.AcceptanceTests/packages/jQuery*
 qdf.AcceptanceTests/packages/Modernizr*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Configuration.pdb*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Core.pdb*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.pdb*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Xml.pdb*

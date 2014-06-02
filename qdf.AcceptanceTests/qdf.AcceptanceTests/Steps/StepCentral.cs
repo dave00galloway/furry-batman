@@ -46,7 +46,7 @@ namespace qdf.AcceptanceTests.Steps
             }
         }
 
-        public QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps
+        protected QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcSteps
         {
             get
             {
