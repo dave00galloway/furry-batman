@@ -160,3 +160,9 @@ qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Core.pdb
 qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Data.pdb
 qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.pdb
 qdf.AcceptanceTests/Alpari.QualityAssurance.RefData/System.Xml.pdb/42CE759E73FA45089CA14A3CECBBEF451/System.Xml.pdb
+qdf.AcceptanceTests/packages/WebGrease*
+qdf.AcceptanceTests/packages/AspNet.*
+qdf.AcceptanceTests/packages/DotNetOpenAuth*
+qdf.AcceptanceTests/packages/EntityFramework*
+qdf.AcceptanceTests/packages/jQuery*
+qdf.AcceptanceTests/packages/Modernizr*
