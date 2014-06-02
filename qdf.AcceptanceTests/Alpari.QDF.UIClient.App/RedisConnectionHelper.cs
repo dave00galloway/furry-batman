@@ -65,6 +65,10 @@ namespace Alpari.QDF.UIClient.App
 
         private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
         {
+            if (dealSearchCriteria.Server != default(TradingServer))
+            {
+                deals = deals.Where(x => x.Server == dealSearchCriteria.Server);
+            }
             return deals.ToList();
         }
 

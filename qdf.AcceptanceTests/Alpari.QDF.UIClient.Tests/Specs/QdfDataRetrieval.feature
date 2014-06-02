@@ -14,7 +14,6 @@ Scenario: Filter deals by date
 	 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then no retrieved deal will have a timestamp outside "05/05/2014  12:45:42" to "05/05/2014  12:49:51"
-	#Then no retrieved deal will have a timestamp outside "05/05/2014  12:49:51" to "05/05/2014  12:45:42"
 	And the count of retrieved deals will be 101
 
 Scenario: Filter deals by server

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -41,9 +42,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         }
 
         [Then(@"all retrieved deals will have be for server ""(.*)""")]
-        public void ThenAllRetrievedDealsWillHaveBeForServer(string p0)
+        public void ThenAllRetrievedDealsWillHaveBeForServer(string expectedServer)
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.RetrievedDeals.ForEach(x=>x.Server.Should().Be(Enum.Parse(typeof(TradingServer),expectedServer)));
         }
 
         [Then(@"the deals retrieved for each server will have the following counts")]
