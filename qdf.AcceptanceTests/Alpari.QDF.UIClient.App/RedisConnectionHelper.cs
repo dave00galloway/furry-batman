@@ -47,7 +47,7 @@ namespace Alpari.QDF.UIClient.App
             if (dealSearchCriteria.Server != default(TradingServer))
             {
                 deals = deals.Where(x => x.Server == dealSearchCriteria.Server);
-            }else if (dealSearchCriteria.TradingServerList != null)
+            }else if (dealSearchCriteria.TradingServerList.Count > 0)
             {
                 deals = deals.Where(x => dealSearchCriteria.TradingServerList.Contains(x.Server));
             }
