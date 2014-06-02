@@ -334,7 +334,7 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "Symbol",
-                        "Server",
+                        "Servers",
                         "ConvertedStartTime",
                         "ConvertedEndTime"});
             table11.AddRow(new string[] {
@@ -348,7 +348,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Server",
+                        "Symbol",
                         "Count"});
             table12.AddRow(new string[] {
                         "EURUSD",
