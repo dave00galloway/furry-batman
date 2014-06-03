@@ -1,13 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
-using Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
@@ -17,7 +12,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class QdfDataRetrievalSteps : QdfDataRetrievalStepBase
     {
-        public new static readonly string FullName = typeof(QdfDataRetrievalSteps).FullName;
+        public new static readonly string FullName = typeof (QdfDataRetrievalSteps).FullName;
         public DealSearchCriteria DealSearchCriteria { get; private set; }
 
         [Given(@"I have the following search criteria for qdf deals")]
@@ -35,7 +30,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"no retrieved deal will have a timestamp outside ""(.*)"" to ""(.*)""")]
         public void ThenNoRetrievedDealWillHaveATimestampOutsideTo(DateTime startDateTime, DateTime endDateTime)
         {
-            var dealsByTimestamp = RedisConnectionHelper.RetrievedDeals.OrderBy(x => x.TimeStamp).ToList();
+            List<Deal> dealsByTimestamp = RedisConnectionHelper.RetrievedDeals.OrderBy(x => x.TimeStamp).ToList();
             dealsByTimestamp.First().TimeStamp.Should().BeOnOrAfter(startDateTime);
             dealsByTimestamp.Last().TimeStamp.Should().BeOnOrBefore(endDateTime);
         }
@@ -49,13 +44,14 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"all retrieved deals will have be for server ""(.*)""")]
         public void ThenAllRetrievedDealsWillHaveBeForServer(string expectedServer)
         {
-            RedisConnectionHelper.RetrievedDeals.ForEach(x=>x.Server.Should().Be(Enum.Parse(typeof(TradingServer),expectedServer)));
+            RedisConnectionHelper.RetrievedDeals.ForEach(
+                x => x.Server.Should().Be(Enum.Parse(typeof (TradingServer), expectedServer)));
         }
 
         [Then(@"the deals retrieved for each server will have the following counts")]
         public void ThenTheDealsRetrievedForEachServerWillHaveTheFollowingCounts(Table table)
         {
-            var verificationErrors = GetVerificationErrorsForServerCounts(table);
+            string verificationErrors = GetVerificationErrorsForServerCounts(table);
             Assert.IsEmpty(verificationErrors);
         }
 
@@ -68,14 +64,15 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"the deals retrieved for each symbol will have the following counts")]
         public void ThenTheDealsRetrievedForEachSymbolWillHaveTheFollowingCounts(Table table)
         {
-            var verificationErrors = GetVerificationErrorsForSymbolCounts(table);
+            string verificationErrors = GetVerificationErrorsForSymbolCounts(table);
             Assert.IsEmpty(verificationErrors);
         }
 
         [Then(@"all retrieved deals will have be for book ""(.*)""")]
         public void ThenAllRetrievedDealsWillHaveBeForBook(string expectedBook)
         {
-            RedisConnectionHelper.RetrievedDeals.ForEach(x => x.Book.Should().Be(Enum.Parse(typeof(Book), expectedBook)));
+            RedisConnectionHelper.RetrievedDeals.ForEach(
+                x => x.Book.Should().Be(Enum.Parse(typeof (Book), expectedBook)));
         }
     }
 }

@@ -4,7 +4,6 @@ using System.Linq;
 using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using BookSleeve;
-using qdf.AcceptanceTests.Helpers;
 
 namespace Alpari.QDF.UIClient.App
 {
@@ -26,7 +25,7 @@ namespace Alpari.QDF.UIClient.App
         public string RedisHost { get; private set; }
 
         /// <summary>
-        /// Get the deal data for the specified time range and then apply filtering to set the final retrieved deals set
+        ///     Get the deal data for the specified time range and then apply filtering to set the final retrieved deals set
         /// </summary>
         /// <param name="dealSearchCriteria"></param>
         public void GetDealData(DealSearchCriteria dealSearchCriteria)
@@ -70,10 +69,10 @@ namespace Alpari.QDF.UIClient.App
                 deals = deals.Where(x => dealSearchCriteria.InstrumentList.Contains(x.Instrument));
             }
             return deals;
-
         }
 
-        private static IEnumerable<Deal> FilterDealsByServer(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        private static IEnumerable<Deal> FilterDealsByServer(IEnumerable<Deal> deals,
+            DealSearchCriteria dealSearchCriteria)
         {
             if (dealSearchCriteria.Server != default(TradingServer))
             {
@@ -87,7 +86,7 @@ namespace Alpari.QDF.UIClient.App
         }
 
         /// <summary>
-        /// Will always have a date range, and while doing client side filtering, no other parameters are needed
+        ///     Will always have a date range, and while doing client side filtering, no other parameters are needed
         /// </summary>
         /// <param name="startTimeStampInclusive"></param>
         /// <param name="endTimeStampExclusive"></param>
@@ -101,7 +100,6 @@ namespace Alpari.QDF.UIClient.App
                 startTimeStampInclusive, endTimeStampExclusive, TimeSlice.Day);
             return deals;
         }
-
 
 
         public void OutputAllDeals(string fileNamePath)

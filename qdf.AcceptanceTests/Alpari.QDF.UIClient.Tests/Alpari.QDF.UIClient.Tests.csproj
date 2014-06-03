@@ -37,7 +37,7 @@
       .xml;
       .dll.config
     </AllowedReferenceRelatedFileExtensions>
-  </PropertyGroup>  
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Alpari.QDF">
       <HintPath>..\packages\Alpari.QDF.0.1.33.0\lib\net45\Alpari.QDF.dll</HintPath>
@@ -93,6 +93,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QdfDataRetrieval.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\OutputToCsvStepBase.cs" />
+    <Compile Include="Steps\OutputToCsvSteps.cs" />
     <Compile Include="Steps\QdfDataRetrievalStepBase.cs" />
     <Compile Include="Steps\QdfDataRetrievalSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
@@ -132,7 +134,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>if $(ConfigurationName) == Release (%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)KillScript.ps1)</PreBuildEvent>
-  </PropertyGroup>  
+  </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
