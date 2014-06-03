@@ -145,14 +145,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             return verificationErrors;
         }
 
-        [AfterScenario]
+        [AfterScenario,Scope(Tag = "TeardownRedisConnection")]
         public void TearDown()
         {
-            if (_redisConnectionHelper != null)
-            {
-                RedisConnectionHelper.Connection.Close(true);
-                _redisConnectionHelper = null;
-            }
+            if (_redisConnectionHelper == null) return;
+            RedisConnectionHelper.Connection.Close(true);
+            _redisConnectionHelper = null;
         }
     }
 }

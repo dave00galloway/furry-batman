@@ -1,4 +1,4 @@
-﻿@ClientSideFiltering
+﻿@ClientSideFiltering @TeardownRedisConnection
 Feature: OutputToCsv
 	In order to export deal data from Redis QDF
 	As a QDF Analyst

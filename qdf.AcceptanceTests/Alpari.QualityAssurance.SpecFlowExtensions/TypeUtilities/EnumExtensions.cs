@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
@@ -37,6 +38,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 return Enum.ToObject(enumType, value);
             }
             return null;
+        }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/972307/can-you-loop-through-all-enum-values
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<T> GetValues<T>()
+        {
+            return Enum.GetValues(typeof(T)).Cast<T>();
         }
     }
 }

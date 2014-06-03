@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlHelpers\TradingServer.cs" />
     <Compile Include="DealSearchCriteria.cs" />
     <Compile Include="Exporter.cs" />
     <Compile Include="Properties\Annotations.cs" />

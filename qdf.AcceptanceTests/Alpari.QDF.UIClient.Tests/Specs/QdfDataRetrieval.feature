@@ -1,4 +1,4 @@
-﻿@ClientSideFiltering
+﻿@ClientSideFiltering @TeardownRedisConnection
 Feature: QdfDataRetrieval
 	In order to access deal data in Redis QDF
 	As a QDF Analyst
