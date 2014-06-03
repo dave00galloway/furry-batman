@@ -37,6 +37,7 @@
             this.ServerListBox.FormattingEnabled = true;
             this.ServerListBox.Location = new System.Drawing.Point(23, 28);
             this.ServerListBox.Name = "ServerListBox";
+            this.ServerListBox.ScrollAlwaysVisible = true;
             this.ServerListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
             this.ServerListBox.Size = new System.Drawing.Size(120, 95);
             this.ServerListBox.TabIndex = 0;

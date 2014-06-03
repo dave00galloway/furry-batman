@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Alpari.QDF.UIClient.App;
+using Alpari.QDF.UIClient.App.ControlHelpers;
 
 namespace Alpari.QDF.UIClient.Gui
 {
@@ -20,7 +21,7 @@ namespace Alpari.QDF.UIClient.Gui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SearchAndRetrievalOptions(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])));
+            Application.Run(new SearchAndRetrievalOptions(new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),new ControlSetup(new TradingServerControl())));
         }
     }
 }
