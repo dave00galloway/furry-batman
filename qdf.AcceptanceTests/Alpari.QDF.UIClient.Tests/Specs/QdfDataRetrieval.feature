@@ -98,3 +98,34 @@ Scenario: Filter deals by multiple symbols and servers
 	| Currenex      | 5     |
 	| Mt5Pro        | 1     |
 	And the count of retrieved deals will be 18
+
+Scenario: Filter deals by multiple symbols and servers and B Book
+	Given I have the following search criteria for qdf deals
+	 | Book | Symbol                      | Servers                       | ConvertedStartTime   | ConvertedEndTime     |
+	 | B    | EURUSD,GBPUSD,AUDJPY,USDCHF | Currenex,Mt5Pro,Mt4JapaneseC1 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
+	When I retrieve the qdf deal data
+	Then the deals retrieved for each symbol will have the following counts
+	| Symbol | Count |
+	| EURUSD | 15    |
+	| GBPUSD | 2     |
+	| AUDJPY | 1     |
+	| USDCHF | 1     |
+	Then the deals retrieved for each server will have the following counts
+	| Server        | Count |
+	| Mt4JapaneseC1 | 12    |
+	| Currenex      | 5     |
+	| Mt5Pro        | 2     |
+	And the count of retrieved deals will be 19
+
+Scenario: Filter deals by multiple symbols and servers and A Book
+	Given I have the following search criteria for qdf deals
+	 | Book | Symbol                      | Servers                       | ConvertedStartTime   | ConvertedEndTime     |
+	 | A    | EURUSD,GBPUSD,AUDJPY,USDCHF | Currenex,Mt5Pro,Mt4JapaneseC1 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
+	When I retrieve the qdf deal data
+	Then the deals retrieved for each symbol will have the following counts
+	| Symbol | Count |
+	| USDCHF | 1     |
+	Then the deals retrieved for each server will have the following counts
+	| Server        | Count |
+	| Mt5Pro        | 1     |
+	And the count of retrieved deals will be 1

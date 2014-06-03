@@ -381,6 +381,117 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Filter deals by multiple symbols and servers and B Book")]
+        public virtual void FilterDealsByMultipleSymbolsAndServersAndBBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter deals by multiple symbols and servers and B Book", ((string[])(null)));
+#line 102
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Servers",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table14.AddRow(new string[] {
+                        "B",
+                        "EURUSD,GBPUSD,AUDJPY,USDCHF",
+                        "Currenex,Mt5Pro,Mt4JapaneseC1",
+                        "05/05/2014  12:45:42",
+                        "05/05/2014  12:49:51"});
+#line 103
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table14, "Given ");
+#line 106
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "Count"});
+            table15.AddRow(new string[] {
+                        "EURUSD",
+                        "15"});
+            table15.AddRow(new string[] {
+                        "GBPUSD",
+                        "2"});
+            table15.AddRow(new string[] {
+                        "AUDJPY",
+                        "1"});
+            table15.AddRow(new string[] {
+                        "USDCHF",
+                        "1"});
+#line 107
+ testRunner.Then("the deals retrieved for each symbol will have the following counts", ((string)(null)), table15, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server",
+                        "Count"});
+            table16.AddRow(new string[] {
+                        "Mt4JapaneseC1",
+                        "12"});
+            table16.AddRow(new string[] {
+                        "Currenex",
+                        "5"});
+            table16.AddRow(new string[] {
+                        "Mt5Pro",
+                        "2"});
+#line 113
+ testRunner.Then("the deals retrieved for each server will have the following counts", ((string)(null)), table16, "Then ");
+#line 118
+ testRunner.And("the count of retrieved deals will be 19", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Filter deals by multiple symbols and servers and A Book")]
+        public virtual void FilterDealsByMultipleSymbolsAndServersAndABook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter deals by multiple symbols and servers and A Book", ((string[])(null)));
+#line 120
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Book",
+                        "Symbol",
+                        "Servers",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table17.AddRow(new string[] {
+                        "A",
+                        "EURUSD,GBPUSD,AUDJPY,USDCHF",
+                        "Currenex,Mt5Pro,Mt4JapaneseC1",
+                        "05/05/2014  12:45:42",
+                        "05/05/2014  12:49:51"});
+#line 121
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table17, "Given ");
+#line 124
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "Count"});
+            table18.AddRow(new string[] {
+                        "USDCHF",
+                        "1"});
+#line 125
+ testRunner.Then("the deals retrieved for each symbol will have the following counts", ((string)(null)), table18, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server",
+                        "Count"});
+            table19.AddRow(new string[] {
+                        "Mt5Pro",
+                        "1"});
+#line 128
+ testRunner.Then("the deals retrieved for each server will have the following counts", ((string)(null)), table19, "Then ");
+#line 131
+ testRunner.And("the count of retrieved deals will be 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

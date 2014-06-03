@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
+using Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using NUnit.Framework;
@@ -74,6 +77,5 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             RedisConnectionHelper.RetrievedDeals.ForEach(x => x.Book.Should().Be(Enum.Parse(typeof(Book), expectedBook)));
         }
-
     }
 }

@@ -147,7 +147,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         /// <param name="actualDictionary"></param>
         /// <returns>a string detailing diffences</returns>
         public static string VerifyTables(IDictionary<string, object> expectedDictionary,
-            IDictionary<string, object> actualDictionary)
+            IDictionary<string, object> actualDictionary
+            //, bool treatZeroAsNull = false
+            )
         {
             var diffs = new StringBuilder();
             Dictionary<string, object> actualDictionaryAsDictionary = ConvertIDictionaryToDictionary(actualDictionary);
@@ -163,6 +165,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                     CompareDictionaryEntries(actualDictionaryAsDictionary, entry, out entryKey, out expectedValue,
                         out actualValue, out comparisonDescription);
                 }
+                //catch (KeyNotFoundException keyNotFoundException)
+                //{
+                //    if (!treatZeroAsNull || Convert.ToInt16(expectedValue) != 0)
+                //    {
+                //        throw new Exception("check for expected 0 failed",keyNotFoundException);
+                //    }
+                //}
                 catch (Exception e)
                 {
                     comparisonDescription = GetComparisonDescription(entryKey, expectedValue, actualValue,
@@ -309,8 +318,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         /// </summary>
         /// <param name="tableKey"></param>
         /// <param name="dictionariesAsLists"></param>
+        /// <param name="treatZeroAsNull">if true, and the expected result is 0, then ignore "given key was not present in the dictionary" exception</param>
         /// <returns></returns>
-        public static string VerifyTables(string tableKey, ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists)
+        public static string VerifyTables(string tableKey, ExpectedAndActualIDictionariesAsIlIsts dictionariesAsLists
+            //, bool treatZeroAsNull = false
+            )
         {
             var diffs = new StringBuilder();
             IList<Dictionary<string, object>> actualListOfDictionaries =
@@ -322,7 +334,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                     var matcher = new KeyValuePair<string, object>(tableKey, expectedDictionary[tableKey]);
                     Dictionary<string, object> actualDictionary =
                         GetDictionaryFromListOfDictionariesByKeyValuePair(matcher, actualListOfDictionaries);
-                    string diff = VerifyTables(expectedDictionary, actualDictionary);
+                    string diff = VerifyTables(expectedDictionary, actualDictionary); //, treatZeroAsNull);
                     if (diff.Length > 0)
                     {
                         //diffs.AppendLine("####################################");
