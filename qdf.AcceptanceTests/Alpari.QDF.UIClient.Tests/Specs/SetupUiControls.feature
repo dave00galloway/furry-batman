@@ -27,3 +27,11 @@ Scenario: Set up trade server list
 	| Coverage602          |
 	| Coverage604          |
 
+Scenario: Set up book list
+	Given I filter deals by book
+	Then the list of book options should be:
+	| Book |
+	| None |
+	| A    |
+	| B    |
+

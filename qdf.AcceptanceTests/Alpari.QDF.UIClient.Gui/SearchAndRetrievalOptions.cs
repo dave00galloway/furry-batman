@@ -22,12 +22,20 @@ namespace Alpari.QDF.UIClient.Gui
             InitializeComponent();
             Exporter = exporter;
             ControlSetup = controlSetup;
+            SetupBookListBox();
             SetupServerListBox();
+        }
+
+        private void SetupBookListBox()
+        {
+            foreach (var book in ControlSetup.BookControl.BookList)
+            {
+                BookListBox.Items.Add(book);
+            }
         }
 
         private void SetupServerListBox()
         {
-            //ServerListBox.Items.AddRange(new object[] {ControlSetup.TradingServerControl.ServerList});
             foreach (string server in ControlSetup.TradingServerControl.ServerList)
             {
                 ServerListBox.Items.Add(server);

@@ -14,6 +14,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         public static readonly string FullName = typeof(SetupUiControlsStepBase).FullName;
         protected TradingServerControl TradingServerControl { get; set; }
+        protected BookControl BookControl { get; set; }
 
         public SetupUiControlsStepBase()
         {

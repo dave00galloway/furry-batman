@@ -15,6 +15,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         public const string SERVER_TABLE_KEY = "Server";
         public const string COUNT = "Count";
         public const string SYMBOL_TABLE_KEY = "Symbol";
+        public const string BOOK_TABLE_KEY = "Book";
 
         private static RedisConnectionHelper _redisConnectionHelper;
 

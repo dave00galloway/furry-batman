@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlHelpers\BookControl.cs" />
     <Compile Include="ControlHelpers\ControlSetup.cs" />
     <Compile Include="ControlHelpers\TradingServerControl.cs" />
     <Compile Include="DealSearchCriteria.cs" />
