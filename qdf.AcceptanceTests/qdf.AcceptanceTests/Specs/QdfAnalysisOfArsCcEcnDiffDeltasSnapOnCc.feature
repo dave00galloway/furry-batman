@@ -1,4 +1,4 @@
-﻿@SnapOnCc
+﻿@SnapOnCc @LongRunning 
 Feature: QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc
 	In order to reconcile Qdf Data
 	As a tester
@@ -69,7 +69,6 @@ Scenario: Analyse diff deltas in B Book EURUSD Mt4Classic2
 	Then The diff delta analysis is output to "csv"
 	And no diff delta is greater than 10 percent of the mean position for the timeslice
 
-@LongRunning 
 Scenario: Analyse All Distinct DiffDeltas
 	Given I want to analyse these diff deltas by timeslice in
 		| StartDate   | EndDate     | NumberOfDiffs |

@@ -21,6 +21,7 @@ namespace qdf.AcceptanceTests.Specs
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc")]
     [NUnit.Framework.CategoryAttribute("SnapOnCc")]
+    [NUnit.Framework.CategoryAttribute("LongRunning")]
     public partial class QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCcFeature
     {
         
@@ -35,7 +36,8 @@ namespace qdf.AcceptanceTests.Specs
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc", "In order to reconcile Qdf Data\r\nAs a tester\r\nI want to be able to find the bigges" +
                     "t differences in the data streams", ProgrammingLanguage.CSharp, new string[] {
-                        "SnapOnCc"});
+                        "SnapOnCc",
+                        "LongRunning"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -341,12 +343,10 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Analyse All Distinct DiffDeltas")]
-        [NUnit.Framework.CategoryAttribute("LongRunning")]
         public virtual void AnalyseAllDistinctDiffDeltas()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", new string[] {
-                        "LongRunning"});
-#line 73
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Analyse All Distinct DiffDeltas", ((string[])(null)));
+#line 72
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
@@ -357,11 +357,11 @@ this.ScenarioSetup(scenarioInfo);
                         "03-Feb-2014",
                         "09-Mar-2014",
                         "20"});
-#line 74
+#line 73
  testRunner.Given("I want to analyse these diff deltas by timeslice in", ((string)(null)), table9, "Given ");
-#line 77
+#line 76
  testRunner.When("I analyse the diff deltas by timeslice and output to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 78
+#line 77
  testRunner.Then("I can summarise the analysis and output the result to \"csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

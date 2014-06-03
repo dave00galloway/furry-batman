@@ -36,6 +36,227 @@ jsonPWrapper ([
     }
   },
   {
+    "RelativeFolder": "SelfTests\\RedisConnectionSelfTests.feature",
+    "Feature": {
+      "Name": "RedisConnectionSelfTests",
+      "Description": "In order to check deals in QDF\r\nAs a tester\r\nI want to be able to get data from Redis",
+      "FeatureElements": [
+        {
+          "Name": "retrieve deal data by absolute date",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have QDF Deal Data",
+              "TableArgument": {
+                "HeaderRow": [
+                  "ConvertedStartTime",
+                  "ConvertedEndTime"
+                ],
+                "DataRows": [
+                  [
+                    "05/05/2014  12:45:42",
+                    "05/05/2014  12:49:51"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": true,
+        "WasSuccessful": true
+      },
+      "Tags": []
+    },
+    "Result": {
+      "WasExecuted": true,
+      "WasSuccessful": true
+    }
+  },
+  {
+    "RelativeFolder": "SelfTests\\QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles.feature",
+    "Feature": {
+      "Name": "QdfAnalysisOfArsCcEcnDiffDeltasWithLoadedFiles",
+      "Description": "In order to test the analysis of the diff delta summaries\r\nAs a tester\r\nI want to load pre run result files and analyse them",
+      "FeatureElements": [
+        {
+          "Name": "Load and analyse 6 summary files and check combination deltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have loaded all \"Summary.csv\" files"
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I summarise the analysis and output the result to \"csv\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the combination with the highest diffdelta sum is \"AGBPUSDMt4Micro2DiffDeltaSummary.csv\" with 4662000.000000004"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        },
+        {
+          "Name": "Load and analyse 6 summary files and check book deltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have loaded all \"Summary.csv\" files"
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I summarise the analysis and output the result to \"csv\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the book with the highest diffdelta sum is \"A\" with 7736000.000000004"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        },
+        {
+          "Name": "Load and analyse 6 summary files and check server deltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have loaded all \"Summary.csv\" files"
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I summarise the analysis and output the result to \"csv\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the server with the highest diffdelta sum is \"Mt4Micro2\" with 4696000.000000004"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        },
+        {
+          "Name": "Load and analyse 6 summary files and check symbol deltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have loaded all \"Summary.csv\" files"
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "I have loaded all \"Deltas.csv\" files as lists of deltas"
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I summarise the analysis and output the result to \"csv\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "the symbol with the highest diffdelta sum is \"GBPUSD\" with 7983000.000000004"
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        },
+        {
+          "Name": "Load and analyse 6 Delta files and check for unknown data",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I have loaded all \"Deltas.csv\" files as lists of deltas"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "these combinations contain unknown data",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Combinations"
+                ],
+                "DataRows": [
+                  [
+                    "BGBPUSDMt4Micro2DiffDeltas.csv"
+                  ],
+                  [
+                    "BEURNZDMt4ProDiffDeltas.csv"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Tags": [
+            "@mytag"
+          ],
+          "Result": {
+            "WasExecuted": true,
+            "WasSuccessful": true
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": true,
+        "WasSuccessful": true
+      },
+      "Tags": [
+        "@SnapOnCc"
+      ]
+    },
+    "Result": {
+      "WasExecuted": true,
+      "WasSuccessful": true
+    }
+  },
+  {
     "RelativeFolder": "SelfTests\\MySqlQUickStart.feature",
     "Feature": {
       "Name": "MySqlQUickStart",
@@ -180,19 +401,19 @@ jsonPWrapper ([
           ],
           "Result": {
             "WasExecuted": true,
-            "WasSuccessful": true
+            "WasSuccessful": false
           }
         }
       ],
       "Result": {
         "WasExecuted": true,
-        "WasSuccessful": true
+        "WasSuccessful": false
       },
       "Tags": []
     },
     "Result": {
       "WasExecuted": true,
-      "WasSuccessful": true
+      "WasSuccessful": false
     }
   },
   {
@@ -227,7 +448,7 @@ jsonPWrapper ([
             {
               "Keyword": "Then",
               "NativeKeyword": "Then ",
-              "Name": "the number of parameter sets is 845"
+              "Name": "the number of parameter sets is 846"
             }
           ],
           "Tags": [
@@ -348,6 +569,475 @@ jsonPWrapper ([
     }
   },
   {
+    "RelativeFolder": "QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc.feature",
+    "Feature": {
+      "Name": "QdfAnalysisOfArsCcEcnDiffDeltasSnapOnCc",
+      "Description": "In order to reconcile Qdf Data\r\nAs a tester\r\nI want to be able to find the biggest differences in the data streams",
+      "FeatureElements": [
+        {
+          "Name": "Analyse diff deltas in B Book GBPUSD Mt4Pro",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "B",
+                    "GBP/USD",
+                    "Mt4Pro",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in B Book EURNZD Mt4Pro",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "B",
+                    "EUR/NZD",
+                    "Mt4Pro",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in A Book GBPUSD Mt4Pro",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "A",
+                    "GBP/USD",
+                    "Mt4Pro",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in A Book GBPUSD Mt4Micro2",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "A",
+                    "GBP/USD",
+                    "Mt4Micro2",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in A Book EURNZD Mt4Micro2",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "A",
+                    "EUR/NZD",
+                    "Mt4Micro2",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in B Book GBPUSD Mt4Micro2",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "B",
+                    "GBP/USD",
+                    "Mt4Micro2",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in A Book EURUSD Mt4Classic2",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "A",
+                    "EUR/USD",
+                    "Mt4Classic2",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse diff deltas in B Book EURUSD Mt4Classic2",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "Book",
+                  "Symbol",
+                  "Server",
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "B",
+                    "EUR/USD",
+                    "Mt4Classic2",
+                    "05-May-2014",
+                    "06-May-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice"
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "The diff delta analysis is output to \"csv\""
+            },
+            {
+              "Keyword": "And",
+              "NativeKeyword": "And ",
+              "Name": "no diff delta is greater than 10 percent of the mean position for the timeslice"
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        },
+        {
+          "Name": "Analyse All Distinct DiffDeltas",
+          "Description": "",
+          "Steps": [
+            {
+              "Keyword": "Given",
+              "NativeKeyword": "Given ",
+              "Name": "I want to analyse these diff deltas by timeslice in",
+              "TableArgument": {
+                "HeaderRow": [
+                  "StartDate",
+                  "EndDate",
+                  "NumberOfDiffs"
+                ],
+                "DataRows": [
+                  [
+                    "03-Feb-2014",
+                    "09-Mar-2014",
+                    "20"
+                  ]
+                ]
+              }
+            },
+            {
+              "Keyword": "When",
+              "NativeKeyword": "When ",
+              "Name": "I analyse the diff deltas by timeslice and output to \"csv\""
+            },
+            {
+              "Keyword": "Then",
+              "NativeKeyword": "Then ",
+              "Name": "I can summarise the analysis and output the result to \"csv\""
+            }
+          ],
+          "Tags": [],
+          "Result": {
+            "WasExecuted": false,
+            "WasSuccessful": false
+          }
+        }
+      ],
+      "Result": {
+        "WasExecuted": false,
+        "WasSuccessful": false
+      },
+      "Tags": [
+        "@SnapOnCc",
+        "@LongRunning"
+      ]
+    },
+    "Result": {
+      "WasExecuted": false,
+      "WasSuccessful": false
+    }
+  },
+  {
     "RelativeFolder": "QdfAnalysisOfArsCcEcnDiffDeltas.feature",
     "Feature": {
       "Name": "QdfAnalysisOfArsCcEcnDiffDeltas",
@@ -464,13 +1154,7 @@ jsonPWrapper ([
         {
           "Name": "Book A Deals for server C1 in symbol EURUSD in QDF should equal CC from 5 minutes ago",
           "Description": "",
-          "Steps": [
-            {
-              "Keyword": "When",
-              "NativeKeyword": "When ",
-              "Name": "I compare QDF and CC data"
-            }
-          ],
+          "Steps": [],
           "Tags": [
             "@Broken"
           ],
@@ -505,11 +1189,6 @@ jsonPWrapper ([
             "Keyword": "And",
             "NativeKeyword": "And ",
             "Name": "I have already loaded CCTool data"
-          },
-          {
-            "Keyword": "And",
-            "NativeKeyword": "And ",
-            "Name": "I have already aggregated the QdfDeal Data and CcToolData by day"
           }
         ],
         "Tags": [],
