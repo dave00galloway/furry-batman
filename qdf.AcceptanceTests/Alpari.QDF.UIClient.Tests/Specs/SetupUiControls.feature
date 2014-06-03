@@ -35,3 +35,89 @@ Scenario: Set up book list
 	| A    |
 	| B    |
 
+Scenario: set up symbol list
+	Given I filter deals by symbol
+	Then the list of symbol options should be:
+	| Symbol |
+	| AUDCAD |
+	| AUDCHF |
+	| AUDJPY |
+	| AUDNZD |
+	| AUDSGD |
+	| AUDUSD |
+	| AUDZAR |
+	| CADCHF |
+	| CADJPY |
+	| CADSGD |
+	| CHFJPY |
+	| CHFSGD |
+	| DE30   |
+	| EUR50  |
+	| EURAUD |
+	| EURCAD |
+	| EURCHF |
+	| EURCZK |
+	| EURDKK |
+	| EURGBP |
+	| EURHKD |
+	| EURHUF |
+	| EURJPY |
+	| EURMXN |
+	| EURNOK |
+	| EURNZD |
+	| EURPLN |
+	| EURRUB |
+	| EURSEK |
+	| EURSGD |
+	| EURTRY |
+	| EURUSD |
+	| EURZAR |
+	| FRA40  |
+	| GBPAUD |
+	| GBPCAD |
+	| GBPCHF |
+	| GBPJPY |
+	| GBPNOK |
+	| GBPNZD |
+	| GBPSEK |
+	| GBPSGD |
+	| GBPUSD |
+	| GBPZAR |
+	| HKDJPY |
+	| MXNJPY |
+	| NOKJPY |
+	| NOKSEK |
+	| NQ100  |
+	| NZDCAD |
+	| NZDCHF |
+	| NZDJPY |
+	| NZDSGD |
+	| NZDUSD |
+	| NZDZAR |
+	| SEKJPY |
+	| SEKNOK |
+	| SGDJPY |
+	| UK100  |
+	| US30   |
+	| US500  |
+	| USDCAD |
+	| USDCHF |
+	| USDCNH |
+	| USDCZK |
+	| USDDKK |
+	| USDHKD |
+	| USDHUF |
+	| USDJPY |
+	| USDMXN |
+	| USDNOK |
+	| USDPLN |
+	| USDRUB |
+	| USDSEK |
+	| USDSGD |
+	| USDTRY |
+	| USDZAR |
+	| XAGUSD |
+	| XAUUSD |
+	| ZARJPY |
+
+

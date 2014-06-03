@@ -27,6 +27,24 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             BookControl = new BookControl();
         }
 
+        [Given(@"I filter deals by symbol")]
+        public void GivenIFilterDealsBySymbol()
+        {
+            SymbolControl = new SymbolControl();
+        }
+
+        [Then(@"the list of symbol options should be:")]
+        public void ThenTheListOfSymbolOptionsShouldBe(Table table)
+        {
+            var expectedSymbols = (from row in table.Rows
+                from col in row
+                where col.Key == SYMBOL_TABLE_KEY
+                select col.Value).ToList();
+            var actualSymbols = SymbolControl.SymbolListItems.Select(x=>x.Symbol).ToList();
+            actualSymbols.ShouldBeEquivalentTo(expectedSymbols);
+        }
+
+
         [Then(@"the list of book options should be:")]
         public void ThenTheListOfBookOptionsShouldBe(Table table)
         {

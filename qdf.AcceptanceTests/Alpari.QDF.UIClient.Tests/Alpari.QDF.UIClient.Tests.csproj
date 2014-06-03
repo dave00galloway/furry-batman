@@ -33,6 +33,7 @@
   </PropertyGroup>
   <PropertyGroup>
     <AllowedReferenceRelatedFileExtensions>
+      .csv;
       .pdb;
       .xml;
       .dll.config

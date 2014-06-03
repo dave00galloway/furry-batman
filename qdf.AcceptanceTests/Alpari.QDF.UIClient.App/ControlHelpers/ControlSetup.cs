@@ -8,13 +8,15 @@ namespace Alpari.QDF.UIClient.App.ControlHelpers
 {
     public class ControlSetup
     {
-        public ControlSetup(TradingServerControl tradingServerControl, BookControl bookControl)
+        public ControlSetup(TradingServerControl tradingServerControl, BookControl bookControl, SymbolControl symbolControl)
         {
             TradingServerControl = tradingServerControl;
             BookControl = bookControl;
+            SymbolControl = symbolControl;
         }
 
         public TradingServerControl TradingServerControl { get; private set; }
-        public BookControl BookControl { get; set; }
+        public BookControl BookControl { get; private set; }
+        public SymbolControl SymbolControl { get; set; }
     }
 }

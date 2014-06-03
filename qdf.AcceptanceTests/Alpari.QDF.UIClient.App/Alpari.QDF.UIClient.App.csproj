@@ -65,8 +65,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App.cs">
+      <DependentUpon>App.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ControlHelpers\BookControl.cs" />
     <Compile Include="ControlHelpers\ControlSetup.cs" />
+    <Compile Include="ControlHelpers\SymbolControl.cs" />
+    <Compile Include="ControlHelpers\SymbolListItem.cs" />
     <Compile Include="ControlHelpers\TradingServerControl.cs" />
     <Compile Include="DealSearchCriteria.cs" />
     <Compile Include="Exporter.cs" />
@@ -82,6 +87,9 @@
     <None Include="App.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="ControlHelpers\symbolList.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

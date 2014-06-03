@@ -21,7 +21,7 @@ namespace Alpari.QDF.UIClient.Gui
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SearchAndRetrievalOptions(new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),new ControlSetup(new TradingServerControl(), new BookControl())));
+            Application.Run(new SearchAndRetrievalOptions(new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),new ControlSetup(new TradingServerControl(), new BookControl(), new SymbolControl())));
         }
     }
 }
