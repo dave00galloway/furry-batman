@@ -51,32 +51,42 @@ namespace Alpari.QDF.UIClient.Gui
             }
         }
 
-        private void SymbolSearchTextBox_TextChanged(object sender, EventArgs e)
+        private void SymbolSearchButton_Click(object sender, EventArgs e)
         {
             var pos = SymbolSearchTextBox.SelectionStart;
             var typed = SymbolSearchTextBox.Text.Substring(0, pos);
-            if (SearchSymbolList(typed))
+            SearchAndScrollList(SymbolListBox, typed);
+        }
+
+        private static void SearchAndScrollList(ListBox listBox, string typed)
+        {
+            if (SearchListBox(listBox,typed))
             {
-                SymbolListBox.TopIndex = GetItemIndex(typed);
+                var index = GetItemIndex(listBox, typed);
+                listBox.TopIndex = index;
+                if (index >= 0)
+                {
+                    listBox.SetSelected(index, true);
+                }
             }
         }
 
-        private int GetItemIndex(string typed)
+        private static int GetItemIndex(ListBox listBox, string typed)
         {
-            for (int i = 0; i < SymbolListBox.Items.Count; i++)
+            for (int i = 0; i < listBox.Items.Count; i++)
             {
-                if (SymbolListBox.Items[i].ToString().Substring(0, typed.Length).Equals(typed,StringComparison.InvariantCulture))
+                if (listBox.Items[i].ToString().Substring(0, typed.Length).Equals(typed,StringComparison.InvariantCulture))
                 {
                     return i;
                 }
             }
-            return 0;
+            return -1;
         }
 
-        private bool SearchSymbolList(string typed)
+        private static bool SearchListBox(ListBox listBox, string typed)
         {
             bool found = false;
-            foreach (var item in SymbolListBox.Items)
+            foreach (var item in listBox.Items)
             {
                 if (item.ToString().Contains(typed))
                 {

@@ -36,6 +36,7 @@
             this.SymbolListBox = new System.Windows.Forms.ListBox();
             this.SymbolSearchTextBox = new System.Windows.Forms.TextBox();
             this.SymbolSearchLabel = new System.Windows.Forms.Label();
+            this.SymbolSearchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ServerListBox
@@ -77,7 +78,7 @@
             // SymbolLabel
             // 
             this.SymbolLabel.AutoSize = true;
-            this.SymbolLabel.Location = new System.Drawing.Point(169, 80);
+            this.SymbolLabel.Location = new System.Drawing.Point(169, 106);
             this.SymbolLabel.Name = "SymbolLabel";
             this.SymbolLabel.Size = new System.Drawing.Size(52, 13);
             this.SymbolLabel.TabIndex = 5;
@@ -86,10 +87,10 @@
             // SymbolListBox
             // 
             this.SymbolListBox.FormattingEnabled = true;
-            this.SymbolListBox.Location = new System.Drawing.Point(172, 96);
+            this.SymbolListBox.Location = new System.Drawing.Point(172, 122);
             this.SymbolListBox.Name = "SymbolListBox";
             this.SymbolListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.SymbolListBox.Size = new System.Drawing.Size(120, 95);
+            this.SymbolListBox.Size = new System.Drawing.Size(120, 394);
             this.SymbolListBox.TabIndex = 6;
             // 
             // SymbolSearchTextBox
@@ -98,7 +99,6 @@
             this.SymbolSearchTextBox.Name = "SymbolSearchTextBox";
             this.SymbolSearchTextBox.Size = new System.Drawing.Size(120, 20);
             this.SymbolSearchTextBox.TabIndex = 7;
-            this.SymbolSearchTextBox.TextChanged += new System.EventHandler(this.SymbolSearchTextBox_TextChanged);
             // 
             // SymbolSearchLabel
             // 
@@ -109,11 +109,22 @@
             this.SymbolSearchLabel.TabIndex = 8;
             this.SymbolSearchLabel.Text = "SymbolSearch";
             // 
+            // SymbolSearchButton
+            // 
+            this.SymbolSearchButton.Location = new System.Drawing.Point(172, 66);
+            this.SymbolSearchButton.Name = "SymbolSearchButton";
+            this.SymbolSearchButton.Size = new System.Drawing.Size(120, 23);
+            this.SymbolSearchButton.TabIndex = 9;
+            this.SymbolSearchButton.Text = "Search Symbols";
+            this.SymbolSearchButton.UseVisualStyleBackColor = true;
+            this.SymbolSearchButton.Click += new System.EventHandler(this.SymbolSearchButton_Click);
+            // 
             // SearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
+            this.Controls.Add(this.SymbolSearchButton);
             this.Controls.Add(this.SymbolSearchLabel);
             this.Controls.Add(this.SymbolSearchTextBox);
             this.Controls.Add(this.SymbolListBox);
@@ -139,5 +150,6 @@
         private System.Windows.Forms.ListBox SymbolListBox;
         private System.Windows.Forms.TextBox SymbolSearchTextBox;
         private System.Windows.Forms.Label SymbolSearchLabel;
+        private System.Windows.Forms.Button SymbolSearchButton;
     }
 }
