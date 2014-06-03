@@ -716,7 +716,7 @@ jsonPWrapper ([
               "TableArgument": {
                 "HeaderRow": [
                   "Symbol",
-                  "Server",
+                  "Servers",
                   "ConvertedStartTime",
                   "ConvertedEndTime"
                 ],
@@ -746,7 +746,7 @@ jsonPWrapper ([
               "Name": "the deals imported for each symbol will have the following counts",
               "TableArgument": {
                 "HeaderRow": [
-                  "Server",
+                  "Symbol",
                   "Count"
                 ],
                 "DataRows": [
@@ -766,8 +766,8 @@ jsonPWrapper ([
               }
             },
             {
-              "Keyword": "Then",
-              "NativeKeyword": "Then ",
+              "Keyword": "And",
+              "NativeKeyword": "And ",
               "Name": "the deals imported for each server will have the following counts",
               "TableArgument": {
                 "HeaderRow": [
@@ -798,22 +798,22 @@ jsonPWrapper ([
           ],
           "Tags": [],
           "Result": {
-            "WasExecuted": false,
-            "WasSuccessful": false
+            "WasExecuted": true,
+            "WasSuccessful": true
           }
         }
       ],
       "Result": {
-        "WasExecuted": false,
-        "WasSuccessful": false
+        "WasExecuted": true,
+        "WasSuccessful": true
       },
       "Tags": [
         "@ClientSideFiltering"
       ]
     },
     "Result": {
-      "WasExecuted": false,
-      "WasSuccessful": false
+      "WasExecuted": true,
+      "WasSuccessful": true
     }
   }
 ]);
