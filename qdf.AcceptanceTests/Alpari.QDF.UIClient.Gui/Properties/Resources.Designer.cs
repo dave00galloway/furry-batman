@@ -61,6 +61,15 @@ namespace Alpari.QDF.UIClient.Gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ready to export data.
+        /// </summary>
+        internal static string SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data {
+            get {
+                return ResourceManager.GetString("SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Setting Up Deal Query.
         /// </summary>
         internal static string SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query {

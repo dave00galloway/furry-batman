@@ -49,6 +49,9 @@ namespace Alpari.QDF.UIClient.Gui
             this.StartTimePicker = new System.Windows.Forms.DateTimePicker();
             this.FindDealsButton = new System.Windows.Forms.Button();
             this.Display = new System.Windows.Forms.TextBox();
+            this.SetExportPathButton = new System.Windows.Forms.Button();
+            this.SetExportPathTextBox = new System.Windows.Forms.TextBox();
+            this.SetExportPathSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.SuspendLayout();
             // 
             // ServerListBox
@@ -203,7 +206,7 @@ namespace Alpari.QDF.UIClient.Gui
             // 
             this.FindDealsButton.Location = new System.Drawing.Point(718, 40);
             this.FindDealsButton.Name = "FindDealsButton";
-            this.FindDealsButton.Size = new System.Drawing.Size(75, 23);
+            this.FindDealsButton.Size = new System.Drawing.Size(100, 23);
             this.FindDealsButton.TabIndex = 18;
             this.FindDealsButton.Text = "FindDeals";
             this.FindDealsButton.UseVisualStyleBackColor = true;
@@ -217,11 +220,36 @@ namespace Alpari.QDF.UIClient.Gui
             this.Display.Size = new System.Drawing.Size(100, 20);
             this.Display.TabIndex = 19;
             // 
+            // SetExportPathButton
+            // 
+            this.SetExportPathButton.Location = new System.Drawing.Point(718, 108);
+            this.SetExportPathButton.Name = "SetExportPathButton";
+            this.SetExportPathButton.Size = new System.Drawing.Size(100, 23);
+            this.SetExportPathButton.TabIndex = 20;
+            this.SetExportPathButton.Text = "Set Export Path";
+            this.SetExportPathButton.UseVisualStyleBackColor = true;
+            this.SetExportPathButton.Click += new System.EventHandler(this.SetExportPathButton_Click);
+            // 
+            // SetExportPathTextBox
+            // 
+            this.SetExportPathTextBox.Location = new System.Drawing.Point(718, 138);
+            this.SetExportPathTextBox.Name = "SetExportPathTextBox";
+            this.SetExportPathTextBox.Size = new System.Drawing.Size(100, 20);
+            this.SetExportPathTextBox.TabIndex = 21;
+            // 
+            // SetExportPathSaveFileDialog
+            // 
+            this.SetExportPathSaveFileDialog.DefaultExt = "csv";
+            this.SetExportPathSaveFileDialog.Filter = " \"csv files (*.csv)|*.csv|All files (*.*)|*.*\"";
+            this.SetExportPathSaveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SetExportPathSaveFileDialog_FileOk);
+            // 
             // SearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
+            this.Controls.Add(this.SetExportPathTextBox);
+            this.Controls.Add(this.SetExportPathButton);
             this.Controls.Add(this.Display);
             this.Controls.Add(this.FindDealsButton);
             this.Controls.Add(this.label1);
@@ -269,5 +297,8 @@ namespace Alpari.QDF.UIClient.Gui
         private System.Windows.Forms.DateTimePicker StartTimePicker;
         private System.Windows.Forms.Button FindDealsButton;
         private System.Windows.Forms.TextBox Display;
+        private Button SetExportPathButton;
+        private TextBox SetExportPathTextBox;
+        private SaveFileDialog SetExportPathSaveFileDialog;
     }
 }

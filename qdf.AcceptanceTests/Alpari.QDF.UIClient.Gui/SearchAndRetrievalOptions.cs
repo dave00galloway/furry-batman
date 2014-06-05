@@ -63,8 +63,8 @@ namespace Alpari.QDF.UIClient.Gui
         private void FindDeals_Click(object sender, EventArgs e)
         {
             Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
-
             Exporter.RedisConnectionHelper.GetDealData(SetupDealQuery());
+            Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data;
         }
 
         private DealSearchCriteria SetupDealQuery()
@@ -94,6 +94,16 @@ namespace Alpari.QDF.UIClient.Gui
             }
             //dealSearchCriteria.Resolve();
             return dealSearchCriteria;
+        }
+
+        private void SetExportPathButton_Click(object sender, EventArgs e)
+        {
+            SetExportPathSaveFileDialog.ShowDialog();
+        }
+
+        private void SetExportPathSaveFileDialog_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Exporter.ExportDealsToCsv(SetExportPathSaveFileDialog.FileName);
         }
     }
 }

@@ -118,4 +118,8 @@
     <value>Setting Up Deal Query</value>
     <comment>comment</comment>
   </data>
+  <data name="SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data" xml:space="preserve">
+    <value>Ready to export data</value>
+    <comment>comment</comment>
+  </data>
 </root>
