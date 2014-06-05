@@ -110,6 +110,7 @@ namespace Alpari.QDF.UIClient.Gui
             // 
             // SymbolSearchTextBox
             // 
+            this.SymbolSearchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.SymbolSearchTextBox.Location = new System.Drawing.Point(172, 40);
             this.SymbolSearchTextBox.Name = "SymbolSearchTextBox";
             this.SymbolSearchTextBox.Size = new System.Drawing.Size(120, 20);
@@ -232,6 +233,7 @@ namespace Alpari.QDF.UIClient.Gui
             // 
             // SetExportPathTextBox
             // 
+            this.SetExportPathTextBox.Enabled = false;
             this.SetExportPathTextBox.Location = new System.Drawing.Point(718, 138);
             this.SetExportPathTextBox.Name = "SetExportPathTextBox";
             this.SetExportPathTextBox.Size = new System.Drawing.Size(100, 20);
@@ -269,7 +271,10 @@ namespace Alpari.QDF.UIClient.Gui
             this.Controls.Add(this.BookLabel);
             this.Controls.Add(this.ServerLabel);
             this.Controls.Add(this.ServerListBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "SearchAndRetrievalOptions";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SearchAndRetrievalOptions";
             this.ResumeLayout(false);
             this.PerformLayout();

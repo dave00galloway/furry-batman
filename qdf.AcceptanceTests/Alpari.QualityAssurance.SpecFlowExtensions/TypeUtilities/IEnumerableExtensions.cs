@@ -35,7 +35,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath, bool removeReturns,
             bool useHeadersToGetData = false, bool headerSafeMode = false)
         {
-            string headers = String.Join(",", typeof (T).GetPropertyNamesAsList(headerSafeMode));
+// ReSharper disable PossibleMultipleEnumeration
+            if (iEnumerable == null || !iEnumerable.Any()) return;
+            string headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode));
             var csvFile = new StringBuilder();
             if (!File.Exists(fileNamePath))
             {
@@ -70,6 +72,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             {
                 File.WriteAllText(fileNamePath, csvFile.ToString());
             }
+// ReSharper restore PossibleMultipleEnumeration
         }
 
         public static void ExportEnumerableByMethod<T>(this IEnumerable<T> sumQuery, ExportParameters exportParameters)

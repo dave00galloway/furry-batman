@@ -7,9 +7,9 @@ namespace Alpari.QDF.UIClient.Gui
     {
         public static void SearchAndScrollList(this ListBox listBox, string typed)
         {
-            if (SearchListBox(listBox, typed))
+            if (listBox.SearchListBox(typed))
             {
-                int index = GetItemIndex(listBox, typed);
+                int index = listBox.GetItemIndex(typed);
                 listBox.TopIndex = index;
                 if (index >= 0)
                 {
@@ -20,14 +20,18 @@ namespace Alpari.QDF.UIClient.Gui
 
         public static int GetItemIndex(this ListBox listBox, string typed)
         {
-            for (int i = 0; i < listBox.Items.Count; i++)
+            if (typed.Length > 0)
             {
-                if (listBox.Items[i].ToString()
-                    .Substring(0, typed.Length)
-                    .Equals(typed, StringComparison.InvariantCulture))
+                for (int i = 0; i < listBox.Items.Count; i++)
                 {
-                    return i;
-                }
+                    string itemText = listBox.Items[i].ToString();
+                    if (itemText.Contains(typed) && itemText
+                        .Substring(0, typed.Length - 1)
+                        .Equals(typed, StringComparison.InvariantCulture))
+                    {
+                        return i;
+                    }
+                }                
             }
             return -1;
         }
@@ -40,6 +44,7 @@ namespace Alpari.QDF.UIClient.Gui
                 if (item.ToString().Contains(typed))
                 {
                     found = true;
+                    break;
                 }
             }
             return found;

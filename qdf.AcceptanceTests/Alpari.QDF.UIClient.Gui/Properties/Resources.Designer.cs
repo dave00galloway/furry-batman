@@ -61,6 +61,15 @@ namespace Alpari.QDF.UIClient.Gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Data Found.
+        /// </summary>
+        internal static string SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found {
+            get {
+                return ResourceManager.GetString("SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ready to export data.
         /// </summary>
         internal static string SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data {

@@ -122,4 +122,8 @@
     <value>Ready to export data</value>
     <comment>comment</comment>
   </data>
+  <data name="SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found" xml:space="preserve">
+    <value>No Data Found</value>
+    <comment>fgd</comment>
+  </data>
 </root>
