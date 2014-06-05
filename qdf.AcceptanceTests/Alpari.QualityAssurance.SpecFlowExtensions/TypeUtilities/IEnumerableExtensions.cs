@@ -48,29 +48,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             if (useHeadersToGetData && headers.Length > 0)
             {
+                int lineCounter = 0;
                 foreach (T item in iEnumerable)
                 {
                     csvFile.AppendLine(String.Join(",",
                         item.GetObjectPropertyValuesAsList(headers.Split(','))
                             .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
+                    lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
                 }
             }
             else
             {
+                int lineCounter = 0;
                 foreach (T item in iEnumerable)
                 {
                     csvFile.AppendLine(String.Join(",",
                         item.GetObjectPropertyValuesAsList()
                             .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
+                    lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
                 }
-            }
-            if (File.Exists(fileNamePath))
-            {
-                File.AppendAllText(fileNamePath, csvFile.ToString());
-            }
-            else
-            {
-                File.WriteAllText(fileNamePath, csvFile.ToString());
             }
 // ReSharper restore PossibleMultipleEnumeration
         }
@@ -101,6 +97,30 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                         //exportMethod.ToString(CultureInfo.InvariantCulture)
                         exportParameters.ExportType.ToString()
                         );
+            }
+        }
+
+        public static int DumpToCsvAtSpecifiedLineCount(this StringBuilder csvFile, string fileNamePath, int lineCounter, int linesToDumpAt = 1000)
+        {
+            lineCounter++;
+            if (lineCounter > linesToDumpAt)
+            {
+                fileNamePath.DumpToCsv(csvFile);
+                csvFile.Clear();
+                lineCounter = 0;
+            }
+            return lineCounter;
+        }
+
+        public static void DumpToCsv(this string fileNamePath, StringBuilder csvFile)
+        {
+            if (File.Exists(fileNamePath))
+            {
+                File.AppendAllText(fileNamePath, csvFile.ToString());
+            }
+            else
+            {
+                File.WriteAllText(fileNamePath, csvFile.ToString());
             }
         }
     }

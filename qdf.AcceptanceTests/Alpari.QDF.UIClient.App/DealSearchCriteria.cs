@@ -57,22 +57,28 @@ namespace Alpari.QDF.UIClient.App
                 List<string> symbols = Symbol.Split(_separator).Distinct().ToList();
                 symbols.ForEach(x => InstrumentList.Add(x));
                 Instrument = null;
-                Symbol = null;
+                //Symbol = null;
             }
             else
             {
                 Instrument = Symbol;
-                Symbol = null;
+                //Symbol = null;
             }
         }
 
         private void SetUpServers()
         {
-            if (Servers == null || !Servers.Contains(_separator)) return;
-            List<string> servers = Servers.Split(_separator).Distinct().ToList();
-            servers.ForEach(SafelyAddTradingServers);
-            Server = default(TradingServer);
-            Servers = null;
+            if (Servers == null) return;
+            if (Servers.Contains(_separator))
+            {
+                List<string> servers = Servers.Split(_separator).Distinct().ToList();
+                servers.ForEach(SafelyAddTradingServers);
+                Server = default(TradingServer);                
+            }
+            else
+            {
+                SafelyAddTradingServers(Servers);
+            }
         }
 
         private void SafelyAddTradingServers(string serverName)

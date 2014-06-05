@@ -64,25 +64,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             {
                 csvFile.AppendLine(String.Join(",",
                     (dataRow.ItemArray.Select(x => x.ToSafeString().StringToCsvCell()).ToArray())));
-                lineCounter++;
-                if (lineCounter>1000)
-                {
-                    DumpToCsv(fileNamePath, csvFile);
-                    csvFile.Clear();
-                    lineCounter = 0;
-                }
-            }
-        }
-
-        private static void DumpToCsv(string fileNamePath, StringBuilder csvFile)
-        {
-            if (File.Exists(fileNamePath))
-            {
-                File.AppendAllText(fileNamePath, csvFile.ToString());
-            }
-            else
-            {
-                File.WriteAllText(fileNamePath, csvFile.ToString());
+                lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
             }
         }
 
