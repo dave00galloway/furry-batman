@@ -10,7 +10,7 @@ namespace Alpari.QDF.UIClient.App
             RedisConnectionHelper = redisConnectionHelper;
         }
 
-        private RedisConnectionHelper RedisConnectionHelper { get; set; }
+        public RedisConnectionHelper RedisConnectionHelper { get; set; }
 
         public void ExportDealsToCsv(string fileNamePath)
         {

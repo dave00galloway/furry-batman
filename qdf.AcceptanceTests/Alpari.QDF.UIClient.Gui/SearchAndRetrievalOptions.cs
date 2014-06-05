@@ -1,35 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QDF.UIClient.Gui.Properties;
+using System;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Alpari.QDF.UIClient.Gui
 {
     public partial class SearchAndRetrievalOptions : Form
     {
-        protected Exporter Exporter { get; set; }
-        protected ControlSetup ControlSetup { get; set; }
+        private const string Seperator = ",";
 
         public SearchAndRetrievalOptions(Exporter exporter, ControlSetup controlSetup)
         {
             InitializeComponent();
+            SymbolSearchButton.Enabled = false;
+            FindDealsButton.Enabled = false;
             Exporter = exporter;
             ControlSetup = controlSetup;
             SetupBookListBox();
             SetupSymbolListBox();
             SetupServerListBox();
+            SymbolSearchButton.Enabled = true;
+            FindDealsButton.Enabled = true;
         }
+
+        protected Exporter Exporter { get; set; }
+        protected ControlSetup ControlSetup { get; set; }
 
         private void SetupBookListBox()
         {
-            foreach (var book in ControlSetup.BookControl.BookList)
+            foreach (string book in ControlSetup.BookControl.BookList)
             {
                 BookListBox.Items.Add(book);
             }
@@ -37,7 +39,7 @@ namespace Alpari.QDF.UIClient.Gui
 
         private void SetupSymbolListBox()
         {
-            foreach (var symbol in ControlSetup.SymbolControl.SymbolListItems)
+            foreach (SymbolListItem symbol in ControlSetup.SymbolControl.SymbolListItems)
             {
                 SymbolListBox.Items.Add(symbol.Symbol);
             }
@@ -53,47 +55,45 @@ namespace Alpari.QDF.UIClient.Gui
 
         private void SymbolSearchButton_Click(object sender, EventArgs e)
         {
-            var pos = SymbolSearchTextBox.SelectionStart;
-            var typed = SymbolSearchTextBox.Text.Substring(0, pos);
-            SearchAndScrollList(SymbolListBox, typed);
+            int pos = SymbolSearchTextBox.SelectionStart;
+            string typed = SymbolSearchTextBox.Text.Substring(0, pos);
+            SymbolListBox.SearchAndScrollList(typed);
         }
 
-        private static void SearchAndScrollList(ListBox listBox, string typed)
+        private void FindDeals_Click(object sender, EventArgs e)
         {
-            if (SearchListBox(listBox,typed))
-            {
-                var index = GetItemIndex(listBox, typed);
-                listBox.TopIndex = index;
-                if (index >= 0)
-                {
-                    listBox.SetSelected(index, true);
-                }
-            }
+            Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
+
+            Exporter.RedisConnectionHelper.GetDealData(SetupDealQuery());
         }
 
-        private static int GetItemIndex(ListBox listBox, string typed)
+        private DealSearchCriteria SetupDealQuery()
         {
-            for (int i = 0; i < listBox.Items.Count; i++)
+            var dealSearchCriteria = new DealSearchCriteria
             {
-                if (listBox.Items[i].ToString().Substring(0, typed.Length).Equals(typed,StringComparison.InvariantCulture))
-                {
-                    return i;
-                }
+                ConvertedStartTime = UiExtensions.SetDateTime(StartDatePicker, StartTimePicker),
+                ConvertedEndTime = UiExtensions.SetDateTime(EndDatePicker, EndTimePicker)
+            };
+            if (BookListBox.SelectedItems.Count > 0)
+            {
+                dealSearchCriteria.Book = (Book) Enum.Parse(typeof (Book), (string) BookListBox.SelectedItems[0]);
             }
-            return -1;
-        }
+            //it's a bit daft having to set a delimited string when we already have a collection, but parsing the Instrument has been tested already
+            if (SymbolListBox.SelectedItems.Count > 0)
+            {
+                var symbolList =
+                    (from object selectedItem in SymbolListBox.SelectedItems select selectedItem as string).ToList();
+                dealSearchCriteria.Symbol = String.Join(Seperator,symbolList);
+            }
 
-        private static bool SearchListBox(ListBox listBox, string typed)
-        {
-            bool found = false;
-            foreach (var item in listBox.Items)
+            if (ServerListBox.SelectedItems.Count > 0)
             {
-                if (item.ToString().Contains(typed))
-                {
-                    found = true;
-                }
+                var serverList =
+                    (from object selectedItem in ServerListBox.SelectedItems select selectedItem as string).ToList();
+                dealSearchCriteria.Servers = String.Join(Seperator, serverList);                
             }
-            return found;
+            //dealSearchCriteria.Resolve();
+            return dealSearchCriteria;
         }
     }
 }

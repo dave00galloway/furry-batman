@@ -27,8 +27,6 @@ namespace Alpari.QDF.UIClient.App
             InstrumentList = new List<string>();
         }
 
-
-
         public DateTime ConvertedStartTime { get; set; }
         public DateTime ConvertedEndTime { get; set; }
         //public List<Book> BookList { get; private set; }
@@ -51,11 +49,6 @@ namespace Alpari.QDF.UIClient.App
             SetUpServers();
         }
 
-        //private void SetupBook()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
         private void SetupSymbols()
         {
             if (Symbol == null) return;
@@ -69,6 +62,7 @@ namespace Alpari.QDF.UIClient.App
             else
             {
                 Instrument = Symbol;
+                Symbol = null;
             }
         }
 
@@ -78,6 +72,7 @@ namespace Alpari.QDF.UIClient.App
             List<string> servers = Servers.Split(_separator).Distinct().ToList();
             servers.ForEach(SafelyAddTradingServers);
             Server = default(TradingServer);
+            Servers = null;
         }
 
         private void SafelyAddTradingServers(string serverName)

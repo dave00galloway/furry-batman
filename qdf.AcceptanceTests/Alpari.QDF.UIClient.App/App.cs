@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Alpari.QDF.UIClient.App
 {
+    /// <summary>
+    /// This class is a stopgap measure until a better way of reading config from multiple sources can be found
+    /// </summary>
     public static class App
     {
         public const string LIST_SEPERATOR = "listSeperator";
@@ -16,8 +19,8 @@ namespace Alpari.QDF.UIClient.App
 
         public static char GetSeperatorValue(Configuration config)
         {
-            var section = (AppSettingsSection)config.GetSection(App.BEHAVIOUR_SECTION_NAME);
-            return Convert.ToChar(section.Settings[App.LIST_SEPERATOR].Value);
+            var section = (AppSettingsSection)config.GetSection(BEHAVIOUR_SECTION_NAME);
+            return Convert.ToChar(section.Settings[LIST_SEPERATOR].Value);
         }
     }
 }
