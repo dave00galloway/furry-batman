@@ -31,6 +31,12 @@ namespace Alpari.QualityAssurance.RefData.Tests
             ScenarioContext.Current["lookupValue"] = _refData.CcToQdfServerMapping[key];
         }
 
+        [When(@"I lookup key ""(.*)"" in the RedisServerNameToIpMapping dictionary")]
+        public void WhenILookupKeyInTheRedisServerNameToIpMappingDictionary(string key)
+        {
+            ScenarioContext.Current["lookupValue"] = _refData.RedisServerNameToIpMapping[key];
+        }
+
 
         [Then(@"the value returned by the lookup is ""(.*)""")]
         public void ThenTheValueReturnedByTheLookupIs(string lookupValue)

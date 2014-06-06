@@ -7,7 +7,7 @@ Feature: UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI
 Scenario: Setup Environment UI Control
 	Given I want to be able to switch environments
 	Then the list of environments options should be:
-	| Environment names             |
+	| Environments                  |
 	| uk-redis-prod.corp.alpari.com |
 	| uk-redis-uat.corp.alpari.com  |
 	| uk-redis-dev.corp.alpari.com  |

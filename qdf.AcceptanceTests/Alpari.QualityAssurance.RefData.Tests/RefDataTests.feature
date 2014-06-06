@@ -36,3 +36,13 @@ Scenario: Lookup values in both dictionaries
 	Then the value returned by the lookup is "Currenex"
 	When I lookup key "Currenex" in the QdfToCcServerMapping dictionary
 	Then the value returned by the lookup is "CNX"
+
+Scenario Outline: Lookup values in RedisMapping
+	Given I have connected to the ref data dictionary
+	When I lookup key "<Environment names>" in the RedisServerNameToIpMapping dictionary
+	Then the value returned by the lookup is "<IP>"
+	Examples: 
+	| Environment names             | IP            |
+	| uk-redis-prod.corp.alpari.com | 10.10.142.62  |
+	| uk-redis-uat.corp.alpari.com  | 10.10.144.156 |
+	| uk-redis-dev.corp.alpari.com  | 10.10.144.100 |

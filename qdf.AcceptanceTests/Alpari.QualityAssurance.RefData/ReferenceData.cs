@@ -23,6 +23,7 @@ namespace Alpari.QualityAssurance.RefData
         private static readonly object SyncRoot = new Object();
         private ReadOnlyDictionary<string, string> _qdfToCcServerMapping;
         private ReadOnlyDictionary<string, string> _ccToQdfServerMapping;
+        private ReadOnlyDictionary<string, string> _redisServerNameToIpMapping;
 
         private ReferenceData()
         {
@@ -80,6 +81,24 @@ namespace Alpari.QualityAssurance.RefData
                     }                    
                 }
                 return _ccToQdfServerMapping;
+            }
+        }
+
+        public ReadOnlyDictionary<string, string> RedisServerNameToIpMapping
+        {
+            get
+            {
+                if (_redisServerNameToIpMapping == null)
+                {
+                    lock (SyncRoot)
+                    {
+                        if (_redisServerNameToIpMapping == null)
+                        {
+                            _redisServerNameToIpMapping = new RefDataDictionaryBase(Dictionaries.RedisServerNameToIpMapping).Data;
+                        }
+                    }
+                }
+                return _redisServerNameToIpMapping;
             }
         }
     }

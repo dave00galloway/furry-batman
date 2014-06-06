@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QualityAssurance.RefData;
+using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -32,6 +35,26 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             SymbolControl = new SymbolControl();
         }
+
+        [Given(@"I want to be able to switch environments")]
+        public void GivenIWantToBeAbleToSwitchEnvironments()
+        {
+            EnvironmnentControl = new EnvironmentControl(ReferenceData.Instance);
+        }
+
+
+
+        [Then(@"the list of environments options should be:")]
+        public void ThenTheListOfEnvironmentsOptionsShouldBe(Table table)
+        {
+            var expectedEnvironmnets = (from row in table.Rows
+                from col in row
+                where col.Key == ENVIRONMENT_TABLE_KEY
+                select col.Value).ToList();
+            var actualEnvironments = EnvironmnentControl.EnvironmentListItems.Select(x => x.Key).ToList();
+            actualEnvironments.ShouldBeEquivalentTo(expectedEnvironmnets);
+        }
+
 
         [Then(@"the list of symbol options should be:")]
         public void ThenTheListOfSymbolOptionsShouldBe(Table table)

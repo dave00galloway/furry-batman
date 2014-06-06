@@ -70,6 +70,7 @@
     </Compile>
     <Compile Include="ControlHelpers\BookControl.cs" />
     <Compile Include="ControlHelpers\ControlSetup.cs" />
+    <Compile Include="ControlHelpers\EnvironmentControl.cs" />
     <Compile Include="ControlHelpers\SymbolControl.cs" />
     <Compile Include="ControlHelpers\SymbolListItem.cs" />
     <Compile Include="ControlHelpers\TradingServerControl.cs" />
@@ -93,6 +94,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
+      <Project>{4c580f04-b06a-4cf2-a646-6139a2bb1fff}</Project>
+      <Name>Alpari.QualityAssurance.RefData</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
