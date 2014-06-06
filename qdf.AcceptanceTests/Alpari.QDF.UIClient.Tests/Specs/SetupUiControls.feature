@@ -120,4 +120,3 @@ Scenario: set up symbol list
 	| XAUUSD |
 	| ZARJPY |
 
-

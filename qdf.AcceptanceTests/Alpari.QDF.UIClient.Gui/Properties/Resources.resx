@@ -126,4 +126,7 @@
     <value>No Data Found</value>
     <comment>fgd</comment>
   </data>
+  <data name="SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client" xml:space="preserve">
+    <value>try closing and reopening the client</value>
+  </data>
 </root>

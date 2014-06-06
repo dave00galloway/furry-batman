@@ -68,6 +68,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
                 }
             }
+            if (csvFile.Length>0)
+            {
+                fileNamePath.DumpToCsv(csvFile);
+            }
 // ReSharper restore PossibleMultipleEnumeration
         }
 

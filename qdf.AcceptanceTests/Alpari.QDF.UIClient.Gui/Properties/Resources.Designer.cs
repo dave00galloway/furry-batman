@@ -86,5 +86,14 @@ namespace Alpari.QDF.UIClient.Gui.Properties {
                 return ResourceManager.GetString("SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to try closing and reopening the client.
+        /// </summary>
+        internal static string SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client {
+            get {
+                return ResourceManager.GetString("SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client", resourceCulture);
+            }
+        }
     }
 }

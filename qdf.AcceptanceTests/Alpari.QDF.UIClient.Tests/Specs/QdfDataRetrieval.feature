@@ -14,7 +14,7 @@ Scenario: Filter deals by date
 	 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then no retrieved deal will have a timestamp outside "05/05/2014  12:45:42" to "05/05/2014  12:49:51"
-	And the count of retrieved deals will be 101
+	And the count of retrieved deals will be 113
 
 Scenario: Filter deals by server
 	Given I have the following search criteria for qdf deals
@@ -22,7 +22,7 @@ Scenario: Filter deals by server
 	 | Mt4Micro2 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then all retrieved deals will have be for server "Mt4Micro2"
-	And the count of retrieved deals will be 16
+	And the count of retrieved deals will be 13
 
 Scenario: Filter deals by multiple servers
 	Given I have the following search criteria for qdf deals
@@ -31,10 +31,10 @@ Scenario: Filter deals by multiple servers
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each server will have the following counts
 	| Server      | Count |
-	| Mt4Micro2   | 16    |
+	| Mt4Micro2   | 13    |
 	| Mt4Classic1 | 2     |
 	| Mt4Market1  | 2     |
-	And the count of retrieved deals will be 20
+	And the count of retrieved deals will be 17
 
 Scenario: Filter deals by symbol
 	Given I have the following search criteria for qdf deals
@@ -42,7 +42,7 @@ Scenario: Filter deals by symbol
 	 | EURUSD | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then all retrieved deals will have be for symbol "EURUSD"
-	And the count of retrieved deals will be 32
+	And the count of retrieved deals will be 33
 
 Scenario: Filter deals by multiple symbols
 	Given I have the following search criteria for qdf deals
@@ -51,10 +51,10 @@ Scenario: Filter deals by multiple symbols
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each symbol will have the following counts
 	| Symbol | Count |
-	| EURUSD | 32    |
-	| NZDUSD | 3     |
+	| EURUSD | 33    |
+	| NZDUSD | 4     |
 	| AUDNZD | 1     |
-	And the count of retrieved deals will be 36
+	And the count of retrieved deals will be 38
 
 Scenario: Filter deals by book A
 	Given I have the following search criteria for qdf deals
@@ -62,7 +62,7 @@ Scenario: Filter deals by book A
 	 | A    | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then all retrieved deals will have be for book "A"
-	And the count of retrieved deals will be 32
+	And the count of retrieved deals will be 33
 
 Scenario: Filter deals by book B
 	Given I have the following search criteria for qdf deals
@@ -70,7 +70,7 @@ Scenario: Filter deals by book B
 	 | B    | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	When I retrieve the qdf deal data
 	Then all retrieved deals will have be for book "B"
-	And the count of retrieved deals will be 69
+	And the count of retrieved deals will be 80
 
 Scenario: Filter deals by book symbol and server
 	Given I have the following search criteria for qdf deals
@@ -89,15 +89,15 @@ Scenario: Filter deals by multiple symbols and servers
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each symbol will have the following counts
 	| Symbol | Count |
-	| EURUSD | 15    |
+	| EURUSD | 16    |
 	| GBPUSD | 2     |
 	| AUDJPY | 1     |
 	Then the deals retrieved for each server will have the following counts
 	| Server        | Count |
 	| Mt4JapaneseC1 | 12    |
 	| Currenex      | 5     |
-	| Mt5Pro        | 1     |
-	And the count of retrieved deals will be 18
+	| Mt5Pro        | 2     |
+	And the count of retrieved deals will be 19
 
 Scenario: Filter deals by multiple symbols and servers and B Book
 	Given I have the following search criteria for qdf deals
@@ -106,16 +106,16 @@ Scenario: Filter deals by multiple symbols and servers and B Book
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each symbol will have the following counts
 	| Symbol | Count |
-	| EURUSD | 15    |
+	| EURUSD | 16    |
 	| GBPUSD | 2     |
 	| AUDJPY | 1     |
-	| USDCHF | 1     |
+	| USDCHF | 2     |
 	Then the deals retrieved for each server will have the following counts
 	| Server        | Count |
 	| Mt4JapaneseC1 | 12    |
 	| Currenex      | 5     |
-	| Mt5Pro        | 2     |
-	And the count of retrieved deals will be 19
+	| Mt5Pro        | 4     |
+	And the count of retrieved deals will be 21
 
 Scenario: Filter deals by multiple symbols and servers and A Book
 	Given I have the following search criteria for qdf deals
@@ -124,8 +124,8 @@ Scenario: Filter deals by multiple symbols and servers and A Book
 	When I retrieve the qdf deal data
 	Then the deals retrieved for each symbol will have the following counts
 	| Symbol | Count |
-	| USDCHF | 1     |
+	| USDCHF | 2     |
 	Then the deals retrieved for each server will have the following counts
 	| Server        | Count |
-	| Mt5Pro        | 1     |
-	And the count of retrieved deals will be 1
+	| Mt5Pro        | 2     |
+	And the count of retrieved deals will be 2

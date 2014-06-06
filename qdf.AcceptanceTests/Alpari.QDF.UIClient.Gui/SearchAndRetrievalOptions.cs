@@ -62,10 +62,16 @@ namespace Alpari.QDF.UIClient.Gui
 
         private void FindDeals_Click(object sender, EventArgs e)
         {
-            Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
-            Exporter.RedisConnectionHelper.GetDealData(SetupDealQuery());
-            Display.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any() ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
-            
+            try
+            {
+                Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
+                Exporter.RedisConnectionHelper.GetDealData(SetupDealQuery());
+                Display.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any() ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
+            }
+            catch (Exception ex)
+            {
+                Display.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client + ex.Message;
+            }
         }
 
         private DealSearchCriteria SetupDealQuery()
