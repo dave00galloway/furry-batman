@@ -90,6 +90,28 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Switch Environments")]
+        [NUnit.Framework.TestCaseAttribute("uk-redis-prod.corp.alpari.com", null)]
+        [NUnit.Framework.TestCaseAttribute("uk-redis-uat.corp.alpari.com", null)]
+        [NUnit.Framework.TestCaseAttribute("uk-redis-dev.corp.alpari.com", null)]
+        public virtual void SwitchEnvironments(string environments, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Switch Environments", exampleTags);
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+ testRunner.Given("I am connected to qdf on \"10.10.144.156\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 17
+ testRunner.And("I want to be able to switch environments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.When(string.Format("I change the redis connection to \"{0}\"", environments), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then(string.Format("I am connected to qdf on \"{0}\"", environments), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

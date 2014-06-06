@@ -147,6 +147,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             return verificationErrors;
         }
 
+        [BeforeScenario, Scope(Tag = "TeardownRedisConnection")]
+        public void Setup()
+        {
+            _redisConnectionHelper = RedisConnectionHelper;
+        }
+
         [AfterScenario,Scope(Tag = "TeardownRedisConnection")]
         public void TearDown()
         {

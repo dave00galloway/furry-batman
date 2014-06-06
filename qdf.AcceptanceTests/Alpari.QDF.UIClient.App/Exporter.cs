@@ -25,5 +25,11 @@ namespace Alpari.QDF.UIClient.App
                 File.Delete(fileNamePath);
             }
         }
+
+        public void SwitchRedisConnection(string environment)
+        {
+            RedisConnectionHelper.Connection.Close(false);
+            RedisConnectionHelper = new RedisConnectionHelper(environment);
+        }
     }
 }

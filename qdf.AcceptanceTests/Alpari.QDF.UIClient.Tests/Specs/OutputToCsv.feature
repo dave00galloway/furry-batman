@@ -12,12 +12,12 @@ Scenario: Output to CSV
 	And I export the data to "C:\temp\temp.csv" and import the csv
 	Then the deals imported for each symbol will have the following counts
 	| Symbol | Count |
-	| EURUSD | 15    |
+	| EURUSD | 16    |
 	| GBPUSD | 2     |
 	| AUDJPY | 1     |
 	And the deals imported for each server will have the following counts
 	| Server        | Count |
 	| Mt4JapaneseC1 | 12    |
 	| Currenex      | 5     |
-	| Mt5Pro        | 1     |
-	And the count of imported deals will be 18
+	| Mt5Pro        | 2     |
+	And the count of imported deals will be 19

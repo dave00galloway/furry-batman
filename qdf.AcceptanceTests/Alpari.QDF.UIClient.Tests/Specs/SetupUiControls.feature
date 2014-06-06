@@ -1,4 +1,5 @@
-﻿Feature: SetupUIControls
+﻿@TeardownRedisConnection
+Feature: SetupUIControls
 	In order to select search options
 	As a QDF Analyst
 	I want search options to be accurate and complete

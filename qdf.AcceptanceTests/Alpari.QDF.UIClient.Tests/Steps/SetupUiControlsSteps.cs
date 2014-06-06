@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
 using Alpari.QualityAssurance.RefData;
 using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
@@ -16,7 +17,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class SetupUiControlsSteps : SetupUiControlsStepBase
     {
         new public static readonly string FullName = typeof(SetupUiControlsSteps).FullName;
-        
+
+
+        //public SetupUiControlsSteps(Exporter exporter) : base(exporter)
+        //{
+        //}
 
         [Given(@"I filter deals by server")]
         public void GivenIFilterDealsByServer()
@@ -42,7 +47,18 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             EnvironmnentControl = new EnvironmentControl(ReferenceData.Instance);
         }
 
+        [Then(@"I am connected to qdf on ""(.*)""")]
+        [Given(@"I am connected to qdf on ""(.*)""")]
+        public void GivenIAmConnectedToQdfOn(string environment)
+        {
+            Exporter.RedisConnectionHelper.RedisHost.Should().Be(environment);
+        }
 
+        [When(@"I change the redis connection to ""(.*)""")]
+        public void WhenIChangeTheRedisConnectionTo(string environment)
+        {
+            Exporter.SwitchRedisConnection(environment);
+        }
 
         [Then(@"the list of environments options should be:")]
         public void ThenTheListOfEnvironmentsOptionsShouldBe(Table table)
