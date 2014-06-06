@@ -20,13 +20,18 @@ namespace Alpari.QDF.UIClient.Tests.Steps
 
         private static RedisConnectionHelper _redisConnectionHelper;
 
+        protected StepCentral()
+        {
+            Setup();
+        }
+
         protected RedisConnectionHelper RedisConnectionHelper
         {
             get
             {
                 if (_redisConnectionHelper != null) return _redisConnectionHelper;
                 _redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]);
-                ObjectContainer.RegisterInstanceAs(_redisConnectionHelper);
+                //ObjectContainer.RegisterInstanceAs(_redisConnectionHelper);
                 return _redisConnectionHelper;
             }
         }
@@ -70,7 +75,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(OutputToCsvStepBase.FullName) == null;
                 OutputToCsvStepBase steps = (OutputToCsvStepBase)
                     GetStepDefinition(OutputToCsvStepBase.FullName) ??
-                                              new OutputToCsvStepBase(new Exporter(RedisConnectionHelper));
+                                              new OutputToCsvStepBase();
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -86,7 +91,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(OutputToCsvSteps.FullName) == null;
                 OutputToCsvSteps steps = (OutputToCsvSteps)
                     GetStepDefinition(OutputToCsvSteps.FullName) ??
-                                              new OutputToCsvSteps(new Exporter(RedisConnectionHelper));
+                                              new OutputToCsvSteps();
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -147,13 +152,13 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             return verificationErrors;
         }
 
-        [BeforeScenario, Scope(Tag = "TeardownRedisConnection")]
-        public void Setup()
+        // [BeforeScenario, Scope(Tag = "TeardownRedisConnection")]
+        private void Setup()
         {
             _redisConnectionHelper = RedisConnectionHelper;
         }
 
-        [AfterScenario,Scope(Tag = "TeardownRedisConnection")]
+        [AfterScenario]//,Scope(Tag = "TeardownRedisConnection")]
         public void TearDown()
         {
             if (_redisConnectionHelper == null) return;

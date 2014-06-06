@@ -44,7 +44,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Given(@"I want to be able to switch environments")]
         public void GivenIWantToBeAbleToSwitchEnvironments()
         {
-            EnvironmnentControl = new EnvironmentControl(ReferenceData.Instance);
+            EnvironmentControl = new EnvironmentControl(ReferenceData.Instance);
         }
 
         [Then(@"I am connected to qdf on ""(.*)""")]
@@ -67,7 +67,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 from col in row
                 where col.Key == ENVIRONMENT_TABLE_KEY
                 select col.Value).ToList();
-            var actualEnvironments = EnvironmnentControl.EnvironmentListItems.Select(x => x.Key).ToList();
+            var actualEnvironments = EnvironmentControl.EnvironmentListItems.Select(x => x.Key).ToList();
             actualEnvironments.ShouldBeEquivalentTo(expectedEnvironmnets);
         }
 
@@ -104,6 +104,13 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 select col.Value).ToList();
             TradingServerControl.ServerList.Should().BeEquivalentTo(expectedServers);
         }
+
+        [Then(@"the default value set in the environment control is ""(.*)""")]
+        public void ThenTheDefaultValueSetInTheEnvironmentControlIs(string environment)
+        {
+            EnvironmentControl.GetInitialValue(Exporter.RedisConnectionHelper.RedisHost).Should().Be(environment);
+        }
+
 
     }
 }

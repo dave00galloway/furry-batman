@@ -117,12 +117,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">
       <Project>{282ca8f0-f64e-4a8f-b829-15b95253debc}</Project>
       <Name>Alpari.QDF.UIClient.App</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpari.QualityAssurance.RefData\Alpari.QualityAssurance.RefData.csproj">
+      <Project>{4c580f04-b06a-4cf2-a646-6139a2bb1fff}</Project>
+      <Name>Alpari.QualityAssurance.RefData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

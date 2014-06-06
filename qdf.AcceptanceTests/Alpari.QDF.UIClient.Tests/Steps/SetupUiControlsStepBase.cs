@@ -16,7 +16,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         protected TradingServerControl TradingServerControl { get; set; }
         protected BookControl BookControl { get; set; }
         protected SymbolControl SymbolControl { get; set; }
-        protected EnvironmentControl EnvironmnentControl { get; set; }
+        protected EnvironmentControl EnvironmentControl { get; set; }
         protected Exporter Exporter { get; private set; }
 
         public SetupUiControlsStepBase()

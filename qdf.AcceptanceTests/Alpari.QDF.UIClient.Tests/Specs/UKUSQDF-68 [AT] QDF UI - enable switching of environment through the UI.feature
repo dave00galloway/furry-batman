@@ -23,3 +23,7 @@ Scenario Outline: Switch Environments
 	| uk-redis-uat.corp.alpari.com  |
 	| uk-redis-dev.corp.alpari.com  |
 
+Scenario: Default Environment
+	Given I want to be able to switch environments
+	Then the default value set in the environment control is "uk-redis-uat.corp.alpari.com"
+

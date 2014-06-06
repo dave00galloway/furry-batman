@@ -10,9 +10,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         public static readonly string FullName = typeof (OutputToCsvStepBase).FullName;
 
-        protected internal OutputToCsvStepBase(Exporter exporter)
+        protected internal OutputToCsvStepBase()
         {
-            Exporter = exporter;
+            Exporter = new Exporter(RedisConnectionHelper);
         }
 
         protected Exporter Exporter { get; private set; }

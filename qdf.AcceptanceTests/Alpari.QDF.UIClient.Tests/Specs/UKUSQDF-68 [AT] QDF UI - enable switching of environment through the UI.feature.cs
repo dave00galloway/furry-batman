@@ -21,6 +21,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_68")]
+    [NUnit.Framework.CategoryAttribute("TeardownRedisConnection")]
     public partial class UKUSQDF_68ATQDFUI_EnableSwitchingOfEnvironmentThroughTheUIFeature
     {
         
@@ -35,7 +36,8 @@ namespace Alpari.QDF.UIClient.Tests.Specs
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI", "In order to compare data in different QDF Environments\r\nAs a QDFD Analyst\r\nI want" +
                     " to be able to change environment", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSQDF_68"});
+                        "UKUSQDF_68",
+                        "TeardownRedisConnection"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -109,6 +111,22 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When(string.Format("I change the redis connection to \"{0}\"", environments), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
  testRunner.Then(string.Format("I am connected to qdf on \"{0}\"", environments), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Default Environment")]
+        public virtual void DefaultEnvironment()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Default Environment", ((string[])(null)));
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line 27
+ testRunner.Given("I want to be able to switch environments", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 28
+ testRunner.Then("the default value set in the environment control is \"uk-redis-uat.corp.alpari.com" +
+                    "\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

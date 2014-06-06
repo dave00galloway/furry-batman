@@ -12,9 +12,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         public new static readonly string FullName = typeof (OutputToCsvSteps).FullName;
 
-        public OutputToCsvSteps(Exporter exporter) : base(exporter)
-        {
-        }
+        //public OutputToCsvSteps(Exporter exporter) : base(exporter)
+        //{
+        //}
 
         [When(@"I export the data to ""(.*)"" and import the csv")]
         public void WhenIExportTheDataToAndImportTheCsv(string fileNamePath)

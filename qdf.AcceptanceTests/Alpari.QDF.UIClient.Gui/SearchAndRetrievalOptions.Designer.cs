@@ -30,247 +30,269 @@ namespace Alpari.QDF.UIClient.Gui
         /// </summary>
         private void InitializeComponent()
         {
-            this.ServerListBox = new System.Windows.Forms.ListBox();
-            this.ServerLabel = new System.Windows.Forms.Label();
-            this.BookLabel = new System.Windows.Forms.Label();
-            this.BookListBox = new System.Windows.Forms.ListBox();
-            this.SymbolLabel = new System.Windows.Forms.Label();
-            this.SymbolListBox = new System.Windows.Forms.ListBox();
-            this.SymbolSearchTextBox = new System.Windows.Forms.TextBox();
-            this.SymbolSearchLabel = new System.Windows.Forms.Label();
-            this.SymbolSearchButton = new System.Windows.Forms.Button();
-            this.StartDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.EndDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.StartDateLabel = new System.Windows.Forms.Label();
-            this.EndDateLabel = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.StartTime = new System.Windows.Forms.Label();
-            this.EndTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.StartTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.FindDealsButton = new System.Windows.Forms.Button();
-            this.Display = new System.Windows.Forms.TextBox();
-            this.SetExportPathButton = new System.Windows.Forms.Button();
-            this.SetExportPathTextBox = new System.Windows.Forms.TextBox();
-            this.SetExportPathSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.serverListBox = new System.Windows.Forms.ListBox();
+            this.serverLabel = new System.Windows.Forms.Label();
+            this.bookLabel = new System.Windows.Forms.Label();
+            this.bookListBox = new System.Windows.Forms.ListBox();
+            this.symbolLabel = new System.Windows.Forms.Label();
+            this.symbolListBox = new System.Windows.Forms.ListBox();
+            this.symbolSearchTextBox = new System.Windows.Forms.TextBox();
+            this.symbolSearchLabel = new System.Windows.Forms.Label();
+            this.symbolSearchButton = new System.Windows.Forms.Button();
+            this.startDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.endDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.startDateLabel = new System.Windows.Forms.Label();
+            this.endDateLabel = new System.Windows.Forms.Label();
+            this.endTimeLabel = new System.Windows.Forms.Label();
+            this.startTimeLabel = new System.Windows.Forms.Label();
+            this.endTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.startTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.findDealsButton = new System.Windows.Forms.Button();
+            this.displayTextBox = new System.Windows.Forms.TextBox();
+            this.setExportPathButton = new System.Windows.Forms.Button();
+            this.setExportPathTextBox = new System.Windows.Forms.TextBox();
+            this.setExportPathSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.environmentLabel = new System.Windows.Forms.Label();
+            this.selectEnvironmentComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // ServerListBox
+            // serverListBox
             // 
-            this.ServerListBox.FormattingEnabled = true;
-            this.ServerListBox.Location = new System.Drawing.Point(317, 40);
-            this.ServerListBox.Name = "ServerListBox";
-            this.ServerListBox.ScrollAlwaysVisible = true;
-            this.ServerListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.ServerListBox.Size = new System.Drawing.Size(120, 95);
-            this.ServerListBox.TabIndex = 0;
+            this.serverListBox.FormattingEnabled = true;
+            this.serverListBox.Location = new System.Drawing.Point(316, 75);
+            this.serverListBox.Name = "serverListBox";
+            this.serverListBox.ScrollAlwaysVisible = true;
+            this.serverListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.serverListBox.Size = new System.Drawing.Size(120, 95);
+            this.serverListBox.TabIndex = 0;
             // 
-            // ServerLabel
+            // serverLabel
             // 
-            this.ServerLabel.AutoSize = true;
-            this.ServerLabel.Location = new System.Drawing.Point(317, 21);
-            this.ServerLabel.Name = "ServerLabel";
-            this.ServerLabel.Size = new System.Drawing.Size(38, 13);
-            this.ServerLabel.TabIndex = 1;
-            this.ServerLabel.Text = "Server";
+            this.serverLabel.AutoSize = true;
+            this.serverLabel.Location = new System.Drawing.Point(316, 56);
+            this.serverLabel.Name = "serverLabel";
+            this.serverLabel.Size = new System.Drawing.Size(38, 13);
+            this.serverLabel.TabIndex = 1;
+            this.serverLabel.Text = "Server";
             // 
-            // BookLabel
+            // bookLabel
             // 
-            this.BookLabel.AutoSize = true;
-            this.BookLabel.Location = new System.Drawing.Point(13, 21);
-            this.BookLabel.Name = "BookLabel";
-            this.BookLabel.Size = new System.Drawing.Size(32, 13);
-            this.BookLabel.TabIndex = 2;
-            this.BookLabel.Text = "Book";
+            this.bookLabel.AutoSize = true;
+            this.bookLabel.Location = new System.Drawing.Point(12, 56);
+            this.bookLabel.Name = "bookLabel";
+            this.bookLabel.Size = new System.Drawing.Size(32, 13);
+            this.bookLabel.TabIndex = 2;
+            this.bookLabel.Text = "Book";
             // 
-            // BookListBox
+            // bookListBox
             // 
-            this.BookListBox.FormattingEnabled = true;
-            this.BookListBox.Location = new System.Drawing.Point(16, 40);
-            this.BookListBox.Name = "BookListBox";
-            this.BookListBox.Size = new System.Drawing.Size(120, 95);
-            this.BookListBox.TabIndex = 3;
+            this.bookListBox.FormattingEnabled = true;
+            this.bookListBox.Location = new System.Drawing.Point(15, 75);
+            this.bookListBox.Name = "bookListBox";
+            this.bookListBox.Size = new System.Drawing.Size(120, 95);
+            this.bookListBox.TabIndex = 3;
             // 
-            // SymbolLabel
+            // symbolLabel
             // 
-            this.SymbolLabel.AutoSize = true;
-            this.SymbolLabel.Location = new System.Drawing.Point(169, 106);
-            this.SymbolLabel.Name = "SymbolLabel";
-            this.SymbolLabel.Size = new System.Drawing.Size(52, 13);
-            this.SymbolLabel.TabIndex = 5;
-            this.SymbolLabel.Text = "Symbol(s)";
+            this.symbolLabel.AutoSize = true;
+            this.symbolLabel.Location = new System.Drawing.Point(168, 141);
+            this.symbolLabel.Name = "symbolLabel";
+            this.symbolLabel.Size = new System.Drawing.Size(52, 13);
+            this.symbolLabel.TabIndex = 5;
+            this.symbolLabel.Text = "Symbol(s)";
             // 
-            // SymbolListBox
+            // symbolListBox
             // 
-            this.SymbolListBox.FormattingEnabled = true;
-            this.SymbolListBox.Location = new System.Drawing.Point(172, 122);
-            this.SymbolListBox.Name = "SymbolListBox";
-            this.SymbolListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.SymbolListBox.Size = new System.Drawing.Size(120, 394);
-            this.SymbolListBox.TabIndex = 6;
+            this.symbolListBox.FormattingEnabled = true;
+            this.symbolListBox.Location = new System.Drawing.Point(171, 157);
+            this.symbolListBox.Name = "symbolListBox";
+            this.symbolListBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.symbolListBox.Size = new System.Drawing.Size(120, 394);
+            this.symbolListBox.TabIndex = 6;
             // 
-            // SymbolSearchTextBox
+            // symbolSearchTextBox
             // 
-            this.SymbolSearchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.SymbolSearchTextBox.Location = new System.Drawing.Point(172, 40);
-            this.SymbolSearchTextBox.Name = "SymbolSearchTextBox";
-            this.SymbolSearchTextBox.Size = new System.Drawing.Size(120, 20);
-            this.SymbolSearchTextBox.TabIndex = 7;
+            this.symbolSearchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.symbolSearchTextBox.Location = new System.Drawing.Point(171, 75);
+            this.symbolSearchTextBox.Name = "symbolSearchTextBox";
+            this.symbolSearchTextBox.Size = new System.Drawing.Size(120, 20);
+            this.symbolSearchTextBox.TabIndex = 7;
             // 
-            // SymbolSearchLabel
+            // symbolSearchLabel
             // 
-            this.SymbolSearchLabel.AutoSize = true;
-            this.SymbolSearchLabel.Location = new System.Drawing.Point(172, 20);
-            this.SymbolSearchLabel.Name = "SymbolSearchLabel";
-            this.SymbolSearchLabel.Size = new System.Drawing.Size(75, 13);
-            this.SymbolSearchLabel.TabIndex = 8;
-            this.SymbolSearchLabel.Text = "SymbolSearch";
+            this.symbolSearchLabel.AutoSize = true;
+            this.symbolSearchLabel.Location = new System.Drawing.Point(171, 55);
+            this.symbolSearchLabel.Name = "symbolSearchLabel";
+            this.symbolSearchLabel.Size = new System.Drawing.Size(75, 13);
+            this.symbolSearchLabel.TabIndex = 8;
+            this.symbolSearchLabel.Text = "SymbolSearch";
             // 
-            // SymbolSearchButton
+            // symbolSearchButton
             // 
-            this.SymbolSearchButton.Location = new System.Drawing.Point(172, 66);
-            this.SymbolSearchButton.Name = "SymbolSearchButton";
-            this.SymbolSearchButton.Size = new System.Drawing.Size(120, 23);
-            this.SymbolSearchButton.TabIndex = 9;
-            this.SymbolSearchButton.Text = "Search Symbols";
-            this.SymbolSearchButton.UseVisualStyleBackColor = true;
-            this.SymbolSearchButton.Click += new System.EventHandler(this.SymbolSearchButton_Click);
+            this.symbolSearchButton.Location = new System.Drawing.Point(171, 101);
+            this.symbolSearchButton.Name = "symbolSearchButton";
+            this.symbolSearchButton.Size = new System.Drawing.Size(120, 23);
+            this.symbolSearchButton.TabIndex = 9;
+            this.symbolSearchButton.Text = "Search Symbols";
+            this.symbolSearchButton.UseVisualStyleBackColor = true;
+            this.symbolSearchButton.Click += new System.EventHandler(this.SymbolSearchButton_Click);
             // 
-            // StartDatePicker
+            // startDatePicker
             // 
-            this.StartDatePicker.Location = new System.Drawing.Point(446, 37);
-            this.StartDatePicker.Name = "StartDatePicker";
-            this.StartDatePicker.Size = new System.Drawing.Size(116, 20);
-            this.StartDatePicker.TabIndex = 10;
+            this.startDatePicker.Location = new System.Drawing.Point(445, 72);
+            this.startDatePicker.Name = "startDatePicker";
+            this.startDatePicker.Size = new System.Drawing.Size(116, 20);
+            this.startDatePicker.TabIndex = 10;
             // 
-            // EndDatePicker
+            // endDatePicker
             // 
-            this.EndDatePicker.Location = new System.Drawing.Point(446, 82);
-            this.EndDatePicker.Name = "EndDatePicker";
-            this.EndDatePicker.Size = new System.Drawing.Size(116, 20);
-            this.EndDatePicker.TabIndex = 11;
+            this.endDatePicker.Location = new System.Drawing.Point(445, 117);
+            this.endDatePicker.Name = "endDatePicker";
+            this.endDatePicker.Size = new System.Drawing.Size(116, 20);
+            this.endDatePicker.TabIndex = 11;
             // 
-            // StartDateLabel
+            // startDateLabel
             // 
-            this.StartDateLabel.AutoSize = true;
-            this.StartDateLabel.Location = new System.Drawing.Point(443, 20);
-            this.StartDateLabel.Name = "StartDateLabel";
-            this.StartDateLabel.Size = new System.Drawing.Size(52, 13);
-            this.StartDateLabel.TabIndex = 12;
-            this.StartDateLabel.Text = "StartDate";
+            this.startDateLabel.AutoSize = true;
+            this.startDateLabel.Location = new System.Drawing.Point(442, 55);
+            this.startDateLabel.Name = "startDateLabel";
+            this.startDateLabel.Size = new System.Drawing.Size(52, 13);
+            this.startDateLabel.TabIndex = 12;
+            this.startDateLabel.Text = "StartDate";
             // 
-            // EndDateLabel
+            // endDateLabel
             // 
-            this.EndDateLabel.AutoSize = true;
-            this.EndDateLabel.Location = new System.Drawing.Point(443, 66);
-            this.EndDateLabel.Name = "EndDateLabel";
-            this.EndDateLabel.Size = new System.Drawing.Size(49, 13);
-            this.EndDateLabel.TabIndex = 13;
-            this.EndDateLabel.Text = "EndDate";
+            this.endDateLabel.AutoSize = true;
+            this.endDateLabel.Location = new System.Drawing.Point(442, 101);
+            this.endDateLabel.Name = "endDateLabel";
+            this.endDateLabel.Size = new System.Drawing.Size(49, 13);
+            this.endDateLabel.TabIndex = 13;
+            this.endDateLabel.Text = "EndDate";
             // 
-            // label1
+            // endTimeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(564, 66);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "EndTime";
+            this.endTimeLabel.AutoSize = true;
+            this.endTimeLabel.Location = new System.Drawing.Point(563, 101);
+            this.endTimeLabel.Name = "endTimeLabel";
+            this.endTimeLabel.Size = new System.Drawing.Size(49, 13);
+            this.endTimeLabel.TabIndex = 17;
+            this.endTimeLabel.Text = "EndTime";
             // 
-            // StartTime
+            // startTimeLabel
             // 
-            this.StartTime.AutoSize = true;
-            this.StartTime.Location = new System.Drawing.Point(564, 20);
-            this.StartTime.Name = "StartTime";
-            this.StartTime.Size = new System.Drawing.Size(52, 13);
-            this.StartTime.TabIndex = 16;
-            this.StartTime.Text = "StartTime";
+            this.startTimeLabel.AutoSize = true;
+            this.startTimeLabel.Location = new System.Drawing.Point(563, 55);
+            this.startTimeLabel.Name = "startTimeLabel";
+            this.startTimeLabel.Size = new System.Drawing.Size(52, 13);
+            this.startTimeLabel.TabIndex = 16;
+            this.startTimeLabel.Text = "StartTime";
             // 
-            // EndTimePicker
+            // endTimePicker
             // 
-            this.EndTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.EndTimePicker.Location = new System.Drawing.Point(567, 82);
-            this.EndTimePicker.Name = "EndTimePicker";
-            this.EndTimePicker.ShowUpDown = true;
-            this.EndTimePicker.Size = new System.Drawing.Size(116, 20);
-            this.EndTimePicker.TabIndex = 15;
+            this.endTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.endTimePicker.Location = new System.Drawing.Point(566, 117);
+            this.endTimePicker.Name = "endTimePicker";
+            this.endTimePicker.ShowUpDown = true;
+            this.endTimePicker.Size = new System.Drawing.Size(116, 20);
+            this.endTimePicker.TabIndex = 15;
             // 
-            // StartTimePicker
+            // startTimePicker
             // 
-            this.StartTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.StartTimePicker.Location = new System.Drawing.Point(567, 37);
-            this.StartTimePicker.Name = "StartTimePicker";
-            this.StartTimePicker.ShowUpDown = true;
-            this.StartTimePicker.Size = new System.Drawing.Size(116, 20);
-            this.StartTimePicker.TabIndex = 14;
+            this.startTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.startTimePicker.Location = new System.Drawing.Point(566, 72);
+            this.startTimePicker.Name = "startTimePicker";
+            this.startTimePicker.ShowUpDown = true;
+            this.startTimePicker.Size = new System.Drawing.Size(116, 20);
+            this.startTimePicker.TabIndex = 14;
             // 
-            // FindDealsButton
+            // findDealsButton
             // 
-            this.FindDealsButton.Location = new System.Drawing.Point(718, 40);
-            this.FindDealsButton.Name = "FindDealsButton";
-            this.FindDealsButton.Size = new System.Drawing.Size(100, 23);
-            this.FindDealsButton.TabIndex = 18;
-            this.FindDealsButton.Text = "FindDeals";
-            this.FindDealsButton.UseVisualStyleBackColor = true;
-            this.FindDealsButton.Click += new System.EventHandler(this.FindDeals_Click);
+            this.findDealsButton.Location = new System.Drawing.Point(717, 75);
+            this.findDealsButton.Name = "findDealsButton";
+            this.findDealsButton.Size = new System.Drawing.Size(100, 23);
+            this.findDealsButton.TabIndex = 18;
+            this.findDealsButton.Text = "FindDeals";
+            this.findDealsButton.UseVisualStyleBackColor = true;
+            this.findDealsButton.Click += new System.EventHandler(this.FindDeals_Click);
             // 
-            // Display
+            // displayTextBox
             // 
-            this.Display.Enabled = false;
-            this.Display.Location = new System.Drawing.Point(718, 81);
-            this.Display.Name = "Display";
-            this.Display.Size = new System.Drawing.Size(100, 20);
-            this.Display.TabIndex = 19;
+            this.displayTextBox.Enabled = false;
+            this.displayTextBox.Location = new System.Drawing.Point(717, 116);
+            this.displayTextBox.Name = "displayTextBox";
+            this.displayTextBox.Size = new System.Drawing.Size(100, 20);
+            this.displayTextBox.TabIndex = 19;
             // 
-            // SetExportPathButton
+            // setExportPathButton
             // 
-            this.SetExportPathButton.Location = new System.Drawing.Point(718, 108);
-            this.SetExportPathButton.Name = "SetExportPathButton";
-            this.SetExportPathButton.Size = new System.Drawing.Size(100, 23);
-            this.SetExportPathButton.TabIndex = 20;
-            this.SetExportPathButton.Text = "Set Export Path";
-            this.SetExportPathButton.UseVisualStyleBackColor = true;
-            this.SetExportPathButton.Click += new System.EventHandler(this.SetExportPathButton_Click);
+            this.setExportPathButton.Location = new System.Drawing.Point(717, 143);
+            this.setExportPathButton.Name = "setExportPathButton";
+            this.setExportPathButton.Size = new System.Drawing.Size(100, 23);
+            this.setExportPathButton.TabIndex = 20;
+            this.setExportPathButton.Text = "Set Export Path";
+            this.setExportPathButton.UseVisualStyleBackColor = true;
+            this.setExportPathButton.Click += new System.EventHandler(this.SetExportPathButton_Click);
             // 
-            // SetExportPathTextBox
+            // setExportPathTextBox
             // 
-            this.SetExportPathTextBox.Enabled = false;
-            this.SetExportPathTextBox.Location = new System.Drawing.Point(718, 138);
-            this.SetExportPathTextBox.Name = "SetExportPathTextBox";
-            this.SetExportPathTextBox.Size = new System.Drawing.Size(100, 20);
-            this.SetExportPathTextBox.TabIndex = 21;
+            this.setExportPathTextBox.Enabled = false;
+            this.setExportPathTextBox.Location = new System.Drawing.Point(717, 173);
+            this.setExportPathTextBox.Name = "setExportPathTextBox";
+            this.setExportPathTextBox.Size = new System.Drawing.Size(100, 20);
+            this.setExportPathTextBox.TabIndex = 21;
             // 
-            // SetExportPathSaveFileDialog
+            // setExportPathSaveFileDialog
             // 
-            this.SetExportPathSaveFileDialog.DefaultExt = "csv";
-            this.SetExportPathSaveFileDialog.Filter = " \"csv files (*.csv)|*.csv|All files (*.*)|*.*\"";
-            this.SetExportPathSaveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SetExportPathSaveFileDialog_FileOk);
+            this.setExportPathSaveFileDialog.DefaultExt = "csv";
+            this.setExportPathSaveFileDialog.Filter = " \"csv files (*.csv)|*.csv|All files (*.*)|*.*\"";
+            this.setExportPathSaveFileDialog.FileOk += new System.ComponentModel.CancelEventHandler(this.SetExportPathSaveFileDialog_FileOk);
+            // 
+            // environmentLabel
+            // 
+            this.environmentLabel.AutoSize = true;
+            this.environmentLabel.Location = new System.Drawing.Point(15, 13);
+            this.environmentLabel.Name = "environmentLabel";
+            this.environmentLabel.Size = new System.Drawing.Size(66, 13);
+            this.environmentLabel.TabIndex = 22;
+            this.environmentLabel.Text = "Environment";
+            // 
+            // selectEnvironmentComboBox
+            // 
+            this.selectEnvironmentComboBox.FormattingEnabled = true;
+            this.selectEnvironmentComboBox.Location = new System.Drawing.Point(87, 13);
+            this.selectEnvironmentComboBox.Name = "selectEnvironmentComboBox";
+            this.selectEnvironmentComboBox.Size = new System.Drawing.Size(121, 21);
+            this.selectEnvironmentComboBox.TabIndex = 23;
+            this.selectEnvironmentComboBox.SelectedIndexChanged += new System.EventHandler(this.selectEnvironmentComboBox_SelectedIndexChanged);
             // 
             // SearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
-            this.Controls.Add(this.SetExportPathTextBox);
-            this.Controls.Add(this.SetExportPathButton);
-            this.Controls.Add(this.Display);
-            this.Controls.Add(this.FindDealsButton);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.StartTime);
-            this.Controls.Add(this.EndTimePicker);
-            this.Controls.Add(this.StartTimePicker);
-            this.Controls.Add(this.EndDateLabel);
-            this.Controls.Add(this.StartDateLabel);
-            this.Controls.Add(this.EndDatePicker);
-            this.Controls.Add(this.StartDatePicker);
-            this.Controls.Add(this.SymbolSearchButton);
-            this.Controls.Add(this.SymbolSearchLabel);
-            this.Controls.Add(this.SymbolSearchTextBox);
-            this.Controls.Add(this.SymbolListBox);
-            this.Controls.Add(this.SymbolLabel);
-            this.Controls.Add(this.BookListBox);
-            this.Controls.Add(this.BookLabel);
-            this.Controls.Add(this.ServerLabel);
-            this.Controls.Add(this.ServerListBox);
+            this.Controls.Add(this.selectEnvironmentComboBox);
+            this.Controls.Add(this.environmentLabel);
+            this.Controls.Add(this.setExportPathTextBox);
+            this.Controls.Add(this.setExportPathButton);
+            this.Controls.Add(this.displayTextBox);
+            this.Controls.Add(this.findDealsButton);
+            this.Controls.Add(this.endTimeLabel);
+            this.Controls.Add(this.startTimeLabel);
+            this.Controls.Add(this.endTimePicker);
+            this.Controls.Add(this.startTimePicker);
+            this.Controls.Add(this.endDateLabel);
+            this.Controls.Add(this.startDateLabel);
+            this.Controls.Add(this.endDatePicker);
+            this.Controls.Add(this.startDatePicker);
+            this.Controls.Add(this.symbolSearchButton);
+            this.Controls.Add(this.symbolSearchLabel);
+            this.Controls.Add(this.symbolSearchTextBox);
+            this.Controls.Add(this.symbolListBox);
+            this.Controls.Add(this.symbolLabel);
+            this.Controls.Add(this.bookListBox);
+            this.Controls.Add(this.bookLabel);
+            this.Controls.Add(this.serverLabel);
+            this.Controls.Add(this.serverListBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "SearchAndRetrievalOptions";
@@ -283,27 +305,29 @@ namespace Alpari.QDF.UIClient.Gui
 
         #endregion
 
-        private System.Windows.Forms.ListBox ServerListBox;
-        private System.Windows.Forms.Label ServerLabel;
-        private System.Windows.Forms.Label BookLabel;
-        private System.Windows.Forms.ListBox BookListBox;
-        private System.Windows.Forms.Label SymbolLabel;
-        private System.Windows.Forms.ListBox SymbolListBox;
-        private System.Windows.Forms.TextBox SymbolSearchTextBox;
-        private System.Windows.Forms.Label SymbolSearchLabel;
-        private System.Windows.Forms.Button SymbolSearchButton;
-        private System.Windows.Forms.DateTimePicker StartDatePicker;
-        private System.Windows.Forms.DateTimePicker EndDatePicker;
-        private System.Windows.Forms.Label StartDateLabel;
-        private System.Windows.Forms.Label EndDateLabel;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label StartTime;
-        private System.Windows.Forms.DateTimePicker EndTimePicker;
-        private System.Windows.Forms.DateTimePicker StartTimePicker;
-        private System.Windows.Forms.Button FindDealsButton;
-        private System.Windows.Forms.TextBox Display;
-        private Button SetExportPathButton;
-        private TextBox SetExportPathTextBox;
-        private SaveFileDialog SetExportPathSaveFileDialog;
+        private System.Windows.Forms.ListBox serverListBox;
+        private System.Windows.Forms.Label serverLabel;
+        private System.Windows.Forms.Label bookLabel;
+        private System.Windows.Forms.ListBox bookListBox;
+        private System.Windows.Forms.Label symbolLabel;
+        private System.Windows.Forms.ListBox symbolListBox;
+        private System.Windows.Forms.TextBox symbolSearchTextBox;
+        private System.Windows.Forms.Label symbolSearchLabel;
+        private System.Windows.Forms.Button symbolSearchButton;
+        private System.Windows.Forms.DateTimePicker startDatePicker;
+        private System.Windows.Forms.DateTimePicker endDatePicker;
+        private System.Windows.Forms.Label startDateLabel;
+        private System.Windows.Forms.Label endDateLabel;
+        private System.Windows.Forms.Label endTimeLabel;
+        private System.Windows.Forms.Label startTimeLabel;
+        private System.Windows.Forms.DateTimePicker endTimePicker;
+        private System.Windows.Forms.DateTimePicker startTimePicker;
+        private System.Windows.Forms.Button findDealsButton;
+        private System.Windows.Forms.TextBox displayTextBox;
+        private Button setExportPathButton;
+        private TextBox setExportPathTextBox;
+        private SaveFileDialog setExportPathSaveFileDialog;
+        private Label environmentLabel;
+        private ComboBox selectEnvironmentComboBox;
     }
 }
