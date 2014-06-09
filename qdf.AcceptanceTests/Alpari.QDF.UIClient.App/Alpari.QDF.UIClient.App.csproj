@@ -80,7 +80,11 @@
     <Compile Include="QueryableEntities\ISearchCriteria.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryableEntities\IServerSearchCriteria.cs" />
+    <Compile Include="QueryableEntities\IServerSearchExtensions.cs" />
+    <Compile Include="QueryableEntities\QuoteSearchCriteria.cs" />
     <Compile Include="RedisConnectionHelper.cs" />
+    <Compile Include="RedisDealSearches.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

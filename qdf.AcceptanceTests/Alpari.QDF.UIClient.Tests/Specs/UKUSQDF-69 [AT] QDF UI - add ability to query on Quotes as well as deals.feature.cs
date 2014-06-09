@@ -79,8 +79,8 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedStartTime",
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
-                        "05/05/2014  12:45:42",
-                        "05/05/2014  12:49:51"});
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
 #line 8
  testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table1, "Given ");
 #line 11

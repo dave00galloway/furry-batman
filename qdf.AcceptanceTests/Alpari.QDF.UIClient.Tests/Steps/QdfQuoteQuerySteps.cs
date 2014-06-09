@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -10,17 +11,18 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfQuoteQuerySteps : QdfQuoteQueryStepBase
     {
         public new static readonly string FullName = typeof(QdfQuoteQuerySteps).FullName;
+        private QuoteSearchCriteria QuoteSearchCriteria { get; set; }
 
         [Given(@"I have the following search criteria for qdf quotes")]
-        public void GivenIHaveTheFollowingSearchCriteriaForQdfQuotes(Table table)
+        public void GivenIHaveTheFollowingSearchCriteriaForQdfQuotes(QuoteSearchCriteria quoteSearchCriteria)
         {
-            ScenarioContext.Current.Pending();
+            QuoteSearchCriteria = quoteSearchCriteria;
         }
 
         [When(@"I retrieve the qdf quote data")]
         public void WhenIRetrieveTheQdfQuoteData()
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.GetQuoteData(QuoteSearchCriteria);
         }
 
         [Then(@"no retrieved quote will have a timestamp outside ""(.*)"" to ""(.*)""")]

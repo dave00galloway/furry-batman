@@ -4,7 +4,7 @@ using Alpari.QDF.Domain;
 
 namespace Alpari.QDF.UIClient.App.QueryableEntities
 {
-    public interface ISearchCriteria 
+    public interface ISearchCriteria
     {
         char Separator { get; set; }
         DateTime ConvertedStartTime { get; set; }
@@ -12,9 +12,6 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
 
         string Instrument { get; set; }
         List<string> InstrumentList { get; set; }
-        string Servers { get; set; }
-        TradingServer Server { get; set; }
-        List<TradingServer> TradingServerList { get; set; }
 
         /// <summary>
         ///     Synonym for Instrument
@@ -27,7 +24,5 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
         void Resolve();
 
         void SetupSymbols();
-        void SetUpServers();
-        void SafelyAddTradingServers(string serverName);
     }
 }

@@ -14,7 +14,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfDataRetrievalSteps : QdfDataRetrievalStepBase
     {
         public new static readonly string FullName = typeof (QdfDataRetrievalSteps).FullName;
-        public DealSearchCriteria DealSearchCriteria { get; private set; }
+        private DealSearchCriteria DealSearchCriteria { get; set; }
 
         [Given(@"I have the following search criteria for qdf deals")]
         public void GivenIHaveTheFollowingSearchCriteriaForQdfDeals(DealSearchCriteria dealSearchCriteria)
@@ -25,7 +25,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [When(@"I retrieve the qdf deal data")]
         public void WhenIRetrieveTheQdfDealData()
         {
-            RedisConnectionHelper.GetDealData(DealSearchCriteria);
+            RedisConnectionHelper.RedisDealSearches.GetDealData(DealSearchCriteria);
         }
 
         [Then(@"no retrieved deal will have a timestamp outside ""(.*)"" to ""(.*)""")]

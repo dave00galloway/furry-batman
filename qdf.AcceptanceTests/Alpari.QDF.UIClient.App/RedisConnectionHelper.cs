@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using BookSleeve;
+using System;
+using System.Collections.Generic;
 
 namespace Alpari.QDF.UIClient.App
 {
@@ -13,99 +13,65 @@ namespace Alpari.QDF.UIClient.App
     /// </summary>
     public class RedisConnectionHelper
     {
+        private readonly RedisDealSearches _redisDealSearches;
+
         public RedisConnectionHelper(string redisHost)
         {
             RedisHost = redisHost;
             Connection = new RedisConnection(RedisHost);
             Connection.Open();
+            _redisDealSearches = new RedisDealSearches(this);
         }
 
-        public RedisDataStore DealsStore { get; private set; }
-        public List<Deal> RetrievedDeals { get; private set; }
-        public RedisConnection Connection { get; private set; }
+        public RedisDataStore DealsStore { get; set; }
+        public List<Deal> RetrievedDeals { get; set; }
+        public RedisDataStore QuoteStore { get; set; }
+        public List<PriceQuote> RetrievedQuotes { get; set; }
+        public RedisConnection Connection { get; set; }
         public string RedisHost { get; private set; }
 
-        /// <summary>
-        ///     Get the deal data for the specified time range and then apply filtering to set the final retrieved deals set
-        /// </summary>
-        /// <param name="dealSearchCriteria"></param>
-        public void GetDealData(DealSearchCriteria dealSearchCriteria)
+        public RedisDealSearches RedisDealSearches
+        {
+            get { return _redisDealSearches; }
+        }
+
+        public void GetQuoteData(QuoteSearchCriteria quoteSearchCriteria)
         {
             //set up the search parameters
-            dealSearchCriteria.Resolve();
+            quoteSearchCriteria.Resolve();
 
             //get the deals for the date range
-            IEnumerable<Deal> deals = GetDealsForDateRange(dealSearchCriteria.ConvertedStartTime,
-                dealSearchCriteria.ConvertedEndTime);
+            IEnumerable<PriceQuote> quotes = GetQuotesForDateRange(quoteSearchCriteria.ConvertedStartTime,
+                quoteSearchCriteria.ConvertedEndTime);
 
             //filter the results using the search parameters
-            RetrievedDeals = FilterDealsBySearchCriteria(deals, dealSearchCriteria);
+            RetrievedQuotes = FilterQuotesBySearchCriteria(quotes, quoteSearchCriteria);
         }
 
-        private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        private List<PriceQuote> FilterQuotesBySearchCriteria(IEnumerable<PriceQuote> quotes, QuoteSearchCriteria quoteSearchCriteria)
         {
-            deals = FilterDealsByBook(deals, dealSearchCriteria);
-            deals = FilterDealsBySymbol(deals, dealSearchCriteria);
-            deals = FilterDealsByServer(deals, dealSearchCriteria);
-            return deals.ToList();
+            //foreach (PriceQuote priceQuote in quotes)
+            //{
+            //    Console.WriteLine(priceQuote.ToSafeString());
+            //}
+            
+            return quotes.ToList();
         }
 
-        private IEnumerable<Deal> FilterDealsByBook(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
+        private IEnumerable<PriceQuote> GetQuotesForDateRange(DateTime convertedStartTime, DateTime convertedEndTime)
         {
-            if (dealSearchCriteria.Book != default (Book))
-            {
-                deals = deals.Where(x => x.Book == dealSearchCriteria.Book);
-            }
-            return deals;
+            QuoteStore = new RedisDataStore(Connection,
+                            new SortedSetBasedStorageStrategy(Connection, new ProtoBufSerializer()));
+            var priceQuotes = QuoteStore.Load<PriceQuote>(KeyConfig.KeyNamespaces.PriceQuote, convertedStartTime, convertedEndTime, TimeSpan.FromMinutes(10));
+            //DateTime start = DateTime.UtcNow;
+            //IEnumerable<PriceQuote> priceQuotes = QuoteStore.Load<PriceQuote>(KeyConfig.KeyNamespaces.PriceQuote, start.AddMinutes(-59), start, TimeSpan.FromMinutes(10));
+            //foreach (PriceQuote priceQuote in priceQuotes)
+            //{
+            //    Console.WriteLine(priceQuote.ToSafeString());
+            //}
+            return priceQuotes;
         }
 
-        private IEnumerable<Deal> FilterDealsBySymbol(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
-        {
-            if (dealSearchCriteria.Instrument != null)
-            {
-                deals = deals.Where(x => x.Instrument == dealSearchCriteria.Instrument);
-            }
-            else if (dealSearchCriteria.InstrumentList.Count > 0)
-            {
-                deals = deals.Where(x => dealSearchCriteria.InstrumentList.Contains(x.Instrument));
-            }
-            return deals;
-        }
-
-        private static IEnumerable<Deal> FilterDealsByServer(IEnumerable<Deal> deals,
-            DealSearchCriteria dealSearchCriteria)
-        {
-            if (dealSearchCriteria.Server != default(TradingServer))
-            {
-                deals = deals.Where(x => x.Server == dealSearchCriteria.Server);
-            }
-            else if (dealSearchCriteria.TradingServerList.Count > 0)
-            {
-                deals = deals.Where(x => dealSearchCriteria.TradingServerList.Contains(x.Server));
-            }
-            return deals;
-        }
-
-        /// <summary>
-        ///     Will always have a date range, and while doing client side filtering, no other parameters are needed
-        /// </summary>
-        /// <param name="startTimeStampInclusive"></param>
-        /// <param name="endTimeStampExclusive"></param>
-        /// <returns></returns>
-        private IEnumerable<Deal> GetDealsForDateRange(DateTime startTimeStampInclusive, DateTime endTimeStampExclusive)
-        {
-            DealsStore = new RedisDataStore(Connection,
-                new SortedSetBasedStorageStrategy(Connection, new JsonSerializer()));
-            //might need to adjust the time slice, for now leaving as Day
-            IEnumerable<Deal> deals = DealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
-                startTimeStampInclusive, endTimeStampExclusive, TimeSlice.Day);
-            return deals;
-        }
-
-
-        public void OutputAllDeals(string fileNamePath)
-        {
-            RetrievedDeals.EnumerableToCsv(fileNamePath, true);
-        }
+        
     }
 }

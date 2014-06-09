@@ -80,7 +80,7 @@ namespace Alpari.QDF.UIClient.Gui
             try
             {
                 displayTextBox.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
-                Exporter.RedisConnectionHelper.GetDealData(SetupDealQuery());
+                Exporter.RedisConnectionHelper.RedisDealSearches.GetDealData(SetupDealQuery());
                 displayTextBox.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any()
                     ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data
                     : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
