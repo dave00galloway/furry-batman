@@ -1,4 +1,5 @@
 ﻿using Alpari.QDF.UIClient.App;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

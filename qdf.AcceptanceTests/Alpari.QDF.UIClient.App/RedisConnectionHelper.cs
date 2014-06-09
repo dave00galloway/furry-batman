@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using BookSleeve;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using FluentAssertions;
 using NUnit.Framework;
 using TechTalk.SpecFlow;

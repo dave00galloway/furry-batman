@@ -104,10 +104,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\OutputToCsvStepBase.cs" />
     <Compile Include="Steps\OutputToCsvSteps.cs" />
     <Compile Include="Steps\QdfDataRetrievalStepBase.cs" />
     <Compile Include="Steps\QdfDataRetrievalSteps.cs" />
+    <Compile Include="Steps\QdfQuoteQueryStepBase.cs" />
+    <Compile Include="Steps\QdfQuoteQuerySteps.cs" />
     <Compile Include="Steps\SetupUiControlsStepBase.cs" />
     <Compile Include="Steps\SetupUiControlsSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
@@ -131,6 +138,10 @@
     <None Include="Specs\UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals.feature.cs</LastGenOutput>
     </None>
     <None Include="TestData\temp.csv" />
   </ItemGroup>

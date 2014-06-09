@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QDF.UIClient.Gui.Properties;
 
 namespace Alpari.QDF.UIClient.Gui
