@@ -20,6 +20,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("SetupUIControls")]
+    [NUnit.Framework.CategoryAttribute("TeardownRedisConnection")]
     public partial class SetupUIControlsFeature
     {
         
@@ -32,8 +33,9 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "SetupUIControls", "In order to select search options\r\nAs a QDF Analyst\r\nI want search options to be " +
-                    "accurate and complete", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "SetupUIControls", "In order to select search options\r\nAs a QDF Analyst\r\nI want search options to be " +
+                    "accurate and complete", ProgrammingLanguage.CSharp, new string[] {
+                        "TeardownRedisConnection"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -72,9 +74,9 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up trade server list", new string[] {
                         "mytag"});
-#line 7
-this.ScenarioSetup(scenarioInfo);
 #line 8
+this.ScenarioSetup(scenarioInfo);
+#line 9
  testRunner.Given("I filter deals by server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -115,7 +117,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Coverage602"});
             table1.AddRow(new string[] {
                         "Coverage604"});
-#line 9
+#line 10
  testRunner.Then("the list of server options should be:", ((string)(null)), table1, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -126,9 +128,9 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SetUpBookList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up book list", ((string[])(null)));
-#line 30
-this.ScenarioSetup(scenarioInfo);
 #line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
  testRunner.Given("I filter deals by book", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -139,7 +141,7 @@ this.ScenarioSetup(scenarioInfo);
                         "A"});
             table2.AddRow(new string[] {
                         "B"});
-#line 32
+#line 33
  testRunner.Then("the list of book options should be:", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -150,9 +152,9 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SetUpSymbolList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("set up symbol list", ((string[])(null)));
-#line 38
-this.ScenarioSetup(scenarioInfo);
 #line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
  testRunner.Given("I filter deals by symbol", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -317,7 +319,7 @@ this.ScenarioSetup(scenarioInfo);
                         "XAUUSD"});
             table3.AddRow(new string[] {
                         "ZARJPY"});
-#line 40
+#line 41
  testRunner.Then("the list of symbol options should be:", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();

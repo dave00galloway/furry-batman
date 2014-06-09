@@ -34,7 +34,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "QdfDataRetrieval", "In order to access deal data in Redis QDF\r\nAs a QDF Analyst\r\nI want a UI to retri" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "QdfDataRetrieval", "In order to access deal data in Redis QDF\r\nAs a QDF Analyst\r\nI want a UI to retri" +
                     "eve and filter deal data", ProgrammingLanguage.CSharp, new string[] {
                         "ClientSideFiltering",
                         "TeardownRedisConnection"});

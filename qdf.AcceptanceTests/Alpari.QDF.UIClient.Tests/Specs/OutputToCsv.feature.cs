@@ -34,7 +34,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "OutputToCsv", "In order to export deal data from Redis QDF\r\nAs a QDF Analyst\r\nI want to be able " +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "OutputToCsv", "In order to export deal data from Redis QDF\r\nAs a QDF Analyst\r\nI want to be able " +
                     "to save query results to CSV", ProgrammingLanguage.CSharp, new string[] {
                         "ClientSideFiltering",
                         "TeardownRedisConnection"});

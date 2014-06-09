@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -26,15 +28,17 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         }
 
         [Then(@"no retrieved quote will have a timestamp outside ""(.*)"" to ""(.*)""")]
-        public void ThenNoRetrievedQuoteWillHaveATimestampOutsideTo(string p0, string p1)
+        public void ThenNoRetrievedQuoteWillHaveATimestampOutsideTo(DateTime startDateTime, DateTime endDateTime)
         {
-            ScenarioContext.Current.Pending();
+            List<PriceQuote> priceQuotes = RedisConnectionHelper.RetrievedQuotes.OrderBy(x => x.TimeStamp).ToList();
+            priceQuotes.First().TimeStamp.Should().BeOnOrAfter(startDateTime);
+            priceQuotes.Last().TimeStamp.Should().BeOnOrBefore(endDateTime);
         }
 
         [Then(@"the count of retrieved deals quotes be (.*)")]
-        public void ThenTheCountOfRetrievedDealsQuotesBe(int p0)
+        public void ThenTheCountOfRetrievedDealsQuotesBe(int expectedCount)
         {
-            ScenarioContext.Current.Pending();
+            RedisConnectionHelper.RetrievedQuotes.Should().HaveCount(expectedCount);
         }
 
     }

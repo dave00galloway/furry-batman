@@ -33,7 +33,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals", "In order to get information about quotes\r\nAs a QDF Analyst\r\nI want access to quot" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals", "In order to get information about quotes\r\nAs a QDF Analyst\r\nI want access to quot" +
                     "e data in QDF", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_69"});
             testRunner.OnFeatureStart(featureInfo);
@@ -86,10 +86,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("no retrieved quote will have a timestamp outside \"05/05/2014  12:45:42\" to \"05/05" +
-                    "/2014  12:49:51\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("no retrieved quote will have a timestamp outside \"09/06/2014  09:00:00\" to \"09/06" +
+                    "/2014  09:05:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
- testRunner.And("the count of retrieved deals quotes be 113", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved deals quotes be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
