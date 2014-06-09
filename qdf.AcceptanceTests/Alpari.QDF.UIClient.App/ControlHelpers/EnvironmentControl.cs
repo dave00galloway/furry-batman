@@ -1,9 +1,5 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.RefData;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QualityAssurance.RefData;
 
 namespace Alpari.QDF.UIClient.App.ControlHelpers
 {

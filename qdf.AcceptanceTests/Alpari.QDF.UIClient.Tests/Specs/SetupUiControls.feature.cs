@@ -148,179 +148,220 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Set up datatypes list")]
+        public virtual void SetUpDatatypesList()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up datatypes list", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+ testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DataType"});
+            table3.AddRow(new string[] {
+                        "CurrentState"});
+            table3.AddRow(new string[] {
+                        "Deal"});
+            table3.AddRow(new string[] {
+                        "PriceQuote"});
+            table3.AddRow(new string[] {
+                        "ecn-Deal"});
+#line 41
+ testRunner.Then("the list of data type options should be:", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Set up default datatype")]
+        public virtual void SetUpDefaultDatatype()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up default datatype", ((string[])(null)));
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+ testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 50
+ testRunner.Then("the default datatype should be \"Deal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("set up symbol list")]
         public virtual void SetUpSymbolList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("set up symbol list", ((string[])(null)));
-#line 39
+#line 52
 this.ScenarioSetup(scenarioInfo);
-#line 40
+#line 53
  testRunner.Given("I filter deals by symbol", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "Symbol"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDCAD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDNZD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "AUDZAR"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "CADCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "CADJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "CADSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "CHFJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "CHFSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "DE30"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EUR50"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURAUD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURCAD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURCZK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURDKK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURGBP"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURHKD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURHUF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURMXN"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURNOK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURNZD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURPLN"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURRUB"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURSEK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURTRY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "EURZAR"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "FRA40"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPAUD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPCAD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPNOK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPNZD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPSEK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "GBPZAR"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "HKDJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "MXNJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NOKJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NOKSEK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NQ100"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDCAD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "NZDZAR"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "SEKJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "SEKNOK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "SGDJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "UK100"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "US30"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "US500"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDCAD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDCHF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDCNH"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDCZK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDDKK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDHKD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDHUF"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDJPY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDMXN"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDNOK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDPLN"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDRUB"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDSEK"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDSGD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDTRY"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "USDZAR"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "XAGUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "XAUUSD"});
-            table3.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "ZARJPY"});
-#line 41
- testRunner.Then("the list of symbol options should be:", ((string)(null)), table3, "Then ");
+#line 54
+ testRunner.Then("the list of symbol options should be:", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

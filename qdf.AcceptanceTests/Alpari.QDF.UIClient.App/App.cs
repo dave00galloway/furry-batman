@@ -17,6 +17,7 @@ namespace Alpari.QDF.UIClient.App
         public const string BEHAVIOUR_SECTION_NAME = "Behaviour";
         public const string CONTROL_SECTION_NAME = "Controls";
         public const string SYMBOL_LIST_NAME = "symbolList";
+        public const string DEFAULT_DATATYPE = "defaultDataType";
 
         public static char GetSeparatorValue(this Type getType, char separator)
         {
@@ -31,7 +32,7 @@ namespace Alpari.QDF.UIClient.App
             return Convert.ToChar(section.Settings[LIST_SEPERATOR].Value);
         }
 
-        private static Configuration GetConfiguration(Type type)
+        public static Configuration GetConfiguration(Type type)
         {
                 var config =
                     ConfigurationManager.OpenExeConfiguration(String.Format("{0}.dll",

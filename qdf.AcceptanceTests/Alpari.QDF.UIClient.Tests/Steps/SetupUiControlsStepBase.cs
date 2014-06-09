@@ -5,6 +5,7 @@ using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -17,6 +18,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         protected BookControl BookControl { get; set; }
         protected SymbolControl SymbolControl { get; set; }
         protected EnvironmentControl EnvironmentControl { get; set; }
+        protected SupportedDataTypesControl SupportedDataTypesControl { get; set; }
+    
         protected Exporter Exporter { get; private set; }
 
         public SetupUiControlsStepBase()

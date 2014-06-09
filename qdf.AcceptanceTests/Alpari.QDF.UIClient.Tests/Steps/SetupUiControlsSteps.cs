@@ -6,8 +6,10 @@ using System.Text;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.RefData;
 using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -46,6 +48,23 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             EnvironmentControl = new EnvironmentControl(ReferenceData.Instance);
         }
+
+        [Given(@"I choose the type of data to be queried")]
+        public void GivenIChooseTheTypeOfDataToBeQueried()
+        {
+            SupportedDataTypesControl = new SupportedDataTypesControl();
+        }
+
+        [Then(@"the list of data type options should be:")]
+        public void ThenTheListOfDataTypeOptionsShouldBe(Table table)
+        {
+            var expectedTypes = (from row in table.Rows
+                from col in row
+                where col.Key == DATATYPE_TABLE_KEY
+                select col.Value).ToList();
+            SupportedDataTypesControl.Types.ShouldBeEquivalentTo(expectedTypes);
+        }
+
 
         [Then(@"I am connected to qdf on ""(.*)""")]
         [Given(@"I am connected to qdf on ""(.*)""")]
@@ -109,6 +128,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         public void ThenTheDefaultValueSetInTheEnvironmentControlIs(string environment)
         {
             EnvironmentControl.GetInitialValue(Exporter.RedisConnectionHelper.RedisHost).Should().Be(environment);
+        }
+
+        [Then(@"the default datatype should be ""(.*)""")]
+        public void ThenTheDefaultDatatypeShouldBe(string datatype)
+        {
+            SupportedDataTypesControl.Default.Should().Be(datatype);
         }
 
 

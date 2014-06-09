@@ -23,6 +23,7 @@ namespace Alpari.QDF.UIClient.Gui
             Exporter = exporter;
             ControlSetup = controlSetup;
             SetupEnvironmentList();
+            SetupDataTypeList();
             SetupBookListBox();
             SetupSymbolListBox();
             SetupServerListBox();
@@ -38,10 +39,17 @@ namespace Alpari.QDF.UIClient.Gui
             selectEnvironmentComboBox.SelectedIndexChanged -= selectEnvironmentComboBox_SelectedIndexChanged;
             selectEnvironmentComboBox.DataSource =
                 ControlSetup.EnvironmentControl.EnvironmentListItems.Select(x => x.Key).ToList();
-            var setThis = ControlSetup.EnvironmentControl.GetInitialValue(Exporter.RedisConnectionHelper.RedisHost);
+            string setThis = ControlSetup.EnvironmentControl.GetInitialValue(Exporter.RedisConnectionHelper.RedisHost);
             selectEnvironmentComboBox.SelectedItem = setThis;
             selectEnvironmentComboBox.SelectedIndexChanged += selectEnvironmentComboBox_SelectedIndexChanged;
+        }
 
+        private void SetupDataTypeList()
+        {
+            dataTypeComboBox.SelectedIndexChanged -= dataTypeComboBox_SelectedIndexChanged;
+            dataTypeComboBox.DataSource = ControlSetup.SupportedDataTypesControl.Types;
+            dataTypeComboBox.SelectedItem = ControlSetup.SupportedDataTypesControl.Default;
+            dataTypeComboBox.SelectedIndexChanged += dataTypeComboBox_SelectedIndexChanged;
         }
 
         private void SetupBookListBox()
@@ -136,6 +144,11 @@ namespace Alpari.QDF.UIClient.Gui
         private void selectEnvironmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Exporter.SwitchRedisConnection(selectEnvironmentComboBox.SelectedItem.ToString());
+        }
+
+        private void dataTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           Program.SwitchForm(this,dataTypeComboBox.SelectedItem.ToString());
         }
     }
 }

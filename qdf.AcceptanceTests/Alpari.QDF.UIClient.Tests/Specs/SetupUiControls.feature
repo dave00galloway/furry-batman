@@ -36,6 +36,19 @@ Scenario: Set up book list
 	| A    |
 	| B    |
 
+Scenario: Set up datatypes list
+	Given I choose the type of data to be queried
+	Then the list of data type options should be:
+	| DataType     |
+	| CurrentState |
+	| Deal         |
+	| PriceQuote   |
+	| ecn-Deal     |
+
+Scenario: Set up default datatype
+	Given I choose the type of data to be queried
+	Then the default datatype should be "Deal"
+
 Scenario: set up symbol list
 	Given I filter deals by symbol
 	Then the list of symbol options should be:

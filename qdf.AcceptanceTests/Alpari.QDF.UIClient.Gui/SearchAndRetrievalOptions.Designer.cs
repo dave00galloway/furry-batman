@@ -54,6 +54,8 @@ namespace Alpari.QDF.UIClient.Gui
             this.setExportPathSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.environmentLabel = new System.Windows.Forms.Label();
             this.selectEnvironmentComboBox = new System.Windows.Forms.ComboBox();
+            this.dataTypeLabel = new System.Windows.Forms.Label();
+            this.dataTypeComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // serverListBox
@@ -265,11 +267,31 @@ namespace Alpari.QDF.UIClient.Gui
             this.selectEnvironmentComboBox.TabIndex = 23;
             this.selectEnvironmentComboBox.SelectedIndexChanged += new System.EventHandler(this.selectEnvironmentComboBox_SelectedIndexChanged);
             // 
+            // dataTypeLabel
+            // 
+            this.dataTypeLabel.AutoSize = true;
+            this.dataTypeLabel.Location = new System.Drawing.Point(241, 13);
+            this.dataTypeLabel.Name = "dataTypeLabel";
+            this.dataTypeLabel.Size = new System.Drawing.Size(54, 13);
+            this.dataTypeLabel.TabIndex = 24;
+            this.dataTypeLabel.Text = "DataType";
+            // 
+            // dataTypeComboBox
+            // 
+            this.dataTypeComboBox.FormattingEnabled = true;
+            this.dataTypeComboBox.Location = new System.Drawing.Point(302, 13);
+            this.dataTypeComboBox.Name = "dataTypeComboBox";
+            this.dataTypeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.dataTypeComboBox.TabIndex = 25;
+            this.dataTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dataTypeComboBox_SelectedIndexChanged);
+            // 
             // SearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
+            this.Controls.Add(this.dataTypeComboBox);
+            this.Controls.Add(this.dataTypeLabel);
             this.Controls.Add(this.selectEnvironmentComboBox);
             this.Controls.Add(this.environmentLabel);
             this.Controls.Add(this.setExportPathTextBox);
@@ -329,5 +351,7 @@ namespace Alpari.QDF.UIClient.Gui
         private SaveFileDialog setExportPathSaveFileDialog;
         private Label environmentLabel;
         private ComboBox selectEnvironmentComboBox;
+        private Label dataTypeLabel;
+        private ComboBox dataTypeComboBox;
     }
 }

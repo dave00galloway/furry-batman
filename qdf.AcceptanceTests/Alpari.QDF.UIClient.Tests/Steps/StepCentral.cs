@@ -18,6 +18,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         public const string SYMBOL_TABLE_KEY = "Symbol";
         public const string BOOK_TABLE_KEY = "Book";
         public const string ENVIRONMENT_TABLE_KEY = "Environments";
+        public const string DATATYPE_TABLE_KEY = "DataType";
 
         private static RedisConnectionHelper _redisConnectionHelper;
 
