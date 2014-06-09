@@ -32,15 +32,15 @@ namespace Alpari.QDF.UIClient.Gui
             switch (formName)
             {
                 case SupportedDataTypesControl.DEAL:
-                    SearchAndRetrievalOptions searchAndRetrievalOptions = SearchAndRetrievalOptionsForm();
                     CurrentFormDataType = formName;
+                    SearchAndRetrievalOptions searchAndRetrievalOptions = SearchAndRetrievalOptionsForm();                    
                     searchAndRetrievalOptions.Show();
                     form.Hide();
                     break;
 
                 case SupportedDataTypesControl.PRICE_QUOTE:
-                    QuoteSearchAndRetrievalOptions quoteSearchForm = QuoteSearchAndRetrievalOptionsForm();
                     CurrentFormDataType = formName;
+                    QuoteSearchAndRetrievalOptions quoteSearchForm = QuoteSearchAndRetrievalOptionsForm();                    
                     quoteSearchForm.Show();
                     form.Hide();
                     break;
