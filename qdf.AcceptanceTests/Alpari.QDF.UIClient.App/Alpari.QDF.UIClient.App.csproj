@@ -85,6 +85,7 @@
     <Compile Include="QueryableEntities\QuoteSearchCriteria.cs" />
     <Compile Include="RedisConnectionHelper.cs" />
     <Compile Include="RedisDealSearches.cs" />
+    <Compile Include="RedisQuoteSearches.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

@@ -89,7 +89,145 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("no retrieved quote will have a timestamp outside \"09/06/2014  09:00:00\" to \"09/06" +
                     "/2014  09:05:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
- testRunner.And("the count of retrieved deals quotes be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved quotes will be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Filter quotes by symbol")]
+        public virtual void FilterQuotesBySymbol()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter quotes by symbol", ((string[])(null)));
+#line 16
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table2.AddRow(new string[] {
+                        "EURUSD",
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
+#line 17
+ testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table2, "Given ");
+#line 20
+ testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+ testRunner.Then("all retrieved quotes will be for symbol \"EURUSD\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.And("the count of retrieved quotes will be 211", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Filter quotes by multiple symbols")]
+        public virtual void FilterQuotesByMultipleSymbols()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter quotes by multiple symbols", ((string[])(null)));
+#line 24
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table3.AddRow(new string[] {
+                        "EURUSD,NZDUSD,AUDNZD",
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
+#line 25
+ testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table3, "Given ");
+#line 28
+ testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "Count"});
+            table4.AddRow(new string[] {
+                        "EURUSD",
+                        "211"});
+            table4.AddRow(new string[] {
+                        "NZDUSD",
+                        "154"});
+            table4.AddRow(new string[] {
+                        "AUDNZD",
+                        "165"});
+#line 29
+ testRunner.Then("the quotes retrieved for each symbol will have the following counts", ((string)(null)), table4, "Then ");
+#line 34
+ testRunner.And("the count of retrieved quotes will be 530", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Output to CSV all quotes")]
+        public virtual void OutputToCSVAllQuotes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Output to CSV all quotes", ((string[])(null)));
+#line 36
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table5.AddRow(new string[] {
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
+#line 37
+ testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table5, "Given ");
+#line 40
+ testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+ testRunner.And("I export the quote data to \"C:\\temp\\temp.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.Then("the count of retrieved quotes will be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Output to CSV filtered quotes")]
+        public virtual void OutputToCSVFilteredQuotes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Output to CSV filtered quotes", ((string[])(null)));
+#line 44
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table6.AddRow(new string[] {
+                        "EURUSD,NZDUSD,AUDNZD",
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
+#line 45
+ testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table6, "Given ");
+#line 48
+ testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 49
+ testRunner.And("I export the quote data to \"C:\\temp\\temp.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "Count"});
+            table7.AddRow(new string[] {
+                        "EURUSD",
+                        "211"});
+            table7.AddRow(new string[] {
+                        "NZDUSD",
+                        "154"});
+            table7.AddRow(new string[] {
+                        "AUDNZD",
+                        "165"});
+#line 50
+ testRunner.Then("the quotes imported for each symbol will have the following counts", ((string)(null)), table7, "Then ");
+#line 55
+ testRunner.Then("the count of retrieved quotes will be 530", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

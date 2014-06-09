@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using Alpari.QDF.Domain;
@@ -135,6 +136,28 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             IList<IDictionary<string, object>> expected = DataTableOperations.GetTableAsList(table);
             var actual = new List<IDictionary<string, object>>();
             IEnumerable<IGrouping<string, Deal>> groupedBySymbol = dealList.GroupBy(x => x.Instrument);
+            foreach (var grouping in groupedBySymbol)
+            {
+                var count = new Dictionary<string, object>
+                {
+                    {SYMBOL_TABLE_KEY, grouping.Key},
+                    {COUNT, grouping.Count()}
+                };
+                actual.Add(count);
+            }
+            string verificationErrors = DataTableOperations.VerifyTables(SYMBOL_TABLE_KEY,
+                new ExpectedAndActualIDictionariesAsIlIsts(expected, actual));
+
+            verificationErrors += DataTableOperations.VerifyTables(SYMBOL_TABLE_KEY,
+                new ExpectedAndActualIDictionariesAsIlIsts(actual, expected));
+            return verificationErrors;
+        }
+
+        protected string QuoteVerificationErrorsForInstrumentCounts(Table table, IEnumerable<PriceQuote> retrievedQuotes)
+        {
+            IList<IDictionary<string, object>> expected = DataTableOperations.GetTableAsList(table);
+            var actual = new List<IDictionary<string, object>>();
+            IEnumerable<IGrouping<string, PriceQuote>> groupedBySymbol = retrievedQuotes.GroupBy(x => x.Instrument);
             foreach (var grouping in groupedBySymbol)
             {
                 var count = new Dictionary<string, object>

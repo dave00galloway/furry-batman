@@ -1,4 +1,5 @@
-﻿using Alpari.QDF.Domain;
+﻿using System.Collections.Generic;
+using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using FluentAssertions;
@@ -22,6 +23,21 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             Exporter.ExportDealsToCsv(fileNamePath);
             ImportedDeals = fileNamePath.CsvToList<Deal>(",", new[] {"Data"});
         }
+
+        [When(@"I export the quote data to ""(.*)"" and import the csv")]
+        public void WhenIExportTheQuoteDataToAndImportTheCsv(string fileNamePath)
+        {
+            Exporter.ExportQuotesToCsv(fileNamePath);
+            ImportedQuotes = fileNamePath.CsvToList<PriceQuote>(",", new[] { "Data", "Mid" });
+        }
+
+        [Then(@"the quotes imported for each symbol will have the following counts")]
+        public void ThenTheQuotesImportedForEachSymbolWillHaveTheFollowingCounts(Table table)
+        {
+            string verificationErrors = GetQuoteVerificationErrorsForSymbolCounts(table);
+            Assert.IsEmpty(verificationErrors);
+        }
+
 
         [Then(@"the deals imported for each symbol will have the following counts")]
         public void ThenTheDealsImportedForEachSymbolWillHaveTheFollowingCounts(Table table)

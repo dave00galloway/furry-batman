@@ -18,6 +18,12 @@ namespace Alpari.QDF.UIClient.App
             RedisConnectionHelper.RetrievedDeals.EnumerableToCsv(fileNamePath, true);
         }
 
+        public void ExportQuotesToCsv(string fileNamePath)
+        {
+            ClearPreviousCsvOutput(fileNamePath);
+            RedisConnectionHelper.RetrievedQuotes.EnumerableToCsv(fileNamePath, true);
+        }
+
         private static void ClearPreviousCsvOutput(string fileNamePath)
         {
             if (File.Exists(fileNamePath))
@@ -31,5 +37,7 @@ namespace Alpari.QDF.UIClient.App
             RedisConnectionHelper.Connection.Close(false);
             RedisConnectionHelper = new RedisConnectionHelper(environment);
         }
+
+
     }
 }

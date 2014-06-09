@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -18,5 +19,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             return table.CreateInstance<QuoteSearchCriteria>();
         }
+
+        protected string GetVerificationErrorsForQuoteCounts(Table table)
+        {
+            return QuoteVerificationErrorsForInstrumentCounts(table, RedisConnectionHelper.RetrievedQuotes);
+        }
+
     }
 }
