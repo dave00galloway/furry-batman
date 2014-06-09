@@ -285,7 +285,7 @@ namespace Alpari.QDF.UIClient.Gui
             this.dataTypeComboBox.TabIndex = 25;
             this.dataTypeComboBox.SelectedIndexChanged += new System.EventHandler(this.dataTypeComboBox_SelectedIndexChanged);
             // 
-            // SearchAndRetrievalOptions
+            //SearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

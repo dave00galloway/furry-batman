@@ -24,45 +24,52 @@ namespace Alpari.QDF.UIClient.Gui
                 SearchAndRetrievalOptionsForm());
         }
 
-        public static SearchAndRetrievalOptions SearchAndRetrievalOptionsForm()
-        {
-            return new SearchAndRetrievalOptions(
-                new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),
-                ControlSetup());
-        }
-
-        private static ControlSetup ControlSetup()
-        {
-            return new ControlSetup(new TradingServerControl(), new BookControl(), new SymbolControl(),
-                new EnvironmentControl(ReferenceData.Instance), new SupportedDataTypesControl());
-        }
-
-        public static QuoteSearchAndRetrievalOptions QuoteSearchAndRetrievalOptionsForm()
-        {
-            return new QuoteSearchAndRetrievalOptions(new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])), ControlSetup());
-        }
+        public static string CurrentFormDataType { get; set; }
 
         public static void SwitchForm(Form form, string formName)
         {
             switch (formName)
             {
                 case SupportedDataTypesControl.DEAL:
-                    var searchAndRetrievalOptions = Program.SearchAndRetrievalOptionsForm();
+                    SearchAndRetrievalOptions searchAndRetrievalOptions = SearchAndRetrievalOptionsForm();
+                    CurrentFormDataType = formName;
                     searchAndRetrievalOptions.Show();
                     form.Hide();
-                    //Close();
                     break;
+
                 case SupportedDataTypesControl.PRICE_QUOTE:
-                    var quoteSearchForm = Program.QuoteSearchAndRetrievalOptionsForm();
+                    QuoteSearchAndRetrievalOptions quoteSearchForm = QuoteSearchAndRetrievalOptionsForm();
+                    CurrentFormDataType = formName;
                     quoteSearchForm.Show();
-                    //Close();
                     form.Hide();
                     break;
+
                 default:
                     throw new ArgumentException(
                         Resources.SearchAndRetrievalOptions_dataTypeComboBox_SelectedIndexChanged_not_supported,
                         formName);
             }
+        }
+
+        private static SearchAndRetrievalOptions SearchAndRetrievalOptionsForm()
+        {
+            return new SearchAndRetrievalOptions(
+                new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),
+                ControlSetup());
+        }
+
+        public static ControlSetup ControlSetup()
+        {
+            return new ControlSetup(new TradingServerControl(), new BookControl(), new SymbolControl(),
+                new EnvironmentControl(ReferenceData.Instance), new SupportedDataTypesControl());
+        }
+
+        private static QuoteSearchAndRetrievalOptions QuoteSearchAndRetrievalOptionsForm()
+        {
+            return
+                new QuoteSearchAndRetrievalOptions(
+                    new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST])),
+                    ControlSetup());
         }
     }
 }

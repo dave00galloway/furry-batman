@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
@@ -16,6 +17,7 @@ namespace Alpari.QDF.UIClient.Gui
         private const string Seperator = ",";
 
         public SearchAndRetrievalOptions(Exporter exporter, ControlSetup controlSetup)
+            //: base(exporter,controlSetup)
         {
             InitializeComponent();
             symbolSearchButton.Enabled = false;
@@ -24,9 +26,12 @@ namespace Alpari.QDF.UIClient.Gui
             ControlSetup = controlSetup;
             SetupEnvironmentList();
             SetupDataTypeList();
-            SetupBookListBox();
-            SetupSymbolListBox();
-            SetupServerListBox();
+            //SetupBookListBox();
+            bookListBox.DataSource = ControlSetup.BookControl.BookList;
+            //SetupSymbolListBox();
+            symbolListBox.DataSource = ControlSetup.SymbolControl.SymbolListItems.Select(x=>x.Symbol).ToList();
+            //SetupServerListBox();
+            serverListBox.DataSource = ControlSetup.TradingServerControl.ServerList;
             symbolSearchButton.Enabled = true;
             findDealsButton.Enabled = true;
         }
@@ -36,51 +41,45 @@ namespace Alpari.QDF.UIClient.Gui
 
         private void SetupEnvironmentList()
         {
-            selectEnvironmentComboBox.SelectedIndexChanged -= selectEnvironmentComboBox_SelectedIndexChanged;
-            selectEnvironmentComboBox.DataSource =
-                ControlSetup.EnvironmentControl.EnvironmentListItems.Select(x => x.Key).ToList();
-            string setThis = ControlSetup.EnvironmentControl.GetInitialValue(Exporter.RedisConnectionHelper.RedisHost);
-            selectEnvironmentComboBox.SelectedItem = setThis;
-            selectEnvironmentComboBox.SelectedIndexChanged += selectEnvironmentComboBox_SelectedIndexChanged;
+            selectEnvironmentComboBox.SetupEnvironmentList(selectEnvironmentComboBox_SelectedIndexChanged, ControlSetup,
+                Exporter);
         }
 
         private void SetupDataTypeList()
         {
-            dataTypeComboBox.SelectedIndexChanged -= dataTypeComboBox_SelectedIndexChanged;
-            dataTypeComboBox.DataSource = ControlSetup.SupportedDataTypesControl.Types;
-            dataTypeComboBox.SelectedItem = ControlSetup.SupportedDataTypesControl.Default;
-            dataTypeComboBox.SelectedIndexChanged += dataTypeComboBox_SelectedIndexChanged;
+            dataTypeComboBox.SetupDataTypeList(dataTypeComboBox_SelectedIndexChanged,ControlSetup);
         }
 
-        private void SetupBookListBox()
-        {
-            foreach (string book in ControlSetup.BookControl.BookList)
-            {
-                bookListBox.Items.Add(book);
-            }
-        }
+        //private void SetupBookListBox()
+        //{
+        //    foreach (string book in ControlSetup.BookControl.BookList)
+        //    {
+        //        bookListBox.Items.Add(book);
+        //    }
+        //}
 
-        private void SetupSymbolListBox()
-        {
-            foreach (SymbolListItem symbol in ControlSetup.SymbolControl.SymbolListItems)
-            {
-                symbolListBox.Items.Add(symbol.Symbol);
-            }
-        }
+        //private void SetupSymbolListBox()
+        //{
+        //    foreach (SymbolListItem symbol in ControlSetup.SymbolControl.SymbolListItems)
+        //    {
+        //        symbolListBox.Items.Add(symbol.Symbol);
+        //    }
+        //}
 
-        private void SetupServerListBox()
-        {
-            foreach (string server in ControlSetup.TradingServerControl.ServerList)
-            {
-                serverListBox.Items.Add(server);
-            }
-        }
+        //private void SetupServerListBox()
+        //{
+        //    foreach (string server in ControlSetup.TradingServerControl.ServerList)
+        //    {
+        //        serverListBox.Items.Add(server);
+        //    }
+        //}
 
         private void SymbolSearchButton_Click(object sender, EventArgs e)
         {
-            int pos = symbolSearchTextBox.SelectionStart;
-            string typed = symbolSearchTextBox.Text.Substring(0, pos);
-            symbolListBox.SearchAndScrollList(typed);
+            //int pos = symbolSearchTextBox.SelectionStart;
+            //string typed = symbolSearchTextBox.Text.Substring(0, pos);
+            //symbolListBox.SearchAndScrollList(typed);
+            symbolListBox.SymbolSearchButton_Click(symbolSearchTextBox);
         }
 
         private void FindDeals_Click(object sender, EventArgs e)
@@ -132,23 +131,27 @@ namespace Alpari.QDF.UIClient.Gui
 
         private void SetExportPathButton_Click(object sender, EventArgs e)
         {
-            setExportPathSaveFileDialog.ShowDialog();
+            //setExportPathSaveFileDialog.ShowDialog();
+            setExportPathSaveFileDialog.SetExportPathButton_Click();
         }
 
         private void SetExportPathSaveFileDialog_FileOk(object sender, CancelEventArgs e)
         {
-            setExportPathTextBox.Text = setExportPathSaveFileDialog.FileName;
-            Exporter.ExportDealsToCsv(setExportPathSaveFileDialog.FileName);
+            //setExportPathTextBox.Text = setExportPathSaveFileDialog.FileName;
+            //Exporter.ExportDealsToCsv(setExportPathSaveFileDialog.FileName);
+            setExportPathSaveFileDialog.SetExportPathSaveFileDialog_FileOk(setExportPathTextBox,Exporter);
         }
 
         private void selectEnvironmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Exporter.SwitchRedisConnection(selectEnvironmentComboBox.SelectedItem.ToString());
+            //Exporter.SwitchRedisConnection(selectEnvironmentComboBox.SelectedItem.ToString());
+            selectEnvironmentComboBox.SelectEnvironmentComboBox_SelectedIndexChanged(Exporter);
         }
 
         private void dataTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           Program.SwitchForm(this,dataTypeComboBox.SelectedItem.ToString());
+            //Program.SwitchForm(this, dataTypeComboBox.SelectedItem.ToString());
+            dataTypeComboBox.DataTypeComboBox_SelectedIndexChanged(this);
         }
     }
 }

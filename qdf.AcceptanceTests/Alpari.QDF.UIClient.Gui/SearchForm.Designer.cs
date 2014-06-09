@@ -2,7 +2,7 @@
 
 namespace Alpari.QDF.UIClient.Gui
 {
-    partial class QuoteSearchAndRetrievalOptions 
+    partial class SearchForm
     {
         /// <summary>
         /// Required designer variable.
@@ -233,9 +233,8 @@ namespace Alpari.QDF.UIClient.Gui
             this.environmentLabel.Size = new System.Drawing.Size(66, 13);
             this.environmentLabel.TabIndex = 22;
             this.environmentLabel.Text = "Environment";
-            this.SuspendLayout();
             // 
-            // QuoteSearchAndRetrievalOptions
+            // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -262,13 +261,11 @@ namespace Alpari.QDF.UIClient.Gui
             this.Controls.Add(this.symbolLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 672);
-            this.Name = "QuoteSearchAndRetrievalOptions";
-            this.Text = "QuoteSearchAndRetrievalOptions";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.QuoteSearchAndRetrievalOptions_FormClosed);
+            this.Name = "SearchForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SearchForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

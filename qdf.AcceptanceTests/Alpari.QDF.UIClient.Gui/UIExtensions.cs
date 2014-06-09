@@ -26,7 +26,7 @@ namespace Alpari.QDF.UIClient.Gui
                 {
                     string itemText = listBox.Items[i].ToString();
                     if (itemText.Contains(typed) && itemText
-                        .Substring(0, typed.Length - 1)
+                        .Substring(0, typed.Length)
                         .Equals(typed, StringComparison.InvariantCulture))
                     {
                         return i;
