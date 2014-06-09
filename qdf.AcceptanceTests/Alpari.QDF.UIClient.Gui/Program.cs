@@ -11,6 +11,7 @@ namespace Alpari.QDF.UIClient.Gui
     internal static class Program
     {
         public const string REDIS_HOST = "redisHost";
+        public const string SEPERATOR = ",";
 
         /// <summary>
         ///     The main entry point for the application.

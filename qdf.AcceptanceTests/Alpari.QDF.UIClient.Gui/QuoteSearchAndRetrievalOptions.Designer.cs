@@ -51,6 +51,7 @@ namespace Alpari.QDF.UIClient.Gui
             this.dataTypeLabel = new System.Windows.Forms.Label();
             this.dataTypeComboBox = new System.Windows.Forms.ComboBox();
             this.environmentLabel = new System.Windows.Forms.Label();
+            this.quoteSearchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // symbolLabel
@@ -233,13 +234,23 @@ namespace Alpari.QDF.UIClient.Gui
             this.environmentLabel.Size = new System.Drawing.Size(66, 13);
             this.environmentLabel.TabIndex = 22;
             this.environmentLabel.Text = "Environment";
-            this.SuspendLayout();
+            // 
+            // quoteSearchButton
+            // 
+            this.quoteSearchButton.Location = new System.Drawing.Point(717, 72);
+            this.quoteSearchButton.Name = "quoteSearchButton";
+            this.quoteSearchButton.Size = new System.Drawing.Size(100, 23);
+            this.quoteSearchButton.TabIndex = 26;
+            this.quoteSearchButton.Text = "Quote Search";
+            this.quoteSearchButton.UseVisualStyleBackColor = true;
+            this.quoteSearchButton.Click += new System.EventHandler(this.quoteSearchButton_Click);
             // 
             // QuoteSearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
+            this.Controls.Add(this.quoteSearchButton);
             this.Controls.Add(this.dataTypeComboBox);
             this.Controls.Add(this.dataTypeLabel);
             this.Controls.Add(this.selectEnvironmentComboBox);
@@ -262,13 +273,11 @@ namespace Alpari.QDF.UIClient.Gui
             this.Controls.Add(this.symbolLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 672);
             this.Name = "QuoteSearchAndRetrievalOptions";
             this.Text = "QuoteSearchAndRetrievalOptions";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.QuoteSearchAndRetrievalOptions_FormClosed);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -295,5 +304,6 @@ namespace Alpari.QDF.UIClient.Gui
         private Label dataTypeLabel;
         protected ComboBox dataTypeComboBox;
         private Label environmentLabel;
+        private Button quoteSearchButton;
     }
 }
