@@ -182,7 +182,7 @@ namespace qdf.AcceptanceTests.Steps
             {
                 foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
                 {
-                    if (keyValuePair.Key.Substring(DIFF_DELTA_SUMMARY_SERVER_START_INDEX).Replace("DiffDeltaSummary.csv", "").Replace("/", "") == grouping.Key)
+                    if (keyValuePair.Key.Replace("DiffDeltaSummary.csv", "").Replace("/", "").Substring(DIFF_DELTA_SUMMARY_SERVER_START_INDEX) == grouping.Key)
                     {
                         var list = keyValuePair.Value;
                         var sum = list.Sum(summary => summary.Delta);
@@ -216,7 +216,7 @@ namespace qdf.AcceptanceTests.Steps
             {
                 foreach (KeyValuePair<string, List<DiffDeltaSummary>> keyValuePair in DiffDeltaSummary)
                 {
-                    if (keyValuePair.Key.Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX,DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX) == grouping.Key )
+                    if (keyValuePair.Key.Replace("DiffDeltaSummary.csv", "").Replace("/", "").Substring(DIFF_DELTA_SUMMARY_SYMBOL_START_INDEX, DIFF_DELTA_SUMMARY_SYMBOL_END_INDEX) == grouping.Key)
                     {
                         var list = keyValuePair.Value;
                         var sum = list.Sum(summary => summary.Delta);
@@ -232,7 +232,7 @@ namespace qdf.AcceptanceTests.Steps
                 }
             }
             var symbolAnalysisQuery = (from d in DeltaSumBySymbol
-                                       select new { Server = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+                                       select new { Symbol = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
             symbolAnalysisQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {

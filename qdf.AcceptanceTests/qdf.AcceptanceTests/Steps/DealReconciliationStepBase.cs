@@ -33,7 +33,7 @@ namespace qdf.AcceptanceTests.Steps
 
         public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
         public const string SCENARIO_OUTPUT_DIRECTORY = "ScenarioOutputDirectory";
-        protected RedisConnectionHelper RedisConnectionHelper { get; set; }
+        protected static RedisConnectionHelper RedisConnectionHelper { get; set; }
         protected IDataContextSubstitute ContextSubstitute { get; set; }
         protected QdfDealParameters QdfDealParameters { get; set; }
 
@@ -284,6 +284,7 @@ namespace qdf.AcceptanceTests.Steps
                 //{
                 //removed try/catch as might as well see full stack trace - this is likely to be the last operation
                 RedisConnectionHelper.Connection.Close(true);
+                RedisConnectionHelper = null;
                 //}
                 //catch (Exception e)
                 //{
