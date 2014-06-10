@@ -75,7 +75,7 @@ namespace Alpari.QDF.UIClient.Gui
             return new EcnDealsSearchAndRetrievalOptions(Exporter(), ControlSetup());
         }
 
-        private static Exporter Exporter()
+        public static Exporter Exporter()
         {
             return new Exporter(new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]));
         }

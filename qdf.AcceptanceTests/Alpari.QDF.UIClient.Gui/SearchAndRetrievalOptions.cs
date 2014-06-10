@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Windows.Forms;
+﻿using System.Configuration;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QDF.UIClient.Gui.Properties;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Alpari.QDF.UIClient.Gui
 {
@@ -61,18 +61,42 @@ namespace Alpari.QDF.UIClient.Gui
         {
             try
             {
-                displayTextBox.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
-                Exporter.RedisConnectionHelper.RedisDealSearches.GetDealData(SetupDealQuery());
-                displayTextBox.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any()
-                    ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data
-                    : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
+                GetDealDataAndReportOutcome();
             }
             catch (Exception ex)
             {
-                displayTextBox.Text =
-                    Resources.SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client +
-                    ex.Message;
+                try
+                {
+                    ResetConnection();
+                    GetDealDataAndReportOutcome();
+                }
+
+                catch (Exception exception)
+                {
+                    displayTextBox.Text =
+                        Resources.SearchAndRetrievalOptions_FindDeals_Click_try_closing_and_reopening_the_client +
+                        ex.Message + exception.Message;
+                }
             }
+        }
+
+        private void GetDealDataAndReportOutcome()
+        {
+            displayTextBox.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
+            Exporter.RedisConnectionHelper.RedisDealSearches.GetDealData(SetupDealQuery());
+            displayTextBox.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any()
+                ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data
+                : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
+        }
+
+        private void ResetConnection()
+        {
+            if ((string)selectEnvironmentComboBox.SelectedItem != ControlSetup.EnvironmentControl.GetInitialValue(ConfigurationManager.AppSettings[Program.REDIS_HOST]))
+            {
+                throw new NotSupportedException(Resources.Auto_Reconnect_on_non_default_envt_not_supported);
+            }
+            Exporter.RedisConnectionHelper.Connection.Close(false);
+            Exporter = Program.Exporter();
         }
 
         private DealSearchCriteria SetupDealQuery()
@@ -101,7 +125,7 @@ namespace Alpari.QDF.UIClient.Gui
                 dealSearchCriteria.Servers = String.Join(Program.SEPERATOR, serverList);
             }
 
-            if (dataTypeComboBox.SelectedItem == SupportedDataTypesControl.ECN_DEAL)
+            if ((string) dataTypeComboBox.SelectedItem == SupportedDataTypesControl.ECN_DEAL)
             {
                 dealSearchCriteria.DealSource = SupportedDataTypesControl.ECN_DEAL;
             }

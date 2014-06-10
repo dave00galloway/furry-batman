@@ -133,4 +133,9 @@
     <value>not supported</value>
     <comment>fdfd</comment>
   </data>
+  <!--"not allowed to attempt an auto reconnect to Redis if a redis host other than the default has been selected"-->
+  <data name="Auto_Reconnect_on_non_default_envt_not_supported" xml:space="preserve">
+    <value>not allowed to attempt an auto reconnect to Redis if a redis host other than the default has been selected</value>
+    <comment>fdfd</comment>
+  </data>
 </root>

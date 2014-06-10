@@ -52,8 +52,7 @@ namespace qdf.AcceptanceTests.Helpers
                     case Source.ARS:
                         if (tempDiffDelta != null)
                         {
-                            diffDelta.EndTimeStamp = compareData.TimeStamp;
-                            tempDiffDelta.ArsDetected = true;
+                            diffDelta.EndTimeStamp = compareData.TimeStamp;                            
                         }
                             
                         DiffDelta prevDiffDelta = diffDelta;
@@ -67,6 +66,7 @@ namespace qdf.AcceptanceTests.Helpers
                         tempDiffDelta = diffDelta;
                         tempDiffDelta.StartTimeStamp = compareData.TimeStamp;
                         tempDiffDelta.ArsPosition = compareData.Position;
+                        tempDiffDelta.ArsDetected = true;
                         break;
 
                     case Source.ECN:

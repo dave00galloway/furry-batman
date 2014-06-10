@@ -61,6 +61,15 @@ namespace Alpari.QDF.UIClient.Gui.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to not allowed to attempt an auto reconnect to Redis if a redis host other than the default has been selected.
+        /// </summary>
+        internal static string Auto_Reconnect_on_non_default_envt_not_supported {
+            get {
+                return ResourceManager.GetString("Auto_Reconnect_on_non_default_envt_not_supported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to not supported.
         /// </summary>
         internal static string SearchAndRetrievalOptions_dataTypeComboBox_SelectedIndexChanged_not_supported {
