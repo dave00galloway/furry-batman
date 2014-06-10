@@ -50,7 +50,12 @@ namespace qdf.AcceptanceTests.Helpers
                 switch ((Source)Enum.Parse(typeof(Source),compareData.Source))
                 {
                     case Source.ARS:
-                        if (tempDiffDelta != null) diffDelta.EndTimeStamp = compareData.TimeStamp;
+                        if (tempDiffDelta != null)
+                        {
+                            diffDelta.EndTimeStamp = compareData.TimeStamp;
+                            tempDiffDelta.ArsDetected = true;
+                        }
+                            
                         DiffDelta prevDiffDelta = diffDelta;
                         //list = AddSortAndTrimDiffDeltas(maxDiffs, prevDiffDelta, list);
 
@@ -65,12 +70,20 @@ namespace qdf.AcceptanceTests.Helpers
                         break;
 
                     case Source.ECN:
-                        if (tempDiffDelta != null) tempDiffDelta.EcnPosition = compareData.Position;
+                        if (tempDiffDelta != null)
+                        {
+                            tempDiffDelta.EcnPosition = compareData.Position;
+                            tempDiffDelta.EcnDetected = true;
+                        }
                         SetEndTimeStampToLatestTimeStamp(tempDiffDelta, compareData);
                         break;
 
                     case Source.CC:
-                        if (tempDiffDelta != null) tempDiffDelta.CcPosition += compareData.Position;
+                        if (tempDiffDelta != null)
+                        {
+                            tempDiffDelta.CcPosition += compareData.Position;
+                            tempDiffDelta.CcDetected = true;
+                        }
                         SetEndTimeStampToLatestTimeStamp(tempDiffDelta, compareData);
                         break;
                 }
