@@ -30,6 +30,14 @@ namespace Alpari.QDF.UIClient.Gui
             findDealsButton.Enabled = true;
         }
 
+        /// <summary>
+        /// required for designer to function correctly with inheritance to descendant forms
+        /// </summary>
+        public SearchAndRetrievalOptions()
+        {
+            InitializeComponent();
+        }
+
         protected Exporter Exporter { get; set; }
         protected ControlSetup ControlSetup { get; set; }
 
@@ -91,6 +99,11 @@ namespace Alpari.QDF.UIClient.Gui
                 List<string> serverList =
                     (from object selectedItem in serverListBox.SelectedItems select selectedItem as string).ToList();
                 dealSearchCriteria.Servers = String.Join(Program.SEPERATOR, serverList);
+            }
+
+            if (dataTypeComboBox.SelectedItem == SupportedDataTypesControl.ECN_DEAL)
+            {
+                dealSearchCriteria.DealSource = SupportedDataTypesControl.ECN_DEAL;
             }
             return dealSearchCriteria;
         }

@@ -1,4 +1,4 @@
-﻿@ClientSideFiltering @TeardownRedisConnection @UKUSQDF-71
+﻿@ClientSideFiltering @TeardownRedisConnection @UKUSQDF_71
 Feature: UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals
 	In order to access ecn deal data in Redis QDF
 	As a QDF Analyst

@@ -22,7 +22,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals")]
     [NUnit.Framework.CategoryAttribute("ClientSideFiltering")]
     [NUnit.Framework.CategoryAttribute("TeardownRedisConnection")]
-    [NUnit.Framework.CategoryAttribute("UKUSQDF-71")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_71")]
     public partial class UKUSQDF_71ATQDFUI_AddAbilityToSwitchBetweenARSAndECNDealsFeature
     {
         
@@ -39,7 +39,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
                     "etrieve and filter ecn deal data", ProgrammingLanguage.CSharp, new string[] {
                         "ClientSideFiltering",
                         "TeardownRedisConnection",
-                        "UKUSQDF-71"});
+                        "UKUSQDF_71"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
