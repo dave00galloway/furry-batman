@@ -162,11 +162,11 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "CurrentState"});
             table3.AddRow(new string[] {
-                        "Deal"});
+                        "deals"});
             table3.AddRow(new string[] {
                         "PriceQuote"});
             table3.AddRow(new string[] {
-                        "ecn-Deal"});
+                        "ecn-deals"});
 #line 41
  testRunner.Then("the list of data type options should be:", ((string)(null)), table3, "Then ");
 #line hidden
@@ -183,7 +183,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 49
  testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 50
- testRunner.Then("the default datatype should be \"Deal\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the default datatype should be \"deals\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

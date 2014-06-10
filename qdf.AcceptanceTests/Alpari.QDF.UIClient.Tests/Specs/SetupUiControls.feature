@@ -41,13 +41,13 @@ Scenario: Set up datatypes list
 	Then the list of data type options should be:
 	| DataType     |
 	| CurrentState |
-	| Deal         |
+	| deals        |
 	| PriceQuote   |
-	| ecn-Deal     |
+	| ecn-deals    |
 
 Scenario: Set up default datatype
 	Given I choose the type of data to be queried
-	Then the default datatype should be "Deal"
+	Then the default datatype should be "deals"
 
 Scenario: set up symbol list
 	Given I filter deals by symbol

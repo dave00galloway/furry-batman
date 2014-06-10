@@ -15,6 +15,7 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
         {
             SearchCriteriaExtensions.Setup(this);
             ServerSearchExtensions.Setup(this);
+            DealSource = ControlHelpers.SupportedDataTypesControl.DEAL;
         }
 
         public char Separator { get; set; }
@@ -22,13 +23,19 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
         public DateTime ConvertedEndTime { get; set; }
         public List<string> InstrumentList { get; set; }
         public string Servers { get; set; }
-
         public List<TradingServer> TradingServerList { get; set; }
-
         /// <summary>
         ///     Synonym for Instrument
         /// </summary>
         public string Symbol { get; set; }
+
+        /// <summary>
+        /// set to "Deal" i.e. ars deal by default.
+        /// can be set to "ecn-Deal" if needed
+        /// might need an interface for this, but it's only one property so just making a class member for now.
+        /// 
+        /// </summary>
+        public string DealSource { get; set; }
 
         /// <summary>
         ///     run through the properties that have been passed and use logic to set up additional properties, e.g. Lists

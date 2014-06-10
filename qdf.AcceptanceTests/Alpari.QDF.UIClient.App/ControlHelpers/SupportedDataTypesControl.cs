@@ -3,12 +3,15 @@ using System.Configuration;
 
 namespace Alpari.QDF.UIClient.App.ControlHelpers
 {
+    /// <summary>
+    /// the consts in this class are to allow for the fact that the key namesp[aces enumeration doesn't include ECN and it can't be extended
+    /// </summary>
     public class SupportedDataTypesControl 
     {
         public const string CURRENT_STATE = "CurrentState";
-        public const string DEAL = "Deal";
+        public const string DEAL = "deals";
         public const string PRICE_QUOTE = "PriceQuote";
-        public const string ECN_DEAL = "ecn-Deal";
+        public const string ECN_DEAL = "ecn-deals";
 
         private string _default;
         

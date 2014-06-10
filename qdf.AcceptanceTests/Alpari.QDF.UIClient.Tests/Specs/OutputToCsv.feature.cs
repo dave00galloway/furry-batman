@@ -128,6 +128,61 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Output ecn deals to CSV")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_71")]
+        public virtual void OutputEcnDealsToCSV()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Output ecn deals to CSV", new string[] {
+                        "UKUSQDF_71"});
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "Symbol",
+                        "Servers",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table4.AddRow(new string[] {
+                        "ecn-deals",
+                        "EURUSD,GBPUSD,AUDJPY",
+                        "Currenex,Mt5Pro,Mt4JapaneseC1",
+                        "05/05/2014  12:45:42",
+                        "05/05/2014  12:49:51"});
+#line 27
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table4, "Given ");
+#line 30
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 31
+ testRunner.And("I export the data to \"C:\\temp\\temp.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Symbol",
+                        "Count"});
+            table5.AddRow(new string[] {
+                        "EURUSD",
+                        "11"});
+            table5.AddRow(new string[] {
+                        "AUDJPY",
+                        "1"});
+#line 32
+ testRunner.Then("the deals imported for each symbol will have the following counts", ((string)(null)), table5, "Then ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server",
+                        "Count"});
+            table6.AddRow(new string[] {
+                        "Mt4JapaneseC1",
+                        "12"});
+#line 36
+ testRunner.And("the deals imported for each server will have the following counts", ((string)(null)), table6, "And ");
+#line 39
+ testRunner.And("the count of imported deals will be 12", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

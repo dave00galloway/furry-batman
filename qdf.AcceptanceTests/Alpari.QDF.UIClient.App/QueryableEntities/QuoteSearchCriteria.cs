@@ -10,7 +10,7 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
     {
         public QuoteSearchCriteria()
         {
-            SearchCriteriaExtensions.Setup(this);
+            this.Setup();
         }
 
         public char Separator { get; set; }

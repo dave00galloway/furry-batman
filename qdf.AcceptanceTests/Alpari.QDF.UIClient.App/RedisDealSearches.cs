@@ -26,7 +26,7 @@ namespace Alpari.QDF.UIClient.App
             dealSearchCriteria.Resolve();
 
             //get the deals for the date range
-            IEnumerable<Deal> deals = GetDealsForDateRange(dealSearchCriteria.ConvertedStartTime,
+            IEnumerable<Deal> deals = GetDealsForDateRange(dealSearchCriteria.DealSource, dealSearchCriteria.ConvertedStartTime,
                 dealSearchCriteria.ConvertedEndTime);
 
             //filter the results using the search parameters
@@ -80,22 +80,20 @@ namespace Alpari.QDF.UIClient.App
         /// <summary>
         ///     Will always have a date range, and while doing client side filtering, no other parameters are needed
         /// </summary>
+        /// <param name="dealSource"></param>
         /// <param name="startTimeStampInclusive"></param>
         /// <param name="endTimeStampExclusive"></param>
         /// <returns></returns>
-        private IEnumerable<Deal> GetDealsForDateRange(DateTime startTimeStampInclusive, DateTime endTimeStampExclusive)
+        private IEnumerable<Deal> GetDealsForDateRange(string dealSource, DateTime startTimeStampInclusive, DateTime endTimeStampExclusive)
         {
             _redisConnectionHelper.DealsStore = new RedisDataStore(_redisConnectionHelper.Connection,
                 new SortedSetBasedStorageStrategy(_redisConnectionHelper.Connection, new JsonSerializer()));
             //might need to adjust the time slice, for now leaving as Day
-            var deals = _redisConnectionHelper.DealsStore.Load<Deal>(KeyConfig.KeyNamespaces.Deal,
+            var deals = _redisConnectionHelper.DealsStore.Load<Deal>(dealSource
+                //KeyConfig.KeyNamespaces.Deal // = "deals" not Deal!
+                ,
                 startTimeStampInclusive, endTimeStampExclusive, TimeSlice.Day);
             return deals;
-        }
-
-        public void OutputAllDeals(string fileNamePath)
-        {
-            _redisConnectionHelper.RetrievedDeals.EnumerableToCsv(fileNamePath, true);
         }
     }
 }
