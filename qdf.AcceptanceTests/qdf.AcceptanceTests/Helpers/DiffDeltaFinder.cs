@@ -191,7 +191,7 @@ namespace qdf.AcceptanceTests.Helpers
                 where cd.Server == DiffDeltaParameters.Server
                 where cd.TimeStamp >= DiffDeltaParameters.StartDate && cd.TimeStamp < DiffDeltaParameters.EndDate
                 where cd.Section != "Deal"
-                orderby cd.TimeStamp
+                orderby cd.TimeStamp, cd.Source
                 select cd;
             return comparisonDataQuery;
 
@@ -208,7 +208,7 @@ namespace qdf.AcceptanceTests.Helpers
                         where cd.Server == DiffDeltaParameters.Server
                         where cd.TimeStamp >= DiffDeltaParameters.StartDate && cd.TimeStamp < DiffDeltaParameters.EndDate
                         where cd.Section != "Deal"
-                        orderby cd.TimeStamp
+                        orderby cd.TimeStamp, cd.Source
                         select cd;
                     return comparisonDataQuery.ToList<ICompareDataTable>();
                 case SignalsCompareDataDataContext.FULL_NAME:

@@ -9,7 +9,7 @@ namespace qdf.AcceptanceTests.Helpers
         public static List<DiffDelta> CalculateSortAndTrimDeltas(this List<DiffDelta> list, int maxDiffs)
         {
             list.ForEach(x=>x.CalculateDiffDelta());
-            list = list.OrderByDescending(x => x.Delta).ThenByDescending(x => Math.Abs(x.Diff)).ToList();
+            list = list.OrderByDescending(x => Math.Abs(x.Delta)).ThenByDescending(x => Math.Abs(x.Diff)).ToList();
             list = list.Take(maxDiffs).ToList();
             return list;
         }

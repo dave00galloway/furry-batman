@@ -35,10 +35,24 @@ namespace Alpari.QDF.UIClient.App
 
         private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
         {
+            //DebugPrintDeals(deals);
             deals = FilterDealsByBook(deals, dealSearchCriteria);
             deals = FilterDealsBySymbol(deals, dealSearchCriteria);
             deals = FilterDealsByServer(deals, dealSearchCriteria);
             return deals.ToList();
+        }
+
+        private static void DebugPrintDeals(IEnumerable<Deal> deals)
+        {
+            foreach (Deal deal in deals)
+            {
+                var dealstring = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14}",
+                    deal.TimeStamp, deal.DealId, deal.Server, deal.ClientId,
+                    deal.OrderId, deal.Side, deal.State, deal.Instrument, deal.Volume,
+                    deal.ClientPrice, deal.BankPrice, deal.Book, deal.AccountGroup, deal.Comment,
+                    deal.Data);
+                Console.WriteLine(dealstring);
+            }
         }
 
         private IEnumerable<Deal> FilterDealsByBook(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)

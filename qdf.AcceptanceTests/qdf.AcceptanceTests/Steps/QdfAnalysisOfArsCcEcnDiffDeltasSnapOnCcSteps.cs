@@ -1,10 +1,6 @@
-﻿using System.Globalization;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using FluentAssertions;
+﻿using FluentAssertions;
 using qdf.AcceptanceTests.DataContexts;
 using qdf.AcceptanceTests.Helpers;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using TechTalk.SpecFlow;

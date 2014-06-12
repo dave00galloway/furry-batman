@@ -70,8 +70,8 @@ namespace qdf.AcceptanceTests.Helpers
             {
                 LoSource = maxDelta.Key.Item1;
                 HiSource = maxDelta.Key.Item2;
-                Diff = maxDelta.Value.Item1;
-                Delta = maxDelta.Value.Item2;
+                Diff =  maxDelta.Value.Item1;
+                Delta =  maxDelta.Value.Item2;
             }
         }
 
