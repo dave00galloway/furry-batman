@@ -4,6 +4,7 @@ Feature: OutputToCsv
 	As a QDF Analyst
 	I want to be able to save query results to CSV
 
+@UKUSQDF_61
 Scenario: Output to CSV
 	Given I have the following search criteria for qdf deals
 	 | Symbol               | Servers                       | ConvertedStartTime   | ConvertedEndTime     |

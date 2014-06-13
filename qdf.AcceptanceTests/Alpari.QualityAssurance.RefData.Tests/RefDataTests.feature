@@ -37,6 +37,7 @@ Scenario: Lookup values in both dictionaries
 	When I lookup key "Currenex" in the QdfToCcServerMapping dictionary
 	Then the value returned by the lookup is "CNX"
 
+@UKUSQDF_68
 Scenario Outline: Lookup values in RedisMapping
 	Given I have connected to the ref data dictionary
 	When I lookup key "<Environment names>" in the RedisServerNameToIpMapping dictionary

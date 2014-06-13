@@ -1,9 +1,8 @@
+using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Alpari.QDF.Domain;
-using Alpari.QDF.UIClient.App.QueryableEntities;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QDF.UIClient.App
 {
@@ -40,19 +39,6 @@ namespace Alpari.QDF.UIClient.App
             deals = FilterDealsBySymbol(deals, dealSearchCriteria);
             deals = FilterDealsByServer(deals, dealSearchCriteria);
             return deals.ToList();
-        }
-
-        private static void DebugPrintDeals(IEnumerable<Deal> deals)
-        {
-            foreach (Deal deal in deals)
-            {
-                var dealstring = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14}",
-                    deal.TimeStamp, deal.DealId, deal.Server, deal.ClientId,
-                    deal.OrderId, deal.Side, deal.State, deal.Instrument, deal.Volume,
-                    deal.ClientPrice, deal.BankPrice, deal.Book, deal.AccountGroup, deal.Comment,
-                    deal.Data);
-                Console.WriteLine(dealstring);
-            }
         }
 
         private IEnumerable<Deal> FilterDealsByBook(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
@@ -108,6 +94,19 @@ namespace Alpari.QDF.UIClient.App
                 ,
                 startTimeStampInclusive, endTimeStampExclusive, TimeSlice.Day);
             return deals;
+        }
+
+        private static void DebugPrintDeals(IEnumerable<Deal> deals)
+        {
+            foreach (Deal deal in deals)
+            {
+                var dealstring = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14}",
+                    deal.TimeStamp, deal.DealId, deal.Server, deal.ClientId,
+                    deal.OrderId, deal.Side, deal.State, deal.Instrument, deal.Volume,
+                    deal.ClientPrice, deal.BankPrice, deal.Book, deal.AccountGroup, deal.Comment,
+                    deal.Data);
+                Console.WriteLine(dealstring);
+            }
         }
     }
 }

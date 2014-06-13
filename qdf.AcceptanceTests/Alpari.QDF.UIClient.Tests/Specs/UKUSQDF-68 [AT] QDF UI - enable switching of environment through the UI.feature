@@ -1,7 +1,7 @@
 ﻿@UKUSQDF_68 @TeardownRedisConnection
 Feature: UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI
 	In order to compare data in different QDF Environments
-	As a QDFD Analyst
+	As a QDF Analyst
 	I want to be able to change environment
 
 Scenario: Setup Environment UI Control

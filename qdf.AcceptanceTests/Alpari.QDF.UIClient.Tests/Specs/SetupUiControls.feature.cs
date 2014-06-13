@@ -149,12 +149,14 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Set up datatypes list")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_69")]
         public virtual void SetUpDatatypesList()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up datatypes list", ((string[])(null)));
-#line 39
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up datatypes list", new string[] {
+                        "UKUSQDF_69"});
 #line 40
+this.ScenarioSetup(scenarioInfo);
+#line 41
  testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -167,7 +169,7 @@ this.ScenarioSetup(scenarioInfo);
                         "PriceQuote"});
             table3.AddRow(new string[] {
                         "ecn-deals"});
-#line 41
+#line 42
  testRunner.Then("the list of data type options should be:", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -175,14 +177,16 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Set up default datatype")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_69")]
         public virtual void SetUpDefaultDatatype()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up default datatype", ((string[])(null)));
-#line 48
-this.ScenarioSetup(scenarioInfo);
-#line 49
- testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Set up default datatype", new string[] {
+                        "UKUSQDF_69"});
 #line 50
+this.ScenarioSetup(scenarioInfo);
+#line 51
+ testRunner.Given("I choose the type of data to be queried", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 52
  testRunner.Then("the default datatype should be \"deals\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -193,9 +197,9 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SetUpSymbolList()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("set up symbol list", ((string[])(null)));
-#line 52
+#line 54
 this.ScenarioSetup(scenarioInfo);
-#line 53
+#line 55
  testRunner.Given("I filter deals by symbol", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -360,7 +364,7 @@ this.ScenarioSetup(scenarioInfo);
                         "XAUUSD"});
             table4.AddRow(new string[] {
                         "ZARJPY"});
-#line 54
+#line 56
  testRunner.Then("the list of symbol options should be:", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();

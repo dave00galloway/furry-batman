@@ -128,7 +128,7 @@ namespace qdf.AcceptanceTests.Steps
             }
 
             var sumQuery = (from d in DeltaSumDecimals
-                            select new { Combination = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+                            select new { Combination = d.Key, DeltaSum = d.Value }).OrderByDescending(x => Math.Abs(x.DeltaSum));
             sumQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {
@@ -164,7 +164,7 @@ namespace qdf.AcceptanceTests.Steps
                 }
             }
             var bookAnalysisQuery = (from d in DeltaSumByBook
-                select new {Book = d.Key, DeltaSum = d.Value}).OrderByDescending(x => x.DeltaSum);
+                select new {Book = d.Key, DeltaSum = d.Value}).OrderByDescending(x => Math.Abs(x.DeltaSum));
             bookAnalysisQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {
@@ -198,7 +198,7 @@ namespace qdf.AcceptanceTests.Steps
                 }
             }
             var serverAnalysisQuery = (from d in DeltaSumByServer
-                                     select new { Server = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+                                     select new { Server = d.Key, DeltaSum = d.Value }).OrderByDescending(x => Math.Abs(x.DeltaSum));
             serverAnalysisQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {
@@ -232,7 +232,7 @@ namespace qdf.AcceptanceTests.Steps
                 }
             }
             var symbolAnalysisQuery = (from d in DeltaSumBySymbol
-                                       select new { Symbol = d.Key, DeltaSum = d.Value }).OrderByDescending(x => x.DeltaSum);
+                                       select new { Symbol = d.Key, DeltaSum = d.Value }).OrderByDescending(x => Math.Abs(x.DeltaSum));
             symbolAnalysisQuery.ExportEnumerableByMethod(
                 new ExportParameters
                 {

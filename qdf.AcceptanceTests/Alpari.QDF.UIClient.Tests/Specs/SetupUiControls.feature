@@ -36,6 +36,7 @@ Scenario: Set up book list
 	| A    |
 	| B    |
 
+@UKUSQDF_69
 Scenario: Set up datatypes list
 	Given I choose the type of data to be queried
 	Then the list of data type options should be:
@@ -45,6 +46,7 @@ Scenario: Set up datatypes list
 	| PriceQuote   |
 	| ecn-deals    |
 
+@UKUSQDF_69
 Scenario: Set up default datatype
 	Given I choose the type of data to be queried
 	Then the default datatype should be "deals"

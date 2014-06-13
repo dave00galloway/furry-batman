@@ -124,7 +124,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             out List<T> parsedFile, out long line, out Type type) where T : new()
         {
             string[] unparsedFile = File.ReadAllLines(fileNamePath);
-            IList<string> headers = unparsedFile.First().GetValuesFromCsvRow(delimiter);
+            IList<string> headers = unparsedFile.First().RemoveWindowsUnfriendlyChars().GetValuesFromCsvRow(delimiter);
             columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
             parsedFile = new List<T>();
             line = 1;

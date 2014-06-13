@@ -20,6 +20,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("QdfDataRetrieval")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_60")]
     [NUnit.Framework.CategoryAttribute("ClientSideFiltering")]
     [NUnit.Framework.CategoryAttribute("TeardownRedisConnection")]
     public partial class QdfDataRetrievalFeature
@@ -36,6 +37,7 @@ namespace Alpari.QDF.UIClient.Tests.Specs
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "QdfDataRetrieval", "In order to access deal data in Redis QDF\r\nAs a QDF Analyst\r\nI want a UI to retri" +
                     "eve and filter deal data", ProgrammingLanguage.CSharp, new string[] {
+                        "UKUSQDF_60",
                         "ClientSideFiltering",
                         "TeardownRedisConnection"});
             testRunner.OnFeatureStart(featureInfo);

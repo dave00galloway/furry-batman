@@ -34,8 +34,8 @@ namespace Alpari.QDF.UIClient.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI", "In order to compare data in different QDF Environments\r\nAs a QDFD Analyst\r\nI want" +
-                    " to be able to change environment", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-68 [AT] QDF UI - enable switching of environment through the UI", "In order to compare data in different QDF Environments\r\nAs a QDF Analyst\r\nI want " +
+                    "to be able to change environment", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_68",
                         "TeardownRedisConnection"});
             testRunner.OnFeatureStart(featureInfo);

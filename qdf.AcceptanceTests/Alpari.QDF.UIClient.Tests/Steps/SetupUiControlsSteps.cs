@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using Alpari.QDF.Domain;
-using Alpari.QDF.UIClient.App;
+﻿using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
-using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.RefData;
-using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps

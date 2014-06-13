@@ -154,19 +154,26 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Lookup values in RedisMapping")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_68")]
         [NUnit.Framework.TestCaseAttribute("uk-redis-prod.corp.alpari.com", "10.10.142.62", null)]
         [NUnit.Framework.TestCaseAttribute("uk-redis-uat.corp.alpari.com", "10.10.144.156", null)]
         [NUnit.Framework.TestCaseAttribute("uk-redis-dev.corp.alpari.com", "10.10.144.100", null)]
         public virtual void LookupValuesInRedisMapping(string environmentNames, string iP, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Lookup values in RedisMapping", exampleTags);
-#line 40
-this.ScenarioSetup(scenarioInfo);
+            string[] @__tags = new string[] {
+                    "UKUSQDF_68"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Lookup values in RedisMapping", @__tags);
 #line 41
- testRunner.Given("I have connected to the ref data dictionary", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 42
- testRunner.When(string.Format("I lookup key \"{0}\" in the RedisServerNameToIpMapping dictionary", environmentNames), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I have connected to the ref data dictionary", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 43
+ testRunner.When(string.Format("I lookup key \"{0}\" in the RedisServerNameToIpMapping dictionary", environmentNames), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 44
  testRunner.Then(string.Format("the value returned by the lookup is \"{0}\"", iP), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
