@@ -144,11 +144,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ArsQdfCCReconciliation.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\CompareCnxHubCsvWithRedisCnxDeals.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompareCnxHubCsvWithRedisCnxDeals.feature</DependentUpon>
-    </Compile>
     <Compile Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltas.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -243,10 +238,6 @@
     <None Include="Specs\ArsQdfCCReconciliation.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ArsQdfCCReconciliation.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Specs\CompareCnxHubCsvWithRedisCnxDeals.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>CompareCnxHubCsvWithRedisCnxDeals.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\QdfAnalysisOfArsCcEcnDiffDeltas.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

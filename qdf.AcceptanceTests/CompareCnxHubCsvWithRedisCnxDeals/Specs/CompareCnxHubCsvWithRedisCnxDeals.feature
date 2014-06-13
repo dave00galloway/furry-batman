@@ -1,11 +1,14 @@
-﻿Feature: CompareCnxHubCsvWithRedisCnxDeals
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+﻿@UKUSQDF_80
+Feature: CompareCnxHubCsvWithRedisCnxDeals
+	In order to reconcile cnx and redis data
+	As a QDF Analyst
+	I want to compare Cnx Hub data with Redis data
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: Load cnx hub data and compare with Qdf deals
+	Given I have loaded cnx hub data from "C:\TEMP\Alpari UK_TradeActivity_20140531.csv"
+	And I have the following search criteria for qdf deals
+	 | Server   | ConvertedStartTime   | ConvertedEndTime     |
+	 | Currenex | 01/05/2014  00:00:00 | 31/05/2014  23:59:59 |
+	When I retrieve the qdf deal data
+	And I compare the cnx hub data and the qdf deals
+	Then cnx hub deals missing from qdf deals are output to "Load cnx hub data and compare with Qdf deals.csv"

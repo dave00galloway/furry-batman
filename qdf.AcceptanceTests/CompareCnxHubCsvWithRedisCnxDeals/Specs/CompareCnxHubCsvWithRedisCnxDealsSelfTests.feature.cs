@@ -20,6 +20,7 @@ namespace CompareCnxHubCsvWithRedisCnxDeals.Specs
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("CompareCnxHubCsvWithRedisCnxDealsSelfTests")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_80")]
     public partial class CompareCnxHubCsvWithRedisCnxDealsSelfTestsFeature
     {
         
@@ -32,8 +33,9 @@ namespace CompareCnxHubCsvWithRedisCnxDeals.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "CompareCnxHubCsvWithRedisCnxDealsSelfTests", "In order to reconcile QDF and Cnx Hub Data\r\nAs a QDF Analyst\r\nI want to compare C" +
-                    "nx csv and Redis data", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "CompareCnxHubCsvWithRedisCnxDealsSelfTests", "In order to reconcile cnx and redis data\r\nAs a QDF Analyst\r\nI want to compare Cnx" +
+                    " Hub data with Redis data", ProgrammingLanguage.CSharp, new string[] {
+                        "UKUSQDF_80"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,16 +69,32 @@ namespace CompareCnxHubCsvWithRedisCnxDeals.Specs
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Load cnx hub data")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
         public virtual void LoadCnxHubData()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load cnx hub data", new string[] {
-                        "mytag"});
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load cnx hub data", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I have loaded cnx hub data from \"CompareCnxHubCsvWithRedisCnxDealsTestData\\CnxTes" +
                     "tData.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table1.AddRow(new string[] {
+                        "Currenex",
+                        "01/05/2014  00:00:00",
+                        "31/05/2014  23:59:59"});
+#line 9
+ testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
+#line 12
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+ testRunner.And("I compare the cnx hub data and the qdf deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
+ testRunner.Then("cnx hub deals missing from qdf deals are output to \"CnxHubDealsMissingFromQdfDeal" +
+                    "s.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
