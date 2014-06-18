@@ -14,6 +14,7 @@ namespace Alpari.QDF.UIClient.App
     {
         private readonly RedisDealSearches _redisDealSearches;
         private readonly RedisQuoteSearches _redisQuoteSearches;
+        private PerformanceStats _performanceStats;
 
         public RedisConnectionHelper(string redisHost)
         {
@@ -22,6 +23,7 @@ namespace Alpari.QDF.UIClient.App
             Connection.Open();
             _redisDealSearches = new RedisDealSearches(this);
             _redisQuoteSearches = new RedisQuoteSearches(this);
+            _performanceStats = new PerformanceStats(this);
         }
 
         public RedisDataStore DealsStore { get; set; }
@@ -39,6 +41,11 @@ namespace Alpari.QDF.UIClient.App
         public RedisQuoteSearches RedisQuoteSearches
         {
             get { return _redisQuoteSearches; }
+        }
+
+        public PerformanceStats PerformanceStats
+        {
+            get { return _performanceStats; }
         }
     }
 }

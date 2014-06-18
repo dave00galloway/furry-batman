@@ -74,6 +74,7 @@
     <Compile Include="ControlHelpers\SymbolControl.cs" />
     <Compile Include="ControlHelpers\SymbolListItem.cs" />
     <Compile Include="ControlHelpers\TradingServerControl.cs" />
+    <Compile Include="PerformanceStats.cs" />
     <Compile Include="QueryableEntities\DealSearchCriteria.cs" />
     <Compile Include="Exporter.cs" />
     <Compile Include="QueryableEntities\ISearchCriteriaExtensions.cs" />
