@@ -74,7 +74,15 @@ namespace CompareCnxHubCsvWithRedisCnxDeals.Steps
         [AfterScenario]
         public void TearDown()
         {
-            RedisConnectionHelper.Connection.Close(false);
+            try
+            {
+                RedisConnectionHelper.Connection.Close(false);
+            }
+            catch (TimeoutException e)
+            {
+                Console.WriteLine("already closed");
+            }
+            
         }
         
     }
