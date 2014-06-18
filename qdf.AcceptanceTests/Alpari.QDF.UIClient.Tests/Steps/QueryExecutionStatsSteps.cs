@@ -10,8 +10,6 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class QueryExecutionStatsSteps :StepCentral
     {
-        //private new QdfDataRetrievalSteps QdfDataRetrievalSteps { get; set; }
-
         [Given(@"I start timing the query")]
         public void GivenIStartTimingTheQuery()
         {
