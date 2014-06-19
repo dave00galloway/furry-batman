@@ -67,8 +67,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             GetDealCount();
             GetExecutionTime();
             var speedInDealsPerSecond = RedisConnectionHelper.PerformanceStats.DealQuerySpeedInDealsPerSecond;
+            var speedAsString = RedisConnectionHelper.PerformanceStats.DealQuerySpeedInDealsPerSecondFormatted;
             Console.WriteLine("speedInDealsPerSecond {0}",speedInDealsPerSecond);
+            Console.WriteLine("speedAsString {0}", speedAsString);
             speedInDealsPerSecond.Should().Be(_dealCount/_executionTime);
+            speedInDealsPerSecond.Should().BeGreaterOrEqualTo(0);
+            speedAsString.Should().NotBeNullOrWhiteSpace();
         }
 
         //TODO:- create a step base class and add these methods

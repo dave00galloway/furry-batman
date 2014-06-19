@@ -10,9 +10,10 @@ namespace Alpari.QDF.UIClient.App
         private long _dealQuerySize;
         private decimal _dealQuerySpeedInBytesPerSecond;
         private string _dealQuerySpeedInBytesPerSecondFormatted;
-        private long _initialMemory;
         private decimal _dealQuerySpeedInDealsPerSecond;
+        private string _dealQuerySpeedInDealsPerSecondFormatted;
         private TimeSpan _executionTime;
+        private long _initialMemory;
 
         public PerformanceStats(RedisConnectionHelper redisConnectionHelper)
         {
@@ -21,7 +22,7 @@ namespace Alpari.QDF.UIClient.App
         }
 
         /// <summary>
-        /// time in seconds that a query took to run
+        ///     time in seconds that a query took to run
         /// </summary>
         public decimal ExecutionTime
         {
@@ -31,7 +32,7 @@ namespace Alpari.QDF.UIClient.App
                 {
                     return (decimal) _executionTime.TotalSeconds;
                 }
-                return ((decimal)_executionTime.TotalMilliseconds) / 1000;
+                return ((decimal) _executionTime.TotalMilliseconds)/1000;
             }
         }
 
@@ -85,7 +86,7 @@ namespace Alpari.QDF.UIClient.App
             {
                 if (_dealQuerySpeedInBytesPerSecondFormatted == default (string))
                 {
-                    DealQuerySpeedInBytesPerSecondFormatted = string.Format(new CultureInfo("en-US"),
+                    DealQuerySpeedInBytesPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
                         "{0:N0} Bytes/Second", DealQuerySpeedInBytesPerSecond);
                 }
                 return _dealQuerySpeedInBytesPerSecondFormatted;
@@ -104,6 +105,20 @@ namespace Alpari.QDF.UIClient.App
                 return _dealQuerySpeedInDealsPerSecond;
             }
             private set { _dealQuerySpeedInDealsPerSecond = value; }
+        }
+
+        public string DealQuerySpeedInDealsPerSecondFormatted
+        {
+            get
+            {
+                if (_dealQuerySpeedInDealsPerSecondFormatted == default (string))
+                {
+                    DealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
+                        "{0:N0} Deals/Second", DealQuerySpeedInDealsPerSecond);
+                }
+                return _dealQuerySpeedInDealsPerSecondFormatted;
+            }
+            private set { _dealQuerySpeedInDealsPerSecondFormatted = value; }
         }
 
         public void Start()
