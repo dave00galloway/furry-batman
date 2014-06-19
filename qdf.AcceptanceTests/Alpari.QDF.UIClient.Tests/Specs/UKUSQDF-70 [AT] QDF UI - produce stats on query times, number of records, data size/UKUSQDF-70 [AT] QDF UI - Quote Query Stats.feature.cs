@@ -19,22 +19,22 @@ namespace Alpari.QDF.UIClient.Tests.Specs.UKUSQDF_70ATQDFUI_ProduceStatsOnQueryT
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats")]
+    [NUnit.Framework.DescriptionAttribute("UKUSQDF-70 [AT] QDF UI - Quote Query Stats")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_70")]
-    public partial class UKUSQDF_70ATQDFUI_EcnDealQueryStatsFeature
+    public partial class UKUSQDF_70ATQDFUI_QuoteQueryStatsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats.feature"
+#line 1 "UKUSQDF-70 [AT] QDF UI - Quote Query Stats.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats", "In order to benchmark ecn deal query performance\r\nAs a QDF Analyst\r\nI want to be " +
-                    "told the execution time, data size, number of records in a query", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-70 [AT] QDF UI - Quote Query Stats", "In order to benchmark quote query performance\r\nAs a QDF Analyst\r\nI want to be tol" +
+                    "d the execution time, data size, number of records in a query", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_70"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -72,35 +72,29 @@ namespace Alpari.QDF.UIClient.Tests.Specs.UKUSQDF_70ATQDFUI_ProduceStatsOnQueryT
 #line 7
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "Book",
                         "Symbol",
-                        "Server",
                         "ConvertedStartTime",
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
-                        "ecn-deals",
-                        "B",
                         "EURUSD",
-                        "Mt4Classic2",
-                        "05/05/2014  12:45:42",
-                        "05/05/2014  12:49:51"});
+                        "09/06/2014  09:00:00",
+                        "09/06/2014  09:05:00"});
 #line 8
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
+ testRunner.Given("I have the following search criteria for qdf quotes", ((string)(null)), table1, "Given ");
 #line 11
-  testRunner.And("I start measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+   testRunner.And("I start measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I retrieve the qdf quote data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
   testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Query redis and get execution time for deal queries")]
-        public virtual void QueryRedisAndGetExecutionTimeForDealQueries()
+        [NUnit.Framework.DescriptionAttribute("Query redis and get execution time for quote queries")]
+        public virtual void QueryRedisAndGetExecutionTimeForQuoteQueries()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get execution time for deal queries", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get execution time for quote queries", ((string[])(null)));
 #line 15
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -112,31 +106,31 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Query redis and get data size for deal queries")]
-        public virtual void QueryRedisAndGetDataSizeForDealQueries()
+        [NUnit.Framework.DescriptionAttribute("Query redis and get data size for quote queries")]
+        public virtual void QueryRedisAndGetDataSizeForQuoteQueries()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get data size for deal queries", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get data size for quote queries", ((string[])(null)));
 #line 18
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 19
- testRunner.Then("the deal data size is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the quote data size is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Query redis and get record count for deal queries")]
-        public virtual void QueryRedisAndGetRecordCountForDealQueries()
+        [NUnit.Framework.DescriptionAttribute("Query redis and get record count for quote queries")]
+        public virtual void QueryRedisAndGetRecordCountForQuoteQueries()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get record count for deal queries", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get record count for quote queries", ((string[])(null)));
 #line 21
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 22
- testRunner.Then("the deal count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the quote count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -151,24 +145,24 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 25
- testRunner.Then("the deal query speed in bytes per second is equal to the size of the query divide" +
-                    "d by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the quote query speed in bytes per second is equal to the size of the query divid" +
+                    "ed by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Query redis and get query speed in deals per second")]
-        public virtual void QueryRedisAndGetQuerySpeedInDealsPerSecond()
+        [NUnit.Framework.DescriptionAttribute("Query redis and get query speed in quotes per second")]
+        public virtual void QueryRedisAndGetQuerySpeedInQuotesPerSecond()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get query speed in deals per second", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get query speed in quotes per second", ((string[])(null)));
 #line 27
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 28
- testRunner.Then("the deal query speed in deals per second is equal to the deal count divided by th" +
-                    "e elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the quote query speed in quotes per second is equal to the quote count divided by" +
+                    " the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -183,7 +177,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 31
- testRunner.Then("the total deal count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the total quote count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -198,8 +192,8 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 34
- testRunner.Then("the deal query speed in total deals per second is equal to the deal count divided" +
-                    " by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the deal quote speed in total quotes per second is equal to the quote count divid" +
+                    "ed by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

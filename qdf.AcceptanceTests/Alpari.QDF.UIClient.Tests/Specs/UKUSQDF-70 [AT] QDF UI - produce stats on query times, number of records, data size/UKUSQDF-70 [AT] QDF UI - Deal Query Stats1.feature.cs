@@ -87,6 +87,10 @@ namespace Alpari.QDF.UIClient.Tests.Specs.UKUSQDF_70ATQDFUI_ProduceStatsOnQueryT
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 11
   testRunner.And("I start measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 12
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 13
+  testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -95,14 +99,10 @@ namespace Alpari.QDF.UIClient.Tests.Specs.UKUSQDF_70ATQDFUI_ProduceStatsOnQueryT
         public virtual void QueryRedisAndGetExecutionTimeForDealQueries()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get execution time for deal queries", ((string[])(null)));
-#line 13
+#line 15
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 14
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 15
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
  testRunner.Then("the query execution time is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -119,10 +119,6 @@ this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line 19
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 20
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
  testRunner.Then("the deal data size is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -133,15 +129,11 @@ this.FeatureBackground();
         public virtual void QueryRedisAndGetRecordCountForDealQueries()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get record count for deal queries", ((string[])(null)));
-#line 23
+#line 21
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 24
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
+#line 22
  testRunner.Then("the deal count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -152,15 +144,11 @@ this.FeatureBackground();
         public virtual void QueryRedisAndGetQuerySpeedInBytesPerSecond()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get query speed in bytes per second", ((string[])(null)));
-#line 28
+#line 24
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 29
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 25
  testRunner.Then("the deal query speed in bytes per second is equal to the size of the query divide" +
                     "d by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -172,15 +160,11 @@ this.FeatureBackground();
         public virtual void QueryRedisAndGetQuerySpeedInDealsPerSecond()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get query speed in deals per second", ((string[])(null)));
-#line 33
+#line 27
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 34
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 35
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
+#line 28
  testRunner.Then("the deal query speed in deals per second is equal to the deal count divided by th" +
                     "e elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -192,15 +176,11 @@ this.FeatureBackground();
         public virtual void QueryRedisAndGetTotalRecordCountForDealQueries()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get total record count for deal queries", ((string[])(null)));
-#line 38
+#line 30
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 39
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 31
  testRunner.Then("the total deal count is recorded", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -211,15 +191,11 @@ this.FeatureBackground();
         public virtual void QueryRedisAndGetQuerySpeedInTotalDealsPerSecond()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query redis and get query speed in total deals per second", ((string[])(null)));
-#line 43
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 44
- testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 45
- testRunner.And("I stop measuring the query", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 46
+#line 34
  testRunner.Then("the deal query speed in total deals per second is equal to the deal count divided" +
                     " by the elapsed time", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

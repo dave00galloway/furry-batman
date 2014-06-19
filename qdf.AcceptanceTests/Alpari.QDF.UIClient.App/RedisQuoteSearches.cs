@@ -9,6 +9,7 @@ namespace Alpari.QDF.UIClient.App
     public class RedisQuoteSearches
     {
         private readonly RedisConnectionHelper _redisConnectionHelper;
+        public IEnumerable<PriceQuote> TotalRetrievedQuotes { get; private set; }
 
         public RedisQuoteSearches(RedisConnectionHelper redisConnectionHelper)
         {
@@ -21,11 +22,11 @@ namespace Alpari.QDF.UIClient.App
             quoteSearchCriteria.Resolve();
 
             //get the deals for the date range
-            IEnumerable<PriceQuote> quotes = GetQuotesForDateRange(quoteSearchCriteria.ConvertedStartTime,
+            TotalRetrievedQuotes = GetQuotesForDateRange(quoteSearchCriteria.ConvertedStartTime,
                 quoteSearchCriteria.ConvertedEndTime);
 
             //filter the results using the search parameters
-            _redisConnectionHelper.RetrievedQuotes = FilterQuotesBySearchCriteria(quotes, quoteSearchCriteria);
+            _redisConnectionHelper.RetrievedQuotes = FilterQuotesBySearchCriteria(TotalRetrievedQuotes, quoteSearchCriteria);
         }
 
         private List<PriceQuote> FilterQuotesBySearchCriteria(IEnumerable<PriceQuote> quotes,

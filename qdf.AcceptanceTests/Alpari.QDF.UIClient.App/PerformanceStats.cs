@@ -7,22 +7,20 @@ namespace Alpari.QDF.UIClient.App
 {
     public class PerformanceStats
     {
-        private int _dealCount;
-        private long _dealQuerySize;
-        private decimal _dealQuerySpeedInBytesPerSecond;
-        private string _dealQuerySpeedInBytesPerSecondFormatted;
-        private decimal _dealQuerySpeedInDealsPerSecond;
-        private string _dealQuerySpeedInDealsPerSecondFormatted;
         private TimeSpan _executionTime;
         private long _initialMemory;
-        private int _totalDealCount;
-        private decimal _totalDealQuerySpeedInDealsPerSecond;
-        private string _totalDealQuerySpeedInDealsPerSecondFormatted;
+        private long _querySize;
+        private readonly DealQueryPerformance _dealQueryPerformance;
+        private readonly QuoteQueryPerformance _quoteQueryPerformance;
+        private decimal _querySpeedInBytesPerSecond;
+        private string _querySpeedInBytesPerSecondFormatted;
 
         public PerformanceStats(RedisConnectionHelper redisConnectionHelper)
         {
             RedisConnectionHelper = redisConnectionHelper;
             QueryTimer = new Stopwatch();
+            _dealQueryPerformance = new DealQueryPerformance(this);
+            _quoteQueryPerformance = new QuoteQueryPerformance(this);
         }
 
         /// <summary>
@@ -40,135 +38,59 @@ namespace Alpari.QDF.UIClient.App
             }
         }
 
-        private RedisConnectionHelper RedisConnectionHelper { get; set; }
+        internal RedisConnectionHelper RedisConnectionHelper { get; set; }
         private Stopwatch QueryTimer { get; set; }
 
-        public long DealQuerySize
+        public DealQueryPerformance DealQueryPerformance
         {
-            get { return _dealQuerySize; }
+            get { return _dealQueryPerformance; }
+        }
+
+        public QuoteQueryPerformance QuoteQueryPerformance
+        {
+            get { return _quoteQueryPerformance; }
+        }
+
+        public long QuerySize
+        {
+            get { return _querySize; }
             private set
             {
                 if (value < 0)
                 {
                     value = 0;
                 }
-                _dealQuerySize = value;
+                _querySize = value;
             }
         }
 
-        public string DealQuerySizeFormatted { get; private set; }
+        public string QuerySizeFormatted { get; private set; }
 
-        /// <summary>
-        /// gets the number of deals returned by the query that are of interest to the user
-        /// </summary>
-        public int DealCount
+        public decimal QuerySpeedInBytesPerSecond
         {
             get
             {
-                if (_dealCount == default (int))
+                if (_querySpeedInBytesPerSecond == default(decimal) && ExecutionTime > 0)
                 {
-                    DealCount = RedisConnectionHelper.RetrievedDeals.Count;
+                    QuerySpeedInBytesPerSecond = QuerySize / ExecutionTime;
                 }
-                return _dealCount;
+                return _querySpeedInBytesPerSecond;
             }
-            private set { _dealCount = value; }
+            private set { _querySpeedInBytesPerSecond = value; }
         }
 
-        /// <summary>
-        /// gets number of deals returned by query before client side filtering
-        /// </summary>
-        public int TotalDealCount
+        public string QuerySpeedInBytesPerSecondFormatted
         {
             get
             {
-                if (_totalDealCount == default (int))
+                if (_querySpeedInBytesPerSecondFormatted == default(string))
                 {
-                    TotalDealCount = RedisConnectionHelper.RedisDealSearches.TotalRetrievedDeals.Count();
+                    QuerySpeedInBytesPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
+                        "{0:N0} Bytes/Second", QuerySpeedInBytesPerSecond);
                 }
-                return _totalDealCount;
+                return _querySpeedInBytesPerSecondFormatted;
             }
-            private set { _totalDealCount = value; }
-        }
-
-        public decimal DealQuerySpeedInBytesPerSecond
-        {
-            get
-            {
-                if (_dealQuerySpeedInBytesPerSecond == default(long) && ExecutionTime > 0)
-                {
-                    DealQuerySpeedInBytesPerSecond = DealQuerySize/ExecutionTime;
-                }
-                return _dealQuerySpeedInBytesPerSecond;
-            }
-            private set { _dealQuerySpeedInBytesPerSecond = value; }
-        }
-
-        public string DealQuerySpeedInBytesPerSecondFormatted
-        {
-            get
-            {
-                if (_dealQuerySpeedInBytesPerSecondFormatted == default (string))
-                {
-                    DealQuerySpeedInBytesPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
-                        "{0:N0} Bytes/Second", DealQuerySpeedInBytesPerSecond);
-                }
-                return _dealQuerySpeedInBytesPerSecondFormatted;
-            }
-            private set { _dealQuerySpeedInBytesPerSecondFormatted = value; }
-        }
-
-        public decimal DealQuerySpeedInDealsPerSecond
-        {
-            get
-            {
-                if (_dealQuerySpeedInDealsPerSecond == default(decimal) && ExecutionTime > 0)
-                {
-                    DealQuerySpeedInDealsPerSecond = DealCount/ExecutionTime;
-                }
-                return _dealQuerySpeedInDealsPerSecond;
-            }
-            private set { _dealQuerySpeedInDealsPerSecond = value; }
-        }
-
-        public string DealQuerySpeedInDealsPerSecondFormatted
-        {
-            get
-            {
-                if (_dealQuerySpeedInDealsPerSecondFormatted == default (string))
-                {
-                    DealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
-                        "{0:N0} Deals/Second", DealQuerySpeedInDealsPerSecond);
-                }
-                return _dealQuerySpeedInDealsPerSecondFormatted;
-            }
-            private set { _dealQuerySpeedInDealsPerSecondFormatted = value; }
-        }
-
-        public decimal TotalDealQuerySpeedInDealsPerSecond
-        {
-            get
-            {
-                if (_totalDealQuerySpeedInDealsPerSecond == default (decimal) && ExecutionTime > 0)
-                {
-                    TotalDealQuerySpeedInDealsPerSecond = TotalDealCount/ExecutionTime;
-                }
-                return _totalDealQuerySpeedInDealsPerSecond;
-            }
-            private set { _totalDealQuerySpeedInDealsPerSecond = value; }
-        }
-
-        public string TotalDealQuerySpeedInDealsPerSecondFormatted
-        {
-            get
-            {
-                if (_totalDealQuerySpeedInDealsPerSecondFormatted == default(string))
-                {
-                    TotalDealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
-                        "{0:N0} Deals/Second", TotalDealQuerySpeedInDealsPerSecond);
-                }
-                return _totalDealQuerySpeedInDealsPerSecondFormatted;
-            }
-            set { _totalDealQuerySpeedInDealsPerSecondFormatted = value; }
+            private set { _querySpeedInBytesPerSecondFormatted = value; }
         }
 
 
@@ -182,8 +104,8 @@ namespace Alpari.QDF.UIClient.App
         {
             QueryTimer.Stop();
             _executionTime = QueryTimer.Elapsed;
-            DealQuerySize = (GC.GetTotalMemory(true) - _initialMemory);
-            DealQuerySizeFormatted = string.Format(new CultureInfo("en-US"), "{0:N0} K", DealQuerySize/1024);
+            QuerySize = (GC.GetTotalMemory(true) - _initialMemory);
+            QuerySizeFormatted = string.Format(new CultureInfo("en-US"), "{0:N0} K", QuerySize/1024);
         }
     }
 }
