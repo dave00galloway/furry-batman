@@ -11,6 +11,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         private string _dealSizeString;
         private decimal _executionTime;
         private int _dealCount;
+        private int _totalDealCount;
 
         [Given(@"I start measuring the query")]
         public void GivenIStartMeasuringTheQuery()
@@ -61,6 +62,13 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             _dealCount.Should().BePositive();
         }
 
+        [Then(@"the total deal count is recorded")]
+        public void ThenTheTotalDealCountIsRecorded()
+        {
+            GetTotalDealCount();
+            _totalDealCount.Should().BePositive();
+        }
+
         [Then(@"the deal query speed in deals per second is equal to the deal count divided by the elapsed time")]
         public void ThenTheDealQuerySpeedInDealsPerSecondIsEqualToTheDealCountDividedByTheElapsedTime()
         {
@@ -74,6 +82,18 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             speedInDealsPerSecond.Should().BeGreaterOrEqualTo(0);
             speedAsString.Should().NotBeNullOrWhiteSpace();
         }
+
+        [Then(@"the deal query speed in total deals per second is equal to the deal count divided by the elapsed time")]
+        public void ThenTheDealQuerySpeedInTotalDealsPerSecondIsEqualToTheDealCountDividedByTheElapsedTime()
+        {
+            GetTotalDealCount();
+            GetExecutionTime();
+            var speedInDealsPerSecond = RedisConnectionHelper.PerformanceStats.TotalDealQuerySpeedInDealsPerSecond;
+            var speedAsString = RedisConnectionHelper.PerformanceStats.TotalDealQuerySpeedInDealsPerSecondFormatted;
+            Console.WriteLine("speedInDealsPerSecond {0}", speedInDealsPerSecond);
+            Console.WriteLine("speedAsString {0}", speedAsString);
+        }
+
 
         //TODO:- create a step base class and add these methods
         private void GetDealQuerySize()
@@ -95,6 +115,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             _dealCount = RedisConnectionHelper.PerformanceStats.DealCount;
             Console.WriteLine("_dealCount {0}",_dealCount);
+        }
+
+        private void GetTotalDealCount()
+        {
+            _totalDealCount = RedisConnectionHelper.PerformanceStats.TotalDealCount;
+            Console.WriteLine("_totalDealCount {0}", _totalDealCount);
         }
 
     }

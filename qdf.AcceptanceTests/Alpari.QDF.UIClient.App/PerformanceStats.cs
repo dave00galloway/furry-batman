@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Globalization;
+using System.Linq;
 
 namespace Alpari.QDF.UIClient.App
 {
@@ -14,6 +15,9 @@ namespace Alpari.QDF.UIClient.App
         private string _dealQuerySpeedInDealsPerSecondFormatted;
         private TimeSpan _executionTime;
         private long _initialMemory;
+        private int _totalDealCount;
+        private decimal _totalDealQuerySpeedInDealsPerSecond;
+        private string _totalDealQuerySpeedInDealsPerSecondFormatted;
 
         public PerformanceStats(RedisConnectionHelper redisConnectionHelper)
         {
@@ -54,6 +58,9 @@ namespace Alpari.QDF.UIClient.App
 
         public string DealQuerySizeFormatted { get; private set; }
 
+        /// <summary>
+        /// gets the number of deals returned by the query that are of interest to the user
+        /// </summary>
         public int DealCount
         {
             get
@@ -65,6 +72,22 @@ namespace Alpari.QDF.UIClient.App
                 return _dealCount;
             }
             private set { _dealCount = value; }
+        }
+
+        /// <summary>
+        /// gets number of deals returned by query before client side filtering
+        /// </summary>
+        public int TotalDealCount
+        {
+            get
+            {
+                if (_totalDealCount == default (int))
+                {
+                    TotalDealCount = RedisConnectionHelper.RedisDealSearches.TotalRetrievedDeals.Count();
+                }
+                return _totalDealCount;
+            }
+            private set { _totalDealCount = value; }
         }
 
         public decimal DealQuerySpeedInBytesPerSecond
@@ -120,6 +143,34 @@ namespace Alpari.QDF.UIClient.App
             }
             private set { _dealQuerySpeedInDealsPerSecondFormatted = value; }
         }
+
+        public decimal TotalDealQuerySpeedInDealsPerSecond
+        {
+            get
+            {
+                if (_totalDealQuerySpeedInDealsPerSecond == default (decimal) && ExecutionTime > 0)
+                {
+                    TotalDealQuerySpeedInDealsPerSecond = TotalDealCount/ExecutionTime;
+                }
+                return _totalDealQuerySpeedInDealsPerSecond;
+            }
+            private set { _totalDealQuerySpeedInDealsPerSecond = value; }
+        }
+
+        public string TotalDealQuerySpeedInDealsPerSecondFormatted
+        {
+            get
+            {
+                if (_totalDealQuerySpeedInDealsPerSecondFormatted == default(string))
+                {
+                    TotalDealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
+                        "{0:N0} Deals/Second", TotalDealQuerySpeedInDealsPerSecond);
+                }
+                return _totalDealQuerySpeedInDealsPerSecondFormatted;
+            }
+            set { _totalDealQuerySpeedInDealsPerSecondFormatted = value; }
+        }
+
 
         public void Start()
         {

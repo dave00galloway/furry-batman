@@ -78,7 +78,7 @@ namespace CompareCnxHubCsvWithRedisCnxDeals.Steps
             {
                 RedisConnectionHelper.Connection.Close(false);
             }
-            catch (TimeoutException e)
+            catch (TimeoutException)
             {
                 Console.WriteLine("already closed");
             }

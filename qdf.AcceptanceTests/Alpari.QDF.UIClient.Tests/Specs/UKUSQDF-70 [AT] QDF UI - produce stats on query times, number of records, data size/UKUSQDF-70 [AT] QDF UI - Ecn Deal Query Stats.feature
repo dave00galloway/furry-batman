@@ -33,3 +33,13 @@ Scenario: Query redis and get query speed in deals per second
 	When I retrieve the qdf deal data
 	And I stop measuring the query
 	Then the deal query speed in deals per second is equal to the deal count divided by the elapsed time
+
+Scenario: Query redis and get total record count for deal queries
+	When I retrieve the qdf deal data
+	And I stop measuring the query
+	Then the total deal count is recorded
+
+Scenario: Query redis and get query speed in total deals per second
+	When I retrieve the qdf deal data
+	And I stop measuring the query
+	Then the deal query speed in total deals per second is equal to the deal count divided by the elapsed time

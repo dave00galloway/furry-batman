@@ -9,6 +9,7 @@ namespace Alpari.QDF.UIClient.App
     public class RedisDealSearches
     {
         private readonly RedisConnectionHelper _redisConnectionHelper;
+        public IEnumerable<Deal> TotalRetrievedDeals { get; private set; }
 
         public RedisDealSearches(RedisConnectionHelper redisConnectionHelper)
         {
@@ -25,11 +26,11 @@ namespace Alpari.QDF.UIClient.App
             dealSearchCriteria.Resolve();
 
             //get the deals for the date range
-            IEnumerable<Deal> deals = GetDealsForDateRange(dealSearchCriteria.DealSource, dealSearchCriteria.ConvertedStartTime,
+            TotalRetrievedDeals = GetDealsForDateRange(dealSearchCriteria.DealSource, dealSearchCriteria.ConvertedStartTime,
                 dealSearchCriteria.ConvertedEndTime);
 
             //filter the results using the search parameters
-            _redisConnectionHelper.RetrievedDeals = FilterDealsBySearchCriteria(deals, dealSearchCriteria);
+            _redisConnectionHelper.RetrievedDeals = FilterDealsBySearchCriteria(TotalRetrievedDeals, dealSearchCriteria);
         }
 
         private List<Deal> FilterDealsBySearchCriteria(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)
