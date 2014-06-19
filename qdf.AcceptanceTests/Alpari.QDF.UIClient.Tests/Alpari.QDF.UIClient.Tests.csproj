@@ -114,6 +114,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - Deal Query Stats1.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-70 [AT] QDF UI - Deal Query Stats.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,9 +164,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-69 [AT] QDF UI - add ability to query on Quotes as well as deals.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size.feature">
+    <None Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - Deal Query Stats.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size.feature.cs</LastGenOutput>
+      <LastGenOutput>UKUSQDF-70 [AT] QDF UI - Deal Query Stats1.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

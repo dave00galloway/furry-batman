@@ -1,13 +1,12 @@
-﻿@UKUSQDF_70
-Feature: UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size
-	In order to benchmark query performance
+﻿Feature: UKUSQDF-70 [AT] QDF UI - Ecn Deal Query Stats
+	In order to benchmark ecn deal query performance
 	As a QDF Analyst
 	I want to be told the execution time, data size, number of records in a query
 
 Background: Set up Deal Query and start timing
 	Given I have the following search criteria for qdf deals
-	 | Book | Symbol | Server      | ConvertedStartTime   | ConvertedEndTime     |
-	 | B    | EURUSD | Mt4Classic2 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
+	| DealSource  | Book | Symbol | Server      | ConvertedStartTime   | ConvertedEndTime     |
+	 | ecn-deals  | B    | EURUSD | Mt4Classic2 | 05/05/2014  12:45:42 | 05/05/2014  12:49:51 |
 	 And I start measuring the query
 
 Scenario: Query redis and get execution time for deal queries
