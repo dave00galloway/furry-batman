@@ -14,6 +14,7 @@ namespace Alpari.QDF.UIClient.App
         public RedisQuoteSearches(RedisConnectionHelper redisConnectionHelper)
         {
             _redisConnectionHelper = redisConnectionHelper;
+            TotalRetrievedQuotes = new List<PriceQuote>();
         }
 
         public void GetQuoteData(QuoteSearchCriteria quoteSearchCriteria)

@@ -65,5 +65,27 @@ namespace Alpari.QDF.UIClient.Gui
         {
             Program.SwitchForm(form,comboBox.SelectedItem.ToString());
         }
+
+        public static void ShowQueryStatsCheckBox_CheckedChanged(this CheckBox checkBox, RichTextBox richTextBox)
+        {
+            switch (checkBox.CheckState)
+            {
+                case CheckState.Checked:
+                    richTextBox.Text = "";
+                    richTextBox.Visible = true;
+                    richTextBox.AddContextMenu();
+                    break;
+                default:
+                    richTextBox.Text = "";
+                    richTextBox.Visible = false;
+                    richTextBox.ContextMenu = new ContextMenu();
+                    break;
+            }
+        }
+
+        public static void ShowQueryStats(this RichTextBox richTextBox, PerformanceStats performanceStats, string selectedItem)
+        {
+            richTextBox.Lines = performanceStats.GetStats(selectedItem);
+        }
     }
 }

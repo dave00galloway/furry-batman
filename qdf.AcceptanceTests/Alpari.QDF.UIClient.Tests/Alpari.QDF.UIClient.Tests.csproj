@@ -124,11 +124,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-70 [AT] QDF UI - Quote Query Stats.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - UI Support for Stats .feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-70 [AT] QDF UI - UI Support for Stats .feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\DealPerformanceStats.cs" />
     <Compile Include="Steps\OutputToCsvStepBase.cs" />
     <Compile Include="Steps\OutputToCsvSteps.cs" />
     <Compile Include="Steps\QdfDataRetrievalStepBase.cs" />
@@ -175,6 +181,10 @@
     <None Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - Quote Query Stats.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-70 [AT] QDF UI - Quote Query Stats.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-70 [AT] QDF UI - produce stats on query times, number of records, data size\UKUSQDF-70 [AT] QDF UI - UI Support for Stats .feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-70 [AT] QDF UI - UI Support for Stats .feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

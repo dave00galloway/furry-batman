@@ -56,5 +56,28 @@ namespace Alpari.QDF.UIClient.Gui
                 timePicker.Value.Hour, timePicker.Value.Minute, timePicker.Value.Second);
             return dateTime;
         }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/18966407/enable-copy-cut-past-window-in-a-rich-text-box
+        /// TODO:- add overload taking string[] to denote which features to enable
+        /// </summary>
+        /// <param name="rtb"></param>
+        public static void AddContextMenu(this RichTextBox rtb)
+        {
+            if (rtb.ContextMenuStrip == null)
+            {
+                ContextMenuStrip cms = new ContextMenuStrip { ShowImageMargin = false };
+                ToolStripMenuItem tsmiCut = new ToolStripMenuItem("Cut");
+                tsmiCut.Click += (sender, e) => rtb.Cut();
+                cms.Items.Add(tsmiCut);
+                ToolStripMenuItem tsmiCopy = new ToolStripMenuItem("Copy");
+                tsmiCopy.Click += (sender, e) => rtb.Copy();
+                cms.Items.Add(tsmiCopy);
+                ToolStripMenuItem tsmiPaste = new ToolStripMenuItem("Paste");
+                tsmiPaste.Click += (sender, e) => rtb.Paste();
+                cms.Items.Add(tsmiPaste);
+                rtb.ContextMenuStrip = cms;
+            }
+        }
     }
 }

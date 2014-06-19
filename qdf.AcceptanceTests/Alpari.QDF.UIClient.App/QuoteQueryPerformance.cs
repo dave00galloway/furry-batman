@@ -12,12 +12,12 @@ namespace Alpari.QDF.UIClient.App
         private int _totalQuoteCount;
         private decimal _totalQuoteQuerySpeedInDealsPerSecond;
         private string _totalQuoteQuerySpeedInDealsPerSecondFormatted;
-        //private decimal _quoteQuerySpeedInBytesPerSecond;
-        //private string _quoteQuerySpeedInBytesPerSecondFormatted;
 
         public QuoteQueryPerformance(PerformanceStats performanceStats)
         {
             _performanceStats = performanceStats;
+            QuoteQuerySpeedInDealsPerSecondFormatted = "";
+            TotalQuoteQuerySpeedInDealsPerSecondFormatted = "";
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_quoteQuerySpeedInDealsPerSecondFormatted == default(string))
+                if (_quoteQuerySpeedInDealsPerSecondFormatted == "")
                 {
                     QuoteQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
                         "{0:N0} Quotes/Second", QuoteQuerySpeedInDealsPerSecond);
@@ -96,7 +96,7 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_totalQuoteQuerySpeedInDealsPerSecondFormatted == default(string))
+                if (_totalQuoteQuerySpeedInDealsPerSecondFormatted == "")
                 {
                     TotalQuoteQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
                         "{0:N0} Quotes/Second", _totalQuoteQuerySpeedInDealsPerSecondFormatted);

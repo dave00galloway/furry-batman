@@ -1,6 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Alpari.QDF.UIClient.App.ControlHelpers;
+using Alpari.QDF.UIClient.Tests.Helpers;
 using FluentAssertions;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
 {
@@ -8,23 +13,39 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QueryExecutionStatsSteps : StepCentral
     {
         private int _dealCount;
+        private decimal _executionTime;
         private long _querySize;
         private string _querySizeString;
-        private decimal _executionTime;
-        private int _totalDealCount;
         private int _quoteCount;
+        private int _totalDealCount;
         private int _totalQuoteCount;
 
         [Given(@"I start measuring the query")]
+        [When(@"I start measuring the query")]
         public void GivenIStartMeasuringTheQuery()
         {
             RedisConnectionHelper.PerformanceStats.Start();
+        }
+
+        [Given(@"I have queried and displayed the deal query stats")]
+        public void GivenIHaveQueriedAndDisplayedTheDealQueryStats()
+        {
+            GivenIStartMeasuringTheQuery();
+            QdfDataRetrievalSteps.WhenIRetrieveTheQdfDealData();
+            WhenIStopMeasuringTheQuery();
+            ThenTheStatsForADealQueryAreDisplayed();
         }
 
         [When(@"I stop measuring the query")]
         public void WhenIStopMeasuringTheQuery()
         {
             RedisConnectionHelper.PerformanceStats.Stop();
+        }
+
+        [When(@"I reset the performance stats")]
+        public void WhenIResetThePerformanceStats()
+        {
+            RedisConnectionHelper.ResetPerformanceStats();
         }
 
 
@@ -44,7 +65,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             _querySizeString.Should().NotBeNullOrWhiteSpace();
         }
 
-        [Then(@"the quote query speed in bytes per second is equal to the size of the query divided by the elapsed time")]
+        [Then(@"the quote query speed in bytes per second is equal to the size of the query divided by the elapsed time"
+            )]
         [Then(@"the deal query speed in bytes per second is equal to the size of the query divided by the elapsed time")
         ]
         public void ThenTheDealQuerySpeedInBytesPerSecondIsEqualToTheSizeOfTheQueryDividedByTheElapsedTime()
@@ -117,7 +139,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 RedisConnectionHelper.PerformanceStats.QuoteQueryPerformance.QuoteQuerySpeedInDealsPerSecondFormatted;
             Console.WriteLine("speedInQuotesPerSecond {0}", speedInQuotesPerSecond);
             Console.WriteLine("speedAsString {0}", speedAsString);
-            speedInQuotesPerSecond.Should().Be(_quoteCount / _executionTime);
+            speedInQuotesPerSecond.Should().Be(_quoteCount/_executionTime);
             speedInQuotesPerSecond.Should().BeGreaterOrEqualTo(0);
             speedAsString.Should().NotBeNullOrWhiteSpace();
         }
@@ -136,7 +158,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             Console.WriteLine("speedAsString {0}", speedAsString);
         }
 
-        [Then(@"the deal quote speed in total quotes per second is equal to the quote count divided by the elapsed time")]
+        [Then(@"the deal quote speed in total quotes per second is equal to the quote count divided by the elapsed time"
+            )]
         public void ThenTheDealQuoteSpeedInTotalQuotesPerSecondIsEqualToTheQuoteCountDividedByTheElapsedTime()
         {
             GetTotalQuoteCount();
@@ -144,13 +167,95 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             decimal speedInQuotesPerSecond =
                 RedisConnectionHelper.PerformanceStats.QuoteQueryPerformance.TotalQuoteQuerySpeedInDealsPerSecond;
             string speedAsString =
-                RedisConnectionHelper.PerformanceStats.QuoteQueryPerformance.TotalQuoteQuerySpeedInDealsPerSecondFormatted;
+                RedisConnectionHelper.PerformanceStats.QuoteQueryPerformance
+                    .TotalQuoteQuerySpeedInDealsPerSecondFormatted;
             Console.WriteLine("speedInQuotesPerSecond {0}", speedInQuotesPerSecond);
             Console.WriteLine("speedAsString {0}", speedAsString);
-            speedInQuotesPerSecond.Should().Be(_totalQuoteCount / _executionTime);
+            speedInQuotesPerSecond.Should().Be(_totalQuoteCount/_executionTime);
             speedInQuotesPerSecond.Should().BeGreaterOrEqualTo(0);
             speedAsString.Should().NotBeNullOrWhiteSpace();
         }
+
+        [Then(@"the stats for a deal query are displayed")]
+        public void ThenTheStatsForADealQueryAreDisplayed()
+        {
+            string[] retrievedStats = RedisConnectionHelper.PerformanceStats.GetStats(SupportedDataTypesControl.DEAL);
+            string statsData;
+            string reason;
+            IList<string> enumerable = SetupStatsDataAndReason(retrievedStats, out statsData, out reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("ExecutionTime"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("QuerySize"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in bytes"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in deals"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("TotalDealCount"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in total deals"))
+                .Should()
+                .BeTrue(reason);
+
+            Console.WriteLine(statsData);
+        }
+
+
+        [Then(@"the stats for a quote query are displayed")]
+        public void ThenTheStatsForAQuoteQueryAreDisplayed()
+        {
+            string[] retrievedStats =
+                RedisConnectionHelper.PerformanceStats.GetStats(SupportedDataTypesControl.PRICE_QUOTE);
+            string statsData;
+            string reason;
+            IList<string> enumerable = SetupStatsDataAndReason(retrievedStats, out statsData, out reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("ExecutionTime"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("QuerySize"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in bytes"))
+                .Should()
+                .BeTrue(reason);
+        }
+
+        [Then(@"the deal performance stats are:")]
+        public void ThenTheDealPerformanceStatsAre(DealPerformanceStats dealPerformanceStats)
+        {
+            RedisConnectionHelper.PerformanceStats.ExecutionTime.Should().Be(dealPerformanceStats.ExecutionTime);
+            RedisConnectionHelper.PerformanceStats.QuerySize.Should().Be(dealPerformanceStats.QuerySize);
+            RedisConnectionHelper.PerformanceStats.QuerySizeFormatted.Should()
+                .Be(dealPerformanceStats.QuerySizeFormatted);
+            RedisConnectionHelper.PerformanceStats.QuerySpeedInBytesPerSecond.Should()
+                .Be(dealPerformanceStats.QuerySpeedInBytesPerSecond);
+            RedisConnectionHelper.PerformanceStats.QuerySpeedInBytesPerSecondFormatted.Should()
+                .Be(dealPerformanceStats.QuerySpeedInBytesPerSecondFormatted);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.DealCount.Should()
+                .Be(dealPerformanceStats.DealCount);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.TotalDealCount.Should()
+                .Be(dealPerformanceStats.TotalDealCount);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.DealQuerySpeedInDealsPerSecond.Should()
+                .Be(dealPerformanceStats.DealQuerySpeedInDealsPerSecond);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.DealQuerySpeedInDealsPerSecondFormatted.Should()
+                .Be(dealPerformanceStats.DealQuerySpeedInDealsPerSecondFormatted);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.TotalDealQuerySpeedInDealsPerSecond.Should()
+                .Be(dealPerformanceStats.TotalDealQuerySpeedInDealsPerSecond);
+            RedisConnectionHelper.PerformanceStats.DealQueryPerformance.TotalDealQuerySpeedInDealsPerSecondFormatted
+                .Should().Be(dealPerformanceStats.TotalDealQuerySpeedInDealsPerSecondFormatted);
+        }
+
+        [StepArgumentTransformation]
+        public static DealPerformanceStats DealSearchParametersTransform(Table table)
+        {
+            return table.CreateInstance<DealPerformanceStats>();
+        }
+
 
         //TODO:- create a step base class and add these methods
         private void GetQuerySize()
@@ -191,6 +296,16 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             _totalQuoteCount = RedisConnectionHelper.PerformanceStats.QuoteQueryPerformance.TotalQuoteCount;
             Console.WriteLine("_totalQuoteCount {0}", _totalQuoteCount);
+        }
+
+        private static IList<string> SetupStatsDataAndReason(IEnumerable<string> retrievedStats, out string statsData,
+            out string reason)
+        {
+            IList<string> enumerable = retrievedStats as IList<string> ?? retrievedStats.ToList();
+            statsData = String.Join("\r\n", enumerable);
+            statsData = String.Format("\r\n \r\n {0} \r\n", statsData);
+            reason = String.Format(" the stats report should contain this field but it doesn't. see {0} \r\n", statsData);
+            return enumerable;
         }
     }
 }

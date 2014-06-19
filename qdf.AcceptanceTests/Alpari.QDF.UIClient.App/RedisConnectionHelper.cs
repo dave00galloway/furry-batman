@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpari.QDF.Domain;
-using Alpari.QDF.UIClient.App.QueryableEntities;
+﻿using Alpari.QDF.Domain;
 using BookSleeve;
+using System.Collections.Generic;
 
 namespace Alpari.QDF.UIClient.App
 {
@@ -12,8 +9,8 @@ namespace Alpari.QDF.UIClient.App
     /// </summary>
     public class RedisConnectionHelper
     {
-        private readonly RedisDealSearches _redisDealSearches;
-        private readonly RedisQuoteSearches _redisQuoteSearches;
+        private RedisDealSearches _redisDealSearches;
+        private RedisQuoteSearches _redisQuoteSearches;
         private PerformanceStats _performanceStats;
 
         public RedisConnectionHelper(string redisHost)
@@ -30,7 +27,7 @@ namespace Alpari.QDF.UIClient.App
         public List<Deal> RetrievedDeals { get; set; }
         public RedisDataStore QuoteStore { get; set; }
         public List<PriceQuote> RetrievedQuotes { get; set; }
-        public RedisConnection Connection { get; set; }
+        public RedisConnection Connection { get; private set; }
         public string RedisHost { get; private set; }
 
         public RedisDealSearches RedisDealSearches
@@ -46,6 +43,28 @@ namespace Alpari.QDF.UIClient.App
         public PerformanceStats PerformanceStats
         {
             get { return _performanceStats; }
+        }
+
+        /// <summary>
+        /// bit hacky, should really be usingthe exporter and just reset the whole connection
+        /// </summary>
+        public void ResetPerformanceStats()
+        {
+            DealsStore = null;
+            if (RetrievedDeals != null)
+            {
+                RetrievedDeals.Clear();
+            }
+            
+            QuoteStore = null;
+            if (RetrievedQuotes != null)
+            {
+                RetrievedQuotes.Clear();
+            }
+
+            _redisDealSearches = new RedisDealSearches(this);
+            _redisQuoteSearches = new RedisQuoteSearches(this);
+            _performanceStats = new PerformanceStats(this);
         }
     }
 }

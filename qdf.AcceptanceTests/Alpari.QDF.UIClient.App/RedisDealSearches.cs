@@ -14,6 +14,7 @@ namespace Alpari.QDF.UIClient.App
         public RedisDealSearches(RedisConnectionHelper redisConnectionHelper)
         {
             _redisConnectionHelper = redisConnectionHelper;
+            TotalRetrievedDeals = new List<Deal>();
         }
 
         /// <summary>

@@ -8,8 +8,6 @@ namespace Alpari.QDF.UIClient.App
         private readonly PerformanceStats _performanceStats;
         private int _dealCount;
         private int _totalDealCount;
-        private decimal _dealQuerySpeedInBytesPerSecond;
-        private string _dealQuerySpeedInBytesPerSecondFormatted;
         private decimal _dealQuerySpeedInDealsPerSecond;
         private string _dealQuerySpeedInDealsPerSecondFormatted;
         private decimal _totalDealQuerySpeedInDealsPerSecond;
@@ -18,9 +16,9 @@ namespace Alpari.QDF.UIClient.App
         public DealQueryPerformance(PerformanceStats performanceStats)
         {
             _performanceStats = performanceStats;
+            DealQuerySpeedInDealsPerSecondFormatted = "";
+            TotalDealQuerySpeedInDealsPerSecondFormatted = "";
         }
-
-
 
         /// <summary>
         /// gets the number of deals returned by the query that are of interest to the user
@@ -71,7 +69,7 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_dealQuerySpeedInDealsPerSecondFormatted == default (string))
+                if (_dealQuerySpeedInDealsPerSecondFormatted == "")
                 {
                     DealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
                         "{0:N0} Deals/Second", DealQuerySpeedInDealsPerSecond);
@@ -98,7 +96,7 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_totalDealQuerySpeedInDealsPerSecondFormatted == default(string))
+                if (_totalDealQuerySpeedInDealsPerSecondFormatted == "")
                 {
                     TotalDealQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
                         "{0:N0} Deals/Second", TotalDealQuerySpeedInDealsPerSecond);

@@ -83,7 +83,20 @@ namespace Alpari.QDF.UIClient.Gui
         private void GetDealDataAndReportOutcome()
         {
             displayTextBox.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
+            if (showQueryStatsCheckBox.Checked)
+            {
+                if (statsRichTextBox.Text != default(string) || statsRichTextBox.Lines.Any())
+                {
+                    Exporter.RedisConnectionHelper.ResetPerformanceStats();
+                }
+                Exporter.RedisConnectionHelper.PerformanceStats.Start();
+            }
             Exporter.RedisConnectionHelper.RedisDealSearches.GetDealData(SetupDealQuery());
+            if (showQueryStatsCheckBox.Checked)
+            {
+                Exporter.RedisConnectionHelper.PerformanceStats.Stop();
+                statsRichTextBox.ShowQueryStats(Exporter.RedisConnectionHelper.PerformanceStats, (string) dataTypeComboBox.SelectedItem);
+            }
             displayTextBox.Text = Exporter.RedisConnectionHelper.RetrievedDeals.Any()
                 ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data
                 : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
@@ -150,6 +163,11 @@ namespace Alpari.QDF.UIClient.Gui
         private void dataTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             dataTypeComboBox.DataTypeComboBox_SelectedIndexChanged(this);
+        }
+
+        private void ShowQueryStatsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            showQueryStatsCheckBox.ShowQueryStatsCheckBox_CheckedChanged(statsRichTextBox);
         }
     }
 }
