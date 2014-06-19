@@ -9,7 +9,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     {
         private long _dealQuerySize;
         private string _dealSizeString;
-        private TimeSpan _executionTime;
+        private decimal _executionTime;
         private int _dealCount;
 
         [Given(@"I start measuring the query")]
@@ -47,10 +47,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             GetExecutionTime();
             var speedInBytesPerSecond = RedisConnectionHelper.PerformanceStats.DealQuerySpeedInBytesPerSecond;
             var speedAsString = RedisConnectionHelper.PerformanceStats.DealQuerySpeedInBytesPerSecondFormatted;
-            Console.WriteLine(speedInBytesPerSecond);
-            Console.WriteLine(speedAsString);
-            speedInBytesPerSecond.Should().Be(_dealQuerySize/(decimal)_executionTime.TotalSeconds);
-            speedInBytesPerSecond.Should().BePositive(" or at least 0");
+            Console.WriteLine("speedInBytesPerSecond {0}",speedInBytesPerSecond);
+            Console.WriteLine("speedAsString {0}",speedAsString);
+            speedInBytesPerSecond.Should().Be(_dealQuerySize/_executionTime);
+            speedInBytesPerSecond.Should().BeGreaterOrEqualTo(0);
             speedAsString.Should().NotBeNullOrWhiteSpace();
         }
 
@@ -67,8 +67,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             GetDealCount();
             GetExecutionTime();
             var speedInDealsPerSecond = RedisConnectionHelper.PerformanceStats.DealQuerySpeedInDealsPerSecond;
-            Console.WriteLine(speedInDealsPerSecond);
-            speedInDealsPerSecond.Should().Be(_dealCount/(decimal) _executionTime.TotalSeconds);
+            Console.WriteLine("speedInDealsPerSecond {0}",speedInDealsPerSecond);
+            speedInDealsPerSecond.Should().Be(_dealCount/_executionTime);
         }
 
         //TODO:- create a step base class and add these methods
@@ -77,20 +77,20 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             Console.WriteLine("for small queries and when running a whole feature, the query size may be returned as 0. Run as a single scenario for a more accurate answer");
             _dealQuerySize = RedisConnectionHelper.PerformanceStats.DealQuerySize;
             _dealSizeString = RedisConnectionHelper.PerformanceStats.DealQuerySizeFormatted;
-            Console.WriteLine(_dealQuerySize);
-            Console.WriteLine(_dealSizeString);
+            Console.WriteLine("_dealQuerySize {0}",_dealQuerySize);
+            Console.WriteLine("_dealSizeString {0}", _dealSizeString);
         }
 
         private void GetExecutionTime()
         {
             _executionTime = RedisConnectionHelper.PerformanceStats.ExecutionTime;
-            Console.WriteLine(_executionTime);
+            Console.WriteLine("_executionTime {0}", _executionTime);
         }
 
         private void GetDealCount()
         {
             _dealCount = RedisConnectionHelper.PerformanceStats.DealCount;
-            Console.WriteLine(_dealCount);
+            Console.WriteLine("_dealCount {0}",_dealCount);
         }
 
     }

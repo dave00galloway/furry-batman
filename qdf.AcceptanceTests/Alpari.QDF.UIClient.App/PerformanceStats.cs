@@ -20,10 +20,19 @@ namespace Alpari.QDF.UIClient.App
             QueryTimer = new Stopwatch();
         }
 
-        public TimeSpan ExecutionTime
+        /// <summary>
+        /// time in seconds that a query took to run
+        /// </summary>
+        public decimal ExecutionTime
         {
-            get { return _executionTime; }
-            private set { _executionTime = value; }
+            get
+            {
+                if (_executionTime.TotalSeconds > 0)
+                {
+                    return (decimal) _executionTime.TotalSeconds;
+                }
+                return ((decimal)_executionTime.TotalMilliseconds) / 1000;
+            }
         }
 
         private RedisConnectionHelper RedisConnectionHelper { get; set; }
@@ -61,9 +70,9 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_dealQuerySpeedInBytesPerSecond == default(long) && ExecutionTime.TotalSeconds > 0)
+                if (_dealQuerySpeedInBytesPerSecond == default(long) && ExecutionTime > 0)
                 {
-                    DealQuerySpeedInBytesPerSecond = DealQuerySize/(decimal) ExecutionTime.TotalSeconds;
+                    DealQuerySpeedInBytesPerSecond = DealQuerySize/ExecutionTime;
                 }
                 return _dealQuerySpeedInBytesPerSecond;
             }
@@ -88,9 +97,9 @@ namespace Alpari.QDF.UIClient.App
         {
             get
             {
-                if (_dealQuerySpeedInDealsPerSecond == default(decimal) && ExecutionTime.TotalSeconds > 0)
+                if (_dealQuerySpeedInDealsPerSecond == default(decimal) && ExecutionTime > 0)
                 {
-                    DealQuerySpeedInDealsPerSecond = DealQuerySize/(decimal) ExecutionTime.TotalSeconds;
+                    DealQuerySpeedInDealsPerSecond = DealCount/ExecutionTime;
                 }
                 return _dealQuerySpeedInDealsPerSecond;
             }
@@ -106,7 +115,7 @@ namespace Alpari.QDF.UIClient.App
         public void Stop()
         {
             QueryTimer.Stop();
-            ExecutionTime = QueryTimer.Elapsed;
+            _executionTime = QueryTimer.Elapsed;
             DealQuerySize = (GC.GetTotalMemory(true) - _initialMemory);
             DealQuerySizeFormatted = string.Format(new CultureInfo("en-US"), "{0:N0} K", DealQuerySize/1024);
         }
