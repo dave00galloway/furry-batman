@@ -303,7 +303,7 @@ namespace Alpari.QDF.UIClient.Gui
             this.statsRichTextBox.Location = new System.Drawing.Point(15, 213);
             this.statsRichTextBox.Name = "statsRichTextBox";
             this.statsRichTextBox.ReadOnly = true;
-            this.statsRichTextBox.Size = new System.Drawing.Size(100, 96);
+            this.statsRichTextBox.Size = new System.Drawing.Size(139, 217);
             this.statsRichTextBox.TabIndex = 27;
             this.statsRichTextBox.Text = "";
             this.statsRichTextBox.Visible = false;

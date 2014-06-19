@@ -16,5 +16,10 @@ namespace Alpari.QDF.UIClient.Gui
         {
             InitializeComponent();
         }
+
+        private void EcnDealsSearchAndRetrievalOptions_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

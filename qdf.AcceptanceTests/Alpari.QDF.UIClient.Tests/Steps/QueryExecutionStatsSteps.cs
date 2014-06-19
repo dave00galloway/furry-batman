@@ -223,6 +223,16 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in bytes"))
                 .Should()
                 .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in quotes"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("TotalQuoteCount"))
+                .Should()
+                .BeTrue(reason);
+            enumerable.Any(retrievedStat => retrievedStat.Split(':')[0].Trim().Equals("Query Speed in total quotes"))
+                .Should()
+                .BeTrue(reason);
+            Console.WriteLine(statsData);
         }
 
         [Then(@"the deal performance stats are:")]

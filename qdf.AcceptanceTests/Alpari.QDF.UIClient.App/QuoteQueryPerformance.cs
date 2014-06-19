@@ -99,7 +99,7 @@ namespace Alpari.QDF.UIClient.App
                 if (_totalQuoteQuerySpeedInDealsPerSecondFormatted == "")
                 {
                     TotalQuoteQuerySpeedInDealsPerSecondFormatted = string.Format(new CultureInfo("en-GB"),
-                        "{0:N0} Quotes/Second", _totalQuoteQuerySpeedInDealsPerSecondFormatted);
+                        "{0:N0} Quotes/Second", TotalQuoteQuerySpeedInDealsPerSecond);
                 }
                 return _totalQuoteQuerySpeedInDealsPerSecondFormatted;
             }

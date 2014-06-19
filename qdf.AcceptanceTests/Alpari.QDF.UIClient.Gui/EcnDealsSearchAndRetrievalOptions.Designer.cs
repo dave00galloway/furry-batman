@@ -36,6 +36,7 @@
             this.ClientSize = new System.Drawing.Size(883, 672);
             this.Name = "EcnDealsSearchAndRetrievalOptions";
             this.Text = "Ecn Deals Search And Retrieval Options";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EcnDealsSearchAndRetrievalOptions_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

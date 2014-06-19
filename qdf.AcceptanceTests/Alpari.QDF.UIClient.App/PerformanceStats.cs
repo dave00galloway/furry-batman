@@ -120,23 +120,24 @@ namespace Alpari.QDF.UIClient.App
                 case SupportedDataTypesControl.ECN_DEAL:
                     return new List<string>()
                     {
-                        String.Format("ExecutionTime :- {0}",ExecutionTime.ToString(CultureInfo.InvariantCulture)),
-                        String.Format("QuerySize :- {0}",QuerySizeFormatted),
-                        String.Format("Query Speed in bytes :- {0}",QuerySpeedInBytesPerSecondFormatted),
-                        String.Format("DealCount :- {0}",DealQueryPerformance.DealCount.ToString(CultureInfo.InvariantCulture)),
-                        String.Format("Query Speed in deals :- {0}",DealQueryPerformance.DealQuerySpeedInDealsPerSecondFormatted),
-                        String.Format("TotalDealCount :- {0}",DealQueryPerformance.TotalDealCount),
-                        String.Format("Query Speed in total deals :- {0}",DealQueryPerformance.TotalDealQuerySpeedInDealsPerSecondFormatted)
+                        String.Format("ExecutionTime :- \r\n{0}",ExecutionTime.ToString(CultureInfo.InvariantCulture)),
+                        String.Format("QuerySize :- \r\n{0}",QuerySizeFormatted),
+                        String.Format("Query Speed in bytes :- \r\n{0}",QuerySpeedInBytesPerSecondFormatted),
+                        String.Format("DealCount :- \r\n{0}",DealQueryPerformance.DealCount.ToString(CultureInfo.InvariantCulture)),
+                        String.Format("Query Speed in deals :- \r\n{0}",DealQueryPerformance.DealQuerySpeedInDealsPerSecondFormatted),
+                        String.Format("TotalDealCount :- \r\n{0}",DealQueryPerformance.TotalDealCount),
+                        String.Format("Query Speed in total deals :- \r\n{0}",DealQueryPerformance.TotalDealQuerySpeedInDealsPerSecondFormatted)
                     }.ToArray();
                 case SupportedDataTypesControl.PRICE_QUOTE:
                     return new List<string>()
                     {
-                        String.Format("ExecutionTime :- {0}",ExecutionTime.ToString(CultureInfo.InvariantCulture)),
-                        String.Format("QuerySize :- {0}",QuerySizeFormatted),
-                        String.Format("Query Speed in bytes  :- {0}",QuerySpeedInBytesPerSecondFormatted),
-                        String.Format("QuoteCount :- {0}",QuoteQueryPerformance.QuoteCount.ToString(CultureInfo.InvariantCulture)),
-                        String.Format("Query Speed in deals  :- {0}",QuoteQueryPerformance.TotalQuoteCount.ToString(CultureInfo.InvariantCulture)),
-                        String.Format("Query Speed in total Quotes :- {0}",QuoteQueryPerformance.TotalQuoteQuerySpeedInDealsPerSecondFormatted)
+                        String.Format("ExecutionTime :-\r\n{0}",ExecutionTime.ToString(CultureInfo.InvariantCulture)),
+                        String.Format("QuerySize :-\r\n{0}",QuerySizeFormatted),
+                        String.Format("Query Speed in bytes  :-\r\n{0}",QuerySpeedInBytesPerSecondFormatted),
+                        String.Format("QuoteCount :- \r\n{0}",QuoteQueryPerformance.QuoteCount.ToString(CultureInfo.InvariantCulture)),
+                        String.Format("Query Speed in quotes  :-\r\n{0}",QuoteQueryPerformance.QuoteQuerySpeedInDealsPerSecondFormatted),
+                        String.Format("TotalQuoteCount :-\r\n{0}",QuoteQueryPerformance.TotalQuoteCount),
+                        String.Format("Query Speed in total quotes :-\r\n{0}",QuoteQueryPerformance.TotalQuoteQuerySpeedInDealsPerSecondFormatted)
                     }.ToArray();
 
                 default:

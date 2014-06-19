@@ -81,7 +81,20 @@ namespace Alpari.QDF.UIClient.Gui
             try
             {
                 displayTextBox.Text = Resources.SearchAndRetrievalOptions_FindDeals_Click_Setting_Up_Deal_Query;
+                if (showQueryStatsCheckBox.Checked)
+                {
+                    if (statsRichTextBox.Text != default(string) || statsRichTextBox.Lines.Any())
+                    {
+                        Exporter.RedisConnectionHelper.ResetPerformanceStats();
+                    }
+                    Exporter.RedisConnectionHelper.PerformanceStats.Start();
+                }
                 Exporter.RedisConnectionHelper.RedisQuoteSearches.GetQuoteData(SetupQuoteQuery());
+                if (showQueryStatsCheckBox.Checked)
+                {
+                    Exporter.RedisConnectionHelper.PerformanceStats.Stop();
+                    statsRichTextBox.ShowQueryStats(Exporter.RedisConnectionHelper.PerformanceStats, (string)dataTypeComboBox.SelectedItem);
+                }
                 displayTextBox.Text = Exporter.RedisConnectionHelper.RetrievedQuotes.Any()
                     ? Resources.SearchAndRetrievalOptions_FindDeals_Click_Ready_to_export_data
                     : Resources.SearchAndRetrievalOptions_FindDeals_Click_No_Data_Found;
@@ -112,5 +125,11 @@ namespace Alpari.QDF.UIClient.Gui
 
             return quoteQuery;
         }
+
+        private void showQueryStatsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            showQueryStatsCheckBox.ShowQueryStatsCheckBox_CheckedChanged(statsRichTextBox);
+        }
+
     }
 }

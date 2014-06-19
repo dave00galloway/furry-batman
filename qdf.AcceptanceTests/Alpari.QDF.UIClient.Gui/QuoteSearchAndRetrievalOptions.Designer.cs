@@ -52,6 +52,8 @@ namespace Alpari.QDF.UIClient.Gui
             this.dataTypeComboBox = new System.Windows.Forms.ComboBox();
             this.environmentLabel = new System.Windows.Forms.Label();
             this.quoteSearchButton = new System.Windows.Forms.Button();
+            this.statsRichTextBox = new System.Windows.Forms.RichTextBox();
+            this.showQueryStatsCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // symbolLabel
@@ -245,11 +247,34 @@ namespace Alpari.QDF.UIClient.Gui
             this.quoteSearchButton.UseVisualStyleBackColor = true;
             this.quoteSearchButton.Click += new System.EventHandler(this.quoteSearchButton_Click);
             // 
+            // statsRichTextBox
+            // 
+            this.statsRichTextBox.Location = new System.Drawing.Point(12, 161);
+            this.statsRichTextBox.Name = "statsRichTextBox";
+            this.statsRichTextBox.ReadOnly = true;
+            this.statsRichTextBox.Size = new System.Drawing.Size(139, 217);
+            this.statsRichTextBox.TabIndex = 29;
+            this.statsRichTextBox.Text = "";
+            this.statsRichTextBox.Visible = false;
+            // 
+            // showQueryStatsCheckBox
+            // 
+            this.showQueryStatsCheckBox.AutoSize = true;
+            this.showQueryStatsCheckBox.Location = new System.Drawing.Point(12, 137);
+            this.showQueryStatsCheckBox.Name = "showQueryStatsCheckBox";
+            this.showQueryStatsCheckBox.Size = new System.Drawing.Size(111, 17);
+            this.showQueryStatsCheckBox.TabIndex = 28;
+            this.showQueryStatsCheckBox.Text = "Show Query Stats";
+            this.showQueryStatsCheckBox.UseVisualStyleBackColor = true;
+            this.showQueryStatsCheckBox.CheckedChanged += new System.EventHandler(this.showQueryStatsCheckBox_CheckedChanged);
+            // 
             // QuoteSearchAndRetrievalOptions
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(883, 672);
+            this.Controls.Add(this.statsRichTextBox);
+            this.Controls.Add(this.showQueryStatsCheckBox);
             this.Controls.Add(this.quoteSearchButton);
             this.Controls.Add(this.dataTypeComboBox);
             this.Controls.Add(this.dataTypeLabel);
@@ -305,5 +330,7 @@ namespace Alpari.QDF.UIClient.Gui
         protected ComboBox dataTypeComboBox;
         private Label environmentLabel;
         private Button quoteSearchButton;
+        private RichTextBox statsRichTextBox;
+        private CheckBox showQueryStatsCheckBox;
     }
 }

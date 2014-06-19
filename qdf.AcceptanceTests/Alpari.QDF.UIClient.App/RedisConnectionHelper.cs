@@ -9,18 +9,14 @@ namespace Alpari.QDF.UIClient.App
     /// </summary>
     public class RedisConnectionHelper
     {
-        private RedisDealSearches _redisDealSearches;
-        private RedisQuoteSearches _redisQuoteSearches;
-        private PerformanceStats _performanceStats;
-
         public RedisConnectionHelper(string redisHost)
         {
             RedisHost = redisHost;
             Connection = new RedisConnection(RedisHost);
             Connection.Open();
-            _redisDealSearches = new RedisDealSearches(this);
-            _redisQuoteSearches = new RedisQuoteSearches(this);
-            _performanceStats = new PerformanceStats(this);
+            RedisDealSearches = new RedisDealSearches(this);
+            RedisQuoteSearches = new RedisQuoteSearches(this);
+            PerformanceStats = new PerformanceStats(this);
         }
 
         public RedisDataStore DealsStore { get; set; }
@@ -30,20 +26,11 @@ namespace Alpari.QDF.UIClient.App
         public RedisConnection Connection { get; private set; }
         public string RedisHost { get; private set; }
 
-        public RedisDealSearches RedisDealSearches
-        {
-            get { return _redisDealSearches; }
-        }
+        public RedisDealSearches RedisDealSearches { get; private set; }
 
-        public RedisQuoteSearches RedisQuoteSearches
-        {
-            get { return _redisQuoteSearches; }
-        }
+        public RedisQuoteSearches RedisQuoteSearches { get; private set; }
 
-        public PerformanceStats PerformanceStats
-        {
-            get { return _performanceStats; }
-        }
+        public PerformanceStats PerformanceStats { get; private set; }
 
         /// <summary>
         /// bit hacky, should really be usingthe exporter and just reset the whole connection
@@ -62,9 +49,9 @@ namespace Alpari.QDF.UIClient.App
                 RetrievedQuotes.Clear();
             }
 
-            _redisDealSearches = new RedisDealSearches(this);
-            _redisQuoteSearches = new RedisQuoteSearches(this);
-            _performanceStats = new PerformanceStats(this);
+            RedisDealSearches = new RedisDealSearches(this);
+            RedisQuoteSearches = new RedisQuoteSearches(this);
+            PerformanceStats = new PerformanceStats(this);
         }
     }
 }
