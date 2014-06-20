@@ -135,6 +135,12 @@
       <DependentUpon>UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DealPerformanceStats.cs" />
+    <Compile Include="Specs\UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting\UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Steps\LuaScriptingSteps.cs" />
     <Compile Include="Steps\OutputToCsvStepBase.cs" />
     <Compile Include="Steps\OutputToCsvSteps.cs" />
     <Compile Include="Steps\QdfDataRetrievalStepBase.cs" />
@@ -189,6 +195,10 @@
     <None Include="Specs\UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-71[AT] QDF UI - add ability to switch between ARS and ECN deals.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting\UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-88 [AT] QDF UI - Investigate Server side scripting.feature.cs</LastGenOutput>
     </None>
     <None Include="TestData\temp.csv" />
   </ItemGroup>

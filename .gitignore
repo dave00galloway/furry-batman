@@ -174,3 +174,7 @@ qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.ComponentModel.DataAnnotati
 qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Data.pdb*
 qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Runtime.Serialization.pdb*
 qdf.AcceptanceTests/Alpari.QDF.UIClient.Tests/System.Xml.Linq.pdb*
+System.Configuration.pdb/*
+System.Core.pdb/*
+System.pdb/*
+System.Xml.pdb/*
