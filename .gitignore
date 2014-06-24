@@ -178,3 +178,12 @@ System.Configuration.pdb/*
 System.Core.pdb/*
 System.pdb/*
 System.Xml.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/Alpari*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/BookSleeve*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/C5*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/FluentAssertions*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/MsgPack*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/Newtonsoft*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/NUnit*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/protobuf-net*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/SpecFlow*
