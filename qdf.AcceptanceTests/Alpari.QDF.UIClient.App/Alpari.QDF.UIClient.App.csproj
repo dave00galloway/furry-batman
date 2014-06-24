@@ -113,10 +113,6 @@
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
     </ProjectReference>
-    <ProjectReference Include="..\qdf.AcceptanceTests\qdf.AcceptanceTests.csproj">
-      <Project>{5BCFA225-DC6E-45C0-8EBE-6CEC862DD070}</Project>
-      <Name>qdf.AcceptanceTests</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
