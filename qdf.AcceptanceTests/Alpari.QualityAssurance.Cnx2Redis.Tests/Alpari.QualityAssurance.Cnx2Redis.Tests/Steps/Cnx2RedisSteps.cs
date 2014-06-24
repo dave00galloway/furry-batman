@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
-using System.Security.Cryptography;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
+using System;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps

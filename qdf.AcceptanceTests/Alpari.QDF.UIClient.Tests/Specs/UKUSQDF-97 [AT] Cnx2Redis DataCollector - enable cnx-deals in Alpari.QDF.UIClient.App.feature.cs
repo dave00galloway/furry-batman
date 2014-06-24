@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
+namespace Alpari.QDF.UIClient.Tests.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -19,23 +19,25 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ConnectToDataSources")]
-    [NUnit.Framework.CategoryAttribute("SelfTest")]
-    public partial class ConnectToDataSourcesFeature
+    [NUnit.Framework.DescriptionAttribute("UKUSQDF-97 [AT] [AT] Cnx2Redis DataCollector - enable cnx-deals in Alpari.QDF.UIC" +
+        "lient.App")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_97")]
+    public partial class UKUSQDF_97ATATCnx2RedisDataCollector_EnableCnx_DealsInAlpari_QDF_UIClient_AppFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ConnectToDataSources.feature"
+#line 1 "UKUSQDF-97 [AT] Cnx2Redis DataCollector - enable cnx-deals in Alpari.QDF.UIClient.App.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "ConnectToDataSources", "In order to test Cnx2Redis\r\nAs a QDF Tester\r\nI want to be able to read data from " +
-                    "MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
-                        "SelfTest"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-97 [AT] [AT] Cnx2Redis DataCollector - enable cnx-deals in Alpari.QDF.UIC" +
+                    "lient.App", "In order to test cnx-deals are imported to Redis\r\nAs a QDF tester\r\ni want to be a" +
+                    "ble to query for cnx-deals in Alpari.QDF.UIClient.App", ProgrammingLanguage.CSharp, new string[] {
+                        "UKUSQDF_97"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -68,28 +70,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Connect To MySql")]
-        public virtual void ConnectToMySql()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connect To MySql", ((string[])(null)));
-#line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("I have connected to the cnx trade table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.When("I query cnx trade by trade id \"B20141740AUG600\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then("the cnx trade has a login of \"AUKD35367\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Filter deals by date")]
         public virtual void FilterDealsByDate()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter deals by date", ((string[])(null)));
-#line 12
+#line 7
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -100,14 +85,14 @@ this.ScenarioSetup(scenarioInfo);
                         "cnx-deals",
                         "19/06/2014  17:35:00",
                         "19/06/2014  17:45:00"});
-#line 13
+#line 8
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
-#line 16
+#line 11
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 12
  testRunner.Then("no retrieved deal will have a timestamp outside \"19/06/2014  17:35:00\" to \"19/06/" +
                     "2014  17:45:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
+#line 13
  testRunner.And("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
