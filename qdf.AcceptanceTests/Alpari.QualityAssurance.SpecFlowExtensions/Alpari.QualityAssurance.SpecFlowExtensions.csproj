@@ -76,6 +76,7 @@
     </Compile>
     <Compile Include="Steps\CsvConversionSteps.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
+    <Compile Include="TypeUtilities\DataTableComparisonExtensions.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
     <Compile Include="TypeUtilities\EnumExtensions.cs" />
     <Compile Include="TypeUtilities\IEnumerableExtensions.cs" />

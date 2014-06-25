@@ -20,7 +20,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ConnectToDataSources")]
-    [NUnit.Framework.CategoryAttribute("SelfTest")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_92")]
     public partial class ConnectToDataSourcesFeature
     {
         
@@ -35,7 +35,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "ConnectToDataSources", "In order to test Cnx2Redis\r\nAs a QDF Tester\r\nI want to be able to read data from " +
                     "MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
-                        "SelfTest"});
+                        "UKUSQDF_92"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -104,10 +104,10 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 16
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
+#line 18
  testRunner.Then("no retrieved deal will have a timestamp outside \"19/06/2014  17:35:00\" to \"19/06/" +
                     "2014  17:45:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
+#line 19
  testRunner.And("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

@@ -61,10 +61,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Then(@"the person data should match exactly")]
         public void ThenThePersonDataShouldMatchExactly()
         {
-            //this null check won't work - need to check each of the checks within diffs to see their values
-            // ScenarioContext.Current["diffs"].Should().BeNull();
             var diffs = (DataTableComparison) ScenarioContext.Current["diffs"];
-
             diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
 
@@ -72,26 +69,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenThePersonDataShouldContain(int diffCount, string diffType)
         {
             var diffs = (DataTableComparison) ScenarioContext.Current["diffs"];
-            diffs.CheckForDifferences().Should().NotBeNullOrWhiteSpace();
-            switch (diffType.ToLower())
-            {
-                case "mismatch":
-                case "mismatches":
-                case "field diffs":
-                case "field diff":
-                    diffs.FieldDifferences.Rows.Should().HaveCount(diffCount);
-                    break;
-                case "extra":
-                    diffs.AdditionalInCompareWith.Should().HaveCount(diffCount);
-                    break;
-                case "missing":
-                    diffs.MissingInCompareWith.Should().HaveCount(diffCount);
-                    break;
-                default:
-                    throw new ArgumentException("diffType {0} not recognised", diffType);
-            }
+            //QueryDifferences(diffCount, diffType, diffs);
+            diffs.QueryDifferences(diffCount,diffType);
         }
-
-        
     }
 }

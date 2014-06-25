@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Alpari.QDF.UIClient.Tests.Steps;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
@@ -11,16 +8,32 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class StepCentral : MasterStepBase
     {
-        protected CnxTradeTableDataContext CnxTradeTableDataContext { get; private set; }
-
         public StepCentral(CnxTradeTableDataContext cnxTradeTableDataContext)
         {
             CnxTradeTableDataContext = cnxTradeTableDataContext;
         }
 
-        protected static string QuerySingleTrade(string tradeId)
+        protected CnxTradeTableDataContext CnxTradeTableDataContext { get; private set; }
+
+        private static QDF.UIClient.Tests.Steps.StepCentral UiClientTestsStepsStepCentral
         {
-            return String.Format("SELECT * FROM auktest_hedge.trade WHERE trade_id = '{0}'", tradeId);
+            get
+            {
+                bool toAdd = GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) == null;
+                QDF.UIClient.Tests.Steps.StepCentral steps = (QDF.UIClient.Tests.Steps.StepCentral)
+                    GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) ??
+                                                             new QDF.UIClient.Tests.Steps.StepCentral();
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
+
+        protected static QdfDataRetrievalSteps QdfDataRetrievalSteps
+        {
+            get { return UiClientTestsStepsStepCentral.QdfDataRetrievalSteps; }
         }
     }
 }

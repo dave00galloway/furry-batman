@@ -1,15 +1,17 @@
-﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
-using System;
-using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 {
     [Binding]
-    public class Cnx2RedisSteps :Cnx2RedisStepBase
+    public class Cnx2RedisSteps : Cnx2RedisStepBase
     {
         public Cnx2RedisSteps(CnxTradeTableDataContext cnxTradeTableDataContext) : base(cnxTradeTableDataContext)
         {
@@ -24,10 +26,42 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I query cnx trade by trade id ""(.*)""")]
         public void WhenIQueryCnxTradeByTradeId(string tradeId)
         {
-            var cnxTradeData = CnxTradeTableDataContext.SelectDataAsDataTable(QuerySingleTrade(tradeId)).ConvertToTypedDataTable<CnxTradeDataTable>();
+            var cnxTradeData =
+                CnxTradeTableDataContext.SelectDataAsDataTable(CnxTradeTableDataContext.QuerySingleTrade(tradeId))
+                    .ConvertToTypedDataTable<CnxTradeDataTable>();
             ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
             ScenarioContext.Current["tradeId"] = tradeId;
         }
+
+        [When(@"I query cnx trade by trade id for these trade ids:")]
+        public void WhenIQueryCnxTradeByTradeIdForTheseTradeIds(Table tradeIdsTable)
+        {
+            List<string> idsQuery = tradeIdsTable.Rows.Select(row => row["DealId"]).ToList();
+            string idsAsList = String.Format("('{0}')", String.Join("','", idsQuery));
+            var cnxTradeData =
+                CnxTradeTableDataContext.SelectDataAsDataTable(CnxTradeTableDataContext.QueryTradesById(idsAsList))
+                    .ConvertToTypedDataTable<CnxTradeDataTable>();
+            ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
+        }
+
+        [When(@"I compare the cnx trade deals with the qdf deal data")]
+        public void WhenICompareTheCnxTradeDealsWithTheQdfDealData()
+        {
+            GetCnxAndQdfDealsAsTestableDealDataTables(out CnxDealsAsTestableDealDataTable, out QdfDealsAsTestableDealDataTable);
+            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable);
+            ScenarioContext.Current["diffs"] = diffs;
+        }
+
+        [When(@"I compare the cnx trade deals with the qdf deal data excluding these fields:")]
+        public void WhenICompareTheCnxTradeDealsWithTheQdfDealDataExcludingTheseFields(Table table)
+        {
+            var ignoredFieldsQuery = table.Rows.Select(row => row["ExcludedFields"]).ToArray();
+            GetCnxAndQdfDealsAsTestableDealDataTables(out CnxDealsAsTestableDealDataTable, out QdfDealsAsTestableDealDataTable);
+            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable, ignoredFieldsQuery);
+            ScenarioContext.Current["diffs"] = diffs;
+        }
+
+
 
         [Then(@"the cnx trade has a login of ""(.*)""")]
         public void ThenTheCnxTradeHasALoginOf(string expectedLogin)
@@ -36,17 +70,40 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var tradeId = ScenarioContext.Current["tradeId"] as string;
             if (cnxTradeData != null)
             {
-                var query = (from CnxTradeDataTableRow row in cnxTradeData.Rows
+                List<CnxTradeDataTableRow> query = (from CnxTradeDataTableRow row in cnxTradeData.Rows
                     where row.TradeId == tradeId
                     select row).ToList();
                 query.First().Login.Should().Be(expectedLogin);
-
             }
             else
             {
                 throw new Exception("no data found in cnxTradeData");
             }
         }
+
+        [Then(@"the cnx trade deals should match the qdf deal data exactly")]
+        public void ThenTheCnxTradeDealsShouldMatchTheQdfDealDataExactly()
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
+        }
+
+        [Then(@"the cnx trade deals should contain the same deals as the qdf deal data")]
+        public void ThenTheCnxTradeDealsShouldContainTheSameDealsAsTheQdfDealData()
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.QueryDifferences(0,"missing");
+            diffs.QueryDifferences(0, "extra");
+        }
+
+        //[Then(@"the cnx trade deals should match the qdf deal data excluding these fields:")]
+        //public void ThenTheCnxTradeDealsShouldMatchTheQdfDealDataExcludingTheseFields(Table table)
+        //{
+        //    List<string> idsQuery = table.Rows.Select(row => row["ExcludedFields"]).ToList();
+        //}
+
+
+
 
     }
 }

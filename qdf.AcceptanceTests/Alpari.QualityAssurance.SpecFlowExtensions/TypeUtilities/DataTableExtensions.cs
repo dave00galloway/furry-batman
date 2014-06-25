@@ -79,7 +79,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="outputMatches"></param>
         /// <returns></returns>
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
-            string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false)
+            string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false, bool removeReturns = false)
             //, DataColumn[] keyColumns)
         {
             DataTableComparer<DataRow>.Instance.ResetInstance();
@@ -137,7 +137,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
                     foreach (DataColumn column in columnsToCompare)
                     {
-                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs, outputMatches);
+                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs, outputMatches, removeReturns);
                     }
                 }
 
@@ -179,7 +179,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         public static void CompareWith(this object p1, object p2, DataColumn column, object[] primaryKeyValues,
-            DataTable diffsTable, bool outputMatches = false)
+            DataTable diffsTable, bool outputMatches = false, bool removeReturns = false)
         {
             string difference = null;
 
@@ -341,6 +341,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 }
                     
                 diffRow["type"] = type;
+                if (removeReturns)
+                {
+                    foreach (var item in diffRow.ItemArray)
+                    {
+                        //item = item.ToString().StringToCsvCell(true);
+                    }
+                }
                 diffsTable.Rows.Add(diffRow);
             }
         }
@@ -401,6 +408,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         /// <summary>
         ///     class providing a comparer for Linq functions Except, intersect, distinct etc for Data tables
+        /// TODO:- change to non-singleton class
         /// </summary>
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow

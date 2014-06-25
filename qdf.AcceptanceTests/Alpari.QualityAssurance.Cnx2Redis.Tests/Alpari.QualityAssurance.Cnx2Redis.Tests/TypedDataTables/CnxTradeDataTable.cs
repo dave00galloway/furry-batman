@@ -51,50 +51,51 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         {
             return new CnxTradeDataTableRow(builder);
         }
+        # region replace methods with ones taking a plainer enumerable type rather thana data row
+        //[UsedImplicitly]
+        //public CnxTradeDataTable ConvertIEnumerableToDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects)
+        //{
+        //    return SetupDataTable(enumeratedObjects, this);
+        //}
 
-        [UsedImplicitly]
-        public CnxTradeDataTable ConvertIEnumerableToDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects)
-        {
-            return SetupDataTable(enumeratedObjects, this);
-        }
+        //[UsedImplicitly]
+        //public CnxTradeDataTable ConvertIEnumerableToDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects,
+        //    string tableName,
+        //    string[] primaryKeys)
+        //{
+        //    TableName = tableName;
+        //    SetPrimaryKey(primaryKeys);
+        //    return SetupDataTable(enumeratedObjects, this);
+        //}
 
-        [UsedImplicitly]
-        public CnxTradeDataTable ConvertIEnumerableToDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects,
-            string tableName,
-            string[] primaryKeys)
-        {
-            TableName = tableName;
-            SetPrimaryKey(primaryKeys);
-            return SetupDataTable(enumeratedObjects, this);
-        }
-
-        private static CnxTradeDataTable SetupDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects,
-            CnxTradeDataTable ccToolDataTable)
-        {
-            foreach (CnxTradeDataTableRow cnxTradeDataTableRow in enumeratedObjects)
-            {
-                ccToolDataTable.Rows.Add(new object[]
-                {
-                    cnxTradeDataTableRow.SecurityId, cnxTradeDataTableRow.Price, cnxTradeDataTableRow.SpotRate,
-                    cnxTradeDataTableRow.SpotRateHubToMaker, cnxTradeDataTableRow.AmountCcy1,
-                    cnxTradeDataTableRow.AmountCcy2, cnxTradeDataTableRow.Side, cnxTradeDataTableRow.OrderId,
-                    cnxTradeDataTableRow.Login, cnxTradeDataTableRow.TradeId, cnxTradeDataTableRow.LinkedTradeId,
-                    cnxTradeDataTableRow.TransactTime, cnxTradeDataTableRow.TradeDate, cnxTradeDataTableRow.SettlDate,
-                    cnxTradeDataTableRow.Party1Role, cnxTradeDataTableRow.Party1Name, cnxTradeDataTableRow.Party2Role,
-                    cnxTradeDataTableRow.Party2Name, cnxTradeDataTableRow.Comment, cnxTradeDataTableRow.ServerId,
-                    cnxTradeDataTableRow.GiveupStatus,
-                    cnxTradeDataTableRow.Book, cnxTradeDataTableRow.Hub, cnxTradeDataTableRow.ClientOrderId,
-                    cnxTradeDataTableRow.TradedCcy, cnxTradeDataTableRow.CounterCcy, cnxTradeDataTableRow.Aggressor,
-                    cnxTradeDataTableRow.TradeType, cnxTradeDataTableRow.ForwardPoints, cnxTradeDataTableRow.SwapPoints,
-                    cnxTradeDataTableRow.FarAmountccy1, cnxTradeDataTableRow.FarAmountccy2,
-                    cnxTradeDataTableRow.FarSettlDate, cnxTradeDataTableRow.TradeReportId,
-                    cnxTradeDataTableRow.ReconcilStatus, cnxTradeDataTableRow.Id
-                }
-                    );
-            }
-            ccToolDataTable.AcceptChanges();
-            return ccToolDataTable;
-        }
+        //private static CnxTradeDataTable SetupDataTable(IEnumerable<CnxTradeDataTableRow> enumeratedObjects,
+        //    CnxTradeDataTable ccToolDataTable)
+        //{
+        //    foreach (CnxTradeDataTableRow cnxTradeDataTableRow in enumeratedObjects)
+        //    {
+        //        ccToolDataTable.Rows.Add(new object[]
+        //        {
+        //            cnxTradeDataTableRow.SecurityId, cnxTradeDataTableRow.Price, cnxTradeDataTableRow.SpotRate,
+        //            cnxTradeDataTableRow.SpotRateHubToMaker, cnxTradeDataTableRow.AmountCcy1,
+        //            cnxTradeDataTableRow.AmountCcy2, cnxTradeDataTableRow.Side, cnxTradeDataTableRow.OrderId,
+        //            cnxTradeDataTableRow.Login, cnxTradeDataTableRow.TradeId, cnxTradeDataTableRow.LinkedTradeId,
+        //            cnxTradeDataTableRow.TransactTime, cnxTradeDataTableRow.TradeDate, cnxTradeDataTableRow.SettlDate,
+        //            cnxTradeDataTableRow.Party1Role, cnxTradeDataTableRow.Party1Name, cnxTradeDataTableRow.Party2Role,
+        //            cnxTradeDataTableRow.Party2Name, cnxTradeDataTableRow.Comment, cnxTradeDataTableRow.ServerId,
+        //            cnxTradeDataTableRow.GiveupStatus,
+        //            cnxTradeDataTableRow.Book, cnxTradeDataTableRow.Hub, cnxTradeDataTableRow.ClientOrderId,
+        //            cnxTradeDataTableRow.TradedCcy, cnxTradeDataTableRow.CounterCcy, cnxTradeDataTableRow.Aggressor,
+        //            cnxTradeDataTableRow.TradeType, cnxTradeDataTableRow.ForwardPoints, cnxTradeDataTableRow.SwapPoints,
+        //            cnxTradeDataTableRow.FarAmountccy1, cnxTradeDataTableRow.FarAmountccy2,
+        //            cnxTradeDataTableRow.FarSettlDate, cnxTradeDataTableRow.TradeReportId,
+        //            cnxTradeDataTableRow.ReconcilStatus, cnxTradeDataTableRow.Id
+        //        }
+        //            );
+        //    }
+        //    ccToolDataTable.AcceptChanges();
+        //    return ccToolDataTable;
+        //}
+        #endregion
 
         protected override void SetupColumns()
         {
@@ -195,7 +196,18 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         [UsedImplicitly]
         public string OrderId
         {
-            get { return (string) base["order_id"]; }
+            get
+            {
+                try
+                {
+                    return (string) base["order_id"];
+                }
+                catch (Exception)
+                {
+                    OrderId = "";
+                    return "";
+                }
+            }
             set { base["order_id"] = value; }
         }
 
@@ -291,11 +303,29 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             set { base["giveup_status"] = value; }
         }
 
+        /// <summary>
+        /// returns an empty string if returning a book throws an exception
+        /// might be an idea to adjust the query at the db end to return an empty string instead of null...
+        /// </summary>
         [UsedImplicitly]
         public string Book
         {
-            get { return (string) base["security_id"]; }
-            set { base["security_id"] = value; }
+            get
+            {
+                try
+                {
+                    return (string) base["book"];
+                }
+                catch (Exception)
+                {
+                    Book = "";
+                    return "";
+                }
+            }
+            set
+            {
+                base["book"] = value;
+            }
         }
 
         [UsedImplicitly]

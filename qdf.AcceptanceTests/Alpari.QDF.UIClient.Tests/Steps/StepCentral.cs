@@ -12,6 +12,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class StepCentral : MasterStepBase
     {
+        public static readonly string FullName = typeof(StepCentral).FullName; 
         public const string REDIS_HOST = "redisHost";
         public const string SERVER_TABLE_KEY = "Server";
         public const string COUNT = "Count";
@@ -22,12 +23,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
 
         private static RedisConnectionHelper _redisConnectionHelper;
 
-        protected StepCentral()
+        public StepCentral()
         {
             Setup();
         }
 
-        protected RedisConnectionHelper RedisConnectionHelper
+        public RedisConnectionHelper RedisConnectionHelper
         {
             get
             {
@@ -54,7 +55,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             }
         }
 
-        protected QdfDataRetrievalSteps QdfDataRetrievalSteps
+        public QdfDataRetrievalSteps QdfDataRetrievalSteps
         {
             get
             {
