@@ -126,7 +126,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             Columns.Add(new DataColumn("traded_ccy", typeof (string)));
             Columns.Add(new DataColumn("counter_ccy", typeof (string)));
             Columns.Add(new DataColumn("aggressor", typeof (bool)));
-            Columns.Add(new DataColumn("trade_type", typeof (bool)));
+            Columns.Add(new DataColumn("trade_type", typeof (long)));
             Columns.Add(new DataColumn("forward_points", typeof (double)));
             Columns.Add(new DataColumn("swap_points", typeof (double)));
             Columns.Add(new DataColumn("far_amountccy1", typeof (double)));
@@ -364,9 +364,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         }
 
         [UsedImplicitly]
-        public bool TradeType
+        public long TradeType
         {
-            get { return (bool) base["trade_type"]; }
+            get { return (long)base["trade_type"]; }
             set { base["trade_type"] = value; }
         }
 
