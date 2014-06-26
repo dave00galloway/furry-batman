@@ -112,8 +112,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HelloWorld.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
+    <Compile Include="Steps\ManualSteps.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTable.cs" />
     <Compile Include="Steps\SelfTest\HelloWorldSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
@@ -136,6 +142,10 @@
     <None Include="Specs\SelfTest\HelloWorld.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HelloWorld.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

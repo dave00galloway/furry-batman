@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -96,11 +99,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             diffs.QueryDifferences(0, "extra");
         }
 
-        //[Then(@"the cnx trade deals should match the qdf deal data excluding these fields:")]
-        //public void ThenTheCnxTradeDealsShouldMatchTheQdfDealDataExcludingTheseFields(Table table)
-        //{
-        //    List<string> idsQuery = table.Rows.Select(row => row["ExcludedFields"]).ToList();
-        //}
+        [Then(@"the cnx trade data should contain (.*) ""(.*)""")]
+        public void ThenTheCnxTradeDataShouldContain(int diffCount, string diffType)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.QueryDifferences(diffCount, diffType);
+        }
+
+        [Then(@"the cnx trade data should contain (.*) ""(.*)"" in the ""(.*)"" column")]
+        public void ThenTheCnxTradeDataShouldContainInTheColumn(int diffCount, string diffType, string column)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.FieldDifferences.Rows.Should().HaveCount(diffCount); //and
+            foreach (DataRow row in diffs.FieldDifferences.Rows)
+            {
+                row["column"].Should().Be(column);
+            }
+        }
+
 
 
 

@@ -22,9 +22,13 @@ Scenario: Compare small range of deals where side is incorrect
 	 | B201417005FS100 |
 	 | B201417005FS400 |
 	 | B201417005FTC00 |
-	 And I compare the cnx trade deals with the qdf deal data
-	 Then the cnx trade deals should match the qdf deal data exactly 
+	 And I compare the cnx trade deals with the qdf deal data excluding these fields:
+	 | ExcludedFields |
+	 | OrderId        |
+	 #Then the cnx trade deals should match the qdf deal data exactly 
 	 #should change this test to specifically look for errors on Side, but the fact that it fails highlights this adequately
+	 Then the cnx trade data should contain 5 "mismatches"
+	 And the cnx trade data should contain 5 "mismatches" in the "Side" column
 
 Scenario: Compare small range of deals where side is incorrect excluding known issues
 	Given I have the following search criteria for qdf deals

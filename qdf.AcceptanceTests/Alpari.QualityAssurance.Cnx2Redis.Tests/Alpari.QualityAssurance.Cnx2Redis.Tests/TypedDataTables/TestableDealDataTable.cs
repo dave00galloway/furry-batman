@@ -77,7 +77,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                 {
                     deal.AccountGroup, deal.BankPrice, deal.Book, deal.ClientId, deal.ClientPrice, deal.Comment,
                     deal.DealId, deal.Instrument, deal.OrderId, deal.Server, deal.Side, deal.State,
-                    deal.TimeStamp, deal.Volume
+                    deal.TimeStamp.Truncate(TimeSpan.FromSeconds(1)), deal.Volume
                 }
                     );
             }

@@ -24,8 +24,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             string dateAsString = String.Format("{0}{1}{2}{3}{4}{5}{6}", dateTime.Year, dateTime.Month.PadZeros(2),
                 dateTime.Day.PadZeros(2), dateTime.Hour.PadZeros(2), dateTime.Minute.PadZeros(2),
-                dateTime.Second.PadZeros(2),dateTime.Millisecond.PadZeros(3));
+                dateTime.Second.PadZeros(2), dateTime.Millisecond.PadZeros(3));
             return dateAsString;
+        }
+
+        /// <summary>
+        ///     http://stackoverflow.com/questions/1004698/how-to-truncate-milliseconds-off-of-a-net-datetime
+        ///     dateTime = dateTime.Truncate(TimeSpan.FromMilliseconds(1)); // Truncate to whole ms
+        ///     dateTime = dateTime.Truncate(TimeSpan.FromSeconds(1)); // Truncate to whole second
+        ///     dateTime = dateTime.Truncate(TimeSpan.FromMinutes(1)); // Truncate to whole minute
+        /// </summary>
+        /// <param name="dateTime">the date time to truncate</param>
+        /// <param name="timeSpan">the unit to truncate to </param>
+        /// <returns></returns>
+        public static DateTime Truncate(this DateTime dateTime, TimeSpan timeSpan)
+        {
+            return timeSpan == TimeSpan.Zero ? dateTime : dateTime.AddTicks(-(dateTime.Ticks%timeSpan.Ticks));
         }
 
         /// <summary>

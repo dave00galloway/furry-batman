@@ -20,6 +20,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             "WHERE " +
             "   trade_id ";
 
+        private const string SetUtc = "set time_zone='+00:00';\r\n";
+
         public CnxTradeTableDataContext(string connectionString) : base(connectionString)
         {
         }
@@ -28,7 +30,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
         {
             //return String.Format("SELECT * FROM auktest_hedge.trade WHERE trade_id = '{0}'", tradeId);
             return
-                String.Format("{0} = '{1}'",
+                String.Format("{0}{1} = '{2}'",SetUtc,
                     TradeQueryString,
                     tradeId);
         }
@@ -37,7 +39,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
         {
             //return String.Format("SELECT * FROM auktest_hedge.trade WHERE trade_id in {0}", idsAsList);
             return
-                String.Format("{0} in {1}",
+                String.Format("{0}{1} in {2}",SetUtc,
                     TradeQueryString,
                     idsAsList);
         }
