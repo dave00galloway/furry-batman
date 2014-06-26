@@ -191,3 +191,4 @@ qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssura
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests.v11.suo
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/Microsoft.*
 qdf.AcceptanceTests/packages/C5.*
+*.v11.suo

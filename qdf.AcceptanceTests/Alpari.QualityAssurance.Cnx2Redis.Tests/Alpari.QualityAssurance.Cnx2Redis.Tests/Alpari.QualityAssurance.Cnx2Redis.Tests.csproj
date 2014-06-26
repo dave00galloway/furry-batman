@@ -112,10 +112,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HelloWorld.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-92 [AT] Cnx2Redis Data Collector - Data Reconciliation tests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-92 [AT] Cnx2Redis Data Collector - Data Reconciliation tests.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
@@ -143,9 +153,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>HelloWorld.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-92 [AT] Cnx2Redis Data Collector - Data Reconciliation tests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-92 [AT] Cnx2Redis Data Collector - Data Reconciliation tests.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

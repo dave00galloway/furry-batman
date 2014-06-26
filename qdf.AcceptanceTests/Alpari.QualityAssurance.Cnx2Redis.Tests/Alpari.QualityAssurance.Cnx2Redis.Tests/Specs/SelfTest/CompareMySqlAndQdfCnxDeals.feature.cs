@@ -247,6 +247,44 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare small range of deals by date time range")]
+        public virtual void CompareSmallRangeOfDealsByDateTimeRange()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare small range of deals by date time range", ((string[])(null)));
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table9.AddRow(new string[] {
+                        "cnx-deals",
+                        "19/06/2014  17:36:39",
+                        "19/06/2014  17:44:16"});
+#line 80
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table9, "Given ");
+#line 83
+  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+  testRunner.And("I query cnx trade by trade id from \"19/06/2014  17:36:39\" to \"19/06/2014  17:44:1" +
+                    "6\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table10.AddRow(new string[] {
+                        "OrderId"});
+            table10.AddRow(new string[] {
+                        "Side"});
+#line 85
+  testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table10, "And ");
+#line 89
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

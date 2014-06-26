@@ -47,6 +47,16 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
         }
 
+        [When(@"I query cnx trade by trade id from ""(.*)"" to ""(.*)""")]
+        public void WhenIQueryCnxTradeByTradeIdFromTo(DateTime from, DateTime to)
+        {
+            var cnxTradeData =
+                CnxTradeTableDataContext.SelectDataAsDataTable(CnxTradeTableDataContext.QueryTradesByDateTime(from,to))
+                    .ConvertToTypedDataTable<CnxTradeDataTable>();
+            ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
+        }
+
+
         [When(@"I compare the cnx trade deals with the qdf deal data")]
         public void WhenICompareTheCnxTradeDealsWithTheQdfDealData()
         {

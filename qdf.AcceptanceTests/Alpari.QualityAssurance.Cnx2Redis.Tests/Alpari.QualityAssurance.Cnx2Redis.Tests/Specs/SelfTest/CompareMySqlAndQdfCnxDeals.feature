@@ -76,18 +76,14 @@ Scenario: Compare small range of deals where side is incorrect and find all expe
 	 And I compare the cnx trade deals with the qdf deal data
 	 Then the cnx trade deals should contain the same deals as the qdf deal data 
 
-
-
-#Scenario: Connect To MySql
-#	Given I have connected to the cnx trade table
-#	When I query cnx trade by trade id "B20141740AUG600"
-#	Then the cnx trade has a login of "AUKD35367"
-#
-#Scenario: Filter deals by date
-#	Given I have the following search criteria for qdf deals
-#	 | DealSource | ConvertedStartTime   | ConvertedEndTime     |
-#	 | cnx-deals  | 19/06/2014  17:36:39 | 19/06/2014  17:44:16 |
-#	When I retrieve the qdf deal data
-#	#And I export the data to "C:\temp\cnx.csv" and import the csv
-#	Then no retrieved deal will have a timestamp outside "19/06/2014  17:35:00" to "19/06/2014  17:45:00"
-#	And the count of retrieved deals will be 11
+Scenario: Compare small range of deals by date time range
+	Given I have the following search criteria for qdf deals
+	 | DealSource | ConvertedStartTime   | ConvertedEndTime     |
+	 | cnx-deals  | 19/06/2014  17:36:39 | 19/06/2014  17:44:16 |
+	 When I retrieve the qdf deal data
+	 And I query cnx trade by trade id from "19/06/2014  17:36:39" to "19/06/2014  17:44:16"
+	 And I compare the cnx trade deals with the qdf deal data excluding these fields:
+	 | ExcludedFields |
+	 | OrderId        |
+	 | Side           | 
+	 Then the cnx trade deals should match the qdf deal data exactly 

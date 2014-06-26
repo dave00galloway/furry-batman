@@ -1,5 +1,6 @@
 ﻿using System;
 using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
 {
@@ -7,7 +8,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
     {
         public const string TRADE = "TRADE";
 
-        private const string TradeQueryString =
+        private static readonly string TradeQueryByIdString =
+            TradeQuery +
+            "   trade_id ";
+
+        private const string TradeQuery =
             "SELECT " +
             "   security_id, price, spotrate, spotratehubtomaker, amountccy1, amountccy2, " +
             "   side, order_id, login, trade_id, linked_trade_id, transact_time, trade_date, " +
@@ -17,8 +22,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             "   far_amountccy2, far_settl_date, trade_report_id, reconcil_status, id " +
             "FROM " +
             "   auktest_hedge.trade " +
-            "WHERE " +
-            "   trade_id ";
+            "WHERE ";
 
         private const string SetUtc = "set time_zone='+00:00';\r\n";
 
@@ -31,7 +35,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             //return String.Format("SELECT * FROM auktest_hedge.trade WHERE trade_id = '{0}'", tradeId);
             return
                 String.Format("{0}{1} = '{2}'",SetUtc,
-                    TradeQueryString,
+                    TradeQueryByIdString,
                     tradeId);
         }
 
@@ -40,8 +44,15 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             //return String.Format("SELECT * FROM auktest_hedge.trade WHERE trade_id in {0}", idsAsList);
             return
                 String.Format("{0}{1} in {2}",SetUtc,
-                    TradeQueryString,
+                    TradeQueryByIdString,
                     idsAsList);
+        }
+
+        public static string QueryTradesByDateTime(DateTime from, DateTime to)
+        {
+            return
+                String.Format("{0}{1} (transact_time >= '{2}' AND transact_time <= '{3}')", SetUtc,
+                    TradeQuery, from.ConvertDateTimeToMySqlDateFormatToSeconds(), to.ConvertDateTimeToMySqlDateFormatToSeconds());
         }
     }
 }
