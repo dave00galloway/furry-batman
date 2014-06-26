@@ -343,9 +343,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 diffRow["type"] = type;
                 if (removeReturns)
                 {
-                    foreach (var item in diffRow.ItemArray)
+                    for (int index = 0; index < diffRow.ItemArray.Length; index++)
                     {
-                        //item = item.ToString().StringToCsvCell(true);
+                        var item = diffRow.ItemArray[index].ToString().StringToCsvCell(true);
+                        //diffRow.ItemArray[index] = item;
+                        diffRow[index] = item;
                     }
                 }
                 diffsTable.Rows.Add(diffRow);

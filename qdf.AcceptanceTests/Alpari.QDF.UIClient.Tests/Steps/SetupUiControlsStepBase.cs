@@ -13,7 +13,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class SetupUiControlsStepBase : StepCentral
     {
-        public static readonly string FullName = typeof(SetupUiControlsStepBase).FullName;
+        new public static readonly string FullName = typeof(SetupUiControlsStepBase).FullName;
         protected TradingServerControl TradingServerControl { get; set; }
         protected BookControl BookControl { get; set; }
         protected SymbolControl SymbolControl { get; set; }

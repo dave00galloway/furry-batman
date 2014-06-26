@@ -8,7 +8,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class QdfDataRetrievalStepBase : StepCentral
     {
-        public static readonly string FullName = typeof (QdfDataRetrievalStepBase).FullName;
+        new public static readonly string FullName = typeof (QdfDataRetrievalStepBase).FullName;
 
         [StepArgumentTransformation]
         public static DealSearchCriteria DealSearchParametersTransform(Table table)

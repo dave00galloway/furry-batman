@@ -8,7 +8,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class OutputToCsvStepBase : StepCentral
     {
-        public static readonly string FullName = typeof (OutputToCsvStepBase).FullName;
+        new public static readonly string FullName = typeof (OutputToCsvStepBase).FullName;
 
         protected internal OutputToCsvStepBase()
         {

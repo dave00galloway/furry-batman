@@ -304,8 +304,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         }
 
         /// <summary>
-        /// returns an empty string if returning a book throws an exception
-        /// might be an idea to adjust the query at the db end to return an empty string instead of null...
+        /// returns a 0 string if returning a book throws an exception to reperesent a "None" book
+        /// might be an idea to adjust the query at the db end to return a 0 string instead of null...
         /// </summary>
         [UsedImplicitly]
         public string Book
@@ -318,7 +318,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                 }
                 catch (Exception)
                 {
-                    Book = "";
+                    Book = "0";
                     return "";
                 }
             }

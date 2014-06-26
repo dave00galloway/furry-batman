@@ -48,7 +48,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         public void WhenICompareTheCnxTradeDealsWithTheQdfDealData()
         {
             GetCnxAndQdfDealsAsTestableDealDataTables(out CnxDealsAsTestableDealDataTable, out QdfDealsAsTestableDealDataTable);
-            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable);
+            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable,null,null,false,true);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
@@ -57,7 +57,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             var ignoredFieldsQuery = table.Rows.Select(row => row["ExcludedFields"]).ToArray();
             GetCnxAndQdfDealsAsTestableDealDataTables(out CnxDealsAsTestableDealDataTable, out QdfDealsAsTestableDealDataTable);
-            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable, ignoredFieldsQuery);
+            var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable, ignoredFieldsQuery,null,false,true);
             ScenarioContext.Current["diffs"] = diffs;
         }
 

@@ -12,7 +12,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class QdfQuoteQueryStepBase : StepCentral
     {
-        public static readonly string FullName = typeof(QdfQuoteQueryStepBase).FullName;
+        new public static readonly string FullName = typeof(QdfQuoteQueryStepBase).FullName;
 
         [StepArgumentTransformation]
         public static QuoteSearchCriteria QuoteSearchParametersTransform(Table table)

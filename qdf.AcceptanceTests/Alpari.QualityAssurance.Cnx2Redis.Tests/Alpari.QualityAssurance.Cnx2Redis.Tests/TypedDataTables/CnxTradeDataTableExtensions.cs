@@ -22,7 +22,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         // may change to replicate ArsImporter logic of using firstname + lasrname from login table
                         BankPrice = (decimal) row.SpotRate,
                         //may change to  if(hub IS NULL, spotrate, spotratehubtomaker) as spotrate
-                        Book = row.Book.Parse<Book>() ?? Book.None,
+                        //Book = row.Book.Parse<Book>() ?? Book.None,
+                        //Book = (Book) row.Book.ParseEnum(typeof(Book)) ?? Book.None,
+                        //Book = Convert.ToInt16(row.Book).ParseEnum(typeof(Book)) == null ? Book.None : (Book)Convert.ToInt16(row.Book).ParseEnum(typeof(Book)),
                         ClientId = row.Login,
                         ClientPrice = (decimal) row.Price,
                         Comment = row.Aggressor ? "Agressor:1" : "Aggressed:2", //note typo in Agressor...
@@ -31,12 +33,29 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         Instrument = String.Format("{0}{1}", row.TradedCcy, row.CounterCcy),
                         OrderId = row.OrderId,
                         Server = TradingServer.Currenex,
-                        Side = row.Side.Parse<TestableSide>() ?? TestableSide.None,
-                        State = row.TradeType.ToString().Parse<DealState>() ?? DealState.OpenNormal,
+                        //Side = row.Side.Parse<TestableSide>() ?? TestableSide.None,
+                        //Side = Convert.ToInt16(row.Side).ParseEnum(typeof(TestableSide)) == null ? TestableSide.None : (TestableSide)Convert.ToInt16(row.Side).ParseEnum(typeof(TestableSide)),
+                        //State = row.TradeType.ToString().Parse<DealState>() ?? DealState.OpenNormal,
+                        //State = Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState)) == null ? DealState.OpenNormal : (DealState)Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState)),
                         //datatype of table field may change from bool to int after fixes are applied
                         TimeStamp = row.TransactTime,
                         Volume = (decimal) row.AmountCcy1
                     };
+                    //var book = row.Book.ParseEnum(typeof (Book)) == null
+                    //    ? Book.None
+                    //    : (Book) row.Book.ParseEnum(typeof (Book));
+                    //deal.Book = book;
+                    //deal.Book = Convert.ToInt16(row.Book).ParseEnum(typeof (Book)) == null
+                    //    ? Book.None
+                    //    : (Book) Convert.ToInt16(row.Book).ParseEnum(typeof (Book));
+                    short book;
+                    deal.Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None;
+                    deal.Side = Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide)) == null
+                        ? TestableSide.None
+                        : (TestableSide) Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide));
+                    deal.State = Convert.ToInt16(row.TradeType).ParseEnum(typeof (DealState)) == null
+                        ? DealState.OpenNormal
+                        : (DealState) Convert.ToInt16(row.TradeType).ParseEnum(typeof (DealState));
                     dealList.Add(deal);
                 }
                 catch (Exception e)
