@@ -82,48 +82,24 @@ this.ScenarioSetup(scenarioInfo);
             table1.AddRow(new string[] {
                         "cnx-deals",
                         "25/06/2014  00:00:00",
-                        "19/06/2014  17:44:16"});
+                        "25/06/2014  23:59:59"});
 #line 8
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 11
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 12
+   testRunner.And("I query cnx trade by trade id from \"25/06/2014 00:00:00\" to \"25/06/2014 23:59:59\"" +
+                    "", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealId"});
-            table2.AddRow(new string[] {
-                        "B201417005FFD00"});
-            table2.AddRow(new string[] {
-                        "B201417005FFN00"});
-            table2.AddRow(new string[] {
-                        "B201417005FFR00"});
-            table2.AddRow(new string[] {
-                        "B201417005FFU00"});
-            table2.AddRow(new string[] {
-                        "B201417005FFX00"});
-            table2.AddRow(new string[] {
-                        "B201417005FG000"});
-            table2.AddRow(new string[] {
-                        "B201417005FG300"});
-            table2.AddRow(new string[] {
-                        "B201417005FR400"});
-            table2.AddRow(new string[] {
-                        "B201417005FS100"});
-            table2.AddRow(new string[] {
-                        "B201417005FS400"});
-            table2.AddRow(new string[] {
-                        "B201417005FTC00"});
-#line 12
-  testRunner.And("I query cnx trade by trade id for these trade ids:", ((string)(null)), table2, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExcludedFields"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "OrderId"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "Side"});
-#line 25
-  testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
-#line 29
+#line 13
+   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table2, "And ");
+#line 17
   testRunner.Then("the cnx trade deals should match the qdf deal data exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
