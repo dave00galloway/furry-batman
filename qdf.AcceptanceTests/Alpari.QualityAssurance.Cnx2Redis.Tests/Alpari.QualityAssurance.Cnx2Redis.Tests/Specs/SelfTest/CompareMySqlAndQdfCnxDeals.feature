@@ -24,6 +24,7 @@ Scenario: Compare small range of deals where side is incorrect
 	 | B201417005FTC00 |
 	 And I compare the cnx trade deals with the qdf deal data
 	 Then the cnx trade deals should match the qdf deal data exactly 
+	 #should change this test to specifically look for errors on Side, but the fact that it fails highlights this adequately
 
 Scenario: Compare small range of deals where side is incorrect excluding known issues
 	Given I have the following search criteria for qdf deals
@@ -45,7 +46,8 @@ Scenario: Compare small range of deals where side is incorrect excluding known i
 	 | B201417005FTC00 |
 	 And I compare the cnx trade deals with the qdf deal data excluding these fields:
 	 | ExcludedFields |
-	 | OrderId        | 
+	 | OrderId        |
+	 | Side           | 
 	 Then the cnx trade deals should match the qdf deal data exactly 
 
 

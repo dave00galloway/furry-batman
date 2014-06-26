@@ -16,6 +16,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             {
                 try
                 {
+                    short book;
+                    short side;
+                    //short state;
                     var deal = new TestableDeal
                     {
                         AccountGroup = row.Hub,
@@ -25,6 +28,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         //Book = row.Book.Parse<Book>() ?? Book.None,
                         //Book = (Book) row.Book.ParseEnum(typeof(Book)) ?? Book.None,
                         //Book = Convert.ToInt16(row.Book).ParseEnum(typeof(Book)) == null ? Book.None : (Book)Convert.ToInt16(row.Book).ParseEnum(typeof(Book)),
+                        Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None,
                         ClientId = row.Login,
                         ClientPrice = (decimal) row.Price,
                         Comment = row.Aggressor ? "Agressor:1" : "Aggressed:2", //note typo in Agressor...
@@ -35,8 +39,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         Server = TradingServer.Currenex,
                         //Side = row.Side.Parse<TestableSide>() ?? TestableSide.None,
                         //Side = Convert.ToInt16(row.Side).ParseEnum(typeof(TestableSide)) == null ? TestableSide.None : (TestableSide)Convert.ToInt16(row.Side).ParseEnum(typeof(TestableSide)),
+                        Side = Int16.TryParse(row.Side, out side) ? (TestableSide)side.ParseEnum(typeof(TestableSide)) : TestableSide.None,
                         //State = row.TradeType.ToString().Parse<DealState>() ?? DealState.OpenNormal,
                         //State = Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState)) == null ? DealState.OpenNormal : (DealState)Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState)),
+                        //State = Int16.TryParse(row.TradeType, out state) ? (DealState)state.ParseEnum(typeof(DealState)) : DealState.OpenNormal,
                         //datatype of table field may change from bool to int after fixes are applied
                         TimeStamp = row.TransactTime,
                         Volume = (decimal) row.AmountCcy1
@@ -48,14 +54,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                     //deal.Book = Convert.ToInt16(row.Book).ParseEnum(typeof (Book)) == null
                     //    ? Book.None
                     //    : (Book) Convert.ToInt16(row.Book).ParseEnum(typeof (Book));
-                    short book;
-                    deal.Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None;
-                    deal.Side = Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide)) == null
-                        ? TestableSide.None
-                        : (TestableSide) Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide));
-                    deal.State = Convert.ToInt16(row.TradeType).ParseEnum(typeof (DealState)) == null
+                    
+//                    deal.Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None;
+                    //deal.Side = Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide)) == null
+                    //    ? TestableSide.None
+                    //    : (TestableSide) Convert.ToInt16(row.Side).ParseEnum(typeof (TestableSide));
+                    deal.State = Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState)) == null
                         ? DealState.OpenNormal
-                        : (DealState) Convert.ToInt16(row.TradeType).ParseEnum(typeof (DealState));
+                        : (DealState)Convert.ToInt16(row.TradeType).ParseEnum(typeof(DealState));
                     dealList.Add(deal);
                 }
                 catch (Exception e)
