@@ -32,3 +32,8 @@ Adding 'FluentAssertions 2.2.0.0' to Alpari.QualityAssurance.DataWarehouse.Tests
 Successfully added 'FluentAssertions 2.2.0.0' to Alpari.QualityAssurance.DataWarehouse.Tests.
 
 PM> 
+
+PM> Install-Package NUnit.Runners -ProjectName Alpari.QualityAssurance.Cnx2Redis.Tests
+The source at All [(Aggregate source)] is unreachable. Falling back to NuGet Local Cache at C:\Users\dgalloway\AppData\Local\NuGet\Cache
+Installing 'NUnit.Runners 2.6.3'.
+Successfully installed 'NUnit.Runners 2.6.3'.

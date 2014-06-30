@@ -195,3 +195,4 @@ qdf.AcceptanceTests/packages/C5.*
 *.suo
 *.suo
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests.v11.suo
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/Pickles*
