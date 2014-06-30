@@ -166,6 +166,10 @@
       <Project>{555bdd84-1cb6-4d07-8a1a-5b2a01ae5bcb}</Project>
       <Name>Alpari.QDF.UIClient.Tests</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Alpari.QualityAssurance.SecureMyPassword\Alpari.QualityAssurance.SecureMyPassword.csproj">
+      <Project>{27c0b243-5ccc-466c-bd7f-57f5bf6d3912}</Project>
+      <Name>Alpari.QualityAssurance.SecureMyPassword</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
