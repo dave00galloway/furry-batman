@@ -42,11 +42,11 @@
   <ItemGroup>
     <Reference Include="Alpari.QDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Alpari.QDF.0.1.33.0\lib\net45\Alpari.QDF.dll</HintPath>
+      <HintPath>..\..\packages\Alpari.QDF.0.1.37.0\lib\net45\Alpari.QDF.dll</HintPath>
     </Reference>
     <Reference Include="Alpari.QDF.Domain, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Alpari.QDF.Domain.0.1.34.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
+      <HintPath>..\..\packages\Alpari.QDF.Domain.0.1.37.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
     </Reference>
     <Reference Include="BookSleeve, Version=1.3.41.0, Culture=neutral, PublicKeyToken=9056fda458ff61cf, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
