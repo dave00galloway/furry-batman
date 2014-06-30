@@ -4,10 +4,13 @@ Feature: UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter
 	As a QDF Tester
 	I want to be able to compare data from Redis cnx-deals and Redis deals
 
-#TODO:- convert to runnable test
-@Broken
 Scenario: Compare last day's data
-	Given I have yesterdays cnx-deals
-	And I have yesterdays deals
-	When I compare cnx-deals to deals except for known issues
-	Then the cnx trade deals should match the qdf deal data exactly
+	Given I have the following search criteria for qdf deals
+	 | DealSource | StartTime | EndTime |
+	 | cnx-deals  | -1D       | +1D     |
+	 When I retrieve the qdf deal data
+	 And I query cnx trade by using the same deal search criteria
+	 And I compare the cnx trade deals with the qdf deal data excluding these fields:
+	 | ExcludedFields |
+	 | Side           | 
+	 Then the cnx trade deals should match the qdf deal data exactly 

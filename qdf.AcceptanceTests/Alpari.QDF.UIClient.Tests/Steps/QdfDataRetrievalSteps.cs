@@ -14,7 +14,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfDataRetrievalSteps : QdfDataRetrievalStepBase
     {
         public new static readonly string FullName = typeof (QdfDataRetrievalSteps).FullName;
-        private DealSearchCriteria DealSearchCriteria { get; set; }
+        public DealSearchCriteria DealSearchCriteria { get; private set; }
 
         [Given(@"I have the following search criteria for qdf deals")]
         public void GivenIHaveTheFollowingSearchCriteriaForQdfDeals(DealSearchCriteria dealSearchCriteria)

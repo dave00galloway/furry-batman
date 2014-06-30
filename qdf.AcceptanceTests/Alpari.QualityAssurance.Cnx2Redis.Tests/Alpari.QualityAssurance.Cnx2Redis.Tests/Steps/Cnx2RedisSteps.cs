@@ -47,6 +47,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
         }
 
+        /// <summary>
+        /// TODO:- rename method to "I query cnx trade by trade date from"
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
         [When(@"I query cnx trade by trade id from ""(.*)"" to ""(.*)""")]
         public void WhenIQueryCnxTradeByTradeIdFromTo(DateTime from, DateTime to)
         {
@@ -55,6 +60,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                     .ConvertToTypedDataTable<CnxTradeDataTable>();
             ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
         }
+
+        [When(@"I query cnx trade by using the same deal search criteria")]
+        public void WhenIQueryCnxTradeByUsingTheSameDealSearchCriteria()
+        {
+            var criteria = QdfDataRetrievalSteps.DealSearchCriteria;
+            var cnxTradeData =
+                CnxTradeTableDataContext.SelectDataAsDataTable(CnxTradeTableDataContext.QueryTradesByDateTime(criteria.ConvertedStartTime, criteria.ConvertedEndTime))
+                    .ConvertToTypedDataTable<CnxTradeDataTable>();
+            ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
+        }
+
 
 
         [When(@"I compare the cnx trade deals with the qdf deal data")]
