@@ -88,16 +88,18 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Connect to redis scripting interface and query deals")]
+        [NUnit.Framework.CategoryAttribute("Broken")]
         public virtual void ConnectToRedisScriptingInterfaceAndQueryDeals()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connect to redis scripting interface and query deals", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connect to redis scripting interface and query deals", new string[] {
+                        "Broken"});
 #line 13
- testRunner.Given("I have a valid deal query script", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 14
- testRunner.When("I load the script to redis cli", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I have a valid deal query script", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
+ testRunner.When("I load the script to redis cli", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
  testRunner.Then("the result should be \"Hello World!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

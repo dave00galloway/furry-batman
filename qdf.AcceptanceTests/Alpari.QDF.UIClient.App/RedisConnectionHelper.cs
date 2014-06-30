@@ -22,7 +22,7 @@ namespace Alpari.QDF.UIClient.App
         public RedisDataStore DealsStore { get; set; }
         public List<Deal> RetrievedDeals { get; set; }
         public RedisDataStore QuoteStore { get; set; }
-        public List<PriceQuote> RetrievedQuotes { get; set; }
+        public List<LevelQuote> RetrievedQuotes { get; set; }
         public RedisConnection Connection { get; private set; }
         public string RedisHost { get; private set; }
 

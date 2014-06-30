@@ -17,7 +17,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
 
         protected Exporter Exporter { get; private set; }
         protected List<Deal> ImportedDeals { get; set; }
-        protected List<PriceQuote> ImportedQuotes { get; set; }
+        protected List<LevelQuote> ImportedQuotes { get; set; }
 
         protected string GetVerificationErrorsForSymbolCounts(Table table)
         {

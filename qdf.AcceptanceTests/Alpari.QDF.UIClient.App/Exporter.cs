@@ -21,7 +21,7 @@ namespace Alpari.QDF.UIClient.App
         public void ExportQuotesToCsv(string fileNamePath)
         {
             ClearPreviousCsvOutput(fileNamePath);
-            RedisConnectionHelper.RetrievedQuotes.EnumerableToCsv(fileNamePath, true);
+            RedisConnectionHelper.RetrievedQuotes.EnumerableToCsv(fileNamePath, true,true);
         }
 
         private static void ClearPreviousCsvOutput(string fileNamePath)

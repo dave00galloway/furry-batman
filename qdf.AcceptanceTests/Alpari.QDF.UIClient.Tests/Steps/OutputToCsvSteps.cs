@@ -28,7 +28,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         public void WhenIExportTheQuoteDataToAndImportTheCsv(string fileNamePath)
         {
             Exporter.ExportQuotesToCsv(fileNamePath);
-            ImportedQuotes = fileNamePath.CsvToList<PriceQuote>(",", new[] { "Data", "Mid" });
+            ImportedQuotes = fileNamePath.CsvToList<LevelQuote>(",", new[] { "Data", "Mid" });
         }
 
         [Then(@"the quotes imported for each symbol will have the following counts")]

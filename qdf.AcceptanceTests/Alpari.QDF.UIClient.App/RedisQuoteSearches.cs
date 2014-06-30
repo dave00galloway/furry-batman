@@ -9,12 +9,12 @@ namespace Alpari.QDF.UIClient.App
     public class RedisQuoteSearches
     {
         private readonly RedisConnectionHelper _redisConnectionHelper;
-        public IEnumerable<PriceQuote> TotalRetrievedQuotes { get; private set; }
+        public IEnumerable<LevelQuote> TotalRetrievedQuotes { get; private set; }
 
         public RedisQuoteSearches(RedisConnectionHelper redisConnectionHelper)
         {
             _redisConnectionHelper = redisConnectionHelper;
-            TotalRetrievedQuotes = new List<PriceQuote>();
+            TotalRetrievedQuotes = new List<LevelQuote>();
         }
 
         public void GetQuoteData(QuoteSearchCriteria quoteSearchCriteria)
@@ -30,14 +30,14 @@ namespace Alpari.QDF.UIClient.App
             _redisConnectionHelper.RetrievedQuotes = FilterQuotesBySearchCriteria(TotalRetrievedQuotes, quoteSearchCriteria);
         }
 
-        private List<PriceQuote> FilterQuotesBySearchCriteria(IEnumerable<PriceQuote> quotes,
+        private List<LevelQuote> FilterQuotesBySearchCriteria(IEnumerable<LevelQuote> quotes,
             QuoteSearchCriteria quoteSearchCriteria)
         {
             quotes = FilterQuotesBySymbol(quotes, quoteSearchCriteria);
             return quotes.ToList();
         }
 
-        private IEnumerable<PriceQuote> FilterQuotesBySymbol(IEnumerable<PriceQuote> quotes, QuoteSearchCriteria quoteSearchCriteria)
+        private IEnumerable<LevelQuote> FilterQuotesBySymbol(IEnumerable<LevelQuote> quotes, QuoteSearchCriteria quoteSearchCriteria)
         {
             if (quoteSearchCriteria.Instrument != null)
             {
@@ -50,11 +50,11 @@ namespace Alpari.QDF.UIClient.App
             return quotes;
         }
 
-        private IEnumerable<PriceQuote> GetQuotesForDateRange(DateTime convertedStartTime, DateTime convertedEndTime)
+        private IEnumerable<LevelQuote> GetQuotesForDateRange(DateTime convertedStartTime, DateTime convertedEndTime)
         {
             _redisConnectionHelper.QuoteStore = new RedisDataStore(_redisConnectionHelper.Connection,
                 new SortedSetBasedStorageStrategy(_redisConnectionHelper.Connection, new ProtoBufSerializer()));
-            IEnumerable<PriceQuote> priceQuotes = _redisConnectionHelper.QuoteStore.Load<PriceQuote>(KeyConfig.KeyNamespaces.PriceQuote,
+            IEnumerable<LevelQuote> priceQuotes = _redisConnectionHelper.QuoteStore.Load<LevelQuote>(KeyConfig.KeyNamespaces.PriceQuote,
                 convertedStartTime, convertedEndTime, TimeSpan.FromMinutes(10));
             return priceQuotes;
         }

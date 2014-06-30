@@ -30,7 +30,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [Then(@"no retrieved quote will have a timestamp outside ""(.*)"" to ""(.*)""")]
         public void ThenNoRetrievedQuoteWillHaveATimestampOutsideTo(DateTime startDateTime, DateTime endDateTime)
         {
-            List<PriceQuote> priceQuotes = RedisConnectionHelper.RetrievedQuotes.OrderBy(x => x.TimeStamp).ToList();
+            List<LevelQuote> priceQuotes = RedisConnectionHelper.RetrievedQuotes.OrderBy(x => x.TimeStamp).ToList();
             priceQuotes.First().TimeStamp.Should().BeOnOrAfter(startDateTime);
             priceQuotes.Last().TimeStamp.Should().BeOnOrBefore(endDateTime);
         }

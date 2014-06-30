@@ -155,11 +155,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             return verificationErrors;
         }
 
-        protected string QuoteVerificationErrorsForInstrumentCounts(Table table, IEnumerable<PriceQuote> retrievedQuotes)
+        protected string QuoteVerificationErrorsForInstrumentCounts(Table table, IEnumerable<LevelQuote> retrievedQuotes)
         {
             IList<IDictionary<string, object>> expected = DataTableOperations.GetTableAsList(table);
             var actual = new List<IDictionary<string, object>>();
-            IEnumerable<IGrouping<string, PriceQuote>> groupedBySymbol = retrievedQuotes.GroupBy(x => x.Instrument);
+            IEnumerable<IGrouping<string, LevelQuote>> groupedBySymbol = retrievedQuotes.GroupBy(x => x.Instrument);
             foreach (var grouping in groupedBySymbol)
             {
                 var count = new Dictionary<string, object>

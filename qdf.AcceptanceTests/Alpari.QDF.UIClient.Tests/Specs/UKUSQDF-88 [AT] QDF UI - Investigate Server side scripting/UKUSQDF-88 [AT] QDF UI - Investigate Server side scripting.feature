@@ -9,6 +9,7 @@ Scenario: Connect to Redis Scripting Interface Hello World
 	When I send the script to redis cli
 	Then the result should be "Hello World!"
 
+@Broken
 Scenario: Connect to redis scripting interface and query deals
 	Given I have a valid deal query script
 	When I load the script to redis cli

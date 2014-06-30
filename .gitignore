@@ -196,3 +196,7 @@ qdf.AcceptanceTests/packages/C5.*
 *.suo
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests.v11.suo
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/packages/Pickles*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Gui/System.Configuration.pdb/*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Gui/System.Core.pdb/*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Gui/System.pdb/*
+qdf.AcceptanceTests/Alpari.QDF.UIClient.Gui/System.Xml.pdb/*

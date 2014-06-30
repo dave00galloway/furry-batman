@@ -89,7 +89,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Then("no retrieved quote will have a timestamp outside \"09/06/2014  09:00:00\" to \"09/06" +
                     "/2014  09:05:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 13
- testRunner.And("the count of retrieved quotes will be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved quotes will be 10893", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -117,7 +117,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 21
  testRunner.Then("all retrieved quotes will be for symbol \"EURUSD\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 22
- testRunner.And("the count of retrieved quotes will be 211", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved quotes will be 214", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -148,17 +148,17 @@ this.ScenarioSetup(scenarioInfo);
                         "Count"});
             table4.AddRow(new string[] {
                         "EURUSD",
-                        "211"});
+                        "214"});
             table4.AddRow(new string[] {
                         "NZDUSD",
-                        "154"});
+                        "156"});
             table4.AddRow(new string[] {
                         "AUDNZD",
-                        "165"});
+                        "166"});
 #line 29
  testRunner.Then("the quotes retrieved for each symbol will have the following counts", ((string)(null)), table4, "Then ");
 #line 34
- testRunner.And("the count of retrieved quotes will be 530", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved quotes will be 536", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -184,7 +184,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 41
  testRunner.And("I export the quote data to \"C:\\temp\\temp.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
- testRunner.Then("the count of retrieved quotes will be 10760", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the count of retrieved quotes will be 10893", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -217,17 +217,17 @@ this.ScenarioSetup(scenarioInfo);
                         "Count"});
             table7.AddRow(new string[] {
                         "EURUSD",
-                        "211"});
+                        "214"});
             table7.AddRow(new string[] {
                         "NZDUSD",
-                        "154"});
+                        "156"});
             table7.AddRow(new string[] {
                         "AUDNZD",
-                        "165"});
+                        "166"});
 #line 50
  testRunner.Then("the quotes imported for each symbol will have the following counts", ((string)(null)), table7, "Then ");
 #line 55
- testRunner.Then("the count of retrieved quotes will be 530", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the count of retrieved quotes will be 536", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
