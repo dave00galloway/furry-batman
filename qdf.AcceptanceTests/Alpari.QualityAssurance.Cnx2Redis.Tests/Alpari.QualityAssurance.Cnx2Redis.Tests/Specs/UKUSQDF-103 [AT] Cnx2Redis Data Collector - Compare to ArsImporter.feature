@@ -5,6 +5,7 @@ Feature: UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter
 	I want to be able to compare data from Redis cnx-deals and Redis deals
 
 #TODO:- convert to runnable test
+@Broken
 Scenario: Compare last day's data
 	Given I have yesterdays cnx-deals
 	And I have yesterdays deals

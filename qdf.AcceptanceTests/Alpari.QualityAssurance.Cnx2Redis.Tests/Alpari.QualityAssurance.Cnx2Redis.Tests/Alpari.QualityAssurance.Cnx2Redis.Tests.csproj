@@ -107,11 +107,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToDataSources.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\SelfTest\HelloWorld.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HelloWorld.feature</DependentUpon>
-    </Compile>
     <Compile Include="Specs\UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,10 +143,6 @@
     <None Include="Specs\SelfTest\ConnectToDataSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToDataSources.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Specs\SelfTest\HelloWorld.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>HelloWorld.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

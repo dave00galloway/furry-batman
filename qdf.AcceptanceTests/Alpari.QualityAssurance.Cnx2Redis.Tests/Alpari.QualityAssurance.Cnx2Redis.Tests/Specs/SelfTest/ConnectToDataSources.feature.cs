@@ -98,15 +98,15 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "19/06/2014  17:35:00",
-                        "19/06/2014  17:45:00"});
+                        "25/06/2014  07:38:09",
+                        "25/06/2014  07:55:31"});
 #line 13
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 16
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("no retrieved deal will have a timestamp outside \"19/06/2014  17:35:00\" to \"19/06/" +
-                    "2014  17:45:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("no retrieved deal will have a timestamp outside \"25/06/2014  07:38:09\" to \"25/06/" +
+                    "2014  07:55:31\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
  testRunner.And("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

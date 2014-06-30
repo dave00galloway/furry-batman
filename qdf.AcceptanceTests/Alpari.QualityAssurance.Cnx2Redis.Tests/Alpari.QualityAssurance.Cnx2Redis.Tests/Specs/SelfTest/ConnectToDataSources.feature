@@ -12,10 +12,10 @@ Scenario: Connect To MySql
 Scenario: Filter deals by date
 	Given I have the following search criteria for qdf deals
 	 | DealSource | ConvertedStartTime   | ConvertedEndTime     |
-	 | cnx-deals  | 19/06/2014  17:35:00 | 19/06/2014  17:45:00 |
+	 | cnx-deals  | 25/06/2014  07:38:09 | 25/06/2014  07:55:31 |
 	When I retrieve the qdf deal data
 	#And I export the data to "C:\temp\cnx.csv" and import the csv
-	Then no retrieved deal will have a timestamp outside "19/06/2014  17:35:00" to "19/06/2014  17:45:00"
+	Then no retrieved deal will have a timestamp outside "25/06/2014  07:38:09" to "25/06/2014  07:55:31"
 	And the count of retrieved deals will be 11
 
 
