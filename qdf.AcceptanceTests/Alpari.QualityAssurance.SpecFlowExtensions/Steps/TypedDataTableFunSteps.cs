@@ -78,7 +78,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         public void ThenThePersonDataShouldContain(int diffCount, string diffType, ExportParameters exportParameters)
         {
             var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
-            diffs.CheckForDifferences(exportParameters);
+            //diffs.CheckForDifferences(exportParameters);
+            diffs.QueryDifferences(diffCount, diffType, exportParameters);
         }
 
         [StepArgumentTransformation]

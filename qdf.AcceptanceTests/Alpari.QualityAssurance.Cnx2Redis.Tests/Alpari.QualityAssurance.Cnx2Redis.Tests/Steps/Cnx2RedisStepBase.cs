@@ -2,7 +2,9 @@
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 {
@@ -29,6 +31,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
                 QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
                 new[] {"DealId"});
+        }
+
+        [StepArgumentTransformation]
+        public static ExportParameters QuoteSearchParametersTransform(Table table)
+        {
+            var parameters = table.CreateInstance<ExportParameters>();
+            if (parameters.ExportType == ExportTypes.Csv || parameters.ExportType == ExportTypes.DataTableToCsv)
+            {
+                parameters.Path = ScenarioOutputDirectory;
+            }
+            return parameters;
         }
     }
 }

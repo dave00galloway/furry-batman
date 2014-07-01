@@ -6,10 +6,12 @@ using System.Security.Cryptography.X509Certificates;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 {
@@ -143,9 +145,19 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             }
         }
 
+        [Then(@"the cnx trade deals should match the qdf deal data exactly :-")]
+        public void ThenTheCnxTradeDealsShouldMatchTheQdfDealDataExactly(ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences(exportParameters).Should().BeNullOrWhiteSpace();
+        }
 
-
-
+        [Then(@"the cnx trade data should contain (.*) ""(.*)"" :-")]
+        public void ThenTheCnxTradeDataShouldContain(int diffCount, string diffType, ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.QueryDifferences(diffCount,diffType,exportParameters);
+        }
 
     }
 }

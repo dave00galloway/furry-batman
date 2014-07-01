@@ -1,6 +1,8 @@
 ﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SecureMyPassword;
+using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using BoDi;
 using System;
 using System.Configuration;
@@ -20,12 +22,31 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         public void BeforeScenario()
         {
             SetupCnxTradeTableDataContext();
+            MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
             TeardownCnxTradeTableDataContext();
+        }
+
+        /// <summary>
+        ///     Clear the test output directory for the feature
+        ///     to limit this set the tag to
+        ///     //[BeforeFeature("CreateOutput")]
+        ///     and apply tags to features
+        /// </summary>
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+           MasterStepBase.SetupFeatureOutputDirectoryTimestampFirst();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            MasterStepBase.InstantiateTestRunContext();
         }
 
         private void SetupCnxTradeTableDataContext()

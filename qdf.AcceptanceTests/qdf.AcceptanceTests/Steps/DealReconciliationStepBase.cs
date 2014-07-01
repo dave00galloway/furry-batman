@@ -21,7 +21,7 @@ namespace qdf.AcceptanceTests.Steps
         public const string QDF_DEAL_DATA = "QdfDealData";
         public const string CC_TOOL_DATA_TABLE_DAILY_SNAPSHOTS = "CcToolDataTable";
         public const string CC_TOOL_DATA_TABLE = "CcToolDataTable";
-        public const string REPORT_ROOT = "reportRoot";
+        
         public const string MY_SQL_QUERY_TIMEOUT = "MySqlQueryTimeout";
         public const string DEFAULT_START_TIME = "defaultStartTime";
         public const string DEFAULT_END_TIME = "defaultEndTime";
@@ -32,7 +32,7 @@ namespace qdf.AcceptanceTests.Steps
 
 
         public static readonly string FullName = typeof (DealReconciliationStepBase).FullName;
-        public const string SCENARIO_OUTPUT_DIRECTORY = "ScenarioOutputDirectory";
+        //public const string SCENARIO_OUTPUT_DIRECTORY = "ScenarioOutputDirectory";
         protected static RedisConnectionHelper RedisConnectionHelper { get; set; }
         protected IDataContextSubstitute ContextSubstitute { get; set; }
         protected QdfDealParameters QdfDealParameters { get; set; }
@@ -46,11 +46,7 @@ namespace qdf.AcceptanceTests.Steps
         [BeforeFeature]
         public static void BeforeFeature()
         {
-            FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY] = ConfigurationManager.AppSettings[REPORT_ROOT] +
-                                                               TestRunContext.StaticFriendlyTime + @"\" +
-                                                               FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
-                                                               @"\";
-            ((string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]).ClearOutputDirectory();
+            SetupFeatureOutputDirectoryTimestampFirst();
         }
 
         [BeforeTestRun]
@@ -69,26 +65,7 @@ namespace qdf.AcceptanceTests.Steps
         [BeforeScenario]
         public static void BeforeScenario()
         {
-            ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY] =
-                (string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY] +
-                ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
-            (ScenarioOutputDirectory).ClearOutputDirectory();
-        }
-
-        /// <summary>
-        /// TODO:- move to MasterStepBase, add setter and bypass ScenarioContext altogether?
-        /// </summary>
-        public static string ScenarioOutputDirectory
-        {
-            get { return (string)ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY]; }
-        }
-
-        /// <summary>
-        /// TODO:- move to MasterStepBase, add setter and bypass FeatureContext altogether?
-        /// </summary>
-        protected static string FeatureOutputDirectory
-        {
-            get { return (string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]; }
+            SetupScenarioOutputDirectoryTimestampFirst();
         }
 
         protected static int MySqlQueryTimeout
