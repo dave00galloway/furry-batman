@@ -12,7 +12,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         Csv = 1,
         Database = 2,
         Console = 3,
-        DataTableToCsv = 4
+        /// <summary>
+        /// Use this for untyped data tables
+        /// </summary>
+        DataTableToCsv = 4,
+        /// <summary>
+        /// Use this for untyped data tables
+        /// </summary>
+        DataTableToConsole = 5
     }
 
     [Obsolete("Use Export Parameters class instead")]

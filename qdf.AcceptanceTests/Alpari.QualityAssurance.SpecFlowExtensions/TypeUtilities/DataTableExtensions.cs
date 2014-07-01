@@ -5,6 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using NUnit.Framework;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
@@ -57,6 +58,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             if (csvFile.Length > 0)
             {
                 fileNamePath.DumpToCsv(csvFile);
+            }
+        }
+
+        public static void DataTableToConsole(this DataTable consoleTable)
+        {
+            Console.WriteLine(String.Join(",",
+                (from DataColumn column in consoleTable.Rows.Cast<DataRow>().First().Table.Columns select column.ColumnName)));
+            foreach (DataRow item in consoleTable.Rows)
+            {
+                Console.WriteLine(String.Join(",",
+                    item.ItemArray.Select(x => CsvParser.StringToCsvCell(x.ToString()))));
             }
         }
 

@@ -353,10 +353,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Compare Two data sets one missing and export to csv")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
         public virtual void CompareTwoDataSetsOneMissingAndExportToCsv()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one missing and export to csv", ((string[])(null)));
-#line 67
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one missing and export to csv", new string[] {
+                        "UKUSQDF_116"});
+#line 68
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
@@ -377,7 +379,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Kerry",
                         "100",
                         "stand up comic"});
-#line 68
+#line 69
  testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table12, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -392,9 +394,9 @@ this.ScenarioSetup(scenarioInfo);
                         "Putin",
                         "98",
                         "Impaler"});
-#line 72
+#line 73
  testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table13, "And ");
-#line 75
+#line 76
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
@@ -407,7 +409,7 @@ this.ScenarioSetup(scenarioInfo);
                         "missing",
                         "C:\\temp\\",
                         "true"});
-#line 76
+#line 77
  testRunner.Then("the person data should contain 1 \"missing\" :-", ((string)(null)), table14, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -415,10 +417,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Compare Two data sets one extra and export to csv")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
         public virtual void CompareTwoDataSetsOneExtraAndExportToCsv()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one extra and export to csv", ((string[])(null)));
-#line 80
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one extra and export to csv", new string[] {
+                        "UKUSQDF_116"});
+#line 82
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
@@ -433,7 +437,7 @@ this.ScenarioSetup(scenarioInfo);
                         "Putin",
                         "98",
                         "Impaler"});
-#line 81
+#line 83
  testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table15, "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
@@ -454,9 +458,9 @@ this.ScenarioSetup(scenarioInfo);
                         "Kerry",
                         "100",
                         "stand up comic"});
-#line 84
+#line 86
  testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table16, "And ");
-#line 88
+#line 90
  testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
@@ -469,8 +473,188 @@ this.ScenarioSetup(scenarioInfo);
                         "extra",
                         "C:\\temp\\",
                         "true"});
-#line 89
+#line 91
  testRunner.Then("the person data should contain 1 \"extra\" :-", ((string)(null)), table17, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets one mismatch and export to console")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
+        public virtual void CompareTwoDataSetsOneMismatchAndExportToConsole()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one mismatch and export to console", new string[] {
+                        "UKUSQDF_116"});
+#line 96
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table18.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table18.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 97
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table18, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table19.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+            table19.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 101
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table19, "And ");
+#line 105
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType"});
+            table20.AddRow(new string[] {
+                        "DataTableToConsole"});
+#line 106
+ testRunner.Then("the person data should contain 1 \"mismatch\" :-", ((string)(null)), table20, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets one missing and export to console")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
+        public virtual void CompareTwoDataSetsOneMissingAndExportToConsole()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one missing and export to console", new string[] {
+                        "UKUSQDF_116"});
+#line 111
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table21.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+            table21.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 112
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table21, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table22.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+#line 116
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table22, "And ");
+#line 119
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType"});
+            table23.AddRow(new string[] {
+                        "DataTableToConsole"});
+#line 120
+ testRunner.Then("the person data should contain 1 \"missing\" :-", ((string)(null)), table23, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets one extra and export to console")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
+        public virtual void CompareTwoDataSetsOneExtraAndExportToConsole()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets one extra and export to console", new string[] {
+                        "UKUSQDF_116"});
+#line 125
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table24.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+#line 126
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table24, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table25.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+            table25.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 129
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table25, "And ");
+#line 133
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType"});
+            table26.AddRow(new string[] {
+                        "DataTableToConsole"});
+#line 134
+ testRunner.Then("the person data should contain 1 \"extra\" :-", ((string)(null)), table26, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
