@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
@@ -72,5 +73,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             //QueryDifferences(diffCount, diffType, diffs);
             diffs.QueryDifferences(diffCount,diffType);
         }
+
+        [Then(@"the person data should contain (.*) ""(.*)"" :-")]
+        public void ThenThePersonDataShouldContain(int diffCount, string diffType, ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences(exportParameters);
+        }
+
+        [StepArgumentTransformation]
+        public static ExportParameters QuoteSearchParametersTransform(Table table)
+        {
+            return table.CreateInstance<ExportParameters>();
+        }
+        
     }
 }

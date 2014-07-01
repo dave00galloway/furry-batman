@@ -54,6 +54,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 }
             }
             AppendRowValuesAsCsvRecords(dataTable, csvFile, fileNamePath);
+            if (csvFile.Length > 0)
+            {
+                fileNamePath.DumpToCsv(csvFile);
+            }
         }
 
         private static void AppendRowValuesAsCsvRecords(DataTable dataTable, StringBuilder csvFile, string fileNamePath)

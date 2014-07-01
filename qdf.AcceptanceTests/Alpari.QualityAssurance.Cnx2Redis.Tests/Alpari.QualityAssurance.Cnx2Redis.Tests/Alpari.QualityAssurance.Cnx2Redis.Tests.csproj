@@ -126,7 +126,6 @@
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
     <Compile Include="Steps\ManualSteps.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTable.cs" />
-    <Compile Include="Steps\SelfTest\HelloWorldSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTableExtensions.cs" />
     <Compile Include="TypedDataTables\TestableDealDataTable.cs" />
@@ -175,7 +174,9 @@
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Steps\SelfTest\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -11,7 +11,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         Unknown = 0,
         Csv = 1,
         Database = 2,
-        Console = 3
+        Console = 3,
+        DataTableToCsv = 4
     }
 
     [Obsolete("Use Export Parameters class instead")]

@@ -119,6 +119,8 @@ this.ScenarioSetup(scenarioInfo);
                         "ExcludedFields"});
             table3.AddRow(new string[] {
                         "OrderId"});
+            table3.AddRow(new string[] {
+                        "Side"});
 #line 51
   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
 #line 55

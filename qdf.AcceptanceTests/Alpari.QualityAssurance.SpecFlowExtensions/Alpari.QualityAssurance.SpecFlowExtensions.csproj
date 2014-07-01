@@ -66,6 +66,7 @@
     <Compile Include="DataContexts\IMySqlDataContextSubstitute.cs" />
     <Compile Include="DataContexts\MySqlDataContextSubstitute.cs" />
     <Compile Include="FileUtilities\ExportParameters.cs" />
+    <Compile Include="FileUtilities\ExportParametersExtensions.cs" />
     <Compile Include="FileUtilities\ExportTypes.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />
     <Compile Include="Properties\Annotations.cs" />

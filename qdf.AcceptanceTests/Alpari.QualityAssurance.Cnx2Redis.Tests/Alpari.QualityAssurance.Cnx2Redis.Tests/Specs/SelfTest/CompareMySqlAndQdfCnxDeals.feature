@@ -51,7 +51,7 @@ Scenario: Compare small range of deals where side is incorrect excluding known i
 	 And I compare the cnx trade deals with the qdf deal data excluding these fields:
 	 | ExcludedFields |
 	 | OrderId        |
-	 #| Side           | 
+	 | Side           | 
 	 Then the cnx trade deals should match the qdf deal data exactly 
 
 

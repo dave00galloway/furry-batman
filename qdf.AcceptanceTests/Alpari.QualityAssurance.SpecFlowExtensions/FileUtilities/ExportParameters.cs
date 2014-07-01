@@ -14,5 +14,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         public ExportTypes ExportType { get; set; }
         public string FileName { get; set; }
         public string Path { get; set; }
+        public bool Overwrite { get; set; }
     }
 }

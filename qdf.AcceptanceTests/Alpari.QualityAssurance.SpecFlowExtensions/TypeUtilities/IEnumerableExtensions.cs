@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -37,7 +38,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
 // ReSharper disable PossibleMultipleEnumeration
             if (iEnumerable == null || !iEnumerable.Any()) return;
-            string headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode));
+            string headers = String.Join(",", typeof (T).GetPropertyNamesAsList(headerSafeMode));
             var csvFile = new StringBuilder();
             if (!File.Exists(fileNamePath))
             {
@@ -68,27 +69,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
                 }
             }
-            if (csvFile.Length>0)
+            if (csvFile.Length > 0)
             {
                 fileNamePath.DumpToCsv(csvFile);
             }
 // ReSharper restore PossibleMultipleEnumeration
         }
 
-        public static void ExportEnumerableByMethod<T>(this IEnumerable<T> sumQuery, ExportParameters exportParameters)
+        public static void ExportEnumerableByMethod<T>(this IEnumerable<T> enumerable, ExportParameters exportParameters)
         {
             switch (
                 exportParameters.ExportType
-                //(ExportTypes)
-                //    Enum.Parse(typeof(ExportTypes), CultureInfo.InvariantCulture.TextInfo.ToTitleCase(exportMethod.ToLower()))
                 )
             {
                 case ExportTypes.Csv:
-                    sumQuery.EnumerableToCsv(
-                        String.Format("{0}{1}.{2}", exportParameters.Path,
-                            // DealReconciliationStepBase.ScenarioOutputDirectory,
-                            exportParameters.FileName //"DiffDeltasByCombination"
-                            , CsvParserExtensionMethods.csv), false);
+                    exportParameters.DeleteIfOverwriting();
+                    enumerable.EnumerableToCsv(
+                        exportParameters.CsvFileNamePath(), false);
+                    break;
+                case ExportTypes.DataTableToCsv:
+                    exportParameters.DeleteIfOverwriting();
+                    var table = enumerable.ConstructTableFromDataTableRows();
+                    table.DataTableToCsv(exportParameters.CsvFileNamePath());
                     break;
                 case ExportTypes.Console:
                     throw new NotImplementedException();
@@ -98,13 +100,43 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     //case ExportTypes.Unknown:
                 default:
                     throw new ArgumentException(
-                        //exportMethod.ToString(CultureInfo.InvariantCulture)
                         exportParameters.ExportType.ToString()
                         );
             }
         }
 
-        public static int DumpToCsvAtSpecifiedLineCount(this StringBuilder csvFile, string fileNamePath, int lineCounter, int linesToDumpAt = 1000)
+        /// <summary>
+        /// Create a data table where all columns are of type string, and fill rows with CSV friendly strings
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="rowsAsEnumerable"></param>
+        /// <returns></returns>
+        private static DataTable ConstructTableFromDataTableRows<T>(this IEnumerable<T> rowsAsEnumerable)
+        {
+            //construct a data table from the data table rows 
+            var table = new DataTable();
+            var rows = rowsAsEnumerable as List<DataRow>;
+            foreach (DataColumn column in rows.First().Table.Columns)
+            {
+                table.Columns.Add(column.ColumnName, typeof (string));
+            }
+            foreach (DataRow row in rows)
+            {
+                //var newRowData = new object[]{ row.ItemArray.Select(x => x.ToString().StringToCsvCell(true)).ToArray()};
+                //var newRowData = row.ItemArray.Select(x => x.ToString().StringToCsvCell(true));
+                var newRowData = new object[row.ItemArray.Length];
+                for (int i = 0; i < row.ItemArray.Length; i++)
+                {
+                    newRowData[i] = row.ItemArray[i].ToString().StringToCsvCell(true);
+                }
+                table.Rows.Add(newRowData);
+            }
+            table.AcceptChanges();
+            return table;
+        }
+
+        public static int DumpToCsvAtSpecifiedLineCount(this StringBuilder csvFile, string fileNamePath, int lineCounter,
+            int linesToDumpAt = 1000)
         {
             lineCounter++;
             if (lineCounter > linesToDumpAt)
