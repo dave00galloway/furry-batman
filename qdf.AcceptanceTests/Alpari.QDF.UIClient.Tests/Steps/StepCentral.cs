@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
@@ -189,6 +190,22 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             if (_redisConnectionHelper == null) return;
             RedisConnectionHelper.Connection.Close(true);
             _redisConnectionHelper = null;
+        }
+
+        /// <summary>
+        /// recreate the redis connection with admin permissions - i.e. can delete all data
+        /// only set this to localhost unless you really know what you are doing!
+        /// </summary>
+        /// <param name="host"></param>
+        /// <returns></returns>
+        public static RedisConnectionHelper ResetRedisConnection(string host)
+        {
+            if (_redisConnectionHelper != null)
+            {
+                _redisConnectionHelper.Connection.Close(true);
+            }
+            _redisConnectionHelper = new RedisConnectionHelper(host,6379,-1,null,2147483647,true);
+            return _redisConnectionHelper;
         }
     }
 }

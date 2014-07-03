@@ -1,4 +1,6 @@
-﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+﻿using System.Linq;
+using Alpari.QDF.UIClient.Tests.Steps;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SecureMyPassword;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
@@ -8,6 +10,7 @@ using System;
 using System.Configuration;
 using System.Data;
 using TechTalk.SpecFlow;
+using StepCentral = Alpari.QDF.UIClient.Tests.Steps.StepCentral;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 {
@@ -23,6 +26,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         {
             SetupCnxTradeTableDataContext();
             MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
+            SeedDataIfLocalHost();
         }
 
         [AfterScenario]
@@ -56,6 +60,21 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
             var cnxTradeTable = new CnxTradeTableDataContext(connectionString, ConfigurationManager.AppSettings[MySqlTradeSchemaTableName]);
             ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
             if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(cnxTradeTable);
+        }
+
+        private static void SeedDataIfLocalHost()
+        {
+            if (ScenarioContext.Current.ScenarioInfo.Tags.Contains("localhost") || FeatureContext.Current.FeatureInfo.Tags.Contains("localhost"))
+            {
+                var redisConnection = StepCentral
+                    .ResetRedisConnection("127.0.0.1");
+                //paranoid double check to make sure not deleting a production or UAT db
+                if (redisConnection.Connection.Host == "127.0.0.1")
+                {
+                    redisConnection.Connection.Server.FlushAll();
+                }
+                
+            }
         }
 
         private void TeardownCnxTradeTableDataContext()

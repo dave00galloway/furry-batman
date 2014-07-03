@@ -15,7 +15,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
         protected CnxTradeTableDataContext CnxTradeTableDataContext { get; private set; }
 
-        private static QDF.UIClient.Tests.Steps.StepCentral UiClientTestsStepsStepCentral
+        internal static QDF.UIClient.Tests.Steps.StepCentral UiClientTestsStepsStepCentral
         {
             get
             {

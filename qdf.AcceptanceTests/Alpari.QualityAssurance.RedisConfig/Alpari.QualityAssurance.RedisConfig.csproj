@@ -46,6 +46,8 @@
   <ItemGroup>
     <None Include="RedisConfig\redis.windows.conf" />
     <None Include="RedisConfig\redis.windows.conf_def" />
+    <None Include="Scripts\KillRedis.ps1" />
+    <None Include="Scripts\LaunchRedis.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
