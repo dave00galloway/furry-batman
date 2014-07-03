@@ -91,6 +91,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
 #line 13
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+  testRunner.Then("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

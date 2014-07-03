@@ -92,8 +92,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             ScenarioContext.Current["diffs"] = diffs;
         }
 
-
-
         [Then(@"the cnx trade has a login of ""(.*)""")]
         public void ThenTheCnxTradeHasALoginOf(string expectedLogin)
         {

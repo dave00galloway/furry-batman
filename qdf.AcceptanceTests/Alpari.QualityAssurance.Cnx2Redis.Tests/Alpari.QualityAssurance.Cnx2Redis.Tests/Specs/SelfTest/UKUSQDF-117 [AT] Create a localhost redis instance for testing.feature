@@ -11,3 +11,4 @@ Scenario: write test data to localhost
 	 | DealSource | ConvertedStartTime   | ConvertedEndTime     |
 	 | cnx-deals  | 19/06/2014  17:36:00 | 19/06/2014  17:44:59 |
 	 When I retrieve the qdf deal data
+	 Then the count of retrieved deals will be 11
