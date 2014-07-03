@@ -22,8 +22,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.DescriptionAttribute("CompareMySqlAndQdfCnxDeals")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_92")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_117")]
-    [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("redisLocalhost")]
     [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class CompareMySqlAndQdfCnxDealsFeature
     {
         
@@ -40,8 +41,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
                     "om MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_92",
                         "UKUSQDF_117",
-                        "localhost",
-                        "deal:cnx_deals:TestData\\cnx.csv"});
+                        "redisLocalhost",
+                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

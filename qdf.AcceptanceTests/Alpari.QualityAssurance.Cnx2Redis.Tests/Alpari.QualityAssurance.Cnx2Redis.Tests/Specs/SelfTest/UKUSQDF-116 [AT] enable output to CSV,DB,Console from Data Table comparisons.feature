@@ -1,4 +1,4 @@
-﻿@UKUSQDF_116 @localhost @deal:cnx_deals:TestData\cnx.csv
+﻿@UKUSQDF_116 @redisLocalhost @deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
 Feature: UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons
 	In order to facilitate test evidence gathering
 	As a QDF Tester

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), data export template file -->
+<!-- Modifying this generated file will probably render it invalid -->
+<DataExportTemplate Version="2.4" Format="Csv">
+  <FormatOptions>
+    <Encoding xml:space="preserve">utf-8</Encoding>
+    <ShowTableHeader>true</ShowTableHeader>
+    <ColumnSeparator xml:space="preserve">;</ColumnSeparator>
+    <TextQuoteString xml:space="preserve">"</TextQuoteString>
+  </FormatOptions>
+  <DataExportOptions>
+    <ExportToSingleFile>false</ExportToSingleFile>
+    <WriteLog>false</WriteLog>
+    <LogFileName xml:space="preserve">DataExport.log</LogFileName>
+    <ErrorHandlingMode>0</ErrorHandlingMode>
+    <FormatInt xml:space="preserve">#0</FormatInt>
+    <FormatFloat xml:space="preserve">#0.0#####</FormatFloat>
+    <FormatCurrency xml:space="preserve">£# ##0.00</FormatCurrency>
+    <FormatBool xml:space="preserve">true;false</FormatBool>
+    <FormatDate xml:space="preserve">dd/MM/yyyy</FormatDate>
+    <FormatTime xml:space="preserve">HH:mm</FormatTime>
+    <FormatDateTime xml:space="preserve">dd/MM/yyyy HH:mm:ss</FormatDateTime>
+    <NullText xml:space="preserve">null</NullText>
+    <RangeType>0</RangeType>
+    <ConnectionName xml:space="preserve" />
+    <DisplayConnectionString xml:space="preserve">User Id=root;Host=10.10.144.105;Character Set=utf8;</DisplayConnectionString>
+    <StartRecordIndex xml:space="preserve">0</StartRecordIndex>
+    <ExportRecordCount xml:space="preserve">0</ExportRecordCount>
+    <FileName xml:space="preserve">C:\TEMP\trade.csv</FileName>
+  </DataExportOptions>
+  <DatabaseObjects>
+    <DatabaseObjectType ObjectType="Table">
+      <DatabaseObject>auktest_hedge.trade</DatabaseObject>
+    </DatabaseObjectType>
+  </DatabaseObjects>
+  <Mappings>
+    <MappingCollection>
+      <ColumnMappingOptions>
+        <PropertyValue Name="Caption" xml:space="preserve">trade</PropertyValue>
+        <PropertyValue Name="NullText" xml:space="preserve">null</PropertyValue>
+        <PropertyValue Name="BooleanFormat" xml:space="preserve">true;false</PropertyValue>
+        <PropertyValue Name="IntegerFormat" xml:space="preserve">#0</PropertyValue>
+        <PropertyValue Name="FloatFormat" xml:space="preserve">#0.0##</PropertyValue>
+        <PropertyValue Name="CurrencyFormat" xml:space="preserve"># ##0.00</PropertyValue>
+        <PropertyValue Name="DateFormat" xml:space="preserve">dd.MM.yyyy</PropertyValue>
+        <PropertyValue Name="TimeFormat" xml:space="preserve">H:mm</PropertyValue>
+        <PropertyValue Name="DateTimeFormat" xml:space="preserve">dd.MM.yyyy H:mm:ss</PropertyValue>
+      </ColumnMappingOptions>
+      <ColumnMappings>
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+        <ColumnMapping />
+      </ColumnMappings>
+    </MappingCollection>
+  </Mappings>
+</DataExportTemplate>

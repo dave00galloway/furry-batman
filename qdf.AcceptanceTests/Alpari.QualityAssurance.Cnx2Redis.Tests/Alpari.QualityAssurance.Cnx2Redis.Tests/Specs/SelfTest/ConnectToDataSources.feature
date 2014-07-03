@@ -1,4 +1,4 @@
-﻿@UKUSQDF_92 @localhost @deal:cnx_deals:TestData\cnx.csv
+﻿@UKUSQDF_92 @redisLocalhost @deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
 Feature: ConnectToDataSources
 	In order to test Cnx2Redis
 	As a QDF Tester

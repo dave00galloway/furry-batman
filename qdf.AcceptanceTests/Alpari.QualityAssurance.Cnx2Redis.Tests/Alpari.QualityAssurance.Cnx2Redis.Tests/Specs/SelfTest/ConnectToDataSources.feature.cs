@@ -21,8 +21,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ConnectToDataSources")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_92")]
-    [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("redisLocalhost")]
     [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class ConnectToDataSourcesFeature
     {
         
@@ -38,8 +39,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "ConnectToDataSources", "In order to test Cnx2Redis\r\nAs a QDF Tester\r\nI want to be able to read data from " +
                     "MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_92",
-                        "localhost",
-                        "deal:cnx_deals:TestData\\cnx.csv"});
+                        "redisLocalhost",
+                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

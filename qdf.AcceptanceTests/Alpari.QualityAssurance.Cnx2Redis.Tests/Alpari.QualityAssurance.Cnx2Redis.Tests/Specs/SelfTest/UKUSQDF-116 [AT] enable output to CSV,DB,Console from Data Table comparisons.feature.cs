@@ -21,8 +21,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
-    [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("redisLocalhost")]
     [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class UKUSQDF_116ATEnableOutputToCSVDBConsoleFromDataTableComparisonsFeature
     {
         
@@ -38,8 +39,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons", "In order to facilitate test evidence gathering\r\nAs a QDF Tester\r\nI want to be abl" +
                     "e to specify a test output method", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_116",
-                        "localhost",
-                        "deal:cnx_deals:TestData\\cnx.csv"});
+                        "redisLocalhost",
+                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

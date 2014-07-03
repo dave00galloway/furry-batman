@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- Devart (www.devart.com), import template file-->
+<!-- Modifying this generated file will probably render it invalid -->
+<ImportTemplate FormatVersion="3">
+  <Format>Text</Format>
+  <FileSupport>True</FileSupport>
+  <PasswordSupport>False</PasswordSupport>
+  <TargetInfo>
+    <PropertyValue Name="ConnectionName" xml:space="preserve">auktest_hedge.localhost</PropertyValue>
+    <PropertyValue Name="ConnectionString" xml:space="preserve">User Id=root;Host=localhost;Database=auktest_hedge;Character Set=utf8</PropertyValue>
+    <PropertyValue Name="TargetTable" xml:space="preserve">auktest_hedge.trade</PropertyValue>
+  </TargetInfo>
+  <Options>
+    <PropertyValue Name="FileName" xml:space="preserve">C:\TEMP\trade.csv</PropertyValue>
+    <PropertyValue Name="Encoding" xml:space="preserve">65001</PropertyValue>
+    <PropertyValue Name="ColumnSplittingType">0</PropertyValue>
+    <PropertyValue Name="Delimiter" xml:space="preserve">;</PropertyValue>
+    <PropertyValue Name="ColumnWidth" xml:space="preserve">50</PropertyValue>
+    <PropertyValue Name="QuoteChar" xml:space="preserve">"</PropertyValue>
+    <PropertyValue Name="SkipLinesCount" xml:space="preserve">1</PropertyValue>
+    <PropertyValue Name="ImportEvenLinesOnly">false</PropertyValue>
+    <PropertyValue Name="HeaderPosition" xml:space="preserve">1</PropertyValue>
+    <PropertyValue Name="Markers" xml:space="preserve">0</PropertyValue>
+    <PropertyValue Name="DateTimeFormat" xml:space="preserve" />
+    <PropertyValue Name="Boolean" xml:space="preserve">true;false</PropertyValue>
+    <PropertyValue Name="DecimalSeparator" xml:space="preserve">.</PropertyValue>
+    <PropertyValue Name="NullValue" xml:space="preserve">null</PropertyValue>
+    <PropertyValue Name="ThousandSeparator" xml:space="preserve"> </PropertyValue>
+    <PropertyValue Name="WriteLog">false</PropertyValue>
+    <PropertyValue Name="LogFileName" xml:space="preserve">DataImport.log</PropertyValue>
+    <PropertyValue Name="UseBulkInsert">true</PropertyValue>
+    <PropertyValue Name="MaxBatchSize" xml:space="preserve">1048576</PropertyValue>
+    <PropertyValue Name="ErrorHandlingMode">0</PropertyValue>
+    <PropertyValue Name="ExecuteAsSingleTransaction">false</PropertyValue>
+  </Options>
+  <ImportMode>Repopulate</ImportMode>
+  <ColumnMappings>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>0</SourceColumnIndex>
+      <TargetColumnName>security_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>9</SourceColumnIndex>
+      <TargetColumnName>trade_id</TargetColumnName>
+      <IsKey>true</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>1</SourceColumnIndex>
+      <TargetColumnName>price</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>2</SourceColumnIndex>
+      <TargetColumnName>spotrate</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>3</SourceColumnIndex>
+      <TargetColumnName>spotratehubtomaker</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>4</SourceColumnIndex>
+      <TargetColumnName>amountccy1</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>5</SourceColumnIndex>
+      <TargetColumnName>amountccy2</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>6</SourceColumnIndex>
+      <TargetColumnName>side</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>7</SourceColumnIndex>
+      <TargetColumnName>order_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>8</SourceColumnIndex>
+      <TargetColumnName>login</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>10</SourceColumnIndex>
+      <TargetColumnName>linked_trade_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>11</SourceColumnIndex>
+      <TargetColumnName>transact_time</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>12</SourceColumnIndex>
+      <TargetColumnName>trade_date</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>13</SourceColumnIndex>
+      <TargetColumnName>settl_date</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>14</SourceColumnIndex>
+      <TargetColumnName>party_1_role</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>15</SourceColumnIndex>
+      <TargetColumnName>party_1_name</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>16</SourceColumnIndex>
+      <TargetColumnName>party_2_role</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>17</SourceColumnIndex>
+      <TargetColumnName>party_2_name</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>18</SourceColumnIndex>
+      <TargetColumnName>comment</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>19</SourceColumnIndex>
+      <TargetColumnName>server_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>20</SourceColumnIndex>
+      <TargetColumnName>giveup_status</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>21</SourceColumnIndex>
+      <TargetColumnName>book</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>22</SourceColumnIndex>
+      <TargetColumnName>hub</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>23</SourceColumnIndex>
+      <TargetColumnName>client_order_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>24</SourceColumnIndex>
+      <TargetColumnName>traded_ccy</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>25</SourceColumnIndex>
+      <TargetColumnName>counter_ccy</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>26</SourceColumnIndex>
+      <TargetColumnName>aggressor</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>27</SourceColumnIndex>
+      <TargetColumnName>trade_type</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>28</SourceColumnIndex>
+      <TargetColumnName>forward_points</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>29</SourceColumnIndex>
+      <TargetColumnName>swap_points</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>30</SourceColumnIndex>
+      <TargetColumnName>far_amountccy1</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>31</SourceColumnIndex>
+      <TargetColumnName>far_amountccy2</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>32</SourceColumnIndex>
+      <TargetColumnName>far_settl_date</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>33</SourceColumnIndex>
+      <TargetColumnName>trade_report_id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>34</SourceColumnIndex>
+      <TargetColumnName>reconcil_status</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+    <ColumnMappingItem>
+      <TargetColumnIndex>-1</TargetColumnIndex>
+      <SourceColumnIndex>35</SourceColumnIndex>
+      <TargetColumnName>id</TargetColumnName>
+      <IsKey>false</IsKey>
+      <NullValue />
+      <DefaultValue />
+      <LeftQuoteString />
+      <RightQuoteString />
+      <DateTimeFormat />
+    </ColumnMappingItem>
+  </ColumnMappings>
+</ImportTemplate>

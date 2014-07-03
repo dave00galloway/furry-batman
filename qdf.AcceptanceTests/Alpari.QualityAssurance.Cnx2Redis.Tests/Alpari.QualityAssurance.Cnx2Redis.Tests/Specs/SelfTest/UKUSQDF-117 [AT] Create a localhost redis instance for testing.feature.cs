@@ -21,8 +21,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-117 [AT] Create a localhost redis instance for testing")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_117")]
-    [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("redisLocalhost")]
     [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class UKUSQDF_117ATCreateALocalhostRedisInstanceForTestingFeature
     {
         
@@ -38,8 +39,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-117 [AT] Create a localhost redis instance for testing", "In order to write reliable test code\r\nAs a QDF Tester\r\nI want to be able to seed " +
                     "a local redis instance with test data", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_117",
-                        "localhost",
-                        "deal:cnx_deals:TestData\\cnx.csv"});
+                        "redisLocalhost",
+                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
         

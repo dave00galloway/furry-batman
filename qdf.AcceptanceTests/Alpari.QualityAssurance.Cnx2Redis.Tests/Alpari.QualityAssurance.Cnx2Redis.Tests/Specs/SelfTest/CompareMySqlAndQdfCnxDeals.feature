@@ -1,4 +1,4 @@
-﻿@UKUSQDF_92 @UKUSQDF_117 @localhost @deal:cnx_deals:TestData\cnx.csv
+﻿@UKUSQDF_92 @UKUSQDF_117 @redisLocalhost @deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
 Feature: CompareMySqlAndQdfCnxDeals
 	In order to test Cnx2Redis
 	As a QDF Tester
