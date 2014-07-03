@@ -69,15 +69,28 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("write test data to localhost")]
-        [NUnit.Framework.CategoryAttribute("cnx.csv")]
+        [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
         public virtual void WriteTestDataToLocalhost()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("write test data to localhost", new string[] {
-                        "cnx.csv"});
+                        "deal:cnx_deals:TestData\\cnx.csv"});
 #line 8
 this.ScenarioSetup(scenarioInfo);
 #line 9
  testRunner.Given("I am running a test on localhost", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table1.AddRow(new string[] {
+                        "cnx-deals",
+                        "19/06/2014  17:36:00",
+                        "19/06/2014  17:44:59"});
+#line 10
+ testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
+#line 13
+  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -95,6 +95,7 @@
     <Compile Include="Helpers\TestableSide.cs" />
     <Compile Include="Hooks\Cnx2RedisHooks.cs" />
     <Compile Include="DataContexts\CnxTradeTableDataContext.cs" />
+    <Compile Include="Hooks\RedisDataImport.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\SelfTest\CompareMySqlAndQdfCnxDeals.feature.cs">
