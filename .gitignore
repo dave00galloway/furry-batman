@@ -215,3 +215,4 @@ RedisOnWindows.SineWave/packages/protobuf*
 RedisOnWindows.SineWave/packages/SpecFlow*
 *RedisQFork_*.dat
 stdout
+*dump.rdb
