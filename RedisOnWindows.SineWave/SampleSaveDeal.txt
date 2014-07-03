@@ -1,0 +1,45 @@
+    /// <summary>
+    /// This method is called once for every row that passes through the component from Input0.
+    ///
+    /// Example of reading a value from a column in the the row:
+    ///  string zipCode = Row.ZipCode
+    ///
+    /// Example of writing a value to a column in the row:
+    ///  Row.ZipCode = zipCode
+    /// </summary>
+    /// <param name="row">The row that is currently passing through the component</param>
+    public override void Input0_ProcessInputRow(Input0Buffer row)
+    {
+        var deal = new Deal
+        {
+            TimeStamp = Utils.UnixTimeStampToDateTime(row.ts),
+            Server = (TradingServer)row.serverId,
+            ClientId = row.clientId.ToString(CultureInfo.InvariantCulture),
+            DealId = row.dealId,
+            OrderId = row.orderId.ToString(CultureInfo.InvariantCulture),
+            Side = row.command == 0 ? Side.Sell : Side.Buy, // when clients buy we sell and vice versa
+            Book = row.bookType == "A" ? Book.A : Book.B,
+            Instrument = row.symbol,
+            Volume = (decimal)row.volume,
+            ClientPrice = (decimal)row.price,
+            BankPrice = (decimal)row.price,
+            State = (DealState)row.state,
+            AccountGroup = row.group,
+            Comment = row.comment.ToString(CultureInfo.InvariantCulture)
+        };
+        _deals.Add(deal);
+
+        _lastProcessedCnxTradeTs = Math.Max(_lastProcessedCnxTradeTs, row.ts);
+
+        if (_deals.Count > BatchSize)
+        {
+            SaveDeals();
+        }
+    }
+
+    private void SaveDeals()
+    {
+        var dataStore = new RedisDataStore(_connection, new SortedSetBasedStorageStrategy(_connection, new JsonSerializer()));
+        dataStore.Save(KeyConfig.KeyNamespaces.Deal, _deals, TimeSlice.Day);
+        _deals.Clear();
+    }

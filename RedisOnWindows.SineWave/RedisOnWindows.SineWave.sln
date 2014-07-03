@@ -17,6 +17,10 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "Listener", "Listener\Listen
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "UploadData", "UploadData\UploadData.pyproj", "{122C3FE6-ACAA-426E-BF35-F92BB2288F7A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QDF.UIClient.App", "..\qdf.AcceptanceTests\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj", "{282CA8F0-F64E-4A8F-B829-15B95253DEBC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QualityAssurance.SpecFlowExtensions", "..\qdf.AcceptanceTests\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj", "{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{122C3FE6-ACAA-426E-BF35-F92BB2288F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{122C3FE6-ACAA-426E-BF35-F92BB2288F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{122C3FE6-ACAA-426E-BF35-F92BB2288F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{282CA8F0-F64E-4A8F-B829-15B95253DEBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{282CA8F0-F64E-4A8F-B829-15B95253DEBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{282CA8F0-F64E-4A8F-B829-15B95253DEBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{282CA8F0-F64E-4A8F-B829-15B95253DEBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
