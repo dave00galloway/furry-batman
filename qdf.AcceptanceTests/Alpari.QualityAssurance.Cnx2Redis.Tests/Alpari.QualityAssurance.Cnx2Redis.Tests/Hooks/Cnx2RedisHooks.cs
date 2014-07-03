@@ -33,6 +33,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
             _featureTags = FeatureContext.Current.FeatureInfo.Tags;
             _scenarioTags = ScenarioContext.Current.ScenarioInfo.Tags;
             SetupCnxTradeTableDataContext();
+            SetupGetTradeswithEventIdDataContext();
             MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
             SeedDataIfLocalHost();
         }
@@ -59,6 +60,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         public static void BeforeTestRun()
         {
             MasterStepBase.InstantiateTestRunContext();
+        }
+
+        /// <summary>
+        /// todo:- use tags to establish if this is needed?
+        /// todo:- add config to app.config if not running on Dev?
+        /// </summary>
+        private void SetupGetTradeswithEventIdDataContext()
+        {
+            var getTradeswithEventIdDataContext = new GetTradeswithEventIDDataContext();
+            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
+            if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(getTradeswithEventIdDataContext);
         }
 
         private void SetupCnxTradeTableDataContext()

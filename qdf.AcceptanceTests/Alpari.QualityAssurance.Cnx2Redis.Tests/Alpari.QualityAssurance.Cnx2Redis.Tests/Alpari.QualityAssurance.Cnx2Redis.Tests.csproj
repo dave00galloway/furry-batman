@@ -81,6 +81,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -91,6 +92,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\GetTradeswithEventIDDataContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\TestableDeal.cs" />
     <Compile Include="Helpers\TestableSide.cs" />
     <Compile Include="Hooks\Cnx2RedisHooks.cs" />
@@ -98,6 +104,11 @@
     <Compile Include="Hooks\RedisDataImport.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\CompareMySqlAndQdfCnxDeals.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,6 +118,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToDataSources.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTest\ConnectToGetTradeswithEventIDProc.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConnectToGetTradeswithEventIDProc.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons.feature.cs">
       <AutoGen>True</AutoGen>
@@ -135,6 +151,8 @@
     </Compile>
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
+    <Compile Include="Steps\ConnectToGetTradesWithEventIdProcStepBase.cs" />
+    <Compile Include="Steps\ConnectToGetTradesWithEventIdProcSteps.cs" />
     <Compile Include="Steps\ManualSteps.cs" />
     <Compile Include="Steps\SelfTest\LocalHostSteps.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTable.cs" />
@@ -146,7 +164,16 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="DataContexts\GetTradeswithEventIDDataContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>GetTradeswithEventIDDataContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\CompareMySqlAndQdfCnxDeals.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CompareMySqlAndQdfCnxDeals.feature.cs</LastGenOutput>
@@ -154,6 +181,10 @@
     <None Include="Specs\SelfTest\ConnectToDataSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToDataSources.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\ConnectToGetTradeswithEventIDProc.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTest\UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -197,7 +228,14 @@
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DataContexts\GetTradeswithEventIDDataContext.dbml.layout">
+      <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

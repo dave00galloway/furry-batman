@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QDF" Class="GetTradeswithEventIDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=UK-QSAMODEL-DEV;Initial Catalog=QDF;Persist Security Info=True;User ID=autohedge" SettingsObjectName="Alpari.QualityAssurance.Cnx2Redis.Tests.Properties.Settings" SettingsPropertyName="QDFConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.GetTradeswithEventID" Method="GetTradeswithEventID">
+    <Parameter Name="lasteventidprocessed" Type="System.Int32" DbType="Int" />
+    <ElementType Name="GetTradeswithEventIDResult">
+      <Column Name="OrderEventID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OriginTimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FillVolume" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(3000)" CanBeNull="true" />
+      <Column Name="ExecID" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Side" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderTimeTypeID" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="OrderPriceTypeID" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="TEMnemonic" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
