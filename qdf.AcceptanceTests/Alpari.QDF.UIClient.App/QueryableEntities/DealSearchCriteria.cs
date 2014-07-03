@@ -22,7 +22,7 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
             SearchCriteriaExtensions.Setup(this);
             ServerSearchExtensions.Setup(this);
             DealSource = SupportedDataTypesControl.DEAL;
-            SetConvertedTimes();
+            // SetConvertedTimes();
         }
 
         [UsedImplicitly]
@@ -75,7 +75,7 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
             this.SafelyAddTradingServersImpl(serverName);
         }
 
-        private void SetConvertedTimes()
+        public void SetConvertedTimes()
         {
             if (ConvertedStartTime != default(DateTime)) return;
             string start = StartTime ?? ConfigurationManager.AppSettings[DEFAULT_START_TIME];

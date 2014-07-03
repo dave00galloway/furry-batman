@@ -20,7 +20,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-117 [AT] Create a localhost redis instance for testing")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_117")]
     [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
     public partial class UKUSQDF_117ATCreateALocalhostRedisInstanceForTestingFeature
     {
         
@@ -35,7 +37,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-117 [AT] Create a localhost redis instance for testing", "In order to write reliable test code\r\nAs a QDF Tester\r\nI want to be able to seed " +
                     "a local redis instance with test data", ProgrammingLanguage.CSharp, new string[] {
-                        "localhost"});
+                        "UKUSQDF_117",
+                        "localhost",
+                        "deal:cnx_deals:TestData\\cnx.csv"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -69,14 +73,12 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("write test data to localhost")]
-        [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
         public virtual void WriteTestDataToLocalhost()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("write test data to localhost", new string[] {
-                        "deal:cnx_deals:TestData\\cnx.csv"});
-#line 8
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("write test data to localhost", ((string[])(null)));
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 9
+#line 8
  testRunner.Given("I am running a test on localhost", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -87,11 +89,11 @@ this.ScenarioSetup(scenarioInfo);
                         "cnx-deals",
                         "19/06/2014  17:36:00",
                         "19/06/2014  17:44:59"});
-#line 10
+#line 9
  testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
-#line 13
+#line 12
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
+#line 13
   testRunner.Then("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -99,14 +101,12 @@ this.ScenarioSetup(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("write test data to localhost and check with MySql")]
-        [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
         public virtual void WriteTestDataToLocalhostAndCheckWithMySql()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("write test data to localhost and check with MySql", new string[] {
-                        "deal:cnx_deals:TestData\\cnx.csv"});
-#line 17
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("write test data to localhost and check with MySql", ((string[])(null)));
+#line 15
 this.ScenarioSetup(scenarioInfo);
-#line 18
+#line 16
  testRunner.Given("I am running a test on localhost", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -115,11 +115,11 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedEndTime"});
             table2.AddRow(new string[] {
                         "cnx-deals",
-                        "19/06/2014  17:35:59",
+                        "19/06/2014  17:36:00",
                         "19/06/2014  17:44:59"});
-#line 19
+#line 17
  testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table2, "And ");
-#line 22
+#line 20
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -146,7 +146,7 @@ this.ScenarioSetup(scenarioInfo);
                         "B201417005FS400"});
             table3.AddRow(new string[] {
                         "B201417005FTC00"});
-#line 23
+#line 21
   testRunner.And("I query cnx trade by trade id for these trade ids:", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -155,9 +155,9 @@ this.ScenarioSetup(scenarioInfo);
                         "OrderId"});
             table4.AddRow(new string[] {
                         "Side"});
-#line 36
+#line 34
   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table4, "And ");
-#line 40
+#line 38
   testRunner.Then("the cnx trade deals should match the qdf deal data exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

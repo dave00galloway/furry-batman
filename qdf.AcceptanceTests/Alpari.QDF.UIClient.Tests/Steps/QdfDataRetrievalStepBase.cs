@@ -13,7 +13,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         [StepArgumentTransformation]
         public static DealSearchCriteria DealSearchParametersTransform(Table table)
         {
-            return table.CreateInstance<DealSearchCriteria>();
+            var dealSearchCriteria = table.CreateInstance<DealSearchCriteria>();
+            dealSearchCriteria.SetConvertedTimes();
+            return dealSearchCriteria;
         }
 
         protected string GetVerificationErrorsForServerCounts(Table table)

@@ -21,6 +21,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("ConnectToDataSources")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_92")]
+    [NUnit.Framework.CategoryAttribute("localhost")]
+    [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
     public partial class ConnectToDataSourcesFeature
     {
         
@@ -35,7 +37,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "ConnectToDataSources", "In order to test Cnx2Redis\r\nAs a QDF Tester\r\nI want to be able to read data from " +
                     "MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSQDF_92"});
+                        "UKUSQDF_92",
+                        "localhost",
+                        "deal:cnx_deals:TestData\\cnx.csv"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -98,15 +102,15 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "25/06/2014  07:38:09",
-                        "25/06/2014  07:55:31"});
+                        "19/06/2014  17:36:00",
+                        "19/06/2014  17:44:59"});
 #line 13
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 16
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("no retrieved deal will have a timestamp outside \"25/06/2014  07:38:09\" to \"25/06/" +
-                    "2014  07:55:31\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("no retrieved deal will have a timestamp outside \"19/06/2014  17:36:00\" to \"19/06/" +
+                    "2014  17:44:59\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
  testRunner.And("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
