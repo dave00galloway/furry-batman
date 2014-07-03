@@ -213,3 +213,5 @@ RedisOnWindows.SineWave/packages/Newtonsoft*
 RedisOnWindows.SineWave/packages/NUnit*
 RedisOnWindows.SineWave/packages/protobuf*
 RedisOnWindows.SineWave/packages/SpecFlow*
+*RedisQFork_*.dat
+stdout
