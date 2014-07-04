@@ -160,6 +160,7 @@
     <Compile Include="TypedDataTables\CnxTradeDataTableExtensions.cs" />
     <Compile Include="TypedDataTables\TestableDealDataTable.cs" />
     <Compile Include="TypedDataTables\TradeWithEventIdDataTable.cs" />
+    <Compile Include="TypedDataTables\TradeWithEventIdDataTableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

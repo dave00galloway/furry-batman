@@ -98,7 +98,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         protected override void SetupColumns()
         {
             Columns.Add(new DataColumn("OrderEventID", typeof(int)));
-            Columns.Add(new DataColumn("OriginTimeStamp", typeof(DateTime?)));
+            Columns.Add(new DataColumn("OriginTimeStamp", typeof(DateTime)));
             Columns.Add(new DataColumn("FillVolume", typeof(int)));
             Columns.Add(new DataColumn("Price", typeof(double)));
             Columns.Add(new DataColumn("Comment", typeof(string)));

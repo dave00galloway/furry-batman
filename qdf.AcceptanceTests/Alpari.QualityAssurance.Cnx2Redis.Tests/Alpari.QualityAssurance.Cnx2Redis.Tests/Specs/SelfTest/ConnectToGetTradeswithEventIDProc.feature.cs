@@ -96,9 +96,59 @@ this.ScenarioSetup(scenarioInfo);
 #line 14
  testRunner.When("I call QDF.GetTradeswithEventIDProc with ID 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 15
- testRunner.And("I save the QDF.GetTradeswithEventIDProc result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I save the QDF.GetTradeswithEventIDProc result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 16
- testRunner.Then("at least one order and event are returned", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the QDF.GetTradeswithEventIDProc data table contains at least one result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Connect to stored proc and select a single result for comparison")]
+        public virtual void ConnectToStoredProcAndSelectASingleResultForComparison()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Connect to stored proc and select a single result for comparison", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+ testRunner.Given("I have a connection to QDF.GetTradeswithEventIDProc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.When("I call QDF.GetTradeswithEventIDProc with ID 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 21
+  testRunner.And("I save the QDF.GetTradeswithEventIDProc result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 22
+  testRunner.And("I save the TradeWithEventId with ExecId \"B201418404S6E00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.Then("the SelectedTradeWithEventIdTable contains 1 row", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 24
+  testRunner.And("the SelectedTradeWithEventIdTable contains a TradeWithEventId with an ExecId of \"" +
+                    "B201418404S6E00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Select a single result from qdf redis cnx-deals")]
+        public virtual void SelectASingleResultFromQdfRedisCnx_Deals()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Select a single result from qdf redis cnx-deals", ((string[])(null)));
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime"});
+            table1.AddRow(new string[] {
+                        "cnx-deals",
+                        "03/07/2014  15:30:54",
+                        "03/07/2014  15:30:56"});
+#line 27
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
+#line 30
+ testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 31
+ testRunner.And("I save the qdf deal data as a TradeEventWithId datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
