@@ -19,21 +19,21 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ConnectToGetTradeswithEventIDProc")]
+    [NUnit.Framework.DescriptionAttribute("UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_93")]
-    public partial class ConnectToGetTradeswithEventIDProcFeature
+    public partial class UKUSQDF_93ATConnectToGetTradeswithEventIDProcFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ConnectToGetTradeswithEventIDProc.feature"
+#line 1 "UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "ConnectToGetTradeswithEventIDProc", "In order to test that demo hedge trades are placed on cnx\r\nAs a QDF tester\r\nI wan" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc", "In order to test that demo hedge trades are placed on cnx\r\nAs a QDF tester\r\nI wan" +
                     "t to find all trades that the QDF demo account has placed in QDF.Orders", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_93"});
             testRunner.OnFeatureStart(featureInfo);

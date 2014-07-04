@@ -119,10 +119,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToDataSources.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\SelfTest\ConnectToGetTradeswithEventIDProc.feature.cs">
+    <Compile Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ConnectToGetTradeswithEventIDProc.feature</DependentUpon>
+      <DependentUpon>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons.feature.cs">
       <AutoGen>True</AutoGen>
@@ -148,6 +148,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-92 [AT] Cnx2Redis Data Collector - Data Reconciliation tests.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
@@ -184,9 +189,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToDataSources.feature.cs</LastGenOutput>
     </None>
-    <None Include="Specs\SelfTest\ConnectToGetTradeswithEventIDProc.feature">
+    <None Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
+      <LastGenOutput>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTest\UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -211,6 +216,10 @@
     <Content Include="TestData\cnx.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Specs\UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">

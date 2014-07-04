@@ -41,8 +41,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             TradeWithEventIdDataTableRow =
                 TradeWithEventIdDataTable.Rows.Cast<TradeWithEventIdDataTableRow>().First(row => row.ExecId == execId);
             SelectedTradeWithEventIdTable = new TradeWithEventIdDataTable("TradeEventWithIdTable", new[] { "ExecId" });
-            
             SelectedTradeWithEventIdTable.ImportRow(TradeWithEventIdDataTableRow);
+            TradeWithEventIdDataTable = SelectedTradeWithEventIdTable;
         }
 
         [When(@"I save the qdf deal data as a TradeEventWithId datatable")]
@@ -58,7 +58,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         public void WhenICompareTradeWithEventIdDealsWithTheQdfDealDataExcludingTheseFields(Table table)
         {
             var ignoredFieldsQuery = IgnoredFieldsQuery(table);
-            var diffs = SelectedTradeWithEventIdTable.Compare(QdfDealsAsTradeWithEventIdDataTable, ignoredFieldsQuery, null, false, true);
+            var diffs = TradeWithEventIdDataTable.Compare(QdfDealsAsTradeWithEventIdDataTable, ignoredFieldsQuery, null, false, true);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
