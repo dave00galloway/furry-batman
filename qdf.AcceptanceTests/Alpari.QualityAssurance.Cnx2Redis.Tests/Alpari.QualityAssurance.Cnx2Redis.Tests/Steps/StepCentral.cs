@@ -1,4 +1,5 @@
-﻿using Alpari.QDF.UIClient.Tests.Steps;
+﻿using System.Linq;
+using Alpari.QDF.UIClient.Tests.Steps;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
@@ -34,6 +35,12 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         protected static QdfDataRetrievalSteps QdfDataRetrievalSteps
         {
             get { return UiClientTestsStepsStepCentral.QdfDataRetrievalSteps; }
+        }
+
+        protected static string[] IgnoredFieldsQuery(Table table)
+        {
+            var ignoredFieldsQuery = table.Rows.Select(row => row["ExcludedFields"]).ToArray();
+            return ignoredFieldsQuery;
         }
     }
 }

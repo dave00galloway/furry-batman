@@ -15,6 +15,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         protected TradeWithEventIdDataTableRow TradeWithEventIdDataTableRow { get; set; }
         protected TradeWithEventIdDataTable SelectedTradeWithEventIdTable { get; set; }
         protected List<GetTradeswithEventIDResult> GetTradeswithEventIdResultList { get; set; }
+        protected TradeWithEventIdDataTable QdfDealsAsTradeWithEventIdDataTable { get; set; }
 
         public ConnectToGetTradesWithEventIdProcStepBase(CnxTradeTableDataContext cnxTradeTableDataContext, GetTradeswithEventIDDataContext getTradeswithEventIdDataContext)
             : base(cnxTradeTableDataContext)

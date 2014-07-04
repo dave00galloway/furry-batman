@@ -27,10 +27,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         FillVolume = (int?) deal.Volume,
                         OrderEventID = default(int), //won't have access to this
                         OrderPriceTypeID = 'C',
-                        OrderTimeTypeID = (char?) deal.State, // if this works its a lucky fluke as the logic for deal state is incorrect
+                        OrderTimeTypeID = '1', //always  GOOD_TILL_CANCEL
                         OriginTimeStamp = deal.TimeStamp,
                         Price = (double?) deal.ClientPrice,
-                        Side = (int) (deal.Side.ToString().Parse<TestableSide>() ?? TestableSide.None), //highly likely to be incorrect
+                        Side = (int) (deal.Side.ToString().Parse<TestableSide>() ?? TestableSide.None),
                         TEMnemonic = deal.Instrument
                     };
                     tradeEventWithIdList.Add(newTradeEventWithId);
@@ -40,43 +40,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                     e.ConsoleExceptionLogger(String.Format("error processing deal {0}", deal.DealId));
                 }
             }
-
-
             return tradeEventWithIdList;
         }
-
-        //public static IEnumerable<TestableDeal> ConvertToTestableDeals(this IEnumerable<Deal> deals)
-        //{
-        //    var dealList = new List<TestableDeal>();
-        //    foreach (Deal deal in deals)
-        //    {
-        //        try
-        //        {
-        //            var newDeal = new TestableDeal
-        //            {
-        //                AccountGroup = deal.AccountGroup,
-        //                BankPrice = deal.BankPrice,
-        //                Book = deal.Book,
-        //                ClientId = deal.ClientId,
-        //                ClientPrice = deal.ClientPrice,
-        //                Comment = deal.Comment,
-        //                DealId = deal.DealId,
-        //                Instrument = deal.Instrument,
-        //                OrderId = deal.OrderId,
-        //                Server = deal.Server,
-        //                Side = deal.Side.ToString().Parse<TestableSide>() ?? TestableSide.None,
-        //                State = deal.State,
-        //                TimeStamp = deal.TimeStamp,
-        //                Volume = deal.Volume
-        //            };
-        //            dealList.Add(newDeal);
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            e.ConsoleExceptionLogger(String.Format("error processing deal {0}", deal.DealId));
-        //        }
-        //    }
-        //    return dealList;
-        //}
     }
 }
