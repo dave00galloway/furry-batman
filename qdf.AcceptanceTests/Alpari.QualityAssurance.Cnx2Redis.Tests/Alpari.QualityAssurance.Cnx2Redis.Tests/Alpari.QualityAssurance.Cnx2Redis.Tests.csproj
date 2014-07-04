@@ -159,6 +159,7 @@
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTableExtensions.cs" />
     <Compile Include="TypedDataTables\TestableDealDataTable.cs" />
+    <Compile Include="TypedDataTables\TradeWithEventIdDataTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

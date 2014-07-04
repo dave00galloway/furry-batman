@@ -8,3 +8,9 @@ Scenario: Connect to stored proc
 	Given I have a connection to QDF.GetTradeswithEventIDProc
 	When I call QDF.GetTradeswithEventIDProc with ID 0
 	Then at least one order and event are returned
+
+Scenario: Connect to stored proc and save results as datatable
+	Given I have a connection to QDF.GetTradeswithEventIDProc
+	When I call QDF.GetTradeswithEventIDProc with ID 0
+	And I save the QDF.GetTradeswithEventIDProc result as a datatable
+	Then at least one order and event are returned

@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Linq;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -12,7 +9,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class ConnectToGetTradesWithEventIdProcSteps : ConnectToGetTradesWithEventIdProcStepBase
     {
-        public ConnectToGetTradesWithEventIdProcSteps(CnxTradeTableDataContext cnxTradeTableDataContext, GetTradeswithEventIDDataContext getTradeswithEventIdDataContext) : base(cnxTradeTableDataContext, getTradeswithEventIdDataContext)
+        public ConnectToGetTradesWithEventIdProcSteps(CnxTradeTableDataContext cnxTradeTableDataContext,
+            GetTradeswithEventIDDataContext getTradeswithEventIdDataContext)
+            : base(cnxTradeTableDataContext, getTradeswithEventIdDataContext)
         {
         }
 
@@ -27,6 +26,13 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             GetTradesWithEventIdResultList = GetTradeswithEventIdDataContext.GetTradeswithEventID(orderIdFrom).ToList();
         }
+
+        [When(@"I save the QDF\.GetTradeswithEventIDProc result as a datatable")]
+        public void WhenISaveTheQDF_GetTradeswithEventIDProcResultAsADatatable()
+        {
+            var table = new TradeWithEventIdDataTable().ConvertIEnumerableToDataTable(GetTradesWithEventIdResultList);
+        }
+
 
         [Then(@"at least one order and event are returned")]
         public void ThenAtLeastOneOrderAndEventAreReturned()
