@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using TechTalk.SpecFlow;

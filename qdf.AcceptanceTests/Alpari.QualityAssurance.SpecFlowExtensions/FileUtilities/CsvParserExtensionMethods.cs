@@ -163,32 +163,70 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     {
                         IList<string> row = s.GetValuesFromCsvRow(delimiter);
                         var instance = (T) Activator.CreateInstance(type);
-                        foreach (var pair in columnMap)
+                        try // to get the properties from the object's class
                         {
-                            if (ignoreProps == null || ignoreProps != null && !ignoreProps.Contains(pair.Key))
+                            foreach (var pair in columnMap)
                             {
-                                try
+                                if (ignoreProps == null || ignoreProps != null && !ignoreProps.Contains(pair.Key))
                                 {
-                                    PropertyInfo prop = type.GetProperty(pair.Key);
-                                    if (prop.PropertyType.BaseType.Name == "Enum")
+                                    try
                                     {
-                                        Type enumProp = type.GetProperty(pair.Key).PropertyType;
-                                        object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
-                                        instance.SetValue(prop, value);                                        
+                                        PropertyInfo prop = type.GetProperty(pair.Key);
+                                        // http://stackoverflow.com/questions/11443707/getproperty-reflection-results-in-ambiguous-match-found-on-new-property                                    
+                                        //  PropertyInfo prop = instance.GetType().GetProperty(pair.Key, typeof (T));
+                                        SetValue(columnMap, prop, newT, pair, row, instance);
+                                    }
+                                    catch (AmbiguousMatchException ambiguousMatchException)
+                                    {
+                                        throw;
+                                        break;
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        e.ConsoleExceptionLogger(
+                                            String.Format(
+                                                "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
+                                                pair.Key, line, s, fileNamePath));
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            //if unable to get from the object's class directly, get all the propererties and iterate through them
+                            var props = instance.GetType().GetProperties();
+                            foreach (var pair in columnMap)
+                            {
+                                if (ignoreProps == null || ignoreProps != null && !ignoreProps.Contains(pair.Key))
+                                {
+                                    PropertyInfo prop;
+                                    if (props.Count(p => p.Name == pair.Key) > 1)
+                                    {
+                                        var localProps = instance.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance|BindingFlags.DeclaredOnly);
+                                        prop = localProps.FirstOrDefault(p => p.Name == pair.Key);
                                     }
                                     else
                                     {
-                                        instance.SetValue(prop, row[columnMap[pair.Key]]);
+                                        prop = type.GetProperty(pair.Key);
+                                    }
+                                     
+                                    if (prop !=null)
+                                    {
+                                        try
+                                        {
+                                            SetValue(columnMap, prop, instance, pair, row, instance);
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            e.ConsoleExceptionLogger(
+                                                String.Format(
+                                                    "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
+                                                    pair.Key, line, s, fileNamePath));
+                                        }                                        
                                     }
                                 }
-                                catch (Exception e)
-                                {
-                                    e.ConsoleExceptionLogger(
-                                        String.Format(
-                                            "unable to get value for property {0} in line {1}. values = {2}. filename = {3}",
-                                            pair.Key, line, s, fileNamePath));
-                                }
                             }
+
                         }
                         newT = instance;
                     }
@@ -206,6 +244,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 }
                 parsedFile.Add(newT);
                 line++;
+            }
+        }
+
+        private static void SetValue<T>(Dictionary<string, int> columnMap, PropertyInfo prop, T newT, KeyValuePair<string, int> pair, IList<string> row,
+            T instance) where T : new()
+        {
+            if (prop.PropertyType.BaseType.Name == "Enum")
+            {
+                Type enumProp = newT.GetType().GetProperty(pair.Key).PropertyType;
+                object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
+                instance.SetValue(prop, value);
+            }
+            else
+            {
+                instance.SetValue(prop, row[columnMap[pair.Key]]);
             }
         }
     }

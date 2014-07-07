@@ -83,5 +83,10 @@ namespace Alpari.QDF.UIClient.App.QueryableEntities
             ConvertedStartTime = start.GetTimeFromShortCode();
             ConvertedEndTime = end.GetTimeFromShortCode(ConvertedStartTime);
         }
+
+        /// <summary>
+        /// use this to deonte "Deal" or "BookLessDeal"
+        /// </summary>
+        public string DealType { get; [UsedImplicitly] set; }
     }
 }

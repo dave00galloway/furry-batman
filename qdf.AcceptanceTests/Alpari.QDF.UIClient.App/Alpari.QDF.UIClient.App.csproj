@@ -79,6 +79,7 @@
     <Compile Include="ControlHelpers\TradingServerControl.cs" />
     <Compile Include="DealQueryPerformance.cs" />
     <Compile Include="PerformanceStats.cs" />
+    <Compile Include="QueryableEntities\BookLessDeal.cs" />
     <Compile Include="QueryableEntities\DealSearchCriteria.cs" />
     <Compile Include="Exporter.cs" />
     <Compile Include="QueryableEntities\ISearchCriteriaExtensions.cs" />
@@ -89,6 +90,8 @@
     <Compile Include="QueryableEntities\IServerSearchExtensions.cs" />
     <Compile Include="QueryableEntities\QuoteSearchCriteria.cs" />
     <Compile Include="ControlHelpers\SupportedDataTypesControl.cs" />
+    <Compile Include="QueryableEntities\TestableDeal.cs" />
+    <Compile Include="QueryableEntities\TestableSide.cs" />
     <Compile Include="QuoteQueryPerformance.cs" />
     <Compile Include="RedisConnectionHelper.cs" />
     <Compile Include="RedisDealSearches.cs" />

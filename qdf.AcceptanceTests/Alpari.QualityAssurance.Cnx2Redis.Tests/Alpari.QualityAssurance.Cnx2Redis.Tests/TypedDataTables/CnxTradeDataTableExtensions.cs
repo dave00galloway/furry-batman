@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Alpari.QDF.Domain;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QDF.Domain;
+﻿using Alpari.QDF.Domain;
 
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
+namespace Alpari.QDF.UIClient.App.QueryableEntities
 {
     /// <summary>
     /// class extending Deal which will allow invalid values to be stored so they can be compared and shown to be incorrect rather than throwing an exception while being populated with incorect data

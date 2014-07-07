@@ -1,6 +1,6 @@
 ﻿using Alpari.QDF.Domain;
 
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
+namespace Alpari.QDF.UIClient.App.QueryableEntities
 {
     public enum TestableSide
     {

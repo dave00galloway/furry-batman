@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Alpari.QDF;
 using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using BookSleeve;
 
@@ -37,10 +38,20 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
                     //type = typeof (Deal);
                     SaveDeals(FileNamePath.CsvToList<Deal>(",",new []{"Data"}));
                     break;
+                case "BookLessDeal":
+                    SaveValues(FileNamePath.CsvToList<BookLessDeal>(",", new[] { "Data" }));
+                    break;
                 //case "quote": // complicated as there arenow 2 quote types, so do this later
                 default:
                     throw new ArgumentException("{0} Not a valid data type", DataType);
             }
+        }
+
+        private void SaveValues<T>(ICollection<T> values)  where T : class, IDataPoint
+        {
+            var dataStore = new RedisDataStore(RedisConnection, new SortedSetBasedStorageStrategy(RedisConnection, new JsonSerializer()));
+            dataStore.Save(Key, values, TimeSlice.Day);
+            values.Clear();
         }
 
         private void SaveDeals(ICollection<Deal> deals)

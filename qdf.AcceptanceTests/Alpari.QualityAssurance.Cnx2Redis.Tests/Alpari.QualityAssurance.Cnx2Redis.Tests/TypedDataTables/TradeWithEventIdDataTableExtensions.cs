@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 

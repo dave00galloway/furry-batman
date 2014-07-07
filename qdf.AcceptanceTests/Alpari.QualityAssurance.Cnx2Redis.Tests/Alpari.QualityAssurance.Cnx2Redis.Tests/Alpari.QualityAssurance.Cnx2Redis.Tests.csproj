@@ -97,8 +97,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\TestableDeal.cs" />
-    <Compile Include="Helpers\TestableSide.cs" />
     <Compile Include="Hooks\Cnx2RedisHooks.cs" />
     <Compile Include="DataContexts\CnxTradeTableDataContext.cs" />
     <Compile Include="Hooks\RedisDataImport.cs" />
@@ -118,6 +116,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToDataSources.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-126 [AT] handle incorrect book formats in test code.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-126 [AT] handle incorrect book formats in test code.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs">
       <AutoGen>True</AutoGen>
@@ -189,6 +192,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToDataSources.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSQDF-126 [AT] handle incorrect book formats in test code.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-126 [AT] handle incorrect book formats in test code.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
@@ -220,6 +227,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature.cs</LastGenOutput>
     </None>
+    <None Include="TestData\BookLessDeals.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">
@@ -246,6 +256,9 @@
     <None Include="DataContexts\GetTradeswithEventIDDataContext.dbml.layout">
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Data;
 using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Annotations;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
