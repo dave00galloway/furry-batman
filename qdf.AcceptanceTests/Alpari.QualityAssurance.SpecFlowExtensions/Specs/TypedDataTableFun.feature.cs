@@ -658,6 +658,74 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets various diffs and export to csv")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
+        public virtual void CompareTwoDataSetsVariousDiffsAndExportToCsv()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets various diffs and export to csv", new string[] {
+                        "UKUSQDF_116"});
+#line 139
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table27.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "97",
+                        "Impaler"});
+            table27.AddRow(new string[] {
+                        "3",
+                        "Engleburt",
+                        "Humpedick",
+                        "98",
+                        "Philosopher"});
+#line 140
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table27, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table28.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "98",
+                        "Impaler"});
+            table28.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 144
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table28, "And ");
+#line 148
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Path",
+                        "Overwrite"});
+            table29.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "C:\\temp\\",
+                        "true"});
+#line 149
+ testRunner.Then("the person data should match exactly:-", ((string)(null)), table29, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

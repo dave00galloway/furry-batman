@@ -11,4 +11,4 @@ Scenario: Parse Bookless deals
 	When I retrieve the qdf deal data
 	#And I export the data to "C:\temp\cnx.csv" and import the csv
 	Then no retrieved deal will have a timestamp outside "06/07/2014  00:00:00" to "06/07/2014  23:59:59"
-	And the count of retrieved deals will be 11
+	And the count of retrieved deals will be 34

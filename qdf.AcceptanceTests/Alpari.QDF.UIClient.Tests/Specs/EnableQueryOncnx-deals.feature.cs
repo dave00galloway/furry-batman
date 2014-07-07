@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
+namespace Alpari.QDF.UIClient.Tests.Specs
 {
     using TechTalk.SpecFlow;
     
@@ -19,29 +19,21 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSQDF-126 [AT] handle incorrect book formats in test code")]
-    [NUnit.Framework.CategoryAttribute("UKUSQDF_126")]
-    [NUnit.Framework.CategoryAttribute("redisLocalhost")]
-    [NUnit.Framework.CategoryAttribute("BookLessDeal:cnx_deals:TestData\\BookLessDeals.csv")]
-    [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
-    public partial class UKUSQDF_126ATHandleIncorrectBookFormatsInTestCodeFeature
+    [NUnit.Framework.DescriptionAttribute("EnableQueryOncnx-deals")]
+    public partial class EnableQueryOncnx_DealsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UKUSQDF-126 [AT] handle incorrect book formats in test code.feature"
+#line 1 "EnableQueryOncnx-deals.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-126 [AT] handle incorrect book formats in test code", "In order to work around badly formatted data\r\nAs a QDF tester\r\nI want to be able " +
-                    "to ignore Book", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSQDF_126",
-                        "redisLocalhost",
-                        "BookLessDeal:cnx_deals:TestData\\BookLessDeals.csv",
-                        "MySqlLocalhost"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "EnableQueryOncnx-deals", "In order to get data from the cnx-deals key\r\nAs a Qdf tester\r\nI want to be able t" +
+                    "o filter on cnx-deals", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,12 +66,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Parse Bookless deals")]
-        public virtual void ParseBooklessDeals()
+        [NUnit.Framework.DescriptionAttribute("Filter deals by date")]
+        public virtual void FilterDealsByDate()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse Bookless deals", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter deals by date", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
+#line 8
+ testRunner.Given("I change the redis connection to \"uk-redis-prod.corp.alpari.com\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
@@ -88,18 +82,18 @@ this.ScenarioSetup(scenarioInfo);
                         "DealType"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "06/07/2014  00:00:00",
-                        "06/07/2014  23:59:59",
+                        "07/07/2014  00:00:00",
+                        "07/07/2014  00:05:00",
                         "BookLessDeal"});
-#line 8
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
-#line 11
+#line 9
+ testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
+#line 12
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.Then("no retrieved deal will have a timestamp outside \"06/07/2014  00:00:00\" to \"06/07/" +
-                    "2014  23:59:59\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("no retrieved deal will have a timestamp outside \"07/07/2014  00:00:00\" to \"07/07/" +
+                    "2014  00:01:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14
- testRunner.And("the count of retrieved deals will be 34", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved deals will be 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

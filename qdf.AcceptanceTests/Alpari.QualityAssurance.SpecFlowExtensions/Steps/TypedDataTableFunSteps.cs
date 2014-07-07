@@ -66,6 +66,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
 
+        [Then(@"the person data should match exactly:-")]
+        public void ThenThePersonDataShouldMatchExactly(ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            diffs.CheckForDifferences(exportParameters,true);
+        }
+
+
         [Then(@"the person data should contain (.*) ""(.*)""")]
         public void ThenThePersonDataShouldContain(int diffCount, string diffType)
         {

@@ -64,11 +64,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         {
             Exporter.RedisConnectionHelper.RedisHost.Should().Be(environment);
         }
-
+        [Given(@"I change the redis connection to ""(.*)""")]
         [When(@"I change the redis connection to ""(.*)""")]
         public void WhenIChangeTheRedisConnectionTo(string environment)
         {
             Exporter.SwitchRedisConnection(environment);
+            RedisConnectionHelper = Exporter.RedisConnectionHelper;
         }
 
         [Then(@"the list of environments options should be:")]

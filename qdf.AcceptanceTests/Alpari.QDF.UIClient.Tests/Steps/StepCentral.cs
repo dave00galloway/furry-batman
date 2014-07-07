@@ -29,6 +29,9 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             Setup();
         }
 
+        /// <summary>
+        /// Really should revisit this and get the connection set up in a hook step, possibly lazily, and use the exporter as the base object, not the redis connection
+        /// </summary>
         public RedisConnectionHelper RedisConnectionHelper
         {
             get
@@ -38,6 +41,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 //ObjectContainer.RegisterInstanceAs(_redisConnectionHelper);
                 return _redisConnectionHelper;
             }
+
+            protected set { _redisConnectionHelper = value; }
         }
 
         protected QdfDataRetrievalStepBase QdfDataRetrievalStepBase

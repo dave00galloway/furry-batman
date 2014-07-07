@@ -79,12 +79,12 @@ this.ScenarioSetup(scenarioInfo);
                         "DealSource",
                         "StartTime",
                         "EndTime",
-                        "Server"});
+                        "DealType"});
             table1.AddRow(new string[] {
                         "cnx-deals",
                         "-1D",
                         "+1D",
-                        "Currenex"});
+                        "BookLessDeal"});
 #line 9
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 12
@@ -115,11 +115,13 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "ConvertedStartTime",
-                        "ConvertedEndTime"});
+                        "ConvertedEndTime",
+                        "DealType"});
             table3.AddRow(new string[] {
                         "cnx-deals",
                         "04/07/2014  11:46:26",
-                        "04/07/2014  14:59:32"});
+                        "04/07/2014  14:59:32",
+                        "BookLessDeal"});
 #line 20
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table3, "Given ");
 #line 23

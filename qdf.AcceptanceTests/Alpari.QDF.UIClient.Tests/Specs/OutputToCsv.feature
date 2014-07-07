@@ -38,3 +38,14 @@ Scenario: Output ecn deals to CSV
 	| Server        | Count |
 	| Mt4JapaneseC1 | 12    |
 	And the count of imported deals will be 12
+
+#	#not actually broken, but not a "real" test.
+#@broken
+#Scenario: Output ad hoc data to CSV
+#	Given I change the redis connection to "uk-redis-prod.corp.alpari.com"
+#	And I have the following search criteria for qdf deals
+#	 | DealSource | ConvertedStartTime   | ConvertedEndTime     |DealType     |
+#	 | cnx-deals  | 06/07/2014  15:52:01 | 2014-07-07 15:52:01 | BookLessDeal |
+#	 #| cnx-deals  | 07/07/2014  00:14:20 | 07/07/2014  14:21:00 |BookLessDeal |
+#	When I retrieve the qdf deal data
+#	And I export the data to "C:\temp\temp.csv" and import the csv

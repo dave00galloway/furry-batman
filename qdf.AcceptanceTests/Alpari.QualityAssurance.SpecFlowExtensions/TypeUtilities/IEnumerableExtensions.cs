@@ -93,13 +93,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     csvTable.DataTableToCsv(exportParameters.CsvFileNamePath());
                     break;
                 case ExportTypes.Console:
-                //Console.WriteLine(String.Join(",",
-                //    (from DataColumn column in AdditionalInCompareWith.First().Table.Columns select column.ColumnName)));
-                //foreach (DataRow item in AdditionalInCompareWith)
-                //{
-                //    Console.WriteLine(String.Join(",",
-                //        item.ItemArray.Select(x => CsvParser.StringToCsvCell(x.ToString()))));
-                //}
                     throw  new NotImplementedException();
                 case ExportTypes.DataTableToConsole:
                     var consoleTable = enumerable.ConstructTableFromDataTableRows();

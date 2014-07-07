@@ -120,26 +120,31 @@ namespace Alpari.QDF.UIClient.App
             {
                 // short book;
                 short state;
-                var deal = new Deal();
-                deal.AccountGroup = bookLessDeal.AccountGroup;
-                deal.BankPrice = bookLessDeal.BankPrice;
-                deal.Side = bookLessDeal.Side.GetTypeCode() == Side.Buy.GetTypeCode() ? Side.Buy : Side.Sell;
-                deal.State = Int16.TryParse(bookLessDeal.State.ToString(), out state)
-                    ? (DealState)state.ParseEnum(typeof(DealState))
-                    : DealState.OpenNormal;
-                deal.Comment = bookLessDeal.Comment;
-                deal.ClientId = bookLessDeal.ClientId;
-                deal.ClientPrice = bookLessDeal.ClientPrice;
-                deal.DealId = bookLessDeal.DealId;
-                deal.Instrument = bookLessDeal.Instrument;
-                deal.OrderId = bookLessDeal.Instrument;
-                deal.Server = bookLessDeal.Server;
-                deal.TimeStamp = bookLessDeal.TimeStamp;
-                deal.Volume = bookLessDeal.Volume;
-                deal.Book = bookLessDeal.Book == Book.A.ToString() || bookLessDeal.Book == Book.B.ToString()
-                    ? (Book) bookLessDeal.Book.ParseEnum(typeof(Book))
-                    : Book.None;
+                var deal = new Deal
+                {
+                    AccountGroup = bookLessDeal.AccountGroup,
+                    BankPrice = bookLessDeal.BankPrice,
+                    Side = bookLessDeal.Side.GetTypeCode() == Side.Buy.GetTypeCode() ? Side.Buy : Side.Sell,
+                    Comment = bookLessDeal.Comment,
+                    ClientId = bookLessDeal.ClientId,
+                    ClientPrice = bookLessDeal.ClientPrice,
+                    DealId = bookLessDeal.DealId,
+                    Instrument = bookLessDeal.Instrument,
+                    OrderId = bookLessDeal.OrderId,
+                    Server = bookLessDeal.Server,
+                    TimeStamp = bookLessDeal.TimeStamp,
+                    Volume = bookLessDeal.Volume,
+                    Book = bookLessDeal.Book == Book.A.ToString() || bookLessDeal.Book == Book.B.ToString()
+                        ? (Book) bookLessDeal.Book.ParseEnum(typeof (Book))
+                        : Book.None
+                };
+                //deal.State = Int16.TryParse(bookLessDeal.State.ToString(), out state)
+                //    ? (DealState)state.ParseEnum(typeof(DealState))
+                //    : DealState.OpenNormal;
+                deal.State = bookLessDeal.State.ToString().Parse<DealState>()??DealState.OpenNormal;
+
                 deals.Add(deal);
+
             }
 
             return deals;

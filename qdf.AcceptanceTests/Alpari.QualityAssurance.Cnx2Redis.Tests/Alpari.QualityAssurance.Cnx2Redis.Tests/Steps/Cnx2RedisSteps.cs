@@ -71,9 +71,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                     .ConvertToTypedDataTable<CnxTradeDataTable>();
             ScenarioContext.Current["cnxTradeData"] = cnxTradeData;
         }
-
-
-
+        
         [When(@"I compare the cnx trade deals with the qdf deal data")]
         public void WhenICompareTheCnxTradeDealsWithTheQdfDealData()
         {
@@ -115,6 +113,15 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
             diffs.CheckForDifferences().Should().BeNullOrWhiteSpace();
         }
+
+        [Then(@"the cnx trade deals should match the qdf deal data exactly:-")]
+        public void ThenTheCnxTradeDealsShouldMatchTheQdfDealDataExactly_(ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            exportParameters.Path = ScenarioOutputDirectory;
+            diffs.CheckForDifferences(exportParameters,true).Should().BeNullOrWhiteSpace();
+        }
+
 
         [Then(@"the cnx trade deals should contain the same deals as the qdf deal data")]
         public void ThenTheCnxTradeDealsShouldContainTheSameDealsAsTheQdfDealData()

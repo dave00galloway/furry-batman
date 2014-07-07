@@ -134,3 +134,18 @@ Scenario: Compare Two data sets one extra and export to console
 	Then the person data should contain 1 "extra" :-
 	| ExportType         |
 	| DataTableToConsole |
+
+@UKUSQDF_116
+Scenario: Compare Two data sets various diffs and export to csv
+	Given I have the following "expected" person data:
+	| ID | Forenames | Lastname  | Age | Occupation  |
+	| 1  | Vladimir  | Putin     | 97  | Impaler     |
+	| 3  | Engleburt | Humpedick | 98  | Philosopher |
+	And I have the following "actual" person data:
+	| ID | Forenames | Lastname | Age | Occupation     |
+	| 1  | Vladimir  | Putin    | 98  | Impaler        |
+	| 2  | John      | Kerry    | 100 | stand up comic |
+	When I compare the "expected" and "actual" person data
+	Then the person data should match exactly:-
+		| ExportType     |  Path     | Overwrite |
+		| DataTableToCsv |  C:\temp\ | true      |
