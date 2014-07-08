@@ -125,7 +125,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             Columns.Add(new DataColumn("client_order_id", typeof (string)));
             Columns.Add(new DataColumn("traded_ccy", typeof (string)));
             Columns.Add(new DataColumn("counter_ccy", typeof (string)));
-            Columns.Add(new DataColumn("aggressor", typeof (bool)));
+            Columns.Add(new DataColumn("aggressor", typeof(long)));
             Columns.Add(new DataColumn("trade_type", typeof (long)));
             Columns.Add(new DataColumn("forward_points", typeof (double)));
             Columns.Add(new DataColumn("swap_points", typeof (double)));
@@ -357,9 +357,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
         }
 
         [UsedImplicitly]
-        public bool Aggressor
+        public long Aggressor
         {
-            get { return (bool) base["aggressor"]; }
+            get { return (long)base["aggressor"]; }
             set { base["aggressor"] = value; }
         }
 

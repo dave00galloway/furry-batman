@@ -116,10 +116,9 @@ namespace Alpari.QDF.UIClient.App
         private IEnumerable<Deal> MapBookLessDealToDeal(IEnumerable<BookLessDeal> bookLessDeals)
         {
             var deals = new List<Deal>();
+// ReSharper disable once LoopCanBeConvertedToQuery - easier to debug if left as for loop
             foreach (BookLessDeal bookLessDeal in bookLessDeals)
             {
-                // short book;
-                short state;
                 var deal = new Deal
                 {
                     AccountGroup = bookLessDeal.AccountGroup,
@@ -136,12 +135,9 @@ namespace Alpari.QDF.UIClient.App
                     Volume = bookLessDeal.Volume,
                     Book = bookLessDeal.Book == Book.A.ToString() || bookLessDeal.Book == Book.B.ToString()
                         ? (Book) bookLessDeal.Book.ParseEnum(typeof (Book))
-                        : Book.None
+                        : Book.None,
+                    State = bookLessDeal.State.ToString().Parse<DealState>() ?? DealState.OpenNormal
                 };
-                //deal.State = Int16.TryParse(bookLessDeal.State.ToString(), out state)
-                //    ? (DealState)state.ParseEnum(typeof(DealState))
-                //    : DealState.OpenNormal;
-                deal.State = bookLessDeal.State.ToString().Parse<DealState>()??DealState.OpenNormal;
 
                 deals.Add(deal);
 

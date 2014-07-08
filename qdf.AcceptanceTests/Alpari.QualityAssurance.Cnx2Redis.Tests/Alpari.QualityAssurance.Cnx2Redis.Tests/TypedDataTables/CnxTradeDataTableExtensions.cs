@@ -29,7 +29,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None,
                         ClientId = row.Login,
                         ClientPrice = (decimal) row.Price,
-                        Comment = row.Aggressor ? "Agressor:1" : "Aggressed:2", //note typo in Agressor...
+                        //note typo in Agressor...// and also the logical inconsistency in Aggressed!
+                        Comment = row.Aggressor == 1 || row.Aggressor == 2
+                            ? (row.Aggressor == 1 ? "Agressor:1" : "Agressor:2")
+                            : row.Aggressor.ToString(CultureInfo.InvariantCulture),                       
                         //this is due to be changed to just be 1/2 so the datatype of this field may change to int
                         DealId = row.TradeId,
                         Instrument = String.Format("{0}{1}", row.TradedCcy, row.CounterCcy),

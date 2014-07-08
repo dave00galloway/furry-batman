@@ -18,7 +18,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             "   side, order_id, login, trade_id, linked_trade_id, transact_time, trade_date, " +
             "   settl_date, party_1_role, party_1_name, party_2_role, party_2_name, comment, " +
             "   server_id, giveup_status, book, hub, client_order_id,  traded_ccy, counter_ccy, " +
-            "   aggressor, (trade_type+0) AS trade_type, forward_points, swap_points, far_amountccy1, " +
+            "   (aggressor +0) AS aggressor, (trade_type+0) AS trade_type, forward_points, swap_points, far_amountccy1, " +
             "   far_amountccy2, far_settl_date, trade_report_id, reconcil_status, id " +
             "FROM " +
                     //"   auktest_hedge.trade " +
