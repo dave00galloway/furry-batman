@@ -91,22 +91,17 @@ this.ScenarioSetup(scenarioInfo);
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
    testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+   testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table2.AddRow(new string[] {
-                        "Side"});
-#line 13
-   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table2, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table3.AddRow(new string[] {
+            table2.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 17
-  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table3, "Then ");
+#line 18
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -116,34 +111,36 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareLast2DaySData()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare last 2 day\'s data", ((string[])(null)));
-#line 21
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "StartTime",
                         "EndTime",
                         "DealType"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "cnx-deals",
                         "-2D",
                         "+2D",
                         "BookLessDeal"});
-#line 22
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table4, "Given ");
-#line 25
-  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 23
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table3, "Given ");
 #line 26
-   testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table5.AddRow(new string[] {
-                        "Side"});
+  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 27
-   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table5, "And ");
-#line 31
-  testRunner.Then("the cnx trade deals should match the qdf deal data exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+   testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+   testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table4.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 33
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -153,36 +150,36 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SpotTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Spot Test", ((string[])(null)));
-#line 33
+#line 37
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "ConvertedStartTime",
                         "ConvertedEndTime",
                         "DealType"});
-            table6.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "cnx-deals",
-                        "07/07/2014  14:20:28",
-                        "07/07/2014  14:20:30",
+                        "07/07/2014  06:04:52",
+                        "07/07/2014  06:04:53",
                         "BookLessDeal"});
-#line 34
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table6, "Given ");
-#line 37
-  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 38
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table5, "Given ");
+#line 41
+  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
    testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 43
    testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table7.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 40
-  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table7, "Then ");
+#line 44
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

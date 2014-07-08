@@ -209,7 +209,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                                     {
                                         prop = type.GetProperty(pair.Key);
                                     }
-                                     
+                                    if (prop == null)
+                                    {
+                                        //weren't able to find the property on the most derived object, so take the first matching one and hope for the best
+                                        prop = props.FirstOrDefault(p => p.Name == pair.Key);
+                                    }
                                     if (prop !=null)
                                     {
                                         try
@@ -252,7 +256,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             if (prop.PropertyType.BaseType.Name == "Enum")
             {
-                Type enumProp = newT.GetType().GetProperty(pair.Key).PropertyType;
+                //Type enumProp = newT.GetType().GetProperty(pair.Key).PropertyType;
+                // Type enumProp = prop.GetType(); //gets the type of PropertyInfo!
+                Type enumProp = prop.PropertyType;
                 object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
                 instance.SetValue(prop, value);
             }

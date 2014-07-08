@@ -123,7 +123,10 @@ namespace Alpari.QDF.UIClient.App
                 {
                     AccountGroup = bookLessDeal.AccountGroup,
                     BankPrice = bookLessDeal.BankPrice,
-                    Side = bookLessDeal.Side.GetTypeCode() == Side.Buy.GetTypeCode() ? Side.Buy : Side.Sell,
+                    //Side = bookLessDeal.Side.GetTypeCode() == Side.Buy.GetTypeCode() ? Side.Buy : Side.Sell,
+                    Side = bookLessDeal.Side.ToString() == Side.Buy.ToString() || bookLessDeal.Side.ToString() == Side.Sell.ToString()
+                        ? (Side)bookLessDeal.Side.ParseEnum(typeof(Side))
+                        : Side.Buy, //horrific assumption here, might actually need to send back BooklessDeals instead of Deals
                     Comment = bookLessDeal.Comment,
                     ClientId = bookLessDeal.ClientId,
                     ClientPrice = bookLessDeal.ClientPrice,
