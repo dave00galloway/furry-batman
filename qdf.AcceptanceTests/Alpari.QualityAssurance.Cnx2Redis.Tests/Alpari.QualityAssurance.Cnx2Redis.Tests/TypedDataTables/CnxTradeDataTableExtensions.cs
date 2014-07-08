@@ -38,10 +38,13 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         Instrument = String.Format("{0}{1}", row.TradedCcy, row.CounterCcy),
                         OrderId = row.OrderId,
                         Server = TradingServer.Currenex,
-                        Side =
-                            Int16.TryParse(row.Side, out side)
-                                ? (TestableSide) side.ParseEnum(typeof (TestableSide))
+                        // Side is stored as 1/2 in aukcx hedge, and as 0/1 in redis
+                        Side = Int16.TryParse(row.Side, out side)
+                                ? (TestableSide) side.ParseEnum(typeof (TestableSide)) -1
                                 : TestableSide.None,
+                            //Int16.TryParse(row.Side, out side)
+                            //    ? (TestableSide) side.ParseEnum(typeof (TestableSide))
+                            //    : TestableSide.None,
                         State =
                             Int16.TryParse(row.TradeType.ToString(CultureInfo.InvariantCulture), out state)
                                 ? (DealState) state.ParseEnum(typeof (DealState))
