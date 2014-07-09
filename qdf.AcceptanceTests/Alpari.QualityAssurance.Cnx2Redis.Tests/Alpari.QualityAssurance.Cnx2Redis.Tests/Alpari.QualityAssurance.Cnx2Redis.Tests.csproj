@@ -172,8 +172,12 @@
     </Compile>
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
+    <Compile Include="Steps\CnxHubAdminStepBase.cs" />
+    <Compile Include="Steps\CnxHubAdminSteps.cs" />
+    <Compile Include="Helpers\CnxTradeActivity.cs" />
     <Compile Include="Steps\ConnectToGetTradesWithEventIdProcStepBase.cs" />
     <Compile Include="Steps\ConnectToGetTradesWithEventIdProcSteps.cs" />
+    <Compile Include="Helpers\IncludedLogins.cs" />
     <Compile Include="Steps\ManualSteps.cs" />
     <Compile Include="Steps\SelfTest\LocalHostSteps.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTable.cs" />
@@ -255,6 +259,9 @@
     <None Include="TestData\BookLessDeals.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">
@@ -282,9 +289,7 @@
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

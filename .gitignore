@@ -217,3 +217,11 @@ RedisOnWindows.SineWave/packages/SpecFlow*
 stdout
 *dump.rdb
 dump.rdb
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/Microsoft.VisualBasic.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Configuration.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Core.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Data.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Security.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Transactions.pdb/*
+qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Xml.pdb/*

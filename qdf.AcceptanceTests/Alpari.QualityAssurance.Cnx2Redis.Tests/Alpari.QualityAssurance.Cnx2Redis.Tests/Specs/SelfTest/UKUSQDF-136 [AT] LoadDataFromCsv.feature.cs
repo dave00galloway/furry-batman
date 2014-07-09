@@ -133,27 +133,77 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
                         "AUKP3216",
                         "Javier Timerman"});
 #line 7
-testRunner.Given("I have this list of logins to load from cnx hub", ((string)(null)), table1, "Given ");
+testRunner.Given("I have this list of takers to load from cnx hub", ((string)(null)), table1, "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Load specified logins")]
+        public virtual void LoadSpecifiedLogins()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
-#line 31
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load specified logins", ((string[])(null)));
+#line 30
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 32
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 31
+ testRunner.Then("the list of included logins contains 20 logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load Cnx Hub Data")]
+        public virtual void LoadCnxHubData()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Cnx Hub Data", ((string[])(null)));
 #line 33
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
 #line 34
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I load cnx trade activities from \"TestData\\TradeActivitiesForAllAccountsFrom07-08" +
+                    "-2014To07-08-2014.csv\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 35
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the count of loaded cnx trade activities is 2460", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load Cnx Hub Data for specified logins")]
+        public virtual void LoadCnxHubDataForSpecifiedLogins()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Cnx Hub Data for specified logins", ((string[])(null)));
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 38
+ testRunner.When("I load cnx trade activities from \"TestData\\TradeActivitiesForAllAccountsFrom07-08" +
+                    "-2014To07-08-2014.csv\" for the selected logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 39
+ testRunner.Then("the count of loaded cnx trade activities is 2421", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Load Cnx Hub Data for specified logins and check dates")]
+        public virtual void LoadCnxHubDataForSpecifiedLoginsAndCheckDates()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Load Cnx Hub Data for specified logins and check dates", ((string[])(null)));
+#line 41
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 42
+ testRunner.When("I load cnx trade activities from \"TestData\\TradeActivitiesForAllAccountsFrom07-08" +
+                    "-2014To07-08-2014.csv\" for the selected logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.Then("the earliest cnx trade activity is \"07/07/2014  19:13:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 44
+ testRunner.And("the latest cnx trade activity is \"08/07/2014  20:56:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
