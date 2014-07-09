@@ -40,43 +40,41 @@
     </AllowedReferenceRelatedFileExtensions>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Alpari.QDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Alpari.QDF">
       <HintPath>..\..\packages\Alpari.QDF.0.1.37.0\lib\net45\Alpari.QDF.dll</HintPath>
     </Reference>
-    <Reference Include="Alpari.QDF.Domain, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="Alpari.QDF.Domain">
       <HintPath>..\..\packages\Alpari.QDF.Domain.0.1.37.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
     </Reference>
-    <Reference Include="BookSleeve, Version=1.3.41.0, Culture=neutral, PublicKeyToken=9056fda458ff61cf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\BookSleeve.1.3.41\lib\BookSleeve.dll</HintPath>
+    <Reference Include="BookSleeve">
+      <HintPath>..\..\packages\BookSleeve.1.3.41\lib\BookSleeve.dll</HintPath>
     </Reference>
     <Reference Include="C5, Version=2.3.5280.26713, Culture=neutral, PublicKeyToken=282361b99ded7e8e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\C5.2.3.0.1\lib\net40\C5.dll</HintPath>
+      <HintPath>..\..\packages\C5.2.3.0.1\lib\net40\C5.dll</HintPath>
     </Reference>
-    <Reference Include="FluentAssertions">
-      <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.dll</HintPath>
+    <Reference Include="FluentAssertions, Version=3.0.107.0, Culture=neutral, PublicKeyToken=33f2691a05b67b6a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.dll</HintPath>
     </Reference>
     <Reference Include="FluentAssertions.Core">
-      <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
+      <HintPath>..\..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
     <Reference Include="MsgPack, Version=0.4.0.0, Culture=neutral, PublicKeyToken=a2625990d5dc0167, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\MsgPack.Cli.0.4.4\lib\net40-client\MsgPack.dll</HintPath>
+      <HintPath>..\..\packages\MsgPack.Cli.0.4.4\lib\net40-client\MsgPack.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework, Version=2.6.3.13283, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+      <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\..\packages\protobuf-net.2.0.0.668\lib\net40\protobuf-net.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -88,7 +86,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="TechTalk.SpecFlow">
-      <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
+      <HintPath>..\..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -127,6 +125,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-126 [AT] handle incorrect book formats in test code.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-136 [AT] LoadDataFromCsv.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-136 [AT] LoadDataFromCsv.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,6 +149,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs">
       <AutoGen>True</AutoGen>
@@ -205,6 +213,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-126 [AT] handle incorrect book formats in test code.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSQDF-136 [AT] LoadDataFromCsv.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-136 [AT] LoadDataFromCsv.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
@@ -220,6 +232,10 @@
     <None Include="Specs\UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-103 [AT] Cnx2Redis Data Collector - Compare to ArsImporter.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
