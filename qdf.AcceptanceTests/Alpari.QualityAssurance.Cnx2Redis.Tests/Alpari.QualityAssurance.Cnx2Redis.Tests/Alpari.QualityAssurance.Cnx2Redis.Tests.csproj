@@ -264,6 +264,9 @@
     <None Include="TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">

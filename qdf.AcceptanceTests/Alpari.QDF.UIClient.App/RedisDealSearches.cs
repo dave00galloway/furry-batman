@@ -141,7 +141,14 @@ namespace Alpari.QDF.UIClient.App
                         : Book.None,
                     State = bookLessDeal.State.ToString().Parse<DealState>() ?? DealState.OpenNormal
                 };
-
+                //check to see if book was in the correct format after all...
+                if (deal.Book == Book.None)
+                {
+                    short book;
+                    deal.Book = Int16.TryParse(bookLessDeal.Book, out book)
+                        ? (Book) book.ParseEnum(typeof (Book))
+                        : Book.None;
+                }
                 deals.Add(deal);
 
             }
