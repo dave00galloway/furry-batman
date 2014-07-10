@@ -35,10 +35,12 @@ Scenario: write test data to localhost and check with MySql
 		 | B20141910A7SV00 |
 		 | B201419106E7Z00 |
 
-		 And I compare the cnx trade deals with the qdf deal data 
+		 And I compare the cnx trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
 	 Then the cnx trade deals should match the qdf deal data exactly:-
-	 		| ExportType     |  Overwrite |
-	 		| DataTableToCsv |  true      | 
+	 	| ExportType     |  Overwrite |
+	 	| DataTableToCsv |  true      | 
 
 #cnx_old.csv
 #Scenario: write test data to localhost

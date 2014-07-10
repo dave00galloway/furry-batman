@@ -17,7 +17,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             {
                 try
                 {
-                    short book;
                     short side;
                     short state;
                     var deal = new TestableDeal
@@ -26,7 +25,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         // may change to replicate ArsImporter logic of using firstname + lasrname from login table
                         BankPrice = (decimal) row.SpotRate,
                         //may change to  if(hub IS NULL, spotrate, spotratehubtomaker) as spotrate
-                        Book = Int16.TryParse(row.Book, out book) ? (Book) book.ParseEnum(typeof (Book)) : Book.None,
                         ClientId = row.Login,
                         ClientPrice = (decimal) row.Price,
                         //note typo in Agressor...// and also the logical inconsistency in Aggressed!
@@ -52,6 +50,18 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
                         TimeStamp = row.TransactTime,
                         Volume = (decimal) row.AmountCcy1
                     };
+                    switch (row.Book.Trim().ToUpperInvariant())
+                    {
+                        case "B-BOOK":
+                            deal.Book = Book.B;
+                            break;
+                        case "A-BOOK":
+                            deal.Book = Book.A;
+                            break;
+                        default:
+                            deal.Book = Book.None;
+                            break;
+                    }
 
                     dealList.Add(deal);
                 }

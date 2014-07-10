@@ -156,17 +156,22 @@ this.ScenarioSetup(scenarioInfo);
                         "B201419106E7Z00"});
 #line 21
    testRunner.And("I query cnx trade by trade id for these trade ids:", ((string)(null)), table3, "And ");
-#line 38
-   testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table4.AddRow(new string[] {
+                        "Comment"});
+#line 38
+   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table4, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table4.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 39
-  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
+#line 41
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table5, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

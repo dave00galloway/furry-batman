@@ -237,6 +237,9 @@ this.FeatureBackground();
   testRunner.And("I update the qdf deal criteria with start and end times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 53
   testRunner.And("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.Then("no retrieved deal will have a timestamp outside \"07/07/2014  19:13:00\" to \"08/07/" +
+                    "2014  20:56:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

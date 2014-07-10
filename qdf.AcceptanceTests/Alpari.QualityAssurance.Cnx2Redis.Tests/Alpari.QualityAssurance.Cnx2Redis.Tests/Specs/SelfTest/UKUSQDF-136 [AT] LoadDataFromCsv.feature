@@ -51,3 +51,4 @@ Scenario: Use Loaded data to determine query parameters for searching redis
 	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv" for the selected logins
 		And I update the qdf deal criteria with start and end times 
 		And I retrieve the qdf deal data
+	Then no retrieved deal will have a timestamp outside "07/07/2014  19:13:00" to "08/07/2014  20:56:00"
