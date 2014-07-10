@@ -76,6 +76,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
             if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(getTradeswithEventIdDataContext);
         }
 
+        /// <summary>
+        /// TODO:- enable override of MySqlTradeSchemaTableName from tags
+        /// </summary>
         private void SetupCnxTradeTableDataContext()
         {
             string connectionString;

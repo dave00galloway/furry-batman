@@ -144,6 +144,45 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Spot Test")]
+        public virtual void SpotTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Spot Test", ((string[])(null)));
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "StartTime",
+                        "EndTime",
+                        "DealType"});
+            table5.AddRow(new string[] {
+                        "cnx-deals",
+                        "-1D",
+                        "+1D",
+                        "BookLessDeal"});
+#line 38
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table5, "Given ");
+#line 42
+  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+   testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+   testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table6.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 45
+  testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table6, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

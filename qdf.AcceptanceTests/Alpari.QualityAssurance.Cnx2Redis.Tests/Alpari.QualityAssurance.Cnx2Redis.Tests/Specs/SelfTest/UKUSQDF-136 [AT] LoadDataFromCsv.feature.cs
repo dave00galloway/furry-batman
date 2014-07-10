@@ -211,6 +211,35 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Use Loaded data to determine query parameters for searching redis")]
+        public virtual void UseLoadedDataToDetermineQueryParametersForSearchingRedis()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use Loaded data to determine query parameters for searching redis", ((string[])(null)));
+#line 47
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "DealType"});
+            table2.AddRow(new string[] {
+                        "cnx-deals",
+                        "BookLessDeal"});
+#line 48
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table2, "Given ");
+#line 51
+ testRunner.When("I load cnx trade activities from \"TestData\\TradeActivitiesForAllAccountsFrom07-08" +
+                    "-2014To07-08-2014.csv\" for the selected logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+  testRunner.And("I update the qdf deal criteria with start and end times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+  testRunner.And("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
