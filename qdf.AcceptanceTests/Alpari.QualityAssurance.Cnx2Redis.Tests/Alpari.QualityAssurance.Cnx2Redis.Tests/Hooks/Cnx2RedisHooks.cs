@@ -46,6 +46,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         public void AfterScenario()
         {
             TeardownCnxTradeTableDataContext();
+            TeardownGetTradeswithEventIdDataContext();
         }
 
         /// <summary>
@@ -135,6 +136,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
                 if (cnxTradeTable.MyConnection.State != ConnectionState.Closed)
                 {
                     cnxTradeTable.MyConnection.Close();
+                    cnxTradeTable.MyConnection.Dispose();
+                }
+            }
+            catch (Exception e)
+            {
+                e.ConsoleExceptionLogger();
+            }
+        }
+
+        private void TeardownGetTradeswithEventIdDataContext()
+        {
+            try
+            {
+                var context = ObjectContainer.Resolve<GetTradeswithEventIDDataContext>();
+                if (context.Connection.State != ConnectionState.Closed)
+                {
+                    context.Connection.Close();
+                    context.Dispose();
                 }
             }
             catch (Exception e)

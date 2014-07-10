@@ -129,8 +129,10 @@ this.ScenarioSetup(scenarioInfo);
 #line 26
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 27
-   testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("I export the data to \"C:\\temp\\tempComparelast2daysdata.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
+   testRunner.And("I query cnx trade by using the same deal search criteria", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
    testRunner.And("I compare the cnx trade deals with the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -139,7 +141,7 @@ this.ScenarioSetup(scenarioInfo);
             table4.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 33
+#line 34
   testRunner.Then("the cnx trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -150,20 +152,20 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void SpotTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Spot Test", ((string[])(null)));
-#line 37
+#line 38
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
-                        "StartTime",
-                        "EndTime",
+                        "ConvertedStartTime",
+                        "ConvertedEndTime",
                         "DealType"});
             table5.AddRow(new string[] {
                         "cnx-deals",
-                        "-1D",
-                        "+1D",
+                        "10/07/2014  00:00:00",
+                        "10/07/2014  17:26:59",
                         "BookLessDeal"});
-#line 38
+#line 39
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table5, "Given ");
 #line 42
   testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
