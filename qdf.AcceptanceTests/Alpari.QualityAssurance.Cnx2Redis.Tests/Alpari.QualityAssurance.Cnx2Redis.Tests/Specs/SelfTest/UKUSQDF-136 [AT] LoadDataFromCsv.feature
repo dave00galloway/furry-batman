@@ -1,4 +1,5 @@
-﻿Feature: UKUSQDF-136 [AT] LoadDataFromCsv
+﻿@UKUSQDF_136 @cnxHubTradeActivityImporter:Csv
+Feature: UKUSQDF-136 [AT] LoadDataFromCsv
 	In order to test Redis cnx-deals agains cnx-hub
 	As a QDF Tester
 	I want to be able to load selected deals from cnx hub csv

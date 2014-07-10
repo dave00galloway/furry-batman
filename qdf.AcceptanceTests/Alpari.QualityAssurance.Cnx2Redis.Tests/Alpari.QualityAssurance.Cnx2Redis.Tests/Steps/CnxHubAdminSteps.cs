@@ -12,8 +12,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class CnxHubAdminSteps : CnxHubAdminStepBase
     {
-        public CnxHubAdminSteps(CnxTradeTableDataContext cnxTradeTableDataContext) : base(cnxTradeTableDataContext)
+        //TODO:- move to Base Class
+        public ICnxHubTradeActivityImporter CnxHubTradeActivityImporter { get; set; }
+        public CnxHubAdminSteps(CnxTradeTableDataContext cnxTradeTableDataContext, ICnxHubTradeActivityImporter cnxHubTradeActivityImporter) : base(cnxTradeTableDataContext)
         {
+            CnxHubTradeActivityImporter = cnxHubTradeActivityImporter;
         }
 
         [Given(@"I have this list of takers to load from cnx hub")]
@@ -25,30 +28,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I load cnx trade activities from ""(.*)""")]
         public void WhenILoadCnxTradeActivitiesFrom(string filenamePath)
         {
-            CnxTradeActivityList = filenamePath.CsvToList<CnxTradeActivity>(",");
+           CnxHubTradeActivityImporter.LoadData(new ExportParameters{FileName = filenamePath});
         }
 
         [When(@"I load cnx trade activities from ""(.*)"" for the selected logins")]
         public void WhenILoadCnxTradeActivitiesFromForTheSelectedLogins(string filenamePath)
         {
-            //Move functionality to a helper class?
-            //should work but doesn't! - no, wait... it does
-            //CnxTradeActivityList =
-            //    filenamePath.CsvToList<CnxTradeActivity>(",")
-            //        .Where(x => IncludedLoginsList.Select(l => l.Login).Contains(x.Taker))
-            //        .ToList();
-            //this is probably more performant
-            CnxTradeActivityList =
-                filenamePath.CsvToList<CnxTradeActivity>(",").Where(
-                    cnxTradeActivity =>
-                        IncludedLoginsList.Any(includedLogin => cnxTradeActivity.Taker == includedLogin.Login)).ToList();
-
-            CnxTradeActivityList.Sort((t1, t2) => DateTime.Compare(t1.TradeDateGMT, t2.TradeDateGMT));
-            if (CnxTradeActivityList.Count <= 0) return;
-            // ReSharper disable PossibleNullReferenceException
-            EarliestTradeActivityDateTime = CnxTradeActivityList.FirstOrDefault().TradeDateGMT;
-            LatestTradeActivityDateTime = CnxTradeActivityList.LastOrDefault().TradeDateGMT;
-            // ReSharper restore PossibleNullReferenceException
+            CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList; //if moved to hook script, would the list be synced byRef when filled?
+            WhenILoadCnxTradeActivitiesFrom(filenamePath);
         }
 
 
@@ -61,19 +48,20 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [Then(@"the count of loaded cnx trade activities is (.*)")]
         public void ThenTheCountOfLoadedCnxTradeActivitiesIs(int activityCount)
         {
-            CnxTradeActivityList.Should().HaveCount(activityCount);
+           // CnxTradeActivityList.Should().HaveCount(activityCount);
+            CnxHubTradeActivityImporter.CnxTradeActivityList.Should().HaveCount(activityCount);
         }
 
         [Then(@"the earliest cnx trade activity is ""(.*)""")]
         public void ThenTheEarliestCnxTradeActivityIs(DateTime earlyDateTime)
         {
-            EarliestTradeActivityDateTime.Should().Be(earlyDateTime);
+            CnxHubTradeActivityImporter.EarliestTradeActivityDateTime.Should().Be(earlyDateTime);
         }
 
         [Then(@"the latest cnx trade activity is ""(.*)""")]
         public void ThenTheLatestCnxTradeActivityIs(DateTime lateDateTime)
         {
-            LatestTradeActivityDateTime.Should().Be(lateDateTime);
+            CnxHubTradeActivityImporter.LatestTradeActivityDateTime.Should().Be(lateDateTime);
         }
     }
 }

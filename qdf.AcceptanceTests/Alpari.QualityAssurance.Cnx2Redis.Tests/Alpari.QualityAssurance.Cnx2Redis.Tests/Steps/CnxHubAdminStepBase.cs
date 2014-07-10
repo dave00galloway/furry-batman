@@ -15,9 +15,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         }
 
         protected IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
-        protected List<CnxTradeActivity> CnxTradeActivityList { get; set; }
-        protected DateTime EarliestTradeActivityDateTime { get; set; }
-        protected DateTime LatestTradeActivityDateTime { get; set; }
+
 
         [StepArgumentTransformation]
         public static IEnumerable<IncludedLogins> IncludedLoginsTransform(Table table)

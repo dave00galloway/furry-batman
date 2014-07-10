@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SecureMyPassword;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
@@ -23,19 +24,22 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         private const string LocalHostIp = "127.0.0.1";
         private const string RedisLocalHostName = "redisLocalhost";
         private const string MySqlLocalhostName = "MySqlLocalhost";
+        private const string CnxHubTradeActivityImporterName = "cnxHubTradeActivityImporter";
         private static string[] _featureTags;
         private static string[] _scenarioTags;
-        private IObjectContainer ObjectContainer { get; set; }
+        private static IObjectContainer ObjectContainer { get; set; }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
+            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
             _featureTags = FeatureContext.Current.FeatureInfo.Tags;
             _scenarioTags = ScenarioContext.Current.ScenarioInfo.Tags;
             SetupCnxTradeTableDataContext();
             SetupGetTradeswithEventIdDataContext();
             MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
             SeedDataIfLocalHost();
+            SetupCnxHubTradeActivityImporter();
         }
 
         [AfterScenario]
@@ -69,7 +73,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         private void SetupGetTradeswithEventIdDataContext()
         {
             var getTradeswithEventIdDataContext = new GetTradeswithEventIDDataContext();
-            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
             if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(getTradeswithEventIdDataContext);
         }
 
@@ -135,6 +138,25 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
             {
                 e.ConsoleExceptionLogger();
             }
+        }
+
+        private static void SetupCnxHubTradeActivityImporter()
+        {
+            if (LoadCnxHubTradeActivityImporter(_scenarioTags))
+            {
+                return;
+            }
+            LoadCnxHubTradeActivityImporter(_featureTags);
+        }
+
+        private static bool LoadCnxHubTradeActivityImporter(IEnumerable<string> tags)
+        {
+            var tagArray = tags as string[] ?? tags.ToArray();
+            if (!tagArray.Any(x => x.Contains(CnxHubTradeActivityImporterName))) return false;
+            var importer = CnxHubTradeActivityImporterFactory.Create(
+                tagArray.First(x => x.Contains(CnxHubTradeActivityImporterName)));
+            if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(importer);
+            return true;
         }
     }
 }
