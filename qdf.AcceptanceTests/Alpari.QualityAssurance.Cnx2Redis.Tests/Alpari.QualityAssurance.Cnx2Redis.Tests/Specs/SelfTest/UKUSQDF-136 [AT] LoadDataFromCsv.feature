@@ -119,7 +119,7 @@ Scenario: Use included logins to filter qdf deals with book-fixed deals can acce
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 	Then all retrieved deals will have a client id from the included logins list
 
-@redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
+@redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv
 Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
@@ -134,7 +134,7 @@ Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals
 		And the latest cnx trade activity is "10/07/2014  01:30:03"
 		And the count of loaded cnx trade activities is 13
 
-@redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
+@redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv
 Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
@@ -143,7 +143,6 @@ Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals and do comparis
 		| FileNamePath                             | ConvertedStartTime   | ConvertedEndTime     |
 		| TestData\TradeActivitiesMini10thJuly.csv | 10/07/2014  01:29:20 | 10/07/2014  01:30:04 |
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		#And I compare the cnx trade deals with the qdf deal data excluding these fields:
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
 		 | ExcludedFields |
 		 | Comment        |

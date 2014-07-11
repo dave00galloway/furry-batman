@@ -16,7 +16,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
 
             foreach (CnxTradeActivity cnxTradeActivity in cnxTradeActivities)
             {
-                var side = TestableSide.None;
+                TestableSide side;
                 var deal = new TestableDeal
                 {
                     AccountGroup = "",

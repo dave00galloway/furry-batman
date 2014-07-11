@@ -488,13 +488,11 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Use Localhost to check qdf cnx-deals and cnx hub deals")]
         [NUnit.Framework.CategoryAttribute("redisLocalhost")]
         [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv")]
-        [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
         public virtual void UseLocalhostToCheckQdfCnx_DealsAndCnxHubDeals()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use Localhost to check qdf cnx-deals and cnx hub deals", new string[] {
                         "redisLocalhost",
-                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv",
-                        "MySqlLocalhost"});
+                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv"});
 #line 123
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -541,13 +539,11 @@ this.FeatureBackground();
         [NUnit.Framework.DescriptionAttribute("Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison")]
         [NUnit.Framework.CategoryAttribute("redisLocalhost")]
         [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv")]
-        [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
         public virtual void UseLocalhostToCheckQdfCnx_DealsAndCnxHubDealsAndDoComparison()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison", new string[] {
                         "redisLocalhost",
-                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv",
-                        "MySqlLocalhost"});
+                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv"});
 #line 138
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -588,7 +584,7 @@ this.FeatureBackground();
                         "OrderId"});
             table15.AddRow(new string[] {
                         "State"});
-#line 147
+#line 146
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table15, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
@@ -597,7 +593,7 @@ this.FeatureBackground();
             table16.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 155
+#line 154
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table16, "Then ");
 #line hidden
             this.ScenarioCleanup();
