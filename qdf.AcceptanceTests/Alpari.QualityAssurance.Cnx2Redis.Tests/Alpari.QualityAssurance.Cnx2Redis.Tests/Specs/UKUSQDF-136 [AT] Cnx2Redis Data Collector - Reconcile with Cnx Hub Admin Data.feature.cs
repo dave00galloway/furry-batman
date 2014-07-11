@@ -35,7 +35,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data", "In order to have confidence in the cnx-deals data\r\nAs a QDF analyst\r\nI want to se" +
-                    "e that cnx-deals data matches dat from cnx admin hub", ProgrammingLanguage.CSharp, new string[] {
+                    "e that cnx-deals data matches data from cnx admin hub", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_136",
                         "cnxHubTradeActivityImporter:Csv"});
             testRunner.OnFeatureStart(featureInfo);

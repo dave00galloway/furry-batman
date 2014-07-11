@@ -2,7 +2,7 @@
 Feature: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data
 	In order to have confidence in the cnx-deals data
 	As a QDF analyst
-	I want to see that cnx-deals data matches dat from cnx admin hub
+	I want to see that cnx-deals data matches data from cnx admin hub
 
 Background: List of Logins
 Given I have this list of takers to load from cnx hub
