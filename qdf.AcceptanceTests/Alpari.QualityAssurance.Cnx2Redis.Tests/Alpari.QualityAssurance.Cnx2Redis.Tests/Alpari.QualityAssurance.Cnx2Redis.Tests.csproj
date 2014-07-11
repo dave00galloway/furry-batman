@@ -96,6 +96,7 @@
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CnxHubTradeActivityCsvImporter.cs" />
+    <Compile Include="Helpers\CnxTradeActivityExtensions.cs" />
     <Compile Include="Helpers\ICnxHubTradeActivityImporter.cs" />
     <Compile Include="Hooks\Cnx2RedisHooks.cs" />
     <Compile Include="DataContexts\CnxTradeTableDataContext.cs" />

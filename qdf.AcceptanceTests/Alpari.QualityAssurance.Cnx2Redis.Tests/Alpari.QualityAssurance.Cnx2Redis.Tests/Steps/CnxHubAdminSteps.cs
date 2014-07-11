@@ -4,7 +4,10 @@ using System.Linq;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
@@ -65,6 +68,31 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             WhenIUpdateTheQdfDealCriteriaWithStartAndEndTimes();
             QdfDataRetrievalSteps.WhenIRetrieveTheQdfDealData();
             WhenIFilterTheQdfDealsByTheIncludedLogins();
+        }
+
+        [When(@"I compare the cnx hub trade deals with the qdf deal data excluding these fields:")]
+        public void WhenICompareTheCnxHubTradeDealsWithTheQdfDealDataExcludingTheseFields(Table table)
+        {
+            var ignoredFieldsQuery = IgnoredFieldsQuery(table);
+            var cnxHubDealsAsTestableDeals =
+                CnxHubTradeActivityImporter.CnxTradeActivityList.MapCnxTradeActivityToTestableDeals();
+            var cnxDealsAsTestableDealDataTable =
+                new TestableDealDataTable().ConvertIEnumerableToDataTable(cnxHubDealsAsTestableDeals,
+                    "cnx-hub",
+                    new[] { "DealId" });
+            var qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
+                QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
+                new[] { "DealId" });
+            var diffs = cnxDealsAsTestableDealDataTable.Compare(qdfDealsAsTestableDealDataTable, ignoredFieldsQuery, null, false, true);
+            ScenarioContext.Current["diffs"] = diffs;
+        }
+
+        [Then(@"the cnx hub trade deals should match the qdf deal data exactly:-")]
+        public void ThenTheCnxHubTradeDealsShouldMatchTheQdfDealDataExactly_(ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            exportParameters.Path = ScenarioOutputDirectory;
+            diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();
         }
 
     }
