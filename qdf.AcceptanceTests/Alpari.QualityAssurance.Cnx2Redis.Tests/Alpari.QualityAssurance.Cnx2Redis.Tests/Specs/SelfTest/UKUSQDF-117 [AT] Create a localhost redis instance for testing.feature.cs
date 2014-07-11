@@ -22,7 +22,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-117 [AT] Create a localhost redis instance for testing")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_117")]
     [NUnit.Framework.CategoryAttribute("redisLocalhost")]
-    [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv")]
     [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class UKUSQDF_117ATCreateALocalhostRedisInstanceForTestingFeature
     {
@@ -40,7 +40,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
                     "a local redis instance with test data", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_117",
                         "redisLocalhost",
-                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv",
                         "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }

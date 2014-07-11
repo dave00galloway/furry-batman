@@ -32,7 +32,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             CnxHubTradeActivityImporter.CnxTradeActivityList = CnxHubTradeActivityImporter.CnxTradeActivityList
                 .Where(
                     x =>
-                        x.TradeDateGMT >= tradeActivityWorkAroundParams.ConvertedStartDate &&
+                        x.TradeDateGMT >= tradeActivityWorkAroundParams.ConvertedStartTime &&
                         x.TradeDateGMT <= tradeActivityWorkAroundParams.ConvertedEndTime).ToList();
             CnxHubTradeActivityImporter.UpdateStartAndEndTimes();
         }
@@ -50,7 +50,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     public class TradeActivityWorkAroundParams
     {
         public string FileNamePath { get; set; }
-        public DateTime ConvertedStartDate { get; set; }
+        public DateTime ConvertedStartTime { get; set; }
         public DateTime ConvertedEndTime { get; set; }
     }
 }

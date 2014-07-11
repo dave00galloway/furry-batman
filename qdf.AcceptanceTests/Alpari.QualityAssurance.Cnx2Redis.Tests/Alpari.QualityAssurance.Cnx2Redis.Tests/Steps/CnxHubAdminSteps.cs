@@ -43,7 +43,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             DealSearchCriteria criteria = QdfDataRetrievalSteps.DealSearchCriteria;
             criteria.ConvertedStartTime = CnxHubTradeActivityImporter.EarliestTradeActivityDateTime;
-            criteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime;
+            //need to add 1 tick to the end time as the precision of the cnx Hub times stops at seconds
+            criteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime + new TimeSpan((long)1);
         }
 
         [When(@"I filter the qdf deals by the included logins")]
@@ -57,5 +58,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                                 String.Equals(l.Login.Trim(), deal.ClientId.Trim(),
                                     StringComparison.InvariantCultureIgnoreCase))).ToList();
         }
+
+        [When(@"I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins")]
+        public void WhenIRetrieveTheQdfDealDataFilteredByCnxHubStartAndEndTimesAndByIncludedLogins()
+        {
+            WhenIUpdateTheQdfDealCriteriaWithStartAndEndTimes();
+            QdfDataRetrievalSteps.WhenIRetrieveTheQdfDealData();
+            WhenIFilterTheQdfDealsByTheIncludedLogins();
+        }
+
     }
 }

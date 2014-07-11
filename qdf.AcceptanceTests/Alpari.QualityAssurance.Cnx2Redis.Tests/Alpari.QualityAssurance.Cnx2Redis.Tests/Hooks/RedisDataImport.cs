@@ -69,9 +69,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 
     public enum RedisDataImportParams
     {
-        DataType = 0,
-        Key = 1,
-        FileNamePath = 2
+        RedisDataImportParams = 0,
+        DataType,
+        Key,
+        FileNamePath
 
     }
 }

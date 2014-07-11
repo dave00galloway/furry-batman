@@ -25,6 +25,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         private const string RedisLocalHostName = "redisLocalhost";
         private const string MySqlLocalhostName = "MySqlLocalhost";
         private const string CnxHubTradeActivityImporterName = "cnxHubTradeActivityImporter";
+        private const string RedisDataImportParams = "RedisDataImportParams:";
         private static string[] _featureTags;
         private static string[] _scenarioTags;
         private static IObjectContainer ObjectContainer { get; set; }
@@ -122,7 +123,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         {
             foreach (string tag in tags)
             {
-                if (!tag.Contains(":")) continue;
+                if (!tag.Contains(RedisDataImportParams)) continue;
                 var redisDataImport = new RedisDataImport(tag, connection);
                 redisDataImport.ImportData();
             }

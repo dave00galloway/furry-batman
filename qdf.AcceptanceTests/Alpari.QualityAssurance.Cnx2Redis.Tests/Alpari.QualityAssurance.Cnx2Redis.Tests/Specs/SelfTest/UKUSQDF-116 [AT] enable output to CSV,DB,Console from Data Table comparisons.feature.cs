@@ -22,7 +22,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-116 [AT] enable output to CSV,DB,Console from Data Table comparisons")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_116")]
     [NUnit.Framework.CategoryAttribute("redisLocalhost")]
-    [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv")]
     [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class UKUSQDF_116ATEnableOutputToCSVDBConsoleFromDataTableComparisonsFeature
     {
@@ -40,7 +40,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
                     "e to specify a test output method", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_116",
                         "redisLocalhost",
-                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv",
                         "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -87,8 +87,8 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "25/06/2014  07:38:09",
-                        "25/06/2014  07:55:31"});
+                        "2014-07-10  01:29:21",
+                        "2014-07-10  01:30:04"});
 #line 8
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 11
@@ -97,35 +97,39 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealId"});
             table2.AddRow(new string[] {
-                        "B201417601B3400"});
+                        "B20141910A7K300"});
             table2.AddRow(new string[] {
-                        "B201417600X2L00"});
+                        "B20141910A7L300"});
             table2.AddRow(new string[] {
-                        "B201417600X9C00"});
+                        "B20141910A7L700"});
             table2.AddRow(new string[] {
-                        "B201417600X9F00"});
+                        "B2014191054GN00"});
             table2.AddRow(new string[] {
-                        "B201417600XB100"});
+                        "B201419106E6U00"});
             table2.AddRow(new string[] {
-                        "B201417600XB400"});
+                        "B20141910A7LS00"});
             table2.AddRow(new string[] {
-                        "B201417600XBA00"});
+                        "B201419106E7600"});
             table2.AddRow(new string[] {
-                        "B201417601B3G00"});
+                        "B201419107NV800"});
             table2.AddRow(new string[] {
-                        "B201417601B3K00"});
+                        "B201419107NVA00"});
             table2.AddRow(new string[] {
-                        "B201417601B3R00"});
+                        "B20141910A7MN00"});
+            table2.AddRow(new string[] {
+                        "B20141910A7R800"});
+            table2.AddRow(new string[] {
+                        "B20141910A7RA00"});
+            table2.AddRow(new string[] {
+                        "B20141910A7SV00"});
 #line 12
   testRunner.And("I query cnx trade by trade id for these trade ids:", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExcludedFields"});
             table3.AddRow(new string[] {
-                        "OrderId"});
-            table3.AddRow(new string[] {
-                        "Side"});
-#line 24
+                        "Comment"});
+#line 27
   testRunner.And("I compare the cnx trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -134,10 +138,10 @@ this.ScenarioSetup(scenarioInfo);
                         "Overwrite"});
             table4.AddRow(new string[] {
                         "DataTableToCsv",
-                        "missing",
+                        "extra",
                         "true"});
-#line 30
- testRunner.Then("the cnx trade data should contain 10 \"missing\" :-", ((string)(null)), table4, "Then ");
+#line 32
+ testRunner.Then("the cnx trade data should contain 1 \"extra\" :-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

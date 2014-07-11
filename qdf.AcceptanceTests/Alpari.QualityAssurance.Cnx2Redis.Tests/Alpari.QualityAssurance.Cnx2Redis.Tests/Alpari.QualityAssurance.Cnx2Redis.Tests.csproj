@@ -117,11 +117,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ConnectToDataSources.feature</DependentUpon>
     </Compile>
-    <Compile Include="Specs\SelfTest\ParseSideCorrectlyForCnxDeals.feature.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ParseSideCorrectlyForCnxDeals.feature</DependentUpon>
-    </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-126 [AT] handle incorrect book formats in test code.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,10 +207,6 @@
     <None Include="Specs\SelfTest\ConnectToDataSources.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ConnectToDataSources.feature.cs</LastGenOutput>
-    </None>
-    <None Include="Specs\SelfTest\ParseSideCorrectlyForCnxDeals.feature">
-      <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>ParseSideCorrectlyForCnxDeals.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTest\UKUSQDF-126 [AT] handle incorrect book formats in test code.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

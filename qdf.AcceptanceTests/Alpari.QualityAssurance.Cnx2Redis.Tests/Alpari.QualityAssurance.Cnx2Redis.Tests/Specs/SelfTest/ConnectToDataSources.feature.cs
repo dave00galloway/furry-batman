@@ -22,7 +22,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.DescriptionAttribute("ConnectToDataSources")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_92")]
     [NUnit.Framework.CategoryAttribute("redisLocalhost")]
-    [NUnit.Framework.CategoryAttribute("deal:cnx_deals:TestData\\cnx.csv")]
+    [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv")]
     [NUnit.Framework.CategoryAttribute("MySqlLocalhost")]
     public partial class ConnectToDataSourcesFeature
     {
@@ -40,7 +40,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
                     "MySql and Redis", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_92",
                         "redisLocalhost",
-                        "deal:cnx_deals:TestData\\cnx.csv",
+                        "RedisDataImportParams:deal:cnx_deals:TestData\\cnx.csv",
                         "MySqlLocalhost"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -83,9 +83,9 @@ this.ScenarioSetup(scenarioInfo);
 #line 8
  testRunner.Given("I have connected to the cnx trade table", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("I query cnx trade by trade id \"B20141740AUG600\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I query cnx trade by trade id \"B20141910A7LS00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.Then("the cnx trade has a login of \"AUKD35367\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the cnx trade has a login of \"AUKUS2095\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -104,17 +104,17 @@ this.ScenarioSetup(scenarioInfo);
                         "ConvertedEndTime"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "19/06/2014  17:36:00",
-                        "19/06/2014  17:44:59"});
+                        "2014-07-10  01:29:21",
+                        "2014-07-10  01:30:04"});
 #line 13
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
 #line 16
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("no retrieved deal will have a timestamp outside \"19/06/2014  17:36:00\" to \"19/06/" +
-                    "2014  17:44:59\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("no retrieved deal will have a timestamp outside \"2014-07-10  01:29:21\" to \"2014-0" +
+                    "7-10  01:30:04\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
- testRunner.And("the count of retrieved deals will be 11", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("the count of retrieved deals will be 14", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

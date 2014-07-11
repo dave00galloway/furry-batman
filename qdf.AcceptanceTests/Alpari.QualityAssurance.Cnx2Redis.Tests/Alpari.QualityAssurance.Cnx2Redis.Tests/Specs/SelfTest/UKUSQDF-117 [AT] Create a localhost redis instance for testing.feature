@@ -1,4 +1,4 @@
-﻿@UKUSQDF_117 @redisLocalhost @deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
+﻿@UKUSQDF_117 @redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv @MySqlLocalhost
 Feature: UKUSQDF-117 [AT] Create a localhost redis instance for testing
 	In order to write reliable test code
 	As a QDF Tester
