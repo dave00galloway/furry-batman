@@ -150,9 +150,7 @@ namespace Alpari.QDF.UIClient.App
                         : Book.None;
                 }
                 deals.Add(deal);
-
             }
-
             return deals;
         }
 

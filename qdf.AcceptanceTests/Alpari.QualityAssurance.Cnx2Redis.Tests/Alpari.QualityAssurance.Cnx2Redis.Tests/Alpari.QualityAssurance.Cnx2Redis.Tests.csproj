@@ -172,6 +172,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\Cnx2RedisHubAdminSelfTestSteps.cs" />
+    <Compile Include="Steps\Cnx2RedisHubAdminWorkaroundSteps.cs" />
     <Compile Include="Steps\Cnx2RedisStepBase.cs" />
     <Compile Include="Steps\Cnx2RedisSteps.cs" />
     <Compile Include="Steps\CnxHubAdminStepBase.cs" />

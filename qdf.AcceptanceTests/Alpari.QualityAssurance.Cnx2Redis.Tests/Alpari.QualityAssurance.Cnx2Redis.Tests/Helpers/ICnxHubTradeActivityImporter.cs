@@ -13,6 +13,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
         IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
         void LoadData();
         void LoadData(ExportParameters importParameters);
+        void UpdateStartAndEndTimes();
     }
 
     public static class CnxHubTradeActivityImporterFactory

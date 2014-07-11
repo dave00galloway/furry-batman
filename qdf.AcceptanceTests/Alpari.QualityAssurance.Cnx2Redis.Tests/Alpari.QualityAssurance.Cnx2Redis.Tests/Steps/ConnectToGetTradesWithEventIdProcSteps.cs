@@ -11,6 +11,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class ConnectToGetTradesWithEventIdProcSteps : ConnectToGetTradesWithEventIdProcStepBase
     {
+        new public static readonly string FullName = typeof(ConnectToGetTradesWithEventIdProcSteps).FullName; 
         public ConnectToGetTradesWithEventIdProcSteps(CnxTradeTableDataContext cnxTradeTableDataContext,
             GetTradeswithEventIDDataContext getTradeswithEventIdDataContext)
             : base(cnxTradeTableDataContext, getTradeswithEventIdDataContext)

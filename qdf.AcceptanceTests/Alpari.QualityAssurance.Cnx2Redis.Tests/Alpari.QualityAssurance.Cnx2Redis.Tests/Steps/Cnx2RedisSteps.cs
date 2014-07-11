@@ -17,6 +17,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class Cnx2RedisSteps : Cnx2RedisStepBase
     {
+        public new static readonly string FullName = typeof(Cnx2RedisSteps).FullName; 
         public Cnx2RedisSteps(CnxTradeTableDataContext cnxTradeTableDataContext) : base(cnxTradeTableDataContext)
         {
         }

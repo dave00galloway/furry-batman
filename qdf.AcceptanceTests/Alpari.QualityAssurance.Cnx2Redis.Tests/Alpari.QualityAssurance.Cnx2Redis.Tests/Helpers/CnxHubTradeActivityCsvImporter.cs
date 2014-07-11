@@ -22,6 +22,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
             SetupCnxTradeActivityList(importParameters);
             //TODO:- if more implementations of ICnxHubTradeActivityImporter are created, then move the method calls below to an extension class for ICnxHubTradeActivityImporter
             CnxTradeActivityList.Sort((t1, t2) => DateTime.Compare(t1.TradeDateGMT, t2.TradeDateGMT));
+            UpdateStartAndEndTimes();
+        }
+
+        public void UpdateStartAndEndTimes()
+        {
             if (CnxTradeActivityList.Count <= 0) return;
             // ReSharper disable PossibleNullReferenceException
             EarliestTradeActivityDateTime = CnxTradeActivityList.FirstOrDefault().TradeDateGMT;

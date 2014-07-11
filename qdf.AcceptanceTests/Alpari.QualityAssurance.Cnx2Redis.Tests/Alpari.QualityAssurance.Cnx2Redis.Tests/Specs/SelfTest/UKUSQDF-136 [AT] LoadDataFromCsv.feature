@@ -65,12 +65,13 @@ Scenario: Use included logins to filter qdf deals
 	Then all retrieved deals will have a client id from the included logins list
 
 #hopefully using book values now, but apparently there is some bad data as throwing on book...
-
 Scenario: Load Cnx Hub Data for specified logins and check dates with book-fixed deals
 	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv" for the included logins
 	Then the earliest cnx trade activity is "09/07/2014  19:00:00"
 	And the latest cnx trade activity is "10/07/2014  13:22:00"
 
+# not returning deals over midnight
+@UKUSQDF_138
 Scenario: Use Loaded data to determine query parameters for searching redis with book-fixed deals
 	Given I have the following search criteria for qdf deals
 	 | DealSource | DealType     |
@@ -78,7 +79,7 @@ Scenario: Use Loaded data to determine query parameters for searching redis with
 	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv" for the included logins
 		And I update the qdf deal criteria with start and end times 
 		And I retrieve the qdf deal data
-		And I export the data to "C:\temp\temp.csv" and import the csv
+		#And I export the data to "C:\temp\temp.csv" and import the csv
 	Then no retrieved deal will have a timestamp outside "09/07/2014  19:00:00" to "10/07/2014  13:22:24"
 
 Scenario: Use included logins to filter qdf deals with book-fixed deals
@@ -86,6 +87,39 @@ Scenario: Use included logins to filter qdf deals with book-fixed deals
 	 | DealSource | DealType     |
 	 | cnx-deals  | BookLessDeal |
 	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv" for the included logins
+		And I update the qdf deal criteria with start and end times 
+		And I retrieve the qdf deal data
+		And I filter the qdf deals by the included logins
+	Then all retrieved deals will have a client id from the included logins list
+
+#workarounds for https://jira.corp.alpari.com/browse/UKUSQDF-138
+Scenario: Load Cnx Hub Data can accept hard coded date parameters workaround
+	When I load cnx trade activities from
+		| FileNamePath                                                         | ConvertedStartTime   | ConvertedEndTime     |
+		| TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:59 |
+	Then the count of loaded cnx trade activities is 141
+
+#just so happens that filtering the trades with these start and end dates and logins, makes no difference. try including only 1 name in the included list to check
+Scenario: Load Cnx Hub Data for specified logins can accept hard coded date parameters workaround
+	When I load cnx trade activities for the included logins from
+		| FileNamePath                                                         | ConvertedStartTime   | ConvertedEndTime     |
+		| TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:59 |
+	Then the count of loaded cnx trade activities is 141
+
+Scenario: Load Cnx Hub Data for specified logins and check dates can accept hard coded date parameters workaround
+	When I load cnx trade activities for the included logins from
+		| FileNamePath                                                         | ConvertedStartTime   | ConvertedEndTime     |
+		| TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:59 |
+	Then the earliest cnx trade activity is "09/07/2014  19:00:00"
+		And the latest cnx trade activity is "09/07/2014  23:59:00"
+
+Scenario: Use included logins to filter qdf deals with book-fixed deals can accept hard coded date parameters workaround
+	Given I have the following search criteria for qdf deals
+		 | DealSource | DealType     |
+		 | cnx-deals  | BookLessDeal |
+	When I load cnx trade activities for the included logins from
+		| FileNamePath                                                         | ConvertedStartTime   | ConvertedEndTime     |
+		| TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:59 |
 		And I update the qdf deal criteria with start and end times 
 		And I retrieve the qdf deal data
 		And I filter the qdf deals by the included logins

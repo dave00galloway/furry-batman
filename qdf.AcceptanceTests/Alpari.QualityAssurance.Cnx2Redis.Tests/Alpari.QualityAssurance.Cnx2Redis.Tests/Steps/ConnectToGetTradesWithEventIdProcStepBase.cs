@@ -9,6 +9,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class ConnectToGetTradesWithEventIdProcStepBase : StepCentral
     {
+        new public static readonly string FullName = typeof(ConnectToGetTradesWithEventIdProcStepBase).FullName; 
         protected GetTradeswithEventIDDataContext GetTradeswithEventIdDataContext { get; private set; }
         protected List<GetTradeswithEventIDResult> GetTradesWithEventIdResultList { get; set; }
         protected TradeWithEventIdDataTable TradeWithEventIdDataTable { get; set; }

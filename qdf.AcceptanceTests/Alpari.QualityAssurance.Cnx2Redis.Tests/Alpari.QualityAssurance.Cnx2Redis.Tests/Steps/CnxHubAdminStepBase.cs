@@ -9,14 +9,15 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class CnxHubAdminStepBase : StepCentral
     {
+        public new static readonly string FullName = typeof(CnxHubAdminStepBase).FullName; 
         public CnxHubAdminStepBase(CnxTradeTableDataContext cnxTradeTableDataContext,
             ICnxHubTradeActivityImporter cnxHubTradeActivityImporter) : base(cnxTradeTableDataContext)
         {
             CnxHubTradeActivityImporter = cnxHubTradeActivityImporter;
         }
 
-        protected IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
-        protected ICnxHubTradeActivityImporter CnxHubTradeActivityImporter { get; private set; }
+        protected static IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
+        protected static ICnxHubTradeActivityImporter CnxHubTradeActivityImporter { get; private set; }
 
         [StepArgumentTransformation]
         public static IEnumerable<IncludedLogins> IncludedLoginsTransform(Table table)
