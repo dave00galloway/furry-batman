@@ -154,3 +154,16 @@ Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals and do comparis
 	Then the cnx hub trade deals should match the qdf deal data exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      | 
+
+##Spot Test - ignoring the trade activity data
+#Scenario: Spot Test
+#	Given I have the following search criteria for qdf deals
+#	 | DealSource | DealType     |
+#	 | cnx-deals  | BookLessDeal |
+#	When I load cnx trade activities for the included logins from
+#		| FileNamePath                             | ConvertedStartTime   | ConvertedEndTime     |
+#		| TestData\TradeActivitiesMini10thJuly.csv | 10/07/2014  19:00:00 | 11/07/2014  20:55:00 |
+#		And I update the qdf deal criteria with start and end times 
+#		And I retrieve the qdf deal data
+#		And I export the data to "C:\temp\temp.csv" and import the csv
+#	Then no retrieved deal will have a timestamp outside "10/07/2014  19:00:00" to "11/07/2014  20:55:00"

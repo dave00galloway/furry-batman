@@ -34,7 +34,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                     x =>
                         x.TradeDateGMT >= tradeActivityWorkAroundParams.ConvertedStartTime &&
                         x.TradeDateGMT <= tradeActivityWorkAroundParams.ConvertedEndTime).ToList();
-            CnxHubTradeActivityImporter.UpdateStartAndEndTimes();
+            CnxHubTradeActivityImporter.UpdateStartAndEndTimes(tradeActivityWorkAroundParams.ConvertedStartTime, tradeActivityWorkAroundParams.ConvertedEndTime);
         }
 
         [When(@"I load cnx trade activities for the included logins from")]

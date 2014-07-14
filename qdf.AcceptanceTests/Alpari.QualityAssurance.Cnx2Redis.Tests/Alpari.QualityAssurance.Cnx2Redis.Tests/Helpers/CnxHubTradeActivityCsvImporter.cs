@@ -28,12 +28,22 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
         public void UpdateStartAndEndTimes()
         {
             if (CnxTradeActivityList.Count <= 0) return;
+            UpdateTimes();
+        }
+
+        public void UpdateStartAndEndTimes(DateTime startDate, DateTime endDate)
+        {
+            EarliestTradeActivityDateTime = startDate;
+            LatestTradeActivityDateTime = endDate;
+        }
+
+        private void UpdateTimes()
+        {
             // ReSharper disable PossibleNullReferenceException
             EarliestTradeActivityDateTime = CnxTradeActivityList.FirstOrDefault().TradeDateGMT;
             LatestTradeActivityDateTime = CnxTradeActivityList.LastOrDefault().TradeDateGMT;
             // ReSharper restore PossibleNullReferenceException
         }
-
         private void SetupCnxTradeActivityList(ExportParameters importParameters)
         {
             CnxTradeActivityList = IncludedLoginsList == null || !IncludedLoginsList.Any()

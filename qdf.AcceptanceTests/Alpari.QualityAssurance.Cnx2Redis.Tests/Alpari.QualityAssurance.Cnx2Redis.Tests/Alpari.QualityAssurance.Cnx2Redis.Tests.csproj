@@ -128,6 +128,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-136 [AT] LoadDataFromCsv.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-140 [AT] load cnx-fix-deals.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-140 [AT] load cnx-fix-deals.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -217,6 +222,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-136 [AT] LoadDataFromCsv.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSQDF-140 [AT] load cnx-fix-deals.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-140 [AT] load cnx-fix-deals.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
@@ -252,9 +261,15 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] Cnx2Redis Data Collector - Track QDF Hedge Trades through Cnx2Redis.feature.cs</LastGenOutput>
     </None>
+    <Content Include="TestData\Alpari UK_TradeActivity_20140531Mini.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TestData\BookLessDeals.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="TestData\cnx_fix_deals_mini.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
