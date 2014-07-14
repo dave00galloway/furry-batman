@@ -124,7 +124,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             out List<T> parsedFile, out long line, out Type type) where T : new()
         {
             string[] unparsedFile = File.ReadAllLines(fileNamePath);
-            IList<string> headers = unparsedFile.First().RemoveWindowsUnfriendlyChars().GetValuesFromCsvRow(delimiter);
+            var headers =  unparsedFile.First().RemoveWindowsUnfriendlyChars().GetValuesFromCsvRow(delimiter).Where(v=>v.Trim().Length>0).ToList();
             columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
             parsedFile = new List<T>();
             line = 1;
@@ -171,15 +171,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                                 {
                                     try
                                     {
-                                        PropertyInfo prop = type.GetProperty(pair.Key);
-                                        // http://stackoverflow.com/questions/11443707/getproperty-reflection-results-in-ambiguous-match-found-on-new-property                                    
-                                        //  PropertyInfo prop = instance.GetType().GetProperty(pair.Key, typeof (T));
+                                        PropertyInfo prop = type.GetProperty(pair.Key) ?? type.GetProperty(pair.Key, BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance);
                                         SetValue(columnMap, prop, newT, pair, row, instance);
                                     }
-                                    catch (AmbiguousMatchException ambiguousMatchException)
+                                    catch (AmbiguousMatchException)
                                     {
                                         throw;
-                                        break;
                                     }
                                     catch (Exception e)
                                     {

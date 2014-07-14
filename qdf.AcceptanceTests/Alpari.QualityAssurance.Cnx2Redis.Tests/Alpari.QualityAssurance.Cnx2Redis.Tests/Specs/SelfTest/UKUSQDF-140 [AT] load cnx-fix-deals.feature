@@ -48,3 +48,25 @@ Scenario: use localhost to load data to uk-redis-dev cnx-fix-deals
 Scenario: Load Cnx Hub Data
 	When I load cnx trade activities from "TestData\Alpari UK_TradeActivity_20140531Mini.csv"
 	Then the count of loaded cnx trade activities is 10
+
+@redisLocalhost @RedisDataImportParams:deal:cnx_fix_deals:TestData\cnx_fix_deals_mini.csv
+Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison
+	Given I have the following search criteria for qdf deals
+		 | DealSource    | DealType |
+		 | cnx-fix-deals | deal     |
+	#When I load cnx trade activities for the included logins from
+	#	| FileNamePath                                      | ConvertedStartTime   | ConvertedEndTime     |
+	#	| TestData\Alpari UK_TradeActivity_20140531Mini.csv | 01/05/2014  00:00:00 | 01/05/2014  23:59:59 |
+	When I load cnx trade activities from "TestData\Alpari UK_TradeActivity_20140531Mini.csv" and reverse the deal side
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |

@@ -222,6 +222,62 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison")]
+        [NUnit.Framework.CategoryAttribute("redisLocalhost")]
+        [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_fix_deals:TestData\\cnx_fix_deals_mini.csv")]
+        public virtual void UseLocalhostToCheckQdfCnx_DealsAndCnxHubDealsAndDoComparison()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Use Localhost to check qdf cnx-deals and cnx hub deals and do comparison", new string[] {
+                        "redisLocalhost",
+                        "RedisDataImportParams:deal:cnx_fix_deals:TestData\\cnx_fix_deals_mini.csv"});
+#line 53
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "DealType"});
+            table4.AddRow(new string[] {
+                        "cnx-fix-deals",
+                        "deal"});
+#line 54
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table4, "Given ");
+#line 60
+ testRunner.When("I load cnx trade activities from \"TestData\\Alpari UK_TradeActivity_20140531Mini.c" +
+                    "sv\" and reverse the deal side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
+                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table5.AddRow(new string[] {
+                        "Comment"});
+            table5.AddRow(new string[] {
+                        "AccountGroup"});
+            table5.AddRow(new string[] {
+                        "Book"});
+            table5.AddRow(new string[] {
+                        "OrderId"});
+            table5.AddRow(new string[] {
+                        "State"});
+#line 62
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table5, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table6.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 70
+ testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table6, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

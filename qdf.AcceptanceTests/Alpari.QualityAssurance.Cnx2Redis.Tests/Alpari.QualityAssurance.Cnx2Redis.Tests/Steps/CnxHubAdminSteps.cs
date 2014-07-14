@@ -34,6 +34,13 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             CnxHubTradeActivityImporter.LoadData(new ExportParameters {FileName = filenamePath});
         }
 
+        [When(@"I load cnx trade activities from ""(.*)"" and reverse the deal side")]
+        public void WhenILoadCnxTradeActivitiesFromAndReverseTheDealSide(string filenamePath)
+        {
+            WhenILoadCnxTradeActivitiesFrom(filenamePath);
+            CnxHubTradeActivityImporter.ReverseDealSide();
+        }
+
         [When(@"I load cnx trade activities from ""(.*)"" for the included logins")]
         public void WhenILoadCnxTradeActivitiesFromForTheIncludedLogins(string filenamePath)
         {
@@ -94,6 +101,5 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             exportParameters.Path = ScenarioOutputDirectory;
             diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();
         }
-
     }
 }

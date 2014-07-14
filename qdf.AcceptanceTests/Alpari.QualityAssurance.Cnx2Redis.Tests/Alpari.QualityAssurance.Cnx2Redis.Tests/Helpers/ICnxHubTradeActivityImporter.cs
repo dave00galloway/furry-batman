@@ -16,6 +16,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
         void UpdateStartAndEndTimes();
 
         void UpdateStartAndEndTimes(DateTime startDate, DateTime endDate);
+        void ReverseDealSide();
     }
 
     public static class CnxHubTradeActivityImporterFactory
