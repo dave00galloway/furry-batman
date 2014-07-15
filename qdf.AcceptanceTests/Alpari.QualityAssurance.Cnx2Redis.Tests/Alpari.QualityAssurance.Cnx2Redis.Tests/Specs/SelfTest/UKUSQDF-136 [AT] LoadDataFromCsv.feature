@@ -44,15 +44,16 @@ Scenario: Load Cnx Hub Data for specified logins and check dates
 	Then the earliest cnx trade activity is "07/07/2014  19:13:00"
 	And the latest cnx trade activity is "08/07/2014  20:56:00"
 
-#have to use bookless deal as the qdf cnx-deals were being populated with string values not book values at this point in time
-Scenario: Use Loaded data to determine query parameters for searching redis
-	Given I have the following search criteria for qdf deals
-	 | DealSource |  DealType     |
-	 | cnx-deals  |  BookLessDeal |
-	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv" for the included logins
-		And I update the qdf deal criteria with start and end times 
-		And I retrieve the qdf deal data
-	Then no retrieved deal will have a timestamp outside "07/07/2014  19:13:00" to "08/07/2014  20:56:00"
+##have to use bookless deal as the qdf cnx-deals were being populated with string values not book values at this point in time
+#@Broken @DataDeletedFromRedis
+#Scenario: Use Loaded data to determine query parameters for searching redis
+#	Given I have the following search criteria for qdf deals
+#	 | DealSource |  DealType     |
+#	 | cnx-deals  |  BookLessDeal |
+#	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-08-2014To07-08-2014.csv" for the included logins
+#		And I update the qdf deal criteria with start and end times 
+#		And I retrieve the qdf deal data
+#	Then no retrieved deal will have a timestamp outside "07/07/2014  19:13:00" to "08/07/2014  20:56:00"
 
 Scenario: Use included logins to filter qdf deals
 	Given I have the following search criteria for qdf deals
@@ -69,16 +70,16 @@ Scenario: Load Cnx Hub Data for specified logins and check dates with book-fixed
 	And the latest cnx trade activity is "10/07/2014  13:22:24"
 
 # not returning deals over midnight
-@UKUSQDF_138
-Scenario: Use Loaded data to determine query parameters for searching redis with book-fixed deals
-	Given I have the following search criteria for qdf deals
-	 | DealSource | DealType     |
-	 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv" for the included logins
-		And I update the qdf deal criteria with start and end times 
-		And I retrieve the qdf deal data
-		#And I export the data to "C:\temp\temp.csv" and import the csv
-	Then no retrieved deal will have a timestamp outside "09/07/2014  19:00:00" to "10/07/2014  13:22:24"
+#@UKUSQDF_138 @Broken @DataDeletedFromRedis
+#Scenario: Use Loaded data to determine query parameters for searching redis with book-fixed deals
+#	Given I have the following search criteria for qdf deals
+#	 | DealSource | DealType     |
+#	 | cnx-deals  | BookLessDeal |
+#	When I load cnx trade activities from "TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv" for the included logins
+#		And I update the qdf deal criteria with start and end times 
+#		And I retrieve the qdf deal data
+#		#And I export the data to "C:\temp\temp.csv" and import the csv
+#	Then no retrieved deal will have a timestamp outside "09/07/2014  19:00:00" to "10/07/2014  13:22:24"
 
 Scenario: Use included logins to filter qdf deals with book-fixed deals
 	Given I have the following search criteria for qdf deals
@@ -107,7 +108,7 @@ Scenario: Load Cnx Hub Data for specified logins and check dates can accept hard
 		| FileNamePath                                                         | ConvertedStartTime   | ConvertedEndTime     |
 		| TestData\TradeActivitiesForAllAccountsFrom07-10-2014To07-10-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:59 |
 	Then the earliest cnx trade activity is "09/07/2014  19:00:00"
-		And the latest cnx trade activity is "09/07/2014  23:59:24"
+		And the latest cnx trade activity is "09/07/2014  23:59:59"
 
 Scenario: Use included logins to filter qdf deals with book-fixed deals can accept hard coded date parameters workaround
 	Given I have the following search criteria for qdf deals
@@ -128,10 +129,10 @@ Scenario: Use Localhost to check qdf cnx-deals and cnx hub deals
 		| FileNamePath                             | ConvertedStartTime   | ConvertedEndTime     |
 		| TestData\TradeActivitiesMini10thJuly.csv | 10/07/2014  01:29:20 | 10/07/2014  01:30:04 |
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-	Then no retrieved deal will have a timestamp outside "10/07/2014  01:29:21" to "10/07/2014  01:30:03"
+	Then no retrieved deal will have a timestamp outside "10/07/2014  01:29:20" to "10/07/2014  01:30:04"
 		And the count of retrieved deals will be 13
-		And the earliest cnx trade activity is "10/07/2014  01:29:21"
-		And the latest cnx trade activity is "10/07/2014  01:30:03"
+		And the earliest cnx trade activity is "10/07/2014  01:29:20"
+		And the latest cnx trade activity is "10/07/2014  01:30:04"
 		And the count of loaded cnx trade activities is 13
 
 @redisLocalhost @RedisDataImportParams:deal:cnx_deals:TestData\cnx.csv

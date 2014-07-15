@@ -37,6 +37,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             CnxHubTradeActivityImporter.UpdateStartAndEndTimes(tradeActivityWorkAroundParams.ConvertedStartTime, tradeActivityWorkAroundParams.ConvertedEndTime);
         }
 
+        [When(@"I load cnx trade activities with the side reversed for the included logins from")]
+        public void WhenILoadCnxTradeActivitiesWithTheSideReversedForTheIncludedLoginsFrom(TradeActivityWorkAroundParams tradeActivityWorkAroundParams)
+        {
+            WhenILoadCnxTradeActivitiesForTheIncludedLoginsFrom(tradeActivityWorkAroundParams);
+            CnxHubTradeActivityImporter.ReverseDealSide();
+        }
+
+
         [When(@"I load cnx trade activities for the included logins from")]
         public void WhenILoadCnxTradeActivitiesForTheIncludedLoginsFrom(
             TradeActivityWorkAroundParams tradeActivityWorkAroundParams)

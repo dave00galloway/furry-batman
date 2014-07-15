@@ -158,6 +158,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-140 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-140 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -245,6 +250,10 @@
     <None Include="Specs\UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-140 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-140 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-91 [AT] Cnx2Redis Data Collector - Network Failure Tests.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

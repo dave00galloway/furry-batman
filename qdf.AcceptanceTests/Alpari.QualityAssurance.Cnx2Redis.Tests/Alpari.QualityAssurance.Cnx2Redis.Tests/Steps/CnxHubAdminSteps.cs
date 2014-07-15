@@ -34,18 +34,18 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             CnxHubTradeActivityImporter.LoadData(new ExportParameters {FileName = filenamePath});
         }
 
-        [When(@"I load cnx trade activities from ""(.*)"" and reverse the deal side")]
-        public void WhenILoadCnxTradeActivitiesFromAndReverseTheDealSide(string filenamePath)
-        {
-            WhenILoadCnxTradeActivitiesFrom(filenamePath);
-            CnxHubTradeActivityImporter.ReverseDealSide();
-        }
-
         [When(@"I load cnx trade activities from ""(.*)"" for the included logins")]
         public void WhenILoadCnxTradeActivitiesFromForTheIncludedLogins(string filenamePath)
         {
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
             WhenILoadCnxTradeActivitiesFrom(filenamePath);
+        }
+
+        [When(@"I load cnx trade activities from ""(.*)"" and reverse the deal side")]
+        public void WhenILoadCnxTradeActivitiesFromAndReverseTheDealSide(string filenamePath)
+        {
+            WhenILoadCnxTradeActivitiesFromForTheIncludedLogins(filenamePath);
+            CnxHubTradeActivityImporter.ReverseDealSide();
         }
 
         [When(@"I update the qdf deal criteria with start and end times")]
