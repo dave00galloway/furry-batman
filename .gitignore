@@ -228,3 +228,4 @@ qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssura
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.ComponentModel.DataAnnotations.pdb/*
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Runtime.Serialization.pdb/*
 qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssurance.Cnx2Redis.Tests/System.Xml.Linq.pdb/*
+qdf.AcceptanceTests/packages/NUnit*

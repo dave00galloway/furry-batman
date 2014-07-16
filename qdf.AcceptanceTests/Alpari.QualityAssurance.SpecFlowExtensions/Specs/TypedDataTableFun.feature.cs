@@ -726,6 +726,144 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two matching data sets where ID is the same for 2 records")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_146")]
+        public virtual void CompareTwoMatchingDataSetsWhereIDIsTheSameFor2Records()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two matching data sets where ID is the same for 2 records", new string[] {
+                        "UKUSQDF_146"});
+#line 154
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table30.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table30.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+            table30.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Putin",
+                        "100",
+                        "stand up comic"});
+#line 155
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table30, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table31.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table31.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+            table31.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Putin",
+                        "100",
+                        "stand up comic"});
+#line 160
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table31, "And ");
+#line 165
+ testRunner.When("I compare the \"expected\" and \"actual\" person data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 166
+ testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare Two data sets of different types with one missing where ID is the same fo" +
+            "r 2 records")]
+        [NUnit.Framework.CategoryAttribute("UKUSQDF_146")]
+        public virtual void CompareTwoDataSetsOfDifferentTypesWithOneMissingWhereIDIsTheSameFor2Records()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare Two data sets of different types with one missing where ID is the same fo" +
+                    "r 2 records", new string[] {
+                        "UKUSQDF_146"});
+#line 169
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table32.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table32.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+            table32.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Putin",
+                        "100",
+                        "stand up comic"});
+#line 170
+ testRunner.Given("I have the following \"expected\" person data:", ((string)(null)), table32, "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ID",
+                        "Forenames",
+                        "Lastname",
+                        "Age",
+                        "Occupation"});
+            table33.AddRow(new string[] {
+                        "1",
+                        "Vladimir",
+                        "Putin",
+                        "99",
+                        "Impaler"});
+            table33.AddRow(new string[] {
+                        "2",
+                        "John",
+                        "Kerry",
+                        "100",
+                        "stand up comic"});
+#line 175
+ testRunner.And("I have the following \"actual\" person data:", ((string)(null)), table33, "And ");
+#line 179
+ testRunner.When("I compare the \"expected\" and \"actual\" person data matching on id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 180
+ testRunner.Then("the person data should match exactly", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

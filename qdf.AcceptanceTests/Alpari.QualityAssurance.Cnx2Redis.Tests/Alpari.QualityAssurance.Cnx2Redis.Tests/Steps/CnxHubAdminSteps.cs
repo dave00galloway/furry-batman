@@ -89,7 +89,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                     new[] { "DealId" });
             var qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
                 QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
-                new[] { "DealId" });
+                new[] { "DealId", "Comment" });
             var diffs = cnxDealsAsTestableDealDataTable.Compare(qdfDealsAsTestableDealDataTable, ignoredFieldsQuery, null, false, true);
             ScenarioContext.Current["diffs"] = diffs;
         }

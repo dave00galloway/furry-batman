@@ -37,14 +37,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             StringBuilder csvFile;
             if (setCapacity)
             {
-                csvFile = new StringBuilder(10000000 * 2);
+                csvFile = new StringBuilder(10000000*2);
             }
             else
             {
                 csvFile = new StringBuilder();
             }
-            
-            
+
+
             if (!File.Exists(fileNamePath))
             {
                 string headers = String.Join(",",
@@ -64,7 +64,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static void DataTableToConsole(this DataTable consoleTable)
         {
             Console.WriteLine(String.Join(",",
-                (from DataColumn column in consoleTable.Rows.Cast<DataRow>().First().Table.Columns select column.ColumnName)));
+                (from DataColumn column in consoleTable.Rows.Cast<DataRow>().First().Table.Columns
+                    select column.ColumnName)));
             foreach (DataRow item in consoleTable.Rows)
             {
                 Console.WriteLine(String.Join(",",
@@ -95,76 +96,131 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="outputMatches"></param>
         /// <returns></returns>
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
-            string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false, bool removeReturns = false)
+            string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false,
+            bool removeReturns = false)
             //, DataColumn[] keyColumns)
         {
-            DataTableComparer<DataRow>.Instance.ResetInstance();
-            try
+            //DataTableComparer<DataRow>.Instance.ResetInstance();
+            var comparer = new DataTableComparer<DataRow>(dtBase, compareWith);
+            var comparison = new DataTableComparison();
+
+            //get rows missing in compare with
+            List<DataRow> baseRows = dtBase.Rows.Cast<DataRow>().Select(row => row).ToList();
+
+            List<DataRow> compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
+
+            comparison.MissingInCompareWith =
+                baseRows.Except(compRows,
+                    //DataTableComparer<DataRow>.Instance
+                    comparer
+                    ).ToList();
+            comparison.AdditionalInCompareWith =
+                compRows.Except(baseRows,
+                    //DataTableComparer<DataRow>.Instance
+                    comparer
+                    ).ToList();
+
+            IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows,
+                //DataTableComparer<DataRow>.Instance
+                comparer
+                );
+
+            // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
+
+
+            //get the non-primary key field columns
+            IEnumerable<DataColumn> columnQuery = from DataColumn col in dtBase.Columns
+                //where dtBase.PrimaryKey.Contains(col) == false
+                                                  where comparer.PrimaryKeys.Contains(col) == false
+                select col;
+            if (excludeColumns != null)
             {
-                var comparison = new DataTableComparison();
+                columnQuery = columnQuery.Where(col => !excludeColumns.Contains(col.ColumnName));
+            }
+            if (includeColumns != null)
+            {
+                columnQuery = columnQuery.Where(col => includeColumns.Contains(col.ColumnName));
+            }
+            List<DataColumn> columnsToCompare = columnQuery.ToList();
 
-                //get rows missing in compare with
-                List<DataRow> baseRows = dtBase.Rows.Cast<DataRow>().Select(row => row).ToList();
+            //when the format for this is agreed, could create a strongly typed datatable for the comparisons
 
-                List<DataRow> compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
-
-                comparison.MissingInCompareWith =
-                    baseRows.Except(compRows, DataTableComparer<DataRow>.Instance).ToList();
-                comparison.AdditionalInCompareWith =
-                    compRows.Except(baseRows, DataTableComparer<DataRow>.Instance).ToList();
-
-                IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows, DataTableComparer<DataRow>.Instance);
-
-                // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
-
-
-                //get the non-primary key field columns
-                var columnQuery = from DataColumn col in dtBase.Columns
-                    where dtBase.PrimaryKey.Contains(col) == false
-                    select col;
-                if (excludeColumns != null)
+            //DataTable comparisonDiffs = SetupComparisonDiffsTable(dtBase.PrimaryKey);
+            DataTable comparisonDiffs = SetupComparisonDiffsTable(comparer.PrimaryKeys);
+            comparison.FieldDifferences = comparisonDiffs;
+            foreach (DataRow row in commonRows)
+            {
+                //get the primary key values for the comp row
+                //var findTheseVals = new object[dtBase.PrimaryKey.Count()];
+                var findTheseVals = new object[comparer.PrimaryKeys.Count()];
+                for (int i = 0; i < findTheseVals.Length; i++)
                 {
-                    columnQuery = columnQuery.Where(col => !excludeColumns.Contains(col.ColumnName));
+                    //findTheseVals[i] = row[dtBase.PrimaryKey[i]];
+                    findTheseVals[i] = row[comparer.PrimaryKeys[i]];
                 }
-                if (includeColumns != null)
+
+                //DataRow sourceRow;
+                DataRow newRow;
+                if (comparer.KeysMatch)
                 {
-                    columnQuery = columnQuery.Where(col => includeColumns.Contains(col.ColumnName));
-                }
-                List<DataColumn> columnsToCompare = columnQuery.ToList();
-
-                //when the format for this is agreed, could create a strongly typed datatable for the comparisons
-
-                DataTable comparisonDiffs = SetupComparisonDiffsTable(dtBase.PrimaryKey);
-                comparison.FieldDifferences = comparisonDiffs;
-                foreach (DataRow row in commonRows)
-                {
-                    //get the primary key values for the comp row
-                    var findTheseVals = new object[dtBase.PrimaryKey.Count()];
-                    for (int i = 0; i < findTheseVals.Length; i++)
-                    {
-                        findTheseVals[i] = row[dtBase.PrimaryKey[i]];
-                    }
-
                     //get the equivalent row in the base table
-                    DataRow sourceRow = dtBase.Rows.Find(findTheseVals);
+                    //sourceRow = dtBase.Rows.Find(findTheseVals);
 
                     //get the equivalent row in the comp table
-                    DataRow newRow = compareWith.Rows.Find(findTheseVals);
+                    newRow = compareWith.Rows.Find(findTheseVals);
+                }
+                else
+                {
+                    //get the equivalent row in the base table
+                    //sourceRow = dtBase.Rows.FindRow(findTheseVals, comparer.PrimaryKeys);
+                    //use row
 
-                    foreach (DataColumn column in columnsToCompare)
+                    //opportunity to speed up here - only need to find one row, should be able to use common rows for one of base or compare with
+                    //get the equivalent row in the comp table
+                    newRow = compareWith.Rows.FindRow(findTheseVals, comparer.PrimaryKeys);
+                }
+
+                foreach (DataColumn column in columnsToCompare)
+                {
+                    //sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
+                    //    outputMatches, removeReturns);
+                    row[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
+                        outputMatches, removeReturns);
+                }
+            }
+
+            return comparison;
+        }
+
+        /// <summary>
+        /// This is going to be very slow. need to find a quicker method for large datasets
+        /// </summary>
+        /// <param name="dataRowCollection"></param>
+        /// <param name="objectsToFind"></param>
+        /// <param name="dataColumns"></param>
+        /// <returns></returns>
+        public static DataRow FindRow(this DataRowCollection dataRowCollection,object[] objectsToFind,  DataColumn[] dataColumns)
+        {
+            foreach (DataRow row in dataRowCollection)
+            {
+                bool found = true;
+                for (int i = 0; i < dataColumns.Length; i++)
+                {
+                    string type = dataColumns[i].DataType.GetDataType();
+                    string difference = ValueComparison(row.ItemArray[dataColumns[i].Ordinal], objectsToFind[i], type);
+                    if (difference != null)
                     {
-                        sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs, outputMatches, removeReturns);
+                        found = false;
+                        break;
                     }
                 }
 
-                return comparison;
+                if (found)
+                {
+                    return row;
+                }
             }
-            finally
-            {
-                DataTableComparer<DataRow>.Instance.ResetInstance();
-                //dtBase.RejectChanges();
-                //dtBase.ColumnChanged -= new DataColumnChangeEventHandler(dtBase_ColumnChanged);
-            }
+            return null;
         }
 
         private static DataTable SetupComparisonDiffsTable(DataColumn[] primaryKeys)
@@ -172,23 +228,27 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             var table = new DataTable("comparsionDiffs");
             for (int i = 0; i < primaryKeys.Count(); i++)
             {
-                var keyColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = string.Format("comparisonKey{0}", i) };
-                table.Columns.Add(keyColumn);                
+                var keyColumn = new DataColumn
+                {
+                    DataType = Type.GetType("System.String"),
+                    ColumnName = string.Format("comparisonKey{0}", i)
+                };
+                table.Columns.Add(keyColumn);
             }
 
-            var column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "column" };
+            var column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "column"};
             table.Columns.Add(column);
 
-            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "original" };
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "original"};
             table.Columns.Add(column);
 
-            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "newValue" };
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "newValue"};
             table.Columns.Add(column);
 
-            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "difference" };
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "difference"};
             table.Columns.Add(column);
 
-            column = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "type" };
+            column = new DataColumn {DataType = Type.GetType("System.String"), ColumnName = "type"};
             table.Columns.Add(column);
 
             return table;
@@ -197,13 +257,50 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static void CompareWith(this object p1, object p2, DataColumn column, object[] primaryKeyValues,
             DataTable diffsTable, bool outputMatches = false, bool removeReturns = false)
         {
-            string difference = null;
+            //string difference = null;
 
             //get the type as an "enum"
             string type = column.DataType.GetDataType();
 
-            #region downcast the object to its type, and compare. if different, create a new row and return it and a calcualtion of difference
+            string difference = ValueComparison(p1, p2, type);
 
+            if (difference != null | outputMatches)
+            {
+                DataRow diffRow = diffsTable.NewRow();
+                for (int i = 0; i < primaryKeyValues.Count(); i++)
+                {
+                    diffRow[string.Format("comparisonKey{0}", i)] = primaryKeyValues[i];
+                }
+                diffRow["column"] = column.ColumnName;
+                diffRow["original"] = p1;
+                diffRow["newValue"] = p2;
+                if (difference != null)
+                {
+                    diffRow["difference"] = difference;
+                }
+                else
+                {
+                    diffRow["difference"] = ""; //type.GetDefaultValueForType();
+                }
+
+                diffRow["type"] = type;
+                if (removeReturns)
+                {
+                    for (int index = 0; index < diffRow.ItemArray.Length; index++)
+                    {
+                        string item = diffRow.ItemArray[index].ToString().StringToCsvCell(true);
+                        //diffRow.ItemArray[index] = item;
+                        diffRow[index] = item;
+                    }
+                }
+                diffsTable.Rows.Add(diffRow);
+            }
+        }
+
+        private static string ValueComparison(object p1, object p2, string type)
+        {
+            #region downcast the object to its type, and compare. if different, create a new row and return it and a calcualtion of difference
+            string difference = null;
             switch (type.ToUpper())
             {
                 case TypeExtensions.Byte:
@@ -337,37 +434,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             #endregion
 
-            if (difference != null | outputMatches)
-            {
-                DataRow diffRow = diffsTable.NewRow();
-                for (int i = 0; i < primaryKeyValues.Count(); i++)
-                {
-                    diffRow[string.Format("comparisonKey{0}", i)] = primaryKeyValues[i];
-                }
-                diffRow["column"] = column.ColumnName;
-                diffRow["original"] = p1;
-                diffRow["newValue"] = p2;
-                if (difference != null)
-                {
-                    diffRow["difference"] = difference; 
-                }
-                else
-                {
-                    diffRow["difference"] = ""; //type.GetDefaultValueForType();
-                }
-                    
-                diffRow["type"] = type;
-                if (removeReturns)
-                {
-                    for (int index = 0; index < diffRow.ItemArray.Length; index++)
-                    {
-                        var item = diffRow.ItemArray[index].ToString().StringToCsvCell(true);
-                        //diffRow.ItemArray[index] = item;
-                        diffRow[index] = item;
-                    }
-                }
-                diffsTable.Rows.Add(diffRow);
-            }
+            return difference;
         }
 
         public static string CatchAssertion(object p1, object p2)
@@ -426,32 +493,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         /// <summary>
         ///     class providing a comparer for Linq functions Except, intersect, distinct etc for Data tables
-        /// TODO:- change to non-singleton class
         /// </summary>
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow
         {
-            private static volatile DataTableComparer<T> _instance;
-// ReSharper disable once StaticFieldInGenericType
-            private static readonly object SyncRoot = new Object();
-
-            public static DataTableComparer<T> Instance
+            public DataTableComparer(DataTable dtBase, DataTable compareWith)
             {
-                get
-                {
-                    if (_instance == null)
-                    {
-                        lock (SyncRoot)
-                        {
-                            if (_instance == null)
-                            {
-                                _instance = new DataTableComparer<T>();
-                            }
-                        }
-                    }
-                    return _instance;
-                }
+                DtBasePrimaryKeys = dtBase.PrimaryKey.Select(keyColumn => keyColumn).ToList();
+                DtCompareWithPrimaryKeys = compareWith.PrimaryKey.Select(keyColumn => keyColumn).ToList();
+                MatchingKeyNames = DtBasePrimaryKeys.Select(x => x.ColumnName).ToList()
+                    .Intersect(DtCompareWithPrimaryKeys.Select(x => x.ColumnName).ToList());
+                KeysMatch = MatchingKeyNames.Count().Equals(DtBasePrimaryKeys.Count);
+                PrimaryKeys = KeysMatch
+                    ? DtBasePrimaryKeys.ToArray()
+                    : DtBasePrimaryKeys.Where(x => MatchingKeyNames.Any(k => String.Equals(k, x.ColumnName))).ToArray();
             }
+
+            private List<DataColumn> DtCompareWithPrimaryKeys { get; set; }
+            private List<DataColumn> DtBasePrimaryKeys { get; set; }
+            private IEnumerable<string> MatchingKeyNames { get; set; }
+            public bool KeysMatch { get; private set; }
+            public DataColumn[] PrimaryKeys { get; private set; }
+
 
             public bool Equals(T rowBase, T rowCompareWith)
             {
@@ -479,19 +542,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 return hashcode;
             }
 
-            /// <summary>
-            ///     use this before and after a comparison of a data table to ensure the instance is not locked to an incorrect T
-            /// </summary>
-            public void ResetInstance()
+            private List<object> GetKeyValues(T rowBase)
             {
-                _instance = null;
-            }
-
-            private static List<object> GetKeyValues(T rowBase)
-            {
-                //could store the primary key in a static field too (and clear it in the ResetInstance method), but it's probably not worth creating the field, which would have to be queired anyway
-                IEnumerable<object> getKeyValues = from keyColumn in rowBase.Table.PrimaryKey
-                    select rowBase[keyColumn.ColumnName];
+                IEnumerable<object> getKeyValues;
+                if (KeysMatch)
+                {
+                    getKeyValues = from keyColumn in rowBase.Table.PrimaryKey
+                        select rowBase[keyColumn.ColumnName];
+                }
+                else
+                {
+                    getKeyValues = from columnName in MatchingKeyNames
+                        select rowBase[columnName];
+                }
 
                 return getKeyValues.ToList();
             }

@@ -84,20 +84,86 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison May 2014 post 
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 
-#Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014
-#	Given I have the following search criteria for qdf deals
-#		 | DealSource    | DealType |
-#		 | cnx-fix-deals | deal     |
-#	When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140531.csv" and reverse the deal side
-#		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-#		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-#		 | ExcludedFields |
-#		 | Comment        |
-#		 | AccountGroup   |
-#		 | Book           |
-#		 | OrderId        |
-#		 | State          |
-#
-#	Then the cnx hub trade deals should match the qdf deal data exactly:-
-#		| ExportType     |  Overwrite |
-#		| DataTableToCsv |  true      |
+Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre Midnight
+	Given I have the following search criteria for qdf deals
+		 | DealSource    | DealType |
+		 | cnx-fix-deals | deal     |
+	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
+	When I load cnx trade activities with the side reversed for the included logins from
+		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
+		| C:\data\Alpari UK_TradeActivity_20140131.csv | 01/01/2014  22:02:31 | 30/01/2014  23:59:59 |
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+
+Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Post Midnight
+	Given I have the following search criteria for qdf deals
+		 | DealSource    | DealType |
+		 | cnx-fix-deals | deal     |
+	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
+	When I load cnx trade activities with the side reversed for the included logins from
+		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
+		| C:\data\Alpari UK_TradeActivity_20140131.csv | 31/01/2014  00:00:00 | 31/01/2014  21:53:02 |
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+#feb
+Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Pre Midnight
+	Given I have the following search criteria for qdf deals
+		 | DealSource    | DealType |
+		 | cnx-fix-deals | deal     |
+	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
+	When I load cnx trade activities with the side reversed for the included logins from
+		| FileNamePath                                        | ConvertedStartTime   | ConvertedEndTime     |
+		| C:\data\Alpari UK_TradeActivity_20140228.csv | 02/02/2014  22:03:35 | 27/02/2014  23:59:59 |
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+
+Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Post Midnight
+	Given I have the following search criteria for qdf deals
+		 | DealSource    | DealType |
+		 | cnx-fix-deals | deal     |
+	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
+	When I load cnx trade activities with the side reversed for the included logins from
+		| FileNamePath                                        | ConvertedStartTime   | ConvertedEndTime     |
+		| C:\data\Alpari UK_TradeActivity_20140228.csv | 28/02/2014  00:00:00 | 28/02/2014  21:57:51 |
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |

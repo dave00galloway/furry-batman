@@ -33,6 +33,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QualityAssurance.Cnx
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QualityAssurance.RedisConfig", "Alpari.QualityAssurance.RedisConfig\Alpari.QualityAssurance.RedisConfig.csproj", "{DCA2F5B1-3796-4146-9272-0FE574B317C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.ProcessRunner", "Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj", "{1541F9F0-19F6-41C0-B8D9-8A7829A54C52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.ProcessRunner.Tests", "Alpari.QA.ProcessRunner.Tests\Alpari.QA.ProcessRunner.Tests.csproj", "{ADACE309-77F2-450F-BC65-C4B21AC5DB77}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -89,6 +93,14 @@ Global
 		{DCA2F5B1-3796-4146-9272-0FE574B317C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCA2F5B1-3796-4146-9272-0FE574B317C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCA2F5B1-3796-4146-9272-0FE574B317C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1541F9F0-19F6-41C0-B8D9-8A7829A54C52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1541F9F0-19F6-41C0-B8D9-8A7829A54C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1541F9F0-19F6-41C0-B8D9-8A7829A54C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1541F9F0-19F6-41C0-B8D9-8A7829A54C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADACE309-77F2-450F-BC65-C4B21AC5DB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADACE309-77F2-450F-BC65-C4B21AC5DB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADACE309-77F2-450F-BC65-C4B21AC5DB77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADACE309-77F2-450F-BC65-C4B21AC5DB77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

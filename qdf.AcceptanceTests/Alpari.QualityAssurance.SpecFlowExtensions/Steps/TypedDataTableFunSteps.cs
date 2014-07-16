@@ -58,6 +58,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             ScenarioContext.Current["diffs"] = diffs;
         }
 
+        [When(@"I compare the ""(.*)"" and ""(.*)"" person data matching on id")]
+        public void WhenICompareTheAndPersonDataMatchingOnId(string first, string second)
+        {
+            var keys = new[] { "ID", "Lastname" };
+            PersonData exp =
+                new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[first] as IEnumerable<Person>,
+                    "expected", keys);
+            PersonData act =
+                new PersonData().ConvertIEnumerableToDataTable(ScenarioContext.Current[second] as IEnumerable<Person>,
+                    "actual", new[] { "ID"});
+            DataTableComparison diffs = exp.Compare(act);
+            ScenarioContext.Current["diffs"] = diffs;
+        }
+
+
 
         [Then(@"the person data should match exactly")]
         public void ThenThePersonDataShouldMatchExactly()
