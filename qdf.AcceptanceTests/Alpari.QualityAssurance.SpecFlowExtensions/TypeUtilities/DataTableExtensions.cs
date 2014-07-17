@@ -337,7 +337,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     for (int index = 0; index < diffRow.ItemArray.Length; index++)
                     {
                         string item = diffRow.ItemArray[index].ToString().StringToCsvCell(true);
-                        //diffRow.ItemArray[index] = item;
                         diffRow[index] = item;
                     }
                 }
