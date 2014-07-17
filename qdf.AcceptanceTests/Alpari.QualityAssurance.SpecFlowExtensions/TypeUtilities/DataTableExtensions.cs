@@ -98,9 +98,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static DataTableComparison Compare(this DataTable dtBase, DataTable compareWith,
             string[] excludeColumns = null, string[] includeColumns = null, bool outputMatches = false,
             bool removeReturns = false)
-            //, DataColumn[] keyColumns)
         {
-            //DataTableComparer<DataRow>.Instance.ResetInstance();
             var comparer = new DataTableComparer<DataRow>(dtBase, compareWith);
             var comparison = new DataTableComparison();
 
@@ -110,27 +108,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             List<DataRow> compRows = compareWith.Rows.Cast<DataRow>().Select(row => row).ToList();
 
             comparison.MissingInCompareWith =
-                baseRows.Except(compRows,
-                    //DataTableComparer<DataRow>.Instance
-                    comparer
-                    ).ToList();
+                baseRows.Except(compRows, comparer).ToList();
             comparison.AdditionalInCompareWith =
-                compRows.Except(baseRows,
-                    //DataTableComparer<DataRow>.Instance
-                    comparer
-                    ).ToList();
+                compRows.Except(baseRows, comparer).ToList();
 
-            IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows,
-                //DataTableComparer<DataRow>.Instance
-                comparer
-                );
+            IEnumerable<DataRow> commonRows = baseRows.Intersect(compRows, comparer);
 
             // dtBase.ColumnChanged += new DataColumnChangeEventHandler(dtBase_ColumnChanged); // the event doesn't seem to fire on merges, but it does fire if you directly edit the row. required some really fiddly work to get right, so abandoned
 
 
             //get the non-primary key field columns
             IEnumerable<DataColumn> columnQuery = from DataColumn col in dtBase.Columns
-                //where dtBase.PrimaryKey.Contains(col) == false
                 where comparer.PrimaryKeys.Contains(col) == false
                 select col;
             if (excludeColumns != null)
@@ -157,7 +145,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// Returns a DataTable Comparison created using a dictionary of hashcodes for the common primary key values of each row in both data tables
+        ///     Returns a DataTable Comparison created using a dictionary of hashcodes for the common primary key values of each
+        ///     row in both data tables
         /// </summary>
         /// <param name="comparer"></param>
         /// <param name="comparison"></param>
@@ -179,6 +168,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                         comparison.FieldDifferences, baseRowPair.Value, compareRow, findTheseVals);
                 }
             }
+            comparison.DuplicatesInBase = comparer.DtBaseDuplicateRows;
+            comparison.DuplicatesInCompareWith = comparer.DtCompareWithDuplicateRows;
             return comparison;
         }
 
@@ -555,11 +546,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow
         {
-            private List<DataRow> _dtBaseDuplicateRows;
-            private Dictionary<int, DataRow> _dtBaseRowDictionary;
-            private List<DataRow> _dtCompareWithDuplicateRows;
-            private Dictionary<int, DataRow> _dtCompareWithRowDictionary;
-
             public DataTableComparer(DataTable dtBase, DataTable compareWith)
             {
                 DtBasePrimaryKeys = dtBase.PrimaryKey.Select(keyColumn => keyColumn).ToList();
@@ -578,40 +564,43 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 }
             }
 
+            private readonly Dictionary<string, DataRow> _dtBaseRowDictionary;
+            private readonly Dictionary<string, DataRow> _dtCompareWithRowDictionary;
+
+            private readonly List<DataRow> _dtBaseDuplicateRows;
+            private readonly List<DataRow> _dtCompareWithDuplicateRows;
             private List<DataColumn> DtCompareWithPrimaryKeys { get; set; }
             private List<DataColumn> DtBasePrimaryKeys { get; set; }
             private List<string> MatchingKeyNames { get; set; }
+
             public bool KeysMatch { get; private set; }
             public DataColumn[] PrimaryKeys { get; private set; }
 
-            public Dictionary<int, DataRow> DtBaseRowDictionary
+            public Dictionary<string, DataRow> DtBaseRowDictionary
             {
                 get { return _dtBaseRowDictionary; }
-                private set { _dtBaseRowDictionary = value; }
             }
 
-            public Dictionary<int, DataRow> DtCompareWithRowDictionary
+            public Dictionary<string, DataRow> DtCompareWithRowDictionary
             {
                 get { return _dtCompareWithRowDictionary; }
-                private set { _dtCompareWithRowDictionary = value; }
             }
+
 
             public List<DataRow> DtBaseDuplicateRows
             {
                 get { return _dtBaseDuplicateRows; }
-                set { _dtBaseDuplicateRows = value; }
             }
 
             public List<DataRow> DtCompareWithDuplicateRows
             {
                 get { return _dtCompareWithDuplicateRows; }
-                set { _dtCompareWithDuplicateRows = value; }
             }
 
 
             public bool Equals(T rowBase, T rowCompareWith)
             {
-                bool equals = true;
+                var equals = true;
                 List<object> keyValuesBase = GetKeyValues(rowBase);
                 List<object> keyValuesComp = GetKeyValues(rowCompareWith);
                 for (int i = 0; i < keyValuesBase.Count(); i++)
@@ -640,14 +629,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 return hashcode;
             }
 
-            private void SetupKeyRowDictionary(DataTable dataTable, out Dictionary<int, DataRow> rowDictionary,
+            private void SetupKeyRowDictionary(DataTable dataTable, out Dictionary<string, DataRow> rowDictionary,
                 out List<DataRow> duplicateRowsList)
             {
-                rowDictionary = new Dictionary<int, DataRow>();
+                rowDictionary = new Dictionary<string, DataRow>();
                 duplicateRowsList = new List<DataRow>();
                 foreach (DataRow row in dataTable.Rows)
                 {
-                    int key = GetHashCode((T) row);
+                    var key = String.Join("|", GetKeyValues((T) row));
                     try
                     {
                         rowDictionary.Add(key, row);

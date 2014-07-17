@@ -28,7 +28,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     diffs.MissingInCompareWith.Should().HaveCount(diffCount);
                     break;
                 default:
-                    throw new ArgumentException("diffType {0} not recognised", diffType);
+                    throw new ArgumentException(String.Format("diffType {0} not recognised", diffType));
             }
         }
 
@@ -53,8 +53,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 case "missing":
                     diffs.MissingInCompareWith.Should().HaveCount(diffCount);
                     break;
+                case "originalduplicate":
+                case "duplicateinbase":
+                    diffs.DuplicatesInBase.Should().HaveCount(diffCount);
+                    break;
                 default:
-                    throw new ArgumentException("diffType {0} not recognised", diffType);
+                    throw new ArgumentException(String.Format("diffType {0} not recognised", diffType));
             }
         } 
     }

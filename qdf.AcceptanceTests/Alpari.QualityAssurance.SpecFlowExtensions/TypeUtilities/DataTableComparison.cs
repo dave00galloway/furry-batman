@@ -14,8 +14,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public List<DataRow> MissingInCompareWith { get; set; }
         public List<DataRow> AdditionalInCompareWith { get; set; }
         public DataTable FieldDifferences { get; set; }
+        public List<DataRow> DuplicatesInBase { get; set; }
+        public List<DataRow> DuplicatesInCompareWith { get; set; }
 
         //add overloads/delegates to allow output of diffs to different output types
+        [Obsolete("Use an overload which specifies an output method")]
         public string CheckForDifferences()
         {
             var diffs = new StringBuilder();
@@ -83,9 +86,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public string CheckForDifferences(ExportParameters export)
         {
             var diffs = new StringBuilder();
-            ExportMissingInCoimpareWithByMethod(export, diffs);
-            AdditionalInCompareWithByMethod(export, diffs);
+            ExportMissingInCompareWithByMethod(export, diffs);
+            ExportAdditionalInCompareWithByMethod(export, diffs);
             ExportFieldDiffsByMethod(export, diffs);
+            ExportDuplicatesInBaseByMethod(export, diffs);
+            ExportDuplicatesInCompareWithByMethod(export, diffs);
             return diffs.ToString();
         }
 
@@ -97,11 +102,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
             var diffs = new StringBuilder();
             export.FileName = String.Format("missing-{0}", export.FileName);
-            ExportMissingInCoimpareWithByMethod(export, diffs);
+            ExportMissingInCompareWithByMethod(export, diffs);
             export.FileName = String.Format("additional-{0}", export.FileName.Replace("missing-",""));
-            AdditionalInCompareWithByMethod(export, diffs);
+            ExportAdditionalInCompareWithByMethod(export, diffs);
             export.FileName = String.Format("fieldDiffs-{0}", export.FileName.Replace("additional-", ""));
             ExportFieldDiffsByMethod(export, diffs);
+            export.FileName = String.Format("dupesInBase-{0}", export.FileName.Replace("fieldDiffs-", ""));
+            ExportDuplicatesInBaseByMethod(export, diffs);
+            export.FileName = String.Format("dupesInNew-{0}", export.FileName.Replace("dupesInBase-", ""));
+            ExportDuplicatesInCompareWithByMethod(export, diffs);
             return diffs.ToString();
         }
 
@@ -123,7 +132,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        private void AdditionalInCompareWithByMethod(ExportParameters export, StringBuilder diffs)
+        private void ExportAdditionalInCompareWithByMethod(ExportParameters export, StringBuilder diffs)
         {
             if (AdditionalInCompareWith.Count > 0)
             {
@@ -135,7 +144,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             }
         }
 
-        private void ExportMissingInCoimpareWithByMethod(ExportParameters export, StringBuilder diffs)
+        private void ExportMissingInCompareWithByMethod(ExportParameters export, StringBuilder diffs)
         {
             if (MissingInCompareWith.Count > 0)
             {
@@ -145,6 +154,30 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 diffs.AppendLine(diff);
                 Console.WriteLine(diff);
                 MissingInCompareWith.ExportEnumerableByMethod(export);
+            }
+        }
+
+        private void ExportDuplicatesInCompareWithByMethod(ExportParameters export, StringBuilder diffs)
+        {
+            if (DuplicatesInCompareWith != null && DuplicatesInCompareWith.Count > 0)
+            {
+                string diff = String.Format("DuplicatesInCompareWith.Count = {0}",
+                    Verify.That(DuplicatesInCompareWith.Count, CompareUsing.ShouldBe, 0));
+                diffs.AppendLine(diff);
+                Console.WriteLine(diff);
+                DuplicatesInCompareWith.ExportEnumerableByMethod(export);
+            }
+        }
+
+        private void ExportDuplicatesInBaseByMethod(ExportParameters export, StringBuilder diffs)
+        {
+            if (DuplicatesInBase != null && DuplicatesInBase.Count > 0)
+            {
+                string diff = String.Format("DuplicatesInBase.Count = {0}",
+                    Verify.That(DuplicatesInBase.Count, CompareUsing.ShouldBe, 0));
+                diffs.AppendLine(diff);
+                Console.WriteLine(diff);
+                DuplicatesInBase.ExportEnumerableByMethod(export);
             }
         }
 

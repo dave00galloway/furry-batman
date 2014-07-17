@@ -132,7 +132,7 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Pre M
 		 | cnx-fix-deals | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
-		| FileNamePath                                        | ConvertedStartTime   | ConvertedEndTime     |
+		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
 		| C:\data\Alpari UK_TradeActivity_20140228.csv | 02/02/2014  22:03:35 | 27/02/2014  23:59:59 |
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
@@ -153,7 +153,7 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Post 
 		 | cnx-fix-deals | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
-		| FileNamePath                                        | ConvertedStartTime   | ConvertedEndTime     |
+		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
 		| C:\data\Alpari UK_TradeActivity_20140228.csv | 28/02/2014  00:00:00 | 28/02/2014  21:57:51 |
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:

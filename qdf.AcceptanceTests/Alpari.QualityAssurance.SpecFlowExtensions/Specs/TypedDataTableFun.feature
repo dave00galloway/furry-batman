@@ -179,3 +179,17 @@ Scenario: Compare Two data sets of different types with one missing where ID is 
 	When I compare the "expected" and "actual" person data matching on id
 	Then the person data should match exactly
 #need a test which detects duplicates by checking on the common primary keys in each table
+Scenario: Compare Two data sets of different types with one duplicate where ID is the same for 2 records
+	Given I have the following "expected" person data:
+	| ID | Forenames | Lastname | Age | Occupation     |
+	| 1  | Vladimir  | Putin    | 99  | Impaler        |
+	| 2  | John      | Kerry    | 100 | stand up comic |
+	| 2  | John      | Putin    | 100 | stand up comic |
+	And I have the following "actual" person data:
+	| ID | Forenames | Lastname | Age | Occupation     |
+	| 1  | Vladimir  | Putin    | 99  | Impaler        |
+	| 2  | John      | Kerry    | 100 | stand up comic |
+	When I compare the "expected" and "actual" person data matching on id
+	Then the person data should contain 1 "OriginalDuplicate" :-
+	| ExportType         |
+	| DataTableToConsole |
