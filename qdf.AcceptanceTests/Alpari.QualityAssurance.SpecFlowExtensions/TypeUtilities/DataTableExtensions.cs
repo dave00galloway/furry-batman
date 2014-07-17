@@ -131,7 +131,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             //get the non-primary key field columns
             IEnumerable<DataColumn> columnQuery = from DataColumn col in dtBase.Columns
                 //where dtBase.PrimaryKey.Contains(col) == false
-                                                  where comparer.PrimaryKeys.Contains(col) == false
+                where comparer.PrimaryKeys.Contains(col) == false
                 select col;
             if (excludeColumns != null)
             {
@@ -145,61 +145,118 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             //when the format for this is agreed, could create a strongly typed datatable for the comparisons
 
-            //DataTable comparisonDiffs = SetupComparisonDiffsTable(dtBase.PrimaryKey);
             DataTable comparisonDiffs = SetupComparisonDiffsTable(comparer.PrimaryKeys);
             comparison.FieldDifferences = comparisonDiffs;
+            if (comparer.KeysMatch)
+            {
+                return DataTableComparison(compareWith, outputMatches, removeReturns, commonRows, comparer,
+                    columnsToCompare, comparisonDiffs, comparison);
+            }
+            return DataTableComparison(comparer, comparison, columnsToCompare, outputMatches,
+                removeReturns);
+        }
+
+        /// <summary>
+        /// Returns a DataTable Comparison created using a dictionary of hashcodes for the common primary key values of each row in both data tables
+        /// </summary>
+        /// <param name="comparer"></param>
+        /// <param name="comparison"></param>
+        /// <param name="columnsToCompare"></param>
+        /// <param name="outputMatches"></param>
+        /// <param name="removeReturns"></param>
+        /// <returns></returns>
+        private static DataTableComparison DataTableComparison(DataTableComparer<DataRow> comparer,
+            DataTableComparison comparison, List<DataColumn> columnsToCompare, bool outputMatches, bool removeReturns)
+        {
+            foreach (var baseRowPair in comparer.DtBaseRowDictionary)
+            {
+                //find row in compare with or move to next row - missing/duplicates are handled already
+                if (comparer.DtCompareWithRowDictionary.ContainsKey(baseRowPair.Key))
+                {
+                    var compareRow = comparer.DtCompareWithRowDictionary[baseRowPair.Key];
+                    var findTheseVals = FindPrimaryKeyValues(comparer, baseRowPair.Value);
+                    CompareValuesForEachColumnInBothRows(outputMatches, removeReturns, columnsToCompare,
+                        comparison.FieldDifferences, baseRowPair.Value, compareRow, findTheseVals);
+                }
+            }
+            return comparison;
+        }
+
+        /// <summary>
+        ///     Retunrs a DataTableComparison created by using the DatTable > DatRowCollection > Find Method if the
+        ///     compare.KeyMatch is true.
+        ///     If False, this method shouldn't be called, as with large data sets, the extension FindRow will be very slow as it
+        ///     will cartesian Iterate over all rows
+        /// </summary>
+        /// <param name="compareWith"></param>
+        /// <param name="outputMatches"></param>
+        /// <param name="removeReturns"></param>
+        /// <param name="commonRows"></param>
+        /// <param name="comparer"></param>
+        /// <param name="columnsToCompare"></param>
+        /// <param name="comparisonDiffs"></param>
+        /// <param name="comparison"></param>
+        /// <returns></returns>
+        private static DataTableComparison DataTableComparison(DataTable compareWith, bool outputMatches,
+            bool removeReturns,
+            IEnumerable<DataRow> commonRows, DataTableComparer<DataRow> comparer, List<DataColumn> columnsToCompare,
+            DataTable comparisonDiffs,
+            DataTableComparison comparison)
+        {
             foreach (DataRow row in commonRows)
             {
-                //get the primary key values for the comp row
-                //var findTheseVals = new object[dtBase.PrimaryKey.Count()];
-                var findTheseVals = new object[comparer.PrimaryKeys.Count()];
-                for (int i = 0; i < findTheseVals.Length; i++)
-                {
-                    //findTheseVals[i] = row[dtBase.PrimaryKey[i]];
-                    findTheseVals[i] = row[comparer.PrimaryKeys[i]];
-                }
+                object[] findTheseVals = FindPrimaryKeyValues(comparer, row);
 
-                //DataRow sourceRow;
                 DataRow newRow;
                 if (comparer.KeysMatch)
                 {
                     //get the equivalent row in the base table
-                    //sourceRow = dtBase.Rows.Find(findTheseVals);
-
-                    //get the equivalent row in the comp table
                     newRow = compareWith.Rows.Find(findTheseVals);
                 }
                 else
                 {
-                    //get the equivalent row in the base table
-                    //sourceRow = dtBase.Rows.FindRow(findTheseVals, comparer.PrimaryKeys);
-                    //use row
-
-                    //opportunity to speed up here - only need to find one row, should be able to use common rows for one of base or compare with
-                    //get the equivalent row in the comp table
+                    //should never call this!
                     newRow = compareWith.Rows.FindRow(findTheseVals, comparer.PrimaryKeys);
                 }
 
-                foreach (DataColumn column in columnsToCompare)
-                {
-                    //sourceRow[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
-                    //    outputMatches, removeReturns);
-                    row[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
-                        outputMatches, removeReturns);
-                }
+                CompareValuesForEachColumnInBothRows(outputMatches, removeReturns, columnsToCompare, comparisonDiffs,
+                    row, newRow, findTheseVals);
             }
 
             return comparison;
         }
 
+        private static void CompareValuesForEachColumnInBothRows(bool outputMatches, bool removeReturns,
+            IEnumerable<DataColumn> columnsToCompare,
+            DataTable comparisonDiffs, DataRow row, DataRow newRow, object[] findTheseVals)
+        {
+            foreach (DataColumn column in columnsToCompare)
+            {
+                row[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
+                    outputMatches, removeReturns);
+            }
+        }
+
+        private static object[] FindPrimaryKeyValues(DataTableComparer<DataRow> comparer, DataRow row)
+        {
+            //get the primary key values for the comp row
+            var findTheseVals = new object[comparer.PrimaryKeys.Count()];
+            for (int i = 0; i < findTheseVals.Length; i++)
+            {
+                findTheseVals[i] = row[comparer.PrimaryKeys[i]];
+            }
+            return findTheseVals;
+        }
+
         /// <summary>
-        /// This is going to be very slow. need to find a quicker method for large datasets
+        ///     This is going to be very slow. need to find a quicker method for large datasets
         /// </summary>
         /// <param name="dataRowCollection"></param>
         /// <param name="objectsToFind"></param>
         /// <param name="dataColumns"></param>
         /// <returns></returns>
-        public static DataRow FindRow(this DataRowCollection dataRowCollection,object[] objectsToFind,  DataColumn[] dataColumns)
+        public static DataRow FindRow(this DataRowCollection dataRowCollection, object[] objectsToFind,
+            DataColumn[] dataColumns)
         {
             foreach (DataRow row in dataRowCollection)
             {
@@ -300,6 +357,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         private static string ValueComparison(object p1, object p2, string type)
         {
             #region downcast the object to its type, and compare. if different, create a new row and return it and a calcualtion of difference
+
             string difference = null;
             switch (type.ToUpper())
             {
@@ -497,16 +555,27 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <typeparam name="T"></typeparam>
         public class DataTableComparer<T> : IEqualityComparer<T> where T : DataRow
         {
+            private List<DataRow> _dtBaseDuplicateRows;
+            private Dictionary<int, DataRow> _dtBaseRowDictionary;
+            private List<DataRow> _dtCompareWithDuplicateRows;
+            private Dictionary<int, DataRow> _dtCompareWithRowDictionary;
+
             public DataTableComparer(DataTable dtBase, DataTable compareWith)
             {
                 DtBasePrimaryKeys = dtBase.PrimaryKey.Select(keyColumn => keyColumn).ToList();
                 DtCompareWithPrimaryKeys = compareWith.PrimaryKey.Select(keyColumn => keyColumn).ToList();
                 MatchingKeyNames = DtBasePrimaryKeys.Select(x => x.ColumnName).ToList()
                     .Intersect(DtCompareWithPrimaryKeys.Select(x => x.ColumnName).ToList()).ToList();
-                KeysMatch = MatchingKeyNames.Count().Equals(DtBasePrimaryKeys.Count) && MatchingKeyNames.Count().Equals(DtCompareWithPrimaryKeys.Count);
+                KeysMatch = MatchingKeyNames.Count().Equals(DtBasePrimaryKeys.Count) &&
+                            MatchingKeyNames.Count().Equals(DtCompareWithPrimaryKeys.Count);
                 PrimaryKeys = KeysMatch
                     ? DtBasePrimaryKeys.ToArray()
                     : DtBasePrimaryKeys.Where(x => MatchingKeyNames.Any(k => String.Equals(k, x.ColumnName))).ToArray();
+                if (!KeysMatch)
+                {
+                    SetupKeyRowDictionary(dtBase, out _dtBaseRowDictionary, out _dtBaseDuplicateRows);
+                    SetupKeyRowDictionary(compareWith, out _dtCompareWithRowDictionary, out _dtCompareWithDuplicateRows);
+                }
             }
 
             private List<DataColumn> DtCompareWithPrimaryKeys { get; set; }
@@ -514,6 +583,30 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             private List<string> MatchingKeyNames { get; set; }
             public bool KeysMatch { get; private set; }
             public DataColumn[] PrimaryKeys { get; private set; }
+
+            public Dictionary<int, DataRow> DtBaseRowDictionary
+            {
+                get { return _dtBaseRowDictionary; }
+                private set { _dtBaseRowDictionary = value; }
+            }
+
+            public Dictionary<int, DataRow> DtCompareWithRowDictionary
+            {
+                get { return _dtCompareWithRowDictionary; }
+                private set { _dtCompareWithRowDictionary = value; }
+            }
+
+            public List<DataRow> DtBaseDuplicateRows
+            {
+                get { return _dtBaseDuplicateRows; }
+                set { _dtBaseDuplicateRows = value; }
+            }
+
+            public List<DataRow> DtCompareWithDuplicateRows
+            {
+                get { return _dtCompareWithDuplicateRows; }
+                set { _dtCompareWithDuplicateRows = value; }
+            }
 
 
             public bool Equals(T rowBase, T rowCompareWith)
@@ -532,6 +625,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 return equals;
             }
 
+            /// <summary>
+            ///     hashing method for DataRows
+            /// </summary>
+            /// <param name="rowBase"></param>
+            /// <returns></returns>
             public int GetHashCode(T rowBase)
             {
                 List<object> keyValues = GetKeyValues(rowBase);
@@ -540,6 +638,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 //iterate over the values, multiply them and then hash the result
                 int hashcode = hashCodes.Aggregate(1, (current, hash) => current*hash);
                 return hashcode;
+            }
+
+            private void SetupKeyRowDictionary(DataTable dataTable, out Dictionary<int, DataRow> rowDictionary,
+                out List<DataRow> duplicateRowsList)
+            {
+                rowDictionary = new Dictionary<int, DataRow>();
+                duplicateRowsList = new List<DataRow>();
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    int key = GetHashCode((T) row);
+                    try
+                    {
+                        rowDictionary.Add(key, row);
+                    }
+                    catch (Exception)
+                    {
+                        duplicateRowsList.Add(row);
+                    }
+                }
             }
 
             private List<object> GetKeyValues(T rowBase)
