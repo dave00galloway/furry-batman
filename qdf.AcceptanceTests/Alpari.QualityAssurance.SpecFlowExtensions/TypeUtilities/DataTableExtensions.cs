@@ -502,8 +502,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 DtBasePrimaryKeys = dtBase.PrimaryKey.Select(keyColumn => keyColumn).ToList();
                 DtCompareWithPrimaryKeys = compareWith.PrimaryKey.Select(keyColumn => keyColumn).ToList();
                 MatchingKeyNames = DtBasePrimaryKeys.Select(x => x.ColumnName).ToList()
-                    .Intersect(DtCompareWithPrimaryKeys.Select(x => x.ColumnName).ToList());
-                KeysMatch = MatchingKeyNames.Count().Equals(DtBasePrimaryKeys.Count);
+                    .Intersect(DtCompareWithPrimaryKeys.Select(x => x.ColumnName).ToList()).ToList();
+                KeysMatch = MatchingKeyNames.Count().Equals(DtBasePrimaryKeys.Count) && MatchingKeyNames.Count().Equals(DtCompareWithPrimaryKeys.Count);
                 PrimaryKeys = KeysMatch
                     ? DtBasePrimaryKeys.ToArray()
                     : DtBasePrimaryKeys.Where(x => MatchingKeyNames.Any(k => String.Equals(k, x.ColumnName))).ToArray();
@@ -511,7 +511,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             private List<DataColumn> DtCompareWithPrimaryKeys { get; set; }
             private List<DataColumn> DtBasePrimaryKeys { get; set; }
-            private IEnumerable<string> MatchingKeyNames { get; set; }
+            private List<string> MatchingKeyNames { get; set; }
             public bool KeysMatch { get; private set; }
             public DataColumn[] PrimaryKeys { get; private set; }
 
