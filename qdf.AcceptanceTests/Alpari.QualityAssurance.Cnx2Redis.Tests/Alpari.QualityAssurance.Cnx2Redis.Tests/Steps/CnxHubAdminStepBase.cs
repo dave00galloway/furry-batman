@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using TechTalk.SpecFlow;
@@ -18,6 +19,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
         protected static IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
         protected static ICnxHubTradeActivityImporter CnxHubTradeActivityImporter { get; private set; }
+        protected DealSearchCriteria DealSearchCriteria { get; set; }
 
         [StepArgumentTransformation]
         public static IEnumerable<IncludedLogins> IncludedLoginsTransform(Table table)

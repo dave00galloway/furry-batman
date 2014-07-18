@@ -51,11 +51,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I update the qdf deal criteria with start and end times")]
         public void WhenIUpdateTheQdfDealCriteriaWithStartAndEndTimes()
         {
-            DealSearchCriteria criteria = QdfDataRetrievalSteps.DealSearchCriteria;
-            criteria.ConvertedStartTime = CnxHubTradeActivityImporter.EarliestTradeActivityDateTime;
+            DealSearchCriteria = QdfDataRetrievalSteps.DealSearchCriteria;
+            DealSearchCriteria.ConvertedStartTime = CnxHubTradeActivityImporter.EarliestTradeActivityDateTime;
             //need to add 1 tick to the end time as the precision of the cnx Hub times stops at seconds
             //actually this doesn't quite work. Let's try adding a second then subtracting 1 tick.
-            criteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime + new TimeSpan(0,0,1) - new TimeSpan((long)1);
+            DealSearchCriteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime + new TimeSpan(0,0,1) - new TimeSpan((long)1);
         }
 
         [When(@"I filter the qdf deals by the included logins")]
@@ -88,10 +88,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                 new TestableDealDataTable().ConvertIEnumerableToDataTable(cnxHubDealsAsTestableDeals,
                     "cnx-hub",
                     new[] { "DealId" });
-            var qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
-                new[] { "DealId", "Comment" });
-                //new[] { "DealId" });//TODO:- create a seperate step definition which enables/disables the different primary keys. It's not currently affecting except for slowing them down slightly when the faster comparison method could be used
+            TestableDealDataTable qdfDealsAsTestableDealDataTable;
+
+            switch (DealSearchCriteria.DealSource)
+            {
+                case "cnx-deals":
+                    qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
+                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), DealSearchCriteria.DealSource,
+                        new[] { "DealId"});
+                    break;
+                case "cnx-fix-deals":
+                    qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
+                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), DealSearchCriteria.DealSource,
+                        new[] { "DealId", "Comment" });
+                    break;
+                default:
+                    throw new ArgumentException(String.Format("Deal Source {0} is not supported", DealSearchCriteria.DealSource));
+            }
+            
             var diffs = cnxDealsAsTestableDealDataTable.Compare(qdfDealsAsTestableDealDataTable, ignoredFieldsQuery, null, false, true);
             ScenarioContext.Current["diffs"] = diffs;
         }
