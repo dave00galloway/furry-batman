@@ -81,8 +81,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         }
 
         /// <summary>
-        /// Probbly loads of bugs in here as we're coding around a defect in QDF, and uncertain reporting conventions on Cnx
+        /// Probably loads of bugs in here as we're coding around a defect in QDF, and uncertain reporting conventions on Cnx
         /// Hopefully not too many exceptions will fall out, but not every case has been tested here!
+        /// Bugs in the provided data from Cnx mean some Kiwi deals that shopuld have been rolled onto the next day are included, 
+        /// and will appear as missing and will need to be manually checked. It's not too many though, and not worth filtering the cnxhub data
+        /// If the daily report was incorrect, then the cnx hub data would be unusable
         /// </summary>
         protected void FilterByKiwiRolloverTimes()
         {
@@ -102,11 +105,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var lastRollOverStart = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month, lastOrDefault.TimeStamp.Day, 19, 0, 0);
             var lastRollOverEnd = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month,
                 lastOrDefault.TimeStamp.Day, 21, 0, 0);// - new TimeSpan((long)1);
-            if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverStart.TimeOfDay)) 
-            /* reporting spans midnight, or finishes at midnight on d0 (determined by last deal having a time after 19:00)
+            /* reporting spans midnight, or finishes at midnight on d0 
+             * (determined by last deal having a time after 19:00)
+             * if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverStart.TimeOfDay)) // let too many through
              * this particular step could be a potential source of bugs if there aren't many deals on a given reporting day
              */
+            if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay))
             {
+                /* reporting spans midnight, or finishes at midnight on d0 
+                 * (determined by last deal having a time after 21:00)
+                 * this particular step could be a potential source of bugs if there aren't many deals on a given reporting day
+                 */
                 //filter non kiwi deals from start of reporting period
                 kiwiRolloverDeals =
                     deals.Where(
@@ -121,7 +130,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                  * less likely than previous step, but also a potential source of bugs on slow trading days
                  */
             {
-                //filter non kiwi deals from start of reporting period
+                //filter kiwi deals from end of reporting period
                 nonKiwiRolloverDeals =
                     deals.Where(
                         x =>
@@ -134,15 +143,16 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             if (startDate == lastDate)
             {
                 //regularDeals = deals.Where(x => x.TimeStamp >= firstRollOverEnd && x.TimeStamp <= lastRollOverStart).ToList();
-                //if started at midnight then we have non kiwi deals from the rollover period already, we need all deals before rollover
-                if (lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverStart.TimeOfDay)
-                {
-                    regularDeals = deals.Where(x => x.TimeStamp.TimeOfDay <= firstRollOverStart.TimeOfDay).ToList();
-                }
-                else
+
+                if (lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay)
                 {
                     //we already have kiwi deals from rollover, need all other deals up to midnight
                     regularDeals = deals.Where(x => x.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay).ToList();
+                }
+                else
+                {
+                    //if started at midnight then we have non kiwi deals from the rollover period already, we need all deals before rollover
+                    regularDeals = deals.Where(x => x.TimeStamp.TimeOfDay <= firstRollOverStart.TimeOfDay).ToList();
                 }
             }
             else
