@@ -101,15 +101,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             if (firstOrDefault == null || lastOrDefault == null) return;
             var firstRollOverStart = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month, firstOrDefault.TimeStamp.Day, 19, 0, 0);
             var firstRollOverEnd = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month,
-                firstOrDefault.TimeStamp.Day, 21, 0, 0);// - new TimeSpan((long)1);
+                firstOrDefault.TimeStamp.Day, 21, 0, 0);
             var lastRollOverStart = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month, lastOrDefault.TimeStamp.Day, 19, 0, 0);
             var lastRollOverEnd = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month,
-                lastOrDefault.TimeStamp.Day, 21, 0, 0);// - new TimeSpan((long)1);
-            /* reporting spans midnight, or finishes at midnight on d0 
-             * (determined by last deal having a time after 19:00)
-             * if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverStart.TimeOfDay)) // let too many through
-             * this particular step could be a potential source of bugs if there aren't many deals on a given reporting day
-             */
+                lastOrDefault.TimeStamp.Day, 21, 0, 0);
             if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay))
             {
                 /* reporting spans midnight, or finishes at midnight on d0 
@@ -124,13 +119,12 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                              (x.Instrument.Contains("NZD"))).ToList();
             }
 
-            //filter Kiwi deals from end of reporting period
             if (startDate != lastDate || (startDate == lastDate & firstOrDefault.TimeStamp.TimeOfDay <= firstRollOverStart.TimeOfDay)) 
                 /* reporting spans midnight, or starts at midnight on d0 (determined by the first deal having a time before 19:00)
                  * less likely than previous step, but also a potential source of bugs on slow trading days
                  */
             {
-                //filter kiwi deals from end of reporting period
+                //filter Kiwi deals from end of reporting period
                 nonKiwiRolloverDeals =
                     deals.Where(
                         x =>
@@ -142,8 +136,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             List<Deal> regularDeals;
             if (startDate == lastDate)
             {
-                //regularDeals = deals.Where(x => x.TimeStamp >= firstRollOverEnd && x.TimeStamp <= lastRollOverStart).ToList();
-
                 if (lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay)
                 {
                     //we already have kiwi deals from rollover, need all other deals up to midnight
