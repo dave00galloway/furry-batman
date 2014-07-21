@@ -1,0 +1,8 @@
+TimeStamp,DealId,Server,ClientId,OrderId,Side,State,Instrument,Volume,ClientPrice,BankPrice,Book,AccountGroup,Comment,Data
+15/07/2014 20:24:45,B201419604MRY00,Currenex,AUKUS2026,B201419604MRX00,Buy,OpenRemained,NZDUSD,300000,0.87712,0.87712,B,Alpari UK,Include-Kiwi Deal during rollover,Alpari.QDF.Domain.Deal
+15/07/2014 21:30:02,B20141970533F00,Currenex,AUKP3165,B20141970533H00,Buy,OpenRemained,AUDNZD,50000,1.06897,1.06897,A,Alpari UK,Include-Kiwi Deal after rollover,Alpari.QDF.Domain.Deal
+15/07/2014 21:30:02,B201419706CNW00,Currenex,AUKUS2095,B201419706CNV00,Buy,OpenRemained,EURUSD,90000,1.35683,1.35683,B,Alpari UK,Include-Non Kiwi after rollover,Alpari.QDF.Domain.Deal
+15/07/2014 20:24:45,B201419603R6J00,Currenex,AUKUS2095,B201419603R6H00,Buy,OpenRemained,EURUSD,5000,1.35669,1.35669,B,Alpari UK,Filter-this is non kiwi before cut off on D0,Alpari.QDF.Domain.Deal
+16/07/2014 20:32:43,B201419706CNW01,Currenex,AUKUS2095,B201419706CNV00,Buy,OpenRemained,EURUSD,90000,1.35683,1.35683,B,Alpari UK,Include-NonKiwi deal during d1 rollover,Alpari.QDF.Domain.Deal
+16/07/2014 19:24:45,B201419604MRY01,Currenex,AUKUS2026,B201419604MRX00,Buy,OpenRemained,NZDUSD,300000,0.87712,0.87712,B,Alpari UK,Filter-KiwiDeal after rollover D1,Alpari.QDF.Domain.Deal
+16/07/2014 21:30:02,B20141970533F01,Currenex,AUKP3165,B20141970533H00,Buy,OpenRemained,AUDNZD,50000,1.06897,1.06897,A,Alpari UK,Pre-filtered-outside date range,Alpari.QDF.Domain.Deal

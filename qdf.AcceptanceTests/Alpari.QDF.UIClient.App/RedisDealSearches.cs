@@ -44,7 +44,7 @@ namespace Alpari.QDF.UIClient.App
             deals = FilterDealsByBook(deals, dealSearchCriteria);
             deals = FilterDealsBySymbol(deals, dealSearchCriteria);
             deals = FilterDealsByServer(deals, dealSearchCriteria);
-            return deals.ToList();
+            return deals.OrderBy(x=>x.TimeStamp).ToList();
         }
 
         private IEnumerable<Deal> FilterDealsByBook(IEnumerable<Deal> deals, DealSearchCriteria dealSearchCriteria)

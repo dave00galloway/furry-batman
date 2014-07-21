@@ -133,6 +133,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-140 [AT] load cnx-fix-deals.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-149FilterNonKiwiDealsDuringRollover.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-149FilterNonKiwiDealsDuringRollover.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -231,6 +236,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-140 [AT] load cnx-fix-deals.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSQDF-149FilterNonKiwiDealsDuringRollover.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-149FilterNonKiwiDealsDuringRollover.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-93 [AT] ConnectToGetTradeswithEventIDProc.feature.cs</LastGenOutput>
@@ -286,6 +295,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\TradeActivitiesMini10thJuly.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\UKUSQDF-149cnx-deals.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\UKUSQDF-149CnxHubData.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

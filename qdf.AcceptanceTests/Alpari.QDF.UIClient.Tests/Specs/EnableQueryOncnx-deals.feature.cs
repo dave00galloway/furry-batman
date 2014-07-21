@@ -78,21 +78,21 @@ this.ScenarioSetup(scenarioInfo);
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "ConvertedStartTime",
-                        "ConvertedEndTime",
-                        "DealType"});
+                        "ConvertedEndTime"});
             table1.AddRow(new string[] {
                         "cnx-deals",
-                        "07/07/2014  00:00:00",
-                        "07/07/2014  00:05:00",
-                        "BookLessDeal"});
+                        "15/07/2014  19:00:00",
+                        "16/07/2014  00:05:00"});
 #line 9
  testRunner.And("I have the following search criteria for qdf deals", ((string)(null)), table1, "And ");
 #line 12
  testRunner.When("I retrieve the qdf deal data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
+ testRunner.And("I export the data to \"C:\\temp\\temp.csv\" and import the csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 14
  testRunner.Then("no retrieved deal will have a timestamp outside \"07/07/2014  00:00:00\" to \"07/07/" +
                     "2014  00:01:00\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 14
+#line 15
  testRunner.And("the count of retrieved deals will be 3", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();

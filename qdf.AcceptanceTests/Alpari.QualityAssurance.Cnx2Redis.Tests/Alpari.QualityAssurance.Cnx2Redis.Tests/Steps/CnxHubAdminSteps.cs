@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpari.QDF.UIClient.App.QueryableEntities;
+﻿using System.Linq;
+using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
+using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
@@ -62,12 +61,57 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         public void WhenIFilterTheQdfDealsByTheIncludedLogins()
         {
             QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals =
-                QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.Where(
-                    deal =>
-                        IncludedLoginsList.Any(
-                            l =>
-                                String.Equals(l.Login.Trim(), deal.ClientId.Trim(),
-                                    StringComparison.InvariantCultureIgnoreCase))).ToList();
+                FilterRetrievedDealsByIncludedLoginsList();
+            FilterByKiwiRolloverTimes();
+        }
+
+        private void FilterByKiwiRolloverTimes()
+        {
+            //get deals
+            var deals = QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals;
+            //determine start and end days
+            var firstOrDefault = deals.FirstOrDefault();
+            int startDay;
+            startDay = firstOrDefault != null ? firstOrDefault.TimeStamp.Day : 0;
+            var lastOrDefault = deals.LastOrDefault();
+            int lastDay;
+            lastDay = lastOrDefault != null ? lastOrDefault.TimeStamp.Day : 0;
+            var kiwiRolloverDeals = new List<Deal>();
+            var nonKiwiRolloverDeals = new List<Deal>();
+            if (firstOrDefault == null || lastOrDefault == null) return;
+            var firstRollOverStart = new DateTime(firstOrDefault.TimeStamp.Year,firstOrDefault.TimeStamp.Month, firstOrDefault.TimeStamp.Day,19,0,0);
+            var firstRollOverEnd = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month,
+                firstOrDefault.TimeStamp.Day, 21, 0, 0);// - new TimeSpan((long)1);
+            var lastRollOverStart = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month, lastOrDefault.TimeStamp.Day, 19, 0, 0);
+            var lastRollOverEnd = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month,
+                lastOrDefault.TimeStamp.Day, 21, 0, 0);// - new TimeSpan((long)1);
+            if (startDay != lastDay || firstOrDefault.TimeStamp.TimeOfDay != new TimeSpan(0,0,0)) // reporting spans midnight, or finishes at midnight on d0 (determined by start date not starting at midnight)
+            {
+                //filter non kiwi deals from start of reporting period
+                kiwiRolloverDeals =
+                    deals.Where(
+                        x =>
+                            (x.TimeStamp >= firstRollOverStart && x.TimeStamp <= firstRollOverEnd) &&
+                             (x.Instrument.Contains("NZD"))).ToList();
+            }
+
+            //filter Kiwi deals from end of reporting period
+            if (startDay != lastDay || firstOrDefault.TimeStamp.TimeOfDay == new TimeSpan(0, 0, 0)) // reporting spans midnight, or starts at midnight on d0
+            {
+                //filter non kiwi deals from start of reporting period
+                nonKiwiRolloverDeals =
+                    deals.Where(
+                        x =>
+                            (x.TimeStamp >= lastRollOverStart && x.TimeStamp <= lastRollOverEnd) &&
+                             (!x.Instrument.Contains("NZD"))).ToList();
+            }
+
+            //get all deals which aren't in any part of the rollover
+            var regularDeals = deals.Where(x => x.TimeStamp >= firstRollOverEnd && x.TimeStamp <= lastRollOverStart).ToList();
+
+            deals = regularDeals.Concat(kiwiRolloverDeals.Concat(nonKiwiRolloverDeals)).Distinct().ToList();
+
+            QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals = deals;
         }
 
         [When(@"I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins")]
@@ -81,32 +125,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I compare the cnx hub trade deals with the qdf deal data excluding these fields:")]
         public void WhenICompareTheCnxHubTradeDealsWithTheQdfDealDataExcludingTheseFields(Table table)
         {
-            var ignoredFieldsQuery = IgnoredFieldsQuery(table);
-            var cnxHubDealsAsTestableDeals =
-                CnxHubTradeActivityImporter.CnxTradeActivityList.MapCnxTradeActivityToTestableDeals();
-            var cnxDealsAsTestableDealDataTable =
-                new TestableDealDataTable().ConvertIEnumerableToDataTable(cnxHubDealsAsTestableDeals,
-                    "cnx-hub",
-                    new[] { "DealId" });
-            TestableDealDataTable qdfDealsAsTestableDealDataTable;
-
-            switch (DealSearchCriteria.DealSource)
-            {
-                case "cnx-deals":
-                    qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), DealSearchCriteria.DealSource,
-                        new[] { "DealId"});
-                    break;
-                case "cnx-fix-deals":
-                    qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), DealSearchCriteria.DealSource,
-                        new[] { "DealId", "Comment" });
-                    break;
-                default:
-                    throw new ArgumentException(String.Format("Deal Source {0} is not supported", DealSearchCriteria.DealSource));
-            }
-            
-            var diffs = cnxDealsAsTestableDealDataTable.Compare(qdfDealsAsTestableDealDataTable, ignoredFieldsQuery, null, false, true);
+            var diffs = CompareCnxHubAdminDealsWithQdfCnxDeals(table);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
