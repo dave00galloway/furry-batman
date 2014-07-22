@@ -152,8 +152,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                 regularDeals = deals.Where(x => x.TimeStamp >= firstRollOverEnd && x.TimeStamp <= lastRollOverStart).ToList();
             }
 
+            // finally, get all deal ids from the cnx hub admin report and use these to query the retrieved deals from Redis to get any outliers
+            // could be a huge performance hit but will avoid any more faffing trying to match up the rollover rules
+            var dealsWithMatchingIdsInCnxHubAdminReport =
+                deals.Where(
+                    x =>
+                        CnxHubTradeActivityImporter.CnxTradeActivityList.Any(
+                            a =>
+                                String.Equals(a.TradeId.Trim(), x.DealId.Trim(),
+                                    StringComparison.InvariantCultureIgnoreCase))).ToList();
 
-            deals = regularDeals.Concat(kiwiRolloverDeals.Concat(nonKiwiRolloverDeals)).Distinct().ToList();
+            deals = dealsWithMatchingIdsInCnxHubAdminReport.Concat(regularDeals.Concat(kiwiRolloverDeals.Concat(nonKiwiRolloverDeals))).Distinct().ToList();
 
             QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals = deals;
         }

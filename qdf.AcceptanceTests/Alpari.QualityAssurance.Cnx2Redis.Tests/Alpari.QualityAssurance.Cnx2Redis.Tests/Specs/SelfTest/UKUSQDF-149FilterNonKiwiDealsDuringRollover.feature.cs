@@ -21,6 +21,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSQDF-149FilterNonKiwiDealsDuringRollover")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_149")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_150")]
     [NUnit.Framework.CategoryAttribute("redisLocalhost")]
     [NUnit.Framework.CategoryAttribute("RedisDataImportParams:deal:cnx_deals:TestData\\UKUSQDF-149cnx-deals.csv")]
     [NUnit.Framework.CategoryAttribute("cnxHubTradeActivityImporter:Csv")]
@@ -36,9 +37,15 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-149FilterNonKiwiDealsDuringRollover", "In order to get the correct deals for comparison between cnx-deals and cnx hub ad" +
-                    "min\r\nAs a QDF Tester\r\nI want to filter non NZD deals during the rollover period", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-149FilterNonKiwiDealsDuringRollover", @"In order to get the correct deals for comparison between cnx-deals and cnx hub admin
+As a QDF Tester
+I want to filter non NZD deals during the rollover period
+
+In order to test outlying deals on the cnx hub admin report
+As a QDF Tester
+I want to search for deals in redis using the deal ids from the cnx hub report", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_149",
+                        "UKUSQDF_150",
                         "redisLocalhost",
                         "RedisDataImportParams:deal:cnx_deals:TestData\\UKUSQDF-149cnx-deals.csv",
                         "cnxHubTradeActivityImporter:Csv"});
@@ -78,25 +85,25 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         public virtual void FilterNonKiwiDealsDuringRollover()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Filter non kiwi deals during rollover", ((string[])(null)));
-#line 7
+#line 11
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource"});
             table1.AddRow(new string[] {
                         "cnx-deals"});
-#line 8
+#line 12
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table1, "Given ");
-#line 11
+#line 15
  testRunner.When("I load cnx trade activities from \"TestData\\UKUSQDF-149CnxHubData.csv\" for the inc" +
                     "luded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 12
+#line 16
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
+#line 17
  testRunner.Then("the count of loaded cnx trade activities is 6", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 14
- testRunner.And("the count of retrieved deals will be 4", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 18
+ testRunner.And("the count of retrieved deals will be 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
