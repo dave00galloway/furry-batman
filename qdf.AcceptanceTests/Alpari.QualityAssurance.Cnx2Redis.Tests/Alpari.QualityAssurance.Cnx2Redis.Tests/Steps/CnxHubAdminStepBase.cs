@@ -154,9 +154,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
             // finally, get all deal ids from the cnx hub admin report and use these to query the retrieved deals from Redis to get any outliers
             // could be a huge performance hit but will avoid any more faffing trying to match up the rollover rules
+            // perfromance hit is around 8+ times for a month's worth of data
             var dealsWithMatchingIdsInCnxHubAdminReport =
                 deals.Where(
-                    x =>
+                    x => 
+                        (x.TimeStamp <= firstRollOverEnd || x.TimeStamp >= lastRollOverStart) && // added time checks to help reduce performance hit
                         CnxHubTradeActivityImporter.CnxTradeActivityList.Any(
                             a =>
                                 String.Equals(a.TradeId.Trim(), x.DealId.Trim(),
