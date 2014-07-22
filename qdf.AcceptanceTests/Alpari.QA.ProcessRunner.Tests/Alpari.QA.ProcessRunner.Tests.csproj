@@ -63,7 +63,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-145LaunchProcessesAndReadOutput.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\LaunchProcessStepBase.cs" />
     <Compile Include="Steps\LaunchProcessSteps.cs" />
+    <Compile Include="Steps\StepCentral.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj">

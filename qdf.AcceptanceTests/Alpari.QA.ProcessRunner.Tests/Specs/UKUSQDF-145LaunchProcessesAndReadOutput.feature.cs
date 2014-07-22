@@ -96,6 +96,41 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch cmd.exe and read output")]
+        public virtual void LaunchCmd_ExeAndReadOutput()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe and read output", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput"});
+            table2.AddRow(new string[] {
+                        "cmd.exe",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
+#line 15
+ testRunner.Given("I have the following process parameters", ((string)(null)), table2, "Given ");
+#line 18
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+ testRunner.And("the standard output contains text \"Microsoft Windows [Version 6.1.7601]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("the standard output contains text \"Copyright (c) 2009 Microsoft Corporation.  All" +
+                    " rights reserved.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

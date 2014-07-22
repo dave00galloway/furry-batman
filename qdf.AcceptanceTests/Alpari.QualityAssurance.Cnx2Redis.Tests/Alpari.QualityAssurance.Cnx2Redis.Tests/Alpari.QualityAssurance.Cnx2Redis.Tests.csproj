@@ -109,6 +109,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnxstp-pret-deals-all.feature.cs">
+      <DependentUpon>UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnxstp-pret-deals-all.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnx-deals.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnx-deals.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-151 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature.cs">
       <DependentUpon>UKUSQDF-151 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -221,6 +231,14 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnxstp-pret-deals-all.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnxstp-pret-deals-all.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnx-deals.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-138 [AT] QDF - retrieving deals over midnight cnx-deals.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-151 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

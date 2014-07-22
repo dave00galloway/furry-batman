@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Alpari.QA.ProcessRunner
 {
@@ -7,5 +8,7 @@ namespace Alpari.QA.ProcessRunner
         IProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
         Process Process { get; }
         bool NewProcessStarted { get; set; }
+        IList<string> StandardOutputList { get; }
+        void StandardOutputHandler(object sender, DataReceivedEventArgs e);
     }
 }

@@ -1,16 +1,11 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using Alpari.QA.ProcessRunner;
-using FluentAssertions;
+﻿using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QA.ProcessRunner.Tests.Steps
 {
     [Binding]
-    public class LaunchProcessSteps
+    public class LaunchProcessSteps : LaunchProcessStepBase
     {
         public ProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
         public IProcessRunner ProcessRunner { get; set; }
@@ -37,8 +32,15 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
         public void ThenTheProcessIsLaunchedOk()
         {
             ProcessRunner.NewProcessStarted.Should().Be(true);
-            //ProcessRunner.Process.StartTime.Should().
+            ProcessRunner.Process.StartTime.Should().BeOnOrAfter(TestRunContext.DateTimeNow);
         }
+
+        [Then(@"the standard output contains text ""(.*)""")]
+        public void ThenTheStandardOutputContainsText(string expectedText)
+        {
+            ProcessRunner.StandardOutputList.Should().Contain(expectedText);
+        }
+
 
     }
 }

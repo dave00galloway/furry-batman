@@ -20,6 +20,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
     public class TestRunContext : Dictionary<string, Object>, ISerializable
     {
         private const string Instantiated = "Instantiated";
+        public DateTime DateTimeNow { get; private set; }
         private static DateTime _dateTimeNow;
         private static string _friendlyInstantiated;
         private const string RandomFileName = "RandomFileName";
@@ -30,6 +31,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
         private TestRunContext()
         {
             _dateTimeNow = DateTime.Now;
+            DateTimeNow = _dateTimeNow;
             Add(Instantiated, _dateTimeNow + "  " + _dateTimeNow.Ticks);
             Add(RandomFileName, GenerateRandomStringFromFileName());
         }
