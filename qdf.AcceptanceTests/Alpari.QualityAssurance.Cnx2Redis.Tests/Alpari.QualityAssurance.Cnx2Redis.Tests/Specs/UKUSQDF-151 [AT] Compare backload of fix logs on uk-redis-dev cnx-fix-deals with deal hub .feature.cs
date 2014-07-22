@@ -19,24 +19,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSQDF-140 [AT] load cnx-fix-deals")]
-    [NUnit.Framework.CategoryAttribute("UKUSQDF_140")]
+    [NUnit.Framework.DescriptionAttribute("UKUSQDF-151 [AT] load cnx-fix-deals")]
+    [NUnit.Framework.CategoryAttribute("UKUSQDF_151")]
     [NUnit.Framework.CategoryAttribute("cnxHubTradeActivityImporter:Csv")]
-    public partial class UKUSQDF_140ATLoadCnx_Fix_DealsFeature
+    public partial class UKUSQDF_151ATLoadCnx_Fix_DealsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UKUSQDF-140 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature"
+#line 1 "UKUSQDF-151 [AT] Compare backload of fix logs on uk-redis-dev cnx-fix-deals with deal hub .feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-140 [AT] load cnx-fix-deals", "In order to use cnx-fix-deals which have been loaded from file\r\nAs a QDF Analyst\r" +
-                    "\nI want to know the data matches with cnx-hub data", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSQDF_140",
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-151 [AT] load cnx-fix-deals", "In order to use cnxstp-pret-deals-all which have been loaded from file\r\nAs a QDF " +
+                    "Analyst\r\nI want to know the data matches with cnx-hub data", ProgrammingLanguage.CSharp, new string[] {
+                        "UKUSQDF_151",
                         "cnxHubTradeActivityImporter:Csv"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -155,7 +155,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table2.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 32
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table2, "Given ");
@@ -215,7 +215,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table6.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 53
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table6, "Given ");
@@ -275,7 +275,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table10.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 74
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table10, "Given ");
@@ -335,7 +335,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table14.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 95
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table14, "Given ");
@@ -395,7 +395,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table18.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 117
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table18, "Given ");
@@ -455,7 +455,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table22.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 138
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table22, "Given ");
@@ -515,7 +515,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table26.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 160
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table26, "Given ");
@@ -575,7 +575,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table30.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 181
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table30, "Given ");
@@ -635,7 +635,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table34.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 203
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table34, "Given ");
@@ -695,7 +695,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table38.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 224
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table38, "Given ");
@@ -755,7 +755,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table42.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 246
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table42, "Given ");
@@ -815,7 +815,7 @@ this.FeatureBackground();
                         "DealSource",
                         "DealType"});
             table46.AddRow(new string[] {
-                        "cnx-fix-deals",
+                        "cnxstp-pret-deals-all",
                         "deal"});
 #line 267
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table46, "Given ");

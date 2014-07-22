@@ -1,6 +1,6 @@
-﻿@UKUSQDF_140 @cnxHubTradeActivityImporter:Csv
-Feature: UKUSQDF-140 [AT] load cnx-fix-deals
-	In order to use cnx-fix-deals which have been loaded from file
+﻿@UKUSQDF_151 @cnxHubTradeActivityImporter:Csv
+Feature: UKUSQDF-151 [AT] load cnx-fix-deals
+	In order to use cnxstp-pret-deals-all which have been loaded from file
 	As a QDF Analyst
 	I want to know the data matches with cnx-hub data
 
@@ -30,8 +30,8 @@ Given I have this list of takers to load from cnx hub
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -51,8 +51,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -72,8 +72,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Post 
 #feb
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -93,8 +93,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -115,8 +115,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Feb 2014 Post 
 #Mar
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Mar 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -136,8 +136,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Mar 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Mar 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -158,8 +158,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Mar 2014 Post 
 #Apr
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Apr 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -179,8 +179,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Apr 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Apr 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -201,8 +201,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Apr 2014 Post 
 #May
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison May 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -222,8 +222,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison May 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison May 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -244,8 +244,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison May 2014 Post 
 #Jun
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jun 2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
@@ -265,8 +265,8 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jun 2014 Pre M
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jun 2014 Post Midnight
 	Given I have the following search criteria for qdf deals
-		 | DealSource    | DealType |
-		 | cnx-fix-deals | deal     |
+		 | DealSource            | DealType |
+		 | cnxstp-pret-deals-all | deal     |
 	#When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
 	When I load cnx trade activities with the side reversed for the included logins from
 		| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
