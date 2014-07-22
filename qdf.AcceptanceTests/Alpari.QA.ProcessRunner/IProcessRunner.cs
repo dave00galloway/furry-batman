@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 
 namespace Alpari.QA.ProcessRunner
 {
@@ -9,6 +10,8 @@ namespace Alpari.QA.ProcessRunner
         Process Process { get; }
         bool NewProcessStarted { get; set; }
         IList<string> StandardOutputList { get; }
+        StreamWriter StreamWriter { get; }
         void StandardOutputHandler(object sender, DataReceivedEventArgs e);
+        void SendInput(string input);
     }
 }

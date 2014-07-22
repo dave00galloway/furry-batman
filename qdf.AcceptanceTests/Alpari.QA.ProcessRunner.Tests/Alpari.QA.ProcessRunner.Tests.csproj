@@ -57,6 +57,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hooks\LaunchProcessHooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\UKUSQDF-145LaunchProcessesAndReadOutput.feature.cs">
       <AutoGen>True</AutoGen>

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Alpari.QA.ProcessRunner
 {
-    public interface IProcessStartInfoWrapper
+    public interface IProcessStartInfoWrapper : IDisposable
     {
         ProcessStartInfo ProcessStartInfo { get; }
 
