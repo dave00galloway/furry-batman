@@ -1,4 +1,5 @@
-﻿using Alpari.QDF.Domain;
+﻿using System.Configuration;
+using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
@@ -15,6 +16,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class CnxHubAdminStepBase : StepCentral
     {
+        private const string NZD_ROLLOVER_NAME = "NZDRollover";
+        private const string OTHER_ROLLOVER_NAME = "OtherRollover";
         public new static readonly string FullName = typeof(CnxHubAdminStepBase).FullName; 
         public CnxHubAdminStepBase(CnxTradeTableDataContext cnxTradeTableDataContext,
             ICnxHubTradeActivityImporter cnxHubTradeActivityImporter) : base(cnxTradeTableDataContext)
@@ -89,6 +92,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         /// </summary>
         protected void FilterByKiwiRolloverTimes()
         {
+            //get rollovertimes
+            int kiwiRolloverHour = Convert.ToInt16(ConfigurationManager.AppSettings[NZD_ROLLOVER_NAME]); //19
+            int otherRolloverHour = Convert.ToInt16(ConfigurationManager.AppSettings[OTHER_ROLLOVER_NAME]); // 21;
+
             //get deals
             var deals = QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals;
             //determine start and end days
@@ -99,12 +106,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var kiwiRolloverDeals = new List<Deal>();
             var nonKiwiRolloverDeals = new List<Deal>();
             if (firstOrDefault == null || lastOrDefault == null) return;
-            var firstRollOverStart = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month, firstOrDefault.TimeStamp.Day, 19, 0, 0);
+            
+            var firstRollOverStart = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month, firstOrDefault.TimeStamp.Day, kiwiRolloverHour, 0, 0);
+            
             var firstRollOverEnd = new DateTime(firstOrDefault.TimeStamp.Year, firstOrDefault.TimeStamp.Month,
-                firstOrDefault.TimeStamp.Day, 21, 0, 0);
-            var lastRollOverStart = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month, lastOrDefault.TimeStamp.Day, 19, 0, 0);
+                firstOrDefault.TimeStamp.Day, otherRolloverHour, 0, 0);
+            var lastRollOverStart = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month, lastOrDefault.TimeStamp.Day, kiwiRolloverHour, 0, 0);
             var lastRollOverEnd = new DateTime(lastOrDefault.TimeStamp.Year, lastOrDefault.TimeStamp.Month,
-                lastOrDefault.TimeStamp.Day, 21, 0, 0);
+                lastOrDefault.TimeStamp.Day, otherRolloverHour, 0, 0);
             if (startDate != lastDate || (startDate == lastDate & lastOrDefault.TimeStamp.TimeOfDay >= firstRollOverEnd.TimeOfDay))
             {
                 /* reporting spans midnight, or finishes at midnight on d0 
