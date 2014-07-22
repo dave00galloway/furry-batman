@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProcessRunner.cs" />
+    <Compile Include="IProcessStartInfoWrapper.cs" />
     <Compile Include="ProcessRunner.cs" />
     <Compile Include="ProcessStartInfoWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

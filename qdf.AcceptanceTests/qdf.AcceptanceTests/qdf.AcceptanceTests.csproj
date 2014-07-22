@@ -41,12 +41,11 @@
   <ItemGroup>
     <Reference Include="Alpari.QDF, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Alpari.QDF.0.1.37.0\lib\net45\Alpari.QDF.dll</HintPath>
+      <HintPath>..\packages\Alpari.QDF.0.1.39.0\lib\net45\Alpari.QDF.dll</HintPath>
     </Reference>
     <Reference Include="Alpari.QDF.Domain, Version=0.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Alpari.QDF.Domain.0.1.37.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Alpari.QDF.Domain.0.1.39.0\lib\net45\Alpari.QDF.Domain.dll</HintPath>
     </Reference>
     <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using Alpari.QA.ProcessRunner;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -35,7 +36,8 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
         [Then(@"the process is launched ok")]
         public void ThenTheProcessIsLaunchedOk()
         {
-            ScenarioContext.Current.Pending();
+            ProcessRunner.NewProcessStarted.Should().Be(true);
+            //ProcessRunner.Process.StartTime.Should().
         }
 
     }
