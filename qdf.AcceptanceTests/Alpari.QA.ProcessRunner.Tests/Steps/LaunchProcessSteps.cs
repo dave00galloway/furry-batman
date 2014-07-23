@@ -74,6 +74,7 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
                 .Contain(x => x.Contains(expectedText),
                     "ProcessRunner StandardOutputList Should contain at least one line containing text '{0}'",
                     expectedText);
+            ProcessRunner.WaitForStandardOutputToContainText(expectedText, 5000);
             foreach (string line in ProcessRunner.StandardOutputList)
             {
                 Console.WriteLine(line);

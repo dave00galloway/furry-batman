@@ -199,7 +199,99 @@ this.ScenarioSetup(scenarioInfo);
 #line 36
  testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 37
- testRunner.Then("the standard output contains text \"Hello World! (iteration9)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("the standard output contains text \"Hello World! (iteration9)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch Unmanaged App and read output")]
+        public virtual void LaunchUnmanagedAppAndReadOutput()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch Unmanaged App and read output", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table5.AddRow(new string[] {
+                        "TestApplications\\UnManagedCode\\6.11ForLoop\\6.11ForLoop.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
+#line 40
+ testRunner.Given("I have the following process parameters", ((string)(null)), table5, "Given ");
+#line 43
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 44
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 45
+ testRunner.And("the standard output contains text \"Enter the two integers:\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch Unmanaged App and create input and read output")]
+        public virtual void LaunchUnmanagedAppAndCreateInputAndReadOutput()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch Unmanaged App and create input and read output", ((string[])(null)));
+#line 47
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table6.AddRow(new string[] {
+                        "TestApplications\\UnManagedCode\\6.11ForLoop\\6.11ForLoop.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
+#line 48
+ testRunner.Given("I have the following process parameters", ((string)(null)), table6, "Given ");
+#line 51
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 52
+  testRunner.And("I send the command \"4\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+  testRunner.And("I send the command \"5\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.Then("the standard output contains text \"4 x 5 = 20\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 55
+  testRunner.And("the standard output contains text \"4 + 5 = 9\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+  testRunner.And("the standard output contains text \"Press x to exit or any other key to recalculat" +
+                    "e\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.When("I send the command \"y\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 58
+  testRunner.And("I send the command \"6\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+  testRunner.And("I send the command \"6\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+ testRunner.Then("the standard output contains text \"6 x 6 = 36\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 61
+  testRunner.And("the standard output contains text \"6 + 6 = 12\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+  testRunner.And("the standard output contains text \"Press x to exit or any other key to recalculat" +
+                    "e\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+ testRunner.When("I send the command \"x\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+ testRunner.Then("the standard output contains text \"Goodbye!\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
