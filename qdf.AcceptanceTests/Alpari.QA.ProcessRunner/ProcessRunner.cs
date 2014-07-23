@@ -3,16 +3,34 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading;
 
 namespace Alpari.QA.ProcessRunner
 {
+    /// <summary>
+    /// WTK:- http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
+    /// (doesn't quite work though...
+    /// </summary>
     public class ProcessRunner : IProcessRunner
     {
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        private static extern IntPtr CreateJobObject(IntPtr lpJobAttributes, string lpName);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool AssignProcessToJobObject(IntPtr hJob, IntPtr hProcess);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool TerminateJobObject(IntPtr hJob, uint uExitCode);
+
+        IntPtr _job;
+
         private IList<string> _standardOutputList;
 
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
+            if (_job == IntPtr.Zero)
+                _job = CreateJobObject(IntPtr.Zero, null);
             ProcessStartInfoWrapper = processStartInfoWrapper;
             ProcessStartInfoWrapper.SetupProcessStartInfo();
             Process = new Process {StartInfo = ProcessStartInfoWrapper.ProcessStartInfo};
@@ -23,10 +41,13 @@ namespace Alpari.QA.ProcessRunner
                 Process.OutputDataReceived += StandardOutputHandler;
                 Process.BeginOutputReadLine();
             }
+            //defer assigning the process to the job until the stdOutput has been redirected so that no messages are missed
+            AssignProcessToJobObject(_job, Process.Handle);
             if (ProcessStartInfoWrapper.RedirectStandardInput)
             {
                 StreamWriter = Process.StandardInput;
             }
+            
         }
 
         /// <summary>
@@ -86,8 +107,17 @@ namespace Alpari.QA.ProcessRunner
 
         public void Dispose()
         {
-            //unmanaged processes might not have .HasExited, so check here and default to false
+            
             //todo:- implemet Log4Net
+            // ReSharper disable EmptyGeneralCatchClause
+            int processId = Process.Id;
+            try
+            {
+                TerminateProc();
+            }
+            catch
+            {
+            }
 
             if (ProcessStartInfoWrapper.RedirectStandardOutput)
             {
@@ -113,7 +143,6 @@ namespace Alpari.QA.ProcessRunner
                     Process.CloseMainWindow();
                 }
             }
-                // ReSharper disable EmptyGeneralCatchClause
             catch
             {
             }
@@ -146,10 +175,27 @@ namespace Alpari.QA.ProcessRunner
 
             Process.Dispose();
             ProcessStartInfoWrapper.Dispose();
+
+            try
+            {
+                //small theoretical risk of another process starting with same id, but this does make sure unmanaged processes close!
+                Process.GetProcessById(processId).Kill();
+            }
+            catch
+            {
+            }
+        }
+
+        private void TerminateProc()
+        {
+            // terminate the Job object, which kills all processes within it
+            TerminateJobObject(_job, 0);
+            _job = IntPtr.Zero;
         }
 
         private bool HasExitedCheck()
         {
+            //unmanaged processes might not have .HasExited, so check here and default to false
             bool hasExited = false;
             try
             {
