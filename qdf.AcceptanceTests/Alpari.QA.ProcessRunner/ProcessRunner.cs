@@ -18,6 +18,7 @@ namespace Alpari.QA.ProcessRunner
         private IntPtr _job;
 
         private IList<string> _standardOutputList;
+        private IList<string> _standardErrorOutputList;
 
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
@@ -29,9 +30,15 @@ namespace Alpari.QA.ProcessRunner
             NewProcessStarted = Process.Start();
             if (ProcessStartInfoWrapper.RedirectStandardOutput)
             {
-                StandardOutputList = new List<string>();
+                _standardOutputList = new List<string>();
                 Process.OutputDataReceived += StandardOutputHandler;
                 Process.BeginOutputReadLine();
+            }
+            if (ProcessStartInfoWrapper.RedirectStandardError)
+            {
+                _standardErrorOutputList = new List<string>();
+                Process.ErrorDataReceived += StandardErrorOutputHandler;
+                Process.BeginErrorReadLine();
             }
             //defer assigning the process to the job until the stdOutput has been redirected so that no messages are missed
             AssignProcessToJobObject(_job, Process.Handle);
@@ -55,6 +62,14 @@ namespace Alpari.QA.ProcessRunner
             }
         }
 
+        public void StandardErrorOutputHandler(object sender, DataReceivedEventArgs e)
+        {
+            lock (_standardErrorOutputList)
+            {
+                _standardErrorOutputList.Add(e.Data);
+            }
+        }
+
         public void SendInput(string input)
         {
             StreamWriter.WriteLine(input);
@@ -72,6 +87,18 @@ namespace Alpari.QA.ProcessRunner
             SyncOnTextInList(expectedText, true);
         }
 
+        public void WaitForStandardErrorOutputToContainText(string expectedText, int waitTimeMilliSeconds)
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds <= waitTimeMilliSeconds)
+            {
+                if (SyncOnTextInErrorList(expectedText, false)) return;
+                Thread.Sleep(20);
+            }
+            SyncOnTextInErrorList(expectedText, true);
+        }
+
         public IProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
         public Process Process { get; private set; }
         public bool NewProcessStarted { get; set; }
@@ -87,14 +114,26 @@ namespace Alpari.QA.ProcessRunner
             {
                 lock (_standardOutputList)
                 {
-                    return SetShadowList();
+                    return SetStandardOutputShadowList();
                 }
             }
-            private set { _standardOutputList = value; }
+        }
+
+        public IList<string> StandardErrorOutputList
+        {
+            get
+            {
+                lock (_standardErrorOutputList)
+                {
+
+                    return SetStandardErrorOutputShadowList();
+                }
+            }
         }
 
 
         public StreamWriter StreamWriter { get; private set; }
+        
 
         public void Dispose()
         {
@@ -114,10 +153,11 @@ namespace Alpari.QA.ProcessRunner
                 Process.OutputDataReceived -= StandardOutputHandler;
                 _standardOutputList.Clear();
             }
-            else
+
+            if (ProcessStartInfoWrapper.RedirectStandardError)
             {
-                Process.StandardOutput.Close();
-                Process.StandardOutput.Dispose();
+                Process.ErrorDataReceived -= StandardOutputHandler;
+                _standardErrorOutputList.Clear();
             }
 
             if (ProcessStartInfoWrapper.RedirectStandardInput)
@@ -214,7 +254,7 @@ namespace Alpari.QA.ProcessRunner
             {
                 try
                 {
-                    string[] shadowList = SetShadowList();
+                    string[] shadowList = SetStandardOutputShadowList();
                     if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
@@ -231,10 +271,41 @@ namespace Alpari.QA.ProcessRunner
             return sync;
         }
 
-        private string[] SetShadowList()
+        private bool SyncOnTextInErrorList(string expectedText, bool throwExceptions)
+        {
+            bool sync = false;
+            lock (_standardErrorOutputList)
+            {
+                try
+                {
+                    string[] shadowList = SetStandardErrorOutputShadowList();
+                    if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
+                    {
+                        sync = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    if (throwExceptions)
+                    {
+                        throw;
+                    }
+                }
+            }
+            return sync;
+        }
+
+        private string[] SetStandardOutputShadowList()
         {
             var shadowList = new string[_standardOutputList.Count];
             _standardOutputList.CopyTo(shadowList, 0);
+            return shadowList;
+        }
+
+        private string[] SetStandardErrorOutputShadowList()
+        {
+            var shadowList = new string[_standardErrorOutputList.Count];
+            _standardErrorOutputList.CopyTo(shadowList, 0);
             return shadowList;
         }
     }

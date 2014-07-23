@@ -12,8 +12,11 @@ namespace Alpari.QA.ProcessRunner
         bool NewProcessStarted { get; set; }
         IList<string> StandardOutputList { get; }
         StreamWriter StreamWriter { get; }
+        IList<string> StandardErrorOutputList { get; }
         void StandardOutputHandler(object sender, DataReceivedEventArgs e);
         void SendInput(string input);
         void WaitForStandardOutputToContainText(string expectedText, int i);
+        void WaitForStandardErrorOutputToContainText(string expectedText, int i);
+        void StandardErrorOutputHandler(object sender, DataReceivedEventArgs e);
     }
 }

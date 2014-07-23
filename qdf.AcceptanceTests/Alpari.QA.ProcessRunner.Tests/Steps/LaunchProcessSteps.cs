@@ -85,5 +85,26 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
             }
             throw new Exception(string.Format("ProcessRunner.StandardOutputList did not contain '{0}'", expectedText));
         }
+
+        [Then(@"the standard error output contains text ""(.*)""")]
+        public void ThenTheStandardErrorOutputContainsText(string expectedText)
+        {
+            ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 5000);
+            ProcessRunner.StandardErrorOutputList.Should()
+                .Contain(x => x.Contains(expectedText),
+                    "ProcessRunner StandardErrorOutputList Should contain at least one line containing text '{0}'",
+                    expectedText);
+            ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 5000);
+            foreach (string line in ProcessRunner.StandardErrorOutputList)
+            {
+                Console.WriteLine(line);
+                if (line.Trim().Contains(expectedText.Trim()))
+                {
+                    return;
+                }
+            }
+            throw new Exception(string.Format("ProcessRunner.StandardErrorOutputList did not contain '{0}'", expectedText));
+        }
+
     }
 }
