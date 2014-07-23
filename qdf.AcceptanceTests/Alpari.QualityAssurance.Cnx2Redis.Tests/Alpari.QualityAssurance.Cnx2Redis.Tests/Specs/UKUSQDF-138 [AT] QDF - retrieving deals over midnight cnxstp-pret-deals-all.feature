@@ -34,9 +34,6 @@ Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014
 		 | DealSource            | DealType |
 		 | cnxstp-pret-deals-all | deal     |
 	When I load cnx trade activities from "C:\data\Alpari UK_TradeActivity_20140131.csv" and reverse the deal side
-	#When I load cnx trade activities with the side reversed for the included logins from
-	#	| FileNamePath                                 | ConvertedStartTime   | ConvertedEndTime     |
-	#	| C:\data\Alpari UK_TradeActivity_20140131.csv | 01/01/2014  22:02:31 | 30/01/2014  23:59:59 |
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
 		 | ExcludedFields |

@@ -9,21 +9,13 @@ using System.Threading;
 namespace Alpari.QA.ProcessRunner
 {
     /// <summary>
-    /// WTK:- http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
-    /// (doesn't quite work though...
+    ///     WTK:-
+    ///     http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
+    ///     (doesn't quite work though...
     /// </summary>
     public class ProcessRunner : IProcessRunner
     {
-        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
-        private static extern IntPtr CreateJobObject(IntPtr lpJobAttributes, string lpName);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool AssignProcessToJobObject(IntPtr hJob, IntPtr hProcess);
-
-        [DllImport("kernel32.dll")]
-        private static extern bool TerminateJobObject(IntPtr hJob, uint uExitCode);
-
-        IntPtr _job;
+        private IntPtr _job;
 
         private IList<string> _standardOutputList;
 
@@ -47,7 +39,6 @@ namespace Alpari.QA.ProcessRunner
             {
                 StreamWriter = Process.StandardInput;
             }
-            
         }
 
         /// <summary>
@@ -107,8 +98,7 @@ namespace Alpari.QA.ProcessRunner
 
         public void Dispose()
         {
-            
-            //todo:- implemet Log4Net
+            //todo:- implement Log4Net
             // ReSharper disable EmptyGeneralCatchClause
             int processId = Process.Id;
             try
@@ -185,6 +175,15 @@ namespace Alpari.QA.ProcessRunner
             {
             }
         }
+
+        [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
+        private static extern IntPtr CreateJobObject(IntPtr lpJobAttributes, string lpName);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool AssignProcessToJobObject(IntPtr hJob, IntPtr hProcess);
+
+        [DllImport("kernel32.dll")]
+        private static extern bool TerminateJobObject(IntPtr hJob, uint uExitCode);
 
         private void TerminateProc()
         {

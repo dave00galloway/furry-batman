@@ -980,6 +980,49 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From07-22-2014 To07-22-2014")]
+        public virtual void TradeActivitiesForAllAccountsFrom07_22_2014To07_22_2014()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From07-22-2014 To07-22-2014", ((string[])(null)));
+#line 323
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "DealType"});
+            table58.AddRow(new string[] {
+                        "cnx-deals",
+                        "BookLessDeal"});
+#line 324
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table58, "Given ");
+#line 327
+ testRunner.When("I load cnx trade activities from \"C:\\data\\Trade Activities For All accounts From " +
+                    "07-22-2014  To 07-22-2014.csv\" for the included logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 328
+  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
+                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table59.AddRow(new string[] {
+                        "Comment"});
+            table59.AddRow(new string[] {
+                        "AccountGroup"});
+            table59.AddRow(new string[] {
+                        "Book"});
+            table59.AddRow(new string[] {
+                        "OrderId"});
+            table59.AddRow(new string[] {
+                        "State"});
+#line 329
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table59, "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

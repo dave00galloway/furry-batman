@@ -162,7 +162,7 @@ this.FeatureBackground();
 #line 36
  testRunner.When("I load cnx trade activities from \"C:\\data\\Alpari UK_TradeActivity_20140131.csv\" a" +
                     "nd reverse the deal side", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
+#line 37
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -178,7 +178,7 @@ this.FeatureBackground();
                         "OrderId"});
             table3.AddRow(new string[] {
                         "State"});
-#line 41
+#line 38
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -187,7 +187,7 @@ this.FeatureBackground();
             table4.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 49
+#line 46
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
