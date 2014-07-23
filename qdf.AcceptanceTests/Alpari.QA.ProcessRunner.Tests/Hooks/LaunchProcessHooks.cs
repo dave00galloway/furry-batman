@@ -27,44 +27,11 @@ namespace Alpari.QA.ProcessRunner.Tests.Hooks
             var processRunner = ScenarioContext.Current[StepCentral.PROCESS_RUNNER] as IProcessRunner;
             if (processRunner != null)
             {
-                Process process = processRunner.Process;
-                try
-                {
-                    process.CloseMainWindow();
-                }
-                catch (Exception e)
-                {
-                    e.ConsoleExceptionLogger();
-                }
-                try
-                {
-                    process.Close();
-                }
-                catch (Exception e)
-                {
-                    e.ConsoleExceptionLogger();
-                }
-                try
-                {
-                    process.Dispose();
-                }
-                catch (Exception e)
-                {
-                    e.ConsoleExceptionLogger();
-                }
-                try
-                {
-                    process.Kill();
-                }
-                catch (Exception e)
-                {
-                    e.ConsoleExceptionLogger();
-                }
-                if (processStartInfoWrapper != null) processStartInfoWrapper.Dispose();
-                GC.Collect(); //really shouldn't need this!
-                Thread.Sleep(new TimeSpan(0, 0, 0, 1));
-                    // adding a long timeout doesn't help, and you can clearly see the previous cmd windows open, excpt for the first one
-                GC.Collect(); //really shouldn't need this!
+                processRunner.Dispose();
+                //GC.Collect(); //really shouldn't need this!
+                //Thread.Sleep(new TimeSpan(0, 0, 0, 1));
+                //    // adding a long timeout doesn't help, and you can clearly see the previous cmd windows open, excpt for the first one
+                //GC.Collect(); //really shouldn't need this!
             }
         }
 

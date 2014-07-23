@@ -29,22 +29,81 @@ namespace Alpari.QA.ProcessRunner
 
         public void Dispose()
         {
-            Process.Dispose();
-            ProcessStartInfoWrapper.Dispose();
-            NewProcessStarted = false; //shouldn't need to do this
+            //unmanaged processes might not have .HasExited, so check here and default to false
+            //todo:- implemet Log4Net
+            
             if (ProcessStartInfoWrapper.RedirectStandardOutput)
             {
                 Process.OutputDataReceived -= StandardOutputHandler;
                 StandardOutputList.Clear();
             }
-
-            Process.StandardOutput.Close();
-            Process.StandardOutput.Dispose();
+            else
+            {
+                Process.StandardOutput.Close();
+                Process.StandardOutput.Dispose();
+            }
+            
             if (ProcessStartInfoWrapper.RedirectStandardInput)
             {
-                StreamWriter.FlushAsync();
+                StreamWriter.Flush();
                 StreamWriter.Close();
             }
+            
+            try
+            {
+                if (!HasExitedCheck())
+                {
+                    Process.CloseMainWindow();
+                }
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                Process.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                Process.Dispose();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            try
+            {
+                if (!HasExitedCheck())
+                {
+                    Process.Kill();
+                }
+            }
+            catch
+            {
+                
+            }
+
+            Process.Dispose();
+            ProcessStartInfoWrapper.Dispose();
+        }
+
+        private bool HasExitedCheck()
+        {
+            var hasExited = false;
+            try
+            {
+                hasExited = Process.HasExited;
+            }
+            catch
+            {
+                
+            }
+            return hasExited;
         }
 
         /// <summary>

@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 
 namespace Alpari.QA.ProcessRunner
 {
-    public interface IProcessRunner
+    public interface IProcessRunner: IDisposable
     {
         IProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
         Process Process { get; }

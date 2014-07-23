@@ -32,11 +32,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProcessRunner.cs" />
@@ -44,12 +39,6 @@
     <Compile Include="ProcessRunner.cs" />
     <Compile Include="ProcessStartInfoWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
-      <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
-      <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
