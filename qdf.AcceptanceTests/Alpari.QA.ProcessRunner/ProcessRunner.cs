@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Alpari.QA.ProcessRunner
 {
-    public class ProcessRunner : IProcessRunner, IDisposable
+    public class ProcessRunner : IProcessRunner
     {
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
@@ -56,6 +56,7 @@ namespace Alpari.QA.ProcessRunner
                     Process.CloseMainWindow();
                 }
             }
+// ReSharper disable EmptyGeneralCatchClause
             catch
             {
 
@@ -104,6 +105,7 @@ namespace Alpari.QA.ProcessRunner
                 
             }
             return hasExited;
+            // ReSharper restore EmptyGeneralCatchClause
         }
 
         /// <summary>

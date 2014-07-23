@@ -9,15 +9,13 @@
 //      the code is regenerated.
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-
 #region Designer generated code
-
-using TechTalk.SpecFlow;
-
 #pragma warning disable
-
 namespace Alpari.QA.ProcessRunner.Tests.Specs
 {
+    using TechTalk.SpecFlow;
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
@@ -25,174 +23,187 @@ namespace Alpari.QA.ProcessRunner.Tests.Specs
     [NUnit.Framework.CategoryAttribute("UKUSQDF_145")]
     public partial class UKUSQDF_145LaunchProcessesAndReadOutputFeature
     {
+        
         private static TechTalk.SpecFlow.ITestRunner testRunner;
-
+        
 #line 1 "UKUSQDF-145LaunchProcessesAndReadOutput.feature"
 #line hidden
-
+        
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            var featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"),
-                "UKUSQDF-145LaunchProcessesAndReadOutput",
-                "In order to launch external processes\r\nAs a QDF Tester\r\nI want to be able to laun" +
-                "ch external processes and read output", ProgrammingLanguage.CSharp, new string[]
-                {
-                    "UKUSQDF_145"
-                });
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSQDF-145LaunchProcessesAndReadOutput", "In order to launch external processes\r\nAs a QDF Tester\r\nI want to be able to laun" +
+                    "ch external processes and read output", ProgrammingLanguage.CSharp, new string[] {
+                        "UKUSQDF_145"});
             testRunner.OnFeatureStart(featureInfo);
         }
-
+        
         [NUnit.Framework.TestFixtureTearDownAttribute()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
-
+        
         [NUnit.Framework.SetUpAttribute()]
         public virtual void TestInitialize()
         {
         }
-
+        
         [NUnit.Framework.TearDownAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
         }
-
+        
         public virtual void ScenarioSetup(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioStart(scenarioInfo);
         }
-
+        
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Launch cmd.exe")]
         public virtual void LaunchCmd_Exe()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe", ((string[]) (null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe", ((string[])(null)));
 #line 7
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line hidden
-            var table1 = new TechTalk.SpecFlow.Table(new string[]
-            {
-                "FileName",
-                "UseShellExecute",
-                "RedirectStandardError",
-                "RedirectStandardInput",
-                "RedirectStandardOutput",
-                "CreateNoWindow"
-            });
-            table1.AddRow(new string[]
-            {
-                "cmd.exe",
-                "false",
-                "true",
-                "true",
-                "true",
-                "true"
-            });
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table1.AddRow(new string[] {
+                        "cmd.exe",
+                        "false",
+                        "False",
+                        "true",
+                        "true",
+                        "true"});
 #line 8
-            testRunner.Given("I have the following process parameters", ((string) (null)), table1, "Given ");
+ testRunner.Given("I have the following process parameters", ((string)(null)), table1, "Given ");
 #line 11
-            testRunner.When("I launch the process", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
-            testRunner.Then("the process is launched ok", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Then ");
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Launch cmd.exe and read output")]
         public virtual void LaunchCmd_ExeAndReadOutput()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe and read output", ((string[]) (null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe and read output", ((string[])(null)));
 #line 14
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line hidden
-            var table2 = new TechTalk.SpecFlow.Table(new string[]
-            {
-                "FileName",
-                "UseShellExecute",
-                "RedirectStandardError",
-                "RedirectStandardInput",
-                "RedirectStandardOutput",
-                "CreateNoWindow"
-            });
-            table2.AddRow(new string[]
-            {
-                "cmd.exe",
-                "false",
-                "false",
-                "true",
-                "true",
-                "true"
-            });
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table2.AddRow(new string[] {
+                        "cmd.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
 #line 15
-            testRunner.Given("I have the following process parameters", ((string) (null)), table2, "Given ");
+ testRunner.Given("I have the following process parameters", ((string)(null)), table2, "Given ");
 #line 18
-            testRunner.When("I launch the process", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
-            testRunner.Then("the process is launched ok", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "Then ");
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 20
-            testRunner.And("the standard output contains text \"Microsoft Windows [Version 6.1.7601]\"",
-                ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "And ");
+ testRunner.And("the standard output contains text \"Microsoft Windows [Version 6.1.7601]\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 21
-            testRunner.And("the standard output contains text \"Copyright (c) 2009 Microsoft Corporation.  All" +
-                           " rights reserved.\"", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "And ");
+ testRunner.And("the standard output contains text \"Copyright (c) 2009 Microsoft Corporation.  All" +
+                    " rights reserved.\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
-
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Launch cmd.exe and create input and read output")]
         public virtual void LaunchCmd_ExeAndCreateInputAndReadOutput()
         {
-            var scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe and create input and read output",
-                ((string[]) (null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe and create input and read output", ((string[])(null)));
 #line 23
-            this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line hidden
-            var table3 = new TechTalk.SpecFlow.Table(new string[]
-            {
-                "FileName",
-                "UseShellExecute",
-                "RedirectStandardError",
-                "RedirectStandardInput",
-                "RedirectStandardOutput",
-                "CreateNoWindow"
-            });
-            table3.AddRow(new string[]
-            {
-                "cmd.exe",
-                "false",
-                "false",
-                "true",
-                "true",
-                "true"
-            });
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table3.AddRow(new string[] {
+                        "cmd.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
 #line 24
-            testRunner.Given("I have the following process parameters", ((string) (null)), table3, "Given ");
+ testRunner.Given("I have the following process parameters", ((string)(null)), table3, "Given ");
 #line 27
-            testRunner.When("I launch the process", ((string) (null)), ((TechTalk.SpecFlow.Table) (null)), "When ");
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
-            testRunner.And("I send the command \"dir\" to standard input", ((string) (null)),
-                ((TechTalk.SpecFlow.Table) (null)), "And ");
+ testRunner.And("I send the command \"dir\" to standard input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
-            testRunner.Then("the standard output contains text \"Directory of\"", ((string) (null)),
-                ((TechTalk.SpecFlow.Table) (null)), "Then ");
+ testRunner.Then("the standard output contains text \"Directory of\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch ConsoleApp and read output")]
+        public virtual void LaunchConsoleAppAndReadOutput()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch ConsoleApp and read output", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table4.AddRow(new string[] {
+                        "TestApplications\\ManagedCode\\ConsoleApplication.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true"});
+#line 32
+ testRunner.Given("I have the following process parameters", ((string)(null)), table4, "Given ");
+#line 35
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 37
+ testRunner.Then("the standard output contains text \"Hello World! (iteration9)\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
     }
 }
-
 #pragma warning restore
-
 #endregion
