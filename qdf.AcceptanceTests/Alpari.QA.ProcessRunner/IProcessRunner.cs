@@ -13,5 +13,6 @@ namespace Alpari.QA.ProcessRunner
         StreamWriter StreamWriter { get; }
         void StandardOutputHandler(object sender, DataReceivedEventArgs e);
         void SendInput(string input);
+        void WaitForStandardOutputToContainText(string expectedText, int i);
     }
 }

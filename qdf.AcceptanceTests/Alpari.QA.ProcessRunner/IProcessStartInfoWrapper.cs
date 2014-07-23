@@ -25,8 +25,11 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessArguments")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         string Arguments { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value indicating whether to start the process in a new window.
@@ -38,6 +41,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessCreateNoWindow")]
         [NotifyParentProperty(true)]
         bool CreateNoWindow { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value that identifies the domain to use when starting the
@@ -49,6 +53,7 @@ namespace Alpari.QA.ProcessRunner
         //     that use Active Directory.
         [NotifyParentProperty(true)]
         string Domain { get; set; }
+
         //
         // Summary:
         //     Gets search paths for files, directories for temporary files, application-specific
@@ -59,10 +64,14 @@ namespace Alpari.QA.ProcessRunner
         //     process and child processes. The default is null.
         [DefaultValue("")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("System.Diagnostics.Design.StringDictionaryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.StringDictionaryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessEnvironmentVariables")]
         [NotifyParentProperty(true)]
         StringDictionary EnvironmentVariables { get; }
+
         //
         // Summary:
         //     Gets or sets a value indicating whether an error dialog box is displayed
@@ -75,6 +84,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessErrorDialog")]
         [NotifyParentProperty(true)]
         bool ErrorDialog { get; set; }
+
         //
         // Summary:
         //     Gets or sets the window handle to use when an error dialog box is shown for
@@ -86,6 +96,7 @@ namespace Alpari.QA.ProcessRunner
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         IntPtr ErrorDialogParentHandle { get; set; }
+
         //
         // Summary:
         //     Gets or sets the application or document to start.
@@ -95,12 +106,18 @@ namespace Alpari.QA.ProcessRunner
         //     type that is associated with an application and that has a default open action
         //     available to it. The default is an empty string ("").
         [DefaultValue("")]
-        [Editor("System.Diagnostics.Design.StartFileNameEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.StartFileNameEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessFileName")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         string FileName { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value that indicates whether the Windows user profile is to
@@ -111,6 +128,7 @@ namespace Alpari.QA.ProcessRunner
         //     default is false.
         [NotifyParentProperty(true)]
         bool LoadUserProfile { get; set; }
+
         //
         // Summary:
         //     Gets or sets a secure string that contains the user password to use when
@@ -131,6 +149,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessRedirectStandardError")]
         [NotifyParentProperty(true)]
         bool RedirectStandardError { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value indicating whether the input for an application is read
@@ -143,6 +162,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessRedirectStandardInput")]
         [NotifyParentProperty(true)]
         bool RedirectStandardInput { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value that indicates whether the output of an application
@@ -155,6 +175,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessRedirectStandardOutput")]
         [NotifyParentProperty(true)]
         bool RedirectStandardOutput { get; set; }
+
         //
         // Summary:
         //     Gets or sets the preferred encoding for error output.
@@ -179,6 +200,7 @@ namespace Alpari.QA.ProcessRunner
         //     The user name to use when starting the process.
         [NotifyParentProperty(true)]
         string UserName { get; set; }
+
         //
         // Summary:
         //     Gets or sets a value indicating whether to use the operating system shell
@@ -192,6 +214,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessUseShellExecute")]
         [NotifyParentProperty(true)]
         bool UseShellExecute { get; set; }
+
         //
         // Summary:
         //     Gets or sets the verb to use when opening the application or document specified
@@ -203,8 +226,11 @@ namespace Alpari.QA.ProcessRunner
         [DefaultValue("")]
         [MonitoringDescription("ProcessVerb")]
         [NotifyParentProperty(true)]
-        [TypeConverter("System.Diagnostics.Design.VerbConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.VerbConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         string Verb { get; set; }
+
         //
         // Summary:
         //     Gets the set of verbs associated with the type of file specified by the System.Diagnostics.ProcessStartInfo.FileName
@@ -216,6 +242,7 @@ namespace Alpari.QA.ProcessRunner
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         string[] Verbs { get; }
+
         //
         // Summary:
         //     Gets or sets the window state to use when the process is started.
@@ -232,6 +259,7 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessWindowStyle")]
         [NotifyParentProperty(true)]
         ProcessWindowStyle WindowStyle { get; set; }
+
         //
         // Summary:
         //     Gets or sets the initial directory for the process to be started.
@@ -240,11 +268,16 @@ namespace Alpari.QA.ProcessRunner
         //     The fully qualified name of the directory that contains the process to be
         //     started. The default is an empty string ("").
         [DefaultValue("")]
-        [Editor("System.Diagnostics.Design.WorkingDirectoryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.WorkingDirectoryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessWorkingDirectory")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         string WorkingDirectory { get; set; }
 
         void SetupProcessStartInfo();

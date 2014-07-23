@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Threading;
 
 namespace Alpari.QA.ProcessRunner
 {
@@ -61,10 +63,43 @@ namespace Alpari.QA.ProcessRunner
             StreamWriter.WriteLine(input);
         }
 
+        public void WaitForStandardOutputToContainText(string expectedText, int waitTimeMilliSeconds)
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds <= waitTimeMilliSeconds)
+            {
+                if (SyncOnTextInList(expectedText, false)) return;
+                Thread.Sleep(20);
+            }
+            SyncOnTextInList(expectedText, true);
+        }
+
         public IProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
         public Process Process { get; private set; }
         public bool NewProcessStarted { get; set; }
         public IList<string> StandardOutputList { get; private set; }
         public StreamWriter StreamWriter { get; private set; }
+
+        private bool SyncOnTextInList(string expectedText, bool throwExceptions)
+        {
+            try
+            {
+                var shadowList = new string[StandardOutputList.Count];
+                StandardOutputList.CopyTo(shadowList, 0);
+                if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
+                {
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                if (throwExceptions)
+                {
+                    throw;
+                }
+            }
+            return false;
+        }
     }
 }

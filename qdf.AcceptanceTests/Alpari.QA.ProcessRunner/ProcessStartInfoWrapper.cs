@@ -1,26 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Linq;
 using System.Security;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Alpari.QA.ProcessRunner
 {
     /// <summary>
-    /// A wrapper for starting processes using ProcessStartInfo
+    ///     A wrapper for starting processes using ProcessStartInfo
     /// </summary>
     public class ProcessStartInfoWrapper : IProcessStartInfoWrapper
     {
-
-        public ProcessStartInfoWrapper()
-        {
-            //SetupProcessStartInfo();
-        }
-
         public void SetupProcessStartInfo()
         {
             ProcessStartInfo = new ProcessStartInfo
@@ -53,7 +44,9 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessArguments")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         public string Arguments { get; set; }
 
         [DefaultValue(false)]
@@ -66,7 +59,10 @@ namespace Alpari.QA.ProcessRunner
 
         [DefaultValue("")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
-        [Editor("System.Diagnostics.Design.StringDictionaryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.StringDictionaryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessEnvironmentVariables")]
         [NotifyParentProperty(true)]
         public StringDictionary EnvironmentVariables
@@ -84,11 +80,16 @@ namespace Alpari.QA.ProcessRunner
         public IntPtr ErrorDialogParentHandle { get; set; }
 
         [DefaultValue("")]
-        [Editor("System.Diagnostics.Design.StartFileNameEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.StartFileNameEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessFileName")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         public string FileName { get; set; }
 
         [NotifyParentProperty(true)]
@@ -126,7 +127,9 @@ namespace Alpari.QA.ProcessRunner
         [DefaultValue("")]
         [MonitoringDescription("ProcessVerb")]
         [NotifyParentProperty(true)]
-        [TypeConverter("System.Diagnostics.Design.VerbConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.VerbConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         public string Verb { get; set; }
 
         [Browsable(false)]
@@ -139,13 +142,18 @@ namespace Alpari.QA.ProcessRunner
         [MonitoringDescription("ProcessWindowStyle")]
         [NotifyParentProperty(true)]
         public ProcessWindowStyle WindowStyle { get; set; }
- 
+
         [DefaultValue("")]
-        [Editor("System.Diagnostics.Design.WorkingDirectoryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [Editor(
+            "System.Diagnostics.Design.WorkingDirectoryEditor, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a",
+            "System.Drawing.Design.UITypeEditor, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         [MonitoringDescription("ProcessWorkingDirectory")]
         [NotifyParentProperty(true)]
         [SettingsBindable(true)]
-        [TypeConverter("System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+        [TypeConverter(
+            "System.Diagnostics.Design.StringValueConverter, System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            )]
         public string WorkingDirectory { get; set; }
 
         public void Dispose()
