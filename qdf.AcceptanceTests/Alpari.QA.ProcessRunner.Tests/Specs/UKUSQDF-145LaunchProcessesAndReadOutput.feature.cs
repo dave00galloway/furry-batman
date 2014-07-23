@@ -186,7 +186,7 @@ this.ScenarioSetup(scenarioInfo);
                         "RedirectStandardOutput",
                         "CreateNoWindow"});
             table4.AddRow(new string[] {
-                        "TestApplications\\ManagedCode\\ConsoleApplication.exe",
+                        "TestApplications\\ManagedCode\\ConsoleApp\\ConsoleApplication.exe",
                         "false",
                         "false",
                         "true",

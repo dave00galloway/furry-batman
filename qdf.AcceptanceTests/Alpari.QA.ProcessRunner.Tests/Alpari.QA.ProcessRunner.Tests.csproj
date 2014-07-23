@@ -85,12 +85,13 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-145LaunchProcessesAndReadOutput.feature.cs</LastGenOutput>
     </None>
+    <None Include="TestApplications\ManagedCode\ConsoleApp\ConsoleApplication.zip" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="TestApplications\UnManagedCode\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TestApplications\ManagedCode\ConsoleApplication.exe">
+    <Content Include="TestApplications\ManagedCode\ConsoleApp\ConsoleApplication.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -7,7 +7,7 @@ Feature: UKUSQDF-145LaunchProcessesAndReadOutput
 Scenario: Launch cmd.exe
 	Given I have the following process parameters
 	| FileName | UseShellExecute | RedirectStandardError | RedirectStandardInput | RedirectStandardOutput | CreateNoWindow |
-	| cmd.exe  | false           | False                  | true                  | true                   | true           |
+	| cmd.exe  | false           | False                 | true                  | true                   | true           |
 	When I launch the process
 	Then the process is launched ok
 
@@ -30,8 +30,8 @@ Scenario: Launch cmd.exe and create input and read output
 	
 Scenario: Launch ConsoleApp and read output
 	Given I have the following process parameters
-	| FileName                                            | UseShellExecute | RedirectStandardError | RedirectStandardInput | RedirectStandardOutput | CreateNoWindow |
-	| TestApplications\ManagedCode\ConsoleApplication.exe | false           | false                 | true                  | true                   | true           |
+	| FileName                                                       | UseShellExecute | RedirectStandardError | RedirectStandardInput | RedirectStandardOutput | CreateNoWindow |
+	| TestApplications\ManagedCode\ConsoleApp\ConsoleApplication.exe | false           | false                 | true                  | true                   | true           |
 	When I launch the process
 	Then the process is launched ok
 	Then the standard output contains text "Hello World! (iteration9)"
