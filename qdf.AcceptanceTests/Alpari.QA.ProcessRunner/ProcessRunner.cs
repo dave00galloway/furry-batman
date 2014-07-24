@@ -240,7 +240,7 @@ namespace Alpari.QA.ProcessRunner
                 if (SyncOnTextInList(list, expectedText, false)) return;
                 Thread.Sleep(20);
             }
-            if (SyncOnTextInList(list, expectedText, true));
+            SyncOnTextInList(list, expectedText, true);
         }
 
         private bool SyncOnTextInList(IList<string> list, string expectedText, bool throwExceptions)
@@ -251,7 +251,8 @@ namespace Alpari.QA.ProcessRunner
                 try
                 {
                     string[] shadowList = SetShadowList(list);
-                    if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
+                    if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
+                    //if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
                     }
@@ -267,10 +268,11 @@ namespace Alpari.QA.ProcessRunner
             return sync;
         }
 
-        private string[] SetShadowList(IList<string> list)
+        private static string[] SetShadowList(ICollection<string> list)
         {
             var shadowList = new string[list.Count];
             list.CopyTo(shadowList, 0);
+            shadowList = shadowList.Select(x => x ?? "").ToArray();
             return shadowList;
         }
     }

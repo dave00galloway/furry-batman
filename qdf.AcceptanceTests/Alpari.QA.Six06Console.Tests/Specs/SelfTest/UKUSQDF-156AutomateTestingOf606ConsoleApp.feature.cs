@@ -167,6 +167,23 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch 606.5Console and parse deal mapping")]
+        public virtual void Launch606_5ConsoleAndParseDealMapping()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch 606.5Console and parse deal mapping", ((string[])(null)));
+#line 33
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 34
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.And("I parse the order events from the console into orders and deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

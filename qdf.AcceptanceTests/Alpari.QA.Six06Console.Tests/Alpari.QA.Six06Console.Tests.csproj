@@ -56,13 +56,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DomainObjects\OrderDealMapping.cs" />
+    <Compile Include="DomainObjects\OrderEventIdToDealMapping.cs" />
+    <Compile Include="Hooks\Six06Hooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\SelfTest\UKUSQDF-156AutomateTestingOf606ConsoleApp.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-156AutomateTestingOf606ConsoleApp.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\Six06ConsoleAppStepBase.cs" />
     <Compile Include="Steps\Six06ConsoleAppSteps.cs" />
+    <Compile Include="Steps\StepCentral.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.ProcessRunner.Tests\Alpari.QA.ProcessRunner.Tests.csproj">
@@ -72,6 +77,10 @@
     <ProjectReference Include="..\Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj">
       <Project>{1541f9f0-19f6-41c0-b8d9-8a7829a54c52}</Project>
       <Name>Alpari.QA.ProcessRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpari.QualityAssurance.Cnx2Redis.Tests\Alpari.QualityAssurance.Cnx2Redis.Tests\Alpari.QualityAssurance.Cnx2Redis.Tests.csproj">
+      <Project>{C91FBE3F-3F22-4E79-87B8-182A168C3E3A}</Project>
+      <Name>Alpari.QualityAssurance.Cnx2Redis.Tests</Name>
     </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
@@ -84,6 +93,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="AUT\QDF\606.5Console\606.5Console.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AUT\QDF\606.5Console\Config\606.5Console.ini">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
@@ -121,12 +133,33 @@
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)Clean.ps1 $(OutputPath)</PreBuildEvent>
+  </PropertyGroup>
   <Target Name="BeforeBuild">
     <CallTarget Targets="SpicNSpan" />
   </Target>
   <Target Name="SpicNSpan">
-    <RemoveDir Directories="$(OutputPath)" Condition="Exists('$(OutputPath)')" />
-    <MakeDir Directories="$(OutputPath)" Condition="!Exists('$(OutputPath)')" />
+    <ItemGroup>
+      <deleteThese Include="$(OutputPath)**\*" Condition="Exists('$(OutputPath)')" />
+    </ItemGroup>
+    <Delete Files="@(deleteThese)" />
+    <RemoveDir Directories="$(OutputPath)" />
+    <!--Condition="Exists('$(OutputPath)')" />-->
+    <!--<PropertyGroup>
+      <PowerShellExe Condition=" '$(PowerShellExe)'=='' ">
+        %WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe
+      </PowerShellExe>
+      <ScriptLocation Condition=" '$(ScriptLocation)'=='' ">
+        $(ProjectDir)Clean.ps1
+      </ScriptLocation>
+    </PropertyGroup>
+    <Exec Command="$(PowerShellExe) -NonInteractive -executionpolicy Unrestricted 
+                 -command &quot;&amp; { 
+                          &amp;&apos;$(ScriptLocation)&apos; 
+                          &apos;$(OutputPath)&apos;} &quot;" />-->
+    <MakeDir Directories="$(OutputPath)" />
+    <!--Condition="!Exists('$(OutputPath)')" />-->
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

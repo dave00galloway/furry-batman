@@ -29,3 +29,10 @@ Scenario: Launch 606.5Console and check Sql Executed ok
 	And the standard error output contains text "SQLExecDirect: success"
 	And the standard error output contains text ">"
 	And the standard error output contains text "waiting 2 seconds.."
+
+Scenario: Launch 606.5Console and parse deal mapping
+	When I launch the process
+	And I parse the order events from the console into orders and deals
+	#And the standard error output contains text "SQLExecDirect: success"
+	#And the standard error output contains text ">"
+	#And the standard error output contains text "waiting 2 seconds.."

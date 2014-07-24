@@ -9,34 +9,7 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
     public class LaunchProcessSteps : LaunchProcessStepBase
     {
         public new static readonly string FullName = typeof (LaunchProcessSteps).FullName;
-        private IProcessRunner _processRunner;
-        private ProcessStartInfoWrapper _processStartInfoWrapper;
 
-        private ProcessStartInfoWrapper ProcessStartInfoWrapper
-        {
-            get { return _processStartInfoWrapper; }
-            set
-            {
-                _processStartInfoWrapper = value;
-                ScenarioContext.Current.Add(PROCESS_START_INFO_WRAPPER, _processStartInfoWrapper);
-            }
-        }
-
-        private IProcessRunner ProcessRunner
-        {
-            get { return _processRunner; }
-            set
-            {
-                _processRunner = value;
-                ScenarioContext.Current.Add(PROCESS_RUNNER, _processRunner);
-            }
-        }
-
-        [StepArgumentTransformation]
-        public static ProcessStartInfoWrapper IncludedLoginsTransform(Table table)
-        {
-            return table.CreateInstance<ProcessStartInfoWrapper>();
-        }
 
         [Given(@"I have the following process parameters")]
         public void GivenIHaveTheFollowingProcessParameters(ProcessStartInfoWrapper processStartInfoWrapper)
@@ -86,12 +59,17 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
             throw new Exception(string.Format("ProcessRunner.StandardOutputList did not contain '{0}'", expectedText));
         }
 
+        /// <summary>
+        /// ToDo:- refactor by comnbining methods for StdErr/StdOut and parameterising to enable/disable output to test console, and to change timeouts
+        /// </summary>
+        /// <param name="expectedText"></param>
         [Then(@"the standard error output contains text ""(.*)""")]
         public void ThenTheStandardErrorOutputContainsText(string expectedText)
         {
             ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 20000);
             ProcessRunner.StandardErrorOutputList.Should()
-                .Contain(x => x!= null && x.Contains(expectedText),
+                //.Contain(x => x!= null && x.Contains(expectedText),
+                .Contain(x => x.Contains(expectedText),
                     "ProcessRunner StandardErrorOutputList Should contain at least one line containing text '{0}'",
                     expectedText);
             ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 5000);
