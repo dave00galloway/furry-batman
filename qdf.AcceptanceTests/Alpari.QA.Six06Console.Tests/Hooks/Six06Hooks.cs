@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using Alpari.QA.Six06Console.Tests.Steps;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Hooks
@@ -9,7 +10,7 @@ namespace Alpari.QA.Six06Console.Tests.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
-            File.Copy(@"AUT\QDF\606.5Console\Config\606.5Console.ini", @"AUT\QDF\606.5Console\606.5Console.ini", true);
+            File.Copy(StepCentral.FRESH606_POINT5_CONSOLE_CONFIG_CONSOLE_INI, StepCentral.WORKING606_POINT5_CONSOLE_INI, true);
         }
 
         [AfterScenario]

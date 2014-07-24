@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using Alpari.QA.Six06Console.Tests.DomainObjects;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps
@@ -19,6 +20,11 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             ParseStandardErrorOutputToOrderDealMapping();
         }
 
+        [Then(@"the order Event ID to deal mapping dictionary contains at least (.*) record")]
+        public void ThenTheOrderEventIdToDealMappingDictionaryContainsAtLeastRecord(int minRecordCount)
+        {
+            OrderEventIdToDealMapping.Count.Should().BeGreaterOrEqualTo(minRecordCount);
+        }
 
     }
 }

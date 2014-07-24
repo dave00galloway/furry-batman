@@ -13,6 +13,9 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         protected const string ORDER_IDENTIFIER = "#";
         protected const char ORDER_DEAL_DELIMITER = '(';
         protected const string ORDER_DEAL_TERMINATOR = ")";
+        public const string FRESH606_POINT5_CONSOLE_CONFIG_CONSOLE_INI = @"AUT\QDF\606.5Console\Config\606.5Console.ini";
+        public const string WORKING606_POINT5_CONSOLE_INI = @"AUT\QDF\606.5Console\606.5Console.ini";
+
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
 
