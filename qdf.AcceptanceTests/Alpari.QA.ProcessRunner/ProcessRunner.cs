@@ -279,7 +279,11 @@ namespace Alpari.QA.ProcessRunner
                 try
                 {
                     string[] shadowList = SetStandardErrorOutputShadowList();
-                    if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
+                    //foreach (string s in shadowList)
+                    //{
+                    //    Console.WriteLine(s);
+                    //}
+                    if (shadowList.Any(line => line!=null && line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
                     }

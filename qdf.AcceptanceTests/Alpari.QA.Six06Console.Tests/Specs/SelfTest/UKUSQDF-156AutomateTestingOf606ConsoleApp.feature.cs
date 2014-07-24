@@ -87,7 +87,7 @@ this.ScenarioSetup(scenarioInfo);
                         "false",
                         "true",
                         "true",
-                        "true",
+                        "false",
                         "true"});
 #line 8
  testRunner.Given("I have the following process parameters", ((string)(null)), table1, "Given ");
@@ -95,6 +95,74 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
  testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch 606.5Console and check config loaded")]
+        public virtual void Launch606_5ConsoleAndCheckConfigLoaded()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch 606.5Console and check config loaded", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table2.AddRow(new string[] {
+                        "AUT\\QDF\\606.5Console\\606.5Console.exe",
+                        "false",
+                        "true",
+                        "true",
+                        "false",
+                        "true"});
+#line 15
+ testRunner.Given("I have the following process parameters", ((string)(null)), table2, "Given ");
+#line 18
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 20
+ testRunner.And("the standard error output contains text \"get_config: success\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch 606.5Console and check SqlState")]
+        public virtual void Launch606_5ConsoleAndCheckSqlState()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch 606.5Console and check SqlState", ((string[])(null)));
+#line 22
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table3.AddRow(new string[] {
+                        "AUT\\QDF\\606.5Console\\606.5Console.exe",
+                        "false",
+                        "true",
+                        "true",
+                        "false",
+                        "true"});
+#line 23
+ testRunner.Given("I have the following process parameters", ((string)(null)), table3, "Given ");
+#line 26
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 27
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 28
+ testRunner.And("the standard error output contains text \"SQLSTATE: 01000\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

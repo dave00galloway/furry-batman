@@ -89,9 +89,9 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
         [Then(@"the standard error output contains text ""(.*)""")]
         public void ThenTheStandardErrorOutputContainsText(string expectedText)
         {
-            ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 5000);
+            ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 20000);
             ProcessRunner.StandardErrorOutputList.Should()
-                .Contain(x => x.Contains(expectedText),
+                .Contain(x => x!= null && x.Contains(expectedText),
                     "ProcessRunner StandardErrorOutputList Should contain at least one line containing text '{0}'",
                     expectedText);
             ProcessRunner.WaitForStandardErrorOutputToContainText(expectedText, 5000);
