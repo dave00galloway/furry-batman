@@ -91,11 +91,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContexts\GetTradeswithEventIDDataContext.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
-    </Compile>
     <Compile Include="Helpers\CnxHubTradeActivityCsvImporter.cs" />
     <Compile Include="Helpers\CnxTradeActivityExtensions.cs" />
     <Compile Include="Helpers\ICnxHubTradeActivityImporter.cs" />
@@ -215,16 +210,9 @@
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="TypedDataTables\CnxTradeDataTableExtensions.cs" />
     <Compile Include="TypedDataTables\TestableDealDataTable.cs" />
-    <Compile Include="TypedDataTables\TradeWithEventIdDataTable.cs" />
-    <Compile Include="TypedDataTables\TradeWithEventIdDataTableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DataContexts\GetTradeswithEventIDDataContext.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>GetTradeswithEventIDDataContext.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -333,6 +321,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Alpari.QA.QDF.Test.Domain\Alpari.QA.QDF.Test.Domain.csproj">
+      <Project>{29c6f863-c3f7-4b80-8212-7b3a5389bdcb}</Project>
+      <Name>Alpari.QA.QDF.Test.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">
       <Project>{282ca8f0-f64e-4a8f-b829-15b95253debc}</Project>
       <Name>Alpari.QDF.UIClient.App</Name>
@@ -352,11 +344,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="DataContexts\GetTradeswithEventIDDataContext.dbml.layout">
-      <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

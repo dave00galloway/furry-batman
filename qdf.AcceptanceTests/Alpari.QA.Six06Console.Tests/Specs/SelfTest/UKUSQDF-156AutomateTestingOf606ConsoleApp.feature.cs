@@ -186,6 +186,27 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Call 606.5 Stored Proc and retrieve deals from qdf database")]
+        public virtual void Call606_5StoredProcAndRetrieveDealsFromQdfDatabase()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Call 606.5 Stored Proc and retrieve deals from qdf database", ((string[])(null)));
+#line 38
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 39
+ testRunner.Given("I have a connection to QDF.GetTradeswithEventIDProc", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 40
+ testRunner.When("I call QDF.GetAutoTradeswithEventID with ID 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 41
+  testRunner.And("I save the QDF.GetAutoTradeswithEventID result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.Then("the QDF.GetAutoTradeswithEventID data table contains at least one result", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

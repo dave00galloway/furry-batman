@@ -45,6 +45,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -67,6 +68,8 @@
     </Compile>
     <Compile Include="Steps\Six06ConsoleAppStepBase.cs" />
     <Compile Include="Steps\Six06ConsoleAppSteps.cs" />
+    <Compile Include="Steps\Six06ConsoleQdfDbStepBase.cs" />
+    <Compile Include="Steps\Six06ConsoleQdfDbSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +80,10 @@
     <ProjectReference Include="..\Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj">
       <Project>{1541f9f0-19f6-41c0-b8d9-8a7829a54c52}</Project>
       <Name>Alpari.QA.ProcessRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpari.QA.QDF.Test.Domain\Alpari.QA.QDF.Test.Domain.csproj">
+      <Project>{29C6F863-C3F7-4B80-8212-7B3A5389BDCB}</Project>
+      <Name>Alpari.QA.QDF.Test.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.Cnx2Redis.Tests\Alpari.QualityAssurance.Cnx2Redis.Tests\Alpari.QualityAssurance.Cnx2Redis.Tests.csproj">
       <Project>{C91FBE3F-3F22-4E79-87B8-182A168C3E3A}</Project>

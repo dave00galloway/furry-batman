@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
+namespace Alpari.QA.QDF.Test.Domain.TypedDataTables
 {
     public static class TradeWithEventIdDataTableExtensions
     {

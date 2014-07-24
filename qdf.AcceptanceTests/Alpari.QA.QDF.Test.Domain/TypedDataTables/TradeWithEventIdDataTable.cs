@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Annotations;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+using Alpari.QA.QDF.Test.Domain.DataContexts;
+using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
-namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
+namespace Alpari.QA.QDF.Test.Domain.TypedDataTables
 {
     public class TradeWithEventIdDataTable : TypedDataTable
     {

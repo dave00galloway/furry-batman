@@ -1,5 +1,6 @@
-﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using System;

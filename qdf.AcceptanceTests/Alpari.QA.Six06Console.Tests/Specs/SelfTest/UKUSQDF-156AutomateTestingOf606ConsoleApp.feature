@@ -34,3 +34,9 @@ Scenario: Launch 606.5Console and parse deal mapping
 	When I launch the process
 	And I parse the order events from the console into orders and deals
 	Then the order Event ID to deal mapping dictionary contains at least 1 record
+
+Scenario: Call 606.5 Stored Proc and retrieve deals from qdf database
+	Given I have a connection to QDF.GetTradeswithEventIDProc
+	When I call QDF.GetAutoTradeswithEventID with ID 0
+		And I save the QDF.GetAutoTradeswithEventID result as a datatable
+	Then the QDF.GetAutoTradeswithEventID data table contains at least one result

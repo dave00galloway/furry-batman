@@ -1,5 +1,4 @@
-﻿using System.Globalization;
-using Alpari.QA.Six06Console.Tests.DomainObjects;
+﻿using Alpari.QA.Six06Console.Tests.DomainObjects;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -25,6 +24,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         {
             OrderEventIdToDealMapping.Count.Should().BeGreaterOrEqualTo(minRecordCount);
         }
+
+
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
