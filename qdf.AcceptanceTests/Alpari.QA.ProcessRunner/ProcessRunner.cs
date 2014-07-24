@@ -78,26 +78,12 @@ namespace Alpari.QA.ProcessRunner
 
         public void WaitForStandardOutputToContainText(string expectedText, int waitTimeMilliSeconds)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            while (stopwatch.ElapsedMilliseconds <= waitTimeMilliSeconds)
-            {
-                if (SyncOnTextInList(expectedText, false)) return;
-                Thread.Sleep(20);
-            }
-            SyncOnTextInList(expectedText, true);
+            WaitForListToContainText(_standardOutputList,expectedText, waitTimeMilliSeconds);
         }
 
         public void WaitForStandardErrorOutputToContainText(string expectedText, int waitTimeMilliSeconds)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            while (stopwatch.ElapsedMilliseconds <= waitTimeMilliSeconds)
-            {
-                if (SyncOnTextInErrorList(expectedText, false)) return;
-                Thread.Sleep(20);
-            }
-            SyncOnTextInErrorList(expectedText, true);
+            WaitForListToContainText(_standardErrorOutputList, expectedText, waitTimeMilliSeconds);
         }
 
         public IProcessStartInfoWrapper ProcessStartInfoWrapper { get; set; }
@@ -115,7 +101,7 @@ namespace Alpari.QA.ProcessRunner
             {
                 lock (_standardOutputList)
                 {
-                    return SetStandardOutputShadowList();
+                    return SetShadowList(_standardOutputList);
                 }
             }
         }
@@ -126,7 +112,7 @@ namespace Alpari.QA.ProcessRunner
             {
                 lock (_standardErrorOutputList)
                 {
-                    return SetStandardErrorOutputShadowList();
+                    return SetShadowList(_standardErrorOutputList);
                 }
             }
         }
@@ -245,14 +231,26 @@ namespace Alpari.QA.ProcessRunner
             // ReSharper restore EmptyGeneralCatchClause
         }
 
-        private bool SyncOnTextInList(string expectedText, bool throwExceptions)
+        private void WaitForListToContainText(IList<string> list, string expectedText, int waitTimeMilliSeconds)
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds <= waitTimeMilliSeconds)
+            {
+                if (SyncOnTextInList(list, expectedText, false)) return;
+                Thread.Sleep(20);
+            }
+            if (SyncOnTextInList(list, expectedText, true));
+        }
+
+        private bool SyncOnTextInList(IList<string> list, string expectedText, bool throwExceptions)
         {
             bool sync = false;
-            lock (_standardOutputList)
+            lock (list)
             {
                 try
                 {
-                    string[] shadowList = SetStandardOutputShadowList();
+                    string[] shadowList = SetShadowList(list);
                     if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
@@ -269,45 +267,10 @@ namespace Alpari.QA.ProcessRunner
             return sync;
         }
 
-        private bool SyncOnTextInErrorList(string expectedText, bool throwExceptions)
+        private string[] SetShadowList(IList<string> list)
         {
-            bool sync = false;
-            lock (_standardErrorOutputList)
-            {
-                try
-                {
-                    string[] shadowList = SetStandardErrorOutputShadowList();
-                    //foreach (string s in shadowList)
-                    //{
-                    //    Console.WriteLine(s);
-                    //}
-                    if (shadowList.Any(line => line!=null && line.Trim().Contains(expectedText.Trim())))
-                    {
-                        sync = true;
-                    }
-                }
-                catch (Exception)
-                {
-                    if (throwExceptions)
-                    {
-                        throw;
-                    }
-                }
-            }
-            return sync;
-        }
-
-        private string[] SetStandardOutputShadowList()
-        {
-            var shadowList = new string[_standardOutputList.Count];
-            _standardOutputList.CopyTo(shadowList, 0);
-            return shadowList;
-        }
-
-        private string[] SetStandardErrorOutputShadowList()
-        {
-            var shadowList = new string[_standardErrorOutputList.Count];
-            _standardErrorOutputList.CopyTo(shadowList, 0);
+            var shadowList = new string[list.Count];
+            list.CopyTo(shadowList, 0);
             return shadowList;
         }
     }
