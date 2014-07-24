@@ -28,13 +28,11 @@ Given I have this list of takers to load from cnx hub
 	| AUKP2193  | Uros Frantar                         |
 	| AUKP3216  | Javier Timerman                      |
 
-Scenario: Trade Activities For All accounts From07-09-2014 To07-09-2014 Pre Midinight
+Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
 		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                              | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv | 08/07/2014  19:08:13 | 08/07/2014  23:59:59 |
+	When I load cnx trade activities from "<report>" for the included logins
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
 		 | ExcludedFields |
@@ -43,73 +41,20 @@ Scenario: Trade Activities For All accounts From07-09-2014 To07-09-2014 Pre Midi
 		 | Book           |
 		 | OrderId        |
 		 | State          |
+	Examples: 
+	| report                                                                       |
+	| C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv |  
+	| C:\data\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-16-2014  To 07-16-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-22-2014  To 07-22-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-23-2014  To 07-23-2014.csv |
 
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      | 
-
-Scenario: Trade Activities For All accounts From07-09-2014 To07-09-2014 Post Midinight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                              | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv | 09/07/2014  00:00:00 | 09/07/2014  20:53:20 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      | 
-
-
-Scenario: Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Pre Midinight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                              | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv | 09/07/2014  19:00:00 | 09/07/2014  23:59:24 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      | 
-
-Scenario: Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Post Midinight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-10-2014  To 07-10-2014.csv | 10/07/2014  00:00:00 | 10/07/2014  20:55:34 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      | 
-
+#Examples of old test case style
 #Trade Activities For All accounts From 07-14-2014  To 07-14-2014
+@ignore
 Scenario: Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Pre Midnight
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
@@ -130,201 +75,12 @@ Scenario: Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Pre M
 	Then the cnx hub trade deals should match the qdf deal data exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Post Midnight
+@ignore
+Scenario: Trade Activities For All accounts From07-23-2014 To07-23-2014
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
 		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv | 14/07/2014  00:00:00 | 14/07/2014  20:57:02 |
-	#When I load cnx trade activities from "C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv" for the included logins
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-#Trade Activities For All accounts From 07-15-2014  To 07-15-2014
-Scenario: Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Pre Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv | 14/07/2014  19:46:42 | 14/07/2014  23:59:59 |
-	#When I load cnx trade activities from "C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv" for the included logins
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Post Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv | 15/07/2014  00:00:00 | 15/07/2014  20:57:50 |
-	#When I load cnx trade activities from "C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv" for the included logins
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-#Damodar did test for 16th, should merge in here somewhere
-
-#Trade Activities For All accounts From 07-17-2014  To 07-17-2014
-Scenario: Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Pre Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv | 16/07/2014  21:13:04 | 16/07/2014  23:59:59 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Post Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv | 17/07/2014  00:00:00 | 17/07/2014  20:56:54 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-#Trade Activities For All accounts From 07-18-2014  To 07-20-2014
-Scenario: Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Pre Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv | 17/07/2014  19:31:34 | 17/07/2014  23:59:59 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Post Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv | 18/07/2014  00:00:00 | 18/07/2014  20:49:38 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-#Trade Activities For All accounts From 07-21-2014  To 07-21-2014
-Scenario: Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Pre Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime  | ConvertedEndTime     |
-		| C:\data\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv | 20/07/2014 21:04:08 | 20/07/2014  23:59:59 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Post Midnight
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities for the included logins from
-		| FileNamePath                                                                 | ConvertedStartTime   | ConvertedEndTime    |
-		| C:\data\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv | 20/07/2014  00:00:00 | 21/07/2014 20:57:00 |
-		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
-		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-		 | ExcludedFields |
-		 | Comment        |
-		 | AccountGroup   |
-		 | Book           |
-		 | OrderId        |
-		 | State          |
-
-	Then the cnx hub trade deals should match the qdf deal data exactly:-
-		| ExportType     |  Overwrite |
-		| DataTableToCsv |  true      |
-
-Scenario: Trade Activities For All accounts From07-22-2014 To07-22-2014
-	Given I have the following search criteria for qdf deals
-		 | DealSource | DealType     |
-		 | cnx-deals  | BookLessDeal |
-	When I load cnx trade activities from "C:\data\Trade Activities For All accounts From 07-22-2014  To 07-22-2014.csv" for the included logins
+	When I load cnx trade activities from "C:\data\Trade Activities For All accounts From 07-23-2014  To 07-23-2014.csv" for the included logins
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
 		 | ExcludedFields |

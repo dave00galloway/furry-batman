@@ -142,10 +142,18 @@ testRunner.Given("I have this list of takers to load from cnx hub", ((string)(nu
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From07-09-2014 To07-09-2014 Pre Midinight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_09_2014To07_09_2014PreMidinight()
+        [NUnit.Framework.DescriptionAttribute("UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data")]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-16-2014  To 07-16-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-22-2014  To 07-22-2014.csv", null)]
+        [NUnit.Framework.TestCaseAttribute("C:\\data\\Trade Activities For All accounts From 07-23-2014  To 07-23-2014.csv", null)]
+        public virtual void UKUSQDF_136ATCnx2RedisDataCollector_ReconcileWithCnxHubAdminData(string report, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From07-09-2014 To07-09-2014 Pre Midinight", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data", exampleTags);
 #line 31
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -159,867 +167,133 @@ this.FeatureBackground();
                         "BookLessDeal"});
 #line 32
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table2, "Given ");
+#line 35
+ testRunner.When(string.Format("I load cnx trade activities from \"{0}\" for the included logins", report), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 36
+  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
+                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
+                        "ExcludedFields"});
             table3.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv",
-                        "08/07/2014  19:08:13",
-                        "08/07/2014  23:59:59"});
-#line 35
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table3, "When ");
-#line 38
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table4.AddRow(new string[] {
                         "Comment"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "AccountGroup"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "Book"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "OrderId"});
-            table4.AddRow(new string[] {
+            table3.AddRow(new string[] {
                         "State"});
-#line 39
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table4, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table5.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 47
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table5, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From07-09-2014 To07-09-2014 Post Midinight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_09_2014To07_09_2014PostMidinight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From07-09-2014 To07-09-2014 Post Midinight", ((string[])(null)));
-#line 51
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table6.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 52
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table6, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table7.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv",
-                        "09/07/2014  00:00:00",
-                        "09/07/2014  20:53:20"});
-#line 55
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table7, "When ");
-#line 58
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table8.AddRow(new string[] {
-                        "Comment"});
-            table8.AddRow(new string[] {
-                        "AccountGroup"});
-            table8.AddRow(new string[] {
-                        "Book"});
-            table8.AddRow(new string[] {
-                        "OrderId"});
-            table8.AddRow(new string[] {
-                        "State"});
-#line 59
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table8, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table9.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 67
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table9, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Pre Midinight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_10_2014To07_10_2014PreMidinight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Pre Midinight", ((string[])(null)));
-#line 72
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table10.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 73
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table10, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table11.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From07-09-2014 To07-09-2014.csv",
-                        "09/07/2014  19:00:00",
-                        "09/07/2014  23:59:24"});
-#line 76
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table11, "When ");
-#line 79
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table12.AddRow(new string[] {
-                        "Comment"});
-            table12.AddRow(new string[] {
-                        "AccountGroup"});
-            table12.AddRow(new string[] {
-                        "Book"});
-            table12.AddRow(new string[] {
-                        "OrderId"});
-            table12.AddRow(new string[] {
-                        "State"});
-#line 80
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table12, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table13.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 88
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table13, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Post Midinight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_10_2014To07_10_2014PostMidinight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-10-2014  To 07-10-2014 Post Midinight", ((string[])(null)));
-#line 92
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table14.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 93
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table14, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table15.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-10-2014  To 07-10-2014.csv",
-                        "10/07/2014  00:00:00",
-                        "10/07/2014  20:55:34"});
-#line 96
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table15, "When ");
-#line 99
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table16.AddRow(new string[] {
-                        "Comment"});
-            table16.AddRow(new string[] {
-                        "AccountGroup"});
-            table16.AddRow(new string[] {
-                        "Book"});
-            table16.AddRow(new string[] {
-                        "OrderId"});
-            table16.AddRow(new string[] {
-                        "State"});
-#line 100
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table16, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table17.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 108
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table17, "Then ");
+#line 37
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Pre Midnight")]
+        [NUnit.Framework.IgnoreAttribute()]
         public virtual void TradeActivitiesForAllAccountsFrom07_14_2014To07_14_2014PreMidnight()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Pre Midnight", ((string[])(null)));
-#line 113
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Pre Midnight", new string[] {
+                        "ignore"});
+#line 58
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "DealType"});
-            table18.AddRow(new string[] {
+            table4.AddRow(new string[] {
                         "cnx-deals",
                         "BookLessDeal"});
-#line 114
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table18, "Given ");
+#line 59
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table4, "Given ");
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "FileNamePath",
                         "ConvertedStartTime",
                         "ConvertedEndTime"});
-            table19.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "C:\\data\\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv",
                         "13/07/2014  21:06:10",
                         "13/07/2014  23:59:59"});
-#line 117
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table19, "When ");
-#line 121
+#line 62
+ testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table5, "When ");
+#line 66
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExcludedFields"});
-            table20.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "Comment"});
-            table20.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "AccountGroup"});
-            table20.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "Book"});
-            table20.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "OrderId"});
-            table20.AddRow(new string[] {
+            table6.AddRow(new string[] {
                         "State"});
-#line 122
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table20, "And ");
+#line 67
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table6, "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table21.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 130
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table21, "Then ");
+#line 75
+ testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Post Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_14_2014To07_14_2014PostMidnight()
+        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From07-23-2014 To07-23-2014")]
+        [NUnit.Framework.IgnoreAttribute()]
+        public virtual void TradeActivitiesForAllAccountsFrom07_23_2014To07_23_2014()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-14-2014  To 07-14-2014 Post Midnight", ((string[])(null)));
-#line 134
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From07-23-2014 To07-23-2014", new string[] {
+                        "ignore"});
+#line 79
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "DealSource",
                         "DealType"});
-            table22.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "cnx-deals",
                         "BookLessDeal"});
-#line 135
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table22, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table23.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv",
-                        "14/07/2014  00:00:00",
-                        "14/07/2014  20:57:02"});
-#line 138
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table23, "When ");
-#line 142
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table24.AddRow(new string[] {
-                        "Comment"});
-            table24.AddRow(new string[] {
-                        "AccountGroup"});
-            table24.AddRow(new string[] {
-                        "Book"});
-            table24.AddRow(new string[] {
-                        "OrderId"});
-            table24.AddRow(new string[] {
-                        "State"});
-#line 143
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table24, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table25.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 151
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table25, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Pre Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_15_2014To07_15_2014PreMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Pre Midnight", ((string[])(null)));
-#line 156
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table26.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 157
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table26, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table27.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv",
-                        "14/07/2014  19:46:42",
-                        "14/07/2014  23:59:59"});
-#line 160
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table27, "When ");
-#line 164
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table28.AddRow(new string[] {
-                        "Comment"});
-            table28.AddRow(new string[] {
-                        "AccountGroup"});
-            table28.AddRow(new string[] {
-                        "Book"});
-            table28.AddRow(new string[] {
-                        "OrderId"});
-            table28.AddRow(new string[] {
-                        "State"});
-#line 165
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table28, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table29.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 173
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table29, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Post Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_15_2014To07_15_2014PostMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-15-2014  To 07-15-2014 Post Midnight", ((string[])(null)));
-#line 177
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table30.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 178
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table30, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table31.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-15-2014  To 07-15-2014.csv",
-                        "15/07/2014  00:00:00",
-                        "15/07/2014  20:57:50"});
-#line 181
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table31, "When ");
-#line 185
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table32.AddRow(new string[] {
-                        "Comment"});
-            table32.AddRow(new string[] {
-                        "AccountGroup"});
-            table32.AddRow(new string[] {
-                        "Book"});
-            table32.AddRow(new string[] {
-                        "OrderId"});
-            table32.AddRow(new string[] {
-                        "State"});
-#line 186
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table32, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table33.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 194
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table33, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Pre Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_17_2014To07_17_2014PreMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Pre Midnight", ((string[])(null)));
-#line 201
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table34.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 202
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table34, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table35 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table35.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv",
-                        "16/07/2014  21:13:04",
-                        "16/07/2014  23:59:59"});
-#line 205
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table35, "When ");
-#line 208
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table36 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table36.AddRow(new string[] {
-                        "Comment"});
-            table36.AddRow(new string[] {
-                        "AccountGroup"});
-            table36.AddRow(new string[] {
-                        "Book"});
-            table36.AddRow(new string[] {
-                        "OrderId"});
-            table36.AddRow(new string[] {
-                        "State"});
-#line 209
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table36, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table37 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table37.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 217
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table37, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Post Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_17_2014To07_17_2014PostMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-17-2014  To 07-17-2014 Post Midnight", ((string[])(null)));
-#line 221
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table38 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table38.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 222
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table38, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table39 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table39.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-17-2014  To 07-17-2014.csv",
-                        "17/07/2014  00:00:00",
-                        "17/07/2014  20:56:54"});
-#line 225
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table39, "When ");
-#line 228
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table40 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table40.AddRow(new string[] {
-                        "Comment"});
-            table40.AddRow(new string[] {
-                        "AccountGroup"});
-            table40.AddRow(new string[] {
-                        "Book"});
-            table40.AddRow(new string[] {
-                        "OrderId"});
-            table40.AddRow(new string[] {
-                        "State"});
-#line 229
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table40, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table41 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table41.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 237
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table41, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Pre Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_18_2014To07_20_2014PreMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Pre Midnight", ((string[])(null)));
-#line 242
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table42 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table42.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 243
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table42, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table43 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table43.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv",
-                        "17/07/2014  19:31:34",
-                        "17/07/2014  23:59:59"});
-#line 246
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table43, "When ");
-#line 249
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table44 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table44.AddRow(new string[] {
-                        "Comment"});
-            table44.AddRow(new string[] {
-                        "AccountGroup"});
-            table44.AddRow(new string[] {
-                        "Book"});
-            table44.AddRow(new string[] {
-                        "OrderId"});
-            table44.AddRow(new string[] {
-                        "State"});
-#line 250
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table44, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table45 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table45.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 258
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table45, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Post Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_18_2014To07_20_2014PostMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-18-2014  To 07-20-2014 Post Midnight", ((string[])(null)));
-#line 262
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table46 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table46.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 263
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table46, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table47 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table47.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-18-2014  To 07-20-2014.csv",
-                        "18/07/2014  00:00:00",
-                        "18/07/2014  20:49:38"});
-#line 266
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table47, "When ");
-#line 269
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table48 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table48.AddRow(new string[] {
-                        "Comment"});
-            table48.AddRow(new string[] {
-                        "AccountGroup"});
-            table48.AddRow(new string[] {
-                        "Book"});
-            table48.AddRow(new string[] {
-                        "OrderId"});
-            table48.AddRow(new string[] {
-                        "State"});
-#line 270
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table48, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table49 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table49.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 278
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table49, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Pre Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_21_2014To07_21_2014PreMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Pre Midnight", ((string[])(null)));
-#line 283
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table50 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table50.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 284
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table50, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table51 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table51.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv",
-                        "20/07/2014 21:04:08",
-                        "20/07/2014  23:59:59"});
-#line 287
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table51, "When ");
-#line 290
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table52 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table52.AddRow(new string[] {
-                        "Comment"});
-            table52.AddRow(new string[] {
-                        "AccountGroup"});
-            table52.AddRow(new string[] {
-                        "Book"});
-            table52.AddRow(new string[] {
-                        "OrderId"});
-            table52.AddRow(new string[] {
-                        "State"});
-#line 291
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table52, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table53 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table53.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 299
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table53, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Post Midnight")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_21_2014To07_21_2014PostMidnight()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From 07-21-2014  To 07-21-2014 Post Midnight", ((string[])(null)));
-#line 303
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table54 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table54.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 304
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table54, "Given ");
-#line hidden
-            TechTalk.SpecFlow.Table table55 = new TechTalk.SpecFlow.Table(new string[] {
-                        "FileNamePath",
-                        "ConvertedStartTime",
-                        "ConvertedEndTime"});
-            table55.AddRow(new string[] {
-                        "C:\\data\\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv",
-                        "20/07/2014  00:00:00",
-                        "21/07/2014 20:57:00"});
-#line 307
- testRunner.When("I load cnx trade activities for the included logins from", ((string)(null)), table55, "When ");
-#line 310
-  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
-                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table56 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExcludedFields"});
-            table56.AddRow(new string[] {
-                        "Comment"});
-            table56.AddRow(new string[] {
-                        "AccountGroup"});
-            table56.AddRow(new string[] {
-                        "Book"});
-            table56.AddRow(new string[] {
-                        "OrderId"});
-            table56.AddRow(new string[] {
-                        "State"});
-#line 311
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table56, "And ");
-#line hidden
-            TechTalk.SpecFlow.Table table57 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table57.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 319
- testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table57, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Trade Activities For All accounts From07-22-2014 To07-22-2014")]
-        public virtual void TradeActivitiesForAllAccountsFrom07_22_2014To07_22_2014()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Trade Activities For All accounts From07-22-2014 To07-22-2014", ((string[])(null)));
-#line 323
-this.ScenarioSetup(scenarioInfo);
-#line 7
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table58 = new TechTalk.SpecFlow.Table(new string[] {
-                        "DealSource",
-                        "DealType"});
-            table58.AddRow(new string[] {
-                        "cnx-deals",
-                        "BookLessDeal"});
-#line 324
- testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table58, "Given ");
-#line 327
+#line 80
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table8, "Given ");
+#line 83
  testRunner.When("I load cnx trade activities from \"C:\\data\\Trade Activities For All accounts From " +
-                    "07-22-2014  To 07-22-2014.csv\" for the included logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 328
+                    "07-23-2014  To 07-23-2014.csv\" for the included logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-            TechTalk.SpecFlow.Table table59 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExcludedFields"});
-            table59.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "Comment"});
-            table59.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "AccountGroup"});
-            table59.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "Book"});
-            table59.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "OrderId"});
-            table59.AddRow(new string[] {
+            table9.AddRow(new string[] {
                         "State"});
-#line 329
-  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table59, "And ");
+#line 85
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table9, "And ");
 #line hidden
             this.ScenarioCleanup();
         }

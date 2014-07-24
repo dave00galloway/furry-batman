@@ -12,13 +12,14 @@ namespace Alpari.QA.ProcessRunner
     ///     WTK:-
     ///     http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
     ///     (doesn't quite work though...
+    /// TODO:- refactor methods that access the stdErr and stdOut into common methods to reduce duplication
     /// </summary>
     public class ProcessRunner : IProcessRunner
     {
         private IntPtr _job;
 
-        private IList<string> _standardOutputList;
-        private IList<string> _standardErrorOutputList;
+        private readonly IList<string> _standardOutputList;
+        private readonly IList<string> _standardErrorOutputList;
 
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
@@ -125,15 +126,12 @@ namespace Alpari.QA.ProcessRunner
             {
                 lock (_standardErrorOutputList)
                 {
-
                     return SetStandardErrorOutputShadowList();
                 }
             }
         }
 
-
         public StreamWriter StreamWriter { get; private set; }
-        
 
         public void Dispose()
         {
@@ -255,7 +253,7 @@ namespace Alpari.QA.ProcessRunner
                 try
                 {
                     string[] shadowList = SetStandardOutputShadowList();
-                    if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
+                    if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
                     }
