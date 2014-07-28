@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Linq;
-using System.Reflection;
 
 #pragma warning disable 1591
 // ReSharper disable RedundantNameQualifier
@@ -11,137 +10,110 @@ using System.Reflection;
 // ReSharper disable ConvertNullableToShortForm
 // ReSharper disable AccessToStaticMemberViaDerivedType
 // ReSharper disable PossibleNullReferenceException
+
 namespace Alpari.QA.QDF.Test.Domain.DataContexts
 {
     public interface IGetTradeswithEventIdResult
     {
-
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OrderEventID", DbType = "Int NOT NULL")]
+        [Column(Storage = "_OrderEventID", DbType = "Int NOT NULL")]
         int OrderEventID { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OriginTimeStamp", DbType = "DateTime")]
-        System.Nullable<System.DateTime> OriginTimeStamp { get; set; }
+        [Column(Storage = "_OriginTimeStamp", DbType = "DateTime")]
+        Nullable<DateTime> OriginTimeStamp { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FillVolume", DbType = "Float")]
-        System.Nullable<double> FillVolume { get; set; }
+        [Column(Storage = "_FillVolume", DbType = "Float")]
+        Nullable<double> FillVolume { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Price", DbType = "Float")]
-        System.Nullable<double> Price { get; set; }
+        [Column(Storage = "_Price", DbType = "Float")]
+        Nullable<double> Price { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Comment", DbType = "VarChar(3000)")]
+        [Column(Storage = "_Comment", DbType = "VarChar(3000)")]
         string Comment { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ExecID", DbType = "VarChar(255)")]
+        [Column(Storage = "_ExecID", DbType = "VarChar(255)")]
         string ExecID { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Side", DbType = "Int NOT NULL")]
+        [Column(Storage = "_Side", DbType = "Int NOT NULL")]
         int Side { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OrderTimeTypeID", DbType = "Char(1)")]
-        System.Nullable<char> OrderTimeTypeID { get; set; }
+        [Column(Storage = "_OrderTimeTypeID", DbType = "Char(1)")]
+        Nullable<char> OrderTimeTypeID { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OrderPriceTypeID", DbType = "Char(1) NOT NULL")]
+        [Column(Storage = "_OrderPriceTypeID", DbType = "Char(1) NOT NULL")]
         char OrderPriceTypeID { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_TEMnemonic", DbType = "VarChar(512) NOT NULL", CanBeNull = false)]
+        [Column(Storage = "_TEMnemonic", DbType = "VarChar(512) NOT NULL", CanBeNull = false)]
         string TEMnemonic { get; set; }
     }
 
     public partial class GetAutoTradeswithEventIDResult : IGetTradeswithEventIdResult
     {
-
     }
 
     public partial class GetManualTradeswithEventIDResult : IGetTradeswithEventIdResult
     {
-
     }
 
     /// <summary>
-    /// Since all the stored procs in GetTradeswithEventIDDataContextDataContext return the same data structure (IGetTradeswithEventIdResult)
-    /// They can all be mapped to each other. Using this one "GetTradeswithEventIDResult" as the default
+    ///     Since all the stored procs in GetTradeswithEventIDDataContextDataContext return the same data structure
+    ///     (IGetTradeswithEventIdResult)
+    ///     They can all be mapped to each other. Using this one "GetTradeswithEventIDResult" as the default
     /// </summary>
     public partial class GetTradeswithEventIDResult : IGetTradeswithEventIdResult
     {
-
     }
 
     public partial class GetTradeswithEventIDDataContext
     {
-        public IList<T> GetAutoTradeswithEventID<T>([Parameter(DbType = "Int")] Nullable<int> lasteventidprocessed)
-            where T : IGetTradeswithEventIdResult, new()
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T">Unused, except to distinguish between this overload and the wizard generated one</typeparam>
+        /// <param name="lasteventidprocessed"></param>
+        /// <returns></returns>
+        public IList<IGetTradeswithEventIdResult> GetAutoTradeswithEventID<T>(
+            [Parameter(DbType = "Int")] Nullable<int> lasteventidprocessed)
+            where T : IGetTradeswithEventIdResult //, new()
         {
             var result = GetAutoTradeswithEventID(lasteventidprocessed);
-            //var list = new List<T>();
-            //foreach (GetAutoTradeswithEventIDResult eventIdResult in result)
-            //{
-            //    var item = new T();
-            //    item.Comment = eventIdResult.Comment;
-            //    item.ExecID = eventIdResult.ExecID;
-            //    item.FillVolume = eventIdResult.FillVolume;
-            //    item.OrderEventID = eventIdResult.OrderEventID;
-            //    item.OrderPriceTypeID = eventIdResult.OrderPriceTypeID;
-            //    item.OrderTimeTypeID = eventIdResult.OrderTimeTypeID;
-            //    item.OriginTimeStamp = eventIdResult.OriginTimeStamp;
-            //    item.Price = eventIdResult.Price;
-            //    item.Side = eventIdResult.Side;
-            //    item.TEMnemonic = eventIdResult.TEMnemonic;
-            //    list.Add(item);                
-            //}
-            //return list;
-             return MapProcReturnTypeToGenericInterface<T>(result);
-            //return null;
+            return MapProcReturnTypeToGenericInterface(result);
         }
 
-        //public IList<T> GetManualTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
-        //{
-        //    var result = GetManualTradeswithEventID(lasteventidprocessed);
-        //    return MapProcReturnTypeToGenericInterface<T>(result);
-        //}
-
-        //public IList<T> GetTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
-        //{
-        //    var result = GetTradeswithEventID(lasteventidprocessed);
-        //    return MapProcReturnTypeToGenericInterface<T>(result);
-        //}
-
-        private static IList<T> MapProcReturnTypeToGenericInterface<T>(IEnumerable<IGetTradeswithEventIdResult> result) where T : IGetTradeswithEventIdResult, new()
+        public IList<IGetTradeswithEventIdResult> GetManualTradeswithEventID<T>(
+            [Parameter(DbType = "Int")] Nullable<int> lasteventidprocessed)
+            where T : IGetTradeswithEventIdResult //, new()
         {
-            //return (from IGetTradeswithEventIdResult eventIdResult in result
-            //        select new T
-            //        {
-            //            Comment = eventIdResult.Comment,
-            //            ExecID = eventIdResult.ExecID,
-            //            FillVolume = eventIdResult.FillVolume,
-            //            OrderEventID = eventIdResult.OrderEventID,
-            //            OrderPriceTypeID = eventIdResult.OrderPriceTypeID,
-            //            OrderTimeTypeID = eventIdResult.OrderTimeTypeID,
-            //            OriginTimeStamp = eventIdResult.OriginTimeStamp,
-            //            Price = eventIdResult.Price,
-            //            Side = eventIdResult.Side,
-            //            TEMnemonic = eventIdResult.TEMnemonic
-            //        }
+            var result = GetManualTradeswithEventID(lasteventidprocessed);
+            return MapProcReturnTypeToGenericInterface(result);
+        }
 
-            //        ).ToList();
-            var list = new List<T>();
-            foreach (var eventIdResult in result)
+        public IList<IGetTradeswithEventIdResult> GetTradeswithEventID<T>(
+            [Parameter(DbType = "Int")] Nullable<int> lasteventidprocessed)
+            where T : IGetTradeswithEventIdResult //, new()
+        {
+            var result = GetTradeswithEventID(lasteventidprocessed);
+            return MapProcReturnTypeToGenericInterface(result);
+        }
+
+        private static IList<IGetTradeswithEventIdResult> MapProcReturnTypeToGenericInterface(
+            IEnumerable<IGetTradeswithEventIdResult> result) //, new()
+        {
+            return result.Select(eventIdResult => new GetTradeswithEventIDResult
             {
-                var item = new T();
-                item.Comment = eventIdResult.Comment;
-                item.ExecID = eventIdResult.ExecID;
-                item.FillVolume = eventIdResult.FillVolume;
-                item.OrderEventID = eventIdResult.OrderEventID;
-                item.OrderPriceTypeID = eventIdResult.OrderPriceTypeID;
-                item.OrderTimeTypeID = eventIdResult.OrderTimeTypeID;
-                item.OriginTimeStamp = eventIdResult.OriginTimeStamp;
-                item.Price = eventIdResult.Price;
-                item.Side = eventIdResult.Side;
-                item.TEMnemonic = eventIdResult.TEMnemonic;
-                list.Add(item);
-            }
-            return list;
+                Comment = eventIdResult.Comment,
+                ExecID = eventIdResult.ExecID,
+                FillVolume = eventIdResult.FillVolume,
+                OrderEventID = eventIdResult.OrderEventID,
+                OrderPriceTypeID = eventIdResult.OrderPriceTypeID,
+                OrderTimeTypeID = eventIdResult.OrderTimeTypeID,
+                OriginTimeStamp = eventIdResult.OriginTimeStamp,
+                Price = eventIdResult.Price,
+                Side = eventIdResult.Side,
+                TEMnemonic = eventIdResult.TEMnemonic
+            }).Cast<IGetTradeswithEventIdResult>().ToList();
         }
     }
+
     // ReSharper restore PossibleNullReferenceException
     // ReSharper restore AccessToStaticMemberViaDerivedType
     // ReSharper restore ConvertNullableToShortForm
