@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps
@@ -9,12 +10,13 @@ namespace Alpari.QA.Six06Console.Tests.Steps
     {
         public new static readonly string FullName = typeof (Six06ConsoleQdfDbStepBase).FullName;
 
-        public Six06ConsoleQdfDbStepBase(GetTradeswithEventIDDataContext getTradeswithEventIdDataContext)
+        public Six06ConsoleQdfDbStepBase(GetTradesWithEventId getTradesWithEventId)
         {
-            GetTradeswithEventIdDataContext = getTradeswithEventIdDataContext;
+            GetTradeswithEventIdDataContext = getTradesWithEventId.GetTradeswithEventIdDataContext;
         }
 
         protected GetTradeswithEventIDDataContext GetTradeswithEventIdDataContext { get; private set; }
-        protected List<GetAutoTradeswithEventIDResult> GetTradesWithEventIdResultList { get; set; }
+        protected List<GetTradeswithEventIDResult> GetTradesWithEventIdResultList { get; set; }
+        public TradeWithEventIdDataTable TradeWithEventIdDataTable { get; set; }
     }
 }

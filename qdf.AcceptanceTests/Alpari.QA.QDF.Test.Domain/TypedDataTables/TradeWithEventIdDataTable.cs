@@ -77,11 +77,29 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables
             return SetupDataTable(enumeratedObjects, this);
         }
 
-        private static TradeWithEventIdDataTable SetupDataTable(
-            IEnumerable<GetTradeswithEventIDResult> enumeratedObjects,
-            TradeWithEventIdDataTable tradeWithEventIdDataTable)
+        [UsedImplicitly]
+        public TradeWithEventIdDataTable ConvertIEnumerableToDataTable<T>(
+            IEnumerable<T> enumeratedObjects)  where T : IGetTradeswithEventIdResult
         {
-            foreach (GetTradeswithEventIDResult orderEvent in enumeratedObjects)
+            return SetupDataTable(enumeratedObjects, this);
+        }
+
+        [UsedImplicitly]
+        public TradeWithEventIdDataTable ConvertIEnumerableToDataTable<T>(
+            IEnumerable<T> enumeratedObjects,
+            string tableName,
+            string[] primaryKeys)  where T : IGetTradeswithEventIdResult
+        {
+            TableName = tableName;
+            SetPrimaryKey(primaryKeys);
+            return SetupDataTable(enumeratedObjects, this);
+        }
+
+        private static TradeWithEventIdDataTable SetupDataTable<T>(
+            IEnumerable<T> enumeratedObjects,
+            TradeWithEventIdDataTable tradeWithEventIdDataTable)  where T : IGetTradeswithEventIdResult
+        {
+            foreach (T orderEvent in enumeratedObjects)
             {
                 tradeWithEventIdDataTable.Rows.Add(new object[]
                 {

@@ -51,6 +51,7 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx
 	| C:\data\Trade Activities For All accounts From 07-21-2014  To 07-21-2014.csv |
 	| C:\data\Trade Activities For All accounts From 07-22-2014  To 07-22-2014.csv |
 	| C:\data\Trade Activities For All accounts From 07-23-2014  To 07-23-2014.csv |
+	| C:\data\Trade Activities For All accounts From 07-24-2014  To 07-27-2014.csv |
 
 #Examples of old test case style
 #Trade Activities For All accounts From 07-14-2014  To 07-14-2014

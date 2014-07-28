@@ -18,11 +18,15 @@ namespace Alpari.QA.ProcessRunner.Tests.Hooks
         {
             var processStartInfoWrapper =
                 ScenarioContext.Current[StepCentral.PROCESS_START_INFO_WRAPPER] as ProcessStartInfoWrapper;
-            var processRunner = ScenarioContext.Current[StepCentral.PROCESS_RUNNER] as IProcessRunner;
-            if (processRunner != null)
+            if (ScenarioContext.Current.ContainsKey(StepCentral.PROCESS_RUNNER))
             {
-                processRunner.Dispose();
+                var processRunner = ScenarioContext.Current[StepCentral.PROCESS_RUNNER] as IProcessRunner;
+                if (processRunner != null)
+                {
+                    processRunner.Dispose();
+                }                
             }
+
         }
 
         [BeforeTestRun]

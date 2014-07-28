@@ -12,8 +12,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
     {
         public new static readonly string FullName = typeof (Six06ConsoleQdfDbSteps).FullName;
 
-        public Six06ConsoleQdfDbSteps(GetTradeswithEventIDDataContext getTradeswithEventIdDataContext)
-            : base(getTradeswithEventIdDataContext)
+        public Six06ConsoleQdfDbSteps(GetTradesWithEventId getTradesWithEventId)
+            : base(getTradesWithEventId)
         {
         }
 
@@ -24,9 +24,9 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         }
 
         [When(@"I call QDF\.GetAutoTradeswithEventID with ID (.*)")]
-        public void WhenICallQDF_GetAutoTradeswithEventIDWithID(int p0)
+        public void WhenICallQDF_GetAutoTradeswithEventIDWithID(int startFromId)
         {
-            GetTradesWithEventIdResultList = GetTradeswithEventIdDataContext.GetAutoTradeswithEventID(p0).ToList();
+            GetTradesWithEventIdResultList = GetTradeswithEventIdDataContext.GetAutoTradeswithEventID<GetTradeswithEventIDResult>(startFromId).ToList();
         }
 
         
@@ -34,16 +34,13 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         [When(@"I save the QDF\.GetAutoTradeswithEventID result as a datatable")]
         public void WhenISaveTheQDF_GetAutoTradeswithEventIDResultAsADatatable()
         {
-            //todo - create interface in partial class of GetTradeswithEventIdDataContext and show that the result of all the methods implement the interface
-            //TradeWithEventIdDataTable = new TradeWithEventIdDataTable().ConvertIEnumerableToDataTable(GetTradesWithEventIdResultList, "TradeWithEventId", new[] { "ExecId" });
+            TradeWithEventIdDataTable = new TradeWithEventIdDataTable().ConvertIEnumerableToDataTable(GetTradesWithEventIdResultList, "TradeWithEventId", new[] { "ExecId" });
         }
-
-        public TradeWithEventIdDataTable TradeWithEventIdDataTable { get; set; }
 
         [Then(@"the QDF\.GetAutoTradeswithEventID data table contains at least one result")]
         public void ThenTheQDF_GetAutoTradeswithEventIDDataTableContainsAtLeastOneResult()
         {
-            ScenarioContext.Current.Pending();
+            TradeWithEventIdDataTable.Rows.Count.Should().BeGreaterOrEqualTo(1);
         }
     }
 }
