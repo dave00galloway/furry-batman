@@ -22,8 +22,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
         [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_OriginTimeStamp", DbType = "DateTime")]
         System.Nullable<System.DateTime> OriginTimeStamp { get; set; }
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FillVolume", DbType = "Int")]
-        System.Nullable<int> FillVolume { get; set; }
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_FillVolume", DbType = "Float")]
+        System.Nullable<double> FillVolume { get; set; }
 
         [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_Price", DbType = "Float")]
         System.Nullable<double> Price { get; set; }
@@ -72,37 +72,74 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
             where T : IGetTradeswithEventIdResult, new()
         {
             var result = GetAutoTradeswithEventID(lasteventidprocessed);
-            return MapProcReturnTypeToGenericInterface<T>(result);
+            //var list = new List<T>();
+            //foreach (GetAutoTradeswithEventIDResult eventIdResult in result)
+            //{
+            //    var item = new T();
+            //    item.Comment = eventIdResult.Comment;
+            //    item.ExecID = eventIdResult.ExecID;
+            //    item.FillVolume = eventIdResult.FillVolume;
+            //    item.OrderEventID = eventIdResult.OrderEventID;
+            //    item.OrderPriceTypeID = eventIdResult.OrderPriceTypeID;
+            //    item.OrderTimeTypeID = eventIdResult.OrderTimeTypeID;
+            //    item.OriginTimeStamp = eventIdResult.OriginTimeStamp;
+            //    item.Price = eventIdResult.Price;
+            //    item.Side = eventIdResult.Side;
+            //    item.TEMnemonic = eventIdResult.TEMnemonic;
+            //    list.Add(item);                
+            //}
+            //return list;
+             return MapProcReturnTypeToGenericInterface<T>(result);
+            //return null;
         }
 
-        public IList<T> GetManualTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
-        {
-            var result = GetManualTradeswithEventID(lasteventidprocessed);
-            return MapProcReturnTypeToGenericInterface<T>(result);
-        }
+        //public IList<T> GetManualTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
+        //{
+        //    var result = GetManualTradeswithEventID(lasteventidprocessed);
+        //    return MapProcReturnTypeToGenericInterface<T>(result);
+        //}
 
-        public IList<T> GetTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
-        {
-            var result = GetTradeswithEventID(lasteventidprocessed);
-            return MapProcReturnTypeToGenericInterface<T>(result);
-        }
+        //public IList<T> GetTradeswithEventID<T>([global::System.Data.Linq.Mapping.ParameterAttribute(DbType = "Int")] System.Nullable<int> lasteventidprocessed) where T : IGetTradeswithEventIdResult, new()
+        //{
+        //    var result = GetTradeswithEventID(lasteventidprocessed);
+        //    return MapProcReturnTypeToGenericInterface<T>(result);
+        //}
 
         private static IList<T> MapProcReturnTypeToGenericInterface<T>(IEnumerable<IGetTradeswithEventIdResult> result) where T : IGetTradeswithEventIdResult, new()
         {
-            return (from IGetTradeswithEventIdResult eventIdResult in result
-                    select new T
-                    {
-                        Comment = eventIdResult.Comment,
-                        ExecID = eventIdResult.ExecID,
-                        FillVolume = eventIdResult.FillVolume,
-                        OrderEventID = eventIdResult.OrderEventID,
-                        OrderPriceTypeID = eventIdResult.OrderPriceTypeID,
-                        OrderTimeTypeID = eventIdResult.OrderTimeTypeID,
-                        OriginTimeStamp = eventIdResult.OriginTimeStamp,
-                        Price = eventIdResult.Price,
-                        Side = eventIdResult.Side,
-                        TEMnemonic = eventIdResult.TEMnemonic
-                    }).ToList();
+            //return (from IGetTradeswithEventIdResult eventIdResult in result
+            //        select new T
+            //        {
+            //            Comment = eventIdResult.Comment,
+            //            ExecID = eventIdResult.ExecID,
+            //            FillVolume = eventIdResult.FillVolume,
+            //            OrderEventID = eventIdResult.OrderEventID,
+            //            OrderPriceTypeID = eventIdResult.OrderPriceTypeID,
+            //            OrderTimeTypeID = eventIdResult.OrderTimeTypeID,
+            //            OriginTimeStamp = eventIdResult.OriginTimeStamp,
+            //            Price = eventIdResult.Price,
+            //            Side = eventIdResult.Side,
+            //            TEMnemonic = eventIdResult.TEMnemonic
+            //        }
+
+            //        ).ToList();
+            var list = new List<T>();
+            foreach (var eventIdResult in result)
+            {
+                var item = new T();
+                item.Comment = eventIdResult.Comment;
+                item.ExecID = eventIdResult.ExecID;
+                item.FillVolume = eventIdResult.FillVolume;
+                item.OrderEventID = eventIdResult.OrderEventID;
+                item.OrderPriceTypeID = eventIdResult.OrderPriceTypeID;
+                item.OrderTimeTypeID = eventIdResult.OrderTimeTypeID;
+                item.OriginTimeStamp = eventIdResult.OriginTimeStamp;
+                item.Price = eventIdResult.Price;
+                item.Side = eventIdResult.Side;
+                item.TEMnemonic = eventIdResult.TEMnemonic;
+                list.Add(item);
+            }
+            return list;
         }
     }
     // ReSharper restore PossibleNullReferenceException

@@ -207,6 +207,27 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch 606.5Console and check deals against stored proc results")]
+        public virtual void Launch606_5ConsoleAndCheckDealsAgainstStoredProcResults()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch 606.5Console and check deals against stored proc results", ((string[])(null)));
+#line 44
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 45
+ testRunner.When("I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 46
+ testRunner.And("I launch the process and parse the order events from the console into orders and " +
+                    "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.Then("the order Event ID to deal mapping dictionary contains all the deals returned by " +
+                    "QDF.GetAutoTradeswithEventID", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -1,4 +1,5 @@
 ﻿using Alpari.QA.ProcessRunner.Tests.Steps;
+using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 
@@ -18,6 +19,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
 
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
+        private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
 
         private static ProcessRunner.Tests.Steps.StepCentral ProcessRunnerStepCentral
         {
@@ -43,6 +45,26 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         protected LaunchProcessSteps LaunchProcessSteps
         {
             get { return ProcessRunnerStepCentral.LaunchProcessSteps; }
+        }
+
+        public Six06ConsoleQdfDbSteps Six06ConsoleQdfDbSteps
+        {
+            get
+            {
+                if (_six06ConsoleQdfDbSteps != null)
+                {
+                    return _six06ConsoleQdfDbSteps;
+                }
+                bool toAdd = GetStepDefinition(Six06ConsoleQdfDbSteps.FullName) == null;
+                var steps = (Six06ConsoleQdfDbSteps) GetStepDefinition(Six06ConsoleQdfDbSteps.FullName) ??
+                                                              new Six06ConsoleQdfDbSteps(new GetTradesWithEventId());
+                if (toAdd)
+                {
+                    _six06ConsoleQdfDbSteps = steps;
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
         }
     }
 }

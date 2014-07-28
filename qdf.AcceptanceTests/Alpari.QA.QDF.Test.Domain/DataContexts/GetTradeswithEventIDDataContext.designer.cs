@@ -91,7 +91,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 		
 		private System.Nullable<System.DateTime> _OriginTimeStamp;
 		
-		private System.Nullable<int> _FillVolume;
+		private System.Nullable<double> _FillVolume;
 		
 		private System.Nullable<double> _Price;
 		
@@ -143,8 +143,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Int")]
-		public System.Nullable<int> FillVolume
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Float")]
+		public System.Nullable<double> FillVolume
 		{
 			get
 			{
@@ -279,7 +279,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 		
 		private System.Nullable<System.DateTime> _OriginTimeStamp;
 		
-		private System.Nullable<int> _FillVolume;
+		private System.Nullable<double> _FillVolume;
 		
 		private System.Nullable<double> _Price;
 		
@@ -331,8 +331,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Int")]
-		public System.Nullable<int> FillVolume
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Float")]
+		public System.Nullable<double> FillVolume
 		{
 			get
 			{
@@ -467,7 +467,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 		
 		private System.Nullable<System.DateTime> _OriginTimeStamp;
 		
-		private System.Nullable<int> _FillVolume;
+		private System.Nullable<double> _FillVolume;
 		
 		private System.Nullable<double> _Price;
 		
@@ -519,8 +519,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Int")]
-		public System.Nullable<int> FillVolume
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FillVolume", DbType="Float")]
+		public System.Nullable<double> FillVolume
 		{
 			get
 			{

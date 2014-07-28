@@ -27,9 +27,20 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         public void WhenICallQDF_GetAutoTradeswithEventIDWithID(int startFromId)
         {
             GetTradesWithEventIdResultList = GetTradeswithEventIdDataContext.GetAutoTradeswithEventID<GetTradeswithEventIDResult>(startFromId).ToList();
+            //GetAutoTradeswithEventIdResultList = GetTradeswithEventIdDataContext.GetAutoTradeswithEventID(startFromId).ToList();
+            //var list = GetTradeswithEventIdDataContext.GetAutoTradeswithEventID(startFromId).ToList < GetAutoTradeswithEventIDResult>();
+            //foreach (var getAutoTradeswithEventIdResult in list)
+            //{
+                
+            //}
         }
 
-        
+        [When(@"I call QDF\.GetAutoTradeswithEventID with ID (.*) and save the result as a datatable")]
+        public void WhenICallQDF_GetAutoTradeswithEventIDWithIDAndSaveTheResultAsADatatable(int startFromId)
+        {
+            WhenICallQDF_GetAutoTradeswithEventIDWithID(startFromId);
+            WhenISaveTheQDF_GetAutoTradeswithEventIDResultAsADatatable();
+        }
 
         [When(@"I save the QDF\.GetAutoTradeswithEventID result as a datatable")]
         public void WhenISaveTheQDF_GetAutoTradeswithEventIDResultAsADatatable()
