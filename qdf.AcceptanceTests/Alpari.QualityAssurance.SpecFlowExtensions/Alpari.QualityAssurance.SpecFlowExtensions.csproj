@@ -69,6 +69,7 @@
     <Compile Include="FileUtilities\ExportParameters.cs" />
     <Compile Include="FileUtilities\ExportParametersExtensions.cs" />
     <Compile Include="FileUtilities\ExportTypes.cs" />
+    <Compile Include="Hooks\SpecFlowExtensionsHooks.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Specs\CsvConversions.feature.cs">

@@ -16,10 +16,13 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         protected const string ORDER_DEAL_TERMINATOR = ")";
         public const string FRESH606_POINT5_CONSOLE_CONFIG_CONSOLE_INI = @"AUT\QDF\606.5Console\Config\606.5Console.ini";
         public const string WORKING606_POINT5_CONSOLE_INI = @"AUT\QDF\606.5Console\606.5Console.ini";
+        public const string MT5_DEALS_CONTEXT = "Mt5DealsContext";
+        public const string MT5_DB = "MT5DB";
 
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
         private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
+        
 
         private static ProcessRunner.Tests.Steps.StepCentral ProcessRunnerStepCentral
         {
@@ -66,5 +69,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                 return steps;
             }
         }
+
+        
     }
 }

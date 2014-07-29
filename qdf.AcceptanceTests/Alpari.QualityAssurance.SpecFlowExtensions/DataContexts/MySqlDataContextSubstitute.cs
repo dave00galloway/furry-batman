@@ -21,6 +21,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
 // ReSharper disable once MemberCanBePrivate.Global - might be needed for external querying
         public MySqlConnection MyConnection { get; private set; }
 
+        protected const string SET_UTC = "set time_zone='+00:00';\r\n";
+
         /// <summary>
         ///     retreives
         /// </summary>

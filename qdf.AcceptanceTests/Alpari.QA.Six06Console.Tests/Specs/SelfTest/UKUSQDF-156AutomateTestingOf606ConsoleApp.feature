@@ -45,3 +45,4 @@ Scenario: Launch 606.5Console and check deals against stored proc results
 	When I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable
 	And I launch the process and parse the order events from the console into orders and deals
 	Then the order Event ID to deal mapping dictionary contains all the deals returned by QDF.GetAutoTradeswithEventID 
+

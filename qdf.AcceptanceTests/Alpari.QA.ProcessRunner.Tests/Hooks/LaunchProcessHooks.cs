@@ -16,8 +16,6 @@ namespace Alpari.QA.ProcessRunner.Tests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            var processStartInfoWrapper =
-                ScenarioContext.Current[StepCentral.PROCESS_START_INFO_WRAPPER] as ProcessStartInfoWrapper;
             if (ScenarioContext.Current.ContainsKey(StepCentral.PROCESS_RUNNER))
             {
                 var processRunner = ScenarioContext.Current[StepCentral.PROCESS_RUNNER] as IProcessRunner;

@@ -44,6 +44,7 @@
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
@@ -66,10 +67,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSQDF-156AutomateTestingOf606ConsoleApp.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-156CheckDataInMt5Database.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-156CheckDataInMt5Database.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\UKUSQDF-156 Test the 606point5 Console Application.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-156 Test the 606point5 Console Application.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\Six06ConsoleAppStepBase.cs" />
     <Compile Include="Steps\Six06ConsoleAppSteps.cs" />
     <Compile Include="Steps\Six06ConsoleQdfDbStepBase.cs" />
     <Compile Include="Steps\Six06ConsoleQdfDbSteps.cs" />
+    <Compile Include="Steps\Six06Mt5DbStepBase.cs" />
+    <Compile Include="Steps\Six06Mt5DbSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +122,14 @@
     <None Include="Specs\SelfTest\UKUSQDF-156AutomateTestingOf606ConsoleApp.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSQDF-156AutomateTestingOf606ConsoleApp.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSQDF-156CheckDataInMt5Database.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-156CheckDataInMt5Database.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-156 Test the 606point5 Console Application.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-156 Test the 606point5 Console Application.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup />

@@ -28,8 +28,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
             
         } 
 
-        private const string SetUtc = "set time_zone='+00:00';\r\n";
-
         private static string TradeQueryByIdString
         {
             get
@@ -48,7 +46,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
         public static string QuerySingleTrade(string tradeId)
         {
             return
-                String.Format("{0}{1} = '{2}'", SetUtc,
+                String.Format("{0}{1} = '{2}'", SET_UTC,
                     TradeQueryByIdString,
                     tradeId);
         }
@@ -56,7 +54,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
         public static string QueryTradesById(string idsAsList)
         {
             return
-                String.Format("{0}{1} in {2}", SetUtc,
+                String.Format("{0}{1} in {2}", SET_UTC,
                     TradeQueryByIdString,
                     idsAsList);
         }
@@ -64,7 +62,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts
         public static string QueryTradesByDateTime(DateTime from, DateTime to)
         {
             return
-                String.Format("{0}{1} (transact_time >= '{2}' AND transact_time <= '{3}')", SetUtc,
+                String.Format("{0}{1} (transact_time >= '{2}' AND transact_time <= '{3}')", SET_UTC,
                     TradeQuery, from.ConvertDateTimeToMySqlDateFormatToSeconds(),
                     to.ConvertDateTimeToMySqlDateFormatToSeconds());
         }

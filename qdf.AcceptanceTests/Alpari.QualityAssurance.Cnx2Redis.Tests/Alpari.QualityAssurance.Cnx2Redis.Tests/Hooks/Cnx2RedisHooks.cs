@@ -8,6 +8,7 @@ using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SecureMyPassword;
+using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using BoDi;
@@ -18,7 +19,7 @@ using StepCentral = Alpari.QDF.UIClient.Tests.Steps.StepCentral;
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 {
     [Binding]
-    public class Cnx2RedisHooks
+    public class Cnx2RedisHooks : SpecFlowExtensionsHooks
     {
         private const string TradeTableDataContextName = "tradeTableDataContext";
         private const string MySqlTradeSchemaTableName = "MySqlTradeSchemaTable";
@@ -27,16 +28,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         private const string MySqlLocalhostName = "MySqlLocalhost";
         private const string CnxHubTradeActivityImporterName = "cnxHubTradeActivityImporter";
         private const string RedisDataImportParams = "RedisDataImportParams:";
-        private static string[] _featureTags;
-        private static string[] _scenarioTags;
-        private static IObjectContainer ObjectContainer { get; set; }
 
         [BeforeScenario]
         public void BeforeScenario()
         {
-            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
-            _featureTags = FeatureContext.Current.FeatureInfo.Tags;
-            _scenarioTags = ScenarioContext.Current.ScenarioInfo.Tags;
+            //ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
+            //_featureTags = FeatureContext.Current.FeatureInfo.Tags;
+            //_scenarioTags = ScenarioContext.Current.ScenarioInfo.Tags;
+            SetupObjectContainerAndTagsProperties();
             SetupCnxTradeTableDataContext();
             SetupGetTradeswithEventIdDataContext();
             MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
@@ -85,7 +84,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
         private void SetupCnxTradeTableDataContext()
         {
             string connectionString;
-            if (_featureTags.Contains(MySqlLocalhostName) || _scenarioTags.Contains(MySqlLocalhostName))
+            //if (FeatureTags.Contains(MySqlLocalhostName) || ScenarioTags.Contains(MySqlLocalhostName))
+            if (TagDependentAction(MySqlLocalhostName))
             {
                 connectionString =
                     ConfigurationManager.ConnectionStrings[MySqlLocalhostName]
@@ -106,7 +106,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 
         private static void SeedDataIfLocalHost()
         {
-            if (_featureTags.Contains(RedisLocalHostName) || _scenarioTags.Contains(RedisLocalHostName))
+            if (FeatureTags.Contains(RedisLocalHostName) || ScenarioTags.Contains(RedisLocalHostName))
             {
                 RedisConnectionHelper redisConnection = StepCentral
                     .ResetRedisConnection(LocalHostIp);
@@ -114,8 +114,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
                 if (redisConnection.Connection.Host == LocalHostIp)
                 {
                     redisConnection.Connection.Server.FlushAll();
-                    LoadTestDataForTags(_featureTags, redisConnection.Connection);
-                    LoadTestDataForTags(_scenarioTags, redisConnection.Connection);
+                    LoadTestDataForTags(FeatureTags, redisConnection.Connection);
+                    LoadTestDataForTags(ScenarioTags, redisConnection.Connection);
                 }
             }
         }
@@ -166,11 +166,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 
         private static void SetupCnxHubTradeActivityImporter()
         {
-            if (LoadCnxHubTradeActivityImporter(_scenarioTags))
+            if (LoadCnxHubTradeActivityImporter(ScenarioTags))
             {
                 return;
             }
-            LoadCnxHubTradeActivityImporter(_featureTags);
+            LoadCnxHubTradeActivityImporter(FeatureTags);
         }
 
         private static bool LoadCnxHubTradeActivityImporter(IEnumerable<string> tags)
