@@ -228,6 +228,25 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch 606.5Console and close the process gracefully")]
+        public virtual void Launch606_5ConsoleAndCloseTheProcessGracefully()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch 606.5Console and close the process gracefully", ((string[])(null)));
+#line 49
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 50
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 51
+ testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.Then("the process is closed ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -46,3 +46,8 @@ Scenario: Launch 606.5Console and check deals against stored proc results
 	And I launch the process and parse the order events from the console into orders and deals
 	Then the order Event ID to deal mapping dictionary contains all the deals returned by QDF.GetAutoTradeswithEventID 
 
+Scenario: Launch 606.5Console and close the process gracefully
+	When I launch the process
+	And I close the process using Ctrl+c in the StdInput
+	Then the process is closed ok
+

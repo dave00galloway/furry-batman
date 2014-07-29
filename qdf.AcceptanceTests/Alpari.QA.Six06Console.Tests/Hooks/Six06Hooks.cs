@@ -26,7 +26,7 @@ namespace Alpari.QA.Six06Console.Tests.Hooks
                 var connectionString =
                     ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[StepCentral.MT5_DB]]
                         .ConnectionString;
-                var context = new DealsDataContext(connectionString);
+                var context = new DealsDataContext(connectionString, ConfigurationManager.AppSettings[StepCentral.MT5_DB]);
                 if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(context);
             }
         }

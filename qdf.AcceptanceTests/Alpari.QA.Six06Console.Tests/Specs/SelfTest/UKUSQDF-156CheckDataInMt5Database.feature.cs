@@ -69,30 +69,9 @@ namespace Alpari.QA.Six06Console.Tests.Specs.SelfTest
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get Highest Deal ID for Login")]
-        public virtual void GetHighestDealIDForLogin()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Highest Deal ID for Login", ((string[])(null)));
 #line 7
-this.ScenarioSetup(scenarioInfo);
-#line 8
- testRunner.Given("I am using mt5 manager login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 9
- testRunner.When("I get the highest mt5 deal id for my login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 10
- testRunner.Then("The highest mt5 deal id is greater than 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Check the highest deal id increases after running the console app")]
-        public virtual void CheckTheHighestDealIdIncreasesAfterRunningTheConsoleApp()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the highest deal id increases after running the console app", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "FileName",
@@ -108,15 +87,68 @@ this.ScenarioSetup(scenarioInfo);
                         "true",
                         "false",
                         "true"});
-#line 13
+#line 8
  testRunner.Given("I have the following process parameters", ((string)(null)), table1, "Given ");
-#line 16
- testRunner.And("I have stored the highest mt5 deal id for login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get Highest Deal ID for Login")]
+        public virtual void GetHighestDealIDForLogin()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get Highest Deal ID for Login", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 13
+ testRunner.Given("I am using mt5 manager login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.When("I get the highest mt5 deal id for my login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 15
+ testRunner.Then("The highest mt5 deal id is greater than 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Check the highest deal id increases after running the console app")]
+        public virtual void CheckTheHighestDealIdIncreasesAfterRunningTheConsoleApp()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Check the highest deal id increases after running the console app", ((string[])(null)));
 #line 17
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 18
+ testRunner.Given("I have stored the highest mt5 deal id for login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 19
  testRunner.When("I launch the process and parse the order events from the console into orders and " +
                     "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 18
+#line 20
  testRunner.Then("the new highest mt5 deal id is greater than the original", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Map Mt5Deals")]
+        public virtual void MapMt5Deals()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Mt5Deals", ((string[])(null)));
+#line 22
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 23
+ testRunner.Given("I have stored the highest mt5 deal id for login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 24
+ testRunner.When("I launch the process and parse the order events from the console into orders and " +
+                    "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I query the mt5 deals table for new deals for my login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

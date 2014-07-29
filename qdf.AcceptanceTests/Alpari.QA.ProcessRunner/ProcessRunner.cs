@@ -12,14 +12,13 @@ namespace Alpari.QA.ProcessRunner
     ///     WTK:-
     ///     http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
     ///     (doesn't quite work though...
-    /// TODO:- refactor methods that access the stdErr and stdOut into common methods to reduce duplication
+    ///     TODO:- refactor methods that access the stdErr and stdOut into common methods to reduce duplication
     /// </summary>
     public class ProcessRunner : IProcessRunner
     {
-        private IntPtr _job;
-
-        private readonly IList<string> _standardOutputList;
         private readonly IList<string> _standardErrorOutputList;
+        private readonly IList<string> _standardOutputList;
+        private IntPtr _job;
 
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
@@ -78,7 +77,7 @@ namespace Alpari.QA.ProcessRunner
 
         public void WaitForStandardOutputToContainText(string expectedText, int waitTimeMilliSeconds)
         {
-            WaitForListToContainText(_standardOutputList,expectedText, waitTimeMilliSeconds);
+            WaitForListToContainText(_standardOutputList, expectedText, waitTimeMilliSeconds);
         }
 
         public void WaitForStandardErrorOutputToContainText(string expectedText, int waitTimeMilliSeconds)
@@ -123,7 +122,14 @@ namespace Alpari.QA.ProcessRunner
         {
             //todo:- implement Log4Net
             // ReSharper disable EmptyGeneralCatchClause
-            int processId = Process.Id;
+            int processId = default (int);
+            try
+            {
+                processId = Process.Id;
+            }
+            catch
+            {
+            }
             try
             {
                 TerminateProc();
@@ -132,24 +138,40 @@ namespace Alpari.QA.ProcessRunner
             {
             }
 
-            if (ProcessStartInfoWrapper.RedirectStandardOutput)
+            try
             {
-                Process.OutputDataReceived -= StandardOutputHandler;
-                _standardOutputList.Clear();
+                if (ProcessStartInfoWrapper.RedirectStandardOutput)
+                {
+                    Process.OutputDataReceived -= StandardOutputHandler;
+                    _standardOutputList.Clear();
+                }
+            }
+            catch
+            {
             }
 
-            if (ProcessStartInfoWrapper.RedirectStandardError)
+            try
             {
-                Process.ErrorDataReceived -= StandardOutputHandler;
-                _standardErrorOutputList.Clear();
+                if (ProcessStartInfoWrapper.RedirectStandardError)
+                {
+                    Process.ErrorDataReceived -= StandardOutputHandler;
+                    _standardErrorOutputList.Clear();
+                }
             }
-
-            if (ProcessStartInfoWrapper.RedirectStandardInput)
+            catch
             {
-                StreamWriter.Flush();
-                StreamWriter.Close();
             }
-
+            try
+            {
+                if (ProcessStartInfoWrapper.RedirectStandardInput)
+                {
+                    StreamWriter.Flush();
+                    StreamWriter.Close();
+                }
+            }
+            catch
+            {
+            }
             try
             {
                 if (!HasExitedCheck())
@@ -163,18 +185,17 @@ namespace Alpari.QA.ProcessRunner
             try
             {
                 Process.Close();
+                Process.WaitForExit(10000);
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e);
             }
             try
             {
                 Process.Dispose();
             }
-            catch (Exception e)
+            catch
             {
-                Console.WriteLine(e);
             }
             try
             {
@@ -252,7 +273,7 @@ namespace Alpari.QA.ProcessRunner
                 {
                     string[] shadowList = SetShadowList(list);
                     if (shadowList.Any(line => line.Trim().Contains(expectedText.Trim())))
-                    //if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
+                        //if (shadowList.Any(line => line != null && line.Trim().Contains(expectedText.Trim())))
                     {
                         sync = true;
                     }

@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenerateConsoleControlEvent.cs" />
     <Compile Include="IProcessRunner.cs" />
     <Compile Include="IProcessStartInfoWrapper.cs" />
     <Compile Include="ProcessRunner.cs" />

@@ -29,6 +29,13 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
             ProcessRunner.SendInput(input);
         }
 
+        [When(@"I close the process using Ctrl\+c in the StdInput")]
+        public void WhenICloseTheProcessUsingCtrlCInTheStdInput()
+        {
+            //ProcessRunner.Process.CloseProcessViaCtrlC();
+            ProcessRunner.Dispose();
+            //ProcessRunner.Process.WaitForExit(10000);
+        }
 
         [Then(@"the process is launched ok")]
         public void ThenTheProcessIsLaunchedOk()
@@ -83,6 +90,14 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
             }
             throw new Exception(string.Format("ProcessRunner.StandardErrorOutputList did not contain '{0}'", expectedText));
         }
+
+        [Then(@"the process is closed ok")]
+        public void ThenTheProcessIsClosedOk()
+        {
+            //no reliable way of checking this at the moment, so don't use this method
+            ScenarioContext.Current.Pending();
+        }
+
 
     }
 }

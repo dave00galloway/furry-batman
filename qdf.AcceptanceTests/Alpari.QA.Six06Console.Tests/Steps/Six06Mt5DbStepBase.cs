@@ -1,4 +1,5 @@
-﻿using Alpari.QA.QDF.Test.Domain.MT5;
+﻿using System;
+using Alpari.QA.QDF.Test.Domain.MT5;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps
@@ -12,13 +13,15 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         }
 
         public DealsDataContext DealsDataContext { get; set; }
-        public int LoginId { get; set; }
+        public ulong LoginId { get; set; }
         public ulong DealId { get; set; }
 
-        protected ulong GetHighestDealIdForLogin(int loginId)
+        protected ulong GetHighestDealIdForLogin(ulong loginId)
         {
             var dealQueryTable = DealsDataContext.SelectDataAsDataTable(DealsDataContext.HighestDealForLogin(loginId));
-            return (ulong)dealQueryTable.Rows[dealQueryTable.Rows.Count - 1]["deal"];
+            var dealId = (ulong)dealQueryTable.Rows[dealQueryTable.Rows.Count - 1]["deal"];
+            Console.WriteLine(dealId); //debug message. seems daft not to tell the test runner what the deal id was!
+            return dealId;
         }
     }
 }
