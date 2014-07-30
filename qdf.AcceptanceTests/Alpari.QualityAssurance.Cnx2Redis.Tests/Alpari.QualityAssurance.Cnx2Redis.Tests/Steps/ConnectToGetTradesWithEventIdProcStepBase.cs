@@ -2,6 +2,7 @@
 using System.Data.Linq;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
 using TechTalk.SpecFlow;

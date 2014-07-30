@@ -19,9 +19,11 @@ Scenario: Check the highest deal id increases after running the console app
 	When I launch the process and parse the order events from the console into orders and deals
 	Then the new highest mt5 deal id is greater than the original
 
-Scenario: Map Mt5Deals
+Scenario: Map Mt5Deals to Order Event Ids
 	Given I have stored the highest mt5 deal id for login '8900907'
 	When I launch the process and parse the order events from the console into orders and deals
 	And I close the process using Ctrl+c in the StdInput
 	And I query the mt5 deals table for new deals for my login
+	And I convert the mt5 deals to trades with event id
+	Then all order events in the order event id to deal mapping dictionary are mapped
 

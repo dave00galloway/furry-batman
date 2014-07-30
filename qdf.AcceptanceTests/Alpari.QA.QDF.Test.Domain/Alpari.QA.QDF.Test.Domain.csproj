@@ -71,15 +71,17 @@
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IGetTradeswithEventIDResult.cs" />
-    <Compile Include="MT5\DealsDataContext.cs" />
+    <Compile Include="DataContexts\MT5\DealsDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TypedDataTables\TradeWithEventIdDataTable.cs" />
-    <Compile Include="TypedDataTables\TradeWithEventIdDataTableExtensions.cs" />
+    <Compile Include="TypedDataTables\MT5\DealsDataTable.cs" />
+    <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTable.cs" />
+    <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTableExtensions.cs" />
+    <Compile Include="TypedDataTables\QDF\TradeWithEventIdWithDealAndOrderDataTable.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

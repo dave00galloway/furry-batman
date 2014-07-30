@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Linq;
@@ -46,6 +47,13 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
         string TEMnemonic { get; set; }
     }
 
+    public interface IGetTradeswithEventIdResultWithDealAndOrder : IGetTradeswithEventIdResult
+    {
+        ulong Deal { get; set; }
+        ulong Login { get; set; }
+        ulong Order { get; set; }
+    }
+
     public partial class GetAutoTradeswithEventIDResult : IGetTradeswithEventIdResult
     {
     }
@@ -61,6 +69,14 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
     /// </summary>
     public partial class GetTradeswithEventIDResult : IGetTradeswithEventIdResult
     {
+    }
+
+    public class GetTradeswithEventIDResultWithDealAndOrder : GetTradeswithEventIDResult,
+        IGetTradeswithEventIdResultWithDealAndOrder
+    {
+        public ulong Deal { get; set; }
+        public ulong Login { get; set; }
+        public ulong Order { get; set; }
     }
 
     public partial class GetTradeswithEventIDDataContext

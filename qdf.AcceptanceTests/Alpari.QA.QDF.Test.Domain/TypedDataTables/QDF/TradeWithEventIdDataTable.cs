@@ -5,7 +5,7 @@ using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
-namespace Alpari.QA.QDF.Test.Domain.TypedDataTables
+namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
 {
     public class TradeWithEventIdDataTable : TypedDataTable
     {
@@ -141,7 +141,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables
         {
         }
 
-        [UsedImplicitly]
+        [UsedImplicitly]    
         public int OrderEventId
         {
             get { return (int) base["OrderEventId"]; }

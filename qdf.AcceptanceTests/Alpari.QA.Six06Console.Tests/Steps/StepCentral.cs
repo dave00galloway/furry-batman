@@ -22,7 +22,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
         private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
-        
+        private Six06ConsoleAppSteps _six06ConsoleAppSteps;
+
 
         private static ProcessRunner.Tests.Steps.StepCentral ProcessRunnerStepCentral
         {
@@ -64,6 +65,26 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                 if (toAdd)
                 {
                     _six06ConsoleQdfDbSteps = steps;
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
+
+        public Six06ConsoleAppSteps Six06ConsoleAppSteps
+        {
+            get
+            {
+                if (_six06ConsoleQdfDbSteps != null)
+                {
+                    return _six06ConsoleAppSteps;
+                }
+                bool toAdd = GetStepDefinition(Six06ConsoleAppSteps.FullName) == null;
+                var steps = (Six06ConsoleAppSteps)GetStepDefinition(Steps.Six06ConsoleAppSteps.FullName) ??
+                                                              new Six06ConsoleAppSteps();
+                if (toAdd)
+                {
+                    _six06ConsoleAppSteps = steps;
                     ObjectContainer.RegisterInstanceAs(steps);
                 }
                 return steps;

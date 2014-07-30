@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.QDF.Test.Domain.MT5;
+﻿using System.Linq;
+using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.MT5;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
+using Alpari.QA.Six06Console.Tests.DomainObjects;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -31,14 +32,22 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         [When(@"I get the highest mt5 deal id for my login")]
         public void WhenIGetTheHighestMtDealIdForMyLogin()
         {
-           DealId = GetHighestDealIdForLogin(LoginId);
+            DealId = GetHighestDealIdForLogin(LoginId);
         }
 
         [When(@"I query the mt5 deals table for new deals for my login")]
         public void WhenIQueryTheMtDealsTableForNewDealsForMyLogin()
         {
-            var newDeals = DealsDataContext.SelectDataAsDataTable(DealsDataContext.NewDealsQuery(LoginId,DealId));
+            Mt5Deals =
+                DealsDataContext.SelectDataAsDataTable(DealsDataContext.NewDealsQuery(LoginId, DealId))
+                    .ConvertToTypedDataTable<DealsDataTable>();
             DealId = GetHighestDealIdForLogin(LoginId);
+        }
+
+        [When(@"I convert the mt5 deals to trades with event id")]
+        public void WhenIConvertTheMtDealsToTradesWithEventId()
+        {
+            ConvertedMt5Deals = Mt5Deals.ConvertMt5DealsDataTable(Six06ConsoleAppSteps.OrderEventIdToDealMapping);
         }
 
 
@@ -51,11 +60,27 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         [Then(@"the new highest mt5 deal id is greater than the original")]
         public void ThenTheNewHighestMtDealIdIsGreaterThanTheOriginal()
         {
-            var old = DealId;
+            ulong old = DealId;
             WhenIGetTheHighestMtDealIdForMyLogin();
             DealId.Should().BeGreaterThan(old);
         }
 
-
+        /// <summary>
+        ///     Note - this only tells us that all deals that were converted by the console app have been mapped, not that they
+        ///     have all been imported from QDF!
+        /// </summary>
+        [Then(@"all order events in the order event id to deal mapping dictionary are mapped")]
+        public void ThenAllOrderEventsInTheOrderEventIdToDealMappingDictionaryAreMapped()
+        {
+            foreach (
+                bool found in
+                    Six06ConsoleAppSteps.OrderEventIdToDealMapping.Keys.Select(
+                        key =>
+                            ConvertedMt5Deals.Rows.Cast<TradeWithEventIdWithDealAndOrderDataTableRow>()
+                                .Any(row => row.OrderEventId == key)))
+            {
+                found.Should().Be(true);
+            }
+        }
     }
 }

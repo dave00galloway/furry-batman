@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.DataContexts;
 
-namespace Alpari.QA.QDF.Test.Domain.MT5
+namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT5
 {
     public class DealsDataContext : MySqlDataContextSubstitute
     {
@@ -31,6 +26,7 @@ namespace Alpari.QA.QDF.Test.Domain.MT5
                 "        from_unixtime(time) as timestamp,  " + //-- needed" +
                 "       symbol,  " + //-- TEMnemonic" +
                 "       price,  " + //-- price" +
+                "       volume,  " + //-- FillVolume" +
                 "       comment  " + //-- needed" +
                 "FROM {2}" +
                 "  WHERE login = {0}" +

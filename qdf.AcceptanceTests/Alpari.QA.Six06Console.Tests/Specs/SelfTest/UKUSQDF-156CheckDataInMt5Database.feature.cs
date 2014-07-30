@@ -132,10 +132,10 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Map Mt5Deals")]
-        public virtual void MapMt5Deals()
+        [NUnit.Framework.DescriptionAttribute("Map Mt5Deals to Order Event Ids")]
+        public virtual void MapMt5DealsToOrderEventIds()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Mt5Deals", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Mt5Deals to Order Event Ids", ((string[])(null)));
 #line 22
 this.ScenarioSetup(scenarioInfo);
 #line 7
@@ -149,6 +149,10 @@ this.FeatureBackground();
  testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 26
  testRunner.And("I query the mt5 deals table for new deals for my login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("I convert the mt5 deals to trades with event id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.Then("all order events in the order event id to deal mapping dictionary are mapped", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

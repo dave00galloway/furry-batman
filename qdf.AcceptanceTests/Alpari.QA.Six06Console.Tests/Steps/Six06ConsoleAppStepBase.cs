@@ -17,7 +17,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             
         }
 
-        protected IDictionary<int, OrderDealMapping> OrderEventIdToDealMapping
+        public IDictionary<int, OrderDealMapping> OrderEventIdToDealMapping
         {
             get {
                 return _orderEventIdToDealMapping ??

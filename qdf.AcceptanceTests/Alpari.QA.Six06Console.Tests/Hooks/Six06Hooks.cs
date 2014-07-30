@@ -1,9 +1,8 @@
-﻿using System.Configuration;
-using System.IO;
-using Alpari.QA.QDF.Test.Domain;
-using Alpari.QA.QDF.Test.Domain.MT5;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
 using Alpari.QA.Six06Console.Tests.Steps;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
+using System.Configuration;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Hooks

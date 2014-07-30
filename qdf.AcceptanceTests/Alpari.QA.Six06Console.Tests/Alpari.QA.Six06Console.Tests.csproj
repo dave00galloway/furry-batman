@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="DomainObjects\OrderDealMapping.cs" />
     <Compile Include="DomainObjects\OrderEventIdToDealMapping.cs" />
+    <Compile Include="DomainObjects\TradeWithEventIdWithDealAndOrderDataTableExtensions.cs" />
     <Compile Include="Hooks\Six06Hooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\SelfTest\UKUSQDF-156AutomateTestingOf606ConsoleApp.feature.cs">
