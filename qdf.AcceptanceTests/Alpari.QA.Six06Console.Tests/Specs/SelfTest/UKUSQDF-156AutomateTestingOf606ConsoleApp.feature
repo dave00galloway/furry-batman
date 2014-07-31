@@ -51,3 +51,19 @@ Scenario: Launch 606.5Console and close the process gracefully
 	And I close the process using Ctrl+c in the StdInput
 	Then the process is closed ok
 
+Scenario: Map Trade with Event Ids to Mt5 Order Ids
+	When I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable
+		And I launch the process and parse the order events from the console into orders and deals
+		And I close the process using Ctrl+c in the StdInput
+		# And I query the mt5 deals table for new deals for my login
+		And I convert the trades with event ids to trades with deal and order ids
+	Then all order events in the order event id to deal mapping dictionary are mapped to trades with event ids
+
+Scenario: Map Trade with Event Ids to Mt5 Order Ids if they have them
+	When I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable
+		And I launch the process and parse the order events from the console into orders and deals
+		And I close the process using Ctrl+c in the StdInput
+		# And I query the mt5 deals table for new deals for my login
+		And I convert the trades with event ids to trades with deal and order ids if they exist
+	Then at least one order event in the order event id to deal mapping dictionary is mapped to trades with event ids
+

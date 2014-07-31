@@ -29,6 +29,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             WhenIParseTheOrderEventsFromTheConsoleIntoOrdersAndDeals();
         }
 
+
         [Then(@"the order Event ID to deal mapping dictionary contains at least (.*) record")]
         public void ThenTheOrderEventIdToDealMappingDictionaryContainsAtLeastRecord(int minRecordCount)
         {

@@ -19,5 +19,6 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         protected GetTradeswithEventIDDataContext GetTradeswithEventIdDataContext { get; private set; }
         protected List<IGetTradeswithEventIdResult> GetTradesWithEventIdResultList { get; set; }
         public TradeWithEventIdDataTable TradeWithEventIdDataTable { get; set; }
+        public TradeWithEventIdWithDealAndOrderDataTable ConvertedTradesWithEventIds { get; set; }
     }
 }

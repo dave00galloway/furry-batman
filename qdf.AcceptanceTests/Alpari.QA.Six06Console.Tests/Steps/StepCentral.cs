@@ -1,6 +1,11 @@
-﻿using Alpari.QA.ProcessRunner.Tests.Steps;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Alpari.QA.ProcessRunner.Tests.Steps;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
+using Alpari.QA.Six06Console.Tests.DomainObjects;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps
@@ -21,8 +26,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
 
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
-        private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
         private Six06ConsoleAppSteps _six06ConsoleAppSteps;
+        private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
 
 
         private static ProcessRunner.Tests.Steps.StepCentral ProcessRunnerStepCentral
@@ -60,8 +65,9 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                     return _six06ConsoleQdfDbSteps;
                 }
                 bool toAdd = GetStepDefinition(Six06ConsoleQdfDbSteps.FullName) == null;
-                var steps = (Six06ConsoleQdfDbSteps) GetStepDefinition(Six06ConsoleQdfDbSteps.FullName) ??
-                                                              new Six06ConsoleQdfDbSteps(new GetTradesWithEventId());
+                Six06ConsoleQdfDbSteps steps =
+                    (Six06ConsoleQdfDbSteps) GetStepDefinition(Six06ConsoleQdfDbSteps.FullName) ??
+                    new Six06ConsoleQdfDbSteps(new GetTradesWithEventId());
                 if (toAdd)
                 {
                     _six06ConsoleQdfDbSteps = steps;
@@ -80,8 +86,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                     return _six06ConsoleAppSteps;
                 }
                 bool toAdd = GetStepDefinition(Six06ConsoleAppSteps.FullName) == null;
-                var steps = (Six06ConsoleAppSteps)GetStepDefinition(Steps.Six06ConsoleAppSteps.FullName) ??
-                                                              new Six06ConsoleAppSteps();
+                Six06ConsoleAppSteps steps = (Six06ConsoleAppSteps) GetStepDefinition(Six06ConsoleAppSteps.FullName) ??
+                                             new Six06ConsoleAppSteps();
                 if (toAdd)
                 {
                     _six06ConsoleAppSteps = steps;
@@ -91,6 +97,30 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             }
         }
 
-        
+        protected static void CheckDealsHaveBeenMappedToOrderEventIds(
+            IDictionary<int, OrderDealMapping> orderEventIdToDealMapping,
+            TradeWithEventIdWithDealAndOrderDataTable tradeWithEventIdWithDealAndOrderDataTable)
+        {
+            List<ulong> orders = orderEventIdToDealMapping.Values.Select(x => (ulong) x.Order).ToList();
+            List<ulong> deals = orderEventIdToDealMapping.Values.Select(x => (ulong) x.Deal).ToList();
+            List<ulong> ordersToCheck =
+                tradeWithEventIdWithDealAndOrderDataTable.Rows.Cast<TradeWithEventIdWithDealAndOrderDataTableRow>()
+                    .Select(x => x.Order)
+                    .ToList();
+            List<ulong> dealsToCheck =
+                tradeWithEventIdWithDealAndOrderDataTable.Rows.Cast<TradeWithEventIdWithDealAndOrderDataTableRow>()
+                    .Select(x => x.Deal)
+                    .ToList();
+            List<int> orderEventIdsToCheck =
+                tradeWithEventIdWithDealAndOrderDataTable.Rows.Cast<TradeWithEventIdWithDealAndOrderDataTableRow>()
+                    .Select(x => x.OrderEventId)
+                    .ToList();
+            orders.Should().BeEquivalentTo(ordersToCheck);
+            ordersToCheck.Should().BeEquivalentTo(orders);
+            deals.Should().BeEquivalentTo(dealsToCheck);
+            dealsToCheck.Should().BeEquivalentTo(deals);
+            orderEventIdToDealMapping.Keys.Should().BeEquivalentTo(orderEventIdsToCheck);
+            orderEventIdsToCheck.Should().BeEquivalentTo(orderEventIdToDealMapping.Keys);
+        }
     }
 }

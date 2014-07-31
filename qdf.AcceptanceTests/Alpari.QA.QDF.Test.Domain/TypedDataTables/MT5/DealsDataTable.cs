@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 

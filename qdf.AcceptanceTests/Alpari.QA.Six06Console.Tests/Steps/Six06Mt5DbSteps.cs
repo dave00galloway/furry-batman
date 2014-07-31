@@ -50,7 +50,6 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             ConvertedMt5Deals = Mt5Deals.ConvertMt5DealsDataTable(Six06ConsoleAppSteps.OrderEventIdToDealMapping);
         }
 
-
         [Then(@"The highest mt5 deal id is greater than (.*)")]
         public void ThenTheHighestDealIdIsGreaterThan(ulong minValue)
         {
@@ -72,15 +71,8 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         [Then(@"all order events in the order event id to deal mapping dictionary are mapped")]
         public void ThenAllOrderEventsInTheOrderEventIdToDealMappingDictionaryAreMapped()
         {
-            foreach (
-                bool found in
-                    Six06ConsoleAppSteps.OrderEventIdToDealMapping.Keys.Select(
-                        key =>
-                            ConvertedMt5Deals.Rows.Cast<TradeWithEventIdWithDealAndOrderDataTableRow>()
-                                .Any(row => row.OrderEventId == key)))
-            {
-                found.Should().Be(true);
-            }
+            CheckDealsHaveBeenMappedToOrderEventIds(Six06ConsoleAppSteps.OrderEventIdToDealMapping,
+                ConvertedMt5Deals);
         }
     }
 }

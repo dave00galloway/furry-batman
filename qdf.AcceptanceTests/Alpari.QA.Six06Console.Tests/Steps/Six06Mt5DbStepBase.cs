@@ -19,6 +19,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         public ulong DealId { get; set; }
         public DealsDataTable Mt5Deals { get; set; }
         public TradeWithEventIdWithDealAndOrderDataTable ConvertedMt5Deals { get; set; }
+        
 
         protected ulong GetHighestDealIdForLogin(ulong loginId)
         {

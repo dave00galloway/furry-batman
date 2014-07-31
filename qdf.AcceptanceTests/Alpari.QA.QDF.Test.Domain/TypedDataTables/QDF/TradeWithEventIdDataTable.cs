@@ -132,7 +132,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
             Columns.Add(new DataColumn("OrderTimeTypeID", typeof (char)));
             Columns.Add(new DataColumn("OrderPriceTypeID", typeof (char)));
             Columns.Add(new DataColumn("TEMnemonic", typeof (string)));
-        }
+        }   
     }
 
     public class TradeWithEventIdDataTableRow : DataRow

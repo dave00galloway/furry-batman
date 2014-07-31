@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QA.Six06Console.Tests.DomainObjects;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using TechTalk.SpecFlow;
@@ -11,6 +12,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
     {
         public new static readonly string FullName = typeof (Six06ConsoleAppStepBase).FullName;
         private Dictionary<int, OrderDealMapping> _orderEventIdToDealMapping;
+        
 
         public Six06ConsoleAppStepBase()
         {

@@ -247,6 +247,57 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Map Trade with Event Ids to Mt5 Order Ids")]
+        public virtual void MapTradeWithEventIdsToMt5OrderIds()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Trade with Event Ids to Mt5 Order Ids", ((string[])(null)));
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 55
+ testRunner.When("I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 56
+  testRunner.And("I launch the process and parse the order events from the console into orders and " +
+                    "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+  testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+  testRunner.And("I convert the trades with event ids to trades with deal and order ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
+ testRunner.Then("all order events in the order event id to deal mapping dictionary are mapped to t" +
+                    "rades with event ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Map Trade with Event Ids to Mt5 Order Ids if they have them")]
+        public virtual void MapTradeWithEventIdsToMt5OrderIdsIfTheyHaveThem()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Trade with Event Ids to Mt5 Order Ids if they have them", ((string[])(null)));
+#line 62
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 63
+ testRunner.When("I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+  testRunner.And("I launch the process and parse the order events from the console into orders and " +
+                    "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+  testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+  testRunner.And("I convert the trades with event ids to trades with deal and order ids if they exi" +
+                    "st", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+ testRunner.Then("at least one order event in the order event id to deal mapping dictionary is mapp" +
+                    "ed to trades with event ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
