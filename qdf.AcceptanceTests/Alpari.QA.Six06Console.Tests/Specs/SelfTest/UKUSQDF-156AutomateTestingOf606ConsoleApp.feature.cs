@@ -320,9 +320,15 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "Deal"});
             table2.AddRow(new string[] {
-                        "Login"});
+                        "login"});
             table2.AddRow(new string[] {
                         "Order"});
+            table2.AddRow(new string[] {
+                        "ExecID"});
+            table2.AddRow(new string[] {
+                        "OrderTimeTypeID"});
+            table2.AddRow(new string[] {
+                        "OrderPriceTypeID"});
 #line 79
   testRunner.And("I compare the MT5 deals against QDF except for these fields", ((string)(null)), table2, "And ");
 #line hidden
@@ -332,7 +338,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 85
+#line 89
  testRunner.Then("the MT5 deals exactly match the QDF deals:-", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();

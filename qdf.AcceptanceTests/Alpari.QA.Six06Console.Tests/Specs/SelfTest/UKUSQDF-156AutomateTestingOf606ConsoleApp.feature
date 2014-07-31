@@ -77,10 +77,14 @@ Scenario: Run 606.5Console and compare Mt5 deals against QDF
 		# And I query the mt5 deals table for new deals for my login
 		# And I convert the trades with event ids to trades with deal and order ids if they exist|ExcludedFields
 		And I compare the MT5 deals against QDF except for these fields
-		| ExcludedFields |
-		| Deal           |
-		| Login          |
-		| Order          |
+		| ExcludedFields   |
+		| Deal             |
+		| login            |
+		| Order            |
+		| ExecID           |
+		| OrderTimeTypeID  |
+		| OrderPriceTypeID |
+
 
 	Then the MT5 deals exactly match the QDF deals:-
 		| ExportType     |  Overwrite |

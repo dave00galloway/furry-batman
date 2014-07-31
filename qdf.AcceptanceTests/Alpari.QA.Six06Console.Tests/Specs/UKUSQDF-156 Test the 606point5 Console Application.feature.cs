@@ -110,6 +110,51 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Run 606.5Console and compare Mt5 deals against QDF")]
+        [NUnit.Framework.CategoryAttribute("Mt5DealsContext")]
+        public virtual void Run606_5ConsoleAndCompareMt5DealsAgainstQDF()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Run 606.5Console and compare Mt5 deals against QDF", new string[] {
+                        "Mt5DealsContext"});
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 19
+ testRunner.Given("I have stored the highest mt5 deal id for login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.When("I import auto hedged trades into MT5 starting at deal id 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table2.AddRow(new string[] {
+                        "Deal"});
+            table2.AddRow(new string[] {
+                        "login"});
+            table2.AddRow(new string[] {
+                        "Order"});
+            table2.AddRow(new string[] {
+                        "ExecID"});
+            table2.AddRow(new string[] {
+                        "OrderTimeTypeID"});
+            table2.AddRow(new string[] {
+                        "OrderPriceTypeID"});
+#line 21
+  testRunner.And("I compare the MT5 deals against QDF except for these fields", ((string)(null)), table2, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table3.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 30
+ testRunner.Then("the MT5 deals exactly match the QDF deals:-", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

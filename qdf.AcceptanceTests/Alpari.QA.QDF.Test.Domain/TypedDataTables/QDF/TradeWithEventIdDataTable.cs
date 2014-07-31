@@ -124,7 +124,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
         {
             Columns.Add(new DataColumn("OrderEventID", typeof (int)));
             Columns.Add(new DataColumn("OriginTimeStamp", typeof (DateTime)));
-            Columns.Add(new DataColumn("FillVolume", typeof (int)));
+            Columns.Add(new DataColumn("FillVolume", typeof(double)));
             Columns.Add(new DataColumn("Price", typeof (double)));
             Columns.Add(new DataColumn("Comment", typeof (string)));
             Columns.Add(new DataColumn("ExecID", typeof (string)));
@@ -156,9 +156,9 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
         }
 
         [UsedImplicitly]
-        public int FillVolume
+        public double FillVolume
         {
-            get { return (int) base["FillVolume"]; }
+            get { return (double)base["FillVolume"]; }
             set { base["FillVolume"] = value; }
         }
 
