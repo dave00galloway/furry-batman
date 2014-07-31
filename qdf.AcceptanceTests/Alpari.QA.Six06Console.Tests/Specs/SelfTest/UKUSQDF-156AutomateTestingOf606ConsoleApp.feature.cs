@@ -264,9 +264,9 @@ this.FeatureBackground();
                     "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 57
   testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 59
+#line 58
   testRunner.And("I convert the trades with event ids to trades with deal and order ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 60
+#line 59
  testRunner.Then("all order events in the order event id to deal mapping dictionary are mapped to t" +
                     "rades with event ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -278,21 +278,21 @@ this.FeatureBackground();
         public virtual void MapTradeWithEventIdsToMt5OrderIdsIfTheyHaveThem()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Map Trade with Event Ids to Mt5 Order Ids if they have them", ((string[])(null)));
-#line 62
+#line 61
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 63
+#line 62
  testRunner.When("I call QDF.GetAutoTradeswithEventID with ID 0 and save the result as a datatable", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 64
+#line 63
   testRunner.And("I launch the process and parse the order events from the console into orders and " +
                     "deals", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
+#line 64
   testRunner.And("I close the process using Ctrl+c in the StdInput", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
+#line 65
   testRunner.And("I convert the trades with event ids to trades with deal and order ids if they exi" +
                     "st", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
+#line 66
  testRunner.Then("at least one order event in the order event id to deal mapping dictionary is mapp" +
                     "ed to trades with event ids", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -306,13 +306,13 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Run 606.5Console and compare Mt5 deals against QDF", new string[] {
                         "Mt5DealsContext"});
-#line 71
+#line 69
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
-#line 72
+#line 70
  testRunner.Given("I have stored the highest mt5 deal id for login \'8900907\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 76
+#line 71
  testRunner.When("I import auto hedged trades into MT5 starting at deal id 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -329,7 +329,7 @@ this.FeatureBackground();
                         "OrderTimeTypeID"});
             table2.AddRow(new string[] {
                         "OrderPriceTypeID"});
-#line 79
+#line 72
   testRunner.And("I compare the MT5 deals against QDF except for these fields", ((string)(null)), table2, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -338,7 +338,7 @@ this.FeatureBackground();
             table3.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 89
+#line 81
  testRunner.Then("the MT5 deals exactly match the QDF deals:-", ((string)(null)), table3, "Then ");
 #line hidden
             this.ScenarioCleanup();
