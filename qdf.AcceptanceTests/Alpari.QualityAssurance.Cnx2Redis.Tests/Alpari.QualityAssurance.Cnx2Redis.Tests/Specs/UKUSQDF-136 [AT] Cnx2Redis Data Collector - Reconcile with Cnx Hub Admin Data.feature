@@ -41,6 +41,9 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx
 		 | Book           |
 		 | OrderId        |
 		 | State          |
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
 	Examples: 
 	| report                                                                       |
 	| C:\data\Trade Activities For All accounts From 07-14-2014  To 07-14-2014.csv |  
@@ -54,6 +57,7 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx
 	| C:\data\Trade Activities For All accounts From 07-24-2014  To 07-27-2014.csv |
 	| C:\data\Trade Activities For All accounts From 07-28-2014  To 07-28-2014.csv |
 	| C:\data\Trade Activities For All accounts From 07-29-2014  To 07-30-2014.csv |
+
 
 #Examples of old test case style
 #Trade Activities For All accounts From 07-14-2014  To 07-14-2014
@@ -92,3 +96,7 @@ Scenario: Trade Activities For All accounts From07-23-2014 To07-23-2014
 		 | Book           |
 		 | OrderId        |
 		 | State          |
+
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |

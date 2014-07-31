@@ -60,11 +60,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I compare TradeWithEventId deals with the qdf deal data excluding these fields:")]
         public void WhenICompareTradeWithEventIdDealsWithTheQdfDealDataExcludingTheseFields(Table table)
         {
-            var ignoredFieldsQuery = IgnoredFieldsQuery(table);
+            var ignoredFieldsQuery = table.IgnoredFieldsQuery();
             var diffs = TradeWithEventIdDataTable.Compare(QdfDealsAsTradeWithEventIdDataTable, ignoredFieldsQuery, null, false, true);
             ScenarioContext.Current["diffs"] = diffs;
         }
-
         
         [Then(@"at least one order and event are returned")]
         public void ThenAtLeastOneOrderAndEventAreReturned()

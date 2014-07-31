@@ -51,7 +51,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
         protected DataTableComparison CompareCnxHubAdminDealsWithQdfCnxDeals(Table table)
         {
-            var ignoredFieldsQuery = IgnoredFieldsQuery(table);
+            var ignoredFieldsQuery = table.IgnoredFieldsQuery();
             var cnxHubDealsAsTestableDeals =
                 CnxHubTradeActivityImporter.CnxTradeActivityList.MapCnxTradeActivityToTestableDeals();
             var cnxDealsAsTestableDealDataTable =

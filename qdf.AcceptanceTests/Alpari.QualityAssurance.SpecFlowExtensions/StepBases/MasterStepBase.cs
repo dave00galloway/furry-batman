@@ -21,7 +21,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors",
             Justification =
                 "Unable to mark this class as abstract, so using an exceptional method to prevent direct inheritance")]
-        public MasterStepBase()
+        protected MasterStepBase()
         {
 // ReSharper disable once DoNotCallOverridableMethodsInConstructor
             ScenarioContext.Current[ToString()] = this;

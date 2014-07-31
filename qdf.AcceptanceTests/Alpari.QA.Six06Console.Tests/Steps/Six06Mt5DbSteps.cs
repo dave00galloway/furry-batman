@@ -12,6 +12,7 @@ namespace Alpari.QA.Six06Console.Tests.Steps
     [Binding]
     public class Six06Mt5DbSteps : Six06Mt5DbStepBase
     {
+        public new static readonly string FullName = typeof(Six06Mt5DbSteps).FullName;
         public Six06Mt5DbSteps(DealsDataContext dealsDataContext) : base(dealsDataContext)
         {
         }
@@ -44,8 +45,18 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             DealId = GetHighestDealIdForLogin(LoginId);
         }
 
+        [When(@"I compare the MT5 deals against QDF except for these fields")]
+        public void WhenICompareTheMt5DealsAgainstQdf(Table table)
+        {
+            WhenIQueryTheMtDealsTableForNewDealsForMyLogin();
+            WhenIConvertTheMt5DealsToTradesWithEventId();
+            Six06ConsoleQdfDbSteps.WhenIConvertTheTradesWithEventIdsToTradesWithDealAndOrderIdsIfTheyExist();
+            var ignoredFieldsQuery = table.IgnoredFieldsQuery();
+            ScenarioContext.Current["diffs"] = Six06ConsoleQdfDbSteps.ConvertedTradesWithEventIds.Compare(Six06Mt5DbSteps.ConvertedMt5Deals, ignoredFieldsQuery, null, false, true);
+        }
+
         [When(@"I convert the mt5 deals to trades with event id")]
-        public void WhenIConvertTheMtDealsToTradesWithEventId()
+        public void WhenIConvertTheMt5DealsToTradesWithEventId()
         {
             ConvertedMt5Deals = Mt5Deals.ConvertMt5DealsDataTable(Six06ConsoleAppSteps.OrderEventIdToDealMapping);
         }

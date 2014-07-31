@@ -84,7 +84,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I compare the cnx trade deals with the qdf deal data excluding these fields:")]
         public void WhenICompareTheCnxTradeDealsWithTheQdfDealDataExcludingTheseFields(Table table)
         {
-            var ignoredFieldsQuery = IgnoredFieldsQuery(table);
+            var ignoredFieldsQuery = table.IgnoredFieldsQuery();
             GetCnxAndQdfDealsAsTestableDealDataTables(out CnxDealsAsTestableDealDataTable, out QdfDealsAsTestableDealDataTable);
             var diffs = CnxDealsAsTestableDealDataTable.Compare(QdfDealsAsTestableDealDataTable, ignoredFieldsQuery,null,false,true);
             ScenarioContext.Current["diffs"] = diffs;

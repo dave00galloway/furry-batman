@@ -1,9 +1,10 @@
 ﻿using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
-using Alpari.QA.Six06Console.Tests.Steps;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using System.Configuration;
 using System.IO;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
+using StepCentral = Alpari.QA.Six06Console.Tests.Steps.StepCentral;
 
 namespace Alpari.QA.Six06Console.Tests.Hooks
 {
@@ -15,6 +16,7 @@ namespace Alpari.QA.Six06Console.Tests.Hooks
         {
             File.Copy(StepCentral.FRESH606_POINT5_CONSOLE_CONFIG_CONSOLE_INI, StepCentral.WORKING606_POINT5_CONSOLE_INI, true);
             SetupObjectContainerAndTagsProperties();
+            MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
             SetupMt5DealsDataContext();
         }
 
@@ -22,12 +24,30 @@ namespace Alpari.QA.Six06Console.Tests.Hooks
         {
             if (TagDependentAction(StepCentral.MT5_DEALS_CONTEXT))
             {
-                var connectionString =
-                    ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[StepCentral.MT5_DB]]
-                        .ConnectionString;
-                var context = new DealsDataContext(connectionString, ConfigurationManager.AppSettings[StepCentral.MT5_DB]);
-                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(context);
+                SetupMt5DealsContext();
             }
+        }
+
+        public static DealsDataContext SetupMt5DealsContext()
+        {
+            var connectionString =
+                ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings[StepCentral.MT5_DB]]
+                    .ConnectionString;
+            var context = new DealsDataContext(connectionString, ConfigurationManager.AppSettings[StepCentral.MT5_DB]);
+            if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(context);
+            return context;
+        }
+
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            MasterStepBase.SetupFeatureOutputDirectoryTimestampFirst();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            MasterStepBase.InstantiateTestRunContext();
         }
 
         [AfterScenario]

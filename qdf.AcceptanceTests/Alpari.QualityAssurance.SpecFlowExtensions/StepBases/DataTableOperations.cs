@@ -11,8 +11,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 {
     /// <summary>
     ///     Class for holding data being used in actual/expected comparisons, and methods to do comparisons
+    ///     Should really have created this as a set of extension methods on Specflow.Table, but now have a more up to date class for that
+    ///     Now using actual System.Data.DataTable for most comparisons, this class is mainly for backward compatibility
     /// </summary>
-    public class DataTableOperations
+    public static class DataTableOperations
     {
         /// <summary>
         ///     Use Reflection to get all of the property names and values from an object as a dictionary as a string,Object

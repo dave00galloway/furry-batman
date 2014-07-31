@@ -1,7 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QA.Six06Console.Tests.DomainObjects;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -31,6 +34,14 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                     .ToList();
         }
 
+        [When(@"I import auto hedged trades into MT5 starting at deal id (.*)")]
+        public void WhenIImportAutoHedgedTradesIntoMt5StartingAtDealId(int startFromId)
+        {
+            WhenICallQDF_GetAutoTradeswithEventIDWithIDAndSaveTheResultAsADatatable(startFromId);
+            Six06ConsoleAppSteps.WhenILaunchTheProcessAndParseTheOrderEventsFromTheConsoleIntoOrdersAndDeals();
+            LaunchProcessSteps.WhenICloseTheProcessUsingCtrlCInTheStdInput();
+        }
+
         [When(@"I call QDF\.GetAutoTradeswithEventID with ID (.*) and save the result as a datatable")]
         public void WhenICallQDF_GetAutoTradeswithEventIDWithIDAndSaveTheResultAsADatatable(int startFromId)
         {
@@ -57,11 +68,13 @@ namespace Alpari.QA.Six06Console.Tests.Steps
         [When(@"I convert the trades with event ids to trades with deal and order ids if they exist")]
         public void WhenIConvertTheTradesWithEventIdsToTradesWithDealAndOrderIdsIfTheyExist()
         {
-            ConvertedTradesWithEventIds =
-                TradeWithEventIdDataTable.ConvertTradeWithEventIdDataTable(
-                    Six06ConsoleAppSteps.OrderEventIdToDealMapping);
-            ConvertedTradesWithEventIds =
-                TradeWithEventIdDataTable.MapRemainingTradesWithEventIds(ConvertedTradesWithEventIds);
+            //ConvertedTradesWithEventIds =
+            //    TradeWithEventIdDataTable.ConvertTradeWithEventIdDataTable(
+            //        Six06ConsoleAppSteps.OrderEventIdToDealMapping);
+            //ConvertedTradesWithEventIds =
+            //    TradeWithEventIdDataTable.MapRemainingTradesWithEventIds(ConvertedTradesWithEventIds);
+
+            ConvertedTradesWithEventIds = TradeWithEventIdDataTable.ConvertAllRowsInTradeWithEventIdDataTable(Six06ConsoleAppSteps.OrderEventIdToDealMapping);
         }
 
         [Then(@"the QDF\.GetAutoTradeswithEventID data table contains at least one result")]
@@ -84,6 +97,14 @@ namespace Alpari.QA.Six06Console.Tests.Steps
                 .Any(
                     x =>
                         Six06ConsoleAppSteps.OrderEventIdToDealMapping.Any(y => y.Key == x.OrderEventId)).Should().BeTrue();
+        }
+
+        [Then(@"the MT5 deals exactly match the QDF deals:-")]
+        public void ThenTheMt5DealsExactlyMatchTheQdfDeals(ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            exportParameters.Path = ScenarioOutputDirectory;
+            diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();
         }
     }
 }

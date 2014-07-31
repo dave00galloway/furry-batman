@@ -2,11 +2,15 @@
 using System.Linq;
 using Alpari.QA.ProcessRunner.Tests.Steps;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
+using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QA.Six06Console.Tests.DomainObjects;
+using Alpari.QA.Six06Console.Tests.Hooks;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QA.Six06Console.Tests.Steps
 {
@@ -26,8 +30,10 @@ namespace Alpari.QA.Six06Console.Tests.Steps
 
         public static readonly string FullName = typeof (StepCentral).FullName;
         private static ProcessRunner.Tests.Steps.StepCentral _processRunnerStepCentral;
+        private static DealsDataContext _mt5DealsContext;
         private Six06ConsoleAppSteps _six06ConsoleAppSteps;
         private Six06ConsoleQdfDbSteps _six06ConsoleQdfDbSteps;
+        private Six06Mt5DbSteps _six06Mt5DbSteps;
 
 
         private static ProcessRunner.Tests.Steps.StepCentral ProcessRunnerStepCentral
@@ -97,6 +103,31 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             }
         }
 
+        public Six06Mt5DbSteps Six06Mt5DbSteps
+        {
+            get
+            {
+                if (_six06ConsoleQdfDbSteps != null)
+                {
+                    return _six06Mt5DbSteps;
+                }
+                bool toAdd = GetStepDefinition(Six06Mt5DbSteps.FullName) == null;
+                Six06Mt5DbSteps steps = (Six06Mt5DbSteps) GetStepDefinition(Six06Mt5DbSteps.FullName) ??
+                                        new Six06Mt5DbSteps(Mt5DealsContext);
+                if (toAdd)
+                {
+                    _six06Mt5DbSteps = steps;
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
+
+        private static DealsDataContext Mt5DealsContext
+        {
+            get { return _mt5DealsContext ?? (_mt5DealsContext = Six06Hooks.SetupMt5DealsContext()); }
+        }
+
         protected static void CheckDealsHaveBeenMappedToOrderEventIds(
             IDictionary<int, OrderDealMapping> orderEventIdToDealMapping,
             TradeWithEventIdWithDealAndOrderDataTable tradeWithEventIdWithDealAndOrderDataTable)
@@ -121,6 +152,22 @@ namespace Alpari.QA.Six06Console.Tests.Steps
             dealsToCheck.Should().BeEquivalentTo(deals);
             orderEventIdToDealMapping.Keys.Should().BeEquivalentTo(orderEventIdsToCheck);
             orderEventIdsToCheck.Should().BeEquivalentTo(orderEventIdToDealMapping.Keys);
+        }
+
+        /// <summary>
+        /// TODO:- find a good central place to locate this step
+        /// </summary>
+        /// <param name="table"></param>
+        /// <returns></returns>
+        [StepArgumentTransformation]
+        public static ExportParameters QuoteSearchParametersTransform(Table table)
+        {
+            var parameters = table.CreateInstance<ExportParameters>();
+            if (parameters.ExportType == ExportTypes.Csv || parameters.ExportType == ExportTypes.DataTableToCsv)
+            {
+                parameters.Path = ScenarioOutputDirectory;
+            }
+            return parameters;
         }
     }
 }

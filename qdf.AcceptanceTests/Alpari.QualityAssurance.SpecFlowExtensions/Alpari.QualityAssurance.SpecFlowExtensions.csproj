@@ -186,6 +186,7 @@
     <Compile Include="TypeUtilities\DateTimeUtils.cs" />
     <Compile Include="TypeUtilities\NumericExtensions.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
+    <Compile Include="TypeUtilities\TechTalkSpecFlowTableExtensions.cs" />
     <Compile Include="TypeUtilities\TypedDataTable.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
   </ItemGroup>
