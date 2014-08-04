@@ -82,6 +82,9 @@
     <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTable.cs" />
     <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTableExtensions.cs" />
     <Compile Include="TypedDataTables\QDF\TradeWithEventIdWithDealAndOrderDataTable.cs" />
+    <Compile Include="WebClients\CurrenexHubAdminWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

@@ -189,6 +189,9 @@
     <Compile Include="TypeUtilities\TechTalkSpecFlowTableExtensions.cs" />
     <Compile Include="TypeUtilities\TypedDataTable.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
+    <Compile Include="TypeUtilities\WebClientEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
