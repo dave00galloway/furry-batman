@@ -40,6 +40,22 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             get { return UiClientTestsStepsStepCentral.QdfDataRetrievalSteps; }
         }
 
+        public static StepCentral Cnx2RedisStepCentral
+        {
+            get
+            {
+                bool toAdd = GetStepDefinition(StepCentral.FullName) == null;
+                StepCentral steps = (StepCentral)
+                    GetStepDefinition(StepCentral.FullName) ??
+                                                             new StepCentral(ObjectContainer.Resolve<CnxTradeTableDataContext>());
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
+
         /// <summary>
         ///     return the current instance of CnxHubAdminSteps, or create a new one. note, the dependencies for CnxHubAdminSteps
         ///     (currently CnxTradeTableDataContext and ICnxHubTradeActivityImporter) must have been set up and registered with
@@ -60,6 +76,22 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                 }
                 return steps;
             }
+        }
+
+        public CnxHubAdminWebClientSteps CnxHubAdminWebClientSteps
+        {
+            get
+            {
+                bool toAdd = GetStepDefinition(CnxHubAdminWebClientSteps.FullName) == null;
+                var steps = (CnxHubAdminWebClientSteps)
+                    GetStepDefinition(CnxHubAdminWebClientSteps.FullName) ??
+                                         new CnxHubAdminWebClientSteps(ObjectContainer.Resolve<CnxTradeTableDataContext>());
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }            
         }
 
         protected static string[] IgnoredFieldsQuery(Table table)
