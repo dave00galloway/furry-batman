@@ -42,43 +42,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
         public void LogOut()
         {
-            string result;
-            // set the user agent to chrome
-            var headers = new NameValueCollection
-            {
-                {
-                    "user-agent",
-                    "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
-                },
-                {
-                    "Origin",
-                    "https://pret.currenex.com"
-                },
-                {
-                    "Accept-Encoding",
-                    "gzip,deflate,sdch"
-                },
-                {
-                    "Host",
-                    "pret.currenex.com"
-                },
-                {
-                    "Accept-Language",
-                    "en-US,en;q=0.8"
-                },
-                {
-                    "Accept",
-                    "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8"
-                },
-                {
-                    "Referer",
-                    "https://pret.currenex.com/webadmin/index.action"
-                }
-            };
-            CurrenexHubAdminWebClient.Headers.Clear();
-            CurrenexHubAdminWebClient.Headers.Add(headers);
-
-            result = CurrenexHubAdminWebClient.DownloadString("https://pret.currenex.com/webadmin/logout.action");
+            string result = CurrenexHubAdminWebClient.LogOut();
             result.Should().Contain("Logged out successfully");
         }
     }
