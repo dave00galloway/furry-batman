@@ -1,4 +1,8 @@
-﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+
+namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {
     /// <summary>
     ///     class for holding info about a specific file import/export
@@ -10,6 +14,7 @@
         public const string CSV = "Csv";
         public const string DATABASE = "Database";
         public const string CONSOLE = "Console";
+        public const string WEB_CLIENT = "WebClient";
 
         /// <summary>
         ///     Use this for untyped data tables
@@ -25,5 +30,6 @@
         public string FileName { get; set; }
         public string Path { get; set; }
         public bool Overwrite { get; set; }
+        public IDictionary<string,string> QueryParameters { get; set; }
     }
 }

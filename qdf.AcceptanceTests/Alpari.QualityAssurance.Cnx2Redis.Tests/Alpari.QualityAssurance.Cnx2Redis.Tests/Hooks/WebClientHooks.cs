@@ -13,9 +13,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
     public class WebClientHooks : SpecFlowExtensionsHooks
     {
         protected const string WEBCLIENT_TAG = "WebClient";
-        protected const string CNX_HUBADMIN_CERTIFICATE = "cnxHubAdminCertificate";
-        protected const string CNX_HUBADMIN_PASSWORD = "cnxHubAdminPassword";
-        protected const string CNX_HUBADMIN_URL = "cnxHubAdminUrl";
 
         [BeforeScenario]
         public void BeforeScenario()
@@ -39,10 +36,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks
 
         public static CurrenexHubAdminWebClient SetupCurrenexHubAdminWebClient()
         {
-            // create a new instance of WebClient
-            var currenexHubAdminWebClient = new CurrenexHubAdminWebClient(ConfigurationManager.AppSettings[CNX_HUBADMIN_CERTIFICATE],
-                ConfigurationManager.AppSettings[CNX_HUBADMIN_PASSWORD],
-                 ConfigurationManager.AppSettings[CNX_HUBADMIN_URL]);
+            var currenexHubAdminWebClient = CurrenexHubAdminWebClient.Create();
             if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(currenexHubAdminWebClient);
             return currenexHubAdminWebClient;
         }

@@ -43,7 +43,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
         public static List<T> CsvToList<T>(this string fileNamePath, string delimiter) where T : new()
         {
-            Dictionary<string, int> columnMap;
+            IDictionary<string, int> columnMap;
             List<T> parsedFile;
             long line;
             Type type;
@@ -56,7 +56,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         public static List<T> CsvToList<T>(this string fileNamePath, string delimiter, string[] ignoreProps)
             where T : new()
         {
-            Dictionary<string, int> columnMap;
+            IDictionary<string, int> columnMap;
             List<T> parsedFile;
             long line;
             Type type;
@@ -65,6 +65,25 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             CreateObjectsInList(fileNamePath, delimiter, unparsedFile, type, columnMap, line, parsedFile, ignoreProps);
             return parsedFile;
         }
+
+        public static List<T> UntypedStringArrayToList<T>(this IEnumerable<string> untypedArray, string delimiter, string[] ignoreProps)
+            where T : new()
+        {
+            IDictionary<string, int> columnMap;
+            List<T> parsedFile;
+            long line;
+            Type type;
+            IEnumerable<string> unparsedFile = ReadEnumerableAndSetupList(untypedArray, delimiter, out columnMap,
+                out parsedFile, out line, out type);
+            CreateObjectsInList(untypedArray.ToString(), delimiter, unparsedFile, type, columnMap, line, parsedFile, ignoreProps);
+            return parsedFile;
+        }
+
+        //private static void CreateObjectsInList(IEnumerable<string> fileNamePath, string delimiter, IEnumerable<string> unparsedFile, Type type, IDictionary<string, int> columnMap, long line, List<object> parsedFile, string[] ignoreProps)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
 
         /// <summary>
         ///     removes characters from a string which might cause Windows a problem when creationg files/directories
@@ -120,13 +139,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         }
 
         private static IEnumerable<string> ReadFileAndSetupList<T>(string fileNamePath, string delimiter,
-            out Dictionary<string, int> columnMap,
+            out IDictionary<string, int> columnMap,
             out List<T> parsedFile, out long line, out Type type) where T : new()
         {
             string[] unparsedFile = File.ReadAllLines(fileNamePath);
-            var headers =  unparsedFile.First().RemoveWindowsUnfriendlyChars().GetValuesFromCsvRow(delimiter).Where(v=>v.Trim().Length>0).ToList();
-            columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
-            parsedFile = new List<T>();
+            columnMap = GetColumnMap<T>(delimiter, unparsedFile);
+            parsedFile = GetTypeAndSetupList<T>(out line, out type);
+            return unparsedFile;
+        }
+
+        private static IEnumerable<string> ReadEnumerableAndSetupList<T>(IEnumerable<string> unparsedEnumerable, string delimiter,
+            out IDictionary<string, int> columnMap, out List<T> parsedFile, out long line, out Type type) where T : new()
+        {
+            // ReSharper disable PossibleMultipleEnumeration
+            columnMap = GetColumnMap<T>(delimiter, unparsedEnumerable);
+            parsedFile = GetTypeAndSetupList<T>(out line, out type);
+            return unparsedEnumerable;
+            // ReSharper restore PossibleMultipleEnumeration
+        }
+
+        private static List<T> GetTypeAndSetupList<T>(out long line, out Type type) where T : new()
+        {
+            var parsedFile = new List<T>();
             line = 1;
             Type getType;
             try
@@ -147,11 +181,23 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 }
             }
             type = getType;
-            return unparsedFile;
+            return parsedFile;
+        }
+
+        private static IDictionary<string, int> GetColumnMap<T>(string delimiter, IEnumerable<string> unparsedFile) where T : new()
+        {
+            var headers =
+                unparsedFile.First()
+                    .RemoveWindowsUnfriendlyChars()
+                    .GetValuesFromCsvRow(delimiter)
+                    .Where(v => v.Trim().Length > 0)
+                    .ToList();
+            var columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
+            return columnMap;
         }
 
         private static void CreateObjectsInList<T>(string fileNamePath, string delimiter,
-            IEnumerable<string> unparsedFile, Type type, Dictionary<string, int> columnMap, long line,
+            IEnumerable<string> unparsedFile, Type type, IDictionary<string, int> columnMap, long line,
             List<T> parsedFile, string[] ignoreProps) where T : new()
         {
             foreach (string s in unparsedFile.Skip(1))
@@ -248,7 +294,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             }
         }
 
-        private static void SetValue<T>(Dictionary<string, int> columnMap, PropertyInfo prop, T newT, KeyValuePair<string, int> pair, IList<string> row,
+        private static void SetValue<T>(IDictionary<string, int> columnMap, PropertyInfo prop, T newT, KeyValuePair<string, int> pair, IList<string> row,
             T instance) where T : new()
         {
             if (prop.PropertyType.BaseType.Name == "Enum")

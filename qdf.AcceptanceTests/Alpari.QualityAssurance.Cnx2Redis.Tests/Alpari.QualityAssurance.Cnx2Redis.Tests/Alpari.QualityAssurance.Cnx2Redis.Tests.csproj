@@ -92,8 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\CnxHubTradeActivityCsvImporter.cs" />
+    <Compile Include="Helpers\CnxHubTradeActivityWebClientImporter.cs" />
     <Compile Include="Helpers\CnxTradeActivityExtensions.cs" />
     <Compile Include="Helpers\ICnxHubTradeActivityImporter.cs" />
+    <Compile Include="Helpers\ICnxHubTradeActivityImporterExtensions.cs" />
     <Compile Include="Hooks\Cnx2RedisHooks.cs" />
     <Compile Include="DataContexts\CnxTradeTableDataContext.cs" />
     <Compile Include="Hooks\RedisDataImport.cs" />
@@ -104,6 +106,11 @@
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTest\UKUSQDF-164 [AT] UseWebClientToGetDataForComparison.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF-164 [AT] UseWebClientToGetDataForComparison.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\SelfTest\UKUSQDF-164[AT] investigate automation of requesting reports from CNX WebClient.feature.cs">
       <AutoGen>True</AutoGen>
@@ -229,6 +236,10 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSQDF-164 [AT] UseWebClientToGetDataForComparison.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-164 [AT] UseWebClientToGetDataForComparison.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTest\UKUSQDF-164[AT] investigate automation of requesting reports from CNX WebClient.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

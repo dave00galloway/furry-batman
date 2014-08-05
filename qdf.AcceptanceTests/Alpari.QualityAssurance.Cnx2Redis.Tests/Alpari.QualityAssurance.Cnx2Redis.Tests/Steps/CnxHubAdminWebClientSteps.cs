@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using FluentAssertions;
@@ -25,7 +26,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [Given(@"I have connected to currenex hub admin")]
         public void GivenIHaveConnectedToCurrenexHubAdmin()
         {
-            CurrenexHubAdminWebClient.Login("auk_dgalloway", "auk12345");
+            //CurrenexHubAdminWebClient.Login("auk_dgalloway", "auk12345");
+            CurrenexHubAdminWebClient.Login(
+                ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME],
+                ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]);
 
             // Download some secure resource
             string result =
@@ -47,7 +51,6 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             CleanedLines.Should().HaveCount(expectedRecords);
         }
-
 
         public void LogOut()
         {

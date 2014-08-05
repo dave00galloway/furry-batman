@@ -31,6 +31,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
                 case ExportParameters.CSV:
                     cnxHubTradeActivityImporter = new CnxHubTradeActivityCsvImporter();
                     break;
+                case ExportParameters.WEB_CLIENT:
+                    cnxHubTradeActivityImporter = new CnxHubTradeActivityWebClientImporter();
+                    break;
                 default:
                     throw  new ArgumentException(implementationType);
             }

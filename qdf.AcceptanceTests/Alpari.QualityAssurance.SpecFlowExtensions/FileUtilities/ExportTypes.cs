@@ -19,7 +19,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <summary>
         /// Use this for untyped data tables
         /// </summary>
-        DataTableToConsole = 5
+        DataTableToConsole = 5,
+        WebClient = 6
     }
 
     [Obsolete("Use Export Parameters class instead")]

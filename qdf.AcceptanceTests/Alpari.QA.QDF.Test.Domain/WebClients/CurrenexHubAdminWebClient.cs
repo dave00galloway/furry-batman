@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
@@ -15,6 +16,16 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
         {
             Url = url;
         }
+
+        protected const string CNX_HUBADMIN_CERTIFICATE = "cnxHubAdminCertificate";
+        protected const string CNX_HUBADMIN_CERTIFICATE_PASSWORD = "cnxHubAdminCertificatePassword";
+        protected const string CNX_HUBADMIN_URL = "cnxHubAdminUrl";
+        public const string CNX_HUB_ADMIN_USER_NAME = "cnxHubAdminUserName";
+        public const string CNX_HUB_ADMIN_PASSWORD = "cnxHubAdminPassword";
+        public const string CURRENT_DATE = "currentDate";
+        public const string FROM_DATE_STR = "fromDateStr";
+        public const string TO_DATE_STR = "toDateStr";
+        public const string OUTPUT_PATH = "outputPath";
 
         public readonly string Url;
 
@@ -195,6 +206,22 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
             var cleanedLines = CleanTradeActivityReportData(responseString).ToList();
             File.WriteAllLines(fileNamePath, cleanedLines);
             return cleanedLines;
+        }
+
+        /// <summary>
+        /// Create an instance of CurrenexHubAdminWebClient using settings from the app.config of the currently executing dll/exe
+        /// When used with Specflow this means the dll that contains the step definition of the currently executing step. 
+        /// Not sure what happens if the feature is calling a step defin ition from an external assembly
+        /// </summary>
+        /// <returns></returns>
+        public static CurrenexHubAdminWebClient Create()
+        {
+            // create a new instance of WebClient
+            var currenexHubAdminWebClient =
+                new CurrenexHubAdminWebClient(ConfigurationManager.AppSettings[CNX_HUBADMIN_CERTIFICATE],
+                    ConfigurationManager.AppSettings[CNX_HUBADMIN_CERTIFICATE_PASSWORD],
+                    ConfigurationManager.AppSettings[CNX_HUBADMIN_URL]);
+            return currenexHubAdminWebClient;
         }
     }
 }

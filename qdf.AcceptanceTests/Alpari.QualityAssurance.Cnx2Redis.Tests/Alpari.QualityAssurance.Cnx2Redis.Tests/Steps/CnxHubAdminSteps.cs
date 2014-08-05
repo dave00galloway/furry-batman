@@ -1,12 +1,13 @@
-﻿using System.Linq;
-using Alpari.QDF.Domain;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Configuration;
+using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
-using System;
-using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
@@ -14,7 +15,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
     [Binding]
     public class CnxHubAdminSteps : CnxHubAdminStepBase
     {
-        public new static readonly string FullName = typeof(CnxHubAdminSteps).FullName; 
+        public new static readonly string FullName = typeof (CnxHubAdminSteps).FullName;
+
         public CnxHubAdminSteps(CnxTradeTableDataContext cnxTradeTableDataContext,
             ICnxHubTradeActivityImporter cnxHubTradeActivityImporter)
             : base(cnxTradeTableDataContext, cnxHubTradeActivityImporter)
@@ -40,6 +42,43 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             WhenILoadCnxTradeActivitiesFrom(filenamePath);
         }
 
+        [When(@"I load cnx trade activities for ""(.*)"" for the included logins")]
+        public void WhenILoadCnxTradeActivitiesForForTheIncludedLogins(string reportDate)
+        {
+            CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
+            CnxHubTradeActivityImporter.LoadData(new ExportParameters
+            {
+                QueryParameters = new Dictionary<string, string>
+                {
+                    {
+                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME,
+                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME]
+                    },
+                    {
+                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD,
+                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]
+                    },
+                    {
+                        CurrenexHubAdminWebClient.CURRENT_DATE,
+                        DateTime.Today.ToString("MM/dd/yyyy")
+                    },
+                    {
+                        CurrenexHubAdminWebClient.FROM_DATE_STR, 
+                        reportDate
+                    },
+                    {
+                        CurrenexHubAdminWebClient.TO_DATE_STR, 
+                        reportDate
+                    },
+                    {
+                        CurrenexHubAdminWebClient.OUTPUT_PATH, 
+                        ScenarioOutputDirectory
+                    }
+                }
+            });
+        }
+
+
         [When(@"I load cnx trade activities from ""(.*)"" and reverse the deal side")]
         public void WhenILoadCnxTradeActivitiesFromAndReverseTheDealSide(string filenamePath)
         {
@@ -54,7 +93,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             DealSearchCriteria.ConvertedStartTime = CnxHubTradeActivityImporter.EarliestTradeActivityDateTime;
             //need to add 1 tick to the end time as the precision of the cnx Hub times stops at seconds
             //actually this doesn't quite work. Let's try adding a second then subtracting 1 tick.
-            DealSearchCriteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime + new TimeSpan(0,0,1) - new TimeSpan((long)1);
+            DealSearchCriteria.ConvertedEndTime = CnxHubTradeActivityImporter.LatestTradeActivityDateTime +
+                                                  new TimeSpan(0, 0, 1) - new TimeSpan(1);
         }
 
         [When(@"I filter the qdf deals by the included logins")]
@@ -76,16 +116,25 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I compare the cnx hub trade deals with the qdf deal data excluding these fields:")]
         public void WhenICompareTheCnxHubTradeDealsWithTheQdfDealDataExcludingTheseFields(Table table)
         {
-            var diffs = CompareCnxHubAdminDealsWithQdfCnxDeals(table);
+            DataTableComparison diffs = CompareCnxHubAdminDealsWithQdfCnxDeals(table);
             ScenarioContext.Current["diffs"] = diffs;
         }
 
         [Then(@"the cnx hub trade deals should match the qdf deal data exactly:-")]
         public void ThenTheCnxHubTradeDealsShouldMatchTheQdfDealDataExactly_(ExportParameters exportParameters)
         {
-            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            var diffs = (DataTableComparison) ScenarioContext.Current["diffs"];
             exportParameters.Path = ScenarioOutputDirectory;
             diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();
         }
+
+        [Then(@"the cnx hub trade deals compared with the qdf deal data should contain (.*) ""(.*)"":-")]
+        public void ThenTheCnxHubTradeDealsComparedWithTheQdfDealDataShouldContain_(int diffCount, string diffType, ExportParameters exportParameters)
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            //diffs.CheckForDifferences(exportParameters);
+            diffs.QueryDifferences(diffCount, diffType, exportParameters);
+        }
+
     }
 }

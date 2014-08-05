@@ -1,4 +1,4 @@
-﻿@UKUSQDF_164 @WebClient
+﻿@UKUSQDF_164 @WebClient 
 Feature: UKUSQDF-164[AT] investigate automation of requesting reports from CNX hhh
 	In order to verify Cnx2Redis data in the cnx-deals key
 	As a QDF Tester
