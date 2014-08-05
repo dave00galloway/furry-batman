@@ -2,6 +2,7 @@
 using Alpari.QDF.UIClient.Tests.Steps;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 
@@ -24,7 +25,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             get
             {
                 bool toAdd = GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) == null;
-                QDF.UIClient.Tests.Steps.StepCentral steps = (QDF.UIClient.Tests.Steps.StepCentral)
+                var steps = (QDF.UIClient.Tests.Steps.StepCentral)
                     GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) ??
                                                              new QDF.UIClient.Tests.Steps.StepCentral();
                 if (toAdd)
@@ -44,10 +45,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             get
             {
-                bool toAdd = GetStepDefinition(StepCentral.FullName) == null;
-                StepCentral steps = (StepCentral)
-                    GetStepDefinition(StepCentral.FullName) ??
-                                                             new StepCentral(ObjectContainer.Resolve<CnxTradeTableDataContext>());
+                bool toAdd = GetStepDefinition(FullName) == null;
+                var steps = (StepCentral)
+                    GetStepDefinition(FullName) ??
+                                    new StepCentral(ObjectContainer.Resolve<CnxTradeTableDataContext>());
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -66,7 +67,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             get
             {
                 bool toAdd = GetStepDefinition(CnxHubAdminSteps.FullName) == null;
-                CnxHubAdminSteps steps = (CnxHubAdminSteps)
+                var steps = (CnxHubAdminSteps)
                     GetStepDefinition(CnxHubAdminSteps.FullName) ??
                                          new CnxHubAdminSteps(ObjectContainer.Resolve<CnxTradeTableDataContext>(),
                                              ObjectContainer.Resolve<ICnxHubTradeActivityImporter>());
@@ -78,20 +79,22 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             }
         }
 
-        public CnxHubAdminWebClientSteps CnxHubAdminWebClientSteps
+        public static CnxHubAdminWebClientSteps CnxHubAdminWebClientSteps
         {
             get
             {
                 bool toAdd = GetStepDefinition(CnxHubAdminWebClientSteps.FullName) == null;
                 var steps = (CnxHubAdminWebClientSteps)
                     GetStepDefinition(CnxHubAdminWebClientSteps.FullName) ??
-                                         new CnxHubAdminWebClientSteps(ObjectContainer.Resolve<CnxTradeTableDataContext>());
+                                                  new CnxHubAdminWebClientSteps(
+                                                      ObjectContainer.Resolve<CnxTradeTableDataContext>(),
+                                                      WebClientHooks.SetupCurrenexHubAdminWebClient());
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
                 }
                 return steps;
-            }            
+            }
         }
 
         protected static string[] IgnoredFieldsQuery(Table table)

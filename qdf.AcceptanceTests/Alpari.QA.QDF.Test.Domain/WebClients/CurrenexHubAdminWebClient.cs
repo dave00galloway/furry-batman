@@ -1,17 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
+using System.Linq;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QA.QDF.Test.Domain.WebClients
 {
     public class CurrenexHubAdminWebClient : WebClientEx
     {
-        public CurrenexHubAdminWebClient(string certificatesPretPfx, string password)
+        public CurrenexHubAdminWebClient(string certificatesPretPfx, string password, string url)
             : base(certificatesPretPfx, password)
         {
+            Url = url;
         }
 
-        public void Login(string userName, string password, string url = "https://pret.currenex.com")
+        public readonly string Url;
+
+        public void Login(string userName, string password)
         {
             var headers = new NameValueCollection
             {
@@ -21,7 +28,7 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
                 },
                 {
                     "Origin",
-                    url
+                    Url
                 },
                 {
                     "Accept-Encoding",
@@ -50,7 +57,7 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
                 {
                     "Referer",
                     //"https://pret.currenex.com/webadmin/index.action"
-                    String.Format("{0}/webadmin/index.action",url)
+                    String.Format("{0}/webadmin/index.action",Url)
                 }
             };
             Headers.Add(headers);
@@ -65,10 +72,10 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
 
             // Authenticate
             //CurrenexHubAdminWebClient.UploadValues("https://pret.currenex.com/webadmin/loginAction.action", values);
-            UploadValues(String.Format("{0}/webadmin/loginAction.action", url), values);
+            UploadValues(String.Format("{0}/webadmin/loginAction.action", Url), values);
         }
 
-        public string DownloadTradeActivityReportAsCsv(string currentDate, string fromDate, string toDate, string url = "https://pret.currenex.com")
+        public string DownloadTradeActivityReportAsCsv(string currentDate, string fromDate, string toDate)
         {
             var headers = new NameValueCollection
             {
@@ -78,7 +85,7 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
                 },
                 {
                     "Origin",
-                    url
+                    Url
                 },
                 {
                     "Accept-Encoding",
@@ -103,7 +110,7 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
                 {
                     "Referer",
                     //"https://pret.currenex.com/webadmin/index.action"
-                    String.Format("{0}/webadmin/index.action",url)
+                    String.Format("{0}/webadmin/index.action",Url)
                 }
             };
 
@@ -123,18 +130,17 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
 
             // Post Values
             //UploadValues("https://pret.currenex.com/webadmin/report/viewTradeReport.action", values);
-            UploadValues(String.Format("{0}/webadmin/report/viewTradeReport.action", url), values);
+            UploadValues(String.Format("{0}/webadmin/report/viewTradeReport.action", Url), values);
 
             //Get CSV
             //string responseString = DownloadString("https://pret.currenex.com/webadmin/report/viewReport.action?view=CSV");
-            var downloadString = String.Format("{0}/webadmin/report/viewReport.action?view=CSV", url);
+            var downloadString = String.Format("{0}/webadmin/report/viewReport.action?view=CSV", Url);
             string responseString = DownloadString(downloadString);
             return responseString;
         }
 
         public string LogOut()
         {
-            string result;
             var headers = new NameValueCollection
             {
                 {
@@ -169,8 +175,26 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
             Headers.Clear();
             Headers.Add(headers);
 
-            result = DownloadString("https://pret.currenex.com/webadmin/logout.action");
+            string result = DownloadString("https://pret.currenex.com/webadmin/logout.action");
             return result;
+        }
+
+        public static IEnumerable<string> CleanTradeActivityReportData(string responseString)
+        {
+            var responseLines = responseString.SplitStringIntoLines();
+            var cleanedLines =
+                responseLines.Where(x => !x.Contains("Count:") && !x.Contains("Trade Activities For All accounts From:"));
+            return cleanedLines;
+        }
+
+        public IList<string> DownloadCleanedTradeActivityReportAndSaveToFile(string fileNamePath, string currentDate, string fromDate, string toDate)
+        {
+            File.Delete(fileNamePath);
+            var responseString = DownloadTradeActivityReportAsCsv(currentDate, fromDate,
+                toDate);
+            var cleanedLines = CleanTradeActivityReportData(responseString).ToList();
+            File.WriteAllLines(fileNamePath, cleanedLines);
+            return cleanedLines;
         }
     }
 }

@@ -24,5 +24,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             }
             Directory.CreateDirectory(reportRoot);
         }
+
+        /// <summary>
+        /// Split a string containing multiple lines into an array of strings
+        /// Typically useful where a csv/txt file has been transmitted as a stream or similar
+        /// </summary>
+        /// <param name="responseString"></param>
+        /// <returns></returns>
+        public static string[] SplitStringIntoLines(this string responseString)
+        {
+            return responseString.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+        }
     }
 }

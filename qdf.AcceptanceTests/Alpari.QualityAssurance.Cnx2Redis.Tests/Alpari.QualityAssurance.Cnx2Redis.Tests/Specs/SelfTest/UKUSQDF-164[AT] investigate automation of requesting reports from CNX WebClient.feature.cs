@@ -80,6 +80,8 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have connected to currenex hub admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 10
  testRunner.When("I request the trade activity report as csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 11
+ testRunner.Then("the cleaned trade activity report contains 4220 records", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
