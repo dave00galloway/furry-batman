@@ -42,6 +42,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             WhenILoadCnxTradeActivitiesFrom(filenamePath);
         }
 
+        [When(@"I load cnx trade activities with the side reversed from ""(.*)"" for the included logins")]
+        public void WhenILoadCnxTradeActivitiesWithTheSideReversedFromForTheIncludedLogins(string filenamePath)
+        {
+            CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
+            WhenILoadCnxTradeActivitiesFrom(filenamePath);
+            CnxHubTradeActivityImporter.ReverseDealSide();
+        }
+
         [When(@"I load cnx trade activities for ""(.*)"" for the included logins")]
         public void WhenILoadCnxTradeActivitiesForForTheIncludedLogins(string reportDate)
         {

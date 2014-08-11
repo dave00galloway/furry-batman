@@ -70,6 +70,7 @@
     <Compile Include="FileUtilities\ExportParametersExtensions.cs" />
     <Compile Include="FileUtilities\ExportTypes.cs" />
     <Compile Include="Hooks\SpecFlowExtensionsHooks.cs" />
+    <Compile Include="Hooks\UKUSQDF_170PreserveTestEvidenceBetweenExamplesHooks.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Specs\CsvConversions.feature.cs">
@@ -77,7 +78,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CsvConversions.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF_170_PreserveTestEvidenceBetweenExamples.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSQDF_170_PreserveTestEvidenceBetweenExamples.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\CsvConversionSteps.cs" />
+    <Compile Include="Steps\UKUSQDF_170_PreserveTestEvidenceBetweenExamplesSteps.cs" />
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DataTableComparisonExtensions.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
@@ -245,6 +252,10 @@
     <None Include="Specs\TypedDataTableFun.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TypedDataTableFun.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF_170_PreserveTestEvidenceBetweenExamples.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF_170_PreserveTestEvidenceBetweenExamples.feature.cs</LastGenOutput>
     </None>
     <None Include="TestData\Results.xsd">
       <SubType>Designer</SubType>

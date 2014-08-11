@@ -32,7 +32,8 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2013
 	Given I have the following search criteria for qdf deals
 		 | DealSource            | DealType |
 		 | cnxstp-pret-deals-all | deal     |
-	When I load cnx trade activities from "<report>" for the included logins
+	#When I load cnx trade activities from "<report>" for the included logins
+	When I load cnx trade activities with the side reversed from "<report>" for the included logins
 		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
 		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
 		 | ExcludedFields |

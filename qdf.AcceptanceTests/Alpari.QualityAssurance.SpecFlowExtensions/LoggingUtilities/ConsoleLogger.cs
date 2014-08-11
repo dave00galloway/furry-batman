@@ -10,7 +10,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities
         /// <param name="e"></param>
         public static void ConsoleExceptionLogger(this Exception e)
         {
-            Console.WriteLine("{0} {1}", e.Message, e.StackTrace);
+            Console.WriteLine("{0}\r\n{1}", e.Message, e.StackTrace);
         }
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities
         /// <param name="message"></param>
         public static void ConsoleExceptionLogger(this Exception e, string message)
         {
-            Console.WriteLine("{0} {1} {2}",message, e.Message, e.StackTrace);
+            Console.WriteLine("{0}\r\n{1}\r\n{2}", message, e.Message, e.StackTrace);
         }
     }
 }
