@@ -53,6 +53,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I load cnx trade activities for ""(.*)"" for the included logins")]
         public void WhenILoadCnxTradeActivitiesForForTheIncludedLogins(string reportDate)
         {
+            ScenarioContext.Current["ExampleIdentifier"] = reportDate;
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
             CnxHubTradeActivityImporter.LoadData(new ExportParameters
             {

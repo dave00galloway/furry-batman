@@ -69,12 +69,19 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Specs
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Preserve test evidence between test runs")]
+        [NUnit.Framework.IgnoreAttribute()]
         [NUnit.Framework.TestCaseAttribute("a", null)]
         [NUnit.Framework.TestCaseAttribute("b", null)]
         [NUnit.Framework.TestCaseAttribute("c", null)]
         public virtual void PreserveTestEvidenceBetweenTestRuns(string filename, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preserve test evidence between test runs", exampleTags);
+            string[] @__tags = new string[] {
+                    "ignore"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Preserve test evidence between test runs", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8

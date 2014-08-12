@@ -25,6 +25,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
             //wt.CreateNewFile(filename);
             try
             {
+                Thread.Sleep(500);
                 caller.Abort();
             }
             catch
@@ -39,10 +40,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps
         [Given(@"I waste some time")]
         public void GivenIWasteSomeTime()
         {
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Thread.Sleep(1000);
-            //}
+            for (int i = 0; i < 10; i++)
+            {
+                Thread.Sleep(1000);
+            }
         }
     }
 
