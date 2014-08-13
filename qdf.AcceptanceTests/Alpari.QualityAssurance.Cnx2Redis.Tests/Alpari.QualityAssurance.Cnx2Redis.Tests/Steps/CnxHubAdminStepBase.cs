@@ -1,9 +1,11 @@
 ﻿using System.Configuration;
+using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using System;
 using System.Collections.Generic;
@@ -82,6 +84,40 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var diffs = cnxDealsAsTestableDealDataTable.Compare(qdfDealsAsTestableDealDataTable, ignoredFieldsQuery, null, false,
                 true);
             return diffs;
+        }
+
+        protected static ExportParameters SetupImportParameters(string reportDate)
+        {
+            return new ExportParameters
+            {
+                QueryParameters = new Dictionary<string, string>
+                {
+                    {
+                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME,
+                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME]
+                    },
+                    {
+                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD,
+                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]
+                    },
+                    {
+                        CurrenexHubAdminWebClient.CURRENT_DATE,
+                        DateTime.Today.ToString("MM/dd/yyyy")
+                    },
+                    {
+                        CurrenexHubAdminWebClient.FROM_DATE_STR, 
+                        reportDate
+                    },
+                    {
+                        CurrenexHubAdminWebClient.TO_DATE_STR, 
+                        reportDate
+                    },
+                    {
+                        CurrenexHubAdminWebClient.OUTPUT_PATH, 
+                        ScenarioOutputDirectory
+                    }
+                }
+            };
         }
 
         /// <summary>

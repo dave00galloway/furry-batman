@@ -43,6 +43,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
            this.ReverseDealSideImpl();
         }
 
+        /// <summary>
+        /// Not currently a useful thing to have for a csv importer, but could be used to join multiple csv files into one if required
+        /// </summary>
+        /// <param name="importParameters"></param>
+        /// <param name="append"></param>
+        /// <param name="fileName"></param>
+        public void LoadData(ExportParameters importParameters, bool append, string fileName)
+        {
+            throw new NotImplementedException();
+        }
+
         private void SetupCnxTradeActivityList(ExportParameters importParameters)
         {
             CnxTradeActivityList = IncludedLoginsList == null || !IncludedLoginsList.Any()

@@ -99,6 +99,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     .Replace(@"/", "")
                     .Replace(@"(", "")
                     .Replace(@")", "")
+                    .Replace(@":", "")
                     .Replace("-", "");
             return cleansedString;
         }

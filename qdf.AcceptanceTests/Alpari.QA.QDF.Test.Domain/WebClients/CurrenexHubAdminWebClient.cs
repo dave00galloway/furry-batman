@@ -201,11 +201,38 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
         public IList<string> DownloadCleanedTradeActivityReportAndSaveToFile(string fileNamePath, string currentDate, string fromDate, string toDate)
         {
             File.Delete(fileNamePath);
-            var responseString = DownloadTradeActivityReportAsCsv(currentDate, fromDate,
-                toDate);
-            var cleanedLines = CleanTradeActivityReportData(responseString).ToList();
+            var cleanedLines = DownloadAndCleanTradeActivityReport(currentDate, fromDate, toDate);
             File.WriteAllLines(fileNamePath, cleanedLines);
             return cleanedLines;
+        }
+
+        public void DownloadCleanedTradeActivityReportAndSaveToFile(string fileNamePath, string currentDate, string fromDate, string toDate, bool append)
+        {
+            if (!append)
+            {
+                File.Delete(fileNamePath);
+            }
+            var cleanedLines = DownloadAndCleanTradeActivityReport(currentDate, fromDate, toDate);
+            // if we've got html back as the response, then there was either no data, or the record count was too big
+            if (!cleanedLines.Any(x => x.Contains("DOCTYPE HTML PUBLIC")))
+            {
+                if (append && File.Exists(fileNamePath))
+                {
+                    cleanedLines.RemoveAt(0);
+                    File.AppendAllLines(fileNamePath, cleanedLines);
+                }
+                else
+                {
+                    File.WriteAllLines(fileNamePath, cleanedLines);
+                }
+            }
+            else
+            {
+                foreach (var cleanedLine in cleanedLines.Where(cleanedLine => cleanedLine.Contains("errorMessage")))
+                {
+                    Console.WriteLine("error getting data for {0}. error message = {1}", fromDate, cleanedLine);
+                }
+            }
         }
 
         /// <summary>
@@ -222,6 +249,14 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
                     ConfigurationManager.AppSettings[CNX_HUBADMIN_CERTIFICATE_PASSWORD],
                     ConfigurationManager.AppSettings[CNX_HUBADMIN_URL]);
             return currenexHubAdminWebClient;
+        }
+
+        private List<string> DownloadAndCleanTradeActivityReport(string currentDate, string fromDate, string toDate)
+        {
+            var responseString = DownloadTradeActivityReportAsCsv(currentDate, fromDate,
+                toDate);
+            var cleanedLines = CleanTradeActivityReportData(responseString).ToList();
+            return cleanedLines;
         }
     }
 }

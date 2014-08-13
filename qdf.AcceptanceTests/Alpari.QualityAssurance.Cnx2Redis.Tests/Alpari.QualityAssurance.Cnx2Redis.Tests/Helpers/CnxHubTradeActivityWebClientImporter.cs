@@ -50,6 +50,40 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
             UpdateStartAndEndTimes();
         }
 
+        /// <summary>
+        /// Creates or appends to a csv file using the provided importParameters.
+        /// Does not currently save the result to CnxTradeActivityList
+        /// </summary>
+        /// <param name="importParameters"></param>
+        /// <param name="append"></param>
+        /// <param name="fileName"></param>
+        public void LoadData(ExportParameters importParameters, bool append, string fileName)
+        {
+            //IList<string> data;
+            using (var currenexHubAdminWebClient = CurrenexHubAdminWebClient.Create())
+            {
+                var queryParams = importParameters.QueryParameters;
+                //login
+                currenexHubAdminWebClient.Login(
+                    queryParams[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME],
+                    queryParams[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]);
+                //get data
+                currenexHubAdminWebClient.DownloadCleanedTradeActivityReportAndSaveToFile(
+                    String.Format("{0}{1}",
+                    queryParams[CurrenexHubAdminWebClient.OUTPUT_PATH],
+                    fileName
+                    )
+                    ,
+                    queryParams[CurrenexHubAdminWebClient.CURRENT_DATE],
+                    queryParams[CurrenexHubAdminWebClient.FROM_DATE_STR],
+                    queryParams[CurrenexHubAdminWebClient.TO_DATE_STR]
+                    ,
+                    append);
+                //logout/dispose
+                currenexHubAdminWebClient.LogOut();
+            }
+        }
+
         private void SetupCnxTradeActivityList(IEnumerable<string> data)
         {
             var enumerable = data as string[] ?? data.ToArray();

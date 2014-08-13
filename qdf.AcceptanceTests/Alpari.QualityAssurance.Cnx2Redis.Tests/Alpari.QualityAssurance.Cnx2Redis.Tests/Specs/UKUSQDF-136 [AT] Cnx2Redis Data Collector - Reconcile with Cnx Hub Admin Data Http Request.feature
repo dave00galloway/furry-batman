@@ -45,10 +45,12 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 	Examples: 
-	| reportDate |
-	| 08/05/2014 |
+	| reportDate | 
+	| 08/05/2014 |  
 	| 08/06/2014 |
 	| 08/07/2014 |
 	| 08/08/2014 |
 	| 08/09/2014 |
 	| 08/10/2014 |
+	| 08/11/2014 |
+	| 08/12/2014 |

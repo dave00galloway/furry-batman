@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using Alpari.QA.QDF.Test.Domain.DataContexts;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SecureMyPassword;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using BoDi;
 using BookSleeve;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Linq;
 using TechTalk.SpecFlow;
 using StepCentral = Alpari.QDF.UIClient.Tests.Steps.StepCentral;
 

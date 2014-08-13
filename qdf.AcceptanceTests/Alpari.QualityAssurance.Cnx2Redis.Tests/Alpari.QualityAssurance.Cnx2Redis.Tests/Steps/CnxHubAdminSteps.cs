@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Configuration;
+using System.Globalization;
 using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
@@ -45,6 +46,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I load cnx trade activities with the side reversed from ""(.*)"" for the included logins")]
         public void WhenILoadCnxTradeActivitiesWithTheSideReversedFromForTheIncludedLogins(string filenamePath)
         {
+            ScenarioContext.Current["ExampleIdentifier"] = filenamePath;
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
             WhenILoadCnxTradeActivitiesFrom(filenamePath);
             CnxHubTradeActivityImporter.ReverseDealSide();
@@ -55,38 +57,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             ScenarioContext.Current["ExampleIdentifier"] = reportDate;
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
-            CnxHubTradeActivityImporter.LoadData(new ExportParameters
-            {
-                QueryParameters = new Dictionary<string, string>
-                {
-                    {
-                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME,
-                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME]
-                    },
-                    {
-                        CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD,
-                        ConfigurationManager.AppSettings[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]
-                    },
-                    {
-                        CurrenexHubAdminWebClient.CURRENT_DATE,
-                        DateTime.Today.ToString("MM/dd/yyyy")
-                    },
-                    {
-                        CurrenexHubAdminWebClient.FROM_DATE_STR, 
-                        reportDate
-                    },
-                    {
-                        CurrenexHubAdminWebClient.TO_DATE_STR, 
-                        reportDate
-                    },
-                    {
-                        CurrenexHubAdminWebClient.OUTPUT_PATH, 
-                        ScenarioOutputDirectory
-                    }
-                }
-            });
+            CnxHubTradeActivityImporter.LoadData(SetupImportParameters(reportDate));
         }
 
+        [When(@"I load cnx trade activities from '(.*)' to '(.*)' for the included logins")]
+        public void WhenILoadCnxTradeActivitiesFromToForTheIncludedLogins(DateTime fromDate, DateTime toDate)
+        {
+            var reportMonth = fromDate.Month;
+            var reportYear = fromDate.Year;
+            var append = false;
+            var reportDate = new DateTime(reportYear,reportMonth,fromDate.Day);
+            while (reportDate <= toDate)
+            {
+                CnxHubTradeActivityImporter.LoadData(SetupImportParameters(reportDate.ToString(CultureInfo.InvariantCulture)), append, String.Format("Alpari UK_TradeActivity_{0}_{1}.csv", reportYear,reportMonth));
+                reportDate = reportDate.AddDays(1);
+                append = reportDate.Month == reportMonth;
+                reportMonth = reportDate.Month;
+            }
+        }
 
         [When(@"I load cnx trade activities from ""(.*)"" and reverse the deal side")]
         public void WhenILoadCnxTradeActivitiesFromAndReverseTheDealSide(string filenamePath)

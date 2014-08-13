@@ -51,6 +51,13 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2013
 	| C:\data\AlpariUK_2013_02.csv |
 	| C:\data\AlpariUK_2013_03.csv |
 	| C:\data\AlpariUK_2013_04.csv |
+	| C:\data\AlpariUK_2013_05.csv |
+	| C:\data\AlpariUK_2013_06.csv |
+	| C:\data\AlpariUK_2013_07.csv |
+	| C:\data\AlpariUK_2013_08.csv |
+	| C:\data\AlpariUK_2013_10.csv |
+	| C:\data\AlpariUK_2013_11.csv |
+	| C:\data\AlpariUK_2013_12.csv |
 
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre Midnight
