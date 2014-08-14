@@ -1,5 +1,5 @@
 ﻿@UKUSQDF_164 @WebClient 
-Feature: UKUSQDF-164[AT] investigate automation of requesting reports from CNX hhh
+Feature: UKUSQDF-164[AT] investigate automation of requesting reports from CNX Webclient
 	In order to verify Cnx2Redis data in the cnx-deals key
 	As a QDF Tester
 	I want to get cnx hub data via a scheduled job

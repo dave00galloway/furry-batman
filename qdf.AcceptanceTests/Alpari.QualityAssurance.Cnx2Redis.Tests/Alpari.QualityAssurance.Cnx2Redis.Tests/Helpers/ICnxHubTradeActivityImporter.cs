@@ -13,11 +13,17 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
         IEnumerable<IncludedLogins> IncludedLoginsList { get; set; }
         void LoadData();
         void LoadData(ExportParameters importParameters);
-        void UpdateStartAndEndTimes();
+        void LoadData(ExportParameters importParameters, bool append, string fileName);
 
+        /// <summary>
+        /// use this overload when you want to specify a differnt query other than the main/default query 
+        /// </summary>
+        /// <param name="queryName"></param>
+        /// <param name="importParameters"></param>
+        IList<string> LoadData(string queryName, ExportParameters importParameters);
+        void UpdateStartAndEndTimes();
         void UpdateStartAndEndTimes(DateTime startDate, DateTime endDate);
         void ReverseDealSide();
-        void LoadData(ExportParameters importParameters, bool append, string fileName);
     }
 
     public static class CnxHubTradeActivityImporterFactory

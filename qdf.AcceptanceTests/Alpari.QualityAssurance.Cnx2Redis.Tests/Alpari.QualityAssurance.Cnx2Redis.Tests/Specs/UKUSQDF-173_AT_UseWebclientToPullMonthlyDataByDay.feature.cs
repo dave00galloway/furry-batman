@@ -77,8 +77,23 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.When("I load cnx trade activities from \'30-10-2012\' to \'02-11-2012\' for the included lo" +
+ testRunner.When("I load cnx trade activities from \'22-04-2012\' to \'31-12-2012\' for the included lo" +
                     "gins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("get list of accounts from trade activity report page")]
+        [NUnit.Framework.IgnoreAttribute()]
+        public virtual void GetListOfAccountsFromTradeActivityReportPage()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("get list of accounts from trade activity report page", new string[] {
+                        "ignore"});
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("I have a list of logins from the trade activity report", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -34,6 +34,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             var request = (HttpWebRequest) base.GetWebRequest(address);
             if (request != null)
             {
+                request.Timeout = 200000;
                 if (CertificateFilenamePath != null && Password != null)
                     request.ClientCertificates.Add(new X509Certificate2(CertificateFilenamePath, Password,
                         X509KeyStorageFlags.MachineKeySet));

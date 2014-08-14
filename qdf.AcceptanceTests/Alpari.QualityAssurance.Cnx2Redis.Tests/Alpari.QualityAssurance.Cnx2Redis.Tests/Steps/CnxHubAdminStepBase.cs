@@ -86,8 +86,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             return diffs;
         }
 
-        protected static ExportParameters SetupImportParameters(string reportDate)
+        protected static ExportParameters SetupImportParametersForTradeActivityReport(string reportDate)
         {
+            //Note:- have used an output path as a query parameter - this duplicates functionality already supplied in ExportParameters, so could potentially be removed (as long ads the equivalent property in ExportParameters is used instead)
             return new ExportParameters
             {
                 QueryParameters = new Dictionary<string, string>

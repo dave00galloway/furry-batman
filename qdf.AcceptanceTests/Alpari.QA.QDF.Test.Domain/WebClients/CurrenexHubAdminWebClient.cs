@@ -190,6 +190,68 @@ namespace Alpari.QA.QDF.Test.Domain.WebClients
             return result;
         }
 
+        public IList<string> GetListOfLoginsFromTradeActivityReportPage()
+        {
+            //var headers = new NameValueCollection
+            //{
+            //    {
+            //        "user-agent",
+            //        "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36"
+            //    },
+            //    {
+            //        "Origin",
+            //        Url
+            //    },
+            //    {
+            //        "Accept-Encoding",
+            //        "gzip,deflate,sdch"
+            //    },
+            //    {
+            //        "Host",
+            //        "pret.currenex.com"
+            //    },
+            //    {
+            //        "Accept-Language",
+            //        "en-US,en;q=0.8"
+            //    },
+            //    {
+            //        "Content-Type",
+            //        "application/x-www-form-urlencoded"
+            //    },
+            //    {
+            //        "Accept",
+            //        "text/html, */*; q=0.01"
+            //    },
+            //    {
+            //        "Referer",
+            //        String.Format("{0}/webadmin/index.action",Url)
+            //    },
+            //    {
+            //        "X-Requested-With",
+            //        "XMLHttpRequest"
+            //    }
+            //};
+
+            //Headers.Clear();
+            //Headers.Add(headers);
+
+            //var values = new NameValueCollection
+            //{
+            //   // {"currentDate", currentDate},
+            //    {"pageIndex", "0"},
+            //    {"view", "HTML"},
+            //   // {"fromDateStr", fromDate},
+            //   // {"toDateStr", toDate},
+            //    {"selectedAccountId", ""},
+            //    {"selectReport", "Trade Report"}
+            //};
+
+            //// Post Values
+            ////UploadValues("https://pret.currenex.com/webadmin/report/viewTradeReport.action", values);
+            //UploadValues(String.Format("{0}/webadmin/report/viewTradeReport.action", Url), values);
+            throw new NotImplementedException();
+        }
+
         public static IEnumerable<string> CleanTradeActivityReportData(string responseString)
         {
             var responseLines = responseString.SplitStringIntoLines();

@@ -19,10 +19,10 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSQDF-164[AT] investigate automation of requesting reports from CNX hhh")]
+    [NUnit.Framework.DescriptionAttribute("UKUSQDF-164[AT] investigate automation of requesting reports from CNX Webclient")]
     [NUnit.Framework.CategoryAttribute("UKUSQDF_164")]
     [NUnit.Framework.CategoryAttribute("WebClient")]
-    public partial class UKUSQDF_164ATInvestigateAutomationOfRequestingReportsFromCNXHhhFeature
+    public partial class UKUSQDF_164ATInvestigateAutomationOfRequestingReportsFromCNXWebclientFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
@@ -34,7 +34,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-164[AT] investigate automation of requesting reports from CNX hhh", "In order to verify Cnx2Redis data in the cnx-deals key\r\nAs a QDF Tester\r\nI want t" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSQDF-164[AT] investigate automation of requesting reports from CNX Webclient", "In order to verify Cnx2Redis data in the cnx-deals key\r\nAs a QDF Tester\r\nI want t" +
                     "o get cnx hub data via a scheduled job", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSQDF_164",
                         "WebClient"});

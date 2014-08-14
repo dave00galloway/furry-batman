@@ -28,6 +28,11 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
             UpdateStartAndEndTimes();
         }
 
+        public IList<string> LoadData(string queryName, ExportParameters importParameters)
+        {
+            throw new NotImplementedException();
+        }
+
         public void UpdateStartAndEndTimes()
         {
             this.UpdateStartAndEndTimesImpl();

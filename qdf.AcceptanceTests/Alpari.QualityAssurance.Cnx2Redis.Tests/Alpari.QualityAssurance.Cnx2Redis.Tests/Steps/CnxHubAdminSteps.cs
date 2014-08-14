@@ -30,6 +30,14 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             IncludedLoginsList = includedLogins;
         }
 
+        [Given(@"I have a list of logins from the trade activity report")]
+        public void GivenIHaveAListOfLoginsFromTheTradeActivityReport()
+        {
+           // CnxHubTradeActivityImporter.LoadData("queryName",new ExportParameters());
+            throw new NotImplementedException();
+        }
+
+
         [When(@"I load cnx trade activities from ""(.*)""")]
         public void WhenILoadCnxTradeActivitiesFrom(string filenamePath)
         {
@@ -57,7 +65,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             ScenarioContext.Current["ExampleIdentifier"] = reportDate;
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
-            CnxHubTradeActivityImporter.LoadData(SetupImportParameters(reportDate));
+            CnxHubTradeActivityImporter.LoadData(SetupImportParametersForTradeActivityReport(reportDate));
         }
 
         [When(@"I load cnx trade activities from '(.*)' to '(.*)' for the included logins")]
@@ -69,7 +77,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             var reportDate = new DateTime(reportYear,reportMonth,fromDate.Day);
             while (reportDate <= toDate)
             {
-                CnxHubTradeActivityImporter.LoadData(SetupImportParameters(reportDate.ToString(CultureInfo.InvariantCulture)), append, String.Format("Alpari UK_TradeActivity_{0}_{1}.csv", reportYear,reportMonth));
+                CnxHubTradeActivityImporter.LoadData(SetupImportParametersForTradeActivityReport(reportDate.ToString(CultureInfo.InvariantCulture)), append, String.Format("Alpari UK_TradeActivity_{0}_{1}.csv", reportYear,reportMonth));
                 reportDate = reportDate.AddDays(1);
                 append = reportDate.Month == reportMonth;
                 reportMonth = reportDate.Month;

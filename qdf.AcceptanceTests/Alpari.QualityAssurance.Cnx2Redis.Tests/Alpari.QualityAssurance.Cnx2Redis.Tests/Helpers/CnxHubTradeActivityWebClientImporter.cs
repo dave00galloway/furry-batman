@@ -84,6 +84,24 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
             }
         }
 
+        public IList<string> LoadData(string queryName, ExportParameters importParameters)
+        {
+            IList<string> data;
+            using (var currenexHubAdminWebClient = CurrenexHubAdminWebClient.Create())
+            {
+                var queryParams = importParameters.QueryParameters;
+                //login
+                currenexHubAdminWebClient.Login(
+                    queryParams[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_USER_NAME],
+                    queryParams[CurrenexHubAdminWebClient.CNX_HUB_ADMIN_PASSWORD]);
+                //get data
+                data = currenexHubAdminWebClient.GetListOfLoginsFromTradeActivityReportPage();
+                //logout/dispose
+                currenexHubAdminWebClient.LogOut();
+            }
+            return data;
+        }
+
         private void SetupCnxTradeActivityList(IEnumerable<string> data)
         {
             var enumerable = data as string[] ?? data.ToArray();
