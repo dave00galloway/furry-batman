@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.Six06Console.Test
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.QDF.Test.Domain", "Alpari.QA.QDF.Test.Domain\Alpari.QA.QDF.Test.Domain.csproj", "{29C6F863-C3F7-4B80-8212-7B3A5389BDCB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QDF.ConversionRateData", "Alpari.QDF.ConversionRateData\Alpari.QDF.ConversionRateData.csproj", "{4FE5F199-305F-4C89-8268-E7D622A76305}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +115,10 @@ Global
 		{29C6F863-C3F7-4B80-8212-7B3A5389BDCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29C6F863-C3F7-4B80-8212-7B3A5389BDCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29C6F863-C3F7-4B80-8212-7B3A5389BDCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FE5F199-305F-4C89-8268-E7D622A76305}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FE5F199-305F-4C89-8268-E7D622A76305}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FE5F199-305F-4C89-8268-E7D622A76305}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FE5F199-305F-4C89-8268-E7D622A76305}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
