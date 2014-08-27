@@ -154,6 +154,20 @@ testRunner.Given("I have this list of takers to load from cnx hub", ((string)(nu
         [NUnit.Framework.TestCaseAttribute("08/10/2014", null)]
         [NUnit.Framework.TestCaseAttribute("08/11/2014", null)]
         [NUnit.Framework.TestCaseAttribute("08/12/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/13/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/14/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/15/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/16/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/17/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/18/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/19/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/20/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/21/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/22/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/23/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/24/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/25/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("08/26/2014", null)]
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_ReconcileWithCnxHubAdminDataFromHttpRequest(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data fro" +
