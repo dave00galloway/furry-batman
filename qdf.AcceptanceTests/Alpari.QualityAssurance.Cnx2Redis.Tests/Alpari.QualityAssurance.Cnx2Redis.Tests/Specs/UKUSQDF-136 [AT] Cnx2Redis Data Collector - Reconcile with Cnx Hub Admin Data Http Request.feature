@@ -68,3 +68,4 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx
 	| 08/24/2014 |
 	| 08/25/2014 |
 	| 08/26/2014 |
+	| 08/27/2014 |

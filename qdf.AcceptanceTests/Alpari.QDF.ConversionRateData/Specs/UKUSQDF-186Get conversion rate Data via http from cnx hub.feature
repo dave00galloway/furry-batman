@@ -17,5 +17,5 @@ Scenario: Get a days conversion rate data via http from cnx hub and save as csv
 
 Scenario: Get conversion rate data via http from cnx hub for all days between 2 dates and save as csv
 	Given I have connected to currenex hub admin
-	When I download conversion rate data from "01/01/2014" to "08/27/2014"
+	When I download conversion rate data from "01/01/2014" to "02/01/2014"
 	#Then the conversion rate data contains 168 lines

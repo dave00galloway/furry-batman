@@ -74,6 +74,7 @@ namespace Alpari.QDF.ConversionRateData.Hooks
                     e.ConsoleExceptionLogger();
                 }
             }
+            ObjectContainer = null;
         }
     }
 }
