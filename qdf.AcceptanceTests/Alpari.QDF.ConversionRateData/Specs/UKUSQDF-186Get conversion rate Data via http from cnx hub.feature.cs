@@ -91,14 +91,31 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void GetADaysConversionRateDataViaHttpFromCnxHubAndSaveAsCsv()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get a days conversion rate data via http from cnx hub and save as csv", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
 #line 13
- testRunner.Given("I have connected to currenex hub admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+this.ScenarioSetup(scenarioInfo);
 #line 14
- testRunner.When("I download yesterday\'s conversion rate data to csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("I have connected to currenex hub admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 15
+ testRunner.When("I download yesterday\'s conversion rate data to csv", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
  testRunner.Then("the conversion rate data contains 168 lines", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get conversion rate data via http from cnx hub for all days between 2 dates and s" +
+            "ave as csv")]
+        public virtual void GetConversionRateDataViaHttpFromCnxHubForAllDaysBetween2DatesAndSaveAsCsv()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get conversion rate data via http from cnx hub for all days between 2 dates and s" +
+                    "ave as csv", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 19
+ testRunner.Given("I have connected to currenex hub admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 20
+ testRunner.When("I download conversion rate data from \"01/01/2014\" to \"08/27/2014\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

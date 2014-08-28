@@ -53,6 +53,18 @@ namespace Alpari.QDF.ConversionRateData.Steps
             ConversionRateData = CurrenexHubAdminWebClient.GetConversionRateDataForAndSaveToCsv(SetupImportParameters(date));
         }
 
+        [When(@"I download conversion rate data from ""(.*)"" to ""(.*)""")]
+        public void WhenIDownloadConversionRateDataFromTo(DateTime fromDate, DateTime toDate)
+        {
+            var reportDate = fromDate;
+            while (reportDate <= toDate)
+            {
+                CurrenexHubAdminWebClient.GetConversionRateDataForAndSaveToCsv(SetupImportParameters(reportDate.ToShortDateString()));
+                reportDate = reportDate.AddDays(1);
+            }
+        }
+
+
 
         [Then(@"the conversion rate data contains (.*) lines")]
         public void ThenTheConversionRateDataContainsLines(int expectedLineCount)
