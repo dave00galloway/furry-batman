@@ -1,9 +1,10 @@
 ﻿using System;
 using Alpari.QA.QDF.Test.Domain.WebClients;
-using Alpari.QDF.ConversionRateData.Steps;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
+using StepCentral = Alpari.QDF.ConversionRateData.Steps.StepCentral;
 
 namespace Alpari.QDF.ConversionRateData.Hooks
 {
@@ -15,6 +16,7 @@ namespace Alpari.QDF.ConversionRateData.Hooks
         [BeforeScenario]
         public void BeforeScenario()
         {
+            MasterStepBase.SetupScenarioOutputDirectoryTimestampFirst();
             if (ObjectContainer == null)
             {
                 SetupObjectContainerAndTagsProperties();
@@ -30,6 +32,24 @@ namespace Alpari.QDF.ConversionRateData.Hooks
                     e.ConsoleExceptionLogger();
                 }
             }
+        }
+
+        /// <summary>
+        ///     Clear the test output directory for the feature
+        ///     to limit this set the tag to
+        ///     //[BeforeFeature("CreateOutput")]
+        ///     and apply tags to features
+        /// </summary>
+        [BeforeFeature]
+        public static void BeforeFeature()
+        {
+            MasterStepBase.SetupFeatureOutputDirectoryTimestampFirst();
+        }
+
+        [BeforeTestRun]
+        public static void BeforeTestRun()
+        {
+            MasterStepBase.InstantiateTestRunContext();
         }
 
         public static CurrenexHubAdminWebClient SetupCurrenexHubAdminWebClient()

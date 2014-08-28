@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Alpari.QA.QDF.Test.Domain.WebClients;
@@ -22,6 +23,7 @@ namespace Alpari.QDF.ConversionRateData.Steps
         }
 
         public CurrenexHubAdminWebClient CurrenexHubAdminWebClient { get; set; }
+        public List<string> ConversionRateData { get; set; }
 
         [Given(@"I have connected to currenex hub admin")]
         public void GivenIHaveConnectedToCurrenexHubAdmin()
@@ -35,6 +37,27 @@ namespace Alpari.QDF.ConversionRateData.Steps
             string result =
                 CurrenexHubAdminWebClient.DownloadString("https://pret.currenex.com/webadmin/report/list.action");
             result.Should().NotBeNullOrWhiteSpace();
+        }
+
+        [When(@"I download yesterday's conversion rate data")]
+        public void WhenIDownloadYesterdaySConversionRateData()
+        {
+            var date = DateTime.Today.Subtract(new TimeSpan(1, 0, 0, 0)).Date.ToShortDateString();
+            ConversionRateData = CurrenexHubAdminWebClient.GetConversionRateDataFor(SetupImportParameters(date));
+        }
+
+        [When(@"I download yesterday's conversion rate data to csv")]
+        public void WhenIDownloadYesterdaySConversionRateDataToCsv()
+        {
+            var date = DateTime.Today.Subtract(new TimeSpan(1, 0, 0, 0)).Date.ToShortDateString();
+            ConversionRateData = CurrenexHubAdminWebClient.GetConversionRateDataForAndSaveToCsv(SetupImportParameters(date));
+        }
+
+
+        [Then(@"the conversion rate data contains (.*) lines")]
+        public void ThenTheConversionRateDataContainsLines(int expectedLineCount)
+        {
+            ConversionRateData.Count.Should().Be(expectedLineCount);
         }
 
         protected static ExportParameters SetupImportParameters(string reportDate)
@@ -77,5 +100,7 @@ namespace Alpari.QDF.ConversionRateData.Steps
             string result = CurrenexHubAdminWebClient.LogOut();
             result.Should().Contain("Logged out successfully");
         }
+
+        
     }
 }
