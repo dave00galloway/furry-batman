@@ -115,7 +115,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 19
  testRunner.Given("I have connected to currenex hub admin", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 20
- testRunner.When("I download conversion rate data from \"01/01/2014\" to \"02/01/2014\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I download conversion rate data from \"01/01/2014\" to \"01/02/2014\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
