@@ -67,19 +67,44 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 8
+#line 9
+ testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 10
+ testRunner.When("I get all positions for server \"ProTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+        }
+        
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Get open positions")]
         public virtual void GetOpenPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get open positions", ((string[])(null)));
-#line 8
+#line 12
 this.ScenarioSetup(scenarioInfo);
-#line 9
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
- testRunner.When("I get all positions for server \"ProTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 11
+#line 8
+this.FeatureBackground();
+#line 13
  testRunner.Then("at least 1 position is for login 7003713", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("convert open positions")]
+        public virtual void ConvertOpenPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("convert open positions", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 8
+this.FeatureBackground();
+#line 16
+ testRunner.When("I convert open positions to testable positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+ testRunner.Then("at least 1 position has an OpenTime of \"2014/09/02 11:59:57\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

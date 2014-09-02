@@ -43,6 +43,46 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
+        /// http://stackoverflow.com/questions/15926261/convert-epoch-unix-to-datetime
+        /// </summary>
+        /// <param name="unixTimeStamp"></param>
+        /// <returns></returns>
+        public static DateTime? ConvertUnixTimeStampAsSeconds(this string unixTimeStamp)
+        {
+            return new DateTime(1970, 1, 1,0,0,0).AddSeconds(Convert.ToDouble(unixTimeStamp));
+        }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/15926261/convert-epoch-unix-to-datetime
+        /// </summary>
+        /// <param name="unixTimeStamp"></param>
+        /// <returns></returns>
+        public static DateTime? ConvertUnixTimeStampAsSeconds(this int unixTimeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(unixTimeStamp));
+        }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/15926261/convert-epoch-unix-to-datetime
+        /// </summary>
+        /// <param name="unixTimeStamp"></param>
+        /// <returns></returns>
+        public static DateTime? ConvertUnixTimeStampAsMilliSeconds(this string unixTimeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).AddMilliseconds(Convert.ToDouble(unixTimeStamp));
+        }
+
+        /// <summary>
+        /// http://stackoverflow.com/questions/15926261/convert-epoch-unix-to-datetime
+        /// </summary>
+        /// <param name="unixTimeStamp"></param>
+        /// <returns></returns>
+        public static DateTime? ConvertUnixTimeStampAsMilliSeconds(this int unixTimeStamp)
+        {
+            return new DateTime(1970, 1, 1, 0, 0, 0).AddMilliseconds(Convert.ToDouble(unixTimeStamp));
+        }
+
+        /// <summary>
         ///     Create a datetime from a shorthand string code relative to current date
         /// </summary>
         /// <param name="shortCode">format +\- magnitude units</param>
