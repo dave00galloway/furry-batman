@@ -6,7 +6,6 @@ Feature: UKUSCC-1014_AT_Create Tools for comparing redis positions
 
 #currently assumes 1 or more manually entered trades
 Scenario: Get open positions
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+	Given I have a connection to a redis repository on "localhost" port 6379 db 0
+	When I get all positions for server "ProTest"
+	Then at least 1 position is for login 7003713

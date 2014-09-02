@@ -116,6 +116,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC-1014_AT_Create Tools for comparing redis positions.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\GetRedisPositionsSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\Alpari.CC.WebPortal.DAL\" />
