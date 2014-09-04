@@ -19,22 +19,22 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSCC-1014_AT_Create Tools for comparing redis positions")]
+    [NUnit.Framework.DescriptionAttribute("LoadTradeDataFromBackOfficeTerminalReport")]
     [NUnit.Framework.CategoryAttribute("UKUSCC_1014")]
-    public partial class UKUSCC_1014_AT_CreateToolsForComparingRedisPositionsFeature
+    public partial class LoadTradeDataFromBackOfficeTerminalReportFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UKUSCC-1014_AT_Create Tools for comparing redis positions.feature"
+#line 1 "LoadTradeDataFromBackOfficeTerminalReport.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC-1014_AT_Create Tools for comparing redis positions", "In order to test MT4Positions2Redis\r\nAs a CC Tester\r\nI want to be able to query r" +
-                    "edis positions", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LoadTradeDataFromBackOfficeTerminalReport", "In order to test MT4Positions2Redis\r\nAs a CC Tester\r\nI want to be able to parse t" +
+                    "he MT4 html report", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1014"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -65,31 +65,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void ScenarioCleanup()
         {
             testRunner.CollectScenarioErrors();
-        }
-        
-        public virtual void FeatureBackground()
-        {
-#line 8
-#line 9
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 10
- testRunner.When("I get all positions for server \"ProTest\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get open positions")]
-        public virtual void GetOpenPositions()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get open positions", ((string[])(null)));
-#line 12
-this.ScenarioSetup(scenarioInfo);
-#line 8
-this.FeatureBackground();
-#line 13
- testRunner.Then("at least 1 position is for login 7003713", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
         }
     }
 }

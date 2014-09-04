@@ -9,6 +9,9 @@ using Newtonsoft.Json;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
+    /// <summary>
+    /// Not currently needed as the JSON format has been fixed
+    /// </summary>
     public class TestablePosition
     {
         public TestablePosition()
@@ -24,13 +27,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             Group = position.Group;
             Login = position.Login;
             OpenPrice = position.OpenPrice;
-            OpenTime = position.OpenTime.ConvertUnixTimeStampAsSeconds() ?? new DateTime();
+            //OpenTime = position.OpenTime.ConvertUnixTimeStampAsSeconds() ?? new DateTime();
             Order = position.Order;
             Server = position.Server;
             Sl = position.Sl;
             Status = position.Status;
             Symbol = position.Symbol;
-            Timestamp = position.Timestamp.ConvertUnixTimeStampAsSeconds() ?? new DateTime();
+            //Timestamp = position.Timestamp.ConvertUnixTimeStampAsSeconds() ?? new DateTime();
             Tp = position.Tp;
             Volume = position.Volume;
         }
