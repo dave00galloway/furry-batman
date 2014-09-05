@@ -72,6 +72,7 @@
       <DependentUpon>GetTradeswithEventIDDataContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IGetTradeswithEventIDResult.cs" />
+    <Compile Include="DataContexts\MT4\PositionsDataContext.cs" />
     <Compile Include="DataContexts\MT5\DealsDataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -79,6 +80,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TypedDataTables\CapitalCalculation\PositionDataTable.cs" />
+    <Compile Include="TypedDataTables\CapitalCalculation\PositionDataTableDictionary.cs" />
     <Compile Include="TypedDataTables\MT5\DealsDataTable.cs" />
     <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTable.cs" />
     <Compile Include="TypedDataTables\QDF\TradeWithEventIdDataTableExtensions.cs" />

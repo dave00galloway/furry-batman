@@ -22,7 +22,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             var dtTyped = new T();
             dtTyped.Merge(dtBase);
+            return dtTyped;
+        }
 
+        public static T ConvertToTypedDataTable<T>(this DataTable dtBase, string tableName, string[] primaryKeys)
+            where T : TypedDataTable, new()
+        {
+            var dtTyped = new T();
+            dtTyped.Merge(dtBase);
+            dtTyped.TableName = tableName;
+            dtTyped.SetPrimaryKey(primaryKeys);
             return dtTyped;
         }
 

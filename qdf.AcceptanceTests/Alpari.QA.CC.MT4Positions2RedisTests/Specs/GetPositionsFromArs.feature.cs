@@ -19,23 +19,23 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSCC-1014_AT_MT4Test-Demo-Pro")]
-    [NUnit.Framework.CategoryAttribute("UKUSCC_1014")]
-    public partial class UKUSCC_1014_AT_MT4Test_Demo_ProFeature
+    [NUnit.Framework.DescriptionAttribute("GetPositionsFromArs")]
+    [NUnit.Framework.CategoryAttribute("Mt4ArsPositionsContext")]
+    public partial class GetPositionsFromArsFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "GetOpenPositionsFromMT4Test-Demo-Pro.feature"
+#line 1 "GetPositionsFromArs.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC-1014_AT_MT4Test-Demo-Pro", "In order to test MT4Positions2Redis\r\nAs a CC Tester\r\nI want to be able to query r" +
-                    "edis positions", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSCC_1014"});
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "GetPositionsFromArs", "In order to cross check redis positions\r\nAs a CC Tester\r\nI want to query ARS data" +
+                    "bases for positions", ProgrammingLanguage.CSharp, new string[] {
+                        "Mt4ArsPositionsContext"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -67,28 +67,19 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void FeatureBackground()
-        {
-#line 9
-#line 10
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 11
- testRunner.When("I get all positions for server \"MT4Test-Demo-Pro\" opened from \'2014/09/02 00:00:0" +
-                    "0\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-        }
-        
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Get open positions")]
-        public virtual void GetOpenPositions()
+        [NUnit.Framework.DescriptionAttribute("Query Database For Position")]
+        public virtual void QueryDatabaseForPosition()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get open positions", ((string[])(null)));
-#line 14
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Query Database For Position", ((string[])(null)));
+#line 7
 this.ScenarioSetup(scenarioInfo);
+#line 8
+ testRunner.Given("I have a connection to Mt4ArsPositionsContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
-this.FeatureBackground();
-#line 15
- testRunner.Then("at least 1 position is for login 111196738", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then("at least 1 position is returned for login \"7003713\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -9,11 +9,12 @@ using FluentAssertions;
 using StackExchange.Redis;
 using TechTalk.SpecFlow;
 
-namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
+namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps 
 {
     [Binding]
-    public class GetRedisPositionsSteps
+    public class GetRedisPositionsSteps : StepCentral
     {
+        new public static readonly string FullName = typeof(GetRedisPositionsSteps).FullName;
         public IRedisRepository RedisRepository { get; set; }
         public IList<Position> Positions { get; set; }
        // public IList<TestablePosition> TestablePositions { get; set; }
