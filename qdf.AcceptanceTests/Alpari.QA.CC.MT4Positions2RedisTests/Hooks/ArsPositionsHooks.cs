@@ -51,14 +51,24 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            foreach (var positionDataTable in PositionDataTableDictionary)
+            try
             {
-                positionDataTable.Value.Rows.Cast<PositionDataRow>().OrderBy(p=>p.Login).ThenBy(p=>p.Order)
-                    .EnumerableToCsv(
-                        String.Format("{0}{1}.{2}", MasterStepBase.ScenarioOutputDirectory, positionDataTable.Key,
-                            CsvParserExtensionMethods.csv), true,true,true,true);
+                foreach (var positionDataTable in PositionDataTableDictionary)
+                {
+                    positionDataTable.Value.Rows.Cast<PositionDataRow>().OrderBy(p=>p.Login).ThenBy(p=>p.Order)
+                        .EnumerableToCsv(
+                            String.Format("{0}{1}.{2}", MasterStepBase.ScenarioOutputDirectory, positionDataTable.Key,
+                                CsvParserExtensionMethods.csv), true,true,true,true);
+                }
             }
-            ObjectContainer = null;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+            finally
+            {
+                ObjectContainer = null;
+            }
         }
 
         [BeforeFeature]
