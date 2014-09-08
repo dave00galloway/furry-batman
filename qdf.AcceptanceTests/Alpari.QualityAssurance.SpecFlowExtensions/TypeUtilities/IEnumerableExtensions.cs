@@ -33,12 +33,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         ///     suspect the object definition may have changes, and the actual object contains different properties to those
         ///     expected
         /// </param>
+        /// <param name="derivedOnly"></param>
         public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath, bool removeReturns,
-            bool useHeadersToGetData = false, bool headerSafeMode = false)
+            bool useHeadersToGetData = false, bool headerSafeMode = false, bool derivedOnly = false)
         {
 // ReSharper disable PossibleMultipleEnumeration
             if (iEnumerable == null || !iEnumerable.Any()) return;
-            string headers = String.Join(",", typeof (T).GetPropertyNamesAsList(headerSafeMode));
+            string headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode, derivedOnly));
             var csvFile = new StringBuilder();
             if (!File.Exists(fileNamePath))
             {
