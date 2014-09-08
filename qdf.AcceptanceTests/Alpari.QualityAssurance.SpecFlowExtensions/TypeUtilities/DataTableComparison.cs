@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using FluentAssertions;
+using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -112,6 +114,21 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             export.FileName = String.Format("dupesInNew-{0}", export.FileName.Replace("dupesInBase-", ""));
             ExportDuplicatesInCompareWithByMethod(export, diffs);
             return diffs.ToString();
+        }
+
+        /// <summary>
+        /// Used so often saved having to repeat this code in every project
+        /// get an already prepped comparison from Scenario Context, and call the appropiate stesp as defneed in exportParameters.
+        /// Assume no diffs expected.
+        /// </summary>
+        /// <param name="exportParameters"></param>
+        /// <param name="scenarioOutputDirectory"></param>
+        /// <param name="key"></param>
+        public static void CheckComparisonInScenarioContext(ExportParameters exportParameters, string scenarioOutputDirectory, string key = "diffs")
+        {
+            var diffs = (DataTableComparison)ScenarioContext.Current[key];
+            exportParameters.Path = scenarioOutputDirectory;
+            diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();            
         }
 
         private void ExportFieldDiffsByMethod(ExportParameters export, StringBuilder diffs)

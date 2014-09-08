@@ -38,7 +38,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT4
                 " o.comment," +
                 "FROM_UNIXTIME(t.ts) AS timestamp, " + //"-- for info only, should always be later than redis timestamp" +
                 "a.`group`, " +
-                "CAST(o.state AS CHAR) AS status, " +
+                //"CAST(o.state AS CHAR) AS status, " +
+                "a.status, " +
                 "o.symbol_name AS symbol, " +
                 "\"ProTest\" AS server, " +
                 "\"UNKNOWN\" AS book " +

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QDF" Class="GetTradeswithEventIDDataContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QDF" Class="GetTradesWithEventIdDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=UK-QSAMODEL-DEV;Initial Catalog=QDF;Persist Security Info=True;User ID=autohedge" SettingsObjectName="Alpari.QA.QDF.Test.Domain.Properties.Settings" SettingsPropertyName="QDFConnectionString" Provider="System.Data.SqlClient" />
   <Function Name="dbo.GetAutoTradeswithEventID" Method="GetAutoTradeswithEventID">
     <Parameter Name="lasteventidprocessed" Type="System.Int32" DbType="Int" />
@@ -13,6 +13,8 @@
       <Column Name="OrderTimeTypeID" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="OrderPriceTypeID" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="TEMnemonic" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.GetManualTradeswithEventID" Method="GetManualTradeswithEventID">
@@ -28,6 +30,8 @@
       <Column Name="OrderTimeTypeID" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="OrderPriceTypeID" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
       <Column Name="TEMnemonic" Type="System.String" DbType="VarChar(512) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DESCRIPTION" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.GetTradeswithEventID" Method="GetTradeswithEventID">

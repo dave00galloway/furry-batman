@@ -107,6 +107,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 		
 		private string _TEMnemonic;
 		
+		private System.Nullable<int> _Status;
+		
+		private string _DESCRIPTION;
+		
 		public GetAutoTradeswithEventIDResult()
 		{
 		}
@@ -270,6 +274,38 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 				}
 			}
 		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
+				}
+			}
+		}
 	}
 	
 	public partial class GetManualTradeswithEventIDResult
@@ -294,6 +330,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 		private char _OrderPriceTypeID;
 		
 		private string _TEMnemonic;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _DESCRIPTION;
 		
 		public GetManualTradeswithEventIDResult()
 		{
@@ -455,6 +495,38 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts
 				if ((this._TEMnemonic != value))
 				{
 					this._TEMnemonic = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DESCRIPTION", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string DESCRIPTION
+		{
+			get
+			{
+				return this._DESCRIPTION;
+			}
+			set
+			{
+				if ((this._DESCRIPTION != value))
+				{
+					this._DESCRIPTION = value;
 				}
 			}
 		}

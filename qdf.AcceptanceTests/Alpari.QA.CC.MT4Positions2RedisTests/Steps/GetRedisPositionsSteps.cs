@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Alpari.CC.WebPortal.DAL.Repositories.Redis;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using FluentAssertions;
-using StackExchange.Redis;
 using TechTalk.SpecFlow;
 
-namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps 
+namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
 {
     [Binding]
     public class GetRedisPositionsSteps : StepCentral
     {
-        new public static readonly string FullName = typeof(GetRedisPositionsSteps).FullName;
+        public new static readonly string FullName = typeof (GetRedisPositionsSteps).FullName;
         public IRedisRepository RedisRepository { get; set; }
         public IList<Position> Positions { get; set; }
-       // public IList<TestablePosition> TestablePositions { get; set; }
+        // public IList<TestablePosition> TestablePositions { get; set; }
+        public IDictionary<string, PositionDataTable> PositionDataTableDictionary { get; set; }
+
+        public GetRedisPositionsSteps(IDictionary<string, PositionDataTable> positionDataTableDictionary)
+        {
+            PositionDataTableDictionary = positionDataTableDictionary;
+        }
 
         [Given(@"I have a connection to a redis repository on ""(.*)"" port (.*) db (.*)")]
         public void GivenIHaveAConnectionToARedisRepositoryOnPortDb(string host, int port, int db)
         {
-            RedisRepository = new RedisRepository(host,port,db);
+            RedisRepository = new RedisRepository(host, port, db);
         }
 
         [When(@"I get all positions for server ""(.*)""")]
         public void WhenIGetAllPositionsForServer(string mtServerName)
         {
             Positions = RedisRepository.GetAllPositions(mtServerName).ToList();
+            PositionDataTableDictionary[mtServerName] = new PositionDataTable(mtServerName,new []{"Order"}).ConvertIEnumerableToDataTable(Positions);
         }
 
         [When(@"I get all positions for server ""(.*)"" opened from '(.*)'")]
@@ -37,6 +41,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             Positions = RedisRepository.GetAllPositions(mtServerName)
                 //.Where(p=>p.OpenTime.ConvertUnixTimeStampAsSeconds() >= openedFromTime).ToList();
                 .Where(p => p.OpenTime >= openedFromTime).ToList();
+            PositionDataTableDictionary[mtServerName] = new PositionDataTable(mtServerName, new[] { "Order" }).ConvertIEnumerableToDataTable(Positions);
         }
 
 

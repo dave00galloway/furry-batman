@@ -1,8 +1,9 @@
-﻿using System.Linq;
-using Alpari.QA.QDF.Test.Domain.DataContexts.MT4;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts.MT4;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
@@ -13,14 +14,14 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public new static readonly string FullName = typeof (GetArsPositionsSteps).FullName;
 
         public GetArsPositionsSteps(PositionsDataContext positionsDataContext,
-            PositionDataTableDictionary positionDataTableDictionary)
+            IDictionary<string, PositionDataTable> positionDataTableDictionary)
         {
             PositionsDataContext = positionsDataContext;
             PositionDataTableDictionary = positionDataTableDictionary;
         }
 
         public PositionsDataContext PositionsDataContext { get; set; }
-        public PositionDataTableDictionary PositionDataTableDictionary { get; set; }
+        public IDictionary<string, PositionDataTable> PositionDataTableDictionary { get; set; }
 
         [Given(@"I have a connection to Mt4ArsPositionsContext")]
         public void GivenIHaveAConnectionToMtArsPositionsContext()
