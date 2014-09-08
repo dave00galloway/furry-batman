@@ -64,6 +64,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
             switch (DealSearchCriteria.DealSource)
             {
+                case "cnxstp-pret-deals":
                 case "cnxstp-pret-deals-all":
                 case "cnx-deals":
                     qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(

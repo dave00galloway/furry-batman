@@ -66,6 +66,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             ScenarioContext.Current["ExampleIdentifier"] = reportDate;
             CnxHubTradeActivityImporter.IncludedLoginsList = IncludedLoginsList;
             CnxHubTradeActivityImporter.LoadData(SetupImportParametersForTradeActivityReport(reportDate));
+            CnxHubTradeActivityImporter.ReverseDealSide();
         }
 
         [When(@"I load cnx trade activities from '(.*)' to '(.*)' for the included logins")]
