@@ -26,7 +26,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT4
         {
             return string.Format(
                 "USE {0};" +
-                "SELECT " +
+                "SELECT DISTINCT " +
                 "o.login," +
                 "o.`order`, " +
                 " o.cmd," +

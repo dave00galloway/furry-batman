@@ -18,24 +18,11 @@ Scenario: Get open positions
 	And at least 1 position is returned for login "7003713" on "ars_test_AUKP01"
 
 Scenario: Compare open positions
-	#And I compare the "MT4Test-Demo-Pro" positions with the "ars_test_AUKP01" positions excluding these fields:
-	And I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
+	When I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
 		 | ExcludedFields |
 		 | Timestamp      |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
-
-
-	#	And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
-	#	 | ExcludedFields |
-	#	 | Comment        |
-	#	 | AccountGroup   |
-	#	 | Book           |
-	#	 | OrderId        |
-	#	 | State          |
-	#Then the cnx hub trade deals should match the qdf deal data exactly:-
-	#	| ExportType     |  Overwrite |
-	#	| DataTableToCsv |  true      |
 
 
