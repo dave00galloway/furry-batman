@@ -46,13 +46,12 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="safeMode"></param>
         /// <param name="derivedOnly"></param>
         /// <returns></returns>
-        public static List<string> GetPropertyNamesAsList(this Type type, bool safeMode, bool derivedOnly = false)
+        public static IEnumerable<string> GetPropertyNamesAsList(this Type type, bool safeMode, bool derivedOnly = false)
         {
             if (derivedOnly)
             {
-                //Type baseType = type.BaseType;
                 return type.GetProperties()
-                    .Where(p => !(p.DeclaringType == type.BaseType)).Select(p => p.Name).ToList();
+                    .Where(p => p.DeclaringType == type).Select(p => p.Name).ToList();
             }
             return safeMode ? type.GetProperties().Select(Name).ToList() : GetPropertyNamesAsList(type);
         }
@@ -92,7 +91,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static List<string> GetObjectPropertyValuesAsList(this object objectToSearch,
             IEnumerable<string> propertyList)
         {
-            //return GetProperties(objectToSearch,propertyList).Select(x => GetValue(objectToSearch,x).ToString()).ToList();
             return
                 GetProperties(objectToSearch, propertyList)
                     .Select(x => x.GetValue(objectToSearch).ToSafeString())
