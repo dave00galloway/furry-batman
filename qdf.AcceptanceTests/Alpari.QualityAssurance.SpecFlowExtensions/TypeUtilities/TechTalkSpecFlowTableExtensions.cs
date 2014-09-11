@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>
-    /// Class for performing failry generic operations on Specflow tables
+    /// Class for performing fairly generic operations on Specflow tables
     /// </summary>
     public static class TechTalkSpecFlowTableExtensions
     {

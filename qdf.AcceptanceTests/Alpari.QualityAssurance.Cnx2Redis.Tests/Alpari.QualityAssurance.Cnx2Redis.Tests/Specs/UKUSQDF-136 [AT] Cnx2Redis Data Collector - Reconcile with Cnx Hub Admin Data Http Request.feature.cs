@@ -231,6 +231,8 @@ this.FeatureBackground();
         [NUnit.Framework.TestCaseAttribute("09/06/2014", null)]
         [NUnit.Framework.TestCaseAttribute("09/07/2014", null)]
         [NUnit.Framework.TestCaseAttribute("09/08/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("09/09/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("09/10/2014", null)]
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild31(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31", exampleTags);
