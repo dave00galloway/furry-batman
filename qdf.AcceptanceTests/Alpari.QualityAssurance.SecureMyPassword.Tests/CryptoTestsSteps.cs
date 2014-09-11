@@ -18,7 +18,14 @@ namespace Alpari.QualityAssurance.SecureMyPassword.Tests
         [Given(@"my unencrypted password is ""(.*)""")]
         public void GivenMyUnencryptedPasswordIs(string password)
         {
+            //byte[] toEncrypt = password.ConvertStringToByteArray();
             ScenarioContext.Current["toEncrypt"] = password;
+        }
+
+        [Given(@"my encrypted password is ""(.*)""")]
+        public void GivenMyEncryptedPasswordIs(string encrypted)
+        {
+            ScenarioContext.Current["encryptedAsString"] = encrypted.Trim();
         }
 
         [When(@"I directly encrypt my password")]
