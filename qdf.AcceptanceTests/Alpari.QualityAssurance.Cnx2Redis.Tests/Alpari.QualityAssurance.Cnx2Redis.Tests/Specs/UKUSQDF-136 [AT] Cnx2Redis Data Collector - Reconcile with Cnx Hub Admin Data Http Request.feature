@@ -92,7 +92,11 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 	Examples: 
-	| reportDate | 
+	| reportDate |
+	| 08/31/2014 |
+	| 09/01/2014 |
+	| 09/02/2014 |
+	| 09/03/2014 |		 
 	| 09/04/2014 |
 	| 09/05/2014 |
 	| 09/06/2014 |
