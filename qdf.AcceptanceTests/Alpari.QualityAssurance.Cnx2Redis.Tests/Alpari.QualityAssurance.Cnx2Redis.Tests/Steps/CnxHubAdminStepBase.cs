@@ -41,9 +41,9 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         {
             if (IncludedLoginsList == null)
             {
-                return QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals;
+                return QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals;
             }
-            return QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.Where(
+            return QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.Where(
                 deal =>
                     IncludedLoginsList.Any(
                         l =>
@@ -68,13 +68,13 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                 case "cnxstp-pret-deals-all":
                 case "cnx-deals":
                     qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(),
+                        QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(),
                         DealSearchCriteria.DealSource,
                         new[] { "DealId" });
                     break;
                 case "cnx-fix-deals":
                     qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                        QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(),
+                        QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(),
                         DealSearchCriteria.DealSource,
                         new[] { "DealId", "Comment" });
                     break;
@@ -136,7 +136,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             int otherRolloverHour = Convert.ToInt16(ConfigurationManager.AppSettings[OTHER_ROLLOVER_NAME]); // 21;
 
             //get deals
-            var deals = QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals;
+            var deals = QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals;
             //determine start and end days
             var firstOrDefault = deals.FirstOrDefault();
             var startDate = firstOrDefault != null ? firstOrDefault.TimeStamp.Date : new DateTime();
@@ -214,7 +214,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 
             deals = dealsWithMatchingIdsInCnxHubAdminReport.Concat(regularDeals.Concat(kiwiRolloverDeals.Concat(nonKiwiRolloverDeals))).Distinct().ToList();
 
-            QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals = deals;
+            QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals = deals;
         }
     }
 }

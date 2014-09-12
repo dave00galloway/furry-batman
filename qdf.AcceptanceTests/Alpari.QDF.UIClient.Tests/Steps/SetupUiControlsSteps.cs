@@ -17,6 +17,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         //{
         //}
 
+        public SetupUiControlsSteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
+
         [Given(@"I filter deals by server")]
         public void GivenIFilterDealsByServer()
         {

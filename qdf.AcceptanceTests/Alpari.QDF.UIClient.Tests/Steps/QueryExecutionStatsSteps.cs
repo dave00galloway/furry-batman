@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
 using Alpari.QDF.UIClient.Tests.Helpers;
 using FluentAssertions;
@@ -19,6 +20,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         private int _quoteCount;
         private int _totalDealCount;
         private int _totalQuoteCount;
+
+        public QueryExecutionStatsSteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
 
         [Given(@"I start measuring the query")]
         [When(@"I start measuring the query")]

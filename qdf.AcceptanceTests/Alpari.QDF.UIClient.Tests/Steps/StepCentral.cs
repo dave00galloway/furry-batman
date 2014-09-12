@@ -13,7 +13,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class StepCentral : MasterStepBase
     {
-        public static readonly string FullName = typeof(StepCentral).FullName; 
+        public static readonly string FullName = typeof(StepCentral).FullName;
         public const string REDIS_HOST = "redisHost";
         public const string SERVER_TABLE_KEY = "Server";
         public const string COUNT = "Count";
@@ -24,23 +24,27 @@ namespace Alpari.QDF.UIClient.Tests.Steps
 
         private static RedisConnectionHelper _redisConnectionHelper;
 
-        public StepCentral()
+        public StepCentral(RedisConnectionHelper redisConnectionHelper)
         {
-            Setup();
+            _redisConnectionHelper = redisConnectionHelper;
         }
 
         /// <summary>
         /// Really should revisit this and get the connection set up in a hook step, possibly lazily, and use the exporter as the base object, not the redis connection
         /// </summary>
-        public RedisConnectionHelper RedisConnectionHelper
+        public static RedisConnectionHelper RedisConnectionHelper
         {
             get
             {
-                if (_redisConnectionHelper != null) return _redisConnectionHelper;
-                _redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]);
-                //ObjectContainer.RegisterInstanceAs(_redisConnectionHelper);
-                return _redisConnectionHelper;
+                return _redisConnectionHelper;   
             }
+            //get
+            //{
+            //    if (_redisConnectionHelper != null) return _redisConnectionHelper;
+            //    _redisConnectionHelper = new RedisConnectionHelper(ConfigurationManager.AppSettings[REDIS_HOST]);
+            //    //ObjectContainer.RegisterInstanceAs(_redisConnectionHelper);
+            //    return _redisConnectionHelper;
+            //}
 
             protected set { _redisConnectionHelper = value; }
         }
@@ -52,7 +56,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(QdfDataRetrievalStepBase.FullName) == null;
                 QdfDataRetrievalStepBase steps = (QdfDataRetrievalStepBase)
                     GetStepDefinition(QdfDataRetrievalStepBase.FullName) ??
-                                                 new QdfDataRetrievalStepBase();
+                                                 new QdfDataRetrievalStepBase(_redisConnectionHelper);
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -68,7 +72,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(QdfDataRetrievalSteps.FullName) == null;
                 QdfDataRetrievalSteps steps = (QdfDataRetrievalSteps)
                     GetStepDefinition(QdfDataRetrievalSteps.FullName) ??
-                                              new QdfDataRetrievalSteps();
+                                              new QdfDataRetrievalSteps(_redisConnectionHelper);
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -84,12 +88,12 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(OutputToCsvStepBase.FullName) == null;
                 OutputToCsvStepBase steps = (OutputToCsvStepBase)
                     GetStepDefinition(OutputToCsvStepBase.FullName) ??
-                                              new OutputToCsvStepBase();
+                                              new OutputToCsvStepBase(_redisConnectionHelper);
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
                 }
-                return steps;                
+                return steps;
             }
         }
 
@@ -100,7 +104,7 @@ namespace Alpari.QDF.UIClient.Tests.Steps
                 bool toAdd = GetStepDefinition(OutputToCsvSteps.FullName) == null;
                 OutputToCsvSteps steps = (OutputToCsvSteps)
                     GetStepDefinition(OutputToCsvSteps.FullName) ??
-                                              new OutputToCsvSteps();
+                                              new OutputToCsvSteps(_redisConnectionHelper);
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);
@@ -184,18 +188,20 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         }
 
         // [BeforeScenario, Scope(Tag = "TeardownRedisConnection")]
-        private void Setup()
-        {
-            _redisConnectionHelper = RedisConnectionHelper;
-        }
+        //private void Setup()
+        //{
+        //    _redisConnectionHelper = RedisConnectionHelper;
+        //}
 
-        [AfterScenario]//,Scope(Tag = "TeardownRedisConnection")]
-        public void TearDown()
-        {
-            if (_redisConnectionHelper == null) return;
-            RedisConnectionHelper.Connection.Close(true);
-            _redisConnectionHelper = null;
-        }
+        //[AfterScenario]//,Scope(Tag = "TeardownRedisConnection")]
+        //public void TearDown()
+        //{
+        //    if (_redisConnectionHelper == null) return;
+        //    RedisConnectionHelper.Connection.Close(true);
+        //    RedisConnectionHelper.Connection.Dispose();
+        //    _redisConnectionHelper = null;
+        //    RedisConnectionHelper = null;
+        //}
 
         /// <summary>
         /// recreate the redis connection with admin permissions - i.e. can delete all data
@@ -208,8 +214,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
             if (_redisConnectionHelper != null)
             {
                 _redisConnectionHelper.Connection.Close(true);
+                _redisConnectionHelper.Connection.Dispose();
+                _redisConnectionHelper = null;
             }
-            _redisConnectionHelper = new RedisConnectionHelper(host,6379,-1,null,2147483647,true);
+            _redisConnectionHelper = new RedisConnectionHelper(host, 6379, -1, null, 2147483647, true);
             return _redisConnectionHelper;
         }
     }

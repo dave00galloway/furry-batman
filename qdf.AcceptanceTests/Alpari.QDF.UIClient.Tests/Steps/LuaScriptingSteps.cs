@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Alpari.QDF.UIClient.App;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps
@@ -6,6 +7,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     [Binding]
     public class LuaScriptingSteps :StepCentral
     {
+        public LuaScriptingSteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
+
         private string Script { get; set; }
         private object Result { get; set; }
 

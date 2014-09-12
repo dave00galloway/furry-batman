@@ -22,7 +22,8 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     
         protected Exporter Exporter { get; private set; }
 
-        public SetupUiControlsStepBase()
+        public SetupUiControlsStepBase(RedisConnectionHelper redisConnectionHelper)
+            : base(redisConnectionHelper)
         {  
             //I have no idea how the OutputToCsvSteps and base manage to create an exporter through DI, since how is the default host passed to the RedisConnectionHelper?
             Exporter = new Exporter(RedisConnectionHelper);

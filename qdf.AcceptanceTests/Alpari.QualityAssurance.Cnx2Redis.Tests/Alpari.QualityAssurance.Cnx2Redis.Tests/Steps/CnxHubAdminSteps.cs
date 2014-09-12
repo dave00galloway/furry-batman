@@ -106,7 +106,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [When(@"I filter the qdf deals by the included logins")]
         public void WhenIFilterTheQdfDealsByTheIncludedLogins()
         {
-            QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals =
+            QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals =
                 FilterRetrievedDealsByIncludedLoginsList();
             FilterByKiwiRolloverTimes();
         }

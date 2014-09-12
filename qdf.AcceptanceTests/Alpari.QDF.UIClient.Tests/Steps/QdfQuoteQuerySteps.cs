@@ -1,4 +1,5 @@
 ﻿using Alpari.QDF.Domain;
+using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using FluentAssertions;
 using NUnit.Framework;
@@ -13,6 +14,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfQuoteQuerySteps : QdfQuoteQueryStepBase
     {
         public new static readonly string FullName = typeof(QdfQuoteQuerySteps).FullName;
+
+        public QdfQuoteQuerySteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
+
         private QuoteSearchCriteria QuoteSearchCriteria { get; set; }
 
         [Given(@"I have the following search criteria for qdf quotes")]

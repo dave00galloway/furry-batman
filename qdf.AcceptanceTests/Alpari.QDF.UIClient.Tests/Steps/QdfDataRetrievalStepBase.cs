@@ -1,4 +1,5 @@
-﻿using Alpari.QDF.UIClient.App.QueryableEntities;
+﻿using Alpari.QDF.UIClient.App;
+using Alpari.QDF.UIClient.App.QueryableEntities;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -8,6 +9,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfDataRetrievalStepBase : StepCentral
     {
         public new static readonly string FullName = typeof (QdfDataRetrievalStepBase).FullName;
+
+        public QdfDataRetrievalStepBase(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
 
         [StepArgumentTransformation]
         public static DealSearchCriteria DealSearchParametersTransform(Table table)

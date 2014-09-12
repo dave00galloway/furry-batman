@@ -100,6 +100,8 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 
 	| 09/08/2014 |
 	| 09/09/2014 |
 	| 09/10/2014 |
+	| 09/11/2014 |
+	| 09/12/2014 |
 
 
 Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2014

@@ -5,6 +5,7 @@ using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
+using Alpari.QDF.UIClient.Tests.Hooks;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 {
@@ -27,7 +28,8 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                 bool toAdd = GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) == null;
                 var steps = (QDF.UIClient.Tests.Steps.StepCentral)
                     GetStepDefinition(QDF.UIClient.Tests.Steps.StepCentral.FullName) ??
-                                                             new QDF.UIClient.Tests.Steps.StepCentral();
+                                                             new QDF.UIClient.Tests.Steps.StepCentral(UiClientTestHooks.SetupRedisConnectionHelper());
+                //try  new QDF.UIClient.Tests.Steps.StepCentral(ObjectContainer.Resolve<RedisConnectionHelper>());
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);

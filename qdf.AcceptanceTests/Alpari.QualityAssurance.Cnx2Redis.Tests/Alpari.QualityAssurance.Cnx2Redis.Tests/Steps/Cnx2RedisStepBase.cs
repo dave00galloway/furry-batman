@@ -30,7 +30,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
                     "MySqlData",
                     new[] {"DealId"});
             qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
-                QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
+                QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(), "cnx-deals",
                 new[] {"DealId"});
         }
 

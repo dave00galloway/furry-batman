@@ -28,7 +28,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         [Then(@"all retrieved deals will have a client id from the included logins list")]
         public void ThenAllRetrievedDealsWillHaveAClientIdFromTheIncludedLoginsList()
         {
-            foreach (Deal deal in QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals)
+            foreach (Deal deal in QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals)
             {
                 IncludedLoginsList.Select(l => l.Login).Should().Contain(deal.ClientId);
             }

@@ -31,7 +31,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Hooks
         /// <returns></returns>
         protected bool TagDependentAction(string searchString)
         {
-            if (FeatureTags.Contains(searchString) || ScenarioTags.Contains(searchString))
+            //if (FeatureTags.Contains(searchString) || ScenarioTags.Contains(searchString))
+            if (FeatureTags.Any(t=>t.Contains(searchString))|| ScenarioTags.Any(t=>t.Contains(searchString)))
             {
                 return true;
             }

@@ -17,6 +17,10 @@ namespace Alpari.QDF.UIClient.Tests.Steps
         //{
         //}
 
+        protected internal OutputToCsvSteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
+
         [When(@"I export the data to ""(.*)"" and import the csv")]
         public void WhenIExportTheDataToAndImportTheCsv(string fileNamePath)
         {

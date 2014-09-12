@@ -14,6 +14,11 @@ namespace Alpari.QDF.UIClient.Tests.Steps
     public class QdfDataRetrievalSteps : QdfDataRetrievalStepBase
     {
         public new static readonly string FullName = typeof (QdfDataRetrievalSteps).FullName;
+
+        public QdfDataRetrievalSteps(RedisConnectionHelper redisConnectionHelper) : base(redisConnectionHelper)
+        {
+        }
+
         public DealSearchCriteria DealSearchCriteria { get; private set; }
 
         [Given(@"I have the following search criteria for qdf deals")]

@@ -52,7 +52,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         public void WhenISaveTheQdfDealDataAsATradeEventWithIdDatatable()
         {
             GetTradeswithEventIdResultList =
-                QdfDataRetrievalSteps.RedisConnectionHelper.RetrievedDeals.ConvertToTradeEventWithIds();
+                QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.ConvertToTradeEventWithIds();
             QdfDealsAsTradeWithEventIdDataTable =
                 new TradeWithEventIdDataTable().ConvertIEnumerableToDataTable(GetTradeswithEventIdResultList, "QdfDeals", new[] { "ExecId" });
         }
