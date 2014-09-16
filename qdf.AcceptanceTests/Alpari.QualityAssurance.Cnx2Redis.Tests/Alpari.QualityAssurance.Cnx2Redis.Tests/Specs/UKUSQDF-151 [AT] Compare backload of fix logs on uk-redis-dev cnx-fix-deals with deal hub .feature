@@ -48,18 +48,18 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2013
 		| DataTableToCsv |  true      |
 	Examples: 
 	| report                       |
-	| C:\data\AlpariUK_2013_01.csv |
-	| C:\data\AlpariUK_2013_02.csv |
-	| C:\data\AlpariUK_2013_03.csv |
-	| C:\data\AlpariUK_2013_04.csv |
-	| C:\data\AlpariUK_2013_05.csv |
-	| C:\data\AlpariUK_2013_06.csv |
-	| C:\data\AlpariUK_2013_07.csv |
-	| C:\data\AlpariUK_2013_08.csv |
-	| C:\data\AlpariUK_2013_09.csv |
-	| C:\data\AlpariUK_2013_10.csv |
-	| C:\data\AlpariUK_2013_11.csv |
-	| C:\data\AlpariUK_2013_12.csv |
+	| E:\data\AlpariUK_2013_01.csv |
+	| E:\data\AlpariUK_2013_02.csv |
+	| E:\data\AlpariUK_2013_03.csv |
+	| E:\data\AlpariUK_2013_04.csv |
+	| E:\data\AlpariUK_2013_05.csv |
+	| E:\data\AlpariUK_2013_06.csv |
+	| E:\data\AlpariUK_2013_07.csv |
+	| E:\data\AlpariUK_2013_08.csv |
+	| E:\data\AlpariUK_2013_09.csv |
+	| E:\data\AlpariUK_2013_10.csv |
+	| E:\data\AlpariUK_2013_11.csv |
+	| E:\data\AlpariUK_2013_12.csv |
 
 Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2012
 	Given I have the following search criteria for qdf deals
@@ -92,6 +92,39 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2012
 	| C:\data\AlpariUK_2012_10.csv |
 	| C:\data\AlpariUK_2012_11.csv |
 	| C:\data\AlpariUK_2012_12.csv |
+
+Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2011
+	Given I have the following search criteria for qdf deals
+		 | DealSource        | DealType |
+		 | cnxstp-pret-deals | deal     |
+		 #| cnxstp-pret-deals-all | deal     |
+	#When I load cnx trade activities from "<report>" for the included logins
+	When I load cnx trade activities with the side reversed from "<report>" for the included logins
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+	Examples: 
+	| report                       |
+	| E:\data\AlpariUK_2011_01.csv |
+	| E:\data\AlpariUK_2011_02.csv |
+	| E:\data\AlpariUK_2011_03.csv |
+	| E:\data\AlpariUK_2011_04.csv |
+	| E:\data\AlpariUK_2011_05.csv |
+	| E:\data\AlpariUK_2011_06.csv |
+	| E:\data\AlpariUK_2011_07.csv |
+	| E:\data\AlpariUK_2011_08.csv |
+	| E:\data\AlpariUK_2011_09.csv |
+	| E:\data\AlpariUK_2011_10.csv |
+	| E:\data\AlpariUK_2011_11.csv |
+	| E:\data\AlpariUK_2011_12.csv |
 
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre Midnight
