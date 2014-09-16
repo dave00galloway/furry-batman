@@ -48,18 +48,7 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2013
 		| DataTableToCsv |  true      |
 	Examples: 
 	| report                       |
-	| E:\data\AlpariUK_2013_01.csv |
-	| E:\data\AlpariUK_2013_02.csv |
-	| E:\data\AlpariUK_2013_03.csv |
-	| E:\data\AlpariUK_2013_04.csv |
-	| E:\data\AlpariUK_2013_05.csv |
-	| E:\data\AlpariUK_2013_06.csv |
-	| E:\data\AlpariUK_2013_07.csv |
-	| E:\data\AlpariUK_2013_08.csv |
-	| E:\data\AlpariUK_2013_09.csv |
-	| E:\data\AlpariUK_2013_10.csv |
-	| E:\data\AlpariUK_2013_11.csv |
-	| E:\data\AlpariUK_2013_12.csv |
+	| C:\data\AlpariUK_2013_08.csv |
 
 Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2012
 	Given I have the following search criteria for qdf deals
@@ -121,7 +110,7 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2011
 	| E:\data\AlpariUK_2011_06.csv |
 	| E:\data\AlpariUK_2011_07.csv |
 	| E:\data\AlpariUK_2011_08.csv |
-	| E:\data\AlpariUK_2011_09.csv |
+	| C:\data\AlpariUK_2011_09.csv |
 	| E:\data\AlpariUK_2011_10.csv |
 	| E:\data\AlpariUK_2011_11.csv |
 	| E:\data\AlpariUK_2011_12.csv |
