@@ -23,6 +23,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -74,6 +75,10 @@
     <Reference Include="Microsoft.Practices.Unity.Interception, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\lib\Alpari.CC.WebPortal.DAL\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Mt4.Net, Version=1.4.30.15966, Culture=neutral, PublicKeyToken=df960ca387d2330f, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>MTAPIs\Mt4.Net.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -147,6 +152,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GetPositionsFromArs.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\InsertTradesToMt4UsingDotNetWrapper.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InsertTradesToMt4UsingDotNetWrapper.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\LoadTradeDataFromBackOfficeTerminalReport.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -160,11 +170,15 @@
     <Compile Include="Steps\CompareArsAndRedisPositionsSteps.cs" />
     <Compile Include="Steps\GetArsPositionsSteps.cs" />
     <Compile Include="Steps\GetRedisPositionsSteps.cs" />
+    <Compile Include="Steps\MT4DotNetWrapperSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
+    <Compile Include="Transforms\Mt4DotNetWrapperTransforms.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Specs\CompareArsAndRedisPositionData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
@@ -178,6 +192,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GetPositionsFromArs.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\InsertTradesToMt4UsingDotNetWrapper.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>InsertTradesToMt4UsingDotNetWrapper.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\LoadTradeDataFromBackOfficeTerminalReport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoadTradeDataFromBackOfficeTerminalReport.feature.cs</LastGenOutput>
@@ -186,7 +204,9 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs</LastGenOutput>
     </None>
-    <Content Include="Specs\Alpari.QualityAssurance.RedisConfig.csproj" />
+    <Content Include="MTAPIs\Mt4.Net.pdb" />
+    <Content Include="MTAPIs\mtclientapi.dll" />
+    <Content Include="MTAPIs\mtmanapi.dll" />
     <Content Include="TestData\test.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -208,6 +228,24 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <CallTarget Targets="SpicNSpan" />
+  </Target>
+  <Target Name="SpicNSpan">
+    <ItemGroup>
+      <deleteThese Include="$(OutputPath)**\*" Condition="Exists('$(OutputPath)')" />
+    </ItemGroup>
+    <Delete Files="@(deleteThese)" />
+    <RemoveDir Directories="$(OutputPath)" />
+    <MakeDir Directories="$(OutputPath)" />
+  </Target>  
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <MTAPIs Include="MTAPIs\*.*" />
+    </ItemGroup>
+    <!--<Copy DestinationFolder="$(OutputPath)" SourceFiles="@(Content)" SkipUnchangedFiles="false" />-->
+    <Copy DestinationFolder="$(OutputPath)" SourceFiles="@(MTAPIs)" SkipUnchangedFiles="false" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

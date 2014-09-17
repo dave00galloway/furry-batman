@@ -55,7 +55,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
         public void LogOut()
         {
             string result = CurrenexHubAdminWebClient.LogOut();
-            result.Should().Contain("Logged out successfully");
+            result.Should().Contain("log_in_button.gif");
         }
     }
 }

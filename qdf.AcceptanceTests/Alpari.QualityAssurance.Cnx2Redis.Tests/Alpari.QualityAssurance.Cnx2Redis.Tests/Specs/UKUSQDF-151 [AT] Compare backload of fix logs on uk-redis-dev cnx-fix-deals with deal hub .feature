@@ -49,6 +49,7 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2013
 	Examples: 
 	| report                       |
 	| C:\data\AlpariUK_2013_08.csv |
+	| C:\data\AlpariUK_2013_12.csv |
 
 Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2012
 	Given I have the following search criteria for qdf deals
@@ -113,7 +114,7 @@ Scenario Outline: check qdf cnx-deals and cnx hub deals and do comparison 2011
 	| C:\data\AlpariUK_2011_09.csv |
 	| E:\data\AlpariUK_2011_10.csv |
 	| E:\data\AlpariUK_2011_11.csv |
-	| E:\data\AlpariUK_2011_12.csv |
+	| C:\data\AlpariUK_2011_12.csv |
 
 
 Scenario: check qdf cnx-deals and cnx hub deals and do comparison Jan 2014 Pre Midnight
