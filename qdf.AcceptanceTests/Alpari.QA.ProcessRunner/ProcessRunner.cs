@@ -12,13 +12,13 @@ namespace Alpari.QA.ProcessRunner
     ///     WTK:-
     ///     http://stackoverflow.com/questions/2316596/system-diaganostics-process-id-isnt-the-same-process-id-shown-in-task-manager
     ///     (doesn't quite work though...
-    ///     TODO:- refactor methods that access the stdErr and stdOut into common methods to reduce duplication
     /// </summary>
     public class ProcessRunner : IProcessRunner
     {
         private readonly IList<string> _standardErrorOutputList;
         private readonly IList<string> _standardOutputList;
         private IntPtr _job;
+        bool _disposed;
 
         public ProcessRunner(IProcessStartInfoWrapper processStartInfoWrapper)
         {
@@ -118,18 +118,118 @@ namespace Alpari.QA.ProcessRunner
 
         public StreamWriter StreamWriter { get; private set; }
 
+        // Public implementation of Dispose pattern callable by consumers. 
         public void Dispose()
         {
-            //todo:- implement Log4Net
-            // ReSharper disable EmptyGeneralCatchClause
-            int processId = default (int);
-            try
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        // Protected implementation of Dispose pattern. 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed)
+                return;
+
+            if (disposing)
             {
-                processId = Process.Id;
+                // Free any other managed objects here. 
+                //
+                //todo:- implement Log4Net
+                // ReSharper disable EmptyGeneralCatchClause
+                int processId = default(int);
+                try
+                {
+                    processId = Process.Id;
+                }
+                catch
+                {
+                }
+
+                try
+                {
+                    if (ProcessStartInfoWrapper.RedirectStandardOutput)
+                    {
+                        Process.OutputDataReceived -= StandardOutputHandler;
+                        _standardOutputList.Clear();
+                    }
+                }
+                catch
+                {
+                }
+
+                try
+                {
+                    if (ProcessStartInfoWrapper.RedirectStandardError)
+                    {
+                        Process.ErrorDataReceived -= StandardOutputHandler;
+                        _standardErrorOutputList.Clear();
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    if (ProcessStartInfoWrapper.RedirectStandardInput)
+                    {
+                        StreamWriter.Flush();
+                        StreamWriter.Close();
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    if (!HasExitedCheck())
+                    {
+                        Process.CloseMainWindow();
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Process.Close();
+                    Process.WaitForExit(10000);
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Process.Dispose();
+                }
+                catch
+                {
+                }
+                try
+                {
+                    if (!HasExitedCheck())
+                    {
+                        Process.Kill();
+                    }
+                }
+                catch
+                {
+                }
+
+                Process.Dispose();
+                ProcessStartInfoWrapper.Dispose();
+
+                try
+                {
+                    //small theoretical risk of another process starting with same id, but this does make sure unmanaged processes close!
+                    Process.GetProcessById(processId).Kill();
+                }
+                catch
+                {
+                }
             }
-            catch
-            {
-            }
+
+            // Free any unmanaged objects here. 
             try
             {
                 TerminateProc();
@@ -137,89 +237,111 @@ namespace Alpari.QA.ProcessRunner
             catch
             {
             }
-
-            try
-            {
-                if (ProcessStartInfoWrapper.RedirectStandardOutput)
-                {
-                    Process.OutputDataReceived -= StandardOutputHandler;
-                    _standardOutputList.Clear();
-                }
-            }
-            catch
-            {
-            }
-
-            try
-            {
-                if (ProcessStartInfoWrapper.RedirectStandardError)
-                {
-                    Process.ErrorDataReceived -= StandardOutputHandler;
-                    _standardErrorOutputList.Clear();
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                if (ProcessStartInfoWrapper.RedirectStandardInput)
-                {
-                    StreamWriter.Flush();
-                    StreamWriter.Close();
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                if (!HasExitedCheck())
-                {
-                    Process.CloseMainWindow();
-                }
-            }
-            catch
-            {
-            }
-            try
-            {
-                Process.Close();
-                Process.WaitForExit(10000);
-            }
-            catch
-            {
-            }
-            try
-            {
-                Process.Dispose();
-            }
-            catch
-            {
-            }
-            try
-            {
-                if (!HasExitedCheck())
-                {
-                    Process.Kill();
-                }
-            }
-            catch
-            {
-            }
-
-            Process.Dispose();
-            ProcessStartInfoWrapper.Dispose();
-
-            try
-            {
-                //small theoretical risk of another process starting with same id, but this does make sure unmanaged processes close!
-                Process.GetProcessById(processId).Kill();
-            }
-            catch
-            {
-            }
+            _disposed = true;
         }
+
+        //public void Dispose()
+        //{
+        //    //todo:- implement Log4Net
+        //    // ReSharper disable EmptyGeneralCatchClause
+        //    int processId = default (int);
+        //    try
+        //    {
+        //        processId = Process.Id;
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        TerminateProc();
+        //    }
+        //    catch
+        //    {
+        //    }
+
+        //    try
+        //    {
+        //        if (ProcessStartInfoWrapper.RedirectStandardOutput)
+        //        {
+        //            Process.OutputDataReceived -= StandardOutputHandler;
+        //            _standardOutputList.Clear();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+
+        //    try
+        //    {
+        //        if (ProcessStartInfoWrapper.RedirectStandardError)
+        //        {
+        //            Process.ErrorDataReceived -= StandardOutputHandler;
+        //            _standardErrorOutputList.Clear();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        if (ProcessStartInfoWrapper.RedirectStandardInput)
+        //        {
+        //            StreamWriter.Flush();
+        //            StreamWriter.Close();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        if (!HasExitedCheck())
+        //        {
+        //            Process.CloseMainWindow();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        Process.Close();
+        //        Process.WaitForExit(10000);
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        Process.Dispose();
+        //    }
+        //    catch
+        //    {
+        //    }
+        //    try
+        //    {
+        //        if (!HasExitedCheck())
+        //        {
+        //            Process.Kill();
+        //        }
+        //    }
+        //    catch
+        //    {
+        //    }
+
+        //    Process.Dispose();
+        //    ProcessStartInfoWrapper.Dispose();
+
+        //    try
+        //    {
+        //        //small theoretical risk of another process starting with same id, but this does make sure unmanaged processes close!
+        //        Process.GetProcessById(processId).Kill();
+        //    }
+        //    catch
+        //    {
+        //    }
+        //}
 
         [DllImport("kernel32.dll", CharSet = CharSet.Unicode)]
         private static extern IntPtr CreateJobObject(IntPtr lpJobAttributes, string lpName);

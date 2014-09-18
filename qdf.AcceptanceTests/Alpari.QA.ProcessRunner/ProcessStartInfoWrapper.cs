@@ -12,6 +12,9 @@ namespace Alpari.QA.ProcessRunner
     /// </summary>
     public class ProcessStartInfoWrapper : IProcessStartInfoWrapper
     {
+        // Flag: Has Dispose already been called? 
+        bool disposed = false;
+
         public void SetupProcessStartInfo()
         {
             ProcessStartInfo = new ProcessStartInfo
@@ -156,9 +159,32 @@ namespace Alpari.QA.ProcessRunner
             )]
         public string WorkingDirectory { get; set; }
 
+        //public void Dispose()
+        //{
+        //    //Dispose(true);
+            
+        //    ProcessStartInfo = null; //shouldn't need to do this
+        //}
         public void Dispose()
         {
-            ProcessStartInfo = null; //shouldn't need to do this
+            Dispose(true);
+            GC.SuppressFinalize(this);  
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+                return;
+
+            if (disposing)
+            {
+                // Free any other managed objects here. 
+                ProcessStartInfo = null; //shouldn't need to do this
+            }
+
+            // Free any unmanaged objects here. 
+            //
+            disposed = true;
         }
     }
 }

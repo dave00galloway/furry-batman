@@ -1,0 +1,65 @@
+0	2014.09.18 11:08:24		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 11:08:24	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 11:08:24	AlpariUKtest-StagingPRO	'7003906': order buy market 1.23 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': order is open : #2969970 buy 1.23 EURUSD at 1.28779 sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': order buy market 2.34 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 11:08:25	AlpariUKtest-StagingPRO	'7003906': order is open : #2969971 buy 2.34 EURUSD at 1.28779 sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': order buy market 3.45 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': order is open : #2969972 buy 3.45 EURUSD at 1.28780 sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': order sell market 2.00 GBPUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 11:08:26	AlpariUKtest-StagingPRO	'7003906': order is open : #2969973 sell 2.00 GBPUSD at 1.63065 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:19:15		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:19:15	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:20:07		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:20:25		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:20:49		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:20:49	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:23:34		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:23:34	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:24:56		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:24:56	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:26:13		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:27:02		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': order buy market 1.23 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': order is open : #2969974 buy 1.23 EURUSD at 1.28822 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:03	AlpariUKtest-StagingPRO	'7003906': order buy market 2.34 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': order is open : #2969975 buy 2.34 EURUSD at 1.28822 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': order buy market 3.45 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': order is open : #2969976 buy 3.45 EURUSD at 1.28822 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': order sell market 2.00 GBPUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:27:04	AlpariUKtest-StagingPRO	'7003906': order is open : #2969977 sell 2.00 GBPUSD at 1.63336 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:40:50		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 12:40:50	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 12:42:00	AlpariUKtest-StagingPRO	'7003906': order buy market 3.45 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:42:00	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:42:00	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:42:00	AlpariUKtest-StagingPRO	'7003906': order is open : #2969978 buy 3.45 EURUSD at 1.28809 sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:42:13	AlpariUKtest-StagingPRO	'7003906': order buy market 3.45 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 12:42:13	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 12:42:13	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 12:42:13	AlpariUKtest-StagingPRO	'7003906': order is open : #2969979 buy 3.45 EURUSD at 1.28808 sl: 0.00000 tp: 0.00000
+0	2014.09.18 13:07:43		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 13:07:43	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 13:10:24		MT4 Client API 4.00 (build 224) initialized
+0	2014.09.18 13:10:24	AlpariUKtest-StagingPRO	'7003906': login (6.70, #0)
+0	2014.09.18 13:11:01	AlpariUKtest-StagingPRO	'7003906': order buy market 3.45 EURUSD sl: 0.00000 tp: 0.00000
+0	2014.09.18 13:11:01	AlpariUKtest-StagingPRO	'7003906': request was accepted by server
+0	2014.09.18 13:11:01	AlpariUKtest-StagingPRO	'7003906': request in process
+0	2014.09.18 13:11:01	AlpariUKtest-StagingPRO	'7003906': order is open : #2970058 buy 3.45 EURUSD at 1.28732 sl: 0.00000 tp: 0.00000

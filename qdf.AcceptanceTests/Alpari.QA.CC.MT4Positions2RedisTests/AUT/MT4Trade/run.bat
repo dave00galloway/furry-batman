@@ -1,0 +1,1 @@
+MT4Trade -s 10.10.144.25:443 -u 7003906 -p Trader  <MT4Trade.script

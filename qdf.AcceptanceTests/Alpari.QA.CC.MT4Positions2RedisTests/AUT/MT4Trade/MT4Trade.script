@@ -1,0 +1,5 @@
+buy volume=123 symbol=EURUSD price=1.5
+buy volume=234 symbol=EURUSD price=1.5
+buy volume=345 symbol=EURUSD price=1.5
+sell volume=200 symbol=GBPUSD price=1.6 comment=FromScriptFile
+exit
