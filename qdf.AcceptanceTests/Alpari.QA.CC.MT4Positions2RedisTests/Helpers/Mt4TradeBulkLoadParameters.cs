@@ -12,5 +12,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public string TradeInstruction { get; set; }
         public int Quantity { get; set; }
         public string FileNamePath { get; set; }
+        public int Threads { get; set; }
     }
 }

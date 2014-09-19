@@ -30,6 +30,15 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             Mt4TradeLoadResultDictionary = mt4TradeLoadResultDictionary;
         }
 
+        public Mt4CompositeApi(Dictionary<string, Mt4TradeLoadResult> mt4TradeLoadResultDictionary,
+            ManualResetEvent doneEvent)
+        {
+            Mt4TradeLoadResultDictionary = mt4TradeLoadResultDictionary;
+            DoneEvent = doneEvent;
+        }
+
+        private ManualResetEvent DoneEvent { get; set; }
+
         /// <summary>
         ///     Assumming we'll only need one set of manager connection parameters,
         ///     and we'll create and drop the connection when needed
@@ -78,7 +87,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
             return result;
         }
-
 
         public void StoreTradeResult(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters,
             Mt4TradeLoadResult mt4TradeLoadResult)
@@ -139,6 +147,20 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     manager.Disconnect();
                     StoreTradeResult(closeParameters, result);
                 }
+            }
+        }
+
+        public void LoadTradesInThread(Object threadContext)
+        {
+            try
+            {
+                var mt4TradeBulkLoadParameters = threadContext as Mt4TradeBulkLoadParameters;
+                StoreTradeResult(mt4TradeBulkLoadParameters,
+                    LoadTrades(mt4TradeBulkLoadParameters));
+            }
+            finally
+            {
+                DoneEvent.Set();
             }
         }
 
@@ -272,5 +294,16 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     symbol);
             }
         }
+
+
+        //// Wrapper method for use with thread pool.
+        //public void ThreadPoolCallback(Object threadContext)
+        //{
+        //    int threadIndex = (int)threadContext;
+        //    Console.WriteLine("thread {0} started...", threadIndex);
+        //    //_fibOfN = Calculate(_n);
+        //    Console.WriteLine("thread {0} result calculated...", threadIndex);
+        //    //_doneEvent.Set();
+        //}
     }
 }
