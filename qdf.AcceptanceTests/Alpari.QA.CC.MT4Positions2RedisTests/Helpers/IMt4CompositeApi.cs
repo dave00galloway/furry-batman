@@ -15,5 +15,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         Mt4TradeLoadResult LoadTrades(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters);
         void StoreTradeResult(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, Mt4TradeLoadResult mt4TradeLoadResult);
+        void ClosePositionsFor(int login);
     }
 }

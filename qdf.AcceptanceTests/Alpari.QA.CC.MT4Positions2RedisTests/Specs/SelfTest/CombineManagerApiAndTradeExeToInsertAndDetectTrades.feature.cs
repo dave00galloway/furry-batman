@@ -166,6 +166,61 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add Trades then close all positions for login and reconcile")]
+        public virtual void AddTradesThenCloseAllPositionsForLoginAndReconcile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Trades then close all positions for login and reconcile", ((string[])(null)));
+#line 36
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "login",
+                        "tradeInstruction",
+                        "quantity",
+                        "fileNamePath"});
+            table6.AddRow(new string[] {
+                        "7003906",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "500",
+                        ""});
+#line 37
+ testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table6, "When ");
+#line 40
+ testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 41
+ testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 43
+ testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 44
+ testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table7.AddRow(new string[] {
+                        "Timestamp"});
+            table7.AddRow(new string[] {
+                        "OpenTime"});
+#line 45
+ testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
+                    "these fields:", ((string)(null)), table7, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table8.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 49
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table8, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

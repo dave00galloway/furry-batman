@@ -33,3 +33,19 @@ Scenario: Bulk load identical trades and sync on insert completion and reconcile
 		| DataTableToCsv |  true      |
 
 
+Scenario: Add Trades then close all positions for login and reconcile
+	When I bulk load trades into MT4:-
+		| login   | tradeInstruction                       | quantity | fileNamePath |
+		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 500      |              |
+	Then the count of open trades for login "7003906" will increase by 500
+	When I close all positions for login "7003906"
+	Then the count of open trades for login "7003906" will be 0
+	When I get all positions for server "ProTest" opened from '2014/09/02 00:00:00'	
+	And I query for open positions after "2014-09-01" on "ars_test_AUKP01"
+	And I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
+		 | ExcludedFields |
+		 | Timestamp      |
+		 | OpenTime       |
+	Then the redis positions should match the ars positions exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |

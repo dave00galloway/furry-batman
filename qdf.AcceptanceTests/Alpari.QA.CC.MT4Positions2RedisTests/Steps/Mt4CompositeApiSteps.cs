@@ -30,6 +30,20 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                 Mt4CompositeApi.LoadTrades(mt4TradeBulkLoadParameters));
         }
 
+        [When(@"I close all positions for login ""(.*)""")]
+        public void WhenICloseAllPositionsForLogin(int p0)
+        {
+            Mt4CompositeApi.ClosePositionsFor(p0);
+        }
+
+        [Then(@"the count of open trades for login ""(.*)"" will be (.*)")]
+        public void ThenTheCountOfOpenTradesForLoginWillBe(string login, int expectedCount)
+        {
+            var result = Mt4CompositeApi.Mt4TradeLoadResultDictionary[login];
+            result.PostLoadTradeList.Count.Should().Be(expectedCount);
+        }
+
+
         [Then(@"the count of open trades for login ""(.*)"" will increase by (.*)")]
         public void ThenTheCountOfOpenTradesForLoginWillIncreaseBy(string login, int expectedIncrease)
         {
