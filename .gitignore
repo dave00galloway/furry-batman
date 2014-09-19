@@ -231,3 +231,5 @@ qdf.AcceptanceTests/Alpari.QualityAssurance.Cnx2Redis.Tests/Alpari.QualityAssura
 qdf.AcceptanceTests/packages/NUnit*
 qdf.AcceptanceTests/packages/IKVM*
 qdf.AcceptanceTests/packages/NHtmlUnit*
+logs
+config

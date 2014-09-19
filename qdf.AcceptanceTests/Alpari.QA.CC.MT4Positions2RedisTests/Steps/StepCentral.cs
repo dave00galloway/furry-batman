@@ -29,5 +29,21 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                 return steps;
             }
         }
+
+        public static Mt4DotNetManagerWrapperSteps Mt4DotNetManagerWrapperSteps
+        {
+            get
+            {
+                bool toAdd = GetStepDefinition(Mt4DotNetManagerWrapperSteps.FullName) == null;
+                Mt4DotNetManagerWrapperSteps steps = (Mt4DotNetManagerWrapperSteps)
+                    GetStepDefinition(Steps.Mt4DotNetManagerWrapperSteps.FullName) ??
+                                         new Mt4DotNetManagerWrapperSteps();
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
     }
 }

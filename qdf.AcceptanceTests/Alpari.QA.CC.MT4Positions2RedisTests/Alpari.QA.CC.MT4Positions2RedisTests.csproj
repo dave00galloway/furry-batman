@@ -133,9 +133,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Helpers\IMt4CompositeApi.cs" />
+    <Compile Include="Helpers\Mt4CompositeApi.cs" />
+    <Compile Include="Helpers\Mt4TradeBulkLoadParameters.cs" />
+    <Compile Include="Helpers\Mt4TradeLoadResult.cs" />
     <Compile Include="Helpers\TestablePosition.cs" />
     <Compile Include="Helpers\TestablePositionExtensions.cs" />
     <Compile Include="Hooks\ArsPositionsHooks.cs" />
+    <Compile Include="Hooks\MT4ApiHooks.cs" />
+    <Compile Include="Hooks\Mt4CompositeApiHooks.cs" />
     <Compile Include="Hooks\MT4TradeExeHooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\CompareArsAndRedisPositionData.feature.cs">
@@ -163,10 +169,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoadTradeDataFromBackOfficeTerminalReport.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\InsertTradesWithMt4TradeExe.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InsertTradesWithMt4TradeExe.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Specs\SelfTest\MT4ManagerApiSteps.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MT4ManagerApiSteps.feature</DependentUpon>
     </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
@@ -176,9 +192,13 @@
     <Compile Include="Steps\CompareArsAndRedisPositionsSteps.cs" />
     <Compile Include="Steps\GetArsPositionsSteps.cs" />
     <Compile Include="Steps\GetRedisPositionsSteps.cs" />
-    <Compile Include="Steps\MT4DotNetWrapperSteps.cs" />
+    <Compile Include="Steps\Mt4CompositeApiSteps.cs" />
+    <Compile Include="Steps\Mt4DotNetClientWrapperSteps.cs" />
+    <Compile Include="Steps\MT4DotNetManagerWrapperSteps.cs" />
     <Compile Include="Steps\MT4TradeExeSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
+    <Compile Include="Helpers\Mt4ApiConnectionParameters.cs" />
+    <Compile Include="Transforms\Mt4CompositeApiTransforms.cs" />
     <Compile Include="Transforms\Mt4DotNetWrapperTransforms.cs" />
     <Compile Include="Transforms\MT4TradeExeTransforms.cs" />
   </ItemGroup>
@@ -214,9 +234,17 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoadTradeDataFromBackOfficeTerminalReport.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\InsertTradesWithMt4TradeExe.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InsertTradesWithMt4TradeExe.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\MT4ManagerApiSteps.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>MT4ManagerApiSteps.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

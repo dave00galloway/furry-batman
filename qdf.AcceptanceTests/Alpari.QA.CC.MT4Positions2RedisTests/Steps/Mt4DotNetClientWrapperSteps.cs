@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using Alpari.QA.CC.MT4Positions2RedisTests.Transforms;
 using AlpariUK.Mt4.Wrapper;
 using AlpariUK.Mt4.Wrapper.Enums;
@@ -11,12 +12,12 @@ using TechTalk.SpecFlow;
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
 {
     [Binding]
-    public class Mt4DotNetWrapperSteps
+    public class Mt4DotNetClientWrapperSteps
     {
         public Client Client { get; set; }
 
         [Given(@"I have a client connection to MT4:-")]
-        public void GivenIHaveAClientConnectionToMt4(Mt4ClientConnectionParameters connectionParameters)
+        public void GivenIHaveAClientConnectionToMt4(Mt4ApiConnectionParameters connectionParameters)
         {
             Client = new Client(connectionParameters.Server, connectionParameters.Login, connectionParameters.Password);
             Client.Connect();

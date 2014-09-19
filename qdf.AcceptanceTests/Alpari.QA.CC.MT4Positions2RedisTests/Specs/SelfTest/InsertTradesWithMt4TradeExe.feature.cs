@@ -90,7 +90,7 @@ this.ScenarioSetup(scenarioInfo);
                         "true",
                         "true"});
 #line 7
- testRunner.Given("I these parameters for MT4Trade:-", ((string)(null)), table1, "Given ");
+ testRunner.Given("I have these parameters for MT4Trade:-", ((string)(null)), table1, "Given ");
 #line 10
  testRunner.When("I launch MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 11
@@ -104,17 +104,19 @@ this.ScenarioSetup(scenarioInfo);
 #line 16
  testRunner.When("I send string \"exit\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 17
+ testRunner.Then("MT4Trade output contains \"opened\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 18
  testRunner.Then("MT4Trade output contains \"Press Ctrl+C to exit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Launch MT4Trade.exe and close trades")]
-        public virtual void LaunchMT4Trade_ExeAndCloseTrades()
+        [NUnit.Framework.DescriptionAttribute("Launch MT4Trade.exe and bulk load identical trades")]
+        public virtual void LaunchMT4Trade_ExeAndBulkLoadIdenticalTrades()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch MT4Trade.exe and close trades", ((string[])(null)));
-#line 20
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch MT4Trade.exe and bulk load identical trades", ((string[])(null)));
+#line 39
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -133,23 +135,18 @@ this.ScenarioSetup(scenarioInfo);
                         "true",
                         "true",
                         "true"});
-#line 21
- testRunner.Given("I these parameters for MT4Trade:-", ((string)(null)), table2, "Given ");
-#line 24
+#line 40
+ testRunner.Given("I have these parameters for MT4Trade:-", ((string)(null)), table2, "Given ");
+#line 43
  testRunner.When("I launch MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 25
- testRunner.And("I send string \"buy volume=345 symbol=EURUSD price=1.5\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
- testRunner.And("I send string \"buy volume=345 symbol=EURUSD price=1.5\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 27
- testRunner.And("I send string \"buy volume=345 symbol=EURUSD price=1.5\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
- testRunner.And("I send string \"buy volume=345 symbol=EURUSD price=1.5\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
- testRunner.And("I send string \"close_all\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 31
+#line 44
+ testRunner.And("I load 100 trades with these parameters \"buy volume=345 symbol=EURUSD price=1.5\" " +
+                    "with MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
  testRunner.When("I send string \"exit\" to MT4Trade", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 32
+#line 47
+ testRunner.Then("MT4Trade output contains \"opened\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 48
  testRunner.Then("MT4Trade output contains \"Press Ctrl+C to exit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
