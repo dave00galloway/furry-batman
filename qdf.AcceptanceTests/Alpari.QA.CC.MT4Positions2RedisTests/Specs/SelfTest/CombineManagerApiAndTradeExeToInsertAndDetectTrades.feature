@@ -36,7 +36,7 @@ Scenario: Bulk load identical trades and sync on insert completion and reconcile
 Scenario: Add Trades then close all positions for login and reconcile
 	When I bulk load trades into MT4:-
 		| login   | tradeInstruction                       | quantity | fileNamePath | threads |
-		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 5        |              |         |
+		| 7004066 | buy volume=345 symbol=EURUSD price=1.5 | 5        |              |         |
 	Then the count of open trades for login "7003906" will increase by 5
 	When I close all positions for login "7003906"
 	Then the count of open trades for login "7003906" will be 0
@@ -52,10 +52,91 @@ Scenario: Add Trades then close all positions for login and reconcile
 
 #This approach can't work when using a single account as the threads will interfere with each other, 
 #and the Mt4CompositeApi property won't have been populated
+#Scenario: Add Trades in parallel then close all positions for login and reconcile
+#	When I bulk load trades into MT4:-
+#		| login   | tradeInstruction                       | quantity | fileNamePath | threads |
+#		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 150      |              | 64      |
+#	Then the count of open trades for login "7003906" will increase by 500
+#	When I close all positions for login "7003906"
+#	Then the count of open trades for login "7003906" will be 0
+#	When I get all positions for server "ProTest" opened from '2014/09/02 00:00:00'	
+#	And I query for open positions after "2014-09-01" on "ars_test_AUKP01"
+#	And I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
+#		 | ExcludedFields |
+#		 | Timestamp      |
+#		 | OpenTime       |
+#	Then the redis positions should match the ars positions exactly:-
+#		| ExportType     |  Overwrite |
+#		| DataTableToCsv |  true      |
+
 Scenario: Add Trades in parallel then close all positions for login and reconcile
 	When I bulk load trades into MT4:-
-		| login   | tradeInstruction                       | quantity | fileNamePath | threads |
-		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 150      |              | 64      |
+		| login   | tradeInstruction                       | quantity |
+		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004130 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004129 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004128 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004127 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004126 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004125 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004124 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004123 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004122 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004121 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004120 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004119 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004118 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004117 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004116 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004115 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004114 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004113 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004112 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004111 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004110 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004109 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004108 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004107 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004106 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004105 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004104 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004103 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004102 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004101 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004100 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004099 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004098 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004097 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004096 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004095 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004094 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004093 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004092 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004091 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004090 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004089 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004088 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004087 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004086 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004085 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004084 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004083 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004082 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004081 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004080 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004079 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004078 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004077 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004076 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004075 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004074 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004073 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004072 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004071 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004070 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004069 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7004068 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+
 	Then the count of open trades for login "7003906" will increase by 500
 	When I close all positions for login "7003906"
 	Then the count of open trades for login "7003906" will be 0
@@ -68,3 +149,4 @@ Scenario: Add Trades in parallel then close all positions for login and reconcil
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
+

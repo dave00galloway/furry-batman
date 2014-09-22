@@ -15,7 +15,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
         public void BeforeScenario()
         {
             SetupObjectContainerAndTagsProperties();
-            SetupMt4CompositeApi();
+            //SetupMt4CompositeApi();
+            SetupMt4CompositeApiManager();
         }
 
         public static IMt4CompositeApi SetupMt4CompositeApi()
@@ -28,6 +29,21 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
             catch (Exception)
             {
                 api = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>());
+                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(api);
+            }
+            return api;
+        }
+
+        public static IMt4CompositeApiManager SetupMt4CompositeApiManager()
+        {
+            IMt4CompositeApiManager api;
+            try
+            {
+                api = ObjectContainer.Resolve<IMt4CompositeApiManager>();
+            }
+            catch (Exception)
+            {
+                api = new Mt4CompositeApiManager(new Dictionary<int, IMt4CompositeApi>());
                 if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(api);
             }
             return api;

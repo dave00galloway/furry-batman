@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Threading;
 using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using FluentAssertions;
@@ -11,57 +14,42 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
     {
         public new static readonly string FullName = typeof (StepCentral).FullName;
 
-        public Mt4CompositeApiSteps(IMt4CompositeApi mt4CompositeApi)
+        public Mt4CompositeApiSteps(IMt4CompositeApiManager mt4CompositeApiManager)
         {
-            Mt4CompositeApi = mt4CompositeApi;
+            Mt4CompositeApiManager = mt4CompositeApiManager;
         }
 
-        private IMt4CompositeApi Mt4CompositeApi { get; set; }
+        private IMt4CompositeApiManager Mt4CompositeApiManager { get; set; }
 
         [Given(@"I have the following connection parameters for the Mt4CompositeApi:-")]
         public void GivenIHaveTheFollowingConnectionParametersForTheMtCompositeApi(
             Mt4ApiConnectionParameters mt4ApiConnectionParameters)
         {
-            Mt4CompositeApi.ManagerConnectionParameters = mt4ApiConnectionParameters;
+            Mt4CompositeApiManager.ManagerConnectionParameters = mt4ApiConnectionParameters;
         }
 
         [When(@"I bulk load trades into MT4:-")]
-        public void WhenIBulkLoadTradesIntoMt4(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters)
+        public void WhenIBulkLoadTradesIntoMt4(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
-            int threads = mt4TradeBulkLoadParameters.Threads;
-            //ThreadPool.Se
-            if (threads > 0)
-            {
-                ManualResetEvent[] doneEvents = new ManualResetEvent[threads];
-                for (int i = 0; i < threads; i++)
-                {
-                    //this won't be totally accurate and the called methods will need to take account of different logins eventually
-                    doneEvents[i] = new ManualResetEvent(false);
-                    var manager = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(), doneEvents[i]);
-                    manager.ManagerConnectionParameters = Mt4CompositeApi.ManagerConnectionParameters;
-                    ThreadPool.QueueUserWorkItem(manager.LoadTradesInThread, mt4TradeBulkLoadParameters);
-                    //ThreadPool.QueueUserWorkItem(manager.ThreadPoolCallback, i);
-                    //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>()).LoadTrades(mt4TradeBulkLoadParameters)
-                }
-                WaitHandle.WaitAll(doneEvents);
-            }
-            else
-            {
-                Mt4CompositeApi.StoreTradeResult(mt4TradeBulkLoadParameters,
-                                Mt4CompositeApi.LoadTrades(mt4TradeBulkLoadParameters));                
-            }
+            Mt4CompositeApiManager.LoadTrades(mt4TradeBulkLoadParameters);
+            //might need to change this to be the number of records in a set of Mt4TradeBulkLoadParameters
+            //int threads = mt4TradeBulkLoadParameters.Threads;
         }
 
         [When(@"I close all positions for login ""(.*)""")]
         public void WhenICloseAllPositionsForLogin(int login)
         {
-            Mt4CompositeApi.ClosePositionsFor(login);
+            /*TODO:- currently the key for Mt4CompositeApiManager.dict is the login,
+             * but the apis can store results for multiple logins, so manager wide versions 
+             * of the api level methods could be implemented, 
+             * in case the login in use changes during a sceanrio*/
+            Mt4CompositeApiManager.GetMt4CompositeApi(login).ClosePositionsFor(login);
         }
 
         [Then(@"the count of open trades for login ""(.*)"" will be (.*)")]
         public void ThenTheCountOfOpenTradesForLoginWillBe(string login, int expectedCount)
         {
-            var result = Mt4CompositeApi.Mt4TradeLoadResultDictionary[login];
+            var result = Mt4CompositeApiManager.GetMt4CompositeApi(login).Mt4TradeLoadResultDictionary[login];
             result.PostLoadTradeList.Count.Should().Be(expectedCount);
         }
 
@@ -69,7 +57,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [Then(@"the count of open trades for login ""(.*)"" will increase by (.*)")]
         public void ThenTheCountOfOpenTradesForLoginWillIncreaseBy(string login, int expectedIncrease)
         {
-            var result = Mt4CompositeApi.Mt4TradeLoadResultDictionary[login];
+            var result = Mt4CompositeApiManager.GetMt4CompositeApi(login).Mt4TradeLoadResultDictionary[login];
             result.PostLoadTradeList.Count.Should().Be(result.PreLoadTradeList.Count + expectedIncrease);
         }
     }

@@ -134,7 +134,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Helpers\IMt4CompositeApi.cs" />
+    <Compile Include="Helpers\IMt4CompositeApiManager.cs" />
     <Compile Include="Helpers\Mt4CompositeApi.cs" />
+    <Compile Include="Helpers\Mt4CompositeApiManager.cs" />
     <Compile Include="Helpers\Mt4TradeBulkLoadParameters.cs" />
     <Compile Include="Helpers\Mt4TradeLoadResult.cs" />
     <Compile Include="Helpers\TestablePosition.cs" />

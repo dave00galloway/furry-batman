@@ -183,7 +183,7 @@ this.FeatureBackground();
                         "fileNamePath",
                         "threads"});
             table6.AddRow(new string[] {
-                        "7003906",
+                        "7004066",
                         "buy volume=345 symbol=EURUSD price=1.5",
                         "5",
                         "",
@@ -226,7 +226,7 @@ this.FeatureBackground();
         public virtual void AddTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
-#line 55
+#line 72
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -234,26 +234,274 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
                         "login",
                         "tradeInstruction",
-                        "quantity",
-                        "fileNamePath",
-                        "threads"});
+                        "quantity"});
             table9.AddRow(new string[] {
                         "7003906",
                         "buy volume=345 symbol=EURUSD price=1.5",
-                        "150",
-                        "",
-                        "64"});
-#line 56
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004130",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004129",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004128",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004127",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004126",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004125",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004124",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004123",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004122",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004121",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004120",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004119",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004118",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004117",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004116",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004115",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004114",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004113",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004112",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004111",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004110",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004109",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004108",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004107",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004106",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004105",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004104",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004103",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004102",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004101",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004100",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004099",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004098",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004097",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004096",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004095",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004094",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004093",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004092",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004091",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004090",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004089",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004088",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004087",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004086",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004085",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004084",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004083",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004082",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004081",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004080",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004079",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004078",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004077",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004076",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004075",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004074",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004073",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004072",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004071",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004070",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004069",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
+                        "7004068",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+#line 73
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table9, "When ");
-#line 59
+#line 140
  testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 60
+#line 141
  testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 61
+#line 142
  testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 62
+#line 143
  testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
+#line 144
  testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -262,7 +510,7 @@ this.FeatureBackground();
                         "Timestamp"});
             table10.AddRow(new string[] {
                         "OpenTime"});
-#line 64
+#line 145
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table10, "And ");
 #line hidden
@@ -272,7 +520,7 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 68
+#line 149
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();

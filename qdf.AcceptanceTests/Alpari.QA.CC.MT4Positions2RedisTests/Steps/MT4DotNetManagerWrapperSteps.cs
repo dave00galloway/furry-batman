@@ -157,7 +157,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                     Enable = 1,
                     Group = "BookA_GBP",
                     //EnableReserved = userToCopy.EnableReserved,
-                    EnableReadOnly = 1,
+                    EnableReadOnly = 0,
                     EnableChangePassword = 1,
                     //Id = userToCopy.Id
                     //Interestrate = userToCopy.Interestrate,

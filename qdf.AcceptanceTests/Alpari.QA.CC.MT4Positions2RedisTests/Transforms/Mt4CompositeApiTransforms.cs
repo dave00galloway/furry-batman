@@ -16,5 +16,11 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Transforms
         {
             return table.CreateInstance<Mt4TradeBulkLoadParameters>();
         }
+
+        [StepArgumentTransformation]
+        public static IEnumerable<Mt4TradeBulkLoadParameters> Mt4TradeBulkLoadParameterSetTransform(Table table)
+        {
+            return table.CreateSet<Mt4TradeBulkLoadParameters>();
+        }
     }
 }

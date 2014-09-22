@@ -37,6 +37,11 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             DoneEvent = doneEvent;
         }
 
+        //public Mt4CompositeApi()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
         private ManualResetEvent DoneEvent { get; set; }
 
         /// <summary>

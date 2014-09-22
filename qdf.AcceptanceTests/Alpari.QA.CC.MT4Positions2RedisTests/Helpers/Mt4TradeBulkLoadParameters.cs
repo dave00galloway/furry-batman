@@ -12,6 +12,9 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public string TradeInstruction { get; set; }
         public int Quantity { get; set; }
         public string FileNamePath { get; set; }
+        /// <summary>
+        /// formerly used to control number of threads to create when entering traes multithreaded. May now be redundant
+        /// </summary>
         public int Threads { get; set; }
     }
 }
