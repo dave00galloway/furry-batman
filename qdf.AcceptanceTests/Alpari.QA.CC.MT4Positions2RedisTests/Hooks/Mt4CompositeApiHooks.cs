@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
-using Alpari.QA.QDF.Test.Domain.DataContexts.MT4;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using TechTalk.SpecFlow;
 
@@ -36,10 +33,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
             return api;
         }
 
-        [AfterScenario]
-        public void AfterScenario()
-        {
-            //TODO: implement logic that has to run after executing each scenario
-        }
+        //[AfterScenario]
+        //public void AfterScenario()
+        //{
+        //    //TODO: implement logic that has to run after executing each scenario
+        //}
     }
 }
