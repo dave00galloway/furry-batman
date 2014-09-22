@@ -29,6 +29,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void WhenIBulkLoadTradesIntoMt4(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters)
         {
             int threads = mt4TradeBulkLoadParameters.Threads;
+            //ThreadPool.Se
             if (threads > 0)
             {
                 ManualResetEvent[] doneEvents = new ManualResetEvent[threads];
@@ -52,9 +53,9 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         }
 
         [When(@"I close all positions for login ""(.*)""")]
-        public void WhenICloseAllPositionsForLogin(int p0)
+        public void WhenICloseAllPositionsForLogin(int login)
         {
-            Mt4CompositeApi.ClosePositionsFor(p0);
+            Mt4CompositeApi.ClosePositionsFor(login);
         }
 
         [Then(@"the count of open trades for login ""(.*)"" will be (.*)")]

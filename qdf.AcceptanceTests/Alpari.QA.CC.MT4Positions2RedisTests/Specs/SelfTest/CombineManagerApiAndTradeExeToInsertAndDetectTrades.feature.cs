@@ -150,8 +150,6 @@ this.FeatureBackground();
                         "ExcludedFields"});
             table4.AddRow(new string[] {
                         "Timestamp"});
-            table4.AddRow(new string[] {
-                        "OpenTime"});
 #line 27
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table4, "And ");
@@ -207,8 +205,6 @@ this.FeatureBackground();
                         "ExcludedFields"});
             table7.AddRow(new string[] {
                         "Timestamp"});
-            table7.AddRow(new string[] {
-                        "OpenTime"});
 #line 45
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table7, "And ");

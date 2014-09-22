@@ -27,7 +27,7 @@ Scenario: Bulk load identical trades and sync on insert completion and reconcile
 	And I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
 		 | ExcludedFields |
 		 | Timestamp      |
-		 | OpenTime       |
+		# | OpenTime       |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -45,11 +45,13 @@ Scenario: Add Trades then close all positions for login and reconcile
 	And I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
 		 | ExcludedFields |
 		 | Timestamp      |
-		 | OpenTime       |
+		 #| OpenTime       |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 
+#This approach can't work when using a single account as the threads will interfere with each other, 
+#and the Mt4CompositeApi property won't have been populated
 Scenario: Add Trades in parallel then close all positions for login and reconcile
 	When I bulk load trades into MT4:-
 		| login   | tradeInstruction                       | quantity | fileNamePath | threads |

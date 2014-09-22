@@ -169,6 +169,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoadTradeDataFromBackOfficeTerminalReport.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\AddAccountsUsingManagerAPI.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddAccountsUsingManagerAPI.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\SelfTest\CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,6 +238,10 @@
     <None Include="Specs\LoadTradeDataFromBackOfficeTerminalReport.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoadTradeDataFromBackOfficeTerminalReport.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\AddAccountsUsingManagerAPI.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>AddAccountsUsingManagerAPI.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\SelfTest\CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
