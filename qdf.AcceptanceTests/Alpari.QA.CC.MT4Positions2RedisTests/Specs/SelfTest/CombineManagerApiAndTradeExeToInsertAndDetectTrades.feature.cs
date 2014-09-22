@@ -82,7 +82,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
 #line 8
  testRunner.Given("I have the following connection parameters for the Mt4CompositeApi:-", ((string)(null)), table1, "Given ");
 #line 11
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0 namespace" +
+                    " \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 12
  testRunner.And("I have a connection to Mt4ArsPositionsContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
@@ -186,13 +187,13 @@ this.FeatureBackground();
             table6.AddRow(new string[] {
                         "7003906",
                         "buy volume=345 symbol=EURUSD price=1.5",
-                        "50",
+                        "5",
                         "",
                         ""});
 #line 37
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table6, "When ");
 #line 40
- testRunner.Then("the count of open trades for login \"7003906\" will increase by 50", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the count of open trades for login \"7003906\" will increase by 5", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 41
  testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 42
@@ -229,7 +230,7 @@ this.FeatureBackground();
         public virtual void AddTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
-#line 53
+#line 55
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -246,17 +247,17 @@ this.FeatureBackground();
                         "150",
                         "",
                         "64"});
-#line 54
+#line 56
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table9, "When ");
-#line 57
- testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 58
- testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 59
- testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 60
- testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 61
+ testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 62
+ testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 63
  testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -265,7 +266,7 @@ this.FeatureBackground();
                         "Timestamp"});
             table10.AddRow(new string[] {
                         "OpenTime"});
-#line 62
+#line 64
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table10, "And ");
 #line hidden
@@ -275,7 +276,7 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 66
+#line 68
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();

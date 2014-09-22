@@ -26,6 +26,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT4
         {
             return string.Format(
                 "USE {0};" +
+                "set time_zone='+00:00';" +
                 "SELECT DISTINCT " +
                 "o.login," +
                 "o.`order`, " +

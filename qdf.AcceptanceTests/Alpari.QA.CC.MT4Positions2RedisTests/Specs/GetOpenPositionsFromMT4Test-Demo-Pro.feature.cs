@@ -71,7 +71,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         {
 #line 9
 #line 10
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0 namespace" +
+                    " \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
  testRunner.When("I get all positions for server \"MT4Test-Demo-Pro\" opened from \'2014/09/02 00:00:0" +
                     "0\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

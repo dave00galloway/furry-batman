@@ -7,7 +7,7 @@ Feature: UKUSCC-1014_AT_MT4Test-Demo-Pro
 #currently assumes 1 or more manually entered trades
 #limit by open date since there are a lot of garbage trades in the MT4 db which aren't in ars
 Background: get positions
-	Given I have a connection to a redis repository on "localhost" port 6379 db 0
+	Given I have a connection to a redis repository on "localhost" port 6379 db 0 namespace "alpari-positions"
 	When I get all positions for server "MT4Test-Demo-Pro" opened from '2014/09/02 00:00:00'
 	#When I get all positions for server "MT4Test-Demo-Pro"
 	

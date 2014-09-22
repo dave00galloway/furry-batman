@@ -22,10 +22,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             PositionDataTableDictionary = positionDataTableDictionary;
         }
 
-        [Given(@"I have a connection to a redis repository on ""(.*)"" port (.*) db (.*)")]
-        public void GivenIHaveAConnectionToARedisRepositoryOnPortDb(string host, int port, int db)
+        [Given(@"I have a connection to a redis repository on ""(.*)"" port (.*) db (.*) namespace (.*)")]
+        public void GivenIHaveAConnectionToARedisRepositoryOnPortDb(string host, int port, int db, string keyNamespace)
         {
-            RedisRepository = new RedisRepository(host, port, db);
+            RedisRepository = new RedisRepository(host, port, db, keyNamespace);
         }
 
         [When(@"I get all positions for server ""(.*)""")]

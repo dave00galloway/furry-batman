@@ -6,7 +6,7 @@ Feature: UKUSCC-1014_AT_Create Tools for comparing redis positions
 
 #currently assumes 1 or more manually entered trades
 Background: get positions
-	Given I have a connection to a redis repository on "localhost" port 6379 db 0
+	Given I have a connection to a redis repository on "localhost" port 6379 db 0 namespace "alpari-positions"
 	When I get all positions for server "ProTest"
 	
 Scenario: Get open positions
