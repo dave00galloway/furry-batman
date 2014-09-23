@@ -73,6 +73,7 @@ Scenario: Add Trades in parallel then close all positions for login and reconcil
 	When I bulk load trades into MT4:-
 		| login   | tradeInstruction                       | quantity |
 		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
+		| 7003906 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
 		| 7004130 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
 		| 7004129 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
 		| 7004128 | buy volume=345 symbol=EURUSD price=1.5 | 150      |
@@ -150,3 +151,70 @@ Scenario: Add Trades in parallel then close all positions for login and reconcil
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 
+Scenario: Bulk Close Trades in parallel then close all positions for login and reconcile
+	When I bulk close trades in MT4 for these logins:-
+	| login   |
+	| 7003906 |
+	| 7004130 |
+	| 7004129 |
+	| 7004128 |
+	| 7004127 |
+	| 7004126 |
+	| 7004125 |
+	| 7004124 |
+	| 7004123 |
+	| 7004122 |
+	| 7004121 |
+	| 7004120 |
+	| 7004119 |
+	| 7004118 |
+	| 7004117 |
+	| 7004116 |
+	| 7004115 |
+	| 7004114 |
+	| 7004113 |
+	| 7004112 |
+	| 7004111 |
+	| 7004110 |
+	| 7004109 |
+	| 7004108 |
+	| 7004107 |
+	| 7004106 |
+	| 7004105 |
+	| 7004104 |
+	| 7004103 |
+	| 7004102 |
+	| 7004101 |
+	| 7004100 |
+	| 7004099 |
+	| 7004098 |
+	| 7004097 |
+	| 7004096 |
+	| 7004095 |
+	| 7004094 |
+	| 7004093 |
+	| 7004092 |
+	| 7004091 |
+	| 7004090 |
+	| 7004089 |
+	| 7004088 |
+	| 7004087 |
+	| 7004086 |
+	| 7004085 |
+	| 7004084 |
+	| 7004083 |
+	| 7004082 |
+	| 7004081 |
+	| 7004080 |
+	| 7004079 |
+	| 7004078 |
+	| 7004077 |
+	| 7004076 |
+	| 7004075 |
+	| 7004074 |
+	| 7004073 |
+	| 7004072 |
+	| 7004071 |
+	| 7004070 |
+	| 7004069 |
+	| 7004068 |

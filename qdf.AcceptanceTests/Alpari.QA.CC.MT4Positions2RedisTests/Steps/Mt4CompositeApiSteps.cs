@@ -46,6 +46,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             Mt4CompositeApiManager.GetMt4CompositeApi(login).ClosePositionsFor(login);
         }
 
+        [When(@"I bulk close trades in MT4 for these logins:-")]
+        public void WhenIBulkCloseTradesInMt4ForTheseLogins(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
+        {
+            Mt4CompositeApiManager.BulkClosePositions(mt4TradeBulkLoadParameters);
+        }
+
+
         [Then(@"the count of open trades for login ""(.*)"" will be (.*)")]
         public void ThenTheCountOfOpenTradesForLoginWillBe(string login, int expectedCount)
         {

@@ -14,5 +14,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         IMt4CompositeApi GetMt4CompositeApi (int login);
         IMt4CompositeApi GetMt4CompositeApi(string login);
         void LoadTrades(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters);
+        void BulkClosePositions(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters);
     }
 }

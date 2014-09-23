@@ -24,6 +24,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private const string CLOSE_TRADE_MESSAGE = "close id={0}";
         private const string QUIT_MT4_TRADE_EXE_MESSAGE = "exit";
         private const string CLOSE_ALL_MESSAGE = "close_all";
+        private readonly object _inUseSync = new object();
+        private bool _inUse;
 
         public Mt4CompositeApi(IDictionary<string, Mt4TradeLoadResult> mt4TradeLoadResultDictionary)
         {
@@ -68,6 +70,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             {
                 try
                 {
+                    //InUse = false;
                     ConnectManagerAndWaitForConnection(manager);
                     if (mt4TradeBulkLoadParameters.Login > 0)
                     {
@@ -88,6 +91,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 finally
                 {
                     manager.Disconnect();
+                    //InUse = false;
                 }
             }
             return result;
@@ -96,8 +100,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public void StoreTradeResult(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters,
             Mt4TradeLoadResult mt4TradeLoadResult)
         {
+            //InUse = true;
             Mt4TradeLoadResultDictionary[mt4TradeBulkLoadParameters.Login.ToString(CultureInfo.InvariantCulture)] =
                 mt4TradeLoadResult;
+            //InUse = false;
         }
 
         /// <summary>
@@ -112,6 +118,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 var closeParameters = new Mt4TradeBulkLoadParameters {Login = login};
                 try
                 {
+                    InUse = true;
                     ConnectManagerAndWaitForConnection(manager);
                     //CloseAllPositionsForLoginWithManagerApi(login, manager);
                     //get existing open positions
@@ -151,6 +158,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 {
                     manager.Disconnect();
                     StoreTradeResult(closeParameters, result);
+                    InUse = false;
                 }
             }
         }
@@ -159,6 +167,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         {
             try
             {
+                //InUse = true;
                 var mt4TradeBulkLoadParameters = threadContext as Mt4TradeBulkLoadParameters;
                 StoreTradeResult(mt4TradeBulkLoadParameters,
                     LoadTrades(mt4TradeBulkLoadParameters));
@@ -166,6 +175,25 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             finally
             {
                 DoneEvent.Set();
+                //InUse = false;
+            }
+        }
+
+        public bool InUse
+        {
+            get
+            {
+                lock (_inUseSync)
+                {
+                    return _inUse;
+                }
+            }
+            set
+            {
+                lock (_inUseSync)
+                {
+                    _inUse = value;
+                }
             }
         }
 

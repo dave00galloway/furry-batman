@@ -240,6 +240,10 @@ this.FeatureBackground();
                         "buy volume=345 symbol=EURUSD price=1.5",
                         "150"});
             table9.AddRow(new string[] {
+                        "7003906",
+                        "buy volume=345 symbol=EURUSD price=1.5",
+                        "150"});
+            table9.AddRow(new string[] {
                         "7004130",
                         "buy volume=345 symbol=EURUSD price=1.5",
                         "150"});
@@ -493,15 +497,15 @@ this.FeatureBackground();
                         "150"});
 #line 73
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table9, "When ");
-#line 140
- testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 141
- testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 142
- testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 143
- testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 144
+ testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 145
  testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -510,7 +514,7 @@ this.FeatureBackground();
                         "Timestamp"});
             table10.AddRow(new string[] {
                         "OpenTime"});
-#line 145
+#line 146
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table10, "And ");
 #line hidden
@@ -520,8 +524,154 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 149
+#line 150
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Bulk Close Trades in parallel then close all positions for login and reconcile")]
+        public virtual void BulkCloseTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
+#line 154
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "login"});
+            table12.AddRow(new string[] {
+                        "7003906"});
+            table12.AddRow(new string[] {
+                        "7004130"});
+            table12.AddRow(new string[] {
+                        "7004129"});
+            table12.AddRow(new string[] {
+                        "7004128"});
+            table12.AddRow(new string[] {
+                        "7004127"});
+            table12.AddRow(new string[] {
+                        "7004126"});
+            table12.AddRow(new string[] {
+                        "7004125"});
+            table12.AddRow(new string[] {
+                        "7004124"});
+            table12.AddRow(new string[] {
+                        "7004123"});
+            table12.AddRow(new string[] {
+                        "7004122"});
+            table12.AddRow(new string[] {
+                        "7004121"});
+            table12.AddRow(new string[] {
+                        "7004120"});
+            table12.AddRow(new string[] {
+                        "7004119"});
+            table12.AddRow(new string[] {
+                        "7004118"});
+            table12.AddRow(new string[] {
+                        "7004117"});
+            table12.AddRow(new string[] {
+                        "7004116"});
+            table12.AddRow(new string[] {
+                        "7004115"});
+            table12.AddRow(new string[] {
+                        "7004114"});
+            table12.AddRow(new string[] {
+                        "7004113"});
+            table12.AddRow(new string[] {
+                        "7004112"});
+            table12.AddRow(new string[] {
+                        "7004111"});
+            table12.AddRow(new string[] {
+                        "7004110"});
+            table12.AddRow(new string[] {
+                        "7004109"});
+            table12.AddRow(new string[] {
+                        "7004108"});
+            table12.AddRow(new string[] {
+                        "7004107"});
+            table12.AddRow(new string[] {
+                        "7004106"});
+            table12.AddRow(new string[] {
+                        "7004105"});
+            table12.AddRow(new string[] {
+                        "7004104"});
+            table12.AddRow(new string[] {
+                        "7004103"});
+            table12.AddRow(new string[] {
+                        "7004102"});
+            table12.AddRow(new string[] {
+                        "7004101"});
+            table12.AddRow(new string[] {
+                        "7004100"});
+            table12.AddRow(new string[] {
+                        "7004099"});
+            table12.AddRow(new string[] {
+                        "7004098"});
+            table12.AddRow(new string[] {
+                        "7004097"});
+            table12.AddRow(new string[] {
+                        "7004096"});
+            table12.AddRow(new string[] {
+                        "7004095"});
+            table12.AddRow(new string[] {
+                        "7004094"});
+            table12.AddRow(new string[] {
+                        "7004093"});
+            table12.AddRow(new string[] {
+                        "7004092"});
+            table12.AddRow(new string[] {
+                        "7004091"});
+            table12.AddRow(new string[] {
+                        "7004090"});
+            table12.AddRow(new string[] {
+                        "7004089"});
+            table12.AddRow(new string[] {
+                        "7004088"});
+            table12.AddRow(new string[] {
+                        "7004087"});
+            table12.AddRow(new string[] {
+                        "7004086"});
+            table12.AddRow(new string[] {
+                        "7004085"});
+            table12.AddRow(new string[] {
+                        "7004084"});
+            table12.AddRow(new string[] {
+                        "7004083"});
+            table12.AddRow(new string[] {
+                        "7004082"});
+            table12.AddRow(new string[] {
+                        "7004081"});
+            table12.AddRow(new string[] {
+                        "7004080"});
+            table12.AddRow(new string[] {
+                        "7004079"});
+            table12.AddRow(new string[] {
+                        "7004078"});
+            table12.AddRow(new string[] {
+                        "7004077"});
+            table12.AddRow(new string[] {
+                        "7004076"});
+            table12.AddRow(new string[] {
+                        "7004075"});
+            table12.AddRow(new string[] {
+                        "7004074"});
+            table12.AddRow(new string[] {
+                        "7004073"});
+            table12.AddRow(new string[] {
+                        "7004072"});
+            table12.AddRow(new string[] {
+                        "7004071"});
+            table12.AddRow(new string[] {
+                        "7004070"});
+            table12.AddRow(new string[] {
+                        "7004069"});
+            table12.AddRow(new string[] {
+                        "7004068"});
+#line 155
+ testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table12, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
