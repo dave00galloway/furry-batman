@@ -41,7 +41,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
 
         public static PositionsDataContext SetupPositionsContext()
         {
-            string connectionString =
+            string connectionString =// @"server=10.10.144.237;user id=ars;password=1q2w3e;port=3306";
                 ConfigurationManager.ConnectionStrings[StepCentral.ARS_CONNECTION_STRING].ConnectionString;
             var context = new PositionsDataContext(connectionString);
             if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(context);

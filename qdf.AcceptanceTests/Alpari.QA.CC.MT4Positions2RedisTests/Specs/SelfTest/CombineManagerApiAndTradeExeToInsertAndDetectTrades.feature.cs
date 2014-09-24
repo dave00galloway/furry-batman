@@ -497,15 +497,15 @@ this.FeatureBackground();
                         "150"});
 #line 73
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table9, "When ");
-#line 141
+#line 336
  testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 142
+#line 337
  testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 143
+#line 338
  testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 144
+#line 339
  testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 145
+#line 340
  testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -514,7 +514,7 @@ this.FeatureBackground();
                         "Timestamp"});
             table10.AddRow(new string[] {
                         "OpenTime"});
-#line 146
+#line 341
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table10, "And ");
 #line hidden
@@ -524,18 +524,18 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 150
+#line 345
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Bulk Close Trades in parallel then close all positions for login and reconcile")]
-        public virtual void BulkCloseTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
+        [NUnit.Framework.DescriptionAttribute("Bulk Close Trades in parallel then reconcile")]
+        public virtual void BulkCloseTradesInParallelThenReconcile()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
-#line 154
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel then reconcile", ((string[])(null)));
+#line 349
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -670,7 +670,7 @@ this.FeatureBackground();
                         "7004069"});
             table12.AddRow(new string[] {
                         "7004068"});
-#line 155
+#line 350
  testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table12, "When ");
 #line hidden
             this.ScenarioCleanup();

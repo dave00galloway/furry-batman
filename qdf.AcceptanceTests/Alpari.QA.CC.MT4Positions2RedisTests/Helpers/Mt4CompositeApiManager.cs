@@ -8,7 +8,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
     public class Mt4CompositeApiManager : IMt4CompositeApiManager
     {
-        private readonly object _syncLock = new object();
+        //private readonly object _syncLock = new object();
 
         public Mt4CompositeApiManager(IDictionary<int, IMt4CompositeApi> mt4CompositeApiDictionary)
         {
@@ -21,9 +21,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         public IMt4CompositeApi GetMt4CompositeApi(int login)
         {
-            IMt4CompositeApi api;
-            lock (_syncLock)
-            {
+            //lock (_syncLock)
+            //{
                 if (!Mt4CompositeApiDictionary.ContainsKey(login))
                 {
                     Mt4CompositeApiDictionary[login] = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>())
@@ -31,8 +30,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                         ManagerConnectionParameters = ManagerConnectionParameters
                     };
                 }
-                api = Mt4CompositeApiDictionary[login];
-            }
+                var api = Mt4CompositeApiDictionary[login];
+            //}
             return api;
         }
 
@@ -71,21 +70,11 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 //}
                 //    );
 
-                //enumerate apis first, then execute the loads
-                //var apis = parameterSet.ToList <KeyValuePair<Mt4TradeBulkLoadParameters,IMt4CompositeApi>(p => p.Login, p => GetMt4CompositeApi(p.Login));
-                var apis =
-                    parameterSet.Select(
-                        parameter =>
-                            new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(parameter,
-                                GetMt4CompositeApi(parameter.Login))).ToList();
+                var apis = CreateListOfApisKeyedByParameters(parameterSet);
 
                 Parallel.ForEach(apis, p =>
                 {
-                    var api = apis.FirstOrDefault(a => a.Key.Login == p.Key.Login); //GetMt4CompositeApi(p.Login);
-                    while (api.Value.InUse)
-                    {
-                        Thread.Sleep(500);
-                    }
+                    var api = WaitForApiToBeFree(apis, p);
                     api.Value.InUse = true;
                     api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
                     api.Value.InUse = false;
@@ -104,16 +93,39 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         {
             int threads;
             IList<Mt4TradeBulkLoadParameters> parameterSet = ListParameterSet(mt4TradeBulkLoadParameters, out threads);
+            var apis = CreateListOfApisKeyedByParameters(parameterSet);
             if (threads > 1)
             {
-                Parallel.ForEach(parameterSet, p =>
+                Parallel.ForEach(apis, p =>
                 {
-                    IMt4CompositeApi api = GetMt4CompositeApi(p.Login);
-                    api.ClosePositionsFor(p.Login);
+                    var api = WaitForApiToBeFree(apis, p);
+                    api.Value.InUse = true;
+                    api.Value.ClosePositionsFor(p.Key.Login);
+                    api.Value.InUse = false;
                 });
+            }
+            else
+            {
+                IMt4CompositeApi api = GetMt4CompositeApi(parameterSet.First().Login);
+                api.ClosePositionsFor(parameterSet.First().Login);
             }
         }
 
+        private static KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> WaitForApiToBeFree(List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis, KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> p)
+        {
+            var api = apis.FirstOrDefault(a => a.Key.Login == p.Key.Login);
+            while (api.Value.InUse)
+            {
+                Thread.Sleep(500);
+            }
+            return api;
+        }
+
+        /// <summary>
+        /// </summary>
+        /// <param name="mt4TradeBulkLoadParameters"></param>
+        /// <param name="threads"></param>
+        /// <returns></returns>
         private static IList<Mt4TradeBulkLoadParameters> ListParameterSet(
             IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters, out int threads)
         {
@@ -121,6 +133,22 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 mt4TradeBulkLoadParameters as IList<Mt4TradeBulkLoadParameters> ?? mt4TradeBulkLoadParameters.ToList();
             threads = parameterSet.Count();
             return parameterSet;
+        }
+
+        /// <summary>
+        /// enumerate apis first, then execute the loads
+        /// note storing in a list of key value pairs to allow duplicate rows to be processed.
+        /// would be faster to use a dictionary, but would need to add an additional key value to distinguish between different instances using the same login
+        /// </summary>
+        /// <param name="parameterSet"></param>
+        /// <returns></returns>
+        private List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> CreateListOfApisKeyedByParameters(IList<Mt4TradeBulkLoadParameters> parameterSet)
+        {
+            return 
+                parameterSet.Select(
+                    parameter =>
+                        new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(parameter,
+                            GetMt4CompositeApi(parameter.Login))).ToList();
         }
     }
 }
