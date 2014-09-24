@@ -174,7 +174,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
             finally
             {
-                DoneEvent.Set();
+                //DoneEvent.Set();
                 //InUse = false;
             }
         }

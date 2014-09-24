@@ -1697,15 +1697,15 @@ this.FeatureBackground();
                         "150"});
 #line 73
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table9, "When ");
-#line 962
- testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 963
- testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("the count of open trades for login \"7003906\" will increase by 500", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 964
- testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I close all positions for login \"7003906\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 965
- testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Then("the count of open trades for login \"7003906\" will be 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 966
+ testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 967
  testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1714,7 +1714,7 @@ this.FeatureBackground();
                         "Timestamp"});
             table10.AddRow(new string[] {
                         "OpenTime"});
-#line 967
+#line 968
  testRunner.And("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table10, "And ");
 #line hidden
@@ -1724,7 +1724,7 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 971
+#line 972
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1735,7 +1735,7 @@ this.FeatureBackground();
         public virtual void BulkCloseTradesInParallelThenReconcile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel then reconcile", ((string[])(null)));
-#line 975
+#line 976
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -1743,134 +1743,734 @@ this.FeatureBackground();
             TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "login"});
             table12.AddRow(new string[] {
-                        "7003906"});
+                        "1000000002"});
             table12.AddRow(new string[] {
-                        "7004130"});
+                        "1000000003"});
             table12.AddRow(new string[] {
-                        "7004129"});
+                        "1000000004"});
             table12.AddRow(new string[] {
-                        "7004128"});
+                        "1000000005"});
             table12.AddRow(new string[] {
-                        "7004127"});
+                        "1000000006"});
             table12.AddRow(new string[] {
-                        "7004126"});
+                        "1000000007"});
             table12.AddRow(new string[] {
-                        "7004125"});
+                        "1000000008"});
             table12.AddRow(new string[] {
-                        "7004124"});
+                        "1000000009"});
             table12.AddRow(new string[] {
-                        "7004123"});
+                        "1000000010"});
             table12.AddRow(new string[] {
-                        "7004122"});
+                        "1000000011"});
             table12.AddRow(new string[] {
-                        "7004121"});
+                        "1000000012"});
             table12.AddRow(new string[] {
-                        "7004120"});
+                        "1000000013"});
             table12.AddRow(new string[] {
-                        "7004119"});
+                        "1000000014"});
             table12.AddRow(new string[] {
-                        "7004118"});
+                        "1000000015"});
             table12.AddRow(new string[] {
-                        "7004117"});
+                        "1000000016"});
             table12.AddRow(new string[] {
-                        "7004116"});
+                        "1000000017"});
             table12.AddRow(new string[] {
-                        "7004115"});
+                        "1000000018"});
             table12.AddRow(new string[] {
-                        "7004114"});
+                        "1000000019"});
             table12.AddRow(new string[] {
-                        "7004113"});
+                        "1000000020"});
             table12.AddRow(new string[] {
-                        "7004112"});
+                        "1000000021"});
             table12.AddRow(new string[] {
-                        "7004111"});
+                        "1000000022"});
             table12.AddRow(new string[] {
-                        "7004110"});
+                        "1000000023"});
             table12.AddRow(new string[] {
-                        "7004109"});
+                        "1000000024"});
             table12.AddRow(new string[] {
-                        "7004108"});
+                        "1000000025"});
             table12.AddRow(new string[] {
-                        "7004107"});
+                        "1000000026"});
             table12.AddRow(new string[] {
-                        "7004106"});
+                        "1000000027"});
             table12.AddRow(new string[] {
-                        "7004105"});
+                        "1000000028"});
             table12.AddRow(new string[] {
-                        "7004104"});
+                        "1000000029"});
             table12.AddRow(new string[] {
-                        "7004103"});
+                        "1000000030"});
             table12.AddRow(new string[] {
-                        "7004102"});
+                        "1000000031"});
             table12.AddRow(new string[] {
-                        "7004101"});
+                        "1000000032"});
             table12.AddRow(new string[] {
-                        "7004100"});
+                        "1000000033"});
             table12.AddRow(new string[] {
-                        "7004099"});
+                        "1000000034"});
             table12.AddRow(new string[] {
-                        "7004098"});
+                        "1000000035"});
             table12.AddRow(new string[] {
-                        "7004097"});
+                        "1000000036"});
             table12.AddRow(new string[] {
-                        "7004096"});
+                        "1000000037"});
             table12.AddRow(new string[] {
-                        "7004095"});
+                        "1000000038"});
             table12.AddRow(new string[] {
-                        "7004094"});
+                        "1000000039"});
             table12.AddRow(new string[] {
-                        "7004093"});
+                        "1000000040"});
             table12.AddRow(new string[] {
-                        "7004092"});
+                        "1000000041"});
             table12.AddRow(new string[] {
-                        "7004091"});
+                        "1000000042"});
             table12.AddRow(new string[] {
-                        "7004090"});
+                        "1000000043"});
             table12.AddRow(new string[] {
-                        "7004089"});
+                        "1000000044"});
             table12.AddRow(new string[] {
-                        "7004088"});
+                        "1000000045"});
             table12.AddRow(new string[] {
-                        "7004087"});
+                        "1000000046"});
             table12.AddRow(new string[] {
-                        "7004086"});
+                        "1000000047"});
             table12.AddRow(new string[] {
-                        "7004085"});
+                        "1000000048"});
             table12.AddRow(new string[] {
-                        "7004084"});
+                        "1000000049"});
             table12.AddRow(new string[] {
-                        "7004083"});
+                        "1000000050"});
             table12.AddRow(new string[] {
-                        "7004082"});
+                        "1000000051"});
             table12.AddRow(new string[] {
-                        "7004081"});
+                        "1000000052"});
             table12.AddRow(new string[] {
-                        "7004080"});
+                        "1000000053"});
             table12.AddRow(new string[] {
-                        "7004079"});
+                        "1000000054"});
             table12.AddRow(new string[] {
-                        "7004078"});
+                        "1000000055"});
             table12.AddRow(new string[] {
-                        "7004077"});
+                        "1000000056"});
             table12.AddRow(new string[] {
-                        "7004076"});
+                        "1000000057"});
             table12.AddRow(new string[] {
-                        "7004075"});
+                        "1000000058"});
             table12.AddRow(new string[] {
-                        "7004074"});
+                        "1000000059"});
             table12.AddRow(new string[] {
-                        "7004073"});
+                        "1000000060"});
             table12.AddRow(new string[] {
-                        "7004072"});
+                        "1000000061"});
             table12.AddRow(new string[] {
-                        "7004071"});
+                        "1000000062"});
             table12.AddRow(new string[] {
-                        "7004070"});
+                        "1000000063"});
             table12.AddRow(new string[] {
-                        "7004069"});
+                        "1000000064"});
             table12.AddRow(new string[] {
-                        "7004068"});
-#line 976
+                        "1000000065"});
+            table12.AddRow(new string[] {
+                        "1000000066"});
+            table12.AddRow(new string[] {
+                        "1000000067"});
+            table12.AddRow(new string[] {
+                        "1000000068"});
+            table12.AddRow(new string[] {
+                        "1000000069"});
+            table12.AddRow(new string[] {
+                        "1000000070"});
+            table12.AddRow(new string[] {
+                        "1000000071"});
+            table12.AddRow(new string[] {
+                        "1000000072"});
+            table12.AddRow(new string[] {
+                        "1000000073"});
+            table12.AddRow(new string[] {
+                        "1000000074"});
+            table12.AddRow(new string[] {
+                        "1000000075"});
+            table12.AddRow(new string[] {
+                        "1000000076"});
+            table12.AddRow(new string[] {
+                        "1000000077"});
+            table12.AddRow(new string[] {
+                        "1000000078"});
+            table12.AddRow(new string[] {
+                        "1000000079"});
+            table12.AddRow(new string[] {
+                        "1000000080"});
+            table12.AddRow(new string[] {
+                        "1000000081"});
+            table12.AddRow(new string[] {
+                        "1000000082"});
+            table12.AddRow(new string[] {
+                        "1000000083"});
+            table12.AddRow(new string[] {
+                        "1000000084"});
+            table12.AddRow(new string[] {
+                        "1000000085"});
+            table12.AddRow(new string[] {
+                        "1000000086"});
+            table12.AddRow(new string[] {
+                        "1000000087"});
+            table12.AddRow(new string[] {
+                        "1000000088"});
+            table12.AddRow(new string[] {
+                        "1000000089"});
+            table12.AddRow(new string[] {
+                        "1000000090"});
+            table12.AddRow(new string[] {
+                        "1000000091"});
+            table12.AddRow(new string[] {
+                        "1000000092"});
+            table12.AddRow(new string[] {
+                        "1000000093"});
+            table12.AddRow(new string[] {
+                        "1000000094"});
+            table12.AddRow(new string[] {
+                        "1000000095"});
+            table12.AddRow(new string[] {
+                        "1000000096"});
+            table12.AddRow(new string[] {
+                        "1000000097"});
+            table12.AddRow(new string[] {
+                        "1000000098"});
+            table12.AddRow(new string[] {
+                        "1000000099"});
+            table12.AddRow(new string[] {
+                        "1000000100"});
+            table12.AddRow(new string[] {
+                        "1000000101"});
+            table12.AddRow(new string[] {
+                        "1000000102"});
+            table12.AddRow(new string[] {
+                        "1000000103"});
+            table12.AddRow(new string[] {
+                        "1000000104"});
+            table12.AddRow(new string[] {
+                        "1000000105"});
+            table12.AddRow(new string[] {
+                        "1000000106"});
+            table12.AddRow(new string[] {
+                        "1000000107"});
+            table12.AddRow(new string[] {
+                        "1000000108"});
+            table12.AddRow(new string[] {
+                        "1000000109"});
+            table12.AddRow(new string[] {
+                        "1000000110"});
+            table12.AddRow(new string[] {
+                        "1000000111"});
+            table12.AddRow(new string[] {
+                        "1000000112"});
+            table12.AddRow(new string[] {
+                        "1000000113"});
+            table12.AddRow(new string[] {
+                        "1000000114"});
+            table12.AddRow(new string[] {
+                        "1000000115"});
+            table12.AddRow(new string[] {
+                        "1000000116"});
+            table12.AddRow(new string[] {
+                        "1000000117"});
+            table12.AddRow(new string[] {
+                        "1000000118"});
+            table12.AddRow(new string[] {
+                        "1000000119"});
+            table12.AddRow(new string[] {
+                        "1000000120"});
+            table12.AddRow(new string[] {
+                        "1000000121"});
+            table12.AddRow(new string[] {
+                        "1000000122"});
+            table12.AddRow(new string[] {
+                        "1000000123"});
+            table12.AddRow(new string[] {
+                        "1000000124"});
+            table12.AddRow(new string[] {
+                        "1000000125"});
+            table12.AddRow(new string[] {
+                        "1000000126"});
+            table12.AddRow(new string[] {
+                        "1000000127"});
+            table12.AddRow(new string[] {
+                        "1000000128"});
+            table12.AddRow(new string[] {
+                        "1000000129"});
+            table12.AddRow(new string[] {
+                        "1000000130"});
+            table12.AddRow(new string[] {
+                        "1000000131"});
+            table12.AddRow(new string[] {
+                        "1000000132"});
+            table12.AddRow(new string[] {
+                        "1000000133"});
+            table12.AddRow(new string[] {
+                        "1000000134"});
+            table12.AddRow(new string[] {
+                        "1000000135"});
+            table12.AddRow(new string[] {
+                        "1000000136"});
+            table12.AddRow(new string[] {
+                        "1000000137"});
+            table12.AddRow(new string[] {
+                        "1000000138"});
+            table12.AddRow(new string[] {
+                        "1000000139"});
+            table12.AddRow(new string[] {
+                        "1000000140"});
+            table12.AddRow(new string[] {
+                        "1000000141"});
+            table12.AddRow(new string[] {
+                        "1000000142"});
+            table12.AddRow(new string[] {
+                        "1000000143"});
+            table12.AddRow(new string[] {
+                        "1000000144"});
+            table12.AddRow(new string[] {
+                        "1000000145"});
+            table12.AddRow(new string[] {
+                        "1000000146"});
+            table12.AddRow(new string[] {
+                        "1000000147"});
+            table12.AddRow(new string[] {
+                        "1000000148"});
+            table12.AddRow(new string[] {
+                        "1000000149"});
+            table12.AddRow(new string[] {
+                        "1000000150"});
+            table12.AddRow(new string[] {
+                        "1000000151"});
+            table12.AddRow(new string[] {
+                        "1000000152"});
+            table12.AddRow(new string[] {
+                        "1000000153"});
+            table12.AddRow(new string[] {
+                        "1000000154"});
+            table12.AddRow(new string[] {
+                        "1000000155"});
+            table12.AddRow(new string[] {
+                        "1000000156"});
+            table12.AddRow(new string[] {
+                        "1000000157"});
+            table12.AddRow(new string[] {
+                        "1000000158"});
+            table12.AddRow(new string[] {
+                        "1000000159"});
+            table12.AddRow(new string[] {
+                        "1000000160"});
+            table12.AddRow(new string[] {
+                        "1000000161"});
+            table12.AddRow(new string[] {
+                        "1000000162"});
+            table12.AddRow(new string[] {
+                        "1000000163"});
+            table12.AddRow(new string[] {
+                        "1000000164"});
+            table12.AddRow(new string[] {
+                        "1000000165"});
+            table12.AddRow(new string[] {
+                        "1000000166"});
+            table12.AddRow(new string[] {
+                        "1000000167"});
+            table12.AddRow(new string[] {
+                        "1000000168"});
+            table12.AddRow(new string[] {
+                        "1000000169"});
+            table12.AddRow(new string[] {
+                        "1000000170"});
+            table12.AddRow(new string[] {
+                        "1000000171"});
+            table12.AddRow(new string[] {
+                        "1000000172"});
+            table12.AddRow(new string[] {
+                        "1000000173"});
+            table12.AddRow(new string[] {
+                        "1000000174"});
+            table12.AddRow(new string[] {
+                        "1000000175"});
+            table12.AddRow(new string[] {
+                        "1000000176"});
+            table12.AddRow(new string[] {
+                        "1000000177"});
+            table12.AddRow(new string[] {
+                        "1000000178"});
+            table12.AddRow(new string[] {
+                        "1000000179"});
+            table12.AddRow(new string[] {
+                        "1000000180"});
+            table12.AddRow(new string[] {
+                        "1000000181"});
+            table12.AddRow(new string[] {
+                        "1000000182"});
+            table12.AddRow(new string[] {
+                        "1000000183"});
+            table12.AddRow(new string[] {
+                        "1000000184"});
+            table12.AddRow(new string[] {
+                        "1000000185"});
+            table12.AddRow(new string[] {
+                        "1000000186"});
+            table12.AddRow(new string[] {
+                        "1000000187"});
+            table12.AddRow(new string[] {
+                        "1000000188"});
+            table12.AddRow(new string[] {
+                        "1000000189"});
+            table12.AddRow(new string[] {
+                        "1000000190"});
+            table12.AddRow(new string[] {
+                        "1000000191"});
+            table12.AddRow(new string[] {
+                        "1000000192"});
+            table12.AddRow(new string[] {
+                        "1000000193"});
+            table12.AddRow(new string[] {
+                        "1000000194"});
+            table12.AddRow(new string[] {
+                        "1000000195"});
+            table12.AddRow(new string[] {
+                        "1000000196"});
+            table12.AddRow(new string[] {
+                        "1000000197"});
+            table12.AddRow(new string[] {
+                        "1000000198"});
+            table12.AddRow(new string[] {
+                        "1000000199"});
+            table12.AddRow(new string[] {
+                        "1000000200"});
+            table12.AddRow(new string[] {
+                        "1000000201"});
+            table12.AddRow(new string[] {
+                        "1000000202"});
+            table12.AddRow(new string[] {
+                        "1000000203"});
+            table12.AddRow(new string[] {
+                        "1000000204"});
+            table12.AddRow(new string[] {
+                        "1000000205"});
+            table12.AddRow(new string[] {
+                        "1000000206"});
+            table12.AddRow(new string[] {
+                        "1000000207"});
+            table12.AddRow(new string[] {
+                        "1000000208"});
+            table12.AddRow(new string[] {
+                        "1000000209"});
+            table12.AddRow(new string[] {
+                        "1000000210"});
+            table12.AddRow(new string[] {
+                        "1000000211"});
+            table12.AddRow(new string[] {
+                        "1000000212"});
+            table12.AddRow(new string[] {
+                        "1000000213"});
+            table12.AddRow(new string[] {
+                        "1000000214"});
+            table12.AddRow(new string[] {
+                        "1000000215"});
+            table12.AddRow(new string[] {
+                        "1000000216"});
+            table12.AddRow(new string[] {
+                        "1000000217"});
+            table12.AddRow(new string[] {
+                        "1000000218"});
+            table12.AddRow(new string[] {
+                        "1000000219"});
+            table12.AddRow(new string[] {
+                        "1000000220"});
+            table12.AddRow(new string[] {
+                        "1000000221"});
+            table12.AddRow(new string[] {
+                        "1000000222"});
+            table12.AddRow(new string[] {
+                        "1000000223"});
+            table12.AddRow(new string[] {
+                        "1000000224"});
+            table12.AddRow(new string[] {
+                        "1000000225"});
+            table12.AddRow(new string[] {
+                        "1000000226"});
+            table12.AddRow(new string[] {
+                        "1000000227"});
+            table12.AddRow(new string[] {
+                        "1000000228"});
+            table12.AddRow(new string[] {
+                        "1000000229"});
+            table12.AddRow(new string[] {
+                        "1000000230"});
+            table12.AddRow(new string[] {
+                        "1000000231"});
+            table12.AddRow(new string[] {
+                        "1000000232"});
+            table12.AddRow(new string[] {
+                        "1000000233"});
+            table12.AddRow(new string[] {
+                        "1000000234"});
+            table12.AddRow(new string[] {
+                        "1000000235"});
+            table12.AddRow(new string[] {
+                        "1000000236"});
+            table12.AddRow(new string[] {
+                        "1000000237"});
+            table12.AddRow(new string[] {
+                        "1000000238"});
+            table12.AddRow(new string[] {
+                        "1000000239"});
+            table12.AddRow(new string[] {
+                        "1000000240"});
+            table12.AddRow(new string[] {
+                        "1000000241"});
+            table12.AddRow(new string[] {
+                        "1000000242"});
+            table12.AddRow(new string[] {
+                        "1000000243"});
+            table12.AddRow(new string[] {
+                        "1000000244"});
+            table12.AddRow(new string[] {
+                        "1000000245"});
+            table12.AddRow(new string[] {
+                        "1000000246"});
+            table12.AddRow(new string[] {
+                        "1000000247"});
+            table12.AddRow(new string[] {
+                        "1000000248"});
+            table12.AddRow(new string[] {
+                        "1000000249"});
+            table12.AddRow(new string[] {
+                        "1000000250"});
+            table12.AddRow(new string[] {
+                        "1000000251"});
+            table12.AddRow(new string[] {
+                        "1000000252"});
+            table12.AddRow(new string[] {
+                        "1000000253"});
+            table12.AddRow(new string[] {
+                        "1000000254"});
+            table12.AddRow(new string[] {
+                        "1000000255"});
+            table12.AddRow(new string[] {
+                        "1000000256"});
+            table12.AddRow(new string[] {
+                        "1000000257"});
+            table12.AddRow(new string[] {
+                        "1000000258"});
+            table12.AddRow(new string[] {
+                        "1000000259"});
+            table12.AddRow(new string[] {
+                        "1000000260"});
+            table12.AddRow(new string[] {
+                        "1000000261"});
+            table12.AddRow(new string[] {
+                        "1000000262"});
+            table12.AddRow(new string[] {
+                        "1000000263"});
+            table12.AddRow(new string[] {
+                        "1000000264"});
+            table12.AddRow(new string[] {
+                        "1000000265"});
+            table12.AddRow(new string[] {
+                        "1000000266"});
+            table12.AddRow(new string[] {
+                        "1000000267"});
+            table12.AddRow(new string[] {
+                        "1000000268"});
+            table12.AddRow(new string[] {
+                        "1000000269"});
+            table12.AddRow(new string[] {
+                        "1000000270"});
+            table12.AddRow(new string[] {
+                        "1000000271"});
+            table12.AddRow(new string[] {
+                        "1000000272"});
+            table12.AddRow(new string[] {
+                        "1000000273"});
+            table12.AddRow(new string[] {
+                        "1000000274"});
+            table12.AddRow(new string[] {
+                        "1000000275"});
+            table12.AddRow(new string[] {
+                        "1000000276"});
+            table12.AddRow(new string[] {
+                        "1000000277"});
+            table12.AddRow(new string[] {
+                        "1000000278"});
+            table12.AddRow(new string[] {
+                        "1000000279"});
+            table12.AddRow(new string[] {
+                        "1000000280"});
+            table12.AddRow(new string[] {
+                        "1000000281"});
+            table12.AddRow(new string[] {
+                        "1000000282"});
+            table12.AddRow(new string[] {
+                        "1000000283"});
+            table12.AddRow(new string[] {
+                        "1000000284"});
+            table12.AddRow(new string[] {
+                        "1000000285"});
+            table12.AddRow(new string[] {
+                        "1000000286"});
+            table12.AddRow(new string[] {
+                        "1000000287"});
+            table12.AddRow(new string[] {
+                        "1000000288"});
+            table12.AddRow(new string[] {
+                        "1000000289"});
+            table12.AddRow(new string[] {
+                        "1000000290"});
+            table12.AddRow(new string[] {
+                        "1000000291"});
+            table12.AddRow(new string[] {
+                        "1000000292"});
+            table12.AddRow(new string[] {
+                        "1000000293"});
+            table12.AddRow(new string[] {
+                        "1000000294"});
+            table12.AddRow(new string[] {
+                        "1000000295"});
+            table12.AddRow(new string[] {
+                        "1000000296"});
+            table12.AddRow(new string[] {
+                        "1000000297"});
+            table12.AddRow(new string[] {
+                        "1000000298"});
+            table12.AddRow(new string[] {
+                        "1000000299"});
+            table12.AddRow(new string[] {
+                        "1000000300"});
+            table12.AddRow(new string[] {
+                        "1000000301"});
+            table12.AddRow(new string[] {
+                        "1000000302"});
+            table12.AddRow(new string[] {
+                        "1000000303"});
+            table12.AddRow(new string[] {
+                        "1000000304"});
+            table12.AddRow(new string[] {
+                        "1000000305"});
+            table12.AddRow(new string[] {
+                        "1000000306"});
+            table12.AddRow(new string[] {
+                        "1000000307"});
+            table12.AddRow(new string[] {
+                        "1000000308"});
+            table12.AddRow(new string[] {
+                        "1000000309"});
+            table12.AddRow(new string[] {
+                        "1000000310"});
+            table12.AddRow(new string[] {
+                        "1000000311"});
+            table12.AddRow(new string[] {
+                        "1000000312"});
+            table12.AddRow(new string[] {
+                        "1000000313"});
+            table12.AddRow(new string[] {
+                        "1000000314"});
+            table12.AddRow(new string[] {
+                        "1000000315"});
+            table12.AddRow(new string[] {
+                        "1000000316"});
+            table12.AddRow(new string[] {
+                        "1000000317"});
+            table12.AddRow(new string[] {
+                        "1000000318"});
+            table12.AddRow(new string[] {
+                        "1000000319"});
+            table12.AddRow(new string[] {
+                        "1000000320"});
+            table12.AddRow(new string[] {
+                        "1000000321"});
+            table12.AddRow(new string[] {
+                        "1000000322"});
+            table12.AddRow(new string[] {
+                        "1000000323"});
+            table12.AddRow(new string[] {
+                        "1000000324"});
+            table12.AddRow(new string[] {
+                        "1000000325"});
+            table12.AddRow(new string[] {
+                        "1000000326"});
+            table12.AddRow(new string[] {
+                        "1000000327"});
+            table12.AddRow(new string[] {
+                        "1000000328"});
+            table12.AddRow(new string[] {
+                        "1000000329"});
+            table12.AddRow(new string[] {
+                        "1000000330"});
+            table12.AddRow(new string[] {
+                        "1000000331"});
+            table12.AddRow(new string[] {
+                        "1000000332"});
+            table12.AddRow(new string[] {
+                        "1000000333"});
+            table12.AddRow(new string[] {
+                        "1000000334"});
+            table12.AddRow(new string[] {
+                        "1000000335"});
+            table12.AddRow(new string[] {
+                        "1000000336"});
+            table12.AddRow(new string[] {
+                        "1000000337"});
+            table12.AddRow(new string[] {
+                        "1000000338"});
+            table12.AddRow(new string[] {
+                        "1000000339"});
+            table12.AddRow(new string[] {
+                        "1000000340"});
+            table12.AddRow(new string[] {
+                        "1000000341"});
+            table12.AddRow(new string[] {
+                        "1000000342"});
+            table12.AddRow(new string[] {
+                        "1000000343"});
+            table12.AddRow(new string[] {
+                        "1000000344"});
+            table12.AddRow(new string[] {
+                        "1000000345"});
+            table12.AddRow(new string[] {
+                        "1000000346"});
+            table12.AddRow(new string[] {
+                        "1000000347"});
+            table12.AddRow(new string[] {
+                        "1000000348"});
+            table12.AddRow(new string[] {
+                        "1000000349"});
+            table12.AddRow(new string[] {
+                        "1000000350"});
+            table12.AddRow(new string[] {
+                        "1000000351"});
+            table12.AddRow(new string[] {
+                        "1000000352"});
+            table12.AddRow(new string[] {
+                        "1000000353"});
+            table12.AddRow(new string[] {
+                        "1000000354"});
+            table12.AddRow(new string[] {
+                        "1000000355"});
+            table12.AddRow(new string[] {
+                        "1000000356"});
+            table12.AddRow(new string[] {
+                        "1000000357"});
+            table12.AddRow(new string[] {
+                        "1000000358"});
+            table12.AddRow(new string[] {
+                        "1000000359"});
+            table12.AddRow(new string[] {
+                        "1000000360"});
+            table12.AddRow(new string[] {
+                        "1000000361"});
+            table12.AddRow(new string[] {
+                        "1000000362"});
+            table12.AddRow(new string[] {
+                        "1000000363"});
+            table12.AddRow(new string[] {
+                        "1000000364"});
+            table12.AddRow(new string[] {
+                        "1000000365"});
+#line 977
  testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table12, "When ");
 #line hidden
             this.ScenarioCleanup();
