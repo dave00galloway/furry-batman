@@ -24,6 +24,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private const string CLOSE_TRADE_MESSAGE = "close id={0}";
         private const string QUIT_MT4_TRADE_EXE_MESSAGE = "exit";
         private const string CLOSE_ALL_MESSAGE = "close_all";
+        private const double REDUCE_TRADE_LOAD_TIMOUT_FACTOR = 6.5;
         private readonly object _inUseSync = new object();
         private bool _inUse;
 
@@ -118,7 +119,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 var closeParameters = new Mt4TradeBulkLoadParameters {Login = login};
                 try
                 {
-                    InUse = true;
+                    //InUse = true;
                     ConnectManagerAndWaitForConnection(manager);
                     //CloseAllPositionsForLoginWithManagerApi(login, manager);
                     //get existing open positions
@@ -158,24 +159,23 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 {
                     manager.Disconnect();
                     StoreTradeResult(closeParameters, result);
-                    InUse = false;
+                    //InUse = false;
                 }
             }
         }
 
         public void LoadTradesInThread(Object threadContext)
         {
+            //InUse = true;
             try
             {
-                //InUse = true;
                 var mt4TradeBulkLoadParameters = threadContext as Mt4TradeBulkLoadParameters;
                 StoreTradeResult(mt4TradeBulkLoadParameters,
                     LoadTrades(mt4TradeBulkLoadParameters));
             }
-            finally
+            catch (Exception e)
             {
-                //DoneEvent.Set();
-                //InUse = false;
+                Console.WriteLine(e);
             }
         }
 
@@ -262,6 +262,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             {
                 try
                 {
+                    bool insertedOk = false;
                     for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
                     {
                         mt4TradeExe.SendInput(mt4TradeBulkLoadParameters.TradeInstruction);
@@ -270,26 +271,42 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     var stopwatch = new Stopwatch();
                     stopwatch.Start();
                     while (stopwatch.ElapsedMilliseconds <=
-                           mt4TradeBulkLoadParameters.Quantity*TRADE_INSERT_TIMEOUT)
+                           (mt4TradeBulkLoadParameters.Quantity*TRADE_INSERT_TIMEOUT)/REDUCE_TRADE_LOAD_TIMOUT_FACTOR)
                     {
-                        result.PostLoadTradeList =
-                            GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
-                                manager);
-                        if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
-                            mt4TradeBulkLoadParameters.Quantity)
-                        {
-                            Console.WriteLine("{0} trades entered for {1}",
-                                mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
-                            break;
-                        }
-                        Thread.Sleep(TRADE_INSERT_TIMEOUT/1000);
+                        insertedOk = CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager);
+                        if (insertedOk) break;
+                        Thread.Sleep(TRADE_INSERT_TIMEOUT/10000);
                     }
+                    if (!insertedOk && !CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager))
+                    {
+                        throw new TimeoutException(
+                            String.Format("Trade load failed for {0} after {1} seconds, {2} trades were loaded",
+                                mt4TradeBulkLoadParameters.Login, stopwatch.ElapsedMilliseconds,
+                                result.PostLoadTradeList.Count - result.PreLoadTradeList.Count));
+                    }
+
                 }
                 finally
                 {
                     CloseMt4TradeExe(mt4TradeExe);
                 }
             }
+        }
+
+        private bool CheckTradeInsertion(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, Mt4TradeLoadResult result,
+            Manager manager)
+        {
+            result.PostLoadTradeList =
+                GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
+                    manager);
+            if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
+                mt4TradeBulkLoadParameters.Quantity)
+            {
+                Console.WriteLine("{0} trades entered for {1}",
+                    mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
+                return true;
+            }
+            return false;
         }
 
         private static void CloseMt4TradeExe(ProcessRunner.ProcessRunner mt4TradeExe)

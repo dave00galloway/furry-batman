@@ -46,43 +46,74 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();// ListParameterSet(mt4TradeBulkLoadParameters, out threads);
             int threads = parameterSet.Count;
 
-            ManualResetEvent _doneEvent = new ManualResetEvent(false);
-
             if (threads > 1)
             {
+                #region attempt at using semaphore to throttle 'thread' creation
+                AsyncLoadTradesInApi(parameterSet, 50);
+                //const int MAX_DOWNLOADS = 50;
 
-                var doneEvents = new ManualResetEvent[threads];
-                for (int i = 0; i < threads; i++)
-                {
-                    var meCopy =  new ManualResetEvent(false);
-                    var iCopy = i;
-                    var th = new Thread(() =>
-                    {
-                        Console.WriteLine("↑:{0}", iCopy);
-                        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
-                                                GetMt4CompositeApi(parameterSet[iCopy].Login);
-                        manager.LoadTradesInThread(parameterSet[iCopy]);
+                //static async Task DownloadAsync(string[] urls)
+                //{
+                //    using (var semaphore = new SemaphoreSlim(MAX_DOWNLOADS))
+                //    using (var httpClient = new HttpClient())
+                //    {
+                //        var tasks = urls.Select(async(url) => 
+                //        {
+                //            await semaphore.WaitAsync();
+                //            try
+                //            {
+                //                var data = await httpClient.GetStringAsync(url);
+                //                Console.WriteLine(data);
+                //            }
+                //            finally
+                //            {
+                //                semaphore.Release();
+                //            }
+                //        });
 
-                        Console.WriteLine("↓:{0}",iCopy);
-                        //meCopy.Set();
+                //        await Task.WhenAll(tasks.ToArray());
+                //    }
+                //}
 
-                        if (Interlocked.Decrement(ref threads) == 0)
-                        {
-                            _doneEvent.Set();
-                        }
+                #endregion
 
-                        Console.WriteLine("→:{0}",iCopy);
-                    });
+                #region sergey's manual thread creation method (so far the quickest, but hangs or crashes)
 
-                    th.Start();
-                    doneEvents[iCopy] = meCopy;
-                }
+                //var doneEvent = new ManualResetEvent(false);
+                //var doneEvents = new ManualResetEvent[threads];
+                //for (int i = 0; i < threads; i++)
+                //{
+                //    var meCopy = new ManualResetEvent(false);
+                //    var iCopy = i;
+                //    var th = new Thread(() =>
+                //    {
+                //        Console.WriteLine("↑:{0}", iCopy);
+                //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
+                //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
+                //        manager.LoadTradesInThread(parameterSet[iCopy]);
 
-                Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
+                //        Console.WriteLine("↓:{0}", iCopy);
+                //        //meCopy.Set();
 
-                //WaitHandle.WaitAll(doneEvents.Where(e=>e!=null).ToArray());
+                //        if (Interlocked.Decrement(ref threads) == 0)
+                //        {
+                //            doneEvent.Set();
+                //        }
 
-                _doneEvent.WaitOne();
+                //        Console.WriteLine("→:{0}", iCopy);
+                //    });
+
+                //    th.Start();
+                //    doneEvents[iCopy] = meCopy;
+                //}
+
+                //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
+
+                //doneEvent.WaitOne();
+
+                #endregion
+
+                #region ThreadPool method
 
                 ////traditional method of parallising a task , 280.0s
                 //var doneEvents = new ManualResetEvent[threads];
@@ -99,6 +130,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 //}
                 //WaitHandle.WaitAll(doneEvents);
 
+                #endregion
+
+                #region basic tpl method
+
                 ////TPL method , 485s, 402s, 417.1s, 333.7, 197 when running from nunit, but sometimes locks
                 //Parallel.ForEach(parameterSet, p =>
                 //{
@@ -107,6 +142,24 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 //        api.LoadTrades(p));
                 //}
                 //    );
+
+                #endregion
+
+                #region slightly improved tpl method, but still sometimes hangs
+
+                //Parallel.ForEach(apis,parallelOptions, p =>
+                //{
+                //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
+                //    if (api.Key == null) return;
+                //    api.Value.InUse = true;
+                //    api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
+                //    api.Value.InUse = false;
+                //}
+                //    );
+
+                #endregion
+
+                #region attempt at using parallel options to govern failed processes/threads
 
                 //var parallelOptions = ParallelOptionsCancellationWatchdog(parameterSet);
 
@@ -138,6 +191,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 //}
                 //    );
                 //parallelOptions.CancellationToken.
+
+                #endregion
             }
             else
             {
@@ -147,14 +202,96 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
         }
 
+        ///// <summary>
+        ///// //http://stackoverflow.com/questions/22492383/throttling-asynchronous-tasks
+        ///// Doesn't work - only allows one thread at a time
+        ///// </summary>
+        ///// <param name="parameterSet"></param>
+        ///// <param name="threads"></param>
+        ///// <param name="i"></param>
+        ///// <returns></returns>
+        //private async Task AsyncLoadTradesInApi(IList<Mt4TradeBulkLoadParameters> parameterSet, int threads, int i)
+        //{
+        //    using (var semaphore = new SemaphoreSlim(i))
+        //    {
+        //        var tasks = parameterSet.Select(async parameter =>
+        //        {
+        //            await semaphore.WaitAsync();
+        //            try
+        //            {
+        //                IMt4CompositeApi manager = GetMt4CompositeApi(parameter.Login);
+        //                manager.LoadTradesInThread(parameter);
+        //            }
+        //            finally
+        //            {
+        //                semaphore.Release();
+        //            }
+        //        });
+
+        //        await Task.WhenAll(tasks.ToArray());
+        //    }
+        //}
+
+        /// <summary>
+        /// //http://blog.cincura.net/233438-semaphoreslims-waitasync-puzzle/
+        /// 
+        /// </summary>
+        /// <param name="parameterSet"></param>
+        /// <param name="i"></param>
+        /// <returns></returns>
+        private void AsyncLoadTradesInApi(IList<Mt4TradeBulkLoadParameters> parameterSet, int i)
+        {
+            try
+            {
+                using (var semaphore = new SemaphoreSlim(i,i))
+                {
+                    var tasks = parameterSet.Select(async parameter =>
+                    {
+                        await Task.Yield();
+                        await ProcessAsyncTradeLoad(semaphore, parameter).ConfigureAwait(false);
+                    }).ToArray();
+                    Task.WaitAll(tasks);
+                }
+            }
+            catch (AggregateException aggregateException)
+            {
+                //aggregateException.Handle(exception =>
+                //{
+                    
+                //}
+                //    );
+                Console.WriteLine(aggregateException.Flatten().ToString());
+                //Console.WriteLine(aggregateException);
+            }
+        }
+
+        private async Task ProcessAsyncTradeLoad(SemaphoreSlim semaphore, Mt4TradeBulkLoadParameters parameter)
+        {
+            await semaphore.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                IMt4CompositeApi manager = GetMt4CompositeApi(parameter.Login);
+                manager.LoadTradesInThread(parameter);
+            }
+            finally
+            {
+                semaphore.Release();
+                GC.Collect();
+            }
+        }
+
         public void BulkClosePositions(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
             int threads;
             IList<Mt4TradeBulkLoadParameters> parameterSet = ListParameterSet(mt4TradeBulkLoadParameters, out threads);
             List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis =
                 CreateListOfApisKeyedByParameters(parameterSet);
+
+            //IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
+            //int threads = parameterSet.Count;
             if (threads > 1)
             {
+                #region basic TPL method (reliable for this scenario but slow)
                 Parallel.ForEach(apis, p =>
                 {
                     KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
@@ -163,6 +300,45 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     api.Value.ClosePositionsFor(p.Key.Login);
                     api.Value.InUse = false;
                 });
+                #endregion 
+
+                #region based on sergey's manual thread method - fast but crashy
+                //var doneEvent = new ManualResetEvent(false);
+                //var doneEvents = new ManualResetEvent[threads];
+                //for (int i = 0; i < threads; i++)
+                //{
+                //    var meCopy = new ManualResetEvent(false);
+                //    var iCopy = i;
+                //    var th = new Thread(() =>
+                //    {
+                //        Console.WriteLine("↑:{0}", iCopy);
+                //        //KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, parameterSet[iCopy].Login);
+                //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
+                //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
+                //        //if (api.Key == null) return;
+                //        //api.Value.InUse = true;
+                //        manager.ClosePositionsFor(parameterSet[iCopy].Login);
+                //        //api.Value.InUse = false;
+
+                //        Console.WriteLine("↓:{0}", iCopy);
+                //        //meCopy.Set();
+
+                //        if (Interlocked.Decrement(ref threads) == 0)
+                //        {
+                //            doneEvent.Set();
+                //        }
+
+                //        Console.WriteLine("→:{0}", iCopy);
+                //    });
+
+                //    th.Start();
+                //    doneEvents[iCopy] = meCopy;
+                //}
+
+                //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
+
+                //doneEvent.WaitOne();
+                #endregion
             }
             else
             {
