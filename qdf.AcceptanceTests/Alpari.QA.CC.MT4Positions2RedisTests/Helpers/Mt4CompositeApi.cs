@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using Alpari.QA.ProcessRunner;
 using AlpariUK.Mt4.Wrapper;
@@ -116,7 +117,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             using (Manager manager = SetupManager())
             {
                 var result = new Mt4TradeLoadResult();
-                var closeParameters = new Mt4TradeBulkLoadParameters {Login = login};
+                var closeParameters = new Mt4TradeBulkLoadParameters { Login = login };
                 try
                 {
                     //InUse = true;
@@ -138,7 +139,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                             //sync on trades being closed in Manager API
                             var stopwatch = new Stopwatch();
                             stopwatch.Start();
-                            while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count*TRADE_INSERT_TIMEOUT)
+                            while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
                             {
                                 result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
                                 if (result.PostLoadTradeList.Count == 0)
@@ -146,7 +147,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                                     Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
                                     break;
                                 }
-                                Thread.Sleep(TRADE_INSERT_TIMEOUT/1000);
+                                Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
                             }
                         }
                         finally
@@ -249,7 +250,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     {
                         break;
                     }
-                    Thread.Sleep(ManagerConnectionParameters.ConnectionTimeout/200);
+                    Thread.Sleep(ManagerConnectionParameters.ConnectionTimeout / 200);
                 }
             }
         }
@@ -271,20 +272,23 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     var stopwatch = new Stopwatch();
                     stopwatch.Start();
                     while (stopwatch.ElapsedMilliseconds <=
-                           (mt4TradeBulkLoadParameters.Quantity*TRADE_INSERT_TIMEOUT)/REDUCE_TRADE_LOAD_TIMOUT_FACTOR)
+                           (mt4TradeBulkLoadParameters.Quantity * TRADE_INSERT_TIMEOUT) / REDUCE_TRADE_LOAD_TIMOUT_FACTOR)
                     {
                         insertedOk = CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager);
                         if (insertedOk) break;
-                        Thread.Sleep(TRADE_INSERT_TIMEOUT/10000);
+                        Thread.Sleep(TRADE_INSERT_TIMEOUT / 10000);
                     }
                     if (!insertedOk && !CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager))
                     {
                         throw new TimeoutException(
-                            String.Format("Trade load failed for {0} after {1} seconds, {2} trades were loaded",
+                            String.Format("Trade load failed for {0} after {1} milliseconds, {2} trades were loaded",
                                 mt4TradeBulkLoadParameters.Login, stopwatch.ElapsedMilliseconds,
                                 result.PostLoadTradeList.Count - result.PreLoadTradeList.Count));
                     }
-
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(e);
                 }
                 finally
                 {
@@ -296,15 +300,46 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private bool CheckTradeInsertion(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, Mt4TradeLoadResult result,
             Manager manager)
         {
-            result.PostLoadTradeList =
-                GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
-                    manager);
-            if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
-                mt4TradeBulkLoadParameters.Quantity)
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds < 10000)
             {
-                Console.WriteLine("{0} trades entered for {1}",
-                    mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
-                return true;
+                try
+                {
+                    result.PostLoadTradeList =
+                        GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
+                            manager);
+                    if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
+                        mt4TradeBulkLoadParameters.Quantity)
+                    {
+                        Console.WriteLine("{0} trades entered for {1}",
+                            mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
+                        return true;
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Handled Exception thrown while getting trades for login {0}. exception details {1}", mt4TradeBulkLoadParameters.Login, e);
+                    //attempting to reconnect the manager doesn't work, so might as well throw exception if disconnected
+                    if (!manager.IsConnected())
+                    {
+                        throw;
+                    }
+                    //try
+                    //{
+                    //    manager.Disconnect();
+                    //}
+                    //catch (Exception exception)
+                    //{
+                    //    Console.WriteLine(exception);
+                    //}
+                    //manager.Dispose();
+                    //GC.Collect();
+                    //Thread.Sleep(500);
+                    //manager = SetupManager();
+                    //manager.Connect();
+                }
             }
             return false;
         }

@@ -49,7 +49,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             if (threads > 1)
             {
                 #region attempt at using semaphore to throttle 'thread' creation
-                AsyncLoadTradesInApi(parameterSet, 50);
+                AsyncLoadTradesInApi(parameterSet, 300);
                 //const int MAX_DOWNLOADS = 50;
 
                 //static async Task DownloadAsync(string[] urls)

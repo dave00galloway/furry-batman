@@ -95,7 +95,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             //    Zipcode = userToCopy.Zipcode
             //};
 
-            for (int i = 0; i < 64;i++)
+            for (int i = 0; i < 8192;i++)
             {
 
                 //var userToCopy = Manager.UserRecordGet(login); //doesn't work - throws c++ memory exception

@@ -25,7 +25,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [Given(@"I have a connection to a redis repository on ""(.*)"" port (.*) db (.*) namespace ""(.*)""")]
         public void GivenIHaveAConnectionToARedisRepositoryOnPortDb(string host, int port, int db, string keyNamespace)
         {
-            RedisRepository = new RedisRepository(host, port, db, keyNamespace);
+            RedisRepository = new RedisRepository(host, port, db, keyNamespace,60000);
         }
 
         [When(@"I get all positions for server ""(.*)""")]
@@ -40,7 +40,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         {
             Positions = RedisRepository.GetAllPositions(mtServerName)
                 //.Where(p=>p.OpenTime.ConvertUnixTimeStampAsSeconds() >= openedFromTime).ToList();
-                .Where(p => p.OpenTime >= openedFromTime).ToList();
+                //.Where(p => p.OpenTime >= openedFromTime)
+                .ToList();
             PositionDataTableDictionary[mtServerName] = new PositionDataTable(mtServerName, new[] { "Order" }).ConvertIEnumerableToDataTable(Positions);
         }
 

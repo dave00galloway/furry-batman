@@ -71,14 +71,12 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         {
 #line 9
 #line 10
- testRunner.Given("I have a connection to a redis repository on \"localhost\" port 6379 db 0 namespace" +
-                    " \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have a connection to a redis repository on \"uk-redis-dev.corp.alpari.com\" port " +
+                    "6379 db 0 namespace \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
  testRunner.And("I have a connection to Mt4ArsPositionsContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
- testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
- testRunner.And("I query for open positions after \"2014-09-01\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.When("I query for open positions after \"2014-09-02\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
         }
         
@@ -113,6 +111,8 @@ this.FeatureBackground();
                         "ExcludedFields"});
             table1.AddRow(new string[] {
                         "Timestamp"});
+            table1.AddRow(new string[] {
+                        "OpenTime"});
 #line 21
  testRunner.When("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table1, "When ");
@@ -123,7 +123,7 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 24
+#line 25
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
