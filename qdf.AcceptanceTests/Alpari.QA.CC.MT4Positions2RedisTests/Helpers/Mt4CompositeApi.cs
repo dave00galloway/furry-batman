@@ -126,35 +126,46 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     //get existing open positions
                     result.PreLoadTradeList = GetOpenPositionOrderIdsForLogin(login,
                         manager);
-                    //create a process for closing trades
-                    using (
-                        var mt4TradeExe =
-                            new ProcessRunner.ProcessRunner(
-                                CreateMt4StartInfoWrapper(closeParameters)))
+                    if (result.PreLoadTradeList.Count>0)
                     {
-                        try
+                        //create a process for closing trades
+                        using (
+                            var mt4TradeExe =
+                                new ProcessRunner.ProcessRunner(
+                                    CreateMt4StartInfoWrapper(closeParameters)))
                         {
-                            //PartialCloseAllTradesIndividually(result, mt4TradeExe);
-                            mt4TradeExe.SendInput(CLOSE_ALL_MESSAGE);
-                            //sync on trades being closed in Manager API
-                            var stopwatch = new Stopwatch();
-                            stopwatch.Start();
-                            while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
+                            try
                             {
-                                result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
-                                if (result.PostLoadTradeList.Count == 0)
+                                //PartialCloseAllTradesIndividually(result, mt4TradeExe);
+                                mt4TradeExe.SendInput(CLOSE_ALL_MESSAGE);
+                                //sync on trades being closed in Manager API
+                                var stopwatch = new Stopwatch();
+                                stopwatch.Start();
+                                while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
                                 {
-                                    Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
-                                    break;
+                                    result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
+                                    if (result.PostLoadTradeList.Count == 0)
+                                    {
+                                        Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
+                                        break;
+                                    }
+                                    //Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
+                                    Thread.Sleep(20000);
                                 }
-                                Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
+                            }
+                            finally
+                            {
+                                CloseMt4TradeExe(mt4TradeExe);
                             }
                         }
-                        finally
-                        {
-                            CloseMt4TradeExe(mt4TradeExe);
-                        }
+
                     }
+                    else
+                    {
+                        Console.WriteLine("No trades to close for {0}", login);
+                        result.PostLoadTradeList = result.PreLoadTradeList;
+                    }
+
                 }
                 finally
                 {

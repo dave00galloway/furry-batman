@@ -49,7 +49,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             if (threads > 1)
             {
                 #region attempt at using semaphore to throttle 'thread' creation
-                AsyncLoadTradesInApi(parameterSet, 300);
+                AsyncLoadTradesInApi(parameterSet, 200);
                 //const int MAX_DOWNLOADS = 50;
 
                 //static async Task DownloadAsync(string[] urls)
@@ -282,27 +282,33 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         public void BulkClosePositions(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
-            int threads;
-            IList<Mt4TradeBulkLoadParameters> parameterSet = ListParameterSet(mt4TradeBulkLoadParameters, out threads);
-            List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis =
-                CreateListOfApisKeyedByParameters(parameterSet);
+            //int threads;
+            //IList<Mt4TradeBulkLoadParameters> parameterSet = ListParameterSet(mt4TradeBulkLoadParameters, out threads);
+            //List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis =
+            //    CreateListOfApisKeyedByParameters(parameterSet);
 
-            //IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
-            //int threads = parameterSet.Count;
+            IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
+            int threads = parameterSet.Count;
             if (threads > 1)
             {
-                #region basic TPL method (reliable for this scenario but slow)
-                Parallel.ForEach(apis, p =>
-                {
-                    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
-                    if (api.Key == null) return;
-                    api.Value.InUse = true;
-                    api.Value.ClosePositionsFor(p.Key.Login);
-                    api.Value.InUse = false;
-                });
-                #endregion 
+                //set to 1 as the manager connections get stolen otherwise
+                AsyncCloseTradesInApi(parameterSet, 20);
+
+                #region basic TPL method (reliable for this scenario but slow, and also not rleaible for large volumes)
+
+                //Parallel.ForEach(apis, p =>
+                //{
+                //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
+                //    if (api.Key == null) return;
+                //    api.Value.InUse = true;
+                //    api.Value.ClosePositionsFor(p.Key.Login);
+                //    api.Value.InUse = false;
+                //});
+
+                #endregion
 
                 #region based on sergey's manual thread method - fast but crashy
+
                 //var doneEvent = new ManualResetEvent(false);
                 //var doneEvents = new ManualResetEvent[threads];
                 //for (int i = 0; i < threads; i++)
@@ -338,12 +344,56 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
 
                 //doneEvent.WaitOne();
+
                 #endregion
             }
             else
             {
                 IMt4CompositeApi api = GetMt4CompositeApi(parameterSet.First().Login);
                 api.ClosePositionsFor(parameterSet.First().Login);
+            }
+        }
+
+        private void AsyncCloseTradesInApi(IList<Mt4TradeBulkLoadParameters> parameterSet, int i)
+        {
+            try
+            {
+                using (var semaphore = new SemaphoreSlim(i, i))
+                {
+                    var tasks = parameterSet.Select(async parameter =>
+                    {
+                        await Task.Yield();
+                        await ProcessAsyncTradeClose(semaphore, parameter).ConfigureAwait(false);
+                    }).ToArray();
+                    Task.WaitAll(tasks);
+                }
+            }
+            catch (AggregateException aggregateException)
+            {
+                //aggregateException.Handle(exception =>
+                //{
+
+                //}
+                //    );
+                Console.WriteLine(aggregateException.Flatten().ToString());
+                //Console.WriteLine(aggregateException);
+            }
+        }
+
+        private async Task ProcessAsyncTradeClose(SemaphoreSlim semaphore, Mt4TradeBulkLoadParameters parameter)
+        {
+            await semaphore.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                IMt4CompositeApi manager = GetMt4CompositeApi(parameter.Login);
+                manager.InUse = true;
+                manager.ClosePositionsFor(parameter.Login);
+                manager.InUse = false;
+            }
+            finally
+            {
+                semaphore.Release();
+                GC.Collect();
             }
         }
 
