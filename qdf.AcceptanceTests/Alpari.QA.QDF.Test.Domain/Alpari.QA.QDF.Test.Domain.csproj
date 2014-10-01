@@ -69,6 +69,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataContexts\CC\CapitalCalculationDataContext.cs" />
+    <Compile Include="DataContexts\CC\CapitalCalculationSnapshotParameters.cs" />
+    <Compile Include="DataContexts\CC\SnapshotComparison.cs" />
     <Compile Include="DataContexts\GetTradeswithEventID.cs" />
     <Compile Include="DataContexts\GetTradesWithEventId.designer.cs">
       <AutoGen>True</AutoGen>

@@ -10,7 +10,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <summary>
         ///     use this where MySql expects date time in the format yyyy-MM-dd H:mm:ss e.g. 2014-04-17 10:47:34
         /// </summary>
-        public const string MySqlDateFormatToSeconds = "yyyy-MM-dd H:mm:ss";
+        public const string MY_SQL_DATE_FORMAT_TO_SECONDS = "yyyy-MM-dd H:mm:ss";
 
         public static string ConvertDateTimeToMySqlDateFormatToSeconds(this DateTime dateTime)
         {

@@ -48,8 +48,8 @@ namespace qdf.AcceptanceTests.DataContexts
                 "       ON p.SectionId = ctps.Id" +
                 "	WHERE s.UpdateDateTime BETWEEN '{0}' AND '{1}' 	" +
                 "	ORDER BY s.UpdateDateTime DESC, ServerName, cr.SymbolCode",
-                start.ToString(DateTimeUtils.MySqlDateFormatToSeconds),
-                end.ToString(DateTimeUtils.MySqlDateFormatToSeconds));
+                start.ToString(DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS),
+                end.ToString(DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS));
         }
 
         public static string cc_tbl_position_section()

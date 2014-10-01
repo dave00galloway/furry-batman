@@ -47,18 +47,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             return dataSet;
         }
 
-        public DataTable SelectDataAsDataTable(string mySelectQuery)
+        public DataTable SelectDataAsDataTable(string mySelectQuery, int timeout)
         {
-            return SelectDataAsDataTable(mySelectQuery, 0);
+            return SelectDataAsDataTable(mySelectQuery, timeout, true);
         }
+
+        //public DataTable SelectDataAsDataTable(string mySelectQuery)
+        //{
+        //    return SelectDataAsDataTable(mySelectQuery, 0);
+        //}
 
         /// <summary>
         ///     retreives
         /// </summary>
         /// <param name="mySelectQuery"></param>
         /// <param name="timeout"></param>
+        /// <param name="outputToConsole"></param>
         /// <returns></returns>
-        public DataTable SelectDataAsDataTable(string mySelectQuery, int timeout)
+        public DataTable SelectDataAsDataTable(string mySelectQuery, int timeout = 0, bool outputToConsole = true)
         {
             var dataTable = new DataTable();
             dataTable.Clear();
@@ -66,7 +72,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
             {
                 MyConnection.Open();
                 var adapter = new MySqlDataAdapter();
-                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection, timeout);
+                SetSelectCommandAndOutputToConsole(mySelectQuery, adapter, MyConnection, timeout, outputToConsole);
                 adapter.Fill(dataTable);
             }
             finally
@@ -108,13 +114,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.DataContexts
         /// <param name="adapter"></param>
         /// <param name="myConnection"></param>
         /// <param name="timeout"></param>
+        /// <param name="outputToConsole"></param>
         [SuppressMessage("Microsoft.Security", "CA2100:Review SQL queries for security vulnerabilities",
             Justification =
                 "It is safe to suppress a warning from this rule if the command text does not contain any user input.")]
         private static void SetSelectCommandAndOutputToConsole(string mySelectQuery, MySqlDataAdapter adapter,
-            MySqlConnection myConnection, int timeout = 0)
+            MySqlConnection myConnection, int timeout = 0,bool outputToConsole = true)
         {
-            Console.WriteLine("executing query: \r\n {0}", mySelectQuery);
+            if (outputToConsole) Console.WriteLine("executing query: \r\n {0}", mySelectQuery);
             adapter.SelectCommand = timeout != 0
                 ? new MySqlCommand(mySelectQuery, myConnection) {CommandTimeout = timeout}
                 : new MySqlCommand(mySelectQuery, myConnection);
