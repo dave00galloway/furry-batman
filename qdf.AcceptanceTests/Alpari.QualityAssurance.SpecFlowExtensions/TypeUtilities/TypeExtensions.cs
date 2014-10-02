@@ -97,7 +97,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     .ToList();
         }
 
-        private static PropertyInfo[] GetProperties(object objectToSearch, IEnumerable<string> propertyList)
+        public static PropertyInfo[] GetProperties(this object objectToSearch, IEnumerable<string> propertyList)
         {
             IList<string> enumerable = propertyList as IList<string> ?? propertyList.ToList();
             var propertyInfo = new PropertyInfo[enumerable.Count()];

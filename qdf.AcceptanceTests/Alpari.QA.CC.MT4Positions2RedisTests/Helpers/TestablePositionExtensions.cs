@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Alpari.CC.WebPortal.DAL.Repositories.Redis;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
-using Microsoft.Practices.ObjectBuilder2;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {

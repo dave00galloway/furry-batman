@@ -32,7 +32,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                             Server1Volume = (decimal)result.Rows[0]["database1_volume"],
                             Server2Name = ccParameters.Database2,
                             Server2Volume = (decimal)result.Rows[0]["database2_volume"],
-                            SnapshotTimeToMinute = (string)result.Rows[0]["snapshot_time_to_minute"]
+                            SnapshotTimeToMinute = (string)result.Rows[0]["snapshot_time_to_minute"],
+                            Diff = (decimal)result.Rows[0]["database1_volume"] - (decimal)result.Rows[0]["database2_volume"],
                         });
                 }
                 catch (Exception e)
@@ -41,9 +42,11 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 }
                 ccParameters.QueryDateTime = ccParameters.QueryDateTime.AddMinutes(1);
             }
-
+            CalculateDeltas(retval);
             return retval;
         }
+
+
 
         private static string GetPositionsQueryString(
             CapitalCalculationSnapshotParameters capitalCalculationSnapshotParameters)
@@ -122,6 +125,18 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 capitalCalculationSnapshotParameters.Book == "B" ? 0 : 1,
                 capitalCalculationSnapshotParameters.Server, capitalCalculationSnapshotParameters.Symbol,
                 capitalCalculationSnapshotParameters.Section);
+        }
+
+        private static void CalculateDeltas(IList<SnapshotComparison> retval)
+        {
+            for (var index = 0; index < retval.Count; index++)
+            {
+                var snapshotComparison = retval[index];
+                if (index > 0)
+                {
+                    snapshotComparison.Delta = retval[index - 1].Diff - snapshotComparison.Diff;
+                }
+            }
         }
     }
 }

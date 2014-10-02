@@ -13,5 +13,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
         public string Server2Name { get; set; }
         public decimal Server1Volume { get; set; }
         public decimal Server2Volume { get; set; }
+        public decimal Diff { get; set; }
+        public decimal Delta { get; set; }
     }
 }
