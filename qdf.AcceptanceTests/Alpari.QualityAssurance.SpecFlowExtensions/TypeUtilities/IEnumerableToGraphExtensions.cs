@@ -96,7 +96,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
             // create the chart
             var chart = new Chart();
-            //chart.Size = new Size(600, 250);
             chart.Size = new Size(chartOptions.Width, chartOptions.Height);
 
             var chartArea = new ChartArea();
@@ -128,9 +127,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 series.XValueType = xvalParams.ChartValueType;
                 chart.Series.Add(series);
                 chart.Series[series.Name].Name = series.Name;
-
+                
                 // bind the datapoints
                 chart.Series[series.Name].Points.DataBindXY(xvals, yvals);
+
+                //display legend
+                chart.Legends.Add(new Legend(series.Name) {Docking = Docking.Right});
+
             }
 
             // draw!

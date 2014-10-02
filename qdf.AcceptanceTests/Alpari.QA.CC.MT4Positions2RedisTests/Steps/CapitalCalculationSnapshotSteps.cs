@@ -94,12 +94,56 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                         PropertyName = "Server2Volume",
                         SeriesName = "uat"
                     }
-                },new EnumerableToGraphExtensions.ChartOptions
+                }, new EnumerableToGraphExtensions.ChartOptions
                 {
                     FilePath = ScenarioOutputDirectory,
                     Name = resultName,
                     AxisXMajorGridInterval = 60
                 });
         }
+        
+        [When(@"I get position data for these groups of snapshot parameters:-")]
+        public void WhenIGetPositionDataForTheseGroupsOfSnapshotParameters(IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
+        {
+            foreach (var ccParameter in ccParameters)
+            {
+                var resultName = String.Format("{0}_{1}_{2}_{3}", ccParameter.Server, ccParameter.Section,ccParameter.Symbol,
+                    ccParameter.Book);
+                IList<SnapshotComparison> result = CapitalCalculationDataContext.GetPositionSnapshots(ccParameter);
+                result.EnumerableToCsv(
+                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, resultName, CsvParserExtensionMethods.csv), false);      
+            result.EnumerableToLineGraph(
+                new EnumerableToGraphExtensions.DataSeriesParameters
+                {
+                    PropertyName = "SnapshotTimeToMinute",
+                    ChartValueType = ChartValueType.DateTime
+                },
+                new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                {
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "Server1Volume",
+                        SeriesName = "qa"
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "Server2Volume",
+                        SeriesName = "uat"
+                    }
+                }, new EnumerableToGraphExtensions.ChartOptions
+                {
+                    FilePath = ScenarioOutputDirectory,
+                    Name = resultName,
+                    AxisXMajorGridInterval = 60
+                });          
+            }
+
+        }
+   
+    
     }
+
+
+
+
 }

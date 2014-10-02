@@ -21,6 +21,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("CompareCCPositionAcrossDatabases")]
     [NUnit.Framework.CategoryAttribute("CCDataContext")]
+    [NUnit.Framework.CategoryAttribute("UKUSCC_1153")]
     public partial class CompareCCPositionAcrossDatabasesFeature
     {
         
@@ -35,7 +36,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CompareCCPositionAcrossDatabases", "In order to compare position snapshots in different databases\r\nAs a CC Tester\r\nI " +
                     "want to get positions from differnt databases for the same server, symbol, etc", ProgrammingLanguage.CSharp, new string[] {
-                        "CCDataContext"});
+                        "CCDataContext",
+                        "UKUSCC_1153"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -89,10 +91,2237 @@ this.ScenarioSetup(scenarioInfo);
                         "default",
                         "A",
                         "EURUSD",
-                        "2014/09/28 20:14:00",
-                        "2014/10/01 15:10:00"});
+                        "2014/10/01 12:10:00",
+                        "2014/10/02 20:10:00"});
 #line 9
  testRunner.When("I get position data for these snapshot parameters:-", ((string)(null)), table1, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for eurusd mt5 A and B Book")]
+        public virtual void GetDataForQaAndUatForEurusdMt5AAndBBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for eurusd mt5 A and B Book", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table2.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/01 15:10:00"});
+            table2.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/01 15:10:00"});
+#line 15
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table2, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for various symbols mt5 A and B Book")]
+        public virtual void GetDataForQaAndUatForVariousSymbolsMt5AAndBBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for various symbols mt5 A and B Book", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 21
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "USDYEN",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "USDYEN",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table3.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 22
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table3, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for JPY crosses mt5 A and B Book")]
+        public virtual void GetDataForQaAndUatForJPYCrossesMt5AAndBBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for JPY crosses mt5 A and B Book", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 40
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table4.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table4.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table4.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table4.AddRow(new string[] {
+                        "MT5",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 41
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table4, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for ADS")]
+        public virtual void GetDataForQaAndUatForADS()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for ADS", ((string[])(null)));
+#line 48
+this.ScenarioSetup(scenarioInfo);
+#line 49
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table5.AddRow(new string[] {
+                        "ADS CFD",
+                        "default",
+                        "B",
+                        "GC.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "EURGBP",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "EURTRY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "USDTRY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table5.AddRow(new string[] {
+                        "ADS STP",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 50
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table5, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for B2B")]
+        public virtual void GetDataForQaAndUatForB2B()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for B2B", ((string[])(null)));
+#line 61
+this.ScenarioSetup(scenarioInfo);
+#line 62
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "A",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 63
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table6, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for C1")]
+        public virtual void GetDataForQaAndUatForC1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for C1", ((string[])(null)));
+#line 82
+this.ScenarioSetup(scenarioInfo);
+#line 83
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table7.AddRow(new string[] {
+                        "C1",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 84
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table7, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for C2")]
+        public virtual void GetDataForQaAndUatForC2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for C2", ((string[])(null)));
+#line 99
+this.ScenarioSetup(scenarioInfo);
+#line 100
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "A",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "UK",
+                        "B",
+                        "US30.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "SI.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table8.AddRow(new string[] {
+                        "C2",
+                        "US",
+                        "B",
+                        "US30",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 101
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table8, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for CBOJ")]
+        public virtual void GetDataForQaAndUatForCBOJ()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for CBOJ", ((string[])(null)));
+#line 137
+this.ScenarioSetup(scenarioInfo);
+#line 138
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table9.AddRow(new string[] {
+                        "CBoJ",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 139
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table9, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for CNX")]
+        public virtual void GetDataForQaAndUatForCNX()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for CNX", ((string[])(null)));
+#line 151
+this.ScenarioSetup(scenarioInfo);
+#line 152
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "A",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "UK",
+                        "B",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "A",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "US",
+                        "B",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "HKDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table10.AddRow(new string[] {
+                        "CNX",
+                        "JP",
+                        "A",
+                        "EUA.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 153
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table10, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for JPN")]
+        public virtual void GetDataForQaAndUatForJPN()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for JPN", ((string[])(null)));
+#line 189
+this.ScenarioSetup(scenarioInfo);
+#line 190
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "B",
+                        "EURJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table11.AddRow(new string[] {
+                        "JPN",
+                        "default",
+                        "B",
+                        "AUDUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 191
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table11, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for M1")]
+        public virtual void GetDataForQaAndUatForM1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for M1", ((string[])(null)));
+#line 203
+this.ScenarioSetup(scenarioInfo);
+#line 204
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "A",
+                        "CADSGD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 205
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table12, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for M2")]
+        public virtual void GetDataForQaAndUatForM2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for M2", ((string[])(null)));
+#line 219
+this.ScenarioSetup(scenarioInfo);
+#line 220
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "ZARJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "A",
+                        "USDMXN",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "EURJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table13.AddRow(new string[] {
+                        "M2",
+                        "default",
+                        "B",
+                        "EURTRY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 221
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table13, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for MENA")]
+        public virtual void GetDataForQaAndUatForMENA()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for MENA", ((string[])(null)));
+#line 239
+this.ScenarioSetup(scenarioInfo);
+#line 240
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "NQ100.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table14.AddRow(new string[] {
+                        "MENA",
+                        "default",
+                        "B",
+                        "US30.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 241
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table14, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for MK1")]
+        public virtual void GetDataForQaAndUatForMK1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for MK1", ((string[])(null)));
+#line 258
+this.ScenarioSetup(scenarioInfo);
+#line 259
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "UK100.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table15.AddRow(new string[] {
+                        "MK1",
+                        "default",
+                        "B",
+                        "US30.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 260
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table15, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for MSCov")]
+        public virtual void GetDataForQaAndUatForMSCov()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for MSCov", ((string[])(null)));
+#line 280
+this.ScenarioSetup(scenarioInfo);
+#line 281
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table16.AddRow(new string[] {
+                        "MS Cov",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table16.AddRow(new string[] {
+                        "MS Cov",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table16.AddRow(new string[] {
+                        "MS Cov",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table16.AddRow(new string[] {
+                        "MS Cov",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 282
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table16, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for Pro")]
+        public virtual void GetDataForQaAndUatForPro()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for Pro", ((string[])(null)));
+#line 289
+this.ScenarioSetup(scenarioInfo);
+#line 290
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "JP",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "A",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "SI.Z4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "UK",
+                        "B",
+                        "US30.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "B",
+                        "XAGUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table17.AddRow(new string[] {
+                        "Pro",
+                        "US",
+                        "B",
+                        "CL.X4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 291
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table17, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for QAH and QMH")]
+        public virtual void GetDataForQaAndUatForQAHAndQMH()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for QAH and QMH", ((string[])(null)));
+#line 330
+this.ScenarioSetup(scenarioInfo);
+#line 331
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "EURGBP",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "CHFJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "A",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "EURGBP",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "CHFJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table18.AddRow(new string[] {
+                        "QAH",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 332
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table18, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for qa and uat for SB1")]
+        public virtual void GetDataForQaAndUatForSB1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for qa and uat for SB1", ((string[])(null)));
+#line 350
+this.ScenarioSetup(scenarioInfo);
+#line 351
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "GBPJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "USDCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "EURCHF",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "UK100.Z",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "B.X4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "FRA40.V",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+            table19.AddRow(new string[] {
+                        "SB1",
+                        "default",
+                        "B",
+                        "HG.V4",
+                        "2014/09/28 20:14:00",
+                        "2014/10/02 15:00:00"});
+#line 352
+ testRunner.When("I get position data for these groups of snapshot parameters:-", ((string)(null)), table19, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
