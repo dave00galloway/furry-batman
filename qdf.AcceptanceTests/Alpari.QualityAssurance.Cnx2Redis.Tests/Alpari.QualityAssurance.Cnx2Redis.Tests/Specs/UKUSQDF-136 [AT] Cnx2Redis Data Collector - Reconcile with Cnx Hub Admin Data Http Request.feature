@@ -28,6 +28,32 @@ Given I have this list of takers to load from cnx hub
 	| AUKP2193  | Uros Frantar                         |
 	| AUKP3216  | Javier Timerman                      |
 
+Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 oct 2014
+	Given I have the following search criteria for qdf deals
+		 | DealSource        | DealType     |
+		 | cnxstp-pret-deals | BookLessDeal |
+	When I load cnx trade activities for "<reportDate>" for the included logins
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+	Examples: 
+	| reportDate |
+	| 10/01/2014 |
+	| 10/02/2014 |
+	| 10/03/2014 |
+	| 10/04/2014 |
+	| 10/05/2014 |
+	| 10/06/2014 |
+
+
 Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data from http request
 	Given I have the following search criteria for qdf deals
 		 | DealSource | DealType     |
@@ -125,7 +151,7 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 
 	| 09/29/2014 |
 	| 09/30/2014 |
 
-
+	
 Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2014
 	Given I have the following search criteria for qdf deals
 		 | DealSource        | DealType     |

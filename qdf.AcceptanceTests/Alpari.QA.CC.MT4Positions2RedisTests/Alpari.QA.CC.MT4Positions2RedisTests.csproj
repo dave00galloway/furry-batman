@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MT4ManagerApiSteps.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1155_CompareCCPositionRedisToArs.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1155_CompareCCPositionRedisToArs.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -207,6 +212,10 @@
     <None Include="Specs\SelfTest\MT4ManagerApiSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>MT4ManagerApiSteps.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSCC_1155_CompareCCPositionRedisToArs.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1155_CompareCCPositionRedisToArs.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

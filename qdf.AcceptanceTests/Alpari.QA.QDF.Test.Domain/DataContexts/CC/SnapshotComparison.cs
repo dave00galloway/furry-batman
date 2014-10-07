@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
+﻿namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
 {
     public class SnapshotComparison
     {

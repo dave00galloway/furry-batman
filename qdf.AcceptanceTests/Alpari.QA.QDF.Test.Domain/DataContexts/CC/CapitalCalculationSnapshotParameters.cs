@@ -10,8 +10,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
     {
         private string _database1 = "cc_qa";
         private string _database2 = "cc_uat";
-        //| server | section | book | symbol | startTime           | endTime             |
-    //| MT5    | default | A    | EURUSD | 2014/09/28 20:14:00 | 2014/09/28 20:14:00 | 
+
         public string Server { get; set; }
         public string Section { get; set; }
         public string Book { get; set; }
@@ -31,5 +30,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             get { return _database2; }
             set { _database2 = value; }
         }
+
+        public string Server1 { get; set; }
+
+        public string Server2 { get; set; }
+
     }
 }

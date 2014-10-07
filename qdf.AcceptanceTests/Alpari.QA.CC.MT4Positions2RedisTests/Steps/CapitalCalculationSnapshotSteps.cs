@@ -28,7 +28,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [When(@"I get position data for these snapshot parameters:-")]
         public void WhenIGetPositionDataForTheseSnapshotParameters(CapitalCalculationSnapshotParameters ccParameters)
         {
-            var resultName = String.Format("{0}_{1}_{2}", ccParameters.Server, ccParameters.Section,
+            string resultName = String.Format("{0}_{1}_{2}", ccParameters.Server, ccParameters.Section,
                 ccParameters.Book);
             IList<SnapshotComparison> result = CapitalCalculationDataContext.GetPositionSnapshots(ccParameters);
             result.EnumerableToCsv(
@@ -101,17 +101,58 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                     AxisXMajorGridInterval = 60
                 });
         }
-        
+
         [When(@"I get position data for these groups of snapshot parameters:-")]
-        public void WhenIGetPositionDataForTheseGroupsOfSnapshotParameters(IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
+        public void WhenIGetPositionDataForTheseGroupsOfSnapshotParameters(
+            IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
         {
-            foreach (var ccParameter in ccParameters)
+            foreach (CapitalCalculationSnapshotParameters ccParameter in ccParameters)
             {
-                var resultName = String.Format("{0}_{1}_{2}_{3}", ccParameter.Server, ccParameter.Section,ccParameter.Symbol,
+                string resultName = String.Format("{0}_{1}_{2}_{3}", ccParameter.Server, ccParameter.Section,
+                    ccParameter.Symbol,
                     ccParameter.Book);
                 IList<SnapshotComparison> result = CapitalCalculationDataContext.GetPositionSnapshots(ccParameter);
                 result.EnumerableToCsv(
-                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, resultName, CsvParserExtensionMethods.csv), false);      
+                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, resultName, CsvParserExtensionMethods.csv),
+                    false);
+                result.EnumerableToLineGraph(
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "SnapshotTimeToMinute",
+                        ChartValueType = ChartValueType.DateTime
+                    },
+                    new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                    {
+                        new EnumerableToGraphExtensions.DataSeriesParameters
+                        {
+                            PropertyName = "Server1Volume",
+                            SeriesName = "qa"
+                        },
+                        new EnumerableToGraphExtensions.DataSeriesParameters
+                        {
+                            PropertyName = "Server2Volume",
+                            SeriesName = "uat"
+                        }
+                    }, new EnumerableToGraphExtensions.ChartOptions
+                    {
+                        FilePath = ScenarioOutputDirectory,
+                        Name = resultName,
+                        AxisXMajorGridInterval = 60
+                    });
+            }
+        }
+
+
+        [When(@"I get cc redis and cc ars position data for these snapshot parameters:-")]
+        public void WhenIGetCcRedisAndCcArsPositionDataForTheseSnapshotParameters(
+            CapitalCalculationSnapshotParameters ccParameters)
+        {
+            string resultName = String.Format("{0}_{1}_{2}_{3}_{4}", ccParameters.Server1, ccParameters.Server2,
+                ccParameters.Symbol, ccParameters.Section, ccParameters.Book);
+            IList<SnapshotComparison> result =
+                CapitalCalculationDataContext.GetRedisAndArsPositionSnapshots(ccParameters);
+            result.EnumerableToCsv(
+                String.Format("{0}{1}.{2}", ScenarioOutputDirectory, resultName, CsvParserExtensionMethods.csv), false);
             result.EnumerableToLineGraph(
                 new EnumerableToGraphExtensions.DataSeriesParameters
                 {
@@ -123,27 +164,19 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                     new EnumerableToGraphExtensions.DataSeriesParameters
                     {
                         PropertyName = "Server1Volume",
-                        SeriesName = "qa"
+                        SeriesName = ccParameters.Server1
                     },
                     new EnumerableToGraphExtensions.DataSeriesParameters
                     {
                         PropertyName = "Server2Volume",
-                        SeriesName = "uat"
+                        SeriesName = ccParameters.Server2
                     }
                 }, new EnumerableToGraphExtensions.ChartOptions
                 {
                     FilePath = ScenarioOutputDirectory,
                     Name = resultName,
                     AxisXMajorGridInterval = 60
-                });          
-            }
-
+                });
         }
-   
-    
     }
-
-
-
-
 }
