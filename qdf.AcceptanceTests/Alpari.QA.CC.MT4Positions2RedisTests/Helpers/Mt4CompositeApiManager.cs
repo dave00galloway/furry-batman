@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
@@ -43,37 +44,30 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         
         public void LoadTrades(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
-            IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();// ListParameterSet(mt4TradeBulkLoadParameters, out threads);
-            int threads = parameterSet.Count;
+            IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
+            int instructionSetCount = parameterSet.Count;
 
-            if (threads > 1)
+            bool useFileForInput = parameterSet.First().FileNamePath != null;
+            if (instructionSetCount > 1 || useFileForInput)
             {
+                int max = 200;
+                if (parameterSet.First().Threads > 0)
+                {
+                    max = parameterSet.First().Threads;
+                }
+
+                if (useFileForInput)
+                {
+                    parameterSet = parameterSet.First().FileNamePath.CsvToList<Mt4TradeBulkLoadParameters>(",");
+                   // instructionSetCount = parameterSet.Count;
+                }
+
+
                 #region attempt at using semaphore to throttle 'thread' creation
-                AsyncLoadTradesInApi(parameterSet, 200);
-                //const int MAX_DOWNLOADS = 50;
 
-                //static async Task DownloadAsync(string[] urls)
-                //{
-                //    using (var semaphore = new SemaphoreSlim(MAX_DOWNLOADS))
-                //    using (var httpClient = new HttpClient())
-                //    {
-                //        var tasks = urls.Select(async(url) => 
-                //        {
-                //            await semaphore.WaitAsync();
-                //            try
-                //            {
-                //                var data = await httpClient.GetStringAsync(url);
-                //                Console.WriteLine(data);
-                //            }
-                //            finally
-                //            {
-                //                semaphore.Release();
-                //            }
-                //        });
+               
+                AsyncLoadTradesInApi(parameterSet, max);
 
-                //        await Task.WhenAll(tasks.ToArray());
-                //    }
-                //}
 
                 #endregion
 
@@ -397,79 +391,81 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
         }
 
-        private static KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> WaitForApiToBeFree(
-            IEnumerable<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis,
-            KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> p, int timeout = 180000)
-        {
-            var api =
-                apis.FirstOrDefault(a => a.Key.Login == p.Key.Login);
-            Console.WriteLine("Check for available api for {0} {1} {2} {3} {4} to start", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            while (api.Value.InUse && stopwatch.ElapsedMilliseconds < timeout)
-            {
-                Console.WriteLine("waiting for {0} {1} {2} {3} {4} to start", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
-                Thread.Sleep(500);
-            }
-            if (api.Value.InUse)
-            {
-                Console.WriteLine("unable to start {0} {1} {2} {3} {4} ", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
-                return new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(null,null);
-            }
-            return api;
-        }
+        #region method would have been broken by change to usage of threads parameter, and was unused anyway
+        //private static KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> WaitForApiToBeFree(
+        //    IEnumerable<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> apis,
+        //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> p, int timeout = 180000)
+        //{
+        //    var api =
+        //        apis.FirstOrDefault(a => a.Key.Login == p.Key.Login);
+        //    Console.WriteLine("Check for available api for {0} {1} {2} {3} {4} to start", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
+        //    var stopwatch = new Stopwatch();
+        //    stopwatch.Start();
+        //    while (api.Value.InUse && stopwatch.ElapsedMilliseconds < timeout)
+        //    {
+        //        Console.WriteLine("waiting for {0} {1} {2} {3} {4} to start", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
+        //        Thread.Sleep(500);
+        //    }
+        //    if (api.Value.InUse)
+        //    {
+        //        Console.WriteLine("unable to start {0} {1} {2} {3} {4} ", api.Key.Login, api.Key.TradeInstruction, api.Key.Quantity, api.Key.Threads, api.Key.FileNamePath);
+        //        return new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(null,null);
+        //    }
+        //    return api;
+        //}
+        #endregion
 
-        /// <summary>
-        /// </summary>
-        /// <param name="mt4TradeBulkLoadParameters"></param>
-        /// <param name="threads"></param>
-        /// <returns></returns>
-        private static IList<Mt4TradeBulkLoadParameters> ListParameterSet(
-            IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters, out int threads)
-        {
-            IList<Mt4TradeBulkLoadParameters> parameterSet =
-                mt4TradeBulkLoadParameters as IList<Mt4TradeBulkLoadParameters> ?? mt4TradeBulkLoadParameters.ToList();
-            threads = parameterSet.Count();
-            return parameterSet;
-        }
+        ///// <summary>
+        ///// </summary>
+        ///// <param name="mt4TradeBulkLoadParameters"></param>
+        ///// <param name="threads"></param>
+        ///// <returns></returns>
+        //private static IList<Mt4TradeBulkLoadParameters> ListParameterSet(
+        //    IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters, out int threads)
+        //{
+        //    IList<Mt4TradeBulkLoadParameters> parameterSet =
+        //        mt4TradeBulkLoadParameters as IList<Mt4TradeBulkLoadParameters> ?? mt4TradeBulkLoadParameters.ToList();
+        //    threads = parameterSet.Count();
+        //    return parameterSet;
+        //}
 
-        /// <summary>
-        ///     enumerate apis first, then execute the loads
-        ///     note storing in a list of key value pairs to allow duplicate rows to be processed.
-        ///     would be faster to use a dictionary, but would need to add an additional key value to distinguish between different
-        ///     instances using the same login
-        /// </summary>
-        /// <param name="parameterSet"></param>
-        /// <returns></returns>
-        private List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> CreateListOfApisKeyedByParameters(
-            IList<Mt4TradeBulkLoadParameters> parameterSet)
-        {
-            return
-                parameterSet.Select(
-                    parameter =>
-                        new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(parameter,
-                            GetMt4CompositeApi(parameter.Login))).ToList();
-        }
+        ///// <summary>
+        /////     enumerate apis first, then execute the loads
+        /////     note storing in a list of key value pairs to allow duplicate rows to be processed.
+        /////     would be faster to use a dictionary, but would need to add an additional key value to distinguish between different
+        /////     instances using the same login
+        ///// </summary>
+        ///// <param name="parameterSet"></param>
+        ///// <returns></returns>
+        //private List<KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>> CreateListOfApisKeyedByParameters(
+        //    IList<Mt4TradeBulkLoadParameters> parameterSet)
+        //{
+        //    return
+        //        parameterSet.Select(
+        //            parameter =>
+        //                new KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi>(parameter,
+        //                    GetMt4CompositeApi(parameter.Login))).ToList();
+        //}
 
-        /// <summary>
-        /// watch a  parallel loop in case of hanging threads etc.
-        /// </summary>
-        /// <param name="parameterSet"></param>
-        /// <param name="operationTimeout">the approx amount of time per operation to wait</param>
-        /// <returns></returns>
-        private static ParallelOptions ParallelOptionsCancellationWatchdog(IList<Mt4TradeBulkLoadParameters> parameterSet, int operationTimeout = 1
-            )
-        {
-            //
-            var cancellationTokenSource = new CancellationTokenSource();
-            var parallelOptions = new ParallelOptions
-            {
-                CancellationToken = cancellationTokenSource.Token,
-                MaxDegreeOfParallelism = -1
-            };
+        ///// <summary>
+        ///// watch a  parallel loop in case of hanging threads etc.
+        ///// </summary>
+        ///// <param name="parameterSet"></param>
+        ///// <param name="operationTimeout">the approx amount of time per operation to wait</param>
+        ///// <returns></returns>
+        //private static ParallelOptions ParallelOptionsCancellationWatchdog(IList<Mt4TradeBulkLoadParameters> parameterSet, int operationTimeout = 1
+        //    )
+        //{
+        //    //
+        //    var cancellationTokenSource = new CancellationTokenSource();
+        //    var parallelOptions = new ParallelOptions
+        //    {
+        //        CancellationToken = cancellationTokenSource.Token,
+        //        MaxDegreeOfParallelism = -1
+        //    };
 
 
-            return parallelOptions;
-        }
+        //    return parallelOptions;
+        //}
     }
 }

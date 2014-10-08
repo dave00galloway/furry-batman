@@ -32,8 +32,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void WhenIBulkLoadTradesIntoMt4(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
             Mt4CompositeApiManager.LoadTrades(mt4TradeBulkLoadParameters);
-            //might need to change this to be the number of records in a set of Mt4TradeBulkLoadParameters
-            //int threads = mt4TradeBulkLoadParameters.Threads;
         }
 
         [When(@"I close all positions for login ""(.*)""")]

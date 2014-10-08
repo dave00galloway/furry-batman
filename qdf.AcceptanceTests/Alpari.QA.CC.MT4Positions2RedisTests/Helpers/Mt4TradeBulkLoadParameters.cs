@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
     public class Mt4TradeBulkLoadParameters
@@ -13,7 +8,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public int Quantity { get; set; }
         public string FileNamePath { get; set; }
         /// <summary>
-        /// formerly used to control number of threads to create when entering traes multithreaded. May now be redundant
+        /// Now used to throttle certain bulk load situations
         /// </summary>
         public int Threads { get; set; }
     }

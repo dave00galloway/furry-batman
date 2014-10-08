@@ -178,5 +178,45 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                     AxisXMajorGridInterval = 60
                 });
         }
+
+        [When(@"I get cc redis and cc ars position data for these sets of snapshot parameters:-")]
+        public void WhenIGetCcRedisAndCcArsPositionDataForTheseSetsOfSnapshotParameters(
+            IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
+        {
+            foreach (CapitalCalculationSnapshotParameters ccParameter in ccParameters)
+            {
+                string resultName = String.Format("{0}_{1}_{2}_{3}_{4}", ccParameter.Server1, ccParameter.Server2,
+                    ccParameter.Symbol, ccParameter.Section, ccParameter.Book);
+                IList<SnapshotComparison> result =
+                    CapitalCalculationDataContext.GetRedisAndArsPositionSnapshots(ccParameter);
+                result.EnumerableToCsv(
+                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, resultName, CsvParserExtensionMethods.csv),
+                    false);
+                result.EnumerableToLineGraph(
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "SnapshotTimeToMinute",
+                        ChartValueType = ChartValueType.DateTime
+                    },
+                    new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                    {
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "Server1Volume",
+                        SeriesName = ccParameter.Server1
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "Server2Volume",
+                        SeriesName = ccParameter.Server2
+                    }
+                    }, new EnumerableToGraphExtensions.ChartOptions
+                    {
+                        FilePath = ScenarioOutputDirectory,
+                        Name = resultName,
+                        AxisXMajorGridInterval = 60
+                    });
+            }
+        }
     }
 }

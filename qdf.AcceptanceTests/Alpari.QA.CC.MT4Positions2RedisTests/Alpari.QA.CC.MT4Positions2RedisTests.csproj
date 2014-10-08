@@ -141,6 +141,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC_1155_CompareCCPositionRedisToArs.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -205,6 +210,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CompareCCPositionAcrossDatabases.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\SelfTest\InsertTradesWithMt4TradeExe.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>InsertTradesWithMt4TradeExe.feature.cs</LastGenOutput>
@@ -234,6 +243,12 @@
     <Content Include="MTAPIs\mtclientapi.dll" />
     <Content Include="MTAPIs\mtmanapi.dll" />
     <Content Include="TestData\test.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\100InsertsFor2Logins.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\5InsertsFor3Logins.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

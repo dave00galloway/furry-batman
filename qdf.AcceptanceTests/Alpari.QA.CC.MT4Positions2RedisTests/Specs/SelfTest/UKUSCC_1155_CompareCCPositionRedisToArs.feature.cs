@@ -96,9 +96,338 @@ this.ScenarioSetup(scenarioInfo);
                         "A",
                         "EURUSD",
                         "2014-10-29 17:36:00",
-                        "2014-10-29 17:46:00"});
+                        "2014-10-29 17:37:00"});
 #line 9
  testRunner.When("I get cc redis and cc ars position data for these snapshot parameters:-", ((string)(null)), table1, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for cc redis and cc ars for various symbols C1")]
+        public virtual void GetDataForCcRedisAndCcArsForVariousSymbolsC1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for cc redis and cc ars for various symbols C1", ((string[])(null)));
+#line 13
+this.ScenarioSetup(scenarioInfo);
+#line 14
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "GBPUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "GBPJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "USDCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "EURCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "A",
+                        "USDJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "EURUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "GBPUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "AUDCAD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "CL.X4",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "XAUUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "XAGUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc_uat",
+                        "default",
+                        "B",
+                        "USDJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 07:20:00"});
+#line 15
+ testRunner.When("I get cc redis and cc ars position data for these sets of snapshot parameters:-", ((string)(null)), table2, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get data for cc redis and cc ars for various symbols C2")]
+        public virtual void GetDataForCcRedisAndCcArsForVariousSymbolsC2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get data for cc redis and cc ars for various symbols C2", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 32
+ testRunner.Given("I have a connection to CCDataContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "EURUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "GBPUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "GBPJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "USDCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "EURCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "USDJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "XAUUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "A",
+                        "XAGUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "EURUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "GBPUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "GBPJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "USDCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "EURCHF",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "USDJPY",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "XAUUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "XAGUSD",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "EUA.Z4",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+            table3.AddRow(new string[] {
+                        "C2",
+                        "C2 Red",
+                        "cc_uat",
+                        "UK",
+                        "B",
+                        "US30.Z",
+                        "2014/10/07 17:20:00",
+                        "2014/10/08 13:00:00"});
+#line 33
+ testRunner.When("I get cc redis and cc ars position data for these sets of snapshot parameters:-", ((string)(null)), table3, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
