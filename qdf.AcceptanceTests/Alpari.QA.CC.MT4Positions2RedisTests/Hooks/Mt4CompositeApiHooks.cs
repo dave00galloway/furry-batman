@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
@@ -43,7 +44,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
             }
             catch (Exception)
             {
-                api = new Mt4CompositeApiManager(new Dictionary<int, IMt4CompositeApi>());
+                api = new Mt4CompositeApiManager(new ConcurrentDictionary<int, IMt4CompositeApi>());
                 if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(api);
             }
             return api;

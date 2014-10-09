@@ -191,6 +191,30 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Bulk Close Trades in parallel using start and stop logins then reconcile")]
+        public virtual void BulkCloseTradesInParallelUsingStartAndStopLoginsThenReconcile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel using start and stop logins then reconcile", ((string[])(null)));
+#line 42
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "startLogin",
+                        "endLogin",
+                        "threads"});
+            table6.AddRow(new string[] {
+                        "1000000001",
+                        "1000001000",
+                        "50"});
+#line 43
+ testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table6, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

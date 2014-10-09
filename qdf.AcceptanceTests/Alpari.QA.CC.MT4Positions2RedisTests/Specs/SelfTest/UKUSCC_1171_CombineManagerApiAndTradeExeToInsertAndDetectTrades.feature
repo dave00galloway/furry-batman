@@ -37,3 +37,9 @@ Scenario: Bulk Close Trades in parallel then reconcile
 	| login      |
 	| 1000000001 |
 	| 1000010240 |
+	#| 1000010240 |
+
+Scenario: Bulk Close Trades in parallel using start and stop logins then reconcile
+	When I bulk close trades in MT4 for these logins:-
+	| startLogin | endLogin   | threads |
+	| 1000000001 | 1000001000 | 50      |

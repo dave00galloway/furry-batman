@@ -23,8 +23,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         public IMt4CompositeApi GetMt4CompositeApi(int login)
         {
-            //lock (_syncLock)
-            //{
             if (!Mt4CompositeApiDictionary.ContainsKey(login))
             {
                 Mt4CompositeApiDictionary[login] = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>())
@@ -33,7 +31,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 };
             }
             IMt4CompositeApi api = Mt4CompositeApiDictionary[login];
-            //}
             return api;
         }
 
@@ -282,69 +279,92 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             //    CreateListOfApisKeyedByParameters(parameterSet);
 
             IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
-            int threads = parameterSet.Count;
-            if (threads > 1)
+            int instructionSetCount = parameterSet.Count;
+            var tradeBulkLoadParameters = parameterSet.FirstOrDefault();
+            if (tradeBulkLoadParameters != null)
             {
-                //set to 1 as the manager connections get stolen otherwise
-                AsyncCloseTradesInApi(parameterSet, 20);
+                int startLogin = tradeBulkLoadParameters.StartLogin;
+                int endLogin = tradeBulkLoadParameters.EndLogin;
+                bool calculateCloseInstructions = (startLogin > 0 && endLogin > 0);
+                if (calculateCloseInstructions)
+                {
+                    parameterSet.Clear();
+                    for (int i = startLogin; i <= endLogin; i++)
+                    {
+                        parameterSet.Add(new Mt4TradeBulkLoadParameters
+                        {
+                            Login = i
+                        });
+                    }
+                }
+                if (instructionSetCount > 1 || calculateCloseInstructions)
+                {
+                    int max = 20;
+                    if (parameterSet.First().Threads > 0)
+                    {
+                        max = parameterSet.First().Threads;
+                    }
 
-                #region basic TPL method (reliable for this scenario but slow, and also not rleaible for large volumes)
+                    AsyncCloseTradesInApi(parameterSet, max);
 
-                //Parallel.ForEach(apis, p =>
-                //{
-                //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
-                //    if (api.Key == null) return;
-                //    api.Value.InUse = true;
-                //    api.Value.ClosePositionsFor(p.Key.Login);
-                //    api.Value.InUse = false;
-                //});
+                    #region basic TPL method (reliable for this scenario but slow, and also not rleaible for large volumes)
 
-                #endregion
+                    //Parallel.ForEach(apis, p =>
+                    //{
+                    //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
+                    //    if (api.Key == null) return;
+                    //    api.Value.InUse = true;
+                    //    api.Value.ClosePositionsFor(p.Key.Login);
+                    //    api.Value.InUse = false;
+                    //});
 
-                #region based on sergey's manual thread method - fast but crashy
+                    #endregion
 
-                //var doneEvent = new ManualResetEvent(false);
-                //var doneEvents = new ManualResetEvent[threads];
-                //for (int i = 0; i < threads; i++)
-                //{
-                //    var meCopy = new ManualResetEvent(false);
-                //    var iCopy = i;
-                //    var th = new Thread(() =>
-                //    {
-                //        Console.WriteLine("↑:{0}", iCopy);
-                //        //KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, parameterSet[iCopy].Login);
-                //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
-                //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
-                //        //if (api.Key == null) return;
-                //        //api.Value.InUse = true;
-                //        manager.ClosePositionsFor(parameterSet[iCopy].Login);
-                //        //api.Value.InUse = false;
+                    #region based on sergey's manual thread method - fast but crashy
 
-                //        Console.WriteLine("↓:{0}", iCopy);
-                //        //meCopy.Set();
+                    //var doneEvent = new ManualResetEvent(false);
+                    //var doneEvents = new ManualResetEvent[threads];
+                    //for (int i = 0; i < threads; i++)
+                    //{
+                    //    var meCopy = new ManualResetEvent(false);
+                    //    var iCopy = i;
+                    //    var th = new Thread(() =>
+                    //    {
+                    //        Console.WriteLine("↑:{0}", iCopy);
+                    //        //KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, parameterSet[iCopy].Login);
+                    //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
+                    //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
+                    //        //if (api.Key == null) return;
+                    //        //api.Value.InUse = true;
+                    //        manager.ClosePositionsFor(parameterSet[iCopy].Login);
+                    //        //api.Value.InUse = false;
 
-                //        if (Interlocked.Decrement(ref threads) == 0)
-                //        {
-                //            doneEvent.Set();
-                //        }
+                    //        Console.WriteLine("↓:{0}", iCopy);
+                    //        //meCopy.Set();
 
-                //        Console.WriteLine("→:{0}", iCopy);
-                //    });
+                    //        if (Interlocked.Decrement(ref threads) == 0)
+                    //        {
+                    //            doneEvent.Set();
+                    //        }
 
-                //    th.Start();
-                //    doneEvents[iCopy] = meCopy;
-                //}
+                    //        Console.WriteLine("→:{0}", iCopy);
+                    //    });
 
-                //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
+                    //    th.Start();
+                    //    doneEvents[iCopy] = meCopy;
+                    //}
 
-                //doneEvent.WaitOne();
+                    //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
 
-                #endregion
-            }
-            else
-            {
-                IMt4CompositeApi api = GetMt4CompositeApi(parameterSet.First().Login);
-                api.ClosePositionsFor(parameterSet.First().Login);
+                    //doneEvent.WaitOne();
+
+                    #endregion
+                }
+                else
+                {
+                    IMt4CompositeApi api = GetMt4CompositeApi(parameterSet.First().Login);
+                    api.ClosePositionsFor(parameterSet.First().Login);
+                }
             }
         }
 
