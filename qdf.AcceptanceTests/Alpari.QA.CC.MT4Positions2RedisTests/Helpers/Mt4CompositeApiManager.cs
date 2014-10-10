@@ -29,6 +29,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 {
                     ManagerConnectionParameters = ManagerConnectionParameters
                 };
+                //Console.WriteLine("manager For {0}", login);
             }
             IMt4CompositeApi api = Mt4CompositeApiDictionary[login];
             return api;
@@ -38,7 +39,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         {
             return GetMt4CompositeApi(Convert.ToInt32(login));
         }
-        
+
         public void LoadTrades(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
             IList<Mt4TradeBulkLoadParameters> parameterSet = mt4TradeBulkLoadParameters.ToList();
@@ -56,134 +57,142 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 if (useFileForInput)
                 {
                     parameterSet = parameterSet.First().FileNamePath.CsvToList<Mt4TradeBulkLoadParameters>(",");
-                   // instructionSetCount = parameterSet.Count;
+                    //assume that start and end logins aren't going to be mixed and matched with logins, i.e. instructions will be for one login or for lots, but not a mixture of both in the same file
+                    if (parameterSet.First().Login > 0)
+                    {
+                        var groupedParameterSet = parameterSet.GroupBy(x => x.Login);
+                        AsyncLoadTradesInApi(groupedParameterSet, max);
+                    }
+                    else
+                    {
+                        throw new NotImplementedException("range of logins not supported from file load yet");
+                    }
                 }
+                else
+                {
+                    #region attempt at using semaphore to throttle 'thread' creation
 
+                    AsyncLoadTradesInApi(parameterSet, max);
 
-                #region attempt at using semaphore to throttle 'thread' creation
+                    #endregion
 
-               
-                AsyncLoadTradesInApi(parameterSet, max);
+                    #region sergey's manual thread creation method (so far the quickest, but hangs or crashes)
 
+                    //var doneEvent = new ManualResetEvent(false);
+                    //var doneEvents = new ManualResetEvent[threads];
+                    //for (int i = 0; i < threads; i++)
+                    //{
+                    //    var meCopy = new ManualResetEvent(false);
+                    //    var iCopy = i;
+                    //    var th = new Thread(() =>
+                    //    {
+                    //        Console.WriteLine("↑:{0}", iCopy);
+                    //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
+                    //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
+                    //        manager.LoadTradesInThread(parameterSet[iCopy]);
 
-                #endregion
+                    //        Console.WriteLine("↓:{0}", iCopy);
+                    //        //meCopy.Set();
 
-                #region sergey's manual thread creation method (so far the quickest, but hangs or crashes)
+                    //        if (Interlocked.Decrement(ref threads) == 0)
+                    //        {
+                    //            doneEvent.Set();
+                    //        }
 
-                //var doneEvent = new ManualResetEvent(false);
-                //var doneEvents = new ManualResetEvent[threads];
-                //for (int i = 0; i < threads; i++)
-                //{
-                //    var meCopy = new ManualResetEvent(false);
-                //    var iCopy = i;
-                //    var th = new Thread(() =>
-                //    {
-                //        Console.WriteLine("↑:{0}", iCopy);
-                //        IMt4CompositeApi manager = //new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(),meCopy);   
-                //                                GetMt4CompositeApi(parameterSet[iCopy].Login);
-                //        manager.LoadTradesInThread(parameterSet[iCopy]);
+                    //        Console.WriteLine("→:{0}", iCopy);
+                    //    });
 
-                //        Console.WriteLine("↓:{0}", iCopy);
-                //        //meCopy.Set();
+                    //    th.Start();
+                    //    doneEvents[iCopy] = meCopy;
+                    //}
 
-                //        if (Interlocked.Decrement(ref threads) == 0)
-                //        {
-                //            doneEvent.Set();
-                //        }
+                    //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
 
-                //        Console.WriteLine("→:{0}", iCopy);
-                //    });
+                    //doneEvent.WaitOne();
 
-                //    th.Start();
-                //    doneEvents[iCopy] = meCopy;
-                //}
+                    #endregion
 
-                //Console.WriteLine("done events: {0} - {1}", doneEvents.Length, doneEvents.Where(e => e != null).Count());
+                    #region ThreadPool method
 
-                //doneEvent.WaitOne();
+                    ////traditional method of parallising a task , 280.0s
+                    //var doneEvents = new ManualResetEvent[threads];
+                    //for (int i = 0; i < threads; i++)
+                    //{
+                    //    doneEvents[i] = new ManualResetEvent(false);
+                    //    //var manager = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(), doneEvents[i])
+                    //    //{
+                    //    //    ManagerConnectionParameters = ManagerConnectionParameters
+                    //    //};
+                    //    IMt4CompositeApi manager = GetMt4CompositeApi(parameterSet[i].Login);
+                    //    //manager.ManagerConnectionParameters = ManagerConnectionParameters;
+                    //    ThreadPool.QueueUserWorkItem(manager.LoadTradesInThread, parameterSet[i]);
+                    //}
+                    //WaitHandle.WaitAll(doneEvents);
 
-                #endregion
+                    #endregion
 
-                #region ThreadPool method
+                    #region basic tpl method
 
-                ////traditional method of parallising a task , 280.0s
-                //var doneEvents = new ManualResetEvent[threads];
-                //for (int i = 0; i < threads; i++)
-                //{
-                //    doneEvents[i] = new ManualResetEvent(false);
-                //    //var manager = new Mt4CompositeApi(new Dictionary<string, Mt4TradeLoadResult>(), doneEvents[i])
-                //    //{
-                //    //    ManagerConnectionParameters = ManagerConnectionParameters
-                //    //};
-                //    IMt4CompositeApi manager = GetMt4CompositeApi(parameterSet[i].Login);
-                //    //manager.ManagerConnectionParameters = ManagerConnectionParameters;
-                //    ThreadPool.QueueUserWorkItem(manager.LoadTradesInThread, parameterSet[i]);
-                //}
-                //WaitHandle.WaitAll(doneEvents);
+                    ////TPL method , 485s, 402s, 417.1s, 333.7, 197 when running from nunit, but sometimes locks
+                    //Parallel.ForEach(parameterSet, p =>
+                    //{
+                    //    var api = GetMt4CompositeApi(p.Login);
+                    //    api.StoreTradeResult(p,
+                    //        api.LoadTrades(p));
+                    //}
+                    //    );
 
-                #endregion
+                    #endregion
 
-                #region basic tpl method
+                    #region slightly improved tpl method, but still sometimes hangs
 
-                ////TPL method , 485s, 402s, 417.1s, 333.7, 197 when running from nunit, but sometimes locks
-                //Parallel.ForEach(parameterSet, p =>
-                //{
-                //    var api = GetMt4CompositeApi(p.Login);
-                //    api.StoreTradeResult(p,
-                //        api.LoadTrades(p));
-                //}
-                //    );
+                    //Parallel.ForEach(apis,parallelOptions, p =>
+                    //{
+                    //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
+                    //    if (api.Key == null) return;
+                    //    api.Value.InUse = true;
+                    //    api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
+                    //    api.Value.InUse = false;
+                    //}
+                    //    );
 
-                #endregion
+                    #endregion
 
-                #region slightly improved tpl method, but still sometimes hangs
+                    #region attempt at using parallel options to govern failed processes/threads
 
-                //Parallel.ForEach(apis,parallelOptions, p =>
-                //{
-                //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
-                //    if (api.Key == null) return;
-                //    api.Value.InUse = true;
-                //    api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
-                //    api.Value.InUse = false;
-                //}
-                //    );
+                    //var parallelOptions = ParallelOptionsCancellationWatchdog(parameterSet);
 
-                #endregion
+                    //var maxTimeout = parameterSet.Sum(p => (p.Quantity > 0 ? p.Quantity : 1)) * 1;
+                    //var stopwatch = new Stopwatch();
+                    //stopwatch.Start();
+                    //Task.Factory.StartNew(() =>
+                    //{
+                    //    while (stopwatch.ElapsedMilliseconds < maxTimeout / 2)
+                    //    {
+                    //        Thread.Sleep(10000);
+                    //    }
+                    //    Console.WriteLine("About to cancel thread");
+                    //    parallelOptions.cancellationTokenSource.Cancel();
+                    //});
 
-                #region attempt at using parallel options to govern failed processes/threads
+                    //var apis =
+                    //    CreateListOfApisKeyedByParameters(parameterSet);
 
-                //var parallelOptions = ParallelOptionsCancellationWatchdog(parameterSet);
+                    //Parallel.ForEach(apis,parallelOptions, p =>
+                    //{
+                    //    parallelOptions.CancellationToken.ThrowIfCancellationRequested();
+                    //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
+                    //    if (api.Key == null) return;
+                    //    api.Value.InUse = true;
+                    //    api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
+                    //    api.Value.InUse = false;
+                    //    parallelOptions.CancellationToken.ThrowIfCancellationRequested();
+                    //}
+                    //    );
+                    //parallelOptions.CancellationToken.
 
-                //var maxTimeout = parameterSet.Sum(p => (p.Quantity > 0 ? p.Quantity : 1)) * 1;
-                //var stopwatch = new Stopwatch();
-                //stopwatch.Start();
-                //Task.Factory.StartNew(() =>
-                //{
-                //    while (stopwatch.ElapsedMilliseconds < maxTimeout / 2)
-                //    {
-                //        Thread.Sleep(10000);
-                //    }
-                //    Console.WriteLine("About to cancel thread");
-                //    parallelOptions.cancellationTokenSource.Cancel();
-                //});
-
-                //var apis =
-                //    CreateListOfApisKeyedByParameters(parameterSet);
-
-                //Parallel.ForEach(apis,parallelOptions, p =>
-                //{
-                //    parallelOptions.CancellationToken.ThrowIfCancellationRequested();
-                //    KeyValuePair<Mt4TradeBulkLoadParameters, IMt4CompositeApi> api = WaitForApiToBeFree(apis, p);
-                //    if (api.Key == null) return;
-                //    api.Value.InUse = true;
-                //    api.Value.StoreTradeResult(p.Key, api.Value.LoadTrades(p.Key));
-                //    api.Value.InUse = false;
-                //    parallelOptions.CancellationToken.ThrowIfCancellationRequested();
-                //}
-                //    );
-                //parallelOptions.CancellationToken.
-
-                #endregion
+                    #endregion
+                }
             }
             else
             {
@@ -225,16 +234,16 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         /// <summary>
         /// //http://blog.cincura.net/233438-semaphoreslims-waitasync-puzzle/
-        /// 
+        /// process a set of trade instructions asynchronously
         /// </summary>
-        /// <param name="parameterSet"></param>
-        /// <param name="i"></param>
+        /// <param name="parameterSet"> a list of parameter sets to process asynchronously</param>
+        /// <param name="i">semaphore init and max parameter</param>
         /// <returns></returns>
         private void AsyncLoadTradesInApi(IList<Mt4TradeBulkLoadParameters> parameterSet, int i)
         {
             try
             {
-                using (var semaphore = new SemaphoreSlim(i,i))
+                using (var semaphore = new SemaphoreSlim(i, i))
                 {
                     var tasks = parameterSet.Select(async parameter =>
                     {
@@ -246,13 +255,32 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
             catch (AggregateException aggregateException)
             {
-                //aggregateException.Handle(exception =>
-                //{
-                    
-                //}
-                //    );
                 Console.WriteLine(aggregateException.Flatten().ToString());
-                //Console.WriteLine(aggregateException);
+            }
+        }
+
+        /// <summary>
+        /// as per AsyncLoadTradesInApi(IList"Mt4TradeBulkLoadParameters" parameterSet, int i) but the parameters are gropued to for serial processing within groups
+        /// </summary>
+        /// <param name="groupedParameterSet"> a list of parameter sets to process asynchronously, grouped by some value to make sure members of each group are processed in serial</param>
+        /// <param name="max">semaphore init and max parameter</param>
+        private void AsyncLoadTradesInApi(IEnumerable<IGrouping<int, Mt4TradeBulkLoadParameters>> groupedParameterSet, int max)
+        {
+            try
+            {
+                using (var semaphore = new SemaphoreSlim(max, max))
+                {
+                    var tasks = groupedParameterSet.Select(async parameterGroup =>
+                    {
+                        await Task.Yield();
+                        await ProcessAsyncTradeLoad(semaphore, parameterGroup).ConfigureAwait(false);
+                    }).ToArray();
+                    Task.WaitAll(tasks);
+                }
+            }
+            catch (AggregateException aggregateException)
+            {
+                Console.WriteLine(aggregateException.Flatten().ToString());
             }
         }
 
@@ -268,6 +296,24 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             {
                 semaphore.Release();
                 GC.Collect();
+            }
+        }
+
+        private async Task ProcessAsyncTradeLoad(SemaphoreSlim semaphore, IGrouping<int, Mt4TradeBulkLoadParameters> parameterGroup)
+        {
+            await semaphore.WaitAsync().ConfigureAwait(false);
+            try
+            {
+                IMt4CompositeApi manager = GetMt4CompositeApi(parameterGroup.First().Login);
+                foreach (var parameter in parameterGroup)
+                {
+                    manager.LoadTradesInThread(parameter);
+                    GC.Collect();
+                }
+            }
+            finally
+            {
+                semaphore.Release();
             }
         }
 

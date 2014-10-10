@@ -242,9 +242,6 @@
     <Content Include="MTAPIs\Mt4.Net.pdb" />
     <Content Include="MTAPIs\mtclientapi.dll" />
     <Content Include="MTAPIs\mtmanapi.dll" />
-    <Content Include="TestData\test.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="TestData\100InsertsFor2Logins.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -252,6 +249,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="TestData\100InsertsFor1000Logins.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\2GroupsOf5InsertsFor3Logins.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

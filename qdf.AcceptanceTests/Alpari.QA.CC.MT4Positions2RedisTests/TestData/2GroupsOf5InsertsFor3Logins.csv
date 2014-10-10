@@ -1,0 +1,7 @@
+ login      , tradeInstruction                       , quantity 
+1000000001,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000500,buy volume=345 symbol=GBPUSD price=1.5,5
+1000001000,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000001,buy volume=345 symbol=EURUSD price=1.5,5
+1000000500,buy volume=345 symbol=EURUSD price=1.5,5
+1000001000,buy volume=345 symbol=EURUSD price=1.5,5

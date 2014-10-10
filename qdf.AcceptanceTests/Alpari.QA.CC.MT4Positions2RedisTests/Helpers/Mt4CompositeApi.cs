@@ -82,7 +82,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                         //create a process for entering trades
                         ProcessStartInfoWrapper mt4StartInfoWrapper =
                             CreateMt4StartInfoWrapper(mt4TradeBulkLoadParameters);
-                        BulkLoadIdenticalTradesUsingMt4TradeExeAndSyncOnResult(mt4TradeBulkLoadParameters,
+                        ProcessTradeInstructionInMt4TradeExeAndSyncOnResult(mt4TradeBulkLoadParameters,
                             mt4StartInfoWrapper, result, manager);
                     }
                     else
@@ -266,36 +266,25 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
         }
 
-        private void BulkLoadIdenticalTradesUsingMt4TradeExeAndSyncOnResult(
-            Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, ProcessStartInfoWrapper mt4StartInfoWrapper,
+        private void ProcessTradeInstructionInMt4TradeExeAndSyncOnResult(
+            Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, IProcessStartInfoWrapper mt4StartInfoWrapper,
             Mt4TradeLoadResult result, Manager manager)
         {
             using (var mt4TradeExe = new ProcessRunner.ProcessRunner(mt4StartInfoWrapper))
             {
                 try
                 {
-                    bool insertedOk = false;
-                    for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
+                    var instructionType = mt4TradeBulkLoadParameters.TradeInstruction.Split(' ')[0];
+                    switch (instructionType)
                     {
-                        mt4TradeExe.SendInput(mt4TradeBulkLoadParameters.TradeInstruction);
+                        case "buy":
+                        case "sell":
+                            InsertTradesAndSyncOnResult(mt4TradeBulkLoadParameters, result, manager, mt4TradeExe);
+                            break;
+                        default:
+                            throw new ArgumentException(string.Format("instructionType {0} in instruction {1} for login {2} is not a valid instruction type", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, mt4TradeBulkLoadParameters.Login));
                     }
-                    //sync on trades being detected in Manager API
-                    var stopwatch = new Stopwatch();
-                    stopwatch.Start();
-                    while (stopwatch.ElapsedMilliseconds <=
-                           (mt4TradeBulkLoadParameters.Quantity * TRADE_INSERT_TIMEOUT) / REDUCE_TRADE_LOAD_TIMOUT_FACTOR)
-                    {
-                        insertedOk = CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager);
-                        if (insertedOk) break;
-                        Thread.Sleep(TRADE_INSERT_TIMEOUT);
-                    }
-                    if (!insertedOk && !CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager))
-                    {
-                        throw new TimeoutException(
-                            String.Format("Trade load failed for {0} after {1} milliseconds, {2} trades were loaded",
-                                mt4TradeBulkLoadParameters.Login, stopwatch.ElapsedMilliseconds,
-                                result.PostLoadTradeList.Count - result.PreLoadTradeList.Count));
-                    }
+                    
                 }
                 catch(Exception e)
                 {
@@ -305,6 +294,33 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 {
                     CloseMt4TradeExe(mt4TradeExe);
                 }
+            }
+        }
+
+        private void InsertTradesAndSyncOnResult(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters,
+            Mt4TradeLoadResult result, Manager manager, IProcessRunner mt4TradeExe)
+        {
+            bool insertedOk = false;
+            for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
+            {
+                mt4TradeExe.SendInput(mt4TradeBulkLoadParameters.TradeInstruction);
+            }
+            //sync on trades being detected in Manager API
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds <=
+                   (mt4TradeBulkLoadParameters.Quantity*TRADE_INSERT_TIMEOUT)/REDUCE_TRADE_LOAD_TIMOUT_FACTOR)
+            {
+                insertedOk = CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager);
+                if (insertedOk) break;
+                Thread.Sleep(TRADE_INSERT_TIMEOUT);
+            }
+            if (!insertedOk && !CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager))
+            {
+                throw new TimeoutException(
+                    String.Format("Trade load failed for {0} after {1} milliseconds, {2} trades were loaded",
+                        mt4TradeBulkLoadParameters.Login, stopwatch.ElapsedMilliseconds,
+                        result.PostLoadTradeList.Count - result.PreLoadTradeList.Count));
             }
         }
 

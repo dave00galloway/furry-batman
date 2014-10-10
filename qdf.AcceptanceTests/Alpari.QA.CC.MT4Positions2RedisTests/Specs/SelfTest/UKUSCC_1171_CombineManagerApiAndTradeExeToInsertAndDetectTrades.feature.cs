@@ -171,11 +171,13 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add 100k Trades in parallel then close all positions for login and reconcile")]
-        public virtual void Add100KTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
+        [NUnit.Framework.DescriptionAttribute("Add 30 Trades in parallel in groups then close all positions for login and reconc" +
+            "ile")]
+        public virtual void Add30TradesInParallelInGroupsThenCloseAllPositionsForLoginAndReconcile()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add 100k Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
-#line 35
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add 30 Trades in parallel in groups then close all positions for login and reconc" +
+                    "ile", ((string[])(null)));
+#line 36
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -190,10 +192,38 @@ this.FeatureBackground();
                         "",
                         "",
                         "",
+                        "TestData\\2GroupsOf5InsertsFor3Logins.csv",
+                        "200"});
+#line 37
+ testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table5, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add 100k Trades in parallel then close all positions for login and reconcile")]
+        public virtual void Add100KTradesInParallelThenCloseAllPositionsForLoginAndReconcile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add 100k Trades in parallel then close all positions for login and reconcile", ((string[])(null)));
+#line 41
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "login",
+                        "tradeInstruction",
+                        "quantity",
+                        "fileNamePath",
+                        "threads"});
+            table6.AddRow(new string[] {
+                        "",
+                        "",
+                        "",
                         "TestData\\100InsertsFor1000Logins.csv",
                         "500"});
-#line 36
- testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table5, "When ");
+#line 42
+ testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table6, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -203,19 +233,19 @@ this.FeatureBackground();
         public virtual void BulkCloseTradesInParallelThenReconcile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel then reconcile", ((string[])(null)));
-#line 40
+#line 46
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "login"});
-            table6.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "1000000001"});
-            table6.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "1000010240"});
-#line 41
- testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table6, "When ");
+#line 47
+ testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table7, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -225,21 +255,21 @@ this.FeatureBackground();
         public virtual void BulkCloseTradesInParallelUsingStartAndStopLoginsThenReconcile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Bulk Close Trades in parallel using start and stop logins then reconcile", ((string[])(null)));
-#line 47
+#line 53
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden
-            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "startLogin",
                         "endLogin",
                         "threads"});
-            table7.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "1000000001",
                         "1000001000",
                         "50"});
-#line 48
- testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table7, "When ");
+#line 54
+ testRunner.When("I bulk close trades in MT4 for these logins:-", ((string)(null)), table8, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
