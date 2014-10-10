@@ -257,7 +257,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 stopwatch.Start();
                 while (stopwatch.ElapsedMilliseconds >= ManagerConnectionParameters.ConnectionTimeout)
                 {
-                    if (!manager.IsConnected())
+                    if (manager.IsConnected())
                     {
                         break;
                     }
@@ -287,7 +287,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     {
                         insertedOk = CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager);
                         if (insertedOk) break;
-                        Thread.Sleep(TRADE_INSERT_TIMEOUT / 10000);
+                        Thread.Sleep(TRADE_INSERT_TIMEOUT);
                     }
                     if (!insertedOk && !CheckTradeInsertion(mt4TradeBulkLoadParameters, result, manager))
                     {
@@ -311,47 +311,48 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private bool CheckTradeInsertion(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters, Mt4TradeLoadResult result,
             Manager manager)
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
-            while (stopwatch.ElapsedMilliseconds < 10000)
+            try
             {
-                try
+                result.PostLoadTradeList =
+                    GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
+                        manager);
+                if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
+                    mt4TradeBulkLoadParameters.Quantity)
                 {
-                    result.PostLoadTradeList =
-                        GetOpenPositionOrderIdsForLogin(mt4TradeBulkLoadParameters.Login,
-                            manager);
-                    if (result.PostLoadTradeList.Count - result.PreLoadTradeList.Count >=
-                        mt4TradeBulkLoadParameters.Quantity)
-                    {
-                        Console.WriteLine("{0} trades entered for {1}",
-                            mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
-                        return true;
-                    }
+                    Console.WriteLine("{0} trades entered for {1}",
+                        mt4TradeBulkLoadParameters.Quantity, mt4TradeBulkLoadParameters.Login);
+                    return true;
+                }
 
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Handled Exception thrown while getting trades for login {0}. exception details {1}", mt4TradeBulkLoadParameters.Login, e);
-                    //attempting to reconnect the manager doesn't work, so might as well throw exception if disconnected
-                    if (!manager.IsConnected())
-                    {
-                        throw;
-                    }
-                    //try
-                    //{
-                    //    manager.Disconnect();
-                    //}
-                    //catch (Exception exception)
-                    //{
-                    //    Console.WriteLine(exception);
-                    //}
-                    //manager.Dispose();
-                    //GC.Collect();
-                    //Thread.Sleep(500);
-                    //manager = SetupManager();
-                    //manager.Connect();
-                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine("Handled Exception thrown while getting trades for login {0}. exception details {1}", mt4TradeBulkLoadParameters.Login, e);
+                //attempting to reconnect the manager doesn't work, so might as well throw exception if disconnected
+                if (!manager.IsConnected())
+                {
+                    throw;
+                }
+                //try
+                //{
+                //    manager.Disconnect();
+                //}
+                //catch (Exception exception)
+                //{
+                //    Console.WriteLine(exception);
+                //}
+                //manager.Dispose();
+                //GC.Collect();
+                //Thread.Sleep(500);
+                //manager = SetupManager();
+                //manager.Connect();
+            }
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
+            //while (stopwatch.ElapsedMilliseconds < 10000)
+            //{
+
+            //}
             return false;
         }
 
