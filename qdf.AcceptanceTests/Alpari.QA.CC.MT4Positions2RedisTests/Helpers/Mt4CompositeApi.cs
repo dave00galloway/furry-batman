@@ -137,21 +137,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                             try
                             {
                                 //PartialCloseAllTradesIndividually(result, mt4TradeExe);
-                                mt4TradeExe.SendInput(CLOSE_ALL_MESSAGE);
-                                //sync on trades being closed in Manager API
-                                var stopwatch = new Stopwatch();
-                                stopwatch.Start();
-                                while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
-                                {
-                                    result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
-                                    if (result.PostLoadTradeList.Count == 0)
-                                    {
-                                        Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
-                                        break;
-                                    }
-                                    //Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
-                                    Thread.Sleep(20000);
-                                }
+                                CloseTradesForLoginAndSyncOnClosed(login, mt4TradeExe, result, manager);
                             }
                             finally
                             {
@@ -275,11 +261,21 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 try
                 {
                     var instructionType = mt4TradeBulkLoadParameters.TradeInstruction.Split(' ')[0];
+                    Console.WriteLine("performing {0} in instruction {1} for login {2} ", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, mt4TradeBulkLoadParameters.Login);
                     switch (instructionType)
                     {
                         case "buy":
                         case "sell":
                             InsertTradesAndSyncOnResult(mt4TradeBulkLoadParameters, result, manager, mt4TradeExe);
+                            break;
+                        case "partial_close":
+                            for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
+                            {
+                                PartialCloseAllTradesIndividually(result, mt4TradeExe);
+                            }
+                            break;
+                        case "close_all":
+                            CloseTradesForLoginAndSyncOnClosed(mt4TradeBulkLoadParameters.Login, mt4TradeExe, result, manager);
                             break;
                         default:
                             throw new ArgumentException(string.Format("instructionType {0} in instruction {1} for login {2} is not a valid instruction type", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, mt4TradeBulkLoadParameters.Login));
@@ -321,6 +317,26 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     String.Format("Trade load failed for {0} after {1} milliseconds, {2} trades were loaded",
                         mt4TradeBulkLoadParameters.Login, stopwatch.ElapsedMilliseconds,
                         result.PostLoadTradeList.Count - result.PreLoadTradeList.Count));
+            }
+        }
+
+        private void CloseTradesForLoginAndSyncOnClosed(int login, IProcessRunner mt4TradeExe, Mt4TradeLoadResult result,
+            Manager manager)
+        {
+            mt4TradeExe.SendInput(CLOSE_ALL_MESSAGE);
+            //sync on trades being closed in Manager API
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
+            {
+                result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
+                if (result.PostLoadTradeList.Count == 0)
+                {
+                    Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
+                    break;
+                }
+                //Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
+                Thread.Sleep(20000);
             }
         }
 
@@ -372,7 +388,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             return false;
         }
 
-        private static void CloseMt4TradeExe(ProcessRunner.ProcessRunner mt4TradeExe)
+        private static void CloseMt4TradeExe(IProcessRunner mt4TradeExe)
         {
             mt4TradeExe.SendInput(QUIT_MT4_TRADE_EXE_MESSAGE);
         }
@@ -383,11 +399,12 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         /// <param name="result"></param>
         /// <param name="mt4TradeExe"></param>
         private static void PartialCloseAllTradesIndividually(Mt4TradeLoadResult result,
-            ProcessRunner.ProcessRunner mt4TradeExe)
+            IProcessRunner mt4TradeExe)
         {
             foreach (int orderId in result.PreLoadTradeList)
             {
                 mt4TradeExe.SendInput(String.Format(CLOSE_TRADE_MESSAGE, orderId));
+                Thread.Sleep(30); // syncrhonising on this would be pretty complex, so assume MT4 can do 300 per second
             }
         }
 

@@ -254,6 +254,15 @@
     <Content Include="TestData\2GroupsOf5InsertsFor3Logins.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\2GroupsOf5InsertsFor30Logins.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\MiniBuySellPartialCloseAll.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\BigBuySellPartialCloseAll.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj">

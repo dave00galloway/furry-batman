@@ -1,0 +1,37 @@
+ login      , tradeInstruction                       , quantity 
+1000000002,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000003,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000004,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000005,buy volume=345 symbol=GBPUSD price=1.5,5
+1000000002,partial_close,1
+1000000003,partial_close,1
+1000000004,partial_close,1
+1000000005,partial_close,1
+1000000002,buy volume=345 symbol=EURUSD price=1.5,5
+1000000003,buy volume=345 symbol=EURUSD price=1.5,5
+1000000004,buy volume=345 symbol=EURUSD price=1.5,5
+1000000005,buy volume=345 symbol=EURUSD price=1.5,5
+1000000002,partial_close,2
+1000000003,partial_close,2
+1000000004,partial_close,2
+1000000005,partial_close,2
+1000000002,sell volume=345 symbol=GBPUSD price=1.5,5
+1000000003,sell volume=345 symbol=GBPUSD price=1.5,5
+1000000004,sell volume=345 symbol=GBPUSD price=1.5,5
+1000000005,sell volume=345 symbol=GBPUSD price=1.5,5
+1000000002,partial_close,1
+1000000003,partial_close,1
+1000000004,partial_close,1
+1000000005,partial_close,1
+1000000002,sell volume=345 symbol=EURUSD price=1.5,5
+1000000003,sell volume=345 symbol=EURUSD price=1.5,5
+1000000004,sell volume=345 symbol=EURUSD price=1.5,5
+1000000005,sell volume=345 symbol=EURUSD price=1.5,5
+1000000002,partial_close,2
+1000000003,partial_close,2
+1000000004,partial_close,2
+1000000005,partial_close,2
+1000000002,close_all,0
+1000000003,close_all,0
+1000000004,close_all,0
+1000000005,close_all,0
