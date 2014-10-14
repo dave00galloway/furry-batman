@@ -57,7 +57,18 @@ Scenario: MiniBuySellPartialCloseAll
 Scenario: BigBuySellPartialCloseAll
 	When I bulk load trades into MT4:-
 		| login | tradeInstruction | quantity | fileNamePath                            | threads |
-		|       |                  |          | TestData\BigBuySellPartialCloseAll.csv | 500     |
+		|       |                  |          | TestData\BigBuySellPartialCloseAll.csv | 400     |
+
+
+		Scenario: MediumBuySellPartialCloseAll
+	When I bulk load trades into MT4:-
+		| login | tradeInstruction | quantity | fileNamePath                              | threads |
+		|       |                  |          | TestData\MediumBuySellPartialCloseAll.csv | 400     |
+
+		Scenario: SingleBuySellPartialCloseAll
+	When I bulk load trades into MT4:-
+		| login | tradeInstruction | quantity | fileNamePath                             | threads |
+		|       |                  |          | TestData\SingleBuySellPartialCloseAl.csv | 400     |
 
 Scenario: Bulk Close Trades in parallel then reconcile
 	When I bulk close trades in MT4 for these logins:-
@@ -69,4 +80,4 @@ Scenario: Bulk Close Trades in parallel then reconcile
 Scenario: Bulk Close Trades in parallel using start and stop logins then reconcile
 	When I bulk close trades in MT4 for these logins:-
 	| startLogin | endLogin   | threads |
-	| 1000000001 | 1000001000 | 50      |
+	| 1000000001 | 1000010240 | 30      |

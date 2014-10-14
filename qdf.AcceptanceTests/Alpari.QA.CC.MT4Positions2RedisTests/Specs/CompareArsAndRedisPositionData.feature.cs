@@ -113,8 +113,6 @@ this.FeatureBackground();
                         "ExcludedFields"});
             table1.AddRow(new string[] {
                         "Timestamp"});
-            table1.AddRow(new string[] {
-                        "OpenTime"});
 #line 21
  testRunner.When("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
                     "these fields:", ((string)(null)), table1, "When ");
@@ -125,7 +123,7 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 25
+#line 24
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();

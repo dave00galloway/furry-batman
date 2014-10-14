@@ -9,6 +9,7 @@ using Alpari.QA.ProcessRunner;
 using AlpariUK.Mt4.Wrapper;
 using AlpariUK.Mt4.Wrapper.Enums;
 using AlpariUK.Mt4.Wrapper.Types;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
@@ -26,8 +27,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private const string QUIT_MT4_TRADE_EXE_MESSAGE = "exit";
         private const string CLOSE_ALL_MESSAGE = "close_all";
         private const double REDUCE_TRADE_LOAD_TIMOUT_FACTOR = 6.5;
-        private readonly object _inUseSync = new object();
-        private bool _inUse;
+        //private readonly object _inUseSync = new object();
+        // private bool _inUse;
 
         public Mt4CompositeApi(IDictionary<string, Mt4TradeLoadResult> mt4TradeLoadResultDictionary)
         {
@@ -177,23 +178,23 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
         }
 
-        public bool InUse
-        {
-            get
-            {
-                lock (_inUseSync)
-                {
-                    return _inUse;
-                }
-            }
-            set
-            {
-                lock (_inUseSync)
-                {
-                    _inUse = value;
-                }
-            }
-        }
+        // public bool InUse
+        // {
+            // get
+            // {
+                // lock (_inUseSync)
+                // {
+                    // return _inUse;
+                // }
+            // }
+            // set
+            // {
+                // lock (_inUseSync)
+                // {
+                    // _inUse = value;
+                // }
+            // }
+        // }
 
 
         private Manager SetupManager()
@@ -261,7 +262,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 try
                 {
                     var instructionType = mt4TradeBulkLoadParameters.TradeInstruction.Split(' ')[0];
-                    Console.WriteLine("performing {0} in instruction {1} for login {2} ", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, mt4TradeBulkLoadParameters.Login);
+                    int login = mt4TradeBulkLoadParameters.Login;
+                    Console.WriteLine("performing {0} in instruction {1} for login {2} ", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, login);
                     switch (instructionType)
                     {
                         case "buy":
@@ -269,13 +271,69 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                             InsertTradesAndSyncOnResult(mt4TradeBulkLoadParameters, result, manager, mt4TradeExe);
                             break;
                         case "partial_close":
-                            for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
-                            {
+                            //for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity; i++)
+                            //{
+                            //no point iterating as the resulot will contain out of date trade ids (partial close closes the original trade and opens a new one)
                                 PartialCloseAllTradesIndividually(result, mt4TradeExe);
+                                //could maybe re-run this after re-querying trades and feeding back into the PartialCloseAllTradesIndividually method with an updated result
+                            //}
+                            if (mt4TradeBulkLoadParameters.Quantity > 1)
+                            {
+                                for (int i = 0; i < mt4TradeBulkLoadParameters.Quantity-1; i++)
+                                {
+                                    try
+                                    {
+                                        
+                                        result.PreLoadTradeList =
+                                            GetOpenPositionOrderIdsForLogin(login, manager);
+                                    }
+                                    catch (Exception e)
+                                    {
+                                        Console.WriteLine("replacing manager for {0}", login);
+                                        bool gotCount = false;
+                                        try
+                                        {
+                                            using (Manager replacementManager = SetupManager())
+                                            {
+                                                result.PreLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
+                                                gotCount = true;
+                                            }
+                                        }
+                                        catch (Exception ex)
+                                        {
+                                            Console.WriteLine(ex);
+                                        }
+                                        if (!gotCount)
+                                        {
+                                            Console.WriteLine("May have missed partially closing some traes for {0}",login);
+                                        }
+                                    }
+                                    PartialCloseAllTradesIndividually(result, mt4TradeExe);
+                                }
+                            }
+                            try
+                            {
+                                result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("replacing manager for {0}", login);
+                                try
+                                {
+                                    using (Manager replacementManager = SetupManager())
+                                    {
+                                        result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    ex.ConsoleExceptionLogger("exception trying to get post load trade list for partial close");
+                                }
                             }
                             break;
                         case "close_all":
                             CloseTradesForLoginAndSyncOnClosed(mt4TradeBulkLoadParameters.Login, mt4TradeExe, result, manager);
+                            //CloseAllTradesViaTradeid(mt4TradeExe, result);
                             break;
                         default:
                             throw new ArgumentException(string.Format("instructionType {0} in instruction {1} for login {2} is not a valid instruction type", instructionType, mt4TradeBulkLoadParameters.TradeInstruction, mt4TradeBulkLoadParameters.Login));
@@ -290,6 +348,16 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 {
                     CloseMt4TradeExe(mt4TradeExe);
                 }
+            }
+        }
+
+        //doesn't work since MT4Trade.exe will only close 1 lot at a time (partial close) would need to know volume of trade, which would mean requerying MT4 on each pass, or storing more trade information at the time of the trade being placed, or hardcoding the volume, none of which are good
+        private void CloseAllTradesViaTradeid(ProcessRunner.ProcessRunner mt4TradeExe, Mt4TradeLoadResult result)
+        {
+            //close id=5810355
+            foreach (var tradeId  in result.PostLoadTradeList   )
+            {
+                
             }
         }
 
@@ -324,15 +392,43 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             Manager manager)
         {
             mt4TradeExe.SendInput(CLOSE_ALL_MESSAGE);
+            //
+            bool closeByPostLoadList = Mt4TradeLoadResultDictionary.Count > 0; // result.PostLoadTradeList.Count > 0;
+            int tradesToClose = closeByPostLoadList ? Mt4TradeLoadResultDictionary[login.ToString()].PostLoadTradeList.Count : result.PreLoadTradeList.Count;
             //sync on trades being closed in Manager API
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            while (stopwatch.ElapsedMilliseconds <= result.PreLoadTradeList.Count * TRADE_INSERT_TIMEOUT)
+            while (stopwatch.ElapsedMilliseconds <= tradesToClose * TRADE_INSERT_TIMEOUT)
             {
-                result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
+                try
+                {
+                    result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, manager);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("replacing manager for {0}",login);
+                    bool gotCount = false;
+                    try
+                    {
+                        using (Manager replacementManager = SetupManager())
+                        {
+                            result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
+                            gotCount = true;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    if (!gotCount)
+                    {
+                        result.PostLoadTradeList.Add(-1);
+                        Console.WriteLine("can't rely on trade count for {0} so adding a dummy invalid trade id to make sure we try again");
+                    }
+                }
                 if (result.PostLoadTradeList.Count == 0)
                 {
-                    Console.WriteLine("{0} trades closed for {1}", result.PreLoadTradeList.Count, login);
+                    Console.WriteLine("{0} trades closed for {1}", tradesToClose, login);
                     break;
                 }
                 //Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
@@ -404,7 +500,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             foreach (int orderId in result.PreLoadTradeList)
             {
                 mt4TradeExe.SendInput(String.Format(CLOSE_TRADE_MESSAGE, orderId));
-                Thread.Sleep(30); // syncrhonising on this would be pretty complex, so assume MT4 can do 300 per second
+                Thread.Sleep(3); // syncrhonising on this would be pretty complex, so assume MT4 can do 300 per second and dial back a bit
             }
         }
 

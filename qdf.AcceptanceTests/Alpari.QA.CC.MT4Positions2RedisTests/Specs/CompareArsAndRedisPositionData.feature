@@ -21,7 +21,6 @@ Scenario: Compare open positions
 	When I compare the "ProTest" positions with the "ars_test_AUKP01" positions excluding these fields:
 		 | ExcludedFields |
 		 | Timestamp      |
-		 | OpenTime       |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |

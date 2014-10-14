@@ -12,6 +12,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         /// </summary>
         Mt4ApiConnectionParameters ManagerConnectionParameters { get; set; }
 
+
+        //Can't remeber why this is a string key, seems a bit daft since we're using logins which are ints. maybe change this?
         IDictionary<string, Mt4TradeLoadResult> Mt4TradeLoadResultDictionary { get; set; }
 
         /// <summary>
@@ -35,6 +37,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
         void LoadTradesInThread(Object threadContext);
 
-        bool InUse { get; set; }
+        //bool InUse { get; set; }
     }
 }

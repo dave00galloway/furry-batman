@@ -317,6 +317,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
         }
 
+        /// <summary>
+        /// Attempt to close all positions for a login or list of logins (or range of logins)
+        /// THis should not be the preferred method of closing out in load scenarios
+        /// as it relies on being able to get a start count and running count of trades via the manager API,
+        /// and if this fails, the count is assumed to be 0 so the closeout process will not start or will terminate early
+        /// </summary>
+        /// <param name="mt4TradeBulkLoadParameters"></param>
         public void BulkClosePositions(IEnumerable<Mt4TradeBulkLoadParameters> mt4TradeBulkLoadParameters)
         {
             //int threads;
@@ -332,6 +339,11 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 int startLogin = tradeBulkLoadParameters.StartLogin;
                 int endLogin = tradeBulkLoadParameters.EndLogin;
                 bool calculateCloseInstructions = (startLogin > 0 && endLogin > 0);
+                int max = 20;
+                if (parameterSet.First().Threads > 0)
+                {
+                    max = parameterSet.First().Threads;
+                }
                 if (calculateCloseInstructions)
                 {
                     parameterSet.Clear();
@@ -345,12 +357,6 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 }
                 if (instructionSetCount > 1 || calculateCloseInstructions)
                 {
-                    int max = 20;
-                    if (parameterSet.First().Threads > 0)
-                    {
-                        max = parameterSet.First().Threads;
-                    }
-
                     AsyncCloseTradesInApi(parameterSet, max);
 
                     #region basic TPL method (reliable for this scenario but slow, and also not rleaible for large volumes)
@@ -430,13 +436,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             }
             catch (AggregateException aggregateException)
             {
-                //aggregateException.Handle(exception =>
-                //{
-
-                //}
-                //    );
                 Console.WriteLine(aggregateException.Flatten().ToString());
-                //Console.WriteLine(aggregateException);
             }
         }
 
@@ -446,9 +446,9 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             try
             {
                 IMt4CompositeApi manager = GetMt4CompositeApi(parameter.Login);
-                manager.InUse = true;
+                //manager.InUse = true;
                 manager.ClosePositionsFor(parameter.Login);
-                manager.InUse = false;
+                //manager.InUse = false;
             }
             finally
             {

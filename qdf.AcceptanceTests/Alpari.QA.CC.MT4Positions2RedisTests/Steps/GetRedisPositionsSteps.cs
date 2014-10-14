@@ -38,7 +38,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [When(@"I get all positions for server ""(.*)"" opened from '(.*)'")]
         public void WhenIGetAllPositionsForServerOpenedFrom(string mtServerName, DateTime openedFromTime)
         {
-            Positions = RedisRepository.GetAllPositions(mtServerName)
+            Positions = RedisRepository.GetAllPositions(mtServerName)// don't believe this helps .AsParallel()
                 //.Where(p=>p.OpenTime.ConvertUnixTimeStampAsSeconds() >= openedFromTime).ToList();
                 //.Where(p => p.OpenTime >= openedFromTime)
                 .ToList();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using Alpari.CC.WebPortal.DAL.Repositories.Redis;
 using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
@@ -66,7 +67,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
 
         private void SetupDataTable(IEnumerable<Position> enumeratedObjects)
         {
-            foreach (Position position in enumeratedObjects)
+            foreach (Position position in enumeratedObjects) //don't believe that parellelising helped .AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism).WithDegreeOfParallelism(32))
             {
                 Rows.Add(new object[]
                 {

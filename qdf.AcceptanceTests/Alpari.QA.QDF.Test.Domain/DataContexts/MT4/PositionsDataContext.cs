@@ -5,6 +5,8 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT4
 {
     public class PositionsDataContext : MySqlDataContextSubstitute
     {
+        private const int POSITION_QUEY_TIMEOUT = 600;
+
         public PositionsDataContext(string connectionString)
             : base(connectionString)
         {
@@ -19,7 +21,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.MT4
 
         public DataTable GetOpenPositionsFromDate(string earliestPositionDate)
         {
-            return SelectDataAsDataTable(GetOpenPositionsFromDateQuery(DataBaseName, earliestPositionDate));
+            return SelectDataAsDataTable(GetOpenPositionsFromDateQuery(DataBaseName, earliestPositionDate),POSITION_QUEY_TIMEOUT);
         }
 
         private static string GetOpenPositionsFromDateQuery(string dataBaseName, string earliestPositionDate)
