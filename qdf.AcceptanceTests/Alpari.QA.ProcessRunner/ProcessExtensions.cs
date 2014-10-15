@@ -39,7 +39,7 @@ namespace Alpari.QA.ProcessRunner
             {
                 using (var cmd = new ProcessRunner(new ProcessStartInfoWrapper
                 {
-                    CreateNoWindow = false,
+                    CreateNoWindow = true,
                     FileName = "cmd.exe",
                     RedirectStandardInput = true,
                     RedirectStandardError = true,
