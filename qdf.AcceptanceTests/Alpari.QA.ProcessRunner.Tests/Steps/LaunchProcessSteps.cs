@@ -98,6 +98,21 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
             ScenarioContext.Current.Pending();
         }
 
+        [When(@"I kill the process by name ""(.*)""")]
+        public void WhenIKillTheProcessByName(string processName)
+        {
+            //processName.GetProcessesByName().Should().BeNullOrEmpty();
+            processName.KillProcessesByName(true);
+        }
+
+        [Then(@"there are no processes called ""(.*)"" running")]
+        public void ThenThereAreNoProcessesCalledRunning(string processName)
+        {
+            //not an accurate check for unamanaged processes!
+            processName.GetProcessesByName().Should().BeNullOrEmpty();
+        }
+
+
 
     }
 }

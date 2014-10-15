@@ -37,6 +37,7 @@
     <Compile Include="GenerateConsoleControlEvent.cs" />
     <Compile Include="IProcessRunner.cs" />
     <Compile Include="IProcessStartInfoWrapper.cs" />
+    <Compile Include="ProcessExtensions.cs" />
     <Compile Include="ProcessRunner.cs" />
     <Compile Include="ProcessStartInfoWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

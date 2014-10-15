@@ -58,6 +58,11 @@
   <ItemGroup>
     <Compile Include="Hooks\LaunchProcessHooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\LaunchProcessAndKill.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LaunchProcessAndKill.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\LaunchProcessAndReadStdErr.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -87,6 +92,10 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <None Include="Specs\LaunchProcessAndKill.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LaunchProcessAndKill.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\LaunchProcessAndReadStdErr.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LaunchProcessAndReadStdErr.feature.cs</LastGenOutput>

@@ -74,7 +74,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 try
                 {
                     //InUse = false;
-                    ConnectManagerAndWaitForConnection(manager);
+                    //ConnectManagerAndWaitForConnection(manager);
                     if (mt4TradeBulkLoadParameters.Login > 0)
                     {
                         //get existing open positions
@@ -93,11 +93,20 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 }
                 finally
                 {
-                    manager.Disconnect();
+                    //manager.Disconnect();
+                    Disconnect(manager);
                     //InUse = false;
                 }
             }
             return result;
+        }
+
+        private void Disconnect(Manager manager)
+        {
+            if (manager.IsConnected())
+            {
+                manager.Disconnect();
+            }
         }
 
         public void StoreTradeResult(Mt4TradeBulkLoadParameters mt4TradeBulkLoadParameters,
@@ -122,7 +131,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 try
                 {
                     //InUse = true;
-                    ConnectManagerAndWaitForConnection(manager);
+                    //ConnectManagerAndWaitForConnection(manager);
                     //CloseAllPositionsForLoginWithManagerApi(login, manager);
                     //get existing open positions
                     result.PreLoadTradeList = GetOpenPositionOrderIdsForLogin(login,
@@ -156,7 +165,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 }
                 finally
                 {
-                    manager.Disconnect();
+                    Disconnect(manager);
                     StoreTradeResult(closeParameters, result);
                     //InUse = false;
                 }
@@ -175,6 +184,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             catch (Exception e)
             {
                 Console.WriteLine(e);
+                "WerFault.exe".KillProcessesByName(true);
             }
         }
 
@@ -230,9 +240,16 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         private IEnumerable<TradeRecord> GetOpenPositionsForLogin(int login, Manager manager)
         {
             ConnectManagerAndWaitForConnection(manager);
-            return manager.TradesRequest()
-                .Where(
-                    t => t.Login == login && (t.Cmd != TradeCommand.OP_BALANCE || t.Cmd != TradeCommand.OP_CREDIT));
+            try
+            {
+                return manager.TradesRequest()
+                    .Where(
+                        t => t.Login == login && (t.Cmd != TradeCommand.OP_BALANCE || t.Cmd != TradeCommand.OP_CREDIT));
+            }
+            finally
+            {
+                Disconnect(manager);
+            }
         }
 
         private void ConnectManagerAndWaitForConnection(Manager manager)
@@ -297,11 +314,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                                             {
                                                 result.PreLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
                                                 gotCount = true;
+                                                //replacementManager.Disconnect();
                                             }
                                         }
                                         catch (Exception ex)
                                         {
                                             Console.WriteLine(ex);
+                                            "WerFault.exe".KillProcessesByName(true);
                                         }
                                         if (!gotCount)
                                         {
@@ -318,16 +337,19 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                             catch (Exception e)
                             {
                                 Console.WriteLine("replacing manager for {0}", login);
+                                "WerFault.exe".KillProcessesByName(true);
                                 try
                                 {
                                     using (Manager replacementManager = SetupManager())
                                     {
                                         result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
+                                        //replacementManager.Disconnect();
                                     }
                                 }
                                 catch (Exception ex)
                                 {
                                     ex.ConsoleExceptionLogger("exception trying to get post load trade list for partial close");
+                                    "WerFault.exe".KillProcessesByName(true);
                                 }
                             }
                             break;
@@ -343,6 +365,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 catch(Exception e)
                 {
                     Console.WriteLine(e);
+                    "WerFault.exe".KillProcessesByName(true);
                 }
                 finally
                 {
@@ -407,6 +430,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 catch (Exception e)
                 {
                     Console.WriteLine("replacing manager for {0}",login);
+                    "WerFault.exe".KillProcessesByName(true);
                     bool gotCount = false;
                     try
                     {
@@ -414,11 +438,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                         {
                             result.PostLoadTradeList = GetOpenPositionOrderIdsForLogin(login, replacementManager);
                             gotCount = true;
+                            Disconnect(manager);
                         }
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine(ex);
+                        "WerFault.exe".KillProcessesByName(true);
                     }
                     if (!gotCount)
                     {
@@ -457,6 +483,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             {
                 Console.WriteLine("Handled Exception thrown while getting trades for login {0}. exception details {1}", mt4TradeBulkLoadParameters.Login, e);
                 //attempting to reconnect the manager doesn't work, so might as well throw exception if disconnected
+                "WerFault.exe".KillProcessesByName(true);
                 if (!manager.IsConnected())
                 {
                     throw;
