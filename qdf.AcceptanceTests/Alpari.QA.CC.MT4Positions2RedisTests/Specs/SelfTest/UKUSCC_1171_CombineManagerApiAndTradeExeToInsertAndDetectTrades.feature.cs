@@ -251,7 +251,7 @@ this.FeatureBackground();
                         "",
                         "",
                         "TestData\\100InsertsFor1000Logins.csv",
-                        "500"});
+                        "300"});
 #line 47
  testRunner.When("I bulk load trades into MT4:-", ((string)(null)), table7, "When ");
 #line hidden
@@ -320,7 +320,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("MediumBuySellPartialCloseAll", ((string[])(null)));
 #line 63
-  this.ScenarioSetup(scenarioInfo);
+this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
 #line hidden

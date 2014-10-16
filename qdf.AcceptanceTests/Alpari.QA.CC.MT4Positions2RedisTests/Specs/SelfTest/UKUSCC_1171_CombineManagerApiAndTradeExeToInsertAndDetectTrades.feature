@@ -46,7 +46,7 @@ Scenario: Add 300 Trades in parallel in groups then close all positions for logi
 Scenario: Add 100k Trades in parallel then close all positions for login and reconcile
 	When I bulk load trades into MT4:-
 		| login | tradeInstruction | quantity | fileNamePath                         | threads |
-		|       |                  |          | TestData\100InsertsFor1000Logins.csv | 500     |
+		|       |                  |          | TestData\100InsertsFor1000Logins.csv | 300     |
 
 Scenario: MiniBuySellPartialCloseAll
 	When I bulk load trades into MT4:-
@@ -60,7 +60,7 @@ Scenario: BigBuySellPartialCloseAll
 		|       |                  |          | TestData\BigBuySellPartialCloseAll.csv | 400     |
 
 
-		Scenario: MediumBuySellPartialCloseAll
+Scenario: MediumBuySellPartialCloseAll
 	When I bulk load trades into MT4:-
 		| login | tradeInstruction | quantity | fileNamePath                              | threads |
 		|       |                  |          | TestData\MediumBuySellPartialCloseAll.csv | 400     |

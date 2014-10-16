@@ -1,4 +1,6 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
+using Alpari.QA.WMIExtensions.Process;
 
 namespace Alpari.QA.ProcessRunner
 {
@@ -29,27 +31,36 @@ namespace Alpari.QA.ProcessRunner
         }
 
         /// <summary>
-        ///     the above code doesn't work for unmanaged processes, so adding an overload to send a kill via command line
+        ///     the above code doesn't work for unmanaged processes, so adding an overload to send a kill via command line/WMI
         /// </summary>
         /// <param name="processname"></param>
-        /// <param name="useCommandLine"></param>
-        public static void KillProcessesByName(this string processname, bool useCommandLine)
+        /// <param name="useWmi"></param>
+        public static void KillProcessesByName(this string processname, bool useWmi)
         {
-            if (useCommandLine)
+            if (useWmi)
             {
-                using (var cmd = new ProcessRunner(new ProcessStartInfoWrapper
-                {
-                    CreateNoWindow = true,
-                    FileName = "cmd.exe",
-                    RedirectStandardInput = true,
-                    RedirectStandardError = true,
-                    RedirectStandardOutput = true,
-                    UseShellExecute = false
-                }))
-                {
-                    cmd.SendInput(string.Format("taskkill /F /T /IM \"{0}\"", processname));
-                }
+                var processObject = new ProcessLocal();
+                processObject.TerminateProcess(processname);
             }
+            //if (useCommandLine)
+            //{
+            //    using (var cmd = new ProcessRunner(new ProcessStartInfoWrapper
+            //    {
+            //        CreateNoWindow = true,
+            //        FileName = "cmd.exe",
+            //        RedirectStandardInput = true,
+            //        RedirectStandardError = true,
+            //        RedirectStandardOutput = true,
+            //        UseShellExecute = false
+            //    }))
+            //    {
+            //        string format = string.Format("cmd.exe /k \"taskkill /F /T /IM \"\"{0}\"\"\"", processname);
+            //        Console.WriteLine(format);
+            //        cmd.SendInput(format);
+            //        //format = string.Format("taskkill /F /T /IM \"taskkill\"");
+            //        //cmd.SendInput(format);
+            //    }
+            //}
             else
             {
                 processname.KillProcessesByName();

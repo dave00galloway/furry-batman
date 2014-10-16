@@ -1,4 +1,5 @@
 ﻿using System;
+using Alpari.QA.WMIExtensions.Process;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -108,8 +109,16 @@ namespace Alpari.QA.ProcessRunner.Tests.Steps
         [Then(@"there are no processes called ""(.*)"" running")]
         public void ThenThereAreNoProcessesCalledRunning(string processName)
         {
+            var processObject = new ProcessLocal();
+            //var processes = processObject.RunningProcesses().ToArray();
+            //foreach (string process in processes)
+            //{
+            //    process.Should().NotBe(processName);
+            //}
+            processObject.RunningProcesses().ToArray().Should().NotContain(processName);
+
             //not an accurate check for unamanaged processes!
-            processName.GetProcessesByName().Should().BeNullOrEmpty();
+            //processName.GetProcessesByName().Should().BeNullOrEmpty();
         }
 
 

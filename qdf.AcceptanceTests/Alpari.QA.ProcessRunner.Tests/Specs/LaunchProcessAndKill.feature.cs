@@ -100,6 +100,95 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Kill unmanaged process by name")]
+        public virtual void KillUnmanagedProcessByName()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Kill unmanaged process by name", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 16
+ testRunner.When("I kill the process by name \"WerFault.exe\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 17
+ testRunner.Then("there are no processes called \"WerFault.exe\" running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("launch taskkill process and kill by name")]
+        public virtual void LaunchTaskkillProcessAndKillByName()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("launch taskkill process and kill by name", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow",
+                        "Arguments"});
+            table2.AddRow(new string[] {
+                        "taskkill.exe",
+                        "false",
+                        "false",
+                        "true",
+                        "true",
+                        "true",
+                        "/F /T /IM \"WerFault.exe\""});
+#line 20
+ testRunner.Given("I have the following process parameters", ((string)(null)), table2, "Given ");
+#line 23
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 25
+ testRunner.When("I kill the process by name \"taskkill.exe\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 26
+ testRunner.Then("there are no processes called \"taskkill.exe\" running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Launch cmd.exe")]
+        public virtual void LaunchCmd_Exe()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Launch cmd.exe", ((string[])(null)));
+#line 28
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "FileName",
+                        "UseShellExecute",
+                        "RedirectStandardError",
+                        "RedirectStandardInput",
+                        "RedirectStandardOutput",
+                        "CreateNoWindow"});
+            table3.AddRow(new string[] {
+                        "cmd.exe",
+                        "false",
+                        "False",
+                        "true",
+                        "true",
+                        "true"});
+#line 29
+ testRunner.Given("I have the following process parameters", ((string)(null)), table3, "Given ");
+#line 32
+ testRunner.When("I launch the process", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 33
+ testRunner.Then("the process is launched ok", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 34
+ testRunner.When("I kill the process by name \"cmd.exe\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 35
+ testRunner.Then("there are no processes called \"cmd.exe\" running", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

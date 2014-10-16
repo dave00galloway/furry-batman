@@ -82,6 +82,10 @@
       <Project>{1541f9f0-19f6-41c0-b8d9-8a7829a54c52}</Project>
       <Name>Alpari.QA.ProcessRunner</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Alpari.QA.WMIExtensions\Alpari.QA.WMIExtensions.csproj">
+      <Project>{0e8b31dc-ba1f-4116-9e51-da3249915bd3}</Project>
+      <Name>Alpari.QA.WMIExtensions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
       <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>

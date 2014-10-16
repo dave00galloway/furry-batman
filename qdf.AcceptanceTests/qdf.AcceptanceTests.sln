@@ -45,6 +45,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QDF.ConversionRateDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.CC.MT4Positions2RedisTests", "Alpari.QA.CC.MT4Positions2RedisTests\Alpari.QA.CC.MT4Positions2RedisTests.csproj", "{E37CDE25-CF60-442A-BF27-A75CBE64DB9E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.WMIExtensions", "Alpari.QA.WMIExtensions\Alpari.QA.WMIExtensions.csproj", "{0E8B31DC-BA1F-4116-9E51-DA3249915BD3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -125,6 +127,10 @@ Global
 		{E37CDE25-CF60-442A-BF27-A75CBE64DB9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E37CDE25-CF60-442A-BF27-A75CBE64DB9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E37CDE25-CF60-442A-BF27-A75CBE64DB9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E8B31DC-BA1F-4116-9E51-DA3249915BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E8B31DC-BA1F-4116-9E51-DA3249915BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E8B31DC-BA1F-4116-9E51-DA3249915BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E8B31DC-BA1F-4116-9E51-DA3249915BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

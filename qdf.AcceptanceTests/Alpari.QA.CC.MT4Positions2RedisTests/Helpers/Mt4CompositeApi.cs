@@ -458,7 +458,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     break;
                 }
                 //Thread.Sleep(TRADE_INSERT_TIMEOUT / 1000);
-                Thread.Sleep(20000);
+                Thread.Sleep(10000);
             }
         }
 
