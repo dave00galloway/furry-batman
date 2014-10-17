@@ -82,6 +82,7 @@
     <Compile Include="Helpers\TestablePositionExtensions.cs" />
     <Compile Include="Hooks\ArsPositionsHooks.cs" />
     <Compile Include="Hooks\CapitalCalculationSnapshotHooks.cs" />
+    <Compile Include="Hooks\LogFileParserHooks.cs" />
     <Compile Include="Hooks\MT4ApiHooks.cs" />
     <Compile Include="Hooks\Mt4CompositeApiHooks.cs" />
     <Compile Include="Hooks\MT4TradeExeHooks.cs" />
@@ -146,6 +147,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTrades.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1196CreateLogFileParser.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1196CreateLogFileParser.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -155,6 +161,7 @@
     <Compile Include="Steps\CompareArsAndRedisPositionsSteps.cs" />
     <Compile Include="Steps\GetArsPositionsSteps.cs" />
     <Compile Include="Steps\GetRedisPositionsSteps.cs" />
+    <Compile Include="Steps\LogFileParserSteps.cs" />
     <Compile Include="Steps\Mt4CompositeApiSteps.cs" />
     <Compile Include="Steps\Mt4DotNetClientWrapperSteps.cs" />
     <Compile Include="Steps\MT4DotNetManagerWrapperSteps.cs" />
@@ -162,6 +169,7 @@
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="Helpers\Mt4ApiConnectionParameters.cs" />
     <Compile Include="Transforms\CapitalCalculationSnapshotParametersTransform.cs" />
+    <Compile Include="Transforms\LogFileParserTransforms.cs" />
     <Compile Include="Transforms\Mt4CompositeApiTransforms.cs" />
     <Compile Include="Transforms\Mt4DotNetWrapperTransforms.cs" />
     <Compile Include="Transforms\MT4TradeExeTransforms.cs" />
@@ -226,6 +234,10 @@
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC_1155_CompareCCPositionRedisToArs.feature.cs</LastGenOutput>
     </None>
+    <None Include="Specs\SelfTest\UKUSCC_1196CreateLogFileParser.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1196CreateLogFileParser.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs</LastGenOutput>
@@ -265,6 +277,9 @@
     </Content>
     <Content Include="TestData\MediumBuySellPartialCloseAll.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestData\LogFileTests\Build56_Service_Log_extract.log">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="TestData\OddsandEvens.xlsx" />
     <Content Include="TestData\SingleBuySellPartialCloseAl.csv">

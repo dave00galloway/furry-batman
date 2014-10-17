@@ -72,6 +72,7 @@
     <Compile Include="FileUtilities\ExportParameters.cs" />
     <Compile Include="FileUtilities\ExportParametersExtensions.cs" />
     <Compile Include="FileUtilities\ExportTypes.cs" />
+    <Compile Include="FileUtilities\LogFileParser.cs" />
     <Compile Include="Hooks\SpecFlowExtensionsHooks.cs" />
     <Compile Include="Hooks\UKUSQDF_170PreserveTestEvidenceBetweenExamplesHooks.cs" />
     <Compile Include="LoggingUtilities\ConsoleLogger.cs" />

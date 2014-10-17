@@ -159,6 +159,8 @@ testRunner.Given("I have this list of takers to load from cnx hub", ((string)(nu
         [NUnit.Framework.TestCaseAttribute("10/12/2014", null)]
         [NUnit.Framework.TestCaseAttribute("10/13/2014", null)]
         [NUnit.Framework.TestCaseAttribute("10/14/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("10/15/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("10/16/2014", null)]
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild31Oct2014(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 oct 2014", exampleTags);
@@ -243,7 +245,7 @@ this.FeatureBackground();
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data fro" +
                     "m http request", exampleTags);
-#line 65
+#line 67
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -254,11 +256,11 @@ this.FeatureBackground();
             table5.AddRow(new string[] {
                         "cnx-deals",
                         "BookLessDeal"});
-#line 66
+#line 68
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table5, "Given ");
-#line 69
+#line 71
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 70
+#line 72
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -274,7 +276,7 @@ this.FeatureBackground();
                         "OrderId"});
             table6.AddRow(new string[] {
                         "State"});
-#line 71
+#line 73
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table6, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -283,7 +285,7 @@ this.FeatureBackground();
             table7.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 78
+#line 80
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -325,7 +327,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild31(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31", exampleTags);
-#line 112
+#line 114
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -336,11 +338,11 @@ this.FeatureBackground();
             table8.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 113
+#line 115
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table8, "Given ");
-#line 116
+#line 118
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 117
+#line 119
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -356,7 +358,7 @@ this.FeatureBackground();
                         "OrderId"});
             table9.AddRow(new string[] {
                         "State"});
-#line 118
+#line 120
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table9, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
@@ -365,7 +367,7 @@ this.FeatureBackground();
             table10.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 125
+#line 127
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table10, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -620,7 +622,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild312014(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2014", exampleTags);
-#line 163
+#line 165
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -631,11 +633,11 @@ this.FeatureBackground();
             table11.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 164
+#line 166
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table11, "Given ");
-#line 167
+#line 169
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 168
+#line 170
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -651,7 +653,7 @@ this.FeatureBackground();
                         "OrderId"});
             table12.AddRow(new string[] {
                         "State"});
-#line 169
+#line 171
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table12, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
@@ -660,7 +662,7 @@ this.FeatureBackground();
             table13.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 176
+#line 178
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table13, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1036,7 +1038,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild312013(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2013", exampleTags);
-#line 426
+#line 428
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -1047,11 +1049,11 @@ this.FeatureBackground();
             table14.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 427
+#line 429
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table14, "Given ");
-#line 430
+#line 432
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 431
+#line 433
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -1067,7 +1069,7 @@ this.FeatureBackground();
                         "OrderId"});
             table15.AddRow(new string[] {
                         "State"});
-#line 432
+#line 434
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table15, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1076,7 +1078,7 @@ this.FeatureBackground();
             table16.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 439
+#line 441
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table16, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1453,7 +1455,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild312012(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2012", exampleTags);
-#line 811
+#line 813
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -1464,11 +1466,11 @@ this.FeatureBackground();
             table17.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 812
+#line 814
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table17, "Given ");
-#line 815
+#line 817
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 816
+#line 818
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -1484,7 +1486,7 @@ this.FeatureBackground();
                         "OrderId"});
             table18.AddRow(new string[] {
                         "State"});
-#line 817
+#line 819
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table18, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1493,7 +1495,7 @@ this.FeatureBackground();
             table19.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 824
+#line 826
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table19, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -1869,7 +1871,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild312011(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2011", exampleTags);
-#line 1197
+#line 1199
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -1880,11 +1882,11 @@ this.FeatureBackground();
             table20.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 1198
+#line 1200
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table20, "Given ");
-#line 1201
+#line 1203
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1202
+#line 1204
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -1900,7 +1902,7 @@ this.FeatureBackground();
                         "OrderId"});
             table21.AddRow(new string[] {
                         "State"});
-#line 1203
+#line 1205
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table21, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
@@ -1909,7 +1911,7 @@ this.FeatureBackground();
             table22.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 1210
+#line 1212
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -2012,7 +2014,7 @@ this.FeatureBackground();
         public virtual void UKUSQDF_136ATCnx2RedisDataCollector_RedeployAtBuild312010(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 2010", exampleTags);
-#line 1582
+#line 1584
 this.ScenarioSetup(scenarioInfo);
 #line 7
 this.FeatureBackground();
@@ -2023,11 +2025,11 @@ this.FeatureBackground();
             table23.AddRow(new string[] {
                         "cnxstp-pret-deals",
                         "BookLessDeal"});
-#line 1583
+#line 1585
  testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table23, "Given ");
-#line 1586
+#line 1588
  testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 1587
+#line 1589
   testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
                     "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -2043,7 +2045,7 @@ this.FeatureBackground();
                         "OrderId"});
             table24.AddRow(new string[] {
                         "State"});
-#line 1588
+#line 1590
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table24, "And ");
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
@@ -2052,7 +2054,7 @@ this.FeatureBackground();
             table25.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 1595
+#line 1597
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table25, "Then ");
 #line hidden
             this.ScenarioCleanup();
