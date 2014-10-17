@@ -163,36 +163,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             var parsedFile = new List<T>();
             line = 1;
-            Type getType;
-            try
-            {
-                getType = Type.GetType(typeof (T).FullName, true);
-            }
-            catch (Exception e)
-            {
-                string assemblyQualifiedName = typeof (T).AssemblyQualifiedName;
-
-                if (assemblyQualifiedName != null)
-                {
-                    getType = Type.GetType(assemblyQualifiedName, true);
-                }
-                else
-                {
-                    throw new Exception("could not resolve a fully qualifed name for T ", e);
-                }
-            }
-            type = getType;
+            type = TypeExtensions.GetTypeFromT<T>();
             return parsedFile;
         }
 
         private static IDictionary<string, int> GetColumnMap<T>(string delimiter, IEnumerable<string> unparsedFile) where T : new()
         {
-            var headers =
-                unparsedFile.First()
+            List<string> headers;
+            if (delimiter.Equals(" "))
+            {
+                headers = unparsedFile.First()
+                    .GetValuesFromCsvRow(delimiter)
+                    .Where(v => v.Trim().Length > 0)
+                    .ToList();                    
+            }
+            else
+            {
+                headers = unparsedFile.First()
                     .RemoveWindowsUnfriendlyChars()
                     .GetValuesFromCsvRow(delimiter)
                     .Where(v => v.Trim().Length > 0)
-                    .ToList();
+                    .ToList();                
+            }
             var columnMap = headers.ToDictionary(header => header, headers.GetColumnIndex);
             return columnMap;
         }
@@ -306,6 +298,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 object value = Enum.Parse(enumProp, row[columnMap[pair.Key]]);
                 instance.SetValue(prop, value);
             }
+            //else if (prop.PropertyType.BaseType.Name == "DateTime")
+            //{
+                
+            //}
             else
             {
                 instance.SetValue(prop, row[columnMap[pair.Key]]);

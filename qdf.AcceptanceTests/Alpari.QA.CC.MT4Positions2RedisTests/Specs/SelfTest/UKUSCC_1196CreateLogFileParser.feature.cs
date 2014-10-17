@@ -68,10 +68,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Parse log file extract")]
-        public virtual void ParseLogFileExtract()
+        [NUnit.Framework.DescriptionAttribute("Cleanse log file extract")]
+        public virtual void CleanseLogFileExtract()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log file extract", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file extract", ((string[])(null)));
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -91,6 +91,38 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table1, "Given ");
 #line 12
  testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Parse log file extract")]
+        public virtual void ParseLogFileExtract()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log file extract", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "parseSyntax",
+                        "ColumnJoins",
+                        "OuputDelimiter",
+                        "OuterSyntaxDelimiter",
+                        "InnerSyntaxDelimiter",
+                        "outputfile"});
+            table2.AddRow(new string[] {
+                        "TestData\\LogFileTests\\Build56_Service_Log_extract.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, ,",
+                        "0,1, ,",
+                        ",",
+                        "^",
+                        ",",
+                        "TestOutput\\output.csv"});
+#line 15
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table2, "Given ");
+#line 19
+ testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

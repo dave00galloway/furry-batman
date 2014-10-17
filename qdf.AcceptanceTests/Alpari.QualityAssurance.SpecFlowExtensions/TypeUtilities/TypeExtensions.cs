@@ -29,6 +29,29 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public const string Bool = "BOOL"; //	True or False.
         public const string Object = "OBJECT"; //	An object.
 
+        public static Type GetTypeFromT<T>() where T : new()
+        {
+            Type getType;
+            try
+            {
+                getType = Type.GetType(typeof(T).FullName, true);
+            }
+            catch (Exception e)
+            {
+                string assemblyQualifiedName = typeof(T).AssemblyQualifiedName;
+
+                if (assemblyQualifiedName != null)
+                {
+                    getType = Type.GetType(assemblyQualifiedName, true);
+                }
+                else
+                {
+                    throw new Exception("could not resolve a fully qualifed name for T ", e);
+                }
+            }
+            return getType;
+        }
+
         /// <summary>
         ///     Get a list of all the names of properties of a Type
         /// </summary>
@@ -255,7 +278,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static bool IsNumber(this string s)
         {
             float output;
-            return float.TryParse(s, out output);
+            return Single.TryParse(s, out output);
         }
 
         public static string GetDataType(this Type type)
