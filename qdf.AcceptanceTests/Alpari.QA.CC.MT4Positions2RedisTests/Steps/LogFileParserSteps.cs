@@ -10,7 +10,7 @@ using TechTalk.SpecFlow;
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
 {
     [Binding]
-    public class LogFileParserSteps
+    public class LogFileParserSteps : StepCentral
     {
         private LogFileParserParameters LogFileParserParameters { get; set; }
 
@@ -18,6 +18,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void GivenIHaveTheFollowingLogFileParserParameters(LogFileParserParameters logFileParserParameters)
         {
             LogFileParserParameters = logFileParserParameters;
+            LogFileParserParameters.OutputFile = ScenarioOutputDirectory + LogFileParserParameters.OutputFile;
         }
 
         [When(@"I parse the log file")]

@@ -126,6 +126,35 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Cleanse log file")]
+        public virtual void CleanseLogFile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
+#line 21
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "parseSyntax",
+                        "OuterSyntaxDelimiter",
+                        "InnerSyntaxDelimiter",
+                        "outputfile"});
+            table3.AddRow(new string[] {
+                        "C:\\TEMP\\LoadTestResults\\build56\\run002\\01MixedUseScenario\\MT4P2R_build56_10_10_14" +
+                            "4_25_443_2014-10-17.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, ,",
+                        "^",
+                        ",",
+                        "MT4P2R_build56_10_10_144_25_443_2014-10-17_parsed.log"});
+#line 22
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table3, "Given ");
+#line 26
+ testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

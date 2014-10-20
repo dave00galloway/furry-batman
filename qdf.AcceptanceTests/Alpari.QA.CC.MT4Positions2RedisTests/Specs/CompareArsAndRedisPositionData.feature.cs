@@ -75,10 +75,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
                     "6379 db 0 namespace \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
  testRunner.And("I have a connection to Mt4ArsPositionsContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 13
- testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
- testRunner.And("I query for open positions after \"2014-09-02\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 15
+ testRunner.When("I get all positions for server \"DemoClassic\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 16
+ testRunner.And("I query for open positions after \"2014-09-02\" on \"ars_uk_mt4test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -87,13 +87,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void GetOpenPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get open positions", ((string[])(null)));
-#line 16
+#line 18
 this.ScenarioSetup(scenarioInfo);
 #line 9
 this.FeatureBackground();
-#line 17
+#line 19
  testRunner.Then("at least 1 position is for login 111196738", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 18
+#line 20
  testRunner.And("at least 1 position is returned for login \"7003713\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -104,7 +104,7 @@ this.FeatureBackground();
         public virtual void CompareOpenPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare open positions", ((string[])(null)));
-#line 20
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line 9
 this.FeatureBackground();
@@ -113,9 +113,13 @@ this.FeatureBackground();
                         "ExcludedFields"});
             table1.AddRow(new string[] {
                         "Timestamp"});
-#line 21
- testRunner.When("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
-                    "these fields:", ((string)(null)), table1, "When ");
+            table1.AddRow(new string[] {
+                        "OpenTime"});
+            table1.AddRow(new string[] {
+                        "Server"});
+#line 23
+ testRunner.When("I compare the \"DemoClassic\" positions with the \"ars_uk_mt4test1\" positions exclud" +
+                    "ing these fields:", ((string)(null)), table1, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
@@ -123,7 +127,7 @@ this.FeatureBackground();
             table2.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 24
+#line 28
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();

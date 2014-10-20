@@ -66,10 +66,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add account")]
-        public virtual void AddAccount()
+        [NUnit.Framework.DescriptionAttribute("Add account to staging pro")]
+        public virtual void AddAccountToStagingPro()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add account", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add account to staging pro", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line hidden
@@ -85,6 +85,54 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have connected to the MT4 Manger API:-", ((string)(null)), table1, "Given ");
 #line 10
  testRunner.When("I copy account 7003906 using manager API", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Add account to test micro 2")]
+        public virtual void AddAccountToTestMicro2()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add account to test micro 2", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "login",
+                        "password"});
+            table2.AddRow(new string[] {
+                        "10.10.144.24:443",
+                        "95",
+                        "1q2w3e"});
+#line 13
+ testRunner.Given("I have connected to the MT4 Manger API:-", ((string)(null)), table2, "Given ");
+#line 16
+ testRunner.When("I add an account using manager API", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Copy account to MT4 Demo Classic")]
+        public virtual void CopyAccountToMT4DemoClassic()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Copy account to MT4 Demo Classic", ((string[])(null)));
+#line 19
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server",
+                        "login",
+                        "password"});
+            table3.AddRow(new string[] {
+                        "10.10.144.27:443",
+                        "95",
+                        "1q2w3e"});
+#line 20
+ testRunner.Given("I have connected to the MT4 Manger API:-", ((string)(null)), table3, "Given ");
+#line 23
+ testRunner.When("I copy account 4000903 using manager API", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }
