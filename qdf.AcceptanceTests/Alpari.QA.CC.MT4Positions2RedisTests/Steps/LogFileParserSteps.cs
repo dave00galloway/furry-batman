@@ -13,6 +13,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
     public class LogFileParserSteps : StepCentral
     {
         private LogFileParserParameters LogFileParserParameters { get; set; }
+        private List<Mt4P2RLogEntry> _logFile;
 
         [Given(@"I have the following log file parser parameters:-")]
         public void GivenIHaveTheFollowingLogFileParserParameters(LogFileParserParameters logFileParserParameters)
@@ -30,8 +31,15 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [When(@"I parse the log file to memory")]
         public void WhenIParseTheLogFileToMemory()
         {
-            var logFile = LogFileParserParameters.ParseLogFileToMemory<Mt4P2RLogEntry>();
+            _logFile = LogFileParserParameters.ParseLogFileToMemory<Mt4P2RLogEntry>();
             // need to do more transformation first logFile.EnumerableToLineGraph(new EnumerableToGraphExtensions.DataSeriesParameters(), );
+            //Console.WriteLine(logFile.First().TimeStamp);
+        }
+
+        [When(@"I write the parsed log file to disk")]
+        public void WhenIWriteTheParsedLogFileToDisk()
+        {
+            _logFile.EnumerableToCsv(LogFileParserParameters.OutputFile,false,true,false,false,true);
         }
 
     }

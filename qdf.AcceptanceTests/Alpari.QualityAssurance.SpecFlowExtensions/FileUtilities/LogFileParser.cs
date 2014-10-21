@@ -14,7 +14,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             string delimiter = logFileParameters.InnerSyntaxDelimiter.ToString(CultureInfo.InvariantCulture);
             string joinBy = LogFileParserParameters.GetParseSyntaxBlocks(logFileParameters).Last().JoinBy;
             List<JoinSyntax> columnJoins = LogFileParserParameters.GetJoinSyntaxBlocks(logFileParameters);
-            List<string> propNames = TypeExtensions.GetTypeFromT<T>().GetPropertyNamesAsList();
+            List<string> propNames = TypeExtensions.GetTypeFromT<T>().GetPropertyNamesAsList(true,false,false);
             List<string> vals = GetValuesAsStringList(logFileParameters);
 
             if (columnJoins != null)
@@ -25,24 +25,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                     vals[index] = LogFileParserParameters.JoinColumns(s, columnJoins, joinBy, logFileParameters.OuputDelimiter);
                 }
             }
-
-            ////make the reasonable assumption that the first column is going to be a DateTime. hard code the format for now
-            //for (int index = 0; index < vals.Count; index++)
-            //{
-            //    var val = vals[index];
-            //    var columns = val.Split(Convert.ToChar(logFileParameters.OuputDelimiter));
-            //    columns[0] = DateTime.Parse(columns[0],new System.Globalization.CultureInfo("en-GB", true),System.Globalization.DateTimeStyles.AssumeLocal)).
-            //    ToString();
-            //    ;
-            //    //DateTime.Parse(val.Split(',')[0], new System.Globalization.CultureInfo("en-GB", true),
-            //    //    System.Globalization.DateTimeStyles.AssumeLocal);
-
-            //    vals[index]
-            //}
-
+            else
+            {
+                for (int index = 0; index < vals.Count; index++)
+                {
+                    var s = vals[index];
+                    vals[index] = String.Join(logFileParameters.OuputDelimiter, s.Split());
+                }                
+            }
 
             vals.Insert(0, String.Join(logFileParameters.OuputDelimiter, propNames));
-            var list = vals.UntypedStringArrayToList<T>(logFileParameters.OuputDelimiter, null);
+            var list = vals.UntypedStringArrayToList<T>(logFileParameters.OuputDelimiter,null);
 
             return list;
         }
@@ -69,15 +62,24 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             using (StreamReader readerStream = File.OpenText(logFileParameters.FileToParse))
             {
                 string s;
+                ulong counter = 1;
                 List<ParseSyntax> syntaxBlocks = LogFileParserParameters.GetParseSyntaxBlocks(logFileParameters);
                 while ((s = readerStream.ReadLine()) != null)
                 {
-                    s = s.ParseLine(syntaxBlocks);
-                    if (s != null)
+                    try
                     {
-                        //Console.WriteLine(s);
-                        writerStream.WriteLine(s);
+                        s = s.ParseLine(syntaxBlocks);
+                        if (s != null)
+                        {
+                            //Console.WriteLine(s);
+                            writerStream.WriteLine(s);
+                        }
                     }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error at line {0}. Exception details {1}", counter, e);
+                    }
+                    counter++;
                 }
             }
         }
@@ -88,14 +90,23 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
             using (StreamReader readerStream = File.OpenText(logFileParameters.FileToParse))
             {
                 string s;
+                ulong counter = 1;
                 List<ParseSyntax> syntaxBlocks = LogFileParserParameters.GetParseSyntaxBlocks(logFileParameters);
                 while ((s = readerStream.ReadLine()) != null)
                 {
-                    s = s.ParseLine(syntaxBlocks);
-                    if (s != null)
+                    try
                     {
-                        list.Add(s);
+                        s = s.ParseLine(syntaxBlocks);
+                        if (s != null)
+                        {
+                            list.Add(s);
+                        }
                     }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("Error at line {0}. Exception details {1}", counter, e);
+                    }
+                    counter ++;
                 }
             }
             return list;
@@ -170,7 +181,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
         public static List<JoinSyntax> GetJoinSyntaxBlocks(LogFileParserParameters logFileParameters)
         {
-            if (logFileParameters.ColumnJoins == null) return null;
+            if (string.IsNullOrEmpty(logFileParameters.ColumnJoins)) return null;
             string[] blocks = logFileParameters.ColumnJoins.Split(logFileParameters.OuterSyntaxDelimiter);
             return
                 blocks.Select(block => block.Split(logFileParameters.InnerSyntaxDelimiter))

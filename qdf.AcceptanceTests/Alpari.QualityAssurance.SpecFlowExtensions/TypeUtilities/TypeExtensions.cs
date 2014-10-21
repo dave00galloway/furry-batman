@@ -34,11 +34,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             Type getType;
             try
             {
-                getType = Type.GetType(typeof(T).FullName, true);
+                getType = Type.GetType(typeof (T).FullName, true);
             }
             catch (Exception e)
             {
-                string assemblyQualifiedName = typeof(T).AssemblyQualifiedName;
+                string assemblyQualifiedName = typeof (T).AssemblyQualifiedName;
 
                 if (assemblyQualifiedName != null)
                 {
@@ -60,6 +60,29 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         public static List<string> GetPropertyNamesAsList(this Type type)
         {
             return type.GetProperties().Select(x => x.Name).ToList();
+        }
+
+        /// <summary>
+        ///     Get a list of all the names of properties of a Type
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="writeableOnly">if true, only return properties that can be written to</param>
+        /// <param name="readableOnly">if true, only return properties that can be read</param>
+        /// <param name="b">unused except to distinguish between overloads</param>
+        /// <returns></returns>
+        public static List<string> GetPropertyNamesAsList(this Type type, bool writeableOnly, bool readableOnly, bool b)
+        {
+            if (readableOnly && writeableOnly)
+            {
+                return type.GetProperties().Where(x => x.CanWrite && x.CanRead).Select(x => x.Name).ToList();
+            }
+            if (readableOnly)
+            {
+                return type.GetProperties().Where(x => x.CanRead).Select(x => x.Name).ToList();
+            }
+            return writeableOnly
+                ? type.GetProperties().Where(x => x.CanWrite).Select(x => x.Name).ToList()
+                : GetPropertyNamesAsList(type);
         }
 
         /// <summary>
@@ -144,7 +167,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             try
             {
-                var defValtype = x.PropertyType.GetDataType();
+                string defValtype = x.PropertyType.GetDataType();
                 return GetDefaultValueForType(objectToSearch, x, defValtype);
             }
             catch (Exception e)
@@ -222,7 +245,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         }
 
         /// <summary>
-        /// returns a sensible default for the object type
+        ///     returns a sensible default for the object type
         /// </summary>
         /// <param name="defValtype"></param>
         /// <returns></returns>

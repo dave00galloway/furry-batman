@@ -34,7 +34,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTradesLoadedFromFile", "In order to bulk load trades into MT4\r\nAs a CC tester\r\nI want to enter trades and" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1171_CombineManagerApiAndTradeExeToInsertAndDetectTradesLoadedFromFile", "In order to bulk load trades into MT4\r\nAs a CC tester\r\nI want to enter trades and" +
                     " sync on insert finishing", ProgrammingLanguage.CSharp, new string[] {
                         "Mt4ArsPositionsContext",
                         "UKUSCC_1171"});

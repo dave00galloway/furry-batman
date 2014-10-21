@@ -34,7 +34,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC_1155_CompareCCPositionRedisToArs", "In order to compare position snapshots in different data sources\r\nAs a CC Tester\r" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1155_CompareCCPositionRedisToArs", "In order to compare position snapshots in different data sources\r\nAs a CC Tester\r" +
                     "\nI want to get positions from different cc ars and cc redis", ProgrammingLanguage.CSharp, new string[] {
                         "CCDataContext",
                         "UKUSCC_1155"});

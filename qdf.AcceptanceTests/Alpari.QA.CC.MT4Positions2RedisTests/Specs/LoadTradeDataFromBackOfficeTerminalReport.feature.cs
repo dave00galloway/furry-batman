@@ -33,7 +33,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "LoadTradeDataFromBackOfficeTerminalReport", "In order to test MT4Positions2Redis\r\nAs a CC Tester\r\nI want to be able to parse t" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "LoadTradeDataFromBackOfficeTerminalReport", "In order to test MT4Positions2Redis\r\nAs a CC Tester\r\nI want to be able to parse t" +
                     "he MT4 html report", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1014"});
             testRunner.OnFeatureStart(featureInfo);

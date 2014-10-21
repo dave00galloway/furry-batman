@@ -62,6 +62,10 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 
 	| 10/14/2014 |
 	| 10/15/2014 |
 	| 10/16/2014 |
+	| 10/17/2014 |
+	| 10/18/2014 |
+	| 10/19/2014 |
+	| 10/20/2014 |
 
 
 Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data from http request

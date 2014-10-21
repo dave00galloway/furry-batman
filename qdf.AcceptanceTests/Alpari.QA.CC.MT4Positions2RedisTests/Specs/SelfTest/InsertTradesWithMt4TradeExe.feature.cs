@@ -32,7 +32,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "InsertTradesWithMt4TradeExe", "In order to create open positions in MT4\r\nAs a CC Tester\r\nI want to Bulk Insert t" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "InsertTradesWithMt4TradeExe", "In order to create open positions in MT4\r\nAs a CC Tester\r\nI want to Bulk Insert t" +
                     "rades to MT4", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }

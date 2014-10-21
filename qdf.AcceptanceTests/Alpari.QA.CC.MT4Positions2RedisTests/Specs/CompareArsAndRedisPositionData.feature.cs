@@ -33,7 +33,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CompareArsAndRedisPositionData", "In order to test redis positions\r\nAs a CC Tester\r\nI want to be able to compare re" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "CompareArsAndRedisPositionData", "In order to test redis positions\r\nAs a CC Tester\r\nI want to be able to compare re" +
                     "dis positions with Ars Positions", ProgrammingLanguage.CSharp, new string[] {
                         "Mt4ArsPositionsContext"});
             testRunner.OnFeatureStart(featureInfo);
@@ -75,10 +75,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
                     "6379 db 0 namespace \"alpari-positions\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 11
  testRunner.And("I have a connection to Mt4ArsPositionsContext", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 15
- testRunner.When("I get all positions for server \"DemoClassic\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 16
- testRunner.And("I query for open positions after \"2014-09-02\" on \"ars_uk_mt4test1\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 13
+ testRunner.When("I get all positions for server \"ProTest\" opened from \'2014/09/02 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 14
+ testRunner.And("I query for open positions after \"2014-09-02\" on \"ars_test_AUKP01\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
         }
         
@@ -118,8 +118,8 @@ this.FeatureBackground();
             table1.AddRow(new string[] {
                         "Server"});
 #line 23
- testRunner.When("I compare the \"DemoClassic\" positions with the \"ars_uk_mt4test1\" positions exclud" +
-                    "ing these fields:", ((string)(null)), table1, "When ");
+ testRunner.When("I compare the \"ProTest\" positions with the \"ars_test_AUKP01\" positions excluding " +
+                    "these fields:", ((string)(null)), table1, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",

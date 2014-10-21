@@ -32,7 +32,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "MT4ManagerApiSteps", "In order to simulate advanced trading actions in MT4\r\nAs a CC tester\r\nI want to b" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "MT4ManagerApiSteps", "In order to simulate advanced trading actions in MT4\r\nAs a CC tester\r\nI want to b" +
                     "e able to use the MT4Manger API", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }

@@ -34,12 +34,22 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         ///     expected
         /// </param>
         /// <param name="derivedOnly"></param>
+        /// <param name="readableOnly">overrules all the other options. must be used with useHeadersToGetData = true </param>
         public static void EnumerableToCsv<T>(this IEnumerable<T> iEnumerable, string fileNamePath, bool removeReturns,
-            bool useHeadersToGetData = false, bool headerSafeMode = false, bool derivedOnly = false)
+            bool useHeadersToGetData = false, bool headerSafeMode = false, bool derivedOnly = false,bool readableOnly = false)
         {
 // ReSharper disable PossibleMultipleEnumeration
             if (iEnumerable == null || !iEnumerable.Any()) return;
-            string headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode, derivedOnly));
+            string headers;
+            if (readableOnly)
+            {
+                headers = String.Join(",", typeof (T).GetPropertyNamesAsList(false, true,false));
+                useHeadersToGetData = true;
+            }
+            else
+            {
+                headers = String.Join(",", typeof(T).GetPropertyNamesAsList(headerSafeMode, derivedOnly));
+            }
             var csvFile = new StringBuilder();
             if (!File.Exists(fileNamePath))
             {

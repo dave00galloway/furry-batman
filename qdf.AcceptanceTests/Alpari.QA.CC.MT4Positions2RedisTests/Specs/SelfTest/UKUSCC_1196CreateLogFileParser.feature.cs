@@ -33,7 +33,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC_1196CreateLogFileParser", "In order to interpret log files from the positions 2 Redis service\r\nAs a CC teste" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1196CreateLogFileParser", "In order to interpret log files from the positions 2 Redis service\r\nAs a CC teste" +
                     "r\r\nI want to be able to parse the service log and interpret the results", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1196"});
             testRunner.OnFeatureStart(featureInfo);
@@ -114,15 +114,17 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "TestData\\LogFileTests\\Build56_Service_Log_extract.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, ,",
-                        "0,1, ,",
+                        "",
                         ",",
                         "^",
                         ",",
-                        "TestOutput\\output.csv"});
+                        "output.csv"});
 #line 15
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table2, "Given ");
 #line 19
  testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -132,7 +134,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CleanseLogFile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
-#line 21
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -142,15 +144,15 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table3.AddRow(new string[] {
-                        "C:\\TEMP\\LoadTestResults\\build56\\run002\\01MixedUseScenario\\MT4P2R_build56_10_10_14" +
-                            "4_25_443_2014-10-17.log",
-                        "[,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, ,",
+                        "C:\\TEMP\\LoadTestResults\\build58\\run002\\01InsertTrades\\MT4P2R_build58_10_10_144_25" +
+                            "_443_2014-10-21.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "^",
                         ",",
-                        "MT4P2R_build56_10_10_144_25_443_2014-10-17_parsed.log"});
-#line 22
+                        "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
+#line 23
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table3, "Given ");
-#line 26
+#line 27
  testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

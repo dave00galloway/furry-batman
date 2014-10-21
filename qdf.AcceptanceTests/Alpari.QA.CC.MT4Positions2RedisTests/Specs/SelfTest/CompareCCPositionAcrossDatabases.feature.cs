@@ -34,7 +34,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CompareCCPositionAcrossDatabases", "In order to compare position snapshots in different databases\r\nAs a CC Tester\r\nI " +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "CompareCCPositionAcrossDatabases", "In order to compare position snapshots in different databases\r\nAs a CC Tester\r\nI " +
                     "want to get positions from differnt databases for the same server, symbol, etc", ProgrammingLanguage.CSharp, new string[] {
                         "CCDataContext",
                         "UKUSCC_1153"});

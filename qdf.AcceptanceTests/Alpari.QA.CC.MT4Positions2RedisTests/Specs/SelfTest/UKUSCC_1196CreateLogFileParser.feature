@@ -13,14 +13,15 @@ Scenario: Cleanse log file extract
 
 Scenario: Parse log file extract
 	Given I have the following log file parser parameters:-
-	| fileToParse                                           | parseSyntax                          | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile            |
-	| TestData\LogFileTests\Build56_Service_Log_extract.log | [,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, , | 0,1, ,      | ,              | ^                    | ,                    | TestOutput\output.csv |
+	| fileToParse                                           | parseSyntax                          | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile |
+	| TestData\LogFileTests\Build56_Service_Log_extract.log | [,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, , |             | ,              | ^                    | ,                    | output.csv |
 
 	When I parse the log file to memory
+	And I write the parsed log file to disk
 
 Scenario: Cleanse log file
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                              | parseSyntax                          | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                            |
-	| C:\TEMP\LoadTestResults\build56\run002\01MixedUseScenario\MT4P2R_build56_10_10_144_25_443_2014-10-17.log | [,1,,0, ,^],1,,0, ,^ ,0,U_TRANS,2, , | ^                    | ,                    | MT4P2R_build56_10_10_144_25_443_2014-10-17_parsed.log |
+	| fileToParse                                                                                          | parseSyntax                     | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                            |
+	| C:\TEMP\LoadTestResults\build58\run002\01InsertTrades\MT4P2R_build58_10_10_144_25_443_2014-10-21.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , | ^                    | ,                    | MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log |
 
 	When I parse the log file

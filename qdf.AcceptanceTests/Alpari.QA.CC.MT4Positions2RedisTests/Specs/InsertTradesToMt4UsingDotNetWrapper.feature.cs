@@ -32,7 +32,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "InsertTradesToMt4UsingDotNetWrapper", "In order to test MT4P2R\r\nAs a CC Tester\r\nI want to insert trades progammatically " +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "InsertTradesToMt4UsingDotNetWrapper", "In order to test MT4P2R\r\nAs a CC Tester\r\nI want to insert trades progammatically " +
                     "to MT4", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }

@@ -33,7 +33,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "GetPositionsFromArs", "In order to cross check redis positions\r\nAs a CC Tester\r\nI want to query ARS data" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "GetPositionsFromArs", "In order to cross check redis positions\r\nAs a CC Tester\r\nI want to query ARS data" +
                     "bases for positions", ProgrammingLanguage.CSharp, new string[] {
                         "Mt4ArsPositionsContext"});
             testRunner.OnFeatureStart(featureInfo);
