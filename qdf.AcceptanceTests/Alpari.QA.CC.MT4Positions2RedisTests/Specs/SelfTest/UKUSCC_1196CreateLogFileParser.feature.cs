@@ -197,29 +197,65 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Cleanse log file")]
-        public virtual void CleanseLogFile()
+        [NUnit.Framework.DescriptionAttribute("Parse log extended file extract and export to graph")]
+        public virtual void ParseLogExtendedFileExtractAndExportToGraph()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
-#line 38
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log extended file extract and export to graph", ((string[])(null)));
+#line 36
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "fileToParse",
                         "parseSyntax",
+                        "ColumnJoins",
+                        "OuputDelimiter",
                         "OuterSyntaxDelimiter",
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table5.AddRow(new string[] {
+                        "TestData\\LogFileTests\\Build56_Service_Log_extract_extended.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
+                        "",
+                        ",",
+                        "^",
+                        ",",
+                        "output.csv"});
+#line 37
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
+#line 41
+ testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 42
+ testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Cleanse log file")]
+        public virtual void CleanseLogFile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
+#line 47
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "parseSyntax",
+                        "OuterSyntaxDelimiter",
+                        "InnerSyntaxDelimiter",
+                        "outputfile"});
+            table6.AddRow(new string[] {
                         "C:\\TEMP\\LoadTestResults\\build58\\run002\\01InsertTrades\\MT4P2R_build58_10_10_144_25" +
                             "_443_2014-10-21.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "^",
                         ",",
                         "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
-#line 39
- testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
-#line 43
+#line 48
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table6, "Given ");
+#line 52
  testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

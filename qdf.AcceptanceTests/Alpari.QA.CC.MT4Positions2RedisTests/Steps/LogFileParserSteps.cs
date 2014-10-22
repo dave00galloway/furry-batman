@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Windows.Forms.DataVisualization.Charting;
 using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -40,7 +41,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         [When(@"I analyze the log file by activity frequency")]
         public void WhenIAnalyzeTheLogFileByActivityFrequency()
         {
-            _mt4P2RLogEntryAnalysisList = _logEntries.GetValue();
+            _mt4P2RLogEntryAnalysisList = _logEntries.AnalyseActionsByFrequency();
         }
 
         [When(@"I write the parsed log file to disk")]
@@ -55,5 +56,19 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             expected.CompareToSet(_mt4P2RLogEntryAnalysisList);
         }
 
+        [Then(@"I can export the the analysis as a line graph")]
+        public void ThenICanExportTheTheAnalysisAsALineGraph()
+        {
+            Exception e = null;
+            try
+            {
+                _mt4P2RLogEntryAnalysisList.CreateAnalysisGraph("Analysis", ScenarioOutputDirectory, 0);
+            }
+            catch (Exception exception)
+            {
+                e = exception;
+            }
+            e.Should().BeNull();
+        }
     }
 }

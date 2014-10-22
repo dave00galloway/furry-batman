@@ -33,6 +33,15 @@ Scenario: Parse log extended file extract
 	| 16/10/2014 17:03:24 | 1      | 2           | 2              | 4              |
 	| 16/10/2014 17:03:25 | 2      | 2           | 2              | 4              |
 
+Scenario: Parse log extended file extract and export to graph
+	Given I have the following log file parser parameters:-
+	| fileToParse                                                    | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile |
+	| TestData\LogFileTests\Build56_Service_Log_extract_extended.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | output.csv |
+
+	When I parse the log file to memory
+	And I analyze the log file by activity frequency
+	Then I can export the the analysis as a line graph
+
 
 
 Scenario: Cleanse log file

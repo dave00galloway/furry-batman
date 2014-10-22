@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
@@ -67,7 +68,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 
     public static class Mt4P2RLogEntryExtensions
     {
-        public static List<Mt4P2RLogEntryAnalysis> GetValue(this IEnumerable<Mt4P2RLogEntry> mt4P2RLogEntries)
+        public static List<Mt4P2RLogEntryAnalysis> AnalyseActionsByFrequency(this IEnumerable<Mt4P2RLogEntry> mt4P2RLogEntries)
         {
             var list = (from lf in mt4P2RLogEntries
                 let groupTimeStamp =
@@ -86,5 +87,48 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                 ).ToList();
             return list;
         }
+
+        public static void CreateAnalysisGraph(this IEnumerable<Mt4P2RLogEntryAnalysis> mt4P2RLogEntryAnalysisList, string graphName, string scenarioOutputDirectory, int axisXMajorGridInterval = 60)
+        {
+            mt4P2RLogEntryAnalysisList.EnumerableToLineGraph(
+                new EnumerableToGraphExtensions.DataSeriesParameters
+                {
+                    PropertyName = "TimeStamp",
+                    ChartValueType = ChartValueType.DateTime
+                },
+                new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                {
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "U_INIT",
+                        SeriesName = "U_INIT"
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "U_TRANS_ADD",
+                        SeriesName = "U_TRANS_ADD"
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "U_TRANS_DELETE",
+                        SeriesName = "U_TRANS_DELETE"
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "U_TRANS_UPDATE",
+                        SeriesName = "U_TRANS_UPDATE"
+                    }
+                },
+                new EnumerableToGraphExtensions.ChartOptions
+                {
+                    FilePath = scenarioOutputDirectory,
+                    Name = graphName,
+                    AxisXMajorGridInterval = axisXMajorGridInterval
+                }
+                );
+        }
+
     }
+
+
 }
