@@ -199,6 +199,7 @@
     <Compile Include="TypeUtilities\NumericExtensions.cs" />
     <Compile Include="TypeUtilities\StringUtils.cs" />
     <Compile Include="TypeUtilities\TechTalkSpecFlowTableExtensions.cs" />
+    <Compile Include="TypeUtilities\TimeStamp.cs" />
     <Compile Include="TypeUtilities\TypedDataTable.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
     <Compile Include="TypeUtilities\WebClientEx.cs">

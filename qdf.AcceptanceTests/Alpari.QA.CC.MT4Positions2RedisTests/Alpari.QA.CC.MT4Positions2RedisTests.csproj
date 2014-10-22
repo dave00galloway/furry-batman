@@ -282,6 +282,9 @@
     <Content Include="TestData\LogFileTests\Build56_Service_Log_extract.log">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestData\LogFileTests\Build56_Service_Log_extract_extended.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="TestData\OddsandEvens.xlsx" />
     <Content Include="TestData\SingleBuySellPartialCloseAl.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

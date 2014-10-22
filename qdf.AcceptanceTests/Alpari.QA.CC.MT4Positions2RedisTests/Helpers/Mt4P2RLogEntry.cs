@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
@@ -29,15 +30,24 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
             set { _time = value; }
         }
 
-        public DateTime TimeStamp
+        public TimeStamp TimeStamp
         {
             get
             {
                 var date = Convert.ToDateTime(_date);
                 var time = Convert.ToDateTime(_time);
-                return date.Add(time.TimeOfDay);
+                return new TimeStamp(date.Add(time.TimeOfDay));
             }
         }
+        //public DateTime TimeStamp
+        //{
+        //    get
+        //    {
+        //        var date = Convert.ToDateTime(_date);
+        //        var time = Convert.ToDateTime(_time);
+        //        return date.Add(time.TimeOfDay);
+        //    }
+        //}
 
         public string Activity { get; set; }
         public string Id { get; set; }

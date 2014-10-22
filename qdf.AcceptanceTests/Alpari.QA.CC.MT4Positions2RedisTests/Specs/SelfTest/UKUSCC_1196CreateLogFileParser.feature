@@ -19,6 +19,14 @@ Scenario: Parse log file extract
 	When I parse the log file to memory
 	And I write the parsed log file to disk
 
+Scenario: Parse log extended file extract
+	Given I have the following log file parser parameters:-
+	| fileToParse                                                    | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile |
+	| TestData\LogFileTests\Build56_Service_Log_extract_extended.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | output.csv |
+
+	When I parse the log file to memory
+	And I write the parsed log file to disk
+
 Scenario: Cleanse log file
 	Given I have the following log file parser parameters:-
 	| fileToParse                                                                                          | parseSyntax                     | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                            |
