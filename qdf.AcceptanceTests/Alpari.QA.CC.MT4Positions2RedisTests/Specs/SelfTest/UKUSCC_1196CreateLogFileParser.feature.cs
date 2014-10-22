@@ -260,6 +260,45 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Parse log file and export to graph")]
+        public virtual void ParseLogFileAndExportToGraph()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log file and export to graph", ((string[])(null)));
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "parseSyntax",
+                        "ColumnJoins",
+                        "OuputDelimiter",
+                        "OuterSyntaxDelimiter",
+                        "InnerSyntaxDelimiter",
+                        "outputfile"});
+            table7.AddRow(new string[] {
+                        "C:\\TEMP\\LoadTestResults\\build58\\run002\\01InsertTrades\\MT4P2R_build58_10_10_144_25" +
+                            "_443_2014-10-21.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
+                        "",
+                        ",",
+                        "^",
+                        ",",
+                        "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
+#line 56
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table7, "Given ");
+#line 60
+ testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 61
+ testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 62
+ testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 63
+ testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

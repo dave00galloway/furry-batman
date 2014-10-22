@@ -63,6 +63,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public long U_TRANS_ADD { get; set; }
         public long U_TRANS_DELETE { get; set; }
         public long U_TRANS_UPDATE { get; set; }
+       // public List<Mt4P2RLogEntry> Mt4P2RLogEntries { get; set; } //debug info
 // ReSharper restore InconsistentNaming
     }
 
@@ -75,14 +76,15 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
                     new DateTime(lf.TimeStamp.DateTime.Year, lf.TimeStamp.DateTime.Month, lf.TimeStamp.DateTime.Day,
                         lf.TimeStamp.DateTime.Hour, lf.TimeStamp.DateTime.Minute, lf.TimeStamp.DateTime.Second, 0)
                 group lf by new { groupTimeStamp }
-                into timeGoup
+                into timeGroup
                 select new Mt4P2RLogEntryAnalysis
                 {
-                    TimeStamp = timeGoup.Key.groupTimeStamp,
-                    U_INIT = timeGoup.Count(a => a.Activity == "U_INIT:"),
-                    U_TRANS_ADD = timeGoup.Count(a => a.Activity == "U_TRANS_ADD:"),
-                    U_TRANS_DELETE = timeGoup.Count(a => a.Activity == "U_TRANS_DELETE:"),
-                    U_TRANS_UPDATE = timeGoup.Count(a => a.Activity == "U_TRANS_UPDATE:"),
+                    TimeStamp = timeGroup.Key.groupTimeStamp,
+                    U_INIT = timeGroup.Count(a => a.Activity == "U_INIT:"),
+                    U_TRANS_ADD = timeGroup.Count(a => a.Activity == "U_TRANS_ADD:"),
+                    U_TRANS_DELETE = timeGroup.Count(a => a.Activity == "U_TRANS_DELETE:"),
+                    U_TRANS_UPDATE = timeGroup.Count(a => a.Activity == "U_TRANS_UPDATE:"),
+                    //Mt4P2RLogEntries = timeGroup.ToList() // debug info
                 }
                 ).ToList();
             return list;
