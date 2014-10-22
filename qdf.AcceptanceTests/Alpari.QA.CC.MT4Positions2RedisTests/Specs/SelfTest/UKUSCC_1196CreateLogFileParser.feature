@@ -25,7 +25,15 @@ Scenario: Parse log extended file extract
 	| TestData\LogFileTests\Build56_Service_Log_extract_extended.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | output.csv |
 
 	When I parse the log file to memory
-	And I write the parsed log file to disk
+	And I analyze the log file by activity frequency
+	Then the mt4P2RLogEntryAnalysisList has the following entries:-
+	| TimeStamp           | U_INIT | U_TRANS_ADD | U_TRANS_DELETE | U_TRANS_UPDATE |
+	| 16/10/2014 17:03:22 | 2      | 2           | 2              | 4              |
+	| 16/10/2014 17:03:23 | 2      | 1           | 2              | 3              |
+	| 16/10/2014 17:03:24 | 1      | 2           | 2              | 4              |
+	| 16/10/2014 17:03:25 | 2      | 2           | 2              | 4              |
+
+
 
 Scenario: Cleanse log file
 	Given I have the following log file parser parameters:-

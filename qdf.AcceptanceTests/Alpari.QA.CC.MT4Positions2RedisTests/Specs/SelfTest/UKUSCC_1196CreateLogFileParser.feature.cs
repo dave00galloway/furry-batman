@@ -158,7 +158,40 @@ this.ScenarioSetup(scenarioInfo);
 #line 27
  testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
- testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "TimeStamp",
+                        "U_INIT",
+                        "U_TRANS_ADD",
+                        "U_TRANS_DELETE",
+                        "U_TRANS_UPDATE"});
+            table4.AddRow(new string[] {
+                        "16/10/2014 17:03:22",
+                        "2",
+                        "2",
+                        "2",
+                        "4"});
+            table4.AddRow(new string[] {
+                        "16/10/2014 17:03:23",
+                        "2",
+                        "1",
+                        "2",
+                        "3"});
+            table4.AddRow(new string[] {
+                        "16/10/2014 17:03:24",
+                        "1",
+                        "2",
+                        "2",
+                        "4"});
+            table4.AddRow(new string[] {
+                        "16/10/2014 17:03:25",
+                        "2",
+                        "2",
+                        "2",
+                        "4"});
+#line 29
+ testRunner.Then("the mt4P2RLogEntryAnalysisList has the following entries:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -168,25 +201,25 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CleanseLogFile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
-#line 30
+#line 38
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
                         "fileToParse",
                         "parseSyntax",
                         "OuterSyntaxDelimiter",
                         "InnerSyntaxDelimiter",
                         "outputfile"});
-            table4.AddRow(new string[] {
+            table5.AddRow(new string[] {
                         "C:\\TEMP\\LoadTestResults\\build58\\run002\\01InsertTrades\\MT4P2R_build58_10_10_144_25" +
                             "_443_2014-10-21.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "^",
                         ",",
                         "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
-#line 31
- testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table4, "Given ");
-#line 35
+#line 39
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
+#line 43
  testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

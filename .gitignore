@@ -233,3 +233,4 @@ qdf.AcceptanceTests/packages/IKVM*
 qdf.AcceptanceTests/packages/NHtmlUnit*
 logs
 config
+~$*.xls*

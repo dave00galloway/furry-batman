@@ -173,6 +173,7 @@
     <Compile Include="Transforms\LogFileParserTransforms.cs" />
     <Compile Include="Transforms\Mt4CompositeApiTransforms.cs" />
     <Compile Include="Transforms\Mt4DotNetWrapperTransforms.cs" />
+    <Compile Include="Transforms\Mt4P2RLogEntryAnalysisTransforms.cs" />
     <Compile Include="Transforms\MT4TradeExeTransforms.cs" />
   </ItemGroup>
   <ItemGroup />
