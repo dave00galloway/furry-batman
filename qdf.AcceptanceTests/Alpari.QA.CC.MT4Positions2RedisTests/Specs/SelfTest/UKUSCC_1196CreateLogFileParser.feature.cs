@@ -159,6 +159,12 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 28
  testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 29
+ testRunner.And("I output the log file frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.And("I generate statistics about the frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+ testRunner.And("I output the frequency analysis statistics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                         "TimeStamp",
@@ -190,7 +196,7 @@ this.ScenarioSetup(scenarioInfo);
                         "2",
                         "2",
                         "4"});
-#line 29
+#line 32
  testRunner.Then("the mt4P2RLogEntryAnalysisList has the following entries:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -201,7 +207,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ParseLogExtendedFileExtractAndExportToGraph()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log extended file extract and export to graph", ((string[])(null)));
-#line 36
+#line 39
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
@@ -220,13 +226,13 @@ this.ScenarioSetup(scenarioInfo);
                         "^",
                         ",",
                         "output.csv"});
-#line 37
+#line 40
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
-#line 41
+#line 44
  testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 42
+#line 45
  testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
+#line 46
  testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -237,7 +243,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CleanseLogFile()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cleanse log file", ((string[])(null)));
-#line 47
+#line 50
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
@@ -253,9 +259,9 @@ this.ScenarioSetup(scenarioInfo);
                         "^",
                         ",",
                         "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
-#line 48
+#line 51
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table6, "Given ");
-#line 52
+#line 55
  testRunner.When("I parse the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -266,7 +272,7 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void ParseLogFileAndExportToGraph()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log file and export to graph", ((string[])(null)));
-#line 55
+#line 58
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
@@ -286,15 +292,21 @@ this.ScenarioSetup(scenarioInfo);
                         "^",
                         ",",
                         "MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log"});
-#line 56
+#line 59
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table7, "Given ");
-#line 60
- testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 61
- testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
- testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
+ testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 64
+ testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 65
+ testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 66
+ testRunner.And("I output the log file frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 67
+ testRunner.And("I generate statistics about the frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 68
+ testRunner.And("I output the frequency analysis statistics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 69
  testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

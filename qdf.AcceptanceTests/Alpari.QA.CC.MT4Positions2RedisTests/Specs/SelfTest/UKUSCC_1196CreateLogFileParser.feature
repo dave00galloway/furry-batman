@@ -26,6 +26,9 @@ Scenario: Parse log extended file extract
 
 	When I parse the log file to memory
 	And I analyze the log file by activity frequency
+	And I output the log file frequency analysis
+	And I generate statistics about the frequency analysis
+	And I output the frequency analysis statistics
 	Then the mt4P2RLogEntryAnalysisList has the following entries:-
 	| TimeStamp           | U_INIT | U_TRANS_ADD | U_TRANS_DELETE | U_TRANS_UPDATE |
 	| 16/10/2014 17:03:22 | 2      | 2           | 2              | 4              |
@@ -58,6 +61,9 @@ Scenario: Parse log file and export to graph
 	| C:\TEMP\LoadTestResults\build58\run002\01InsertTrades\MT4P2R_build58_10_10_144_25_443_2014-10-21.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log |
 
 	When I parse the log file to memory
-	And I analyze the log file by activity frequency
 	And I write the parsed log file to disk
+	And I analyze the log file by activity frequency
+	And I output the log file frequency analysis
+	And I generate statistics about the frequency analysis
+	And I output the frequency analysis statistics
 	Then I can export the the analysis as a line graph

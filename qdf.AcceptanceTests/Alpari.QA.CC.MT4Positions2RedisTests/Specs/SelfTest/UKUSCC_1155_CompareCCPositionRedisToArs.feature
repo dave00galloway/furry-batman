@@ -9,6 +9,11 @@ Feature: UKUSCC_1155_CompareCCPositionRedisToArs
 	#When I get cc redis and cc ars position data for these snapshot parameters:-
 	#| server1 | server2 | Database1 | section | book | symbol | startTime           | endTime             |
 	#| C1      | C1Red   | cc_uat    | default | A    | EURUSD | 2014-10-29 17:36:00 | 2014-10-29 17:37:00 |
+Scenario: Get data for cc redis and cc ars for various symbols C1 Mini
+	Given I have a connection to CCDataContext
+	When I get cc redis and cc ars position data for these sets of snapshot parameters:-
+	| server1 | server2 | Database1 | section | book | symbol | startTime           | endTime             |
+	| C1      | C1 Red  | cc_uat    | default | A    | EURUSD | 2014/10/14 00:00:00 | 2014/10/14 00:10:00 |
 
 Scenario: Get data for cc redis and cc ars for various symbols C1
 	Given I have a connection to CCDataContext

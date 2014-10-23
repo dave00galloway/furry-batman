@@ -15,6 +15,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
     {
         private List<Mt4P2RLogEntry> _logEntries;
         private List<Mt4P2RLogEntryAnalysis> _mt4P2RLogEntryAnalysisList;
+        private List<LogEntryStatisticalAnalysis> _stats
+            ;
         private LogFileParserParameters LogFileParserParameters { get; set; }
 
         [Given(@"I have the following log file parser parameters:-")]
@@ -34,14 +36,30 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void WhenIParseTheLogFileToMemory()
         {
             _logEntries = LogFileParserParameters.ParseLogFileToMemory<Mt4P2RLogEntry>();
-            // need to do more transformation first logFile.EnumerableToLineGraph(new EnumerableToGraphExtensions.DataSeriesParameters(), );
-            //Console.WriteLine(logFile.First().TimeStamp);
         }
 
         [When(@"I analyze the log file by activity frequency")]
         public void WhenIAnalyzeTheLogFileByActivityFrequency()
         {
             _mt4P2RLogEntryAnalysisList = _logEntries.AnalyseActionsByFrequency();
+        }
+
+        [When(@"I output the log file frequency analysis")]
+        public void WhenIOutputTheLogFileFrequencyAnalysis()
+        {
+            _mt4P2RLogEntryAnalysisList.EnumerableToCsv(ScenarioOutputDirectory + "FrequencyAnalysis." + CsvParserExtensionMethods.csv,false);
+        }
+
+        [When(@"I generate statistics about the frequency analysis")]
+        public void WhenIGenerateStatisticsAboutTheFrequencyAnalysis()
+        {
+            _stats = _mt4P2RLogEntryAnalysisList.GenerateStatisics();
+        }
+
+        [When(@"I output the frequency analysis statistics")]
+        public void WhenIOutputTheFrequencyAnalysisStatistics()
+        {
+            _stats.EnumerableToCsv(ScenarioOutputDirectory + "StatisticalAnalysis." + CsvParserExtensionMethods.csv,false);
         }
 
         [When(@"I write the parsed log file to disk")]

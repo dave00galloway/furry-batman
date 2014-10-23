@@ -163,7 +163,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return propertyInfo;
         }
 
-        public static object GetValue(object objectToSearch, PropertyInfo x)
+        public static object GetValue(this object objectToSearch, PropertyInfo x)
         {
             try
             {
@@ -308,6 +308,50 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             string typeShortName = type.FullName.Split('.')[type.FullName.Split('.').Length - 1];
             return typeShortName;
+        }
+
+        public static IEnumerable<PropertyInfo> GetNumericFields<T>()
+        {
+            return typeof(T).GetProperties(BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.Instance)
+                .Where(p => p.PropertyType.IsNumericType());
+        }
+
+        /// <summary>
+        /// Determines if a type is numeric.  Nullable numeric types are considered numeric.
+        /// http://stackoverflow.com/questions/124411/using-net-how-can-i-determine-if-a-type-is-a-numeric-valuetype
+        /// </summary>
+        /// <remarks>
+        /// Boolean is not considered numeric.
+        /// </remarks>
+        public static bool IsNumericType(this Type type)
+        {
+            if (type == null)
+            {
+                return false;
+            }
+
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                case TypeCode.Decimal:
+                case TypeCode.Double:
+                case TypeCode.Int16:
+                case TypeCode.Int32:
+                case TypeCode.Int64:
+                case TypeCode.SByte:
+                case TypeCode.Single:
+                case TypeCode.UInt16:
+                case TypeCode.UInt32:
+                case TypeCode.UInt64:
+                    return true;
+                case TypeCode.Object:
+                    if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>))
+                    {
+                        return IsNumericType(Nullable.GetUnderlyingType(type));
+                    }
+                    return false;
+            }
+            return false;
         }
     }
 }
