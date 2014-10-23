@@ -164,24 +164,6 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Direct Decrypt complex Password2")]
-        public virtual void DirectDecryptComplexPassword2()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Direct Decrypt complex Password2", ((string[])(null)));
-#line 37
-this.ScenarioSetup(scenarioInfo);
-#line 38
- testRunner.Given(@"my encrypted password is ""1-0-0-0-208-140-157-223-1-21-209-17-140-122-0-192-79-194-151-235-1-0-0-0-172-198-26-117-175-63-187-79-178-230-134-99-10-24-16-126-0-0-0-0-2-0-0-0-0-0-3-102-0-0-192-0-0-0-16-0-0-0-48-248-225-198-130-185-183-172-64-153-162-118-74-112-190-76-0-0-0-0-4-128-0-0-160-0-0-0-16-0-0-0-196-195-98-213-142-128-104-68-75-153-104-42-194-24-99-247-136-0-0-0-96-207-124-92-120-211-60-171-59-109-245-20-58-227-77-240-166-118-51-224-111-115-19-54-224-235-179-157-149-30-73-94-212-58-42-139-119-197-50-231-169-243-235-68-197-20-62-206-201-194-155-148-60-138-239-245-111-71-1-254-28-31-25-111-88-238-188-53-115-173-7-95-145-131-30-62-223-27-16-2-224-146-11-110-171-219-16-202-246-157-248-33-24-237-8-90-170-3-248-205-225-218-78-16-74-132-15-89-157-176-204-203-214-218-71-146-90-251-227-245-255-241-11-36-38-199-8-43-144-81-254-238-235-123-123-136-20-0-0-0-55-84-236-249-10-53-173-156-186-158-111-177-209-9-54-125-106-56-16-132""", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 39
- testRunner.When("I decrypt the encrypted password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 40
- testRunner.Then("the decrypted password is \"server=10.25.9.213;user id=ars;password=1q2w3e;port=33" +
-                    "06;database=cc\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
     }
 }
 #pragma warning restore
