@@ -15,8 +15,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
     {
         private List<Mt4P2RLogEntry> _logEntries;
         private List<Mt4P2RLogEntryAnalysis> _mt4P2RLogEntryAnalysisList;
-        private List<LogEntryStatisticalAnalysis> _stats
-            ;
+        private List<LogEntryStatisticalAnalysis> _stats;
         private LogFileParserParameters LogFileParserParameters { get; set; }
 
         [Given(@"I have the following log file parser parameters:-")]
@@ -24,6 +23,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         {
             LogFileParserParameters = logFileParserParameters;
             LogFileParserParameters.OutputFile = ScenarioOutputDirectory + LogFileParserParameters.OutputFile;
+        }
+
+        [Given(@"I have the following split log file parser parameters:-")]
+        public void GivenIHaveTheFollowingSplitLogFileParserParameters(LogFileParserParameters logFileParserParameters)
+        {
+            logFileParserParameters.FileToParse = ScenarioOutputDirectory + logFileParserParameters.FileToParse;
+            GivenIHaveTheFollowingLogFileParserParameters(logFileParserParameters);
         }
 
         [When(@"I parse the log file")]

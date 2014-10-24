@@ -153,6 +153,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC_1196CreateLogFileParser.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1206LogFileSplitter.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1206LogFileSplitter.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -163,6 +168,7 @@
     <Compile Include="Steps\GetArsPositionsSteps.cs" />
     <Compile Include="Steps\GetRedisPositionsSteps.cs" />
     <Compile Include="Steps\LogFileParserSteps.cs" />
+    <Compile Include="Steps\LogFileSplitterSteps.cs" />
     <Compile Include="Steps\Mt4CompositeApiSteps.cs" />
     <Compile Include="Steps\Mt4DotNetClientWrapperSteps.cs" />
     <Compile Include="Steps\MT4DotNetManagerWrapperSteps.cs" />
@@ -170,6 +176,7 @@
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="Helpers\Mt4ApiConnectionParameters.cs" />
     <Compile Include="Transforms\CapitalCalculationSnapshotParametersTransform.cs" />
+    <Compile Include="Transforms\LogFileSplitterTransforms.cs" />
     <Compile Include="Transforms\LogFileParserTransforms.cs" />
     <Compile Include="Transforms\Mt4CompositeApiTransforms.cs" />
     <Compile Include="Transforms\Mt4DotNetWrapperTransforms.cs" />
@@ -239,6 +246,10 @@
     <None Include="Specs\SelfTest\UKUSCC_1196CreateLogFileParser.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC_1196CreateLogFileParser.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSCC_1206LogFileSplitter.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1206LogFileSplitter.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
