@@ -158,11 +158,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC_1206LogFileSplitter.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1222CompareArsPositionsInCcMasterToRedisPositionsInCcUatSlave3.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1222CompareArsPositionsInCcMasterToRedisPositionsInCcUatSlave3.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC-1014_AT_Create Tools for comparing redis positions.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\CapitalCalculationConnectionPoolSteps.cs" />
     <Compile Include="Steps\CapitalCalculationSnapshotSteps.cs" />
     <Compile Include="Steps\CompareArsAndRedisPositionsSteps.cs" />
     <Compile Include="Steps\GetArsPositionsSteps.cs" />
@@ -250,6 +256,10 @@
     <None Include="Specs\SelfTest\UKUSCC_1206LogFileSplitter.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC_1206LogFileSplitter.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSCC_1222CompareArsPositionsInCcMasterToRedisPositionsInCcUatSlave3.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1222CompareArsPositionsInCcMasterToRedisPositionsInCcUatSlave3.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC-1014_AT_Create Tools for comparing redis positions.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

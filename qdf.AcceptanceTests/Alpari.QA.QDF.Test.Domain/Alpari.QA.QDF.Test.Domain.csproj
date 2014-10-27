@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContexts\CC\CapitalCalculationDataContext.cs" />
+    <Compile Include="DataContexts\CC\CapitalCalculationDataContextPool.cs" />
     <Compile Include="DataContexts\CC\CapitalCalculationSnapshotParameters.cs" />
     <Compile Include="DataContexts\CC\SnapshotComparison.cs" />
     <Compile Include="DataContexts\GetTradeswithEventID.cs" />
@@ -117,6 +118,10 @@
     <ProjectReference Include="..\Alpari.QDF.UIClient.App\Alpari.QDF.UIClient.App.csproj">
       <Project>{282ca8f0-f64e-4a8f-b829-15b95253debc}</Project>
       <Name>Alpari.QDF.UIClient.App</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpari.QualityAssurance.SecureMyPassword\Alpari.QualityAssurance.SecureMyPassword.csproj">
+      <Project>{27C0B243-5CCC-466C-BD7F-57F5BF6D3912}</Project>
+      <Name>Alpari.QualityAssurance.SecureMyPassword</Name>
     </ProjectReference>
     <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
       <Project>{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}</Project>

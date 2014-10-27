@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Configuration;
 using Alpari.QA.CC.MT4Positions2RedisTests.Steps;
 using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
@@ -19,6 +20,25 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
             {
                 SetupCapitalCalculationDataContext();
             }
+            if (TagDependentAction(StepCentral.CC_DATA_CONTEXT_POOL))
+            {
+                SetupCapitalCalculationDataContextPool();
+            }
+        }
+
+        private static CapitalCalculationDataContextPool SetupCapitalCalculationDataContextPool()
+        {
+            CapitalCalculationDataContextPool ccDataConnectionPool;
+            try
+            {
+                ccDataConnectionPool = ObjectContainer.Resolve<CapitalCalculationDataContextPool>();
+            }
+            catch (Exception)
+            {
+                ccDataConnectionPool = new CapitalCalculationDataContextPool(new ConcurrentDictionary<string, CapitalCalculationDataContext>());
+                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(ccDataConnectionPool);
+            }
+            return ccDataConnectionPool;
         }
 
         public static CapitalCalculationDataContext SetupCapitalCalculationDataContext()

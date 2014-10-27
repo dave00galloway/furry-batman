@@ -15,6 +15,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public const string ARS_CONNECTION_STRING = "ArsConnectionString";
         public const string MT4_ARS_POSTIONS_CONTEXT = "Mt4ArsPositionsContext";
         public const string CC_DATA_CONTEXT = "CCDataContext";
+        public const string CC_DATA_CONTEXT_POOL = "CCDataContextPool";
 
         public static Mt4TradeExeSteps Mt4TradeExeSteps
         {
