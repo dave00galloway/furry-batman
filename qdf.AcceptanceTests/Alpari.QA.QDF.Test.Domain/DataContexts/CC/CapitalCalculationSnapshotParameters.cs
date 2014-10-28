@@ -35,5 +35,9 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
 
         public string Server2 { get; set; }
 
+        public string Connection1 { get; set; }
+
+        public string Connection2 { get; set; }
+
     }
 }

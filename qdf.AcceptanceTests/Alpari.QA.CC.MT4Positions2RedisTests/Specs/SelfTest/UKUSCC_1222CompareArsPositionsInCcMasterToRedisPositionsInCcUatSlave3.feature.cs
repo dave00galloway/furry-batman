@@ -69,13 +69,9 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create 2 connections 2 CC on different connection strings")]
-        public virtual void Create2Connections2CCOnDifferentConnectionStrings()
+        public virtual void FeatureBackground()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create 2 connections 2 CC on different connection strings", ((string[])(null)));
 #line 7
-this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Connection1",
@@ -85,8 +81,61 @@ this.ScenarioSetup(scenarioInfo);
                         "CcSlave"});
 #line 8
  testRunner.Given("I have the following connections to cc:-", ((string)(null)), table1, "Given ");
-#line 11
+#line hidden
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Create 2 connections 2 CC on different connection strings")]
+        public virtual void Create2Connections2CCOnDifferentConnectionStrings()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create 2 connections 2 CC on different connection strings", ((string[])(null)));
+#line 15
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line 16
  testRunner.Then("the count of cc connections is 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Get sample snapshot data from C1")]
+        public virtual void GetSampleSnapshotDataFromC1()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Get sample snapshot data from C1", ((string[])(null)));
+#line 18
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2",
+                        "section",
+                        "book",
+                        "symbol",
+                        "startTime",
+                        "endTime"});
+            table2.AddRow(new string[] {
+                        "C1",
+                        "C1 Red",
+                        "cc",
+                        "cc_uat",
+                        "CcMaster",
+                        "CcSlave",
+                        "default",
+                        "A",
+                        "EURUSD",
+                        "2014/10/27 12:00:00",
+                        "2014/10/27 12:10:00"});
+#line 19
+ testRunner.When("I get cc redis and cc ars position data across db connections for these sets of s" +
+                    "napshot parameters:-", ((string)(null)), table2, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
