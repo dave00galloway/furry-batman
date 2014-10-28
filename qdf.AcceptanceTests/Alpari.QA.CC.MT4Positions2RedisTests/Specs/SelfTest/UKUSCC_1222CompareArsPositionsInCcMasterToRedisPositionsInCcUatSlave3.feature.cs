@@ -136,6 +136,8 @@ this.FeatureBackground();
 #line 19
  testRunner.When("I get cc redis and cc ars position data across db connections for these sets of s" +
                     "napshot parameters:-", ((string)(null)), table2, "When ");
+#line 22
+ testRunner.Then("the snapshot comparison list contains 11 results", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

@@ -122,7 +122,9 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             {
                 try
                 {
-                    result.ImportRow(SelectDataAsDataTable(GetSinglePositionQueryString(ccParameters)).Rows[0]);
+                    result.ImportRow(
+                        SelectDataAsDataTable(GetSinglePositionQueryString(ccParameters), 0,
+                            ccParameters.QueryDateTime == ccParameters.StartTime).Rows[0]);
                 }
                 catch (Exception e)
                 {

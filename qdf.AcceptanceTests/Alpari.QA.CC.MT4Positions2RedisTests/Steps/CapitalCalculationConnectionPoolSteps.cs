@@ -8,14 +8,16 @@ using TechTalk.SpecFlow.Assist;
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
 {
     [Binding]
-    public class CapitalCalculationConnectionPoolSteps
+    public class CapitalCalculationConnectionPoolSteps : StepCentral
     {
+        private IList<SnapshotComparison> _result;
+
         public CapitalCalculationConnectionPoolSteps(CapitalCalculationDataContextPool capitalCalculationDataContextPool)
         {
             CapitalCalculationDataContextPool = capitalCalculationDataContextPool;
         }
 
-        public CapitalCalculationDataContextPool CapitalCalculationDataContextPool { get; set; }
+        private CapitalCalculationDataContextPool CapitalCalculationDataContextPool { get; set; }
 
         [Given(@"I have the following connections to cc:-")]
         public void GivenIHaveTheFollowingConnectionsToCc(Table table)
@@ -32,16 +34,24 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             {
                 string resultName = String.Format("{0}_{1}_{2}_{3}_{4}", ccParameter.Server1, ccParameter.Server2,
                     ccParameter.Symbol, ccParameter.Section, ccParameter.Book);
-                IList<SnapshotComparison> result =
-                    CapitalCalculationDataContextPool.GetRedisAndArsPositionSnapshots(ccParameter);                
+                _result =
+                    CapitalCalculationDataContextPool.GetRedisAndArsPositionSnapshots(ccParameter);
+                CapitalCalculationSnapshotSteps.OutputComparisonResults(ccParameter, _result, resultName, ScenarioOutputDirectory, "SnapshotTimeToMinute",
+                    "Server1Volume", ccParameter.Server1, "Server2Volume", ccParameter.Server2, 60);
             }
         }
-
 
         [Then(@"the count of cc connections is (.*)")]
         public void ThenTheCountOfCcConnectionsIs(int expectedConnectionCount)
         {
             CapitalCalculationDataContextPool.CapitalCalculationDataContexts.Should().HaveCount(expectedConnectionCount);
         }
+
+        [Then(@"the snapshot comparison list contains (.*) results")]
+        public void ThenTheSnapshotComparisonListContainsResults(int expResultCount)
+        {
+            _result.Should().HaveCount(expResultCount);
+        }
+
     }
 }
