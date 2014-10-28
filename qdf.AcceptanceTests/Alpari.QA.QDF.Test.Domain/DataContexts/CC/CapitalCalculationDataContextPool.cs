@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using Alpari.QualityAssurance.SecureMyPassword;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
@@ -42,21 +43,23 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
         public IList<SnapshotComparison> GetRedisAndArsPositionSnapshots(
             CapitalCalculationSnapshotParameters ccParameter)
         {
-            // TODO:- parallelise this?
-            DataTable dict1 =
-                CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.First()].GetPositionSnapshots(
-                    new CapitalCalculationSnapshotParameters
-                    {
-                        Book = ccParameter.Book,
-                        Database1 = ccParameter.Database1,
-                        EndTime = ccParameter.EndTime,
-                        Section = ccParameter.Section,
-                        Server = ccParameter.Server1,
-                        StartTime = ccParameter.StartTime,
-                        Symbol = ccParameter.Symbol
-                    }, "Connection1");
-            DataTable dict2 =
-                CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.Last()].GetPositionSnapshots(
+            DataTable dict1 = null;
+            DataTable dict2 = null;
+            Task task1 = Task.Factory.StartNew(() => dict1 =
+                CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.First()].GetPositionSnapshots
+                    (
+                        new CapitalCalculationSnapshotParameters
+                        {
+                            Book = ccParameter.Book,
+                            Database1 = ccParameter.Database1,
+                            EndTime = ccParameter.EndTime,
+                            Section = ccParameter.Section,
+                            Server = ccParameter.Server1,
+                            StartTime = ccParameter.StartTime,
+                            Symbol = ccParameter.Symbol
+                        }, "Connection1"));
+            Task task2 = Task.Factory.StartNew(() =>
+                dict2 = CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.Last()].GetPositionSnapshots(
                     new CapitalCalculationSnapshotParameters
                     {
                         Book = ccParameter.Book,
@@ -66,7 +69,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                         Server = ccParameter.Server2,
                         StartTime = ccParameter.StartTime,
                         Symbol = ccParameter.Symbol
-                    }, "Connection2");
+                    }, "Connection2")
+                );
+            Task.WaitAll(task1, task2);
+
             List<SnapshotComparison> list = dict1.Rows.Cast<DataRow>().Select(row =>
                 new SnapshotComparison
                 {
@@ -78,7 +84,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 }).ToList();
             //check there aren't any extra rows in dict 2
             foreach (DataRow row in dict2.Rows.Cast<DataRow>()
-                        .Where(row => !list.Any(x => Equals(x.SnapshotTimeToMinute, row["snapshot_time_to_minute"]))))
+                .Where(row => !list.Any(x => Equals(x.SnapshotTimeToMinute, row["snapshot_time_to_minute"]))))
             {
                 list.Add(new SnapshotComparison
                 {
@@ -92,11 +98,11 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             list.Sort((x, snapshotComparison) =>
             {
                 //TODO:- sort out SnapshotComparison so that the type of snapshot time is a DateTime, thus avoiding part of the proceeding complexity
-                var date1 = DateTime.ParseExact(x.SnapshotTimeToMinute, DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS,
+                DateTime date1 = DateTime.ParseExact(x.SnapshotTimeToMinute, DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS,
                     CultureInfo.InvariantCulture);
-                var date2 = DateTime.ParseExact(snapshotComparison.SnapshotTimeToMinute,
+                DateTime date2 = DateTime.ParseExact(snapshotComparison.SnapshotTimeToMinute,
                     DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS, CultureInfo.InvariantCulture);
-                if (DateTime.Compare(date1,date2)<0 )
+                if (DateTime.Compare(date1, date2) < 0)
                 {
                     return -1;
                 }
