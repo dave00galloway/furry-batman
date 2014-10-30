@@ -37,3 +37,25 @@ Scenario: Do C1 Comparison
 	 | C1      | C1 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | default | B    | XAUUSD | 2014/10/28 17:00:00 | 2014/10/29 09:20:00 |
 	 | C1      | C1 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | default | B    | XAGUSD | 2014/10/28 17:00:00 | 2014/10/29 09:20:00 |
 	 | C1      | C1 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | default | B    | USDJPY | 2014/10/28 17:00:00 | 2014/10/29 09:20:00 |
+
+Scenario: Do C2 Comparison
+	When I get cc redis and cc ars position data across db connections for these sets of snapshot parameters:-
+	| server1 | server2 | Database1 | Database2 | Connection1 | Connection2 | section | book | symbol | startTime           | endTime             |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | EURUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | GBPUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | GBPJPY | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | USDCHF | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | EURCHF | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | USDJPY | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | XAUUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | A    | XAGUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | EURUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | GBPUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | GBPJPY | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | USDCHF | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | EURCHF | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | USDJPY | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | XAUUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | XAGUSD | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | EUA.Z4 | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |
+	| C2      | C2 Red  | cc        | cc_uat    | CcMaster    | CcSlave     | UK      | B    | US30.Z | 2014/10/28 17:00:00 | 2014/10/29 17:20:00 |

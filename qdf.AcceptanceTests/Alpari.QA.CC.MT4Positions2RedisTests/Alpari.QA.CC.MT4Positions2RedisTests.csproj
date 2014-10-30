@@ -83,7 +83,6 @@
     <Compile Include="Helpers\TestablePositionExtensions.cs" />
     <Compile Include="Hooks\ArsPositionsHooks.cs" />
     <Compile Include="Hooks\CapitalCalculationSnapshotHooks.cs" />
-    <Compile Include="Hooks\LogFileParserHooks.cs" />
     <Compile Include="Hooks\MT4ApiHooks.cs" />
     <Compile Include="Hooks\Mt4CompositeApiHooks.cs" />
     <Compile Include="Hooks\MT4TradeExeHooks.cs" />
