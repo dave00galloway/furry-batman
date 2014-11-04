@@ -129,6 +129,15 @@ this.FeatureBackground();
  testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
                     "e sets of snapshot parameters:-", ((string)(null)), table2, "When ");
 #line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table3.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 19
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table3, "Then ");
+#line hidden
             this.ScenarioCleanup();
         }
     }

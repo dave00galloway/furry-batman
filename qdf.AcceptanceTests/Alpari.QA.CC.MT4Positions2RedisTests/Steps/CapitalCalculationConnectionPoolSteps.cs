@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -31,26 +35,49 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void WhenIGetCcRedisAndCcArsPositionDataAcrossDbConnectionsForTheseSetsOfSnapshotParameters(
             IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
         {
-            foreach (var ccParameter in ccParameters)
+            foreach (CapitalCalculationSnapshotParameters ccParameter in ccParameters)
             {
                 string resultName = String.Format("{0}_{1}_{2}_{3}_{4}", ccParameter.Server1, ccParameter.Server2,
                     ccParameter.Symbol, ccParameter.Section, ccParameter.Book);
                 _result =
                     CapitalCalculationDataContextPool.GetRedisAndArsPositionSnapshots(ccParameter);
-                CapitalCalculationSnapshotSteps.OutputComparisonResults(ccParameter, _result, resultName, ScenarioOutputDirectory, "SnapshotTimeToMinute",
+                CapitalCalculationSnapshotSteps.OutputComparisonResults(ccParameter, _result, resultName,
+                    ScenarioOutputDirectory, "SnapshotTimeToMinute",
                     "Server1Volume", ccParameter.Server1, "Server2Volume", ccParameter.Server2, 60);
             }
         }
 
-        [When(@"I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-")]
-        public void WhenICompareCcRedisAndCcArsClientPositionDataAcrossDbConnectionsForTheseSetsOfSnapshotParameters(CapitalCalculationSnapshotParameters snapshotParams)
+        [When(
+            @"I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-"
+            )]
+        public void WhenICompareCcRedisAndCcArsClientPositionDataAcrossDbConnectionsForTheseSetsOfSnapshotParameters(
+            CapitalCalculationSnapshotParameters snapshotParams)
         {
-           // var arsData = CapitalCalculationDataContextPool.GetRedisAndArsClientPositions(snapshotParams);
+            ClientPositionDataTable arsData =
+                CapitalCalculationDataContextPool.GetRedisAndArsClientPositions(snapshotParams);
             GetRedisPositionsSteps.GivenIHaveAConnectionToARedisRepositoryOnPortDb(
-                    snapshotParams.Connection2, 6379, Convert.ToInt32(snapshotParams.Database2), "alpari-positions");
+                snapshotParams.Connection2, 6379, Convert.ToInt32(snapshotParams.Database2), "alpari-positions");
             GetRedisPositionsSteps.WhenIGetAllPositionsForServer(snapshotParams.Server2);
-            var redisData = new ClientPositionDataTable().ConvertIEnumerableToDataTable(GetRedisPositionsSteps.Positions, "redis data", new[] { "Login", "Ticket" });
+            ClientPositionDataTable redisData =
+                new ClientPositionDataTable().ConvertIEnumerableToDataTable(GetRedisPositionsSteps.Positions,
+                    "redis data", new[] {"Login", "Ticket"});
 
+            DataTableComparison diffs =
+                redisData.Compare(arsData, new[] {"ServerName", "ServerId", "SectionId"}, null, false, true);
+            ScenarioContext.Current["diffs"] = diffs;
+            //TODO:- create after hook for this:-
+            arsData.Rows.Cast<ClientPositionDataRow>()
+                .OrderBy(p => p.Login)
+                .ThenBy(p => p.Ticket)
+                .EnumerableToCsv(
+                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, "Ars"+snapshotParams.Server1,
+                        CsvParserExtensionMethods.csv), true, true, true, true);
+            redisData.Rows.Cast<ClientPositionDataRow>()
+                .OrderBy(p => p.Login)
+                .ThenBy(p => p.Ticket)
+                .EnumerableToCsv(
+                    String.Format("{0}{1}.{2}", ScenarioOutputDirectory, "Redis" + snapshotParams.Server2,
+                        CsvParserExtensionMethods.csv), true, true, true, true);
         }
 
 
@@ -65,6 +92,5 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         {
             _result.Should().HaveCount(expResultCount);
         }
-
     }
 }

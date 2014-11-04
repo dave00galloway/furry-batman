@@ -71,9 +71,22 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             get
             {
                 bool toAdd = GetStepDefinition(GetRedisPositionsSteps.FullName) == null;
+                Dictionary<string, PositionDataTable> dict = null;
+                if (toAdd)
+                {
+                    try
+                    {
+                        dict = ObjectContainer.Resolve<Dictionary<string, PositionDataTable>>();
+                    }
+                    catch (Exception)
+                    {
+                        dict = new Dictionary<string, PositionDataTable>();
+                        ObjectContainer.RegisterInstanceAs(dict);
+                    }
+                }
                 GetRedisPositionsSteps steps = (GetRedisPositionsSteps)
                     GetStepDefinition(Steps.GetRedisPositionsSteps.FullName) ??
-                                         new GetRedisPositionsSteps(new Dictionary<string, PositionDataTable>());
+                                         new GetRedisPositionsSteps(dict);
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);

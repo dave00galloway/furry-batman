@@ -16,3 +16,6 @@ Scenario: Compare C1 Client Positions
 	When I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-
 	| server1 | server2   | Database1 | Database2 | Connection1 | Connection2                |
 	| C1      | MT4AUKC01 | cc        | 11        | CcMaster    | uk-redis-cc1.dc.alpari.com |
+	Then the redis positions should match the ars positions exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
