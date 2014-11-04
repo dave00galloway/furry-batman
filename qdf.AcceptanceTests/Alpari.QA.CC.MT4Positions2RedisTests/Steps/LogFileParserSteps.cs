@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms.DataVisualization.Charting;
 using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
+using Alpari.QA.QDF.Test.Domain.LogFileStructures;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;

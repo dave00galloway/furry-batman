@@ -11,3 +11,11 @@ Scenario: Concatenate 2 Log Files
 
 	When I join the log files
 	Then the output file should contain 9 lines
+
+#Scenario: Concatenate 2more Log Files
+#	Given I have the following log file join parameters:-
+#	| File1               | File2                    | OutputFile     |
+#	| C:\Temp\extract.log | C:\Temp\PostMidnight.txt | OutputFile.log |
+#
+#	When I join the log files
+#	Then the output file should contain 9 lines

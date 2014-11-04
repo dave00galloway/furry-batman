@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -63,9 +64,16 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 int lineCounter = 0;
                 foreach (T item in iEnumerable)
                 {
-                    csvFile.AppendLine(String.Join(",",
-                        item.GetObjectPropertyValuesAsList(headers.Split(','))
-                            .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
+                    try
+                    {
+                        csvFile.AppendLine(String.Join(",",
+                    item.GetObjectPropertyValuesAsList(headers.Split(','))
+                        .Select(x => x.ToSafeString().StringToCsvCell(removeReturns))));
+                    }
+                    catch (Exception e)
+                    {
+                        e.ConsoleExceptionLogger(String.Format("exception thrown trying to write line {0}",lineCounter));
+                    }
                     lineCounter = csvFile.DumpToCsvAtSpecifiedLineCount(fileNamePath, lineCounter);
                 }
             }

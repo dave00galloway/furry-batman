@@ -96,8 +96,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
                 {
                     try
                     {
-                        s = s.ParseLine(syntaxBlocks);
-                        if (s != null)
+                        s = s.ParseLine(syntaxBlocks);//.Trim();
+                        if (!string.IsNullOrEmpty(s))
                         {
                             list.Add(s);
                         }
@@ -114,7 +114,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
         private static string ParseLine(this string stringToParse, IEnumerable<ParseSyntax> syntaxBlocks)
         {
-            if (stringToParse == null) return null;
+            if (string.IsNullOrEmpty(stringToParse)) return null;
             foreach (ParseSyntax syntaxBlock in syntaxBlocks)
             {
                 //var parsedString = syntaxBlock.ApplyDelimiterTo > 0

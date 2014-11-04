@@ -15,15 +15,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <param name="logFileSplitParams"></param>
         public static void CreateLogFileExtract(this LogFileSplitParams<string, string> logFileSplitParams)
         {
-            string directory = Path.GetDirectoryName(logFileSplitParams.OutputFile);
-            if (directory == null)
-            {
-                throw new ArgumentNullException(logFileSplitParams.OutputFile);
-            }
-            if (!Directory.Exists(directory))
-            {
-                Directory.CreateDirectory(directory);
-            }
+            logFileSplitParams.SetupOutputDirectory();
             using (StreamWriter writerStream = File.CreateText(logFileSplitParams.OutputFile))
             {
                 using (StreamReader readerStream = File.OpenText(logFileSplitParams.FileToParse))
@@ -59,12 +51,44 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         }
 
         /// <summary>
-        ///     throw  new NotImplementedException();
+        ///    
         /// </summary>
         /// <param name="logFileSplitParams"></param>
         public static void CreateLogFileExtract(this LogFileSplitParams<int, int> logFileSplitParams)
         {
-            throw new NotImplementedException();
+            logFileSplitParams.SetupOutputDirectory();
+            using (StreamWriter writerStream = File.CreateText(logFileSplitParams.OutputFile))
+            {
+                using (StreamReader readerStream = File.OpenText(logFileSplitParams.FileToParse))
+                {
+                    string s;
+                    int counter = 0;
+                    bool start = false;
+                    while ((s = readerStream.ReadLine()) != null)
+                    {
+                        if (!start && counter == logFileSplitParams.StartAt)
+                        {
+                            start = true;
+                        }
+                        if (start)
+                        {
+                            try
+                            {
+                                writerStream.WriteLine(s);
+                            }
+                            catch (Exception e)
+                            {
+                                Console.WriteLine("Error at line {0}. Exception details {1}", counter, e);
+                            }
+                        }
+                        if (start && counter == logFileSplitParams.EndAt)
+                        {
+                            break;
+                        }
+                        counter++;
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -77,6 +101,20 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         {
             throw new NotImplementedException();
         }
+
+        private static void SetupOutputDirectory<TS, TE>(this LogFileSplitParams<TS, TE> logFileSplitParams)
+        {
+            string directory = Path.GetDirectoryName(logFileSplitParams.OutputFile);
+            if (directory == null)
+            {
+                throw new ArgumentNullException(logFileSplitParams.OutputFile);
+            }
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);
+            }
+        }
+
     }
 
     /// <summary>

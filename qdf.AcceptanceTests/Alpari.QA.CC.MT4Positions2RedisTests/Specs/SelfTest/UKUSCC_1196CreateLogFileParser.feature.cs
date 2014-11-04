@@ -283,7 +283,8 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table7.AddRow(new string[] {
-                        "C:\\TEMP\\LoadTestResults\\build73\\run001\\01Addtrades\\ServiceLog.txt",
+                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
+                            "OutputFile.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
