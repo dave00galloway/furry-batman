@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Alpari.CC.WebPortal.DAL.Repositories.Redis;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using Newtonsoft.Json;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
     /// <summary>
-    /// Not currently needed as the JSON format has been fixed
+    ///     Not currently needed as the JSON format has been fixed
     /// </summary>
     public class TestablePosition
     {
         public TestablePosition()
         {
-            
         }
 
         public TestablePosition(Position position)
@@ -43,10 +37,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
         public string Comment { get; set; }
         public string Group { get; set; }
         public int Login { get; set; }
+
         [JsonProperty(PropertyName = "open_price")]
         public decimal OpenPrice { get; set; }
+
         [JsonProperty(PropertyName = "open_time")]
         public DateTime OpenTime { get; set; }
+
         public int Order { get; set; }
         public string Server { get; set; }
         public decimal Sl { get; set; }

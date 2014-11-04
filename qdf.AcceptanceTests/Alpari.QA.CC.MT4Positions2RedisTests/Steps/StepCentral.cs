@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 
@@ -41,6 +42,38 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                 Mt4DotNetManagerWrapperSteps steps = (Mt4DotNetManagerWrapperSteps)
                     GetStepDefinition(Steps.Mt4DotNetManagerWrapperSteps.FullName) ??
                                          new Mt4DotNetManagerWrapperSteps();
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }
+        }
+
+        public static CompareArsAndRedisPositionsSteps CompareArsAndRedisPositionsSteps
+        {
+            get
+            {
+                bool toAdd = GetStepDefinition(CompareArsAndRedisPositionsSteps.FullName) == null;
+                CompareArsAndRedisPositionsSteps steps = (CompareArsAndRedisPositionsSteps)
+                    GetStepDefinition(Steps.CompareArsAndRedisPositionsSteps.FullName) ??
+                                         new CompareArsAndRedisPositionsSteps(new Dictionary<string, PositionDataTable>());
+                if (toAdd)
+                {
+                    ObjectContainer.RegisterInstanceAs(steps);
+                }
+                return steps;
+            }            
+        }
+
+        public static GetRedisPositionsSteps GetRedisPositionsSteps
+        {
+            get
+            {
+                bool toAdd = GetStepDefinition(GetRedisPositionsSteps.FullName) == null;
+                GetRedisPositionsSteps steps = (GetRedisPositionsSteps)
+                    GetStepDefinition(Steps.GetRedisPositionsSteps.FullName) ??
+                                         new GetRedisPositionsSteps(new Dictionary<string, PositionDataTable>());
                 if (toAdd)
                 {
                     ObjectContainer.RegisterInstanceAs(steps);

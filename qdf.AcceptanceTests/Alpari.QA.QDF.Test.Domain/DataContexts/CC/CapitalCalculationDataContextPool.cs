@@ -5,6 +5,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using Alpari.QualityAssurance.SecureMyPassword;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
@@ -31,10 +32,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             set
             {
                 _capitalCalculationDataContextPoolParams = value;
-                CapitalCalculationDataContexts.Add(value.Connection1, new CapitalCalculationDataContext(
+                CapitalCalculationDataContexts.Add(value.Connection1+1, new CapitalCalculationDataContext(
                     ConfigurationManager.ConnectionStrings[value.Connection1].ConnectionString
                         .UnProtect('_')));
-                CapitalCalculationDataContexts.Add(value.Connection2, new CapitalCalculationDataContext(
+                CapitalCalculationDataContexts.Add(value.Connection2+2, new CapitalCalculationDataContext(
                     ConfigurationManager.ConnectionStrings[value.Connection2].ConnectionString
                         .UnProtect('_')));
             }
@@ -111,6 +112,41 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             CapitalCalculationDataContext.CalculateDiffs(list);
             CapitalCalculationDataContext.CalculateDeltas(list);
             return list;
+        }
+
+        /// <summary>
+        /// Shouldn't be in here, move to the context.
+        /// </summary>
+        /// <param name="snapshotParams"></param>
+        /// <returns></returns>
+        public ClientPositionDataTable GetRedisAndArsClientPositions(CapitalCalculationSnapshotParameters snapshotParams)
+        {
+            ClientPositionDataTable dict1 = null;
+            //ClientPositionDataTable dict2 = null;
+            //Task task1 = Task.Factory.StartNew(() => 
+            dict1 =
+                CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.First()].GetClientPositions(
+                    new CapitalCalculationSnapshotParameters
+                    {
+                        Database1 = snapshotParams.Database1,
+                        Server1 = snapshotParams.Server1
+                    })
+                    .ConvertToTypedDataTable<ClientPositionDataTable>(CapitalCalculationDataContexts.Keys.First(),
+                        new[] {"Login", "Ticket"}); //);
+            return dict1;
+            //Task task2 = Task.Factory.StartNew(() =>
+            //dict2 =
+            //    CapitalCalculationDataContexts[CapitalCalculationDataContexts.Keys.Last()].GetClientPositions(
+            //        new CapitalCalculationSnapshotParameters
+            //        {
+            //            Database1 = snapshotParams.Database2,
+            //            Server1 = snapshotParams.Server2
+            //        }
+            //        )
+            //        .ConvertToTypedDataTable<ClientPositionDataTable>(CapitalCalculationDataContexts.Keys.Last(),
+            //            new[] {"Login", "Ticket"}); //);
+            ////Task.WaitAll(task1, task2);
+            //return new[] {dict1, dict2};
         }
     }
 

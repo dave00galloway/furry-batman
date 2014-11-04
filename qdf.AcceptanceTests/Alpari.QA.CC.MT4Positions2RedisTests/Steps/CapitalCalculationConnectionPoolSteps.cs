@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
+using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -40,6 +41,18 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
                     "Server1Volume", ccParameter.Server1, "Server2Volume", ccParameter.Server2, 60);
             }
         }
+
+        [When(@"I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-")]
+        public void WhenICompareCcRedisAndCcArsClientPositionDataAcrossDbConnectionsForTheseSetsOfSnapshotParameters(CapitalCalculationSnapshotParameters snapshotParams)
+        {
+           // var arsData = CapitalCalculationDataContextPool.GetRedisAndArsClientPositions(snapshotParams);
+            GetRedisPositionsSteps.GivenIHaveAConnectionToARedisRepositoryOnPortDb(
+                    snapshotParams.Connection2, 6379, Convert.ToInt32(snapshotParams.Database2), "alpari-positions");
+            GetRedisPositionsSteps.WhenIGetAllPositionsForServer(snapshotParams.Server2);
+            var redisData = new ClientPositionDataTable().ConvertIEnumerableToDataTable(GetRedisPositionsSteps.Positions, "redis data", new[] { "Login", "Ticket" });
+
+        }
+
 
         [Then(@"the count of cc connections is (.*)")]
         public void ThenTheCountOfCcConnectionsIs(int expectedConnectionCount)

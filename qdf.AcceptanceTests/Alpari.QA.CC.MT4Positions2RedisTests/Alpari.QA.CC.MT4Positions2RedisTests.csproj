@@ -166,6 +166,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC-1014_AT_Create Tools for comparing redis positions.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSCC_1236CompareClientPositions.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC_1236CompareClientPositions.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\CapitalCalculationConnectionPoolSteps.cs" />
     <Compile Include="Steps\CapitalCalculationSnapshotSteps.cs" />
     <Compile Include="Steps\CompareArsAndRedisPositionsSteps.cs" />
@@ -305,6 +310,10 @@
     <Content Include="TestData\LogFileTests\Build56_Service_Log_extract_extended.log">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Specs\UKUSCC_1236CompareClientPositions.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1236CompareClientPositions.feature.cs</LastGenOutput>
+    </None>
     <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\C1.csv" />
     <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\C2.csv" />
     <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\CBoJ.csv" />

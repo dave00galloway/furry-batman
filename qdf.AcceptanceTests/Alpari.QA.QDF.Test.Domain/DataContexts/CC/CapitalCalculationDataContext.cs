@@ -135,6 +135,23 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             return result;
         }
 
+        public DataTable GetClientPositions(CapitalCalculationSnapshotParameters ccParameters)
+        {
+            return SelectDataAsDataTable(GetServerClientPositionsQueryString(ccParameters));
+        }
+
+        private static string GetServerClientPositionsQueryString(CapitalCalculationSnapshotParameters ccParameters)
+        {
+            return String.Format(
+                " SET time_zone = '+00:00'; " +
+                " USE {0}; " +
+                " SET @Server1 = '{1}'; " +
+                " SET @Srv1 = (SELECT cts.ID FROM  cc_tbl_server cts WHERE cts.Name = @Server1); " + 
+                " call cc_sp_get_client_positions(@Srv1,NULL);  "
+                ,ccParameters.Database1, ccParameters.Server1
+                );
+        }
+
         private static string GetSinglePositionQueryString(CapitalCalculationSnapshotParameters ccParameters)
         {
             return String.Format(
@@ -321,5 +338,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 ccParameters.Server, ccParameters.Symbol,
                 ccParameters.Section);
         }
+
+
     }
 }

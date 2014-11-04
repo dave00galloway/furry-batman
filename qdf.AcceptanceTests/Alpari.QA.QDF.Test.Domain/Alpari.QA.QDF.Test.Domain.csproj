@@ -90,6 +90,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="TypedDataTables\CapitalCalculation\ClientPositionDataTable.cs" />
     <Compile Include="TypedDataTables\CapitalCalculation\PositionDataTable.cs" />
     <Compile Include="TypedDataTables\CapitalCalculation\PositionDataTableDictionary.cs" />
     <Compile Include="TypedDataTables\MT5\DealsDataTable.cs" />
