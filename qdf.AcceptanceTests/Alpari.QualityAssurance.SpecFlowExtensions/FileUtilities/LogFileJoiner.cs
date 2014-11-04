@@ -31,14 +31,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 
     public class CombineLogFileParameters
     {
-        public CombineLogFileParameters()
-        {
-           // JoinType = JoinType.Concatenate;
-        }
-
         public String File1 { get; set; }
         public String File2 { get; set; }
         public String OutputFile { get; set; }
+
+        /// <summary>
+        ///     Defaults to Concatenate as enums are ints, so there is no need to try to set a default value in the constructor or
+        ///     anywhere else
+        /// </summary>
         public JoinType JoinType { get; set; }
     }
 

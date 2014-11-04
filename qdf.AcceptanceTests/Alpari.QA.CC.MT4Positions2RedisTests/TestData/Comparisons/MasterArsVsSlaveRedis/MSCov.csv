@@ -1,0 +1,5 @@
+|server1 | server2 | Database1 | Database2 |Connection1|Connection2| section | book | symbol | startTime           | endTime     |        
+|MS Cov|MS Cov R|cc| cc_uat    |CcMaster|CcSlave| default | A    | USDJPY | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|MS Cov|MS Cov R|cc| cc_uat    |CcMaster|CcSlave| default | A    | XAUUSD | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|MS Cov|MS Cov R|cc| cc_uat    |CcMaster|CcSlave| default | B    | USDJPY | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|MS Cov|MS Cov R|cc| cc_uat    |CcMaster|CcSlave| default | B    | XAUUSD | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
