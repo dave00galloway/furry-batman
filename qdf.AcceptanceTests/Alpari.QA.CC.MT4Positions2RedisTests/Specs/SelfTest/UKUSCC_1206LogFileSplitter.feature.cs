@@ -105,7 +105,7 @@ this.ScenarioSetup(scenarioInfo);
                         ",",
                         "output.csv"});
 #line 13
- testRunner.Given("I have the following split log file parser parameters:-", ((string)(null)), table2, "Given ");
+ testRunner.And("I have the following split log file parser parameters:-", ((string)(null)), table2, "And ");
 #line 17
  testRunner.When("I split the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 19
@@ -151,6 +151,32 @@ this.ScenarioSetup(scenarioInfo);
                         "1"});
 #line 24
  testRunner.Then("the mt4P2RLogEntryAnalysisList has the following entries:-", ((string)(null)), table3, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Split another log file")]
+        public virtual void SplitAnotherLogFile()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Split another log file", ((string[])(null)));
+#line 32
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "startAt",
+                        "endAt",
+                        "outputfile"});
+            table4.AddRow(new string[] {
+                        "C:\\Temp\\MT4P2R_Build73_10_10_144_25_443_2014-10-29.log",
+                        "29/10/2014 17:38:16.837",
+                        "[29/10/2014 23:59:59.959] U_TRANS_UPDATE: 1000000563(#13455182) succeeded",
+                        "extract.log"});
+#line 34
+ testRunner.Given("I have the following log file splitter parameters:-", ((string)(null)), table4, "Given ");
+#line 38
+ testRunner.When("I split the log file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

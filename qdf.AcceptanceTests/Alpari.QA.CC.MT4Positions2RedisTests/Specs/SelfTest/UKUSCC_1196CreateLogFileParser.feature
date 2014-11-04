@@ -49,8 +49,8 @@ Scenario: Parse log extended file extract and export to graph
 
 Scenario: Cleanse log file
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                          | parseSyntax                     | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                            |
-	| C:\TEMP\LoadTestResults\build58\run002\01InsertTrades\MT4P2R_build58_10_10_144_25_443_2014-10-21.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , | ^                    | ,                    | MT4P2R_build58_10_10_144_25_443_2014-10-21_parsed.log |
+	| fileToParse                                            | parseSyntax                     | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                                |
+	| C:\TEMP\MT4P2R_Build73_10_10_144_25_443_2014-10-29.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , | ^                    | ,                    | MT4P2R_Build73_10_10_144_25_443_2014-10-29.log_parsed.log |
 
 	When I parse the log file
 
