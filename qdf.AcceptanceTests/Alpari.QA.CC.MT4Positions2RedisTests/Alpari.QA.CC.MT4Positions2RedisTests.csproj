@@ -307,6 +307,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\C1.csv" />
+    <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\C2.csv" />
+    <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\CBoJ.csv" />
+    <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\JPN.csv" />
+    <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\M1.csv" />
+    <None Include="TestData\Comparisons\MasterArsVsSlaveRedis\M2.csv" />
     <None Include="TestData\OddsandEvens.xlsx" />
     <Content Include="TestData\SingleBuySellPartialCloseAl.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

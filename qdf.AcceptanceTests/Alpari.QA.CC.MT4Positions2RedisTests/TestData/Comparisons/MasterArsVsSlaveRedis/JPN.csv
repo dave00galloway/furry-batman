@@ -1,0 +1,9 @@
+|server1 | server2 | Database1 | Database2 |Connection1|Connection2| section | book | symbol | startTime           | endTime     |        
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | EURUSD | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | GBPUSD | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | GBPJPY | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | USDCHF | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | EURCHF | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | USDJPY | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | EURJPY | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |
+|JPN|JPN Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | AUDUSD | 2014/09/28 20:14:00 | 2014/10/02 15:00:00 |

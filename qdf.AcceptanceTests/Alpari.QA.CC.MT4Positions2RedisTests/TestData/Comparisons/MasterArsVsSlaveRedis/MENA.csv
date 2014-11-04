@@ -1,0 +1,15 @@
+|server1 | server2 | Database1 | Database2 |Connection1|Connection2| section | book | symbol | startTime           | endTime     |        
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | EURUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | GBPUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | GBPJPY  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | USDCHF  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | EURCHF  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | USDJPY  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | A    | XAUUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | EURUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | GBPUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | USDJPY  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | XAUUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | XAGUSD  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | NQ100.Z | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |
+| MENA| MENA Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | US30.Z  | 2014/10/28 17:00:00 | 2014/10/31 13:00:00 |

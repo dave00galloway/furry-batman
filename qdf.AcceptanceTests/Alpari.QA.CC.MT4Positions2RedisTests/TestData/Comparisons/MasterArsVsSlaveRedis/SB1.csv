@@ -1,0 +1,11 @@
+|server1 | server2 | Database1 | Database2 |Connection1|Connection2| section | book | symbol | startTime           | endTime     |        
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | EURUSD  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | GBPUSD  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | GBPJPY  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | USDCHF  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | EURCHF  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | USDJPY  | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | UK100.Z | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | B.X4    | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | FRA40.V | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |
+| SB1    | SB1 Red|cc| cc_uat    |CcMaster|CcSlave| US      | B    | HG.V4   | 2014/09/28 17:00:00 | 2014/10/02 15:00:00 |

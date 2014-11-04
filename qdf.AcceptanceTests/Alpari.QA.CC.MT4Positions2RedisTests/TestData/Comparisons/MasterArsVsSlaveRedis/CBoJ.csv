@@ -1,0 +1,9 @@
+|server1 | server2 | Database1 | Database2 |Connection1|Connection2| section | book | symbol | startTime           | endTime     |        
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | EURUSD | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | GBPUSD | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | GBPJPY | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | USDCHF | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | EURCHF | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | USDJPY | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | XAUUSD | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
+|CBoJ|CBoJ Red|cc| cc_uat    |CcMaster|CcSlave| default | B    | XAGUSD | 2014/10/28 17:00:00 | 2014/10/30 15:06:00 |
