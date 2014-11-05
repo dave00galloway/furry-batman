@@ -55,6 +55,36 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
         //    return this;
         //}
 
+        public ClientPositionDataTable ConvertIEnumerableToDataTable(IEnumerable<ClientPosition> enumeratedObjects,
+            string tableName,
+            string[] primaryKeys)
+        {
+            SetupDataTable(enumeratedObjects);
+            TableName = tableName;
+            SetPrimaryKey(primaryKeys);
+            return this;
+        }
+
+        private void SetupDataTable(IEnumerable<ClientPosition> enumeratedObjects)
+        {
+            foreach (ClientPosition clientPosition in enumeratedObjects)
+            {
+                Rows.Add(new object[]
+                {
+                    clientPosition.ServerName,
+                    clientPosition.ServerId,
+                    clientPosition.Login,
+                    clientPosition.Ticket,
+                    clientPosition.Symbol,
+                    clientPosition.SectionId,
+                    clientPosition.Group,
+                    clientPosition.Counterparty,
+                    clientPosition.BaseVolume
+                }
+                    );
+            }
+        }
+
         public ClientPositionDataTable ConvertIEnumerableToDataTable(IEnumerable<Position> enumeratedObjects,
             string tableName,
             string[] primaryKeys)
@@ -104,7 +134,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
             Columns.Add(new DataColumn("Login", typeof (int)));
             Columns.Add(new DataColumn("Ticket", typeof (string)));
             Columns.Add(new DataColumn("Symbol", typeof (string)));
-            Columns.Add(new DataColumn("SectionId", typeof (int)));
+            Columns.Add(new DataColumn("SectionId", typeof (object)));
             Columns.Add(new DataColumn("Group", typeof (string)));
             Columns.Add(new DataColumn("Counterparty", typeof (string)));
             Columns.Add(new DataColumn("BaseVolume", typeof (decimal)));
@@ -153,10 +183,13 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
             set { base["Symbol"] = value; }
         }
 
+        /// <summary>
+        /// This is a bodge as section id is int in db but mapped to string iun excel report. Should really have 2 datatatble classes
+        /// </summary>
         [UsedImplicitly]
-        public int SectionId
+        public object SectionId
         {
-            get { return (int) base["SectionId"]; }
+            get { return base["SectionId"]; }
             set { base["SectionId"] = value; }
         }
 
@@ -180,5 +213,35 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
             get { return (decimal) base["BaseVolume"]; }
             set { base["BaseVolume"] = value; }
         }
+    }
+
+    public class ClientPosition
+    {
+        [UsedImplicitly]
+        public string ServerName { get; set; }
+
+        [UsedImplicitly]
+        public int ServerId { get; set; }
+
+        [UsedImplicitly]
+        public int Login { get; set; }
+
+        [UsedImplicitly]
+        public string Ticket { get; set; }
+
+        [UsedImplicitly]
+        public string Symbol { get; set; }
+
+        [UsedImplicitly]
+        public string SectionId { get; set; }
+
+        [UsedImplicitly]
+        public string Group { get; set; }
+
+        [UsedImplicitly]
+        public string Counterparty { get; set; }
+
+        [UsedImplicitly]
+        public decimal BaseVolume { get; set; }
     }
 }

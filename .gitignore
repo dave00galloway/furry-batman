@@ -170,3 +170,5 @@ logs
 config
 ~$*.xls*
 qdf.AcceptanceTests/packages/FluentAssertions.*
+qdf.AcceptanceTests/packages/LinqToExcel.*
+qdf.AcceptanceTests/packages/log4net.*

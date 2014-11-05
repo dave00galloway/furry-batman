@@ -140,6 +140,406 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare C2 Client Positions")]
+        public virtual void CompareC2ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare C2 Client Positions", ((string[])(null)));
+#line 23
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "MT4AUKC02",
+                        "cc",
+                        "11",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 24
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table4, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table5.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 27
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table5, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare B2B Client Positions")]
+        public virtual void CompareB2BClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare B2B Client Positions", ((string[])(null)));
+#line 31
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table6.AddRow(new string[] {
+                        "B2B",
+                        "MT4AUKB2B1",
+                        "cc",
+                        "11",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 32
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table6, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table7.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 35
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table7, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare JPN Client Positions")]
+        public virtual void CompareJPNClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare JPN Client Positions", ((string[])(null)));
+#line 39
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table8.AddRow(new string[] {
+                        "JPN",
+                        "MT4JPC01",
+                        "cc",
+                        "11",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 40
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table8, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table9.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 43
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table9, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare CBOJ Client Positions")]
+        public virtual void CompareCBOJClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare CBOJ Client Positions", ((string[])(null)));
+#line 47
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table10.AddRow(new string[] {
+                        "CBoJ",
+                        "MT4AUKCBJ",
+                        "cc",
+                        "12",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 48
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table10, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table11.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 51
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table11, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKM01 Client Positions")]
+        public virtual void CompareMT4AUKM01ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKM01 Client Positions", ((string[])(null)));
+#line 55
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table12.AddRow(new string[] {
+                        "M1",
+                        "MT4AUKM01",
+                        "cc",
+                        "12",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 56
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table12, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table13.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 59
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table13, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKM02 Client Positions")]
+        public virtual void CompareMT4AUKM02ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKM02 Client Positions", ((string[])(null)));
+#line 63
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table14.AddRow(new string[] {
+                        "M2",
+                        "MT4AUKM02",
+                        "cc",
+                        "12",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 64
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table14, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table15.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 67
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table15, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKP01 Client Positions")]
+        public virtual void CompareMT4AUKP01ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKP01 Client Positions", ((string[])(null)));
+#line 71
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table16.AddRow(new string[] {
+                        "Pro",
+                        "MT4AUKP01",
+                        "cc",
+                        "12",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 72
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table16, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table17.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 75
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table17, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKMARKET1 Client Positions")]
+        public virtual void CompareMT4AUKMARKET1ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKMARKET1 Client Positions", ((string[])(null)));
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table18.AddRow(new string[] {
+                        "MK1",
+                        "MT4AUKMARKET1",
+                        "cc",
+                        "13",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 80
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table18, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table19.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 83
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table19, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKMARKETMENA Client Positions")]
+        public virtual void CompareMT4AUKMARKETMENAClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKMARKETMENA Client Positions", ((string[])(null)));
+#line 87
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table20.AddRow(new string[] {
+                        "MENA",
+                        "MT4AUKMARKETMENA",
+                        "cc",
+                        "13",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 88
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table20, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table21.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 91
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table21, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare MT4AUKSB1 Client Positions")]
+        public virtual void CompareMT4AUKSB1ClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKSB1 Client Positions", ((string[])(null)));
+#line 95
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+                        "server1",
+                        "server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2"});
+            table22.AddRow(new string[] {
+                        "SB1",
+                        "MT4AUKSB1",
+                        "cc",
+                        "13",
+                        "CcMaster",
+                        "uk-redis-cc1.dc.alpari.com"});
+#line 96
+ testRunner.When("I compare cc redis and cc ars client position data across db connections for thes" +
+                    "e sets of snapshot parameters:-", ((string)(null)), table22, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table23.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 99
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table23, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
