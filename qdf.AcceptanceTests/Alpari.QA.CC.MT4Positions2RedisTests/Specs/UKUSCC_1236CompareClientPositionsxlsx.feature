@@ -4,6 +4,8 @@ Feature: UKUSCC_1236CompareClientPositionsXlsx
 	As a CC tester
 	I want to compare cc_sp_get_client_positions between cc@master and cc_uat@slave3
 
+	#requires http://www.microsoft.com/en-gb/download/details.aspx?id=23734 a copy is saved in lib\2007OfficeSystemDriverDataConnectivityComponents
+
 Scenario: Compare C1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                               | ArsPositionsFile                                                  |

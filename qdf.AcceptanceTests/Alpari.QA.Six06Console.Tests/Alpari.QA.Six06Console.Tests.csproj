@@ -164,7 +164,7 @@
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)Clean.ps1 $(OutputPath)</PreBuildEvent>
+    <!--<PreBuildEvent>%25WINDIR%25\System32\WindowsPowerShell\v1.0\powershell.exe $(ProjectDir)Clean.ps1 $(OutputPath)</PreBuildEvent>-->
   </PropertyGroup>
   <Target Name="BeforeBuild">
     <CallTarget Targets="SpicNSpan" />
