@@ -3,7 +3,7 @@ Feature: UKUSCC_1236CompareClientPositionsXlsx
 	In order to find discrepancies in redis and ars open positions
 	As a CC tester
 	I want to compare cc_sp_get_client_positions between cc@master and cc_uat@slave3
-	#test
+
 	#requires http://www.microsoft.com/en-gb/download/details.aspx?id=23734 a copy is saved in lib\2007OfficeSystemDriverDataConnectivityComponents
 
 Scenario: Compare C1 Client Positions
