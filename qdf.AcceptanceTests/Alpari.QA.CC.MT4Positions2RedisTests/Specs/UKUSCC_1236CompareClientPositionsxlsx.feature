@@ -30,14 +30,14 @@ Scenario: Compare B2B Client Positions
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 #
-#Scenario: Compare JPN Client Positions
-#	When I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-
-#	| server1 | server2  | Database1 | Database2 | Connection1 | Connection2                |
-#	| JPN     | MT4JPC01 | cc        | 11        | CcMaster    | uk-redis-cc1.dc.alpari.com |
-#	Then the redis positions should match the ars positions exactly:-
-#		| ExportType     |  Overwrite |
-#		| DataTableToCsv |  true      |
-#
+Scenario: Compare JPN Client Positions
+	When I compare cc redis and cc ars client position data from xlsx:-
+	| RedisPositionsFile                                                             | ArsPositionsFile                                                                  |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_ajpc01_4_20141126_171019.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_ajpc01_4_20141126_171038.xlsx |
+	Then the redis positions should match the ars positions exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+
 
 Scenario: Compare CBOJ Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-

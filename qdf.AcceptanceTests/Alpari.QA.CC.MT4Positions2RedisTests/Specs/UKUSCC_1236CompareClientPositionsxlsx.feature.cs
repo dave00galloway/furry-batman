@@ -155,20 +155,21 @@ this.ScenarioSetup(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Compare CBOJ Client Positions")]
-        public virtual void CompareCBOJClientPositions()
+        [NUnit.Framework.DescriptionAttribute("Compare JPN Client Positions")]
+        public virtual void CompareJPNClientPositions()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare CBOJ Client Positions", ((string[])(null)));
-#line 42
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare JPN Client Positions", ((string[])(null)));
+#line 33
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table7.AddRow(new string[] {
-                        "H:\\Downloads\\Positions_Redis_MT4AUKCBJ_3057_20141105_162555.xlsx",
-                        "H:\\Downloads\\Positions_Database_ars_cboj_57_20141105_162554.xlsx"});
-#line 43
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_ajpc01_4_20141126_171019.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_ajpc01_4_20141126_171038.xlsx" +
+                            ""});
+#line 34
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table7, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
@@ -177,8 +178,37 @@ this.ScenarioSetup(scenarioInfo);
             table8.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 46
+#line 37
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table8, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare CBOJ Client Positions")]
+        public virtual void CompareCBOJClientPositions()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare CBOJ Client Positions", ((string[])(null)));
+#line 42
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+                        "RedisPositionsFile",
+                        "ArsPositionsFile"});
+            table9.AddRow(new string[] {
+                        "H:\\Downloads\\Positions_Redis_MT4AUKCBJ_3057_20141105_162555.xlsx",
+                        "H:\\Downloads\\Positions_Database_ars_cboj_57_20141105_162554.xlsx"});
+#line 43
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table9, "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table10.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 46
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table10, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -191,23 +221,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 50
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table9 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table9.AddRow(new string[] {
+            table11.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKM01_3047_20141105_153940.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_aukm01_47_20141105_153940.xlsx"});
 #line 51
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table9, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table11, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table10 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table10.AddRow(new string[] {
+            table12.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 54
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table10, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table12, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -220,23 +250,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 58
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table11 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table11.AddRow(new string[] {
+            table13.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKM02_3048_20141105_154117.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_aukm02_48_20141105_154115.xlsx"});
 #line 59
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table11, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table13, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table12.AddRow(new string[] {
+            table14.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 62
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table12, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table14, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -249,23 +279,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 66
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table13 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table13.AddRow(new string[] {
+            table15.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKP01_3049_20141105_161007.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_AUKP01_49_20141105_161005.xlsx"});
 #line 67
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table13, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table15, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table14.AddRow(new string[] {
+            table16.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 70
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table14, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table16, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -278,23 +308,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 74
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table15 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table15.AddRow(new string[] {
+            table17.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKMARKET1_3089_20141105_163035.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_AUKMarket1_89_20141105_163055.xlsx"});
 #line 75
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table15, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table17, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table16.AddRow(new string[] {
+            table18.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 78
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table16, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table18, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -307,23 +337,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 82
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table17 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table17.AddRow(new string[] {
+            table19.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKMARKETMENA_3090_20141105_165944.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_AUKMarketMENA_90_20141105_165944.xlsx"});
 #line 83
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table17, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table19, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table18 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table18.AddRow(new string[] {
+            table20.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 86
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table18, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table20, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -336,23 +366,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 90
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table19 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table19.AddRow(new string[] {
+            table21.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKMARKETMENA_3090_20141105_172100.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_AUKMarketMENA_90_20141105_172104.xlsx"});
 #line 91
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table19, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table21, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table20 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table20.AddRow(new string[] {
+            table22.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 94
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table20, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -365,23 +395,23 @@ this.ScenarioSetup(scenarioInfo);
 #line 98
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
-            table21.AddRow(new string[] {
+            table23.AddRow(new string[] {
                         "H:\\Downloads\\Positions_Redis_MT4AUKSB1_3053_20141105_161250.xlsx",
                         "H:\\Downloads\\Positions_Database_ars_AUKSB1_53_20141105_161256.xlsx"});
 #line 99
- testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table21, "When ");
+ testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table23, "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
                         "ExportType",
                         "Overwrite"});
-            table22.AddRow(new string[] {
+            table24.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
 #line 102
- testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table22, "Then ");
+ testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
