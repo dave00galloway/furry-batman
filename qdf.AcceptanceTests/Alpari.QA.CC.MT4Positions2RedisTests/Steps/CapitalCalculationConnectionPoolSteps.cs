@@ -47,6 +47,32 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
             }
         }
 
+        /// <summary>
+        /// Use where the MT server name is the same, but the database is different. this could be across differnt connections
+        /// </summary>
+        /// <param name="ccParameters"></param>
+        [When(@"I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-")]
+        public void WhenIGetCcRedisAndCcArsPositionDataAcrossDbConnectionsAndDatabasesForTheseSetsOfSnapshotParameters(
+            IEnumerable<CapitalCalculationSnapshotParameters> ccParameters)
+        {
+            foreach (CapitalCalculationSnapshotParameters ccParameter in ccParameters)
+            {
+                string resultName = String.Format("{0}_{1}_{2}_{3}_{4}", ccParameter.Server1, ccParameter.Server2,
+                    ccParameter.Symbol, ccParameter.Section, ccParameter.Book);
+                _result =
+                    CapitalCalculationDataContextPool.GetRedisAndArsPositionSnapshots(ccParameter);
+                foreach (var comparison in _result)
+                {
+                    comparison.Server1Name = ccParameter.Database1;
+                    comparison.Server2Name = ccParameter.Database2;
+                }
+
+                CapitalCalculationSnapshotSteps.OutputComparisonResults(ccParameter, _result, resultName,
+                    ScenarioOutputDirectory, "SnapshotTimeToMinute",
+                    "Server1Volume", ccParameter.Database1, "Server2Volume", ccParameter.Database2, 60);
+            }
+        }
+
         [When(
             @"I compare cc redis and cc ars client position data across db connections for these sets of snapshot parameters:-"
             )]

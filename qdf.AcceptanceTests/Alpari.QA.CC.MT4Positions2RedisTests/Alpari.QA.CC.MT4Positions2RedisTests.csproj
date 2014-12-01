@@ -110,6 +110,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CompareArsAndRedisPositionData.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\SelfTest\UKUSCC_1299CompareArsPositionsInCcNextMasterToRedisPositionsInCcMaster.feature.cs">
+      <DependentUpon>UKUSCC_1299CompareArsPositionsInCcNextMasterToRedisPositionsInCcMaster.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Specs\UKUSCC_1236CompareClientPositionsxlsx.feature.cs">
       <DependentUpon>UKUSCC_1236CompareClientPositionsxlsx.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -232,6 +237,10 @@
     <None Include="Specs\CompareArsAndRedisPositionData.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>CompareArsAndRedisPositionData.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\SelfTest\UKUSCC_1299CompareArsPositionsInCcNextMasterToRedisPositionsInCcMaster.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC_1299CompareArsPositionsInCcNextMasterToRedisPositionsInCcMaster.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC_1236CompareClientPositionsxlsx.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
