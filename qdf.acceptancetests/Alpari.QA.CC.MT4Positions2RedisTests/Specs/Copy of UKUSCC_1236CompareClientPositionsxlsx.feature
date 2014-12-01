@@ -1,8 +1,8 @@
 ﻿@UKUSCC_1236 
-Feature: UKUSCC_1236CompareClientPositionsXlsx
+Feature: UKUSCC_1236CompareClientPositionsXlsxCcVsCcUat
 	In order to find discrepancies in redis and ars open positions
 	As a CC tester
-	I want to compare cc_sp_get_client_positions between cc@master and cc_uat@slave3
+	I want to compare cc_sp_get_client_positions between cc and cc_uat
 	#test
 	#requires http://www.microsoft.com/en-gb/download/details.aspx?id=23734 a copy is saved in lib\2007OfficeSystemDriverDataConnectivityComponents
 
@@ -16,8 +16,8 @@ Scenario: Compare C1 Client Positions
 
 Scenario: Compare C2 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
-	| RedisPositionsFile                                                               | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_MT4AUKC02_3046_20141127_091927.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC02_46_20141127_091855.xlsx |
+	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKC02_46_20141127_195836.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC02_46_20141127_195804.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |

@@ -2332,6 +2332,47 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Do ADS STP Comparison")]
+        public virtual void DoADSSTPComparison()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS STP Comparison", ((string[])(null)));
+#line 230
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table14 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server1",
+                        "Server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2",
+                        "Book",
+                        "Section",
+                        "Symbol",
+                        "StartTime",
+                        "EndTime"});
+            table14.AddRow(new string[] {
+                        "ADS STP",
+                        "ADS STP R",
+                        "cc",
+                        "cc_uat",
+                        "CcMaster",
+                        "CcSlave",
+                        "B",
+                        "Default",
+                        "EURUSD",
+                        "2014-11-28 09:30:00",
+                        "2014-11-28 10:00:00"});
+#line 231
+ testRunner.When("I get cc redis and cc ars position data across db connections for these sets of s" +
+                    "napshot parameters:-", ((string)(null)), table14, "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

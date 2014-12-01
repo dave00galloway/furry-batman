@@ -19,22 +19,22 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("UKUSCC_1236CompareClientPositionsXlsx")]
+    [NUnit.Framework.DescriptionAttribute("UKUSCC_1236CompareClientPositionsXlsxCcVsCcUat")]
     [NUnit.Framework.CategoryAttribute("UKUSCC_1236")]
-    public partial class UKUSCC_1236CompareClientPositionsXlsxFeature
+    public partial class UKUSCC_1236CompareClientPositionsXlsxCcVsCcUatFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "UKUSCC_1236CompareClientPositionsxlsx.feature"
+#line 1 "Copy of UKUSCC_1236CompareClientPositionsxlsx.feature"
 #line hidden
         
         [NUnit.Framework.TestFixtureSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1236CompareClientPositionsXlsx", "In order to find discrepancies in redis and ars open positions\r\nAs a CC tester\r\nI" +
-                    " want to compare cc_sp_get_client_positions between cc@master and cc_uat@slave3", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1236CompareClientPositionsXlsxCcVsCcUat", "In order to find discrepancies in redis and ars open positions\r\nAs a CC tester\r\nI" +
+                    " want to compare cc_sp_get_client_positions between cc and cc_uat", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1236"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -109,8 +109,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table3.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_MT4AUKC02_3046_20141127_091927.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC02_46_20141127_091855.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKC02_46_20141127_195836.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC02_46_20141127_195804.xls" +
                             "x"});
 #line 18
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table3, "When ");
