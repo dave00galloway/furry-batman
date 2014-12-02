@@ -116,8 +116,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -128,8 +128,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -140,8 +140,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -152,8 +152,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -164,8 +164,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -176,8 +176,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -188,8 +188,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -200,8 +200,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -212,8 +212,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -224,8 +224,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -236,8 +236,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -248,8 +248,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -260,8 +260,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -272,8 +272,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -284,8 +284,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -296,8 +296,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -308,8 +308,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -320,8 +320,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -332,8 +332,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -344,8 +344,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -356,8 +356,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -368,8 +368,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -380,8 +380,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -392,8 +392,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -404,8 +404,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -416,8 +416,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -428,8 +428,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -440,8 +440,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -452,8 +452,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -464,8 +464,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -476,8 +476,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -488,8 +488,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -500,8 +500,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table2.AddRow(new string[] {
                         "JPN",
                         "JPN",
@@ -512,8 +512,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 14
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table2, "When ");
@@ -553,8 +553,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -565,8 +565,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -577,8 +577,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -589,8 +589,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -601,8 +601,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -613,8 +613,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -625,8 +625,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "B.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -637,8 +637,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -649,8 +649,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -661,8 +661,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -673,8 +673,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -685,8 +685,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -697,8 +697,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EUR50.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -709,8 +709,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -721,8 +721,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -733,8 +733,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -745,8 +745,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -757,8 +757,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -769,8 +769,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -781,8 +781,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -793,8 +793,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -805,8 +805,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -817,8 +817,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -829,8 +829,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -841,8 +841,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -853,8 +853,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -865,8 +865,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -877,8 +877,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -889,8 +889,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -901,8 +901,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -913,8 +913,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -925,8 +925,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -937,8 +937,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -949,8 +949,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "HKDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -961,8 +961,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NOKSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -973,8 +973,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -985,8 +985,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -997,8 +997,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1009,8 +1009,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1021,8 +1021,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1033,8 +1033,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "UK100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1045,8 +1045,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1057,8 +1057,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1069,8 +1069,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1081,8 +1081,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1093,8 +1093,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1105,8 +1105,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1117,8 +1117,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1129,8 +1129,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1141,8 +1141,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1153,8 +1153,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1165,8 +1165,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1177,8 +1177,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1189,8 +1189,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1201,8 +1201,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1213,8 +1213,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1225,8 +1225,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1237,8 +1237,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1249,8 +1249,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZC.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table3.AddRow(new string[] {
                         "C1",
                         "C1",
@@ -1261,8 +1261,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZS.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 52
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table3, "When ");
@@ -1302,8 +1302,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1314,8 +1314,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1326,8 +1326,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1338,8 +1338,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1350,8 +1350,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1362,8 +1362,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1374,8 +1374,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1386,8 +1386,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1398,8 +1398,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1410,8 +1410,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1422,8 +1422,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1434,8 +1434,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1446,8 +1446,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "B.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1458,8 +1458,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1470,8 +1470,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1482,8 +1482,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1494,8 +1494,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1506,8 +1506,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1518,8 +1518,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1530,8 +1530,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1542,8 +1542,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1554,8 +1554,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1566,8 +1566,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EUA.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1578,8 +1578,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EUR50.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1590,8 +1590,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1602,8 +1602,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1614,8 +1614,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1626,8 +1626,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1638,8 +1638,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1650,8 +1650,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1662,8 +1662,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1674,8 +1674,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1686,8 +1686,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1698,8 +1698,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1710,8 +1710,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1722,8 +1722,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1734,8 +1734,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1746,8 +1746,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1758,8 +1758,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1770,8 +1770,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1782,8 +1782,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1794,8 +1794,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1806,8 +1806,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1818,8 +1818,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1830,8 +1830,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1842,8 +1842,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1854,8 +1854,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1866,8 +1866,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1878,8 +1878,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1890,8 +1890,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1902,8 +1902,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1914,8 +1914,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1926,8 +1926,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1938,8 +1938,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1950,8 +1950,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1962,8 +1962,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1974,8 +1974,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1986,8 +1986,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -1998,8 +1998,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2010,8 +2010,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2022,8 +2022,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2034,8 +2034,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2046,8 +2046,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2058,8 +2058,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "HG.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2070,8 +2070,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "MXNJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2082,8 +2082,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2094,8 +2094,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2106,8 +2106,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2118,8 +2118,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2130,8 +2130,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2142,8 +2142,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2154,8 +2154,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2166,8 +2166,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2178,8 +2178,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2190,8 +2190,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "SB.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2202,8 +2202,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2214,8 +2214,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "SI.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2226,8 +2226,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "UK100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2238,8 +2238,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2250,8 +2250,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2262,8 +2262,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2274,8 +2274,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2286,8 +2286,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2298,8 +2298,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2310,8 +2310,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2322,8 +2322,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2334,8 +2334,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2346,8 +2346,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2358,8 +2358,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2370,8 +2370,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2382,8 +2382,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2394,8 +2394,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2406,8 +2406,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2418,8 +2418,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2430,8 +2430,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2442,8 +2442,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2454,8 +2454,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2466,8 +2466,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2478,8 +2478,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2490,8 +2490,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2502,8 +2502,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2514,8 +2514,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2526,8 +2526,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2538,8 +2538,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2550,8 +2550,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2562,8 +2562,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "ZARJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2574,8 +2574,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "ZC.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2586,8 +2586,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "ZS.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2598,8 +2598,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2610,8 +2610,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2622,8 +2622,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2634,8 +2634,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2646,8 +2646,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2658,8 +2658,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2670,8 +2670,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2682,8 +2682,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2694,8 +2694,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2706,8 +2706,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2718,8 +2718,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2730,8 +2730,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2742,8 +2742,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2754,8 +2754,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2766,8 +2766,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2778,8 +2778,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2790,8 +2790,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2802,8 +2802,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2814,8 +2814,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2826,8 +2826,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2838,8 +2838,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2850,8 +2850,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2862,8 +2862,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2874,8 +2874,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2886,8 +2886,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "SI.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2898,8 +2898,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2910,8 +2910,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2922,8 +2922,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2934,8 +2934,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2946,8 +2946,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2958,8 +2958,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2970,8 +2970,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2982,8 +2982,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table4.AddRow(new string[] {
                         "C2",
                         "C2",
@@ -2994,8 +2994,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 117
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table4, "When ");
@@ -3035,8 +3035,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3047,8 +3047,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3059,8 +3059,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3071,8 +3071,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3083,8 +3083,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3095,8 +3095,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3107,8 +3107,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3119,8 +3119,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3131,8 +3131,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3143,8 +3143,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3155,8 +3155,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3167,8 +3167,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3179,8 +3179,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3191,8 +3191,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3203,8 +3203,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3215,8 +3215,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3227,8 +3227,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3239,8 +3239,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3251,8 +3251,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3263,8 +3263,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3275,8 +3275,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3287,8 +3287,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3299,8 +3299,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3311,8 +3311,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3323,8 +3323,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3335,8 +3335,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3347,8 +3347,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3359,8 +3359,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3371,8 +3371,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3383,8 +3383,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3395,8 +3395,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "HKDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3407,8 +3407,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3419,8 +3419,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3431,8 +3431,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3443,8 +3443,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3455,8 +3455,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3467,8 +3467,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3479,8 +3479,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3491,8 +3491,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3503,8 +3503,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3515,8 +3515,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3527,8 +3527,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3539,8 +3539,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3551,8 +3551,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3563,8 +3563,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3575,8 +3575,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3587,8 +3587,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3599,8 +3599,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3611,8 +3611,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3623,8 +3623,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3635,8 +3635,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "ZARJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table5.AddRow(new string[] {
                         "M1",
                         "M1",
@@ -3647,8 +3647,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 263
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table5, "When ");
@@ -3688,8 +3688,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3700,8 +3700,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3712,8 +3712,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3724,8 +3724,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3736,8 +3736,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3748,8 +3748,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3760,8 +3760,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3772,8 +3772,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3784,8 +3784,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3796,8 +3796,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3808,8 +3808,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3820,8 +3820,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3832,8 +3832,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3844,8 +3844,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3856,8 +3856,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3868,8 +3868,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3880,8 +3880,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3892,8 +3892,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3904,8 +3904,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3916,8 +3916,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3928,8 +3928,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3940,8 +3940,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3952,8 +3952,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3964,8 +3964,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3976,8 +3976,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -3988,8 +3988,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4000,8 +4000,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4012,8 +4012,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4024,8 +4024,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4036,8 +4036,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4048,8 +4048,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4060,8 +4060,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4072,8 +4072,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4084,8 +4084,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4096,8 +4096,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4108,8 +4108,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4120,8 +4120,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "HKDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4132,8 +4132,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "MXNJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4144,8 +4144,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NOKJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4156,8 +4156,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NOKSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4168,8 +4168,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4180,8 +4180,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4192,8 +4192,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4204,8 +4204,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4216,8 +4216,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4228,8 +4228,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4240,8 +4240,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4252,8 +4252,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4264,8 +4264,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4276,8 +4276,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4288,8 +4288,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4300,8 +4300,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4312,8 +4312,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4324,8 +4324,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4336,8 +4336,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4348,8 +4348,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4360,8 +4360,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4372,8 +4372,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4384,8 +4384,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4396,8 +4396,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4408,8 +4408,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4420,8 +4420,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4432,8 +4432,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4444,8 +4444,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "ZARJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table6.AddRow(new string[] {
                         "M2",
                         "M2",
@@ -4456,8 +4456,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 319
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table6, "When ");
@@ -4497,8 +4497,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4509,8 +4509,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4521,8 +4521,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4533,8 +4533,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4545,8 +4545,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4557,8 +4557,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4569,8 +4569,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4581,8 +4581,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4593,8 +4593,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4605,8 +4605,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4617,8 +4617,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4629,8 +4629,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4641,8 +4641,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4653,8 +4653,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4665,8 +4665,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CHFSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4677,8 +4677,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4689,8 +4689,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4701,8 +4701,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4713,8 +4713,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4725,8 +4725,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4737,8 +4737,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4749,8 +4749,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4761,8 +4761,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4773,8 +4773,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4785,8 +4785,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4797,8 +4797,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4809,8 +4809,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4821,8 +4821,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4833,8 +4833,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4845,8 +4845,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4857,8 +4857,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4869,8 +4869,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4881,8 +4881,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4893,8 +4893,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4905,8 +4905,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4917,8 +4917,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4929,8 +4929,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4941,8 +4941,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4953,8 +4953,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4965,8 +4965,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4977,8 +4977,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -4989,8 +4989,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5001,8 +5001,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5013,8 +5013,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5025,8 +5025,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5037,8 +5037,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5049,8 +5049,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5061,8 +5061,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5073,8 +5073,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5085,8 +5085,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "HG.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5097,8 +5097,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5109,8 +5109,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5121,8 +5121,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5133,8 +5133,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5145,8 +5145,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5157,8 +5157,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "SI.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5169,8 +5169,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5181,8 +5181,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5193,8 +5193,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5205,8 +5205,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5217,8 +5217,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5229,8 +5229,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5241,8 +5241,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5253,8 +5253,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5265,8 +5265,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5277,8 +5277,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5289,8 +5289,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5301,8 +5301,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5313,8 +5313,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5325,8 +5325,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5337,8 +5337,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5349,8 +5349,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5361,8 +5361,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5373,8 +5373,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5385,8 +5385,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5397,8 +5397,8 @@ this.FeatureBackground();
                         "B",
                         "UK",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5409,8 +5409,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "USDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5421,8 +5421,8 @@ this.FeatureBackground();
                         "A",
                         "UK",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5433,8 +5433,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5445,8 +5445,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5457,8 +5457,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5469,8 +5469,8 @@ this.FeatureBackground();
                         "A",
                         "US",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5481,8 +5481,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5493,8 +5493,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5505,8 +5505,8 @@ this.FeatureBackground();
                         "B",
                         "US",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5517,8 +5517,8 @@ this.FeatureBackground();
                         "A",
                         "JP",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5529,8 +5529,8 @@ this.FeatureBackground();
                         "A",
                         "JP",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5541,8 +5541,8 @@ this.FeatureBackground();
                         "A",
                         "JP",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5553,8 +5553,8 @@ this.FeatureBackground();
                         "A",
                         "JP",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table7.AddRow(new string[] {
                         "Pro",
                         "Pro",
@@ -5565,8 +5565,8 @@ this.FeatureBackground();
                         "A",
                         "JP",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 388
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table7, "When ");
@@ -5606,8 +5606,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5618,8 +5618,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5630,8 +5630,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5642,8 +5642,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5654,8 +5654,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5666,8 +5666,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "B.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5678,8 +5678,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5690,8 +5690,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5702,8 +5702,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5714,8 +5714,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5726,8 +5726,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5738,8 +5738,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EUA.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5750,8 +5750,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5762,8 +5762,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5774,8 +5774,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5786,8 +5786,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5798,8 +5798,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5810,8 +5810,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5822,8 +5822,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5834,8 +5834,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5846,8 +5846,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5858,8 +5858,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5870,8 +5870,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "G.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5882,8 +5882,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5894,8 +5894,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5906,8 +5906,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5918,8 +5918,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5930,8 +5930,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5942,8 +5942,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5954,8 +5954,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5966,8 +5966,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "HG.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5978,8 +5978,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -5990,8 +5990,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6002,8 +6002,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6014,8 +6014,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "SB.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6026,8 +6026,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6038,8 +6038,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "UK100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6050,8 +6050,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6062,8 +6062,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6074,8 +6074,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6086,8 +6086,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6098,8 +6098,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6110,8 +6110,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6122,8 +6122,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6134,8 +6134,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6146,8 +6146,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6158,8 +6158,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6170,8 +6170,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZARJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table8.AddRow(new string[] {
                         "SB1",
                         "SB1",
@@ -6182,8 +6182,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZS.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 482
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table8, "When ");
@@ -6223,8 +6223,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6235,8 +6235,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6247,8 +6247,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6259,8 +6259,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6271,8 +6271,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6283,8 +6283,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6295,8 +6295,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6307,8 +6307,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6319,8 +6319,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6331,8 +6331,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6343,8 +6343,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6355,8 +6355,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6367,8 +6367,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6379,8 +6379,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6391,8 +6391,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6403,8 +6403,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6415,8 +6415,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6427,8 +6427,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6439,8 +6439,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table9.AddRow(new string[] {
                         "CBoJ",
                         "CBoJ",
@@ -6451,8 +6451,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 535
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table9, "When ");
@@ -6492,8 +6492,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6504,8 +6504,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6516,8 +6516,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6528,8 +6528,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6540,8 +6540,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6552,8 +6552,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6564,8 +6564,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6576,8 +6576,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6588,8 +6588,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6600,8 +6600,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6612,8 +6612,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6624,8 +6624,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6636,8 +6636,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6648,8 +6648,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6660,8 +6660,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6672,8 +6672,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6684,8 +6684,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6696,8 +6696,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6708,8 +6708,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6720,8 +6720,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6732,8 +6732,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6744,8 +6744,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6756,8 +6756,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6768,8 +6768,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6780,8 +6780,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6792,8 +6792,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6804,8 +6804,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6816,8 +6816,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6828,8 +6828,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6840,8 +6840,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6852,8 +6852,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6864,8 +6864,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6876,8 +6876,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6888,8 +6888,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6900,8 +6900,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6912,8 +6912,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6924,8 +6924,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6936,8 +6936,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6948,8 +6948,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6960,8 +6960,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6972,8 +6972,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6984,8 +6984,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -6996,8 +6996,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NOKSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7008,8 +7008,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7020,8 +7020,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7032,8 +7032,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7044,8 +7044,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7056,8 +7056,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7068,8 +7068,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7080,8 +7080,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7092,8 +7092,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7104,8 +7104,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7116,8 +7116,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7128,8 +7128,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7140,8 +7140,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7152,8 +7152,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7164,8 +7164,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7176,8 +7176,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7188,8 +7188,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7200,8 +7200,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7212,8 +7212,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7224,8 +7224,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7236,8 +7236,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7248,8 +7248,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7260,8 +7260,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7272,8 +7272,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7284,8 +7284,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7296,8 +7296,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7308,8 +7308,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7320,8 +7320,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7332,8 +7332,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7344,8 +7344,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table10.AddRow(new string[] {
                         "B2B",
                         "B2B",
@@ -7356,8 +7356,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 559
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table10, "When ");
@@ -7397,8 +7397,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7409,8 +7409,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7421,8 +7421,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7433,8 +7433,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7445,8 +7445,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7457,8 +7457,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7469,8 +7469,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7481,8 +7481,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "B.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7493,8 +7493,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7505,8 +7505,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7517,8 +7517,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7529,8 +7529,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7541,8 +7541,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7553,8 +7553,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7565,8 +7565,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EUR50.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7577,8 +7577,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7589,8 +7589,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7601,8 +7601,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7613,8 +7613,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7625,8 +7625,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURHKD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7637,8 +7637,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7649,8 +7649,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7661,8 +7661,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7673,8 +7673,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7685,8 +7685,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7697,8 +7697,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7709,8 +7709,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7721,8 +7721,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7733,8 +7733,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7745,8 +7745,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7757,8 +7757,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7769,8 +7769,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "G.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7781,8 +7781,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7793,8 +7793,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7805,8 +7805,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7817,8 +7817,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7829,8 +7829,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7841,8 +7841,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7853,8 +7853,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7865,8 +7865,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7877,8 +7877,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7889,8 +7889,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7901,8 +7901,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7913,8 +7913,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7925,8 +7925,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "HG.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7937,8 +7937,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NOKJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7949,8 +7949,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7961,8 +7961,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7973,8 +7973,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7985,8 +7985,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -7997,8 +7997,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8009,8 +8009,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "SB.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8021,8 +8021,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8033,8 +8033,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "SI.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8045,8 +8045,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "UK100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8057,8 +8057,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8069,8 +8069,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8081,8 +8081,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8093,8 +8093,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8105,8 +8105,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8117,8 +8117,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8129,8 +8129,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8141,8 +8141,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8153,8 +8153,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8165,8 +8165,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8177,8 +8177,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8189,8 +8189,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8201,8 +8201,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8213,8 +8213,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8225,8 +8225,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8237,8 +8237,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8249,8 +8249,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZC.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8261,8 +8261,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZC.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8273,8 +8273,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZS.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8285,8 +8285,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "ZARJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8297,8 +8297,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8309,8 +8309,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8321,8 +8321,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDDKK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8333,8 +8333,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EUA.Z4",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table11.AddRow(new string[] {
                         "MK1",
                         "MK1",
@@ -8345,8 +8345,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 636
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table11, "When ");
@@ -8386,8 +8386,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8398,8 +8398,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8410,8 +8410,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8422,8 +8422,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8434,8 +8434,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8446,8 +8446,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8458,8 +8458,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "B.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8470,8 +8470,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8482,8 +8482,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8494,8 +8494,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8506,8 +8506,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8518,8 +8518,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8530,8 +8530,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "DE30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8542,8 +8542,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8554,8 +8554,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8566,8 +8566,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8578,8 +8578,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8590,8 +8590,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8602,8 +8602,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8614,8 +8614,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8626,8 +8626,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8638,8 +8638,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8650,8 +8650,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8662,8 +8662,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8674,8 +8674,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "FRA40.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8686,8 +8686,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8698,8 +8698,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8710,8 +8710,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8722,8 +8722,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8734,8 +8734,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8746,8 +8746,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8758,8 +8758,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8770,8 +8770,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8782,8 +8782,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8794,8 +8794,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8806,8 +8806,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "HG.H5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8818,8 +8818,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NQ100.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8830,8 +8830,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8842,8 +8842,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8854,8 +8854,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8866,8 +8866,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8878,8 +8878,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8890,8 +8890,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US30.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8902,8 +8902,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "US500.Z",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8914,8 +8914,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8926,8 +8926,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8938,8 +8938,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8950,8 +8950,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8962,8 +8962,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8974,8 +8974,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8986,8 +8986,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -8998,8 +8998,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDPLN",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9010,8 +9010,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9022,8 +9022,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9034,8 +9034,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9046,8 +9046,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDZAR",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9058,8 +9058,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9070,8 +9070,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9082,8 +9082,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "ZS.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9094,8 +9094,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9106,8 +9106,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9118,8 +9118,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9130,8 +9130,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "HKDJPY",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9142,8 +9142,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSGD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table12.AddRow(new string[] {
                         "MENA",
                         "MENA",
@@ -9154,8 +9154,8 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 720
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table12, "When ");
@@ -9195,8 +9195,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table13.AddRow(new string[] {
                         "ADS",
                         "ADS",
@@ -9207,8 +9207,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GC.G5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 789
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table13, "When ");
@@ -9248,8 +9248,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table14.AddRow(new string[] {
                         "ADS STP",
                         "ADS STP",
@@ -9260,8 +9260,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table14.AddRow(new string[] {
                         "ADS STP",
                         "ADS STP",
@@ -9272,8 +9272,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table14.AddRow(new string[] {
                         "ADS STP",
                         "ADS STP",
@@ -9284,8 +9284,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table14.AddRow(new string[] {
                         "ADS STP",
                         "ADS STP",
@@ -9296,8 +9296,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table14.AddRow(new string[] {
                         "ADS STP",
                         "ADS STP",
@@ -9308,8 +9308,20 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
+            table14.AddRow(new string[] {
+                        "ADS STP",
+                        "ADS STP",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDSGD",
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
 #line 796
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table14, "When ");
@@ -9322,7 +9334,7 @@ this.FeatureBackground();
         public virtual void DoADSCFDComparison()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS CFD Comparison", ((string[])(null)));
-#line 805
+#line 806
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -9349,9 +9361,21 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
-#line 806
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
+            table15.AddRow(new string[] {
+                        "ADS CFD",
+                        "ADS CFD",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US30.Z",
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
+#line 807
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table15, "When ");
 #line hidden
@@ -9363,7 +9387,7 @@ this.FeatureBackground();
         public virtual void DoFXCMFXComparison()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do FXCM FX Comparison", ((string[])(null)));
-#line 810
+#line 812
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -9390,8 +9414,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCHF",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table16.AddRow(new string[] {
                         "FXCM FX",
                         "FXCM FX",
@@ -9402,8 +9426,8 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
             table16.AddRow(new string[] {
                         "FXCM FX",
                         "FXCM FX",
@@ -9414,9 +9438,21 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/11/28 14:05:00",
-                        "2014/12/01 10:20:00"});
-#line 811
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
+            table16.AddRow(new string[] {
+                        "FXCM FX",
+                        "FXCM FX",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAGUSD",
+                        "2014/12/01 10:20:00",
+                        "2014/12/02 10:25:00"});
+#line 813
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table16, "When ");
 #line hidden
