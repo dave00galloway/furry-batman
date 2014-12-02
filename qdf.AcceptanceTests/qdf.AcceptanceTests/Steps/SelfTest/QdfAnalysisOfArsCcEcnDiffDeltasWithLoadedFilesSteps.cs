@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Alpari.QDF.Domain;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Autofac.Core.Activators.Reflection;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using FluentAssertions;
-using qdf.AcceptanceTests.Helpers;
+using System;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace qdf.AcceptanceTests.Steps.SelfTest

@@ -158,11 +158,11 @@ namespace Alpari.QDF.UIClient.App
         {
             foreach (Deal deal in deals)
             {
-                string dealstring = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13} {14}",
+                string dealstring = string.Format("{0} {1} {2} {3} {4} {5} {6} {7} {8} {9} {10} {11} {12} {13}",
                     deal.TimeStamp, deal.DealId, deal.Server, deal.ClientId,
                     deal.OrderId, deal.Side, deal.State, deal.Instrument, deal.Volume,
-                    deal.ClientPrice, deal.BankPrice, deal.Book, deal.AccountGroup, deal.Comment,
-                    deal.Data);
+                    deal.ClientPrice, deal.BankPrice, deal.Book, deal.AccountGroup, deal.Comment
+                    );
                 Console.WriteLine(dealstring);
             }
         }

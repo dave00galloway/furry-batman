@@ -51,6 +51,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QualityAssurance.Spe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.CC.MT4Positions2RedisTests.X64", "Alpari.QA.CC.MT4Positions2RedisTests.X64\Alpari.QA.CC.MT4Positions2RedisTests.X64.csproj", "{767BE3E8-7D94-4C80-A152-440D740AA117}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.Webdriver.Core", "Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj", "{268C72A1-5093-48FD-8262-FCA688E69F29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.CC.UI.Tests", "Alpari.QA.CC.UI.Tests\Alpari.QA.CC.UI.Tests.csproj", "{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -143,6 +147,14 @@ Global
 		{767BE3E8-7D94-4C80-A152-440D740AA117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{767BE3E8-7D94-4C80-A152-440D740AA117}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{767BE3E8-7D94-4C80-A152-440D740AA117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{268C72A1-5093-48FD-8262-FCA688E69F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268C72A1-5093-48FD-8262-FCA688E69F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268C72A1-5093-48FD-8262-FCA688E69F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268C72A1-5093-48FD-8262-FCA688E69F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
