@@ -173,3 +173,5 @@ qdf.AcceptanceTests/packages/FluentAssertions.*
 qdf.AcceptanceTests/packages/LinqToExcel.*
 qdf.AcceptanceTests/packages/log4net.*
 qdf.acceptancetests/packages/MySql.*
+qdf.acceptancetests/packages/MsgPack.*
+qdf.acceptancetests/packages/Selenium.*
