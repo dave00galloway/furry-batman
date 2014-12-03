@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using Alpari.QDF.UIClient.App;
+﻿using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using CompareCnxHubCsvWithRedisCnxDeals.Helpers;
-using NUnit.Framework;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

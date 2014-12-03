@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

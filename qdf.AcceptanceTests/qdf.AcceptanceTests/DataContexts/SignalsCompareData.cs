@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace qdf.AcceptanceTests.DataContexts
 {
     /// <summary>
     /// wrapper class for SignalsCompareDataDataContext to allow BoDi to set up contexts via DI

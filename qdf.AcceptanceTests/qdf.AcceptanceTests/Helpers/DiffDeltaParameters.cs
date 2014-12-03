@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
+using System;
 
 namespace qdf.AcceptanceTests.Helpers
 {

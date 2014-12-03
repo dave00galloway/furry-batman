@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Threading;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using FluentAssertions;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps

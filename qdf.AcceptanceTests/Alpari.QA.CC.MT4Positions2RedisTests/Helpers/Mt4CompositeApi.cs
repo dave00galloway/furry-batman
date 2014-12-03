@@ -1,15 +1,14 @@
-﻿using System;
+﻿using Alpari.QA.ProcessRunner;
+using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using AlpariUK.Mt4.Wrapper;
+using AlpariUK.Mt4.Wrapper.Enums;
+using AlpariUK.Mt4.Wrapper.Types;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading;
-using Alpari.QA.ProcessRunner;
-using AlpariUK.Mt4.Wrapper;
-using AlpariUK.Mt4.Wrapper.Enums;
-using AlpariUK.Mt4.Wrapper.Types;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {

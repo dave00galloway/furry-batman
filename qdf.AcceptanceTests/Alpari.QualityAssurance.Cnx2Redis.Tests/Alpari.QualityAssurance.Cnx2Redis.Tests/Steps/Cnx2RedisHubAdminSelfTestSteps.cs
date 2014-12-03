@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpari.QDF.Domain;
+﻿using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using FluentAssertions;
+using System;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps

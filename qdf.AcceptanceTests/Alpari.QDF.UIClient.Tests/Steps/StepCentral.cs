@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Alpari.QDF.Domain;
+﻿using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Steps

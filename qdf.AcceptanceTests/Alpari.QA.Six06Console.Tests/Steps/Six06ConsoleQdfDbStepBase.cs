@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using Alpari.QA.QDF.Test.Domain.DataContexts;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps

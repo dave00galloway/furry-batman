@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.CC.MT4Positions2RedisTests.Steps;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Steps;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
 {
     [Binding]
-    public class MT4TradeExeHooks
+    public class Mt4TradeExeHooks
     {
         // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
 

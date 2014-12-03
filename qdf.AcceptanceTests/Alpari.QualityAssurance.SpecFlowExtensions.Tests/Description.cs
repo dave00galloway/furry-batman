@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Alpari.QualityAssurance.SpecFlowExtensions.Tests
+﻿namespace Alpari.QualityAssurance.SpecFlowExtensions.Tests
 {
     /// <summary>
     /// This class library will be the new repository for SpecflowExtensions tests

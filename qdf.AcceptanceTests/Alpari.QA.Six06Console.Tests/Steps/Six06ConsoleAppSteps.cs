@@ -1,8 +1,6 @@
-﻿using System.Linq;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
-using Alpari.QA.Six06Console.Tests.DomainObjects;
+﻿using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using FluentAssertions;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps

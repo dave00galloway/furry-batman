@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Alpari.QDF.Domain;
+﻿using Alpari.QDF.Domain;
 using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using FluentAssertions;

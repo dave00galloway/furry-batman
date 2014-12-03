@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.Steps;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers
 {

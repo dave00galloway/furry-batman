@@ -1,7 +1,4 @@
-﻿using System;
-using System.Data.Linq;
-
-namespace qdf.AcceptanceTests.DataContexts
+﻿namespace qdf.AcceptanceTests.DataContexts
 {
     /// <summary>
     /// wrapper class for SignalsCompareDataSnapOnCCDataContext to allow BoDi to set up contexts via DI

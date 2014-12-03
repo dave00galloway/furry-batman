@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
-using Alpari.QA.CC.MT4Positions2RedisTests.Transforms;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using AlpariUK.Mt4.Wrapper;
 using AlpariUK.Mt4.Wrapper.Enums;
 using AlpariUK.Mt4.Wrapper.Types;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps

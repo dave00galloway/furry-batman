@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QDF.Domain;
+﻿using Alpari.QDF.Domain;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System.Collections.Generic;
 
 namespace Alpari.QDF.UIClient.App.ControlHelpers
 {

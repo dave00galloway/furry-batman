@@ -1,7 +1,6 @@
-﻿using System.IO;
-using System.Linq;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using FluentAssertions;
+using System.IO;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Tests.Steps

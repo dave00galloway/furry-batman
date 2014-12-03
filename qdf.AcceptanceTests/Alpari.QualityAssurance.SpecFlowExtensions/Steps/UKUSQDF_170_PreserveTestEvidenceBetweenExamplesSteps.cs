@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.Steps

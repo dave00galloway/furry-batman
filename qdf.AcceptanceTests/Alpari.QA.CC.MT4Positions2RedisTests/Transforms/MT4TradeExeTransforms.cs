@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.ProcessRunner;
+﻿using Alpari.QA.ProcessRunner;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

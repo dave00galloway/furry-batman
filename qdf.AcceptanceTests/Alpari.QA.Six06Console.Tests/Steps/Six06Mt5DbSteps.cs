@@ -1,7 +1,5 @@
-﻿using System.Linq;
-using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.MT5;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QA.Six06Console.Tests.DomainObjects;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;

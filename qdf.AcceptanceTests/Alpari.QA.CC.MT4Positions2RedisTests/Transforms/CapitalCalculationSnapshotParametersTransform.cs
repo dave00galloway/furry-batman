@@ -1,10 +1,5 @@
-﻿using System;
+﻿using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
-using Alpari.QA.QDF.Test.Domain.DataContexts.CC;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

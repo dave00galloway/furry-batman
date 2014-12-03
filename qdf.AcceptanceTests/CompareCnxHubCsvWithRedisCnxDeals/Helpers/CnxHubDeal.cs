@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using Alpari.QDF.UIClient.App.Annotations;
 
 namespace CompareCnxHubCsvWithRedisCnxDeals.Helpers

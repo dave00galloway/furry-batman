@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using Alpari.QA.QDF.Test.Domain.WebClients;
+﻿using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
+using System;
+using System.Collections.Generic;
+using System.Configuration;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.ConversionRateData.Steps

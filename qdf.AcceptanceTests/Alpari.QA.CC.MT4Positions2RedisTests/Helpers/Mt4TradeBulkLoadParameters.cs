@@ -1,5 +1,4 @@
-﻿
-namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
+﻿namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
     public class Mt4TradeBulkLoadParameters
     {

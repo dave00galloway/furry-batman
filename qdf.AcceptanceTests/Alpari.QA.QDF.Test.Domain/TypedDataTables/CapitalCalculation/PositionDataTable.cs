@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using Alpari.CC.WebPortal.DAL.Repositories.Redis;
+﻿using Alpari.CC.WebPortal.DAL.Repositories.Redis;
 using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
 {

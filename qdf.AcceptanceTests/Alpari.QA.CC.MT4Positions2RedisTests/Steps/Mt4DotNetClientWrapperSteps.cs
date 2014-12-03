@@ -1,12 +1,10 @@
-﻿using System;
-using System.Diagnostics;
-using System.Threading;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
-using Alpari.QA.CC.MT4Positions2RedisTests.Transforms;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using AlpariUK.Mt4.Wrapper;
 using AlpariUK.Mt4.Wrapper.Enums;
 using AlpariUK.Mt4.Wrapper.Types;
-using FluentAssertions;
+using System;
+using System.Diagnostics;
+using System.Threading;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps

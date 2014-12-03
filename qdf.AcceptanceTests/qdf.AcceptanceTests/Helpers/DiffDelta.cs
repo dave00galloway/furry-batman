@@ -1,7 +1,6 @@
-﻿using System;
+﻿using qdf.AcceptanceTests.DataContexts;
+using System;
 using System.Collections.Generic;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
-using qdf.AcceptanceTests.DataContexts;
 
 namespace qdf.AcceptanceTests.Helpers
 {

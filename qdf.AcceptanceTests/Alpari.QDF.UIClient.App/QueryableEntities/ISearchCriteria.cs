@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Alpari.QDF.Domain;
 
 namespace Alpari.QDF.UIClient.App.QueryableEntities
 {

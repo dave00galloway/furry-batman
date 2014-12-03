@@ -1,5 +1,4 @@
-﻿using Alpari.CC.WebPortal.DAL.Repositories.Redis;
-
+﻿
 namespace Alpari.QA.CC.MT4Positions2RedisTests
 {
     /// <summary>

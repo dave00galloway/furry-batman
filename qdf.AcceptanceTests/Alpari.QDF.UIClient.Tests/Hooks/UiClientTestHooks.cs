@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.QDF.UIClient.App;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+﻿using Alpari.QDF.UIClient.App;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using System;
+using System.Configuration;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QDF.UIClient.Tests.Hooks

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

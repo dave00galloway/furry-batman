@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Alpari.QA.WMIExtensions.Process;
 using System.Diagnostics;
-using Alpari.QA.WMIExtensions.Process;
 
 namespace Alpari.QA.ProcessRunner
 {

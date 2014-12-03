@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
+﻿using Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
+using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps

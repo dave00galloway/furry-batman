@@ -1,8 +1,7 @@
-﻿using System;
-using Alpari.QA.WMIExtensions.Process;
+﻿using Alpari.QA.WMIExtensions.Process;
 using FluentAssertions;
+using System;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QA.ProcessRunner.Tests.Steps
 {

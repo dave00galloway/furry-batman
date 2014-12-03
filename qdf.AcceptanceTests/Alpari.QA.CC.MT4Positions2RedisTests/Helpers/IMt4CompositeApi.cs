@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers

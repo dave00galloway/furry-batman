@@ -1,8 +1,5 @@
-﻿using System;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.CC.MT4Positions2RedisTests.Helpers;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 

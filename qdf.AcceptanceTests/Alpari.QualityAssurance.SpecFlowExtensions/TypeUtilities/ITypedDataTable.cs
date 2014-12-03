@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
-
+﻿
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     /// <summary>

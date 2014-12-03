@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
+﻿using System.Collections.Generic;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.CC.MT4Positions2RedisTests.Transforms;
+﻿using Alpari.QA.CC.MT4Positions2RedisTests.Transforms;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using TechTalk.SpecFlow;
 

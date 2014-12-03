@@ -1,12 +1,11 @@
-﻿using System.Security.Cryptography;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.FluentVerifications;
+using FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
-using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities

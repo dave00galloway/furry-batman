@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QA.QDF.Test.Domain.WebClients;
-using Alpari.QDF.ConversionRateData.Hooks;
+﻿using Alpari.QDF.ConversionRateData.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 

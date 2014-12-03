@@ -1,8 +1,7 @@
-﻿using System;
-using System.Data;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
-using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
+using System.Data;
 
 namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.MT5
 {

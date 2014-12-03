@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
-using Alpari.QA.Six06Console.Tests.DomainObjects;
+﻿using Alpari.QA.Six06Console.Tests.DomainObjects;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using System;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Six06Console.Tests.Steps

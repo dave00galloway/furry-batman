@@ -1,10 +1,8 @@
-﻿using System;
-using System.Configuration;
-using Alpari.QA.QDF.Test.Domain.DataContexts.MT5;
-using Alpari.QA.QDF.Test.Domain.WebClients;
+﻿using Alpari.QA.QDF.Test.Domain.WebClients;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Steps;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Hooks

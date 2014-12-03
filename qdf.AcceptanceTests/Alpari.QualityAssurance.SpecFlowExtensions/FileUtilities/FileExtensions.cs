@@ -1,8 +1,7 @@
-﻿using System;
-using System.IO;
-using System.Threading;
-using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.LoggingUtilities;
 using Microsoft.VisualBasic.Devices;
+using System;
+using System.IO;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {

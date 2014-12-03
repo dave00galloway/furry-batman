@@ -1,10 +1,7 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using Microsoft.VisualBasic.FileIO;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
 {

@@ -1,6 +1,4 @@
-﻿//using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-
-using FluentAssertions;
+﻿using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QualityAssurance.SecureMyPassword.Tests

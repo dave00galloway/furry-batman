@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
 

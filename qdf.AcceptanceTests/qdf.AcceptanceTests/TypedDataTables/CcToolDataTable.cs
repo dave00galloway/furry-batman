@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using qdf.AcceptanceTests.Annotations;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Runtime.Serialization;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
-using qdf.AcceptanceTests.Annotations;
 
 namespace qdf.AcceptanceTests.TypedDataTables
 {

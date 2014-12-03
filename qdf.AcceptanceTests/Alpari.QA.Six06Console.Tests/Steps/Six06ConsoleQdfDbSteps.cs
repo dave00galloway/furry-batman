@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Alpari.QA.QDF.Test.Domain.DataContexts;
 using Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF;
 using Alpari.QA.Six06Console.Tests.DomainObjects;

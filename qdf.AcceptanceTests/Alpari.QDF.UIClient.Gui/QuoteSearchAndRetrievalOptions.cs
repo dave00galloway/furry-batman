@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Alpari.QDF.Domain;
-using Alpari.QDF.UIClient.App;
+﻿using Alpari.QDF.UIClient.App;
 using Alpari.QDF.UIClient.App.ControlHelpers;
 using Alpari.QDF.UIClient.App.QueryableEntities;
 using Alpari.QDF.UIClient.Gui.Properties;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Alpari.QDF.UIClient.Gui
 {

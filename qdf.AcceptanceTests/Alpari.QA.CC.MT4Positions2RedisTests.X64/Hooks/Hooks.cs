@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Alpari.QualityAssurance.SpecFlowExtensions.Tests.Hooks;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.Tests.Hooks;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.X64.Hooks

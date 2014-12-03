@@ -1,10 +1,9 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {

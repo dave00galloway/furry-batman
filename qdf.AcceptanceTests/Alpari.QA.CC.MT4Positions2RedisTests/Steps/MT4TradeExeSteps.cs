@@ -1,7 +1,6 @@
-﻿using System;
-using System.Threading;
-using Alpari.QA.ProcessRunner;
+﻿using Alpari.QA.ProcessRunner;
 using FluentAssertions;
+using System;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps

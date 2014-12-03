@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Alpari.CC.WebPortal.DAL.Repositories.Redis;
-using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
-
-namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
+﻿namespace Alpari.QA.CC.MT4Positions2RedisTests.Helpers
 {
     public static class TestablePositionExtensions
     {
