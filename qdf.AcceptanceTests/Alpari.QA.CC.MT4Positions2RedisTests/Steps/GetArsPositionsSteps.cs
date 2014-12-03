@@ -42,8 +42,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         public void ThenAtLeastPositionIsReturnedForLogin(int login, string dataBaseName)
         {
             PositionDataTableDictionary[dataBaseName].Rows.Cast<PositionDataRow>()
-                .Should()
-                .Contain(r => r.Login == login);
+                .Should().Contain(r => r.Login == login);
+            //.Contain(r => r.Login == login);
         }
     }
 }

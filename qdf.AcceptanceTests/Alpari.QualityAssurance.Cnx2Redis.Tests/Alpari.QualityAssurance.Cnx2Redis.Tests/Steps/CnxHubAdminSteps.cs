@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Configuration;
-using System.Globalization;
-using Alpari.QA.QDF.Test.Domain.WebClients;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
 using Alpari.QualityAssurance.Cnx2Redis.Tests.Helpers;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 

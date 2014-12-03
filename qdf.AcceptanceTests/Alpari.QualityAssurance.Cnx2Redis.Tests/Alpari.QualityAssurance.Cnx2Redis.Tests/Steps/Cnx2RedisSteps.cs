@@ -1,16 +1,13 @@
-﻿using System;
+﻿using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
+using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.DataContexts;
-using Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
-using Alpari.QualityAssurance.SpecFlowExtensions.NunitTextReportParser;
-using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
-using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
 {
