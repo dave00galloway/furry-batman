@@ -176,3 +176,4 @@ qdf.acceptancetests/packages/MySql.*
 qdf.acceptancetests/packages/MsgPack.*
 qdf.acceptancetests/packages/Selenium.*
 qdf.acceptancetests/_ReSharper.*
+qdf.acceptancetests/packages/HtmlAgilityPack*
