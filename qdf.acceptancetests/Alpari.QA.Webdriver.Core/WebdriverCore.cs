@@ -8,7 +8,6 @@ namespace Alpari.QA.Webdriver.Core
         public void OpenPage(string url)
         {
             GetDriver().Navigate().GoToUrl(url);
-            GetDriver().Navigate().GoToUrl(url);
         }
 
         /// <summary>
