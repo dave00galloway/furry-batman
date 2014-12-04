@@ -6,7 +6,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class CcUiSteps : StepCentral
     {
-        public CcUiSteps(WebdriverCore webdriverCore) : base(webdriverCore)
+        public CcUiSteps(IWebdriverCore webdriverCore) : base(webdriverCore)
         {
         }
 
@@ -14,14 +14,6 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         public void GivenIHaveOpenedTheCcUrl(string url)
         {
             WebdriverCore.OpenPage(url);
-        }
-
-        
-
-        [Then(@"the position table is displayed")]
-        public void ThenThePositionTableIsDisplayed()
-        {
-            ScenarioContext.Current.Pending();
         }
 
     }

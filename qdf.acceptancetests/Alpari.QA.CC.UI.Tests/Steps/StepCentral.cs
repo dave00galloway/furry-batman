@@ -7,16 +7,15 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class StepCentral : MasterStepBase
     {
-        public StepCentral(WebdriverCore webdriverCore)
+        public StepCentral(IWebdriverCore webdriverCore)
         {
             WebdriverCore = webdriverCore;
         }
 
         /// <summary>
-        /// making the massive assumption that all tests will use webdriver...
-        /// TODO:- configure hooks to take parameters for webdriver config etc.
+        ///     making the massive assumption that all tests will use webdriver...
+        ///     TODO:- configure hooks to take parameters for webdriver config etc.
         /// </summary>
-        protected WebdriverCore WebdriverCore { get; set; }
-
+        public static IWebdriverCore WebdriverCore { get; set; }
     }
 }

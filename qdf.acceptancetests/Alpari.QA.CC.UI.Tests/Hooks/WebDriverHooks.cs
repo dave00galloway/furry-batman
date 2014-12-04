@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+using Alpari.QA.CC.UI.Tests.Steps;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
-using BoDi;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.UI.Tests.Hooks
@@ -13,7 +9,6 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
     [Binding]
     public class WebDriverHooks : SpecFlowExtensionsHooks
     {
-
         [BeforeScenario]
         public void BeforeScenario()
         {
@@ -22,12 +17,12 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
             SetupWebdriverCore();
         }
 
-        private static WebdriverCore SetupWebdriverCore()
+        private static IWebdriverCore SetupWebdriverCore()
         {
-            WebdriverCore wdc;
+            IWebdriverCore wdc;
             try
             {
-                wdc = ObjectContainer.Resolve<WebdriverCore>();
+                wdc = ObjectContainer.Resolve<IWebdriverCore>();
             }
             catch (Exception)
             {
@@ -40,7 +35,8 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: implement logic that has to run after executing each scenario
+            //TODO: if we decided to use Core as a container, then nothing needs to change here. if we use a container for cores, then we need to iterate over them and close all sel instances
+            StepCentral.WebdriverCore.Quit();
         }
     }
 }
