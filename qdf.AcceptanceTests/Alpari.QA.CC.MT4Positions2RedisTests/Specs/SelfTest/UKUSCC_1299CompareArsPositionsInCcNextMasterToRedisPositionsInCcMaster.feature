@@ -814,3 +814,10 @@ Scenario: Do FXCM FX Comparison
 	| FXCM FX | FXCM FX | cc_next   | cc        | CcMaster    | CcMaster    | B    | Default | EURCHF | 2014/12/03 12:17:00 | 2014/12/04 10:10:00 |
 	| FXCM FX | FXCM FX | cc_next   | cc        | CcMaster    | CcMaster    | B    | Default | EURUSD | 2014/12/03 12:17:00 | 2014/12/04 10:10:00 |
 	| FXCM FX | FXCM FX | cc_next   | cc        | CcMaster    | CcMaster    | B    | Default | XAGUSD | 2014/12/03 12:17:00 | 2014/12/04 10:10:00 |
+
+
+	#Scenario: MK1 Missing trades
+	#When I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-
+	#| Server1 | Server2 | Database1 | Database2 | Connection1 | Connection2 | Book | Section | Symbol  | StartTime           | EndTime             |
+	#| MK1     | MK1     | cc_next   | cc        | CcMaster    | CcMaster    | B    | Default | EURUSD  | 2014/12/04 10:10:00 | 2014/12/04 14:42:00 |
+	#| MK1     | MK1     | cc_next   | cc        | CcMaster    | CcMaster    | A    | Default | EURUSD  | 2014/12/04 10:10:00 | 2014/12/04 14:42:00 |
