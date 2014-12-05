@@ -66,8 +66,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\HtmlAttributes.cs" />
+    <Compile Include="Constants\HtmlAttributes.cs" />
     <Compile Include="Elements\HtmlTableData.cs" />
+    <Compile Include="Constants\XmlExpressions.cs" />
+    <Compile Include="Elements\HtmlTableExtensions.cs" />
     <Compile Include="IWebdriverCore.cs" />
     <Compile Include="PageBase.cs" />
     <Compile Include="WebdriverCore.cs" />

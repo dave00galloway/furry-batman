@@ -8,6 +8,5 @@ namespace Alpari.QA.Webdriver.Core
         void OpenPage(string url);
         IWebElement FindElement(By by);
         void Quit();
-        HtmlTableData GetTableData(By positionTableSelector);
     }
 }

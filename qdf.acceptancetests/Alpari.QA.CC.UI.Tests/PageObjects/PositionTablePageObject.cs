@@ -15,7 +15,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
 
         public HtmlTableData GetPositionData()
         {
-            return WebdriverCore.GetTableData(PositionTableSelector);
+            return PositionTableSelector.GetTableData(WebdriverCore);
         }
     }
 }

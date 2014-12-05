@@ -1,5 +1,7 @@
-﻿using Alpari.QA.CC.UI.Tests.PageObjects;
+﻿using System.Linq;
+using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.Webdriver.Core;
+using Alpari.QA.Webdriver.Core.Elements;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -15,6 +17,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         }
 
         private IPositionTablePageObject PositionTablePageObject { get; set; }
+        private HtmlTableData Positions { get; set; }
 
         [Then(@"the position table is displayed")]
         public void ThenThePositionTableIsDisplayed()
@@ -25,13 +28,13 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I get the positions")]
         public void WhenIGetThePositions()
         {
-            var positions = PositionTablePageObject.GetPositionData();
+            Positions = PositionTablePageObject.GetPositionData();
         }
 
         [Then(@"The count of servers is (.*)")]
         public void ThenTheCountOfServersIs(int serverCount)
         {
-            ScenarioContext.Current.Pending();
+            Positions.First().Value.Keys.Should().HaveCount(serverCount);
         }
 
         [Then(@"the count of symbols is at least (.*)")]
@@ -39,6 +42,5 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         {
             ScenarioContext.Current.Pending();
         }
-
     }
 }
