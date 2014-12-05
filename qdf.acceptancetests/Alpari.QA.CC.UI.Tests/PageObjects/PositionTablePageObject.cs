@@ -1,4 +1,5 @@
 ﻿using Alpari.QA.Webdriver.Core;
+using Alpari.QA.Webdriver.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.CC.UI.Tests.PageObjects
@@ -12,7 +13,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
             Displayed = PositionTableSelector;
         }
 
-        public object GetPositionData()
+        public HtmlTableData GetPositionData()
         {
             return WebdriverCore.GetTableData(PositionTableSelector);
         }
