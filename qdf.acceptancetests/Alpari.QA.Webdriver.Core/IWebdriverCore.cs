@@ -1,3 +1,4 @@
+using Alpari.QA.Webdriver.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core
@@ -7,5 +8,6 @@ namespace Alpari.QA.Webdriver.Core
         void OpenPage(string url);
         IWebElement FindElement(By by);
         void Quit();
+        HtmlTableData GetTableData(By positionTableSelector);
     }
 }

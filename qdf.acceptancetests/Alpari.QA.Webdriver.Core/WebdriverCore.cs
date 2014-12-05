@@ -1,4 +1,9 @@
-﻿using OpenQA.Selenium;
+﻿using System.Linq;
+using Alpari.QA.Webdriver.Core.Elements;
+using Alpari.QA.Webdriver.Core.Enums;
+using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
+using HtmlAgilityPack;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace Alpari.QA.Webdriver.Core
@@ -33,6 +38,26 @@ namespace Alpari.QA.Webdriver.Core
         {
             //TODO:- detect if running as a container and quit all instances
             Driver.Quit();
+        }
+
+        public HtmlTableData GetTableData(By tableBy)
+        {
+            var webTable = Driver.FindElement(tableBy);
+            var doc = new HtmlDocument();
+            doc.LoadHtml(webTable.GetAttribute(HtmlAttributes.InnerHtml));
+            var data = new HtmlTableData();
+            var columns = doc.DocumentNode.SelectNodes(HtmlAttributes.TableRow).First().SelectNodes("th|td").Select(n=>n.InnerText).ToList();
+
+            foreach (var row in doc.DocumentNode.SelectNodes(HtmlAttributes.TableRow).Skip(1))
+            {
+                var rowData = row.SelectNodes("th|td").Select(n=>n.InnerText).ToList();
+                for (int i = 0; i < columns.Count; i++)
+                {
+                    var column = columns[i];
+                    data[rowData.First()].Add(column, rowData[i]);
+                }
+            }
+            return data;
         }
 
         /// <summary>

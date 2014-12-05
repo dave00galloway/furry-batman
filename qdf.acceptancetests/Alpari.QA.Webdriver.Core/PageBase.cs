@@ -21,5 +21,6 @@ namespace Alpari.QA.Webdriver.Core
         {
             return WebdriverCore.FindElement(Displayed).Displayed;
         }
+
     }
 }

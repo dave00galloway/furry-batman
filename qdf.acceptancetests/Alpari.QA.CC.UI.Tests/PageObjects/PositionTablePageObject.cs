@@ -14,7 +14,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
 
         public object GetPositionData()
         {
-            throw new System.NotImplementedException();
+            return WebdriverCore.GetTableData(PositionTableSelector);
         }
     }
 }
