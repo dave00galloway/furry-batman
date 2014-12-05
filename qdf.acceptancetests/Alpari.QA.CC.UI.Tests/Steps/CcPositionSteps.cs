@@ -40,7 +40,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [Then(@"the count of symbols is at least (.*)")]
         public void ThenTheCountOfSymbolsIsAtLeast(int minimumSymbols)
         {
-            ScenarioContext.Current.Pending();
+            Positions.Count.Should().BeGreaterOrEqualTo(minimumSymbols);
         }
     }
 }
