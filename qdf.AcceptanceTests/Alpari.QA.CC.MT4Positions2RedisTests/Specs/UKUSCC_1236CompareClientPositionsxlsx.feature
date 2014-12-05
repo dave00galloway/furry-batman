@@ -82,7 +82,7 @@ Scenario: Compare B2B Client Positions
 Scenario: Compare MT4AUKMARKET1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                                  | ArsPositionsFile                                                                       |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141204_143302.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141204_143312.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141205_134711.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141205_134704.xlsx |
 #	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141204_142620.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141204_142637.xlsx |
 
 	Then the redis positions should match the ars positions exactly:-

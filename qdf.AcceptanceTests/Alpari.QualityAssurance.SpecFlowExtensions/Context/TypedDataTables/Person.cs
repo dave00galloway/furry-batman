@@ -41,7 +41,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
         public PersonData(string[] primaryKeyColumns)
         {
             SetupColumns();
-            SetPrimaryKey(primaryKeyColumns);
+            this.SetPrimaryKey(primaryKeyColumns);
         }
 
         public PersonDataRow this[int idx]
@@ -110,7 +110,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context.TypedDataTables
             string[] primaryKeys)
         {
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
         }
 

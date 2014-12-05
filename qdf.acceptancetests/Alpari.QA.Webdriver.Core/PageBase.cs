@@ -4,6 +4,7 @@ namespace Alpari.QA.Webdriver.Core
 {
     public interface IPageBase
     {
+        //TODO: - Change to Property?
         bool IsDisplayed();
     }
 

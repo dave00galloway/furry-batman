@@ -19,7 +19,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
         {
             SetupColumns();
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
         }
 
@@ -60,7 +60,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.CapitalCalculation
         {
             SetupDataTable(enumeratedObjects);
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return this;
         }
 

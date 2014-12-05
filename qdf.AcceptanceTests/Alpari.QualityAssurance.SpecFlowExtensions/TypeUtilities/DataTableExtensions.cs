@@ -35,6 +35,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             return dtTyped;
         }
 
+        public static void SetPrimaryKey(this DataTable table,string[] primaryKeyColumns)
+        {
+            int size = primaryKeyColumns.Length;
+            var keyColumns = new DataColumn[size];
+            for (int i = 0; i < size; i++)
+            {
+                keyColumns[i] = table.Columns[primaryKeyColumns[i]];
+            }
+            table.PrimaryKey = keyColumns;
+        }
+
         /// <summary>
         ///     send the datatable to csv file. if the file exists, append and don't write headers
         /// </summary>

@@ -1,6 +1,7 @@
 ﻿using Alpari.QualityAssurance.SpecFlowExtensions.Annotations;
 using System;
 using System.Data;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
 {
@@ -15,7 +16,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
         {
             SetupColumns();
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
         }
 
         [UsedImplicitly]

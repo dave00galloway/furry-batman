@@ -1,4 +1,5 @@
-﻿using Alpari.QA.Webdriver.Core;
+﻿using System.Data;
+using Alpari.QA.Webdriver.Core;
 using Alpari.QA.Webdriver.Core.Elements;
 using OpenQA.Selenium;
 
@@ -16,6 +17,11 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         public HtmlTableData GetPositionData()
         {
             return PositionTableSelector.GetTableData(WebdriverCore);
+        }
+
+        public DataTable GetPositionDataAsDataTableBySymbols()
+        {
+            return PositionTableSelector.GetTableData(WebdriverCore).ConvertHtmlTableDataToDataTable("Symbol");
         }
     }
 }

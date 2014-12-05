@@ -20,7 +20,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
 // ReSharper disable once DoNotCallOverridableMethodsInConstructor
             SetupColumns();
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
         }
 
         [UsedImplicitly]
@@ -73,7 +73,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
             string[] primaryKeys)
         {
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
         }
 
@@ -91,7 +91,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.QDF
             string[] primaryKeys)  where T : IGetTradeswithEventIdResult
         {
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
         }
 
