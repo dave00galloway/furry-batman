@@ -9,3 +9,10 @@ Scenario: Open CC UI
 	Given I have opened the cc url "https://webportal.corp.alpari.com/CC_UAT"
 	Then the position table is displayed
 
+	#note manually selecting the book and types for now
+Scenario: Get A Book Positions
+	Given I have opened the cc url "https://webportal.corp.alpari.com/CC_UAT"
+	When I get the positions
+	Then The count of servers is 33
+	And the count of symbols is at least 60
+

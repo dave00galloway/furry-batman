@@ -1,4 +1,5 @@
 ﻿using System;
+using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.Steps;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
@@ -15,6 +16,23 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
             SetupObjectContainerAndTagsProperties();
             //TODO: configure to use parameters, read from config etc.
             SetupWebdriverCore();
+
+            SetupPositionTablePageObject();
+        }
+
+        private static IPositionTablePageObject SetupPositionTablePageObject()
+        {
+            IPositionTablePageObject iPageObject;
+            try
+            {
+                iPageObject = ObjectContainer.Resolve<IPositionTablePageObject>();
+            }
+            catch (Exception)
+            {
+                iPageObject = new PositionTablePageObject(SetupWebdriverCore());
+                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(iPageObject);
+            }
+            return iPageObject;
         }
 
         private static IWebdriverCore SetupWebdriverCore()

@@ -1,3 +1,4 @@
+using Alpari.QA.Webdriver.Core.Elements;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core

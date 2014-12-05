@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Hooks\WebDriverHooks.cs" />
+    <Compile Include="PageObjects\IPositionTablePageObject.cs" />
     <Compile Include="PageObjects\PositionTablePageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\UKUSCC-1310ComparePositionsTable.feature.cs">
