@@ -8,5 +8,13 @@ namespace Alpari.QA.Webdriver.Core
         void OpenPage(string url);
         IWebElement FindElement(By by);
         void Quit();
+        /// <summary>
+        /// Opens the default page for the webdriver if set, otherwise does nothing
+        /// </summary>
+        void OpenPage();
+
+        string Url { get; }
+
+
     }
 }

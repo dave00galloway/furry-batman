@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{268C72A1-5093-48FD-8262-FCA688E69F29}</ProjectGuid>
+    <ProjectGuid>{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alpari.QA.Webdriver.Core</RootNamespace>
-    <AssemblyName>Alpari.QA.Webdriver.Core</AssemblyName>
+    <RootNamespace>Alpari.QA.Webdriver.Core.Tests</RootNamespace>
+    <AssemblyName>Alpari.QA.Webdriver.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,16 +39,11 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,55 +53,35 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
     </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.2.44.0\lib\net40\WebDriver.Support.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Constants\HtmlAttributes.cs" />
-    <Compile Include="Elements\HtmlTableData.cs" />
-    <Compile Include="Constants\XmlExpressions.cs" />
-    <Compile Include="Elements\HtmlTableExtensions.cs" />
-    <Compile Include="IWebdriverCore.cs" />
-    <Compile Include="PageBase.cs" />
-    <Compile Include="WebdriverCore.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebDriverCoreManager.cs" />
+    <Compile Include="WebDriverCoreSetup.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WebDriverCoreSetup.feature</DependentUpon>
+    </Compile>
+    <Compile Include="WebdriverCoreSetupSteps.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <ProjectReference Include="..\Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj">
+      <Project>{268c72a1-5093-48fd-8262-fca688e69f29}</Project>
+      <Name>Alpari.QA.Webdriver.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="WebDriverCoreSetup.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>WebDriverCoreSetup.feature.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\packages\Selenium.WebDriver.ChromeDriver.2.12.0.0\content\chromedriver.exe">
-      <Link>chromedriver.exe</Link>
+    <Content Include="DriverConfig\DefaultDriver.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Alpari.QA.ProcessRunner\Alpari.QA.ProcessRunner.csproj">
-      <Project>{1541f9f0-19f6-41c0-b8d9-8a7829a54c52}</Project>
-      <Name>Alpari.QA.ProcessRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Alpari.QA.QDF.Test.Domain\Alpari.QA.QDF.Test.Domain.csproj">
-      <Project>{29c6f863-c3f7-4b80-8212-7b3a5389bdcb}</Project>
-      <Name>Alpari.QA.QDF.Test.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Alpari.QA.WMIExtensions\Alpari.QA.WMIExtensions.csproj">
-      <Project>{0e8b31dc-ba1f-4116-9e51-da3249915bd3}</Project>
-      <Name>Alpari.QA.WMIExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Alpari.QualityAssurance.SecureMyPassword\Alpari.QualityAssurance.SecureMyPassword.csproj">
-      <Project>{27c0b243-5ccc-466c-bd7f-57f5bf6d3912}</Project>
-      <Name>Alpari.QualityAssurance.SecureMyPassword</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
-      <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
-      <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
@@ -115,17 +90,6 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
-  </Target>
-  <PropertyGroup Label="DownloadChromeDriverBuildTask">
-    <CoreBuildDependsOn>DownloadChromeDriver;$(CoreBuildDependsOn)</CoreBuildDependsOn>
-    <ChromeDriverInstallPath>$(SolutionDir)packages\Selenium.WebDriver.ChromeDriver.2.12.0.0\</ChromeDriverInstallPath>
-    <ChromeDriverToolsPath>$(ChromeDriverInstallPath)tools\</ChromeDriverToolsPath>
-    <ChromeDriverInitScriptPath>$(ChromeDriverToolsPath)Init.ps1</ChromeDriverInitScriptPath>
-    <ChromeDriverPath>$(ChromeDriverInstallPath)content\chromedriver.exe</ChromeDriverPath>
-    <PowerShellExe Condition="'$(PowerShellExe)'==''">%WINDIR%\System32\WindowsPowerShell\v1.0\powershell.exe</PowerShellExe>
-  </PropertyGroup>
-  <Target Name="DownloadChromeDriver" Label="DownloadChromeDriverBuildTask">
-    <Exec Condition="!Exists('$(ChromeDriverPath)')" Command="$(PowerShellExe) -NonInteractive -executionpolicy Unrestricted -command &quot;&amp; { &amp;'$(ChromeDriverInitScriptPath)' '$(ChromeDriverInstallPath)' '$(ChromeDriverToolsPath)'} &quot;" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

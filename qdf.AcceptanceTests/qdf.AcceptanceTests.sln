@@ -55,6 +55,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.Webdriver.Core", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.CC.UI.Tests", "Alpari.QA.CC.UI.Tests\Alpari.QA.CC.UI.Tests.csproj", "{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpari.QA.Webdriver.Core.Tests", "Alpari.QA.Webdriver.Core.Tests\Alpari.QA.Webdriver.Core.Tests.csproj", "{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +157,10 @@ Global
 		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
