@@ -26,8 +26,8 @@ namespace Alpari.QA.Webdriver.Core.Tests
             Driver.OpenPage();
         }
 
-        [Then(@"the displayed url is ""(.*)""")]
-        public void ThenTheDisplayedUrlIs(string expectedUrl)
+        [Then(@"the displayed url contains ""(.*)""")]
+        public void ThenTheDisplayedUrlContains(string expectedUrl)
         {
             Driver.Url.Should().Contain(expectedUrl);
         }

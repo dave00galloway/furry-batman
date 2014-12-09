@@ -9,6 +9,6 @@ Scenario: Setup a default webdriver core
 	Then the default webdriver is not null
 
 Scenario: Setup a webdriver core using an xml configuration
-	When I create a webdriver from "DriverConfig\DefaultDriver.xml"
+	When I create a webdriver from "DefaultDriver"
 	And I navigate to the base url
-	Then the displayed url is "www.google.co.uk"
+	Then the displayed url contains "www.google.co.uk"

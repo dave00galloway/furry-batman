@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using Alpari.QA.Webdriver.Core.Constants;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace Alpari.QA.Webdriver.Core
 {
     public class WebdriverCore : IWebdriverCore
     {
         /// <summary>
-        ///     TODO:- replace with a POCO populated with a call to Linq to Xml
+        ///     TODO:- replace with a POCO populated with a call to Linq to Xml?
         /// </summary>
         public readonly IReadOnlyDictionary<string, object> Options;
+
+        private IWebDriver _driver;
 
         public WebdriverCore(IReadOnlyDictionary<string, object> options)
         {
@@ -22,11 +23,14 @@ namespace Alpari.QA.Webdriver.Core
             Options = null;
         }
 
-        private IWebDriver Driver { get; set; }
+        private IWebDriver Driver
+        {
+            get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
+        }
 
         public void OpenPage(string url)
         {
-            GetDriver().Navigate().GoToUrl(url);
+            Driver.Navigate().GoToUrl(url);
         }
 
         public IWebElement FindElement(By by)
@@ -45,56 +49,12 @@ namespace Alpari.QA.Webdriver.Core
 
         public void OpenPage()
         {
-            GetDriver().Navigate().GoToUrl(Options["BaseUrl"].ToString());
+            Driver.Navigate().GoToUrl(Options[WebDriverConfig.BaseUrl].ToString());
         }
 
         public string Url
         {
             get { return Driver.Url; }
-        }
-
-        /// <summary>
-        ///     very lazy way of lazily initialising a webdriver
-        /// </summary>
-        /// <returns></returns>
-        protected virtual IWebDriver GetDriver()
-        {
-            return Driver ?? (SetupWebDriver());
-        }
-
-        protected virtual IWebDriver SetupWebDriver()
-        {
-            if (Options == null)
-            {
-                return Driver = new ChromeDriver();
-            }
-            IWebDriver webDriver;
-            switch (Options["Driver"].ToString())
-            {
-                case "ChromeDriver":
-                    webDriver = SetupChromeDriver();
-                    break;
-
-                default:
-                    webDriver = new ChromeDriver();
-                    break;
-            }
-
-            Driver = webDriver;
-            return Driver;
-        }
-
-        private ChromeDriver SetupChromeDriver()
-        {
-            ChromeDriver webDriver;
-            //if we need to configure any settings using the chrome options, then set up the chrome options, otherwise don't bother
-            //var co = new ChromeOptions();
-            //co.
-            webDriver = new ChromeDriver();
-            webDriver.Manage()
-                .Timeouts()
-                .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(Options["ImplicitlyWait"])));
-            return webDriver;
         }
     }
 }
