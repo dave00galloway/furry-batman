@@ -9,7 +9,7 @@ namespace Alpari.QA.Webdriver.Core
         /// <summary>
         ///     TODO:- replace with a POCO populated with a call to Linq to Xml?
         /// </summary>
-        public readonly IReadOnlyDictionary<string, object> Options;
+        public IReadOnlyDictionary<string, object> Options { get; private set; }
 
         private IWebDriver _driver;
 
@@ -41,7 +41,7 @@ namespace Alpari.QA.Webdriver.Core
 
         public void Quit()
         {
-            if (Driver != null)
+            if (_driver != null)
             {
                 Driver.Quit();
             }

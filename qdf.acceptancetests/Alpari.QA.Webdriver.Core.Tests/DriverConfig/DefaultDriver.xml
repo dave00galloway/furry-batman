@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <IWebDriverCoreConfig>
+  <Name>DefaultDriver</Name>
   <Driver>ChromeDriver</Driver>
   <BaseUrl>http://www.google.co.uk</BaseUrl>
   <ImplicitlyWait>30</ImplicitlyWait>

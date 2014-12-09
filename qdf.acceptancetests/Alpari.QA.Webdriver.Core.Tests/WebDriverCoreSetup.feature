@@ -12,3 +12,8 @@ Scenario: Setup a webdriver core using an xml configuration
 	When I create a webdriver from "DefaultDriver"
 	And I navigate to the base url
 	Then the displayed url contains "www.google.co.uk"
+
+Scenario: Setup a webdriver core using an xml configuration based on the default driver
+	When I create a webdriver from "SpecialDriver"
+	And I navigate to the base url
+	Then the displayed url contains "yahoo"

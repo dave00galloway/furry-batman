@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using Alpari.QA.Webdriver.Core.Constants;
+using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Webdriver.Core.Tests
@@ -23,7 +24,8 @@ namespace Alpari.QA.Webdriver.Core.Tests
         [When(@"I navigate to the base url")]
         public void WhenINavigateToTheBaseUrl()
         {
-            Driver.OpenPage();
+            //Driver.OpenPage();
+            WebDriverCoreManager.Drivers(Driver.Options[WebDriverConfig.Name].ToString()).OpenPage();
         }
 
         [Then(@"the displayed url contains ""(.*)""")]
@@ -37,6 +39,13 @@ namespace Alpari.QA.Webdriver.Core.Tests
         public void ThenTheDefaultWebdriverIsNotNull()
         {
             Driver.Should().NotBeNull();
+        }
+
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            Driver.Quit();
+            WebDriverCoreManager.RemoveAll();
         }
     }
 }

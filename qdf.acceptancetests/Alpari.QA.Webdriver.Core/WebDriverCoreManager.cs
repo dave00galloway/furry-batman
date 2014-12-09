@@ -2,6 +2,7 @@
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Alpari.QA.Webdriver.Core.Constants;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
@@ -47,12 +48,55 @@ namespace Alpari.QA.Webdriver.Core
         {
             var fileNamePath = WebDriverConfig.WebDriverCoreConfigPath + webdriverConfigFile +
                                WebDriverConfig.WebDriverCoreConfigFormat;
-            IWebdriverCore wdc =
-                new WebdriverCore(
-                    new ReadOnlyDictionary<string, object>(
-                        fileNamePath.ParseXmlAsDictionary(WebDriverConfig.WebDriverCoreConfig)));
+            IWebdriverCore wdc = new WebdriverCore(MergeOptionsWithParent(fileNamePath));
             Instance._drivers.Add(webdriverConfigFile, wdc);
             return wdc;
+        }
+
+        private static ReadOnlyDictionary<string, object> MergeOptionsWithParent(string fileNamePath)
+        {
+            var dict = fileNamePath.ParseXmlAsDictionary(WebDriverConfig.WebDriverCoreConfig);
+            if (dict.ContainsKey(WebDriverConfig.InheritsFrom))
+            {
+                var parentDriverName = dict[WebDriverConfig.InheritsFrom].ToString();
+                if (Drivers(parentDriverName) == null)
+                {
+                    lock (InstanceRoot)
+                    {
+                        if (Drivers(parentDriverName) == null)
+                        {
+                            Add(parentDriverName);
+                        }
+                    }
+                }
+                foreach (var option in Drivers(parentDriverName)
+                    .Options.Where(option => !dict.ContainsKey(option.Key)))
+                {
+                    dict[option.Key] = option.Value;
+                }
+            }
+            return new ReadOnlyDictionary<string, object>(dict);
+        }
+
+        public static IWebdriverCore Drivers(string key)
+        {
+            try
+            {
+                return Instance._drivers[key];
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public static void RemoveAll()
+        {
+            //will potentially create a manager instnace just to close 0 drivers, but this is the safest option and creating the manager is cheap
+            foreach (var driver in Instance._drivers)
+            {
+                driver.Value.Quit();
+            }
         }
     }
 }

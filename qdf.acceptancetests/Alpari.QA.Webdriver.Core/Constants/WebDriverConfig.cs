@@ -5,6 +5,8 @@
     /// </summary>
     public static class WebDriverConfig
     {
+        
+
         #region drivers
 
         /// <summary>
@@ -33,6 +35,8 @@
         public const string WebDriverCoreConfig = "IWebDriverCoreConfig";
         public const string WebDriverCoreConfigPath = @"DriverConfig\";
         public const string WebDriverCoreConfigFormat = ".xml";
+        public const string InheritsFrom = "InheritsFrom";
+        public const string Name = "Name";
 
         #endregion
     }

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<IWebDriverCoreConfig>
+  <Name>SpecialDriver</Name>
+  <InheritsFrom>DefaultDriver</InheritsFrom>
+  <BaseUrl>http://www.yahoo.co.uk</BaseUrl>
+  <ImplicitlyWait>40</ImplicitlyWait>
+  <PageLoadTimeout>60</PageLoadTimeout>
+</IWebDriverCoreConfig>
