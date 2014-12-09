@@ -19,11 +19,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         /// <param name="pathToYourXmlFile">the path to the xml</param>
         /// <param name="id">the id of the element look under, usually the root element</param>
         /// <returns></returns>
-        public static ConcurrentDictionary<String, Object> ParseXmlAsDictionary(this string pathToYourXmlFile, String id)
+        public static ConcurrentDictionary<string, string> ParseXmlAsDictionary(this string pathToYourXmlFile, String id)
         {
             var database = XDocument.Load(pathToYourXmlFile);
 
-            var map = new ConcurrentDictionary<string, Object>();
+            var map = new ConcurrentDictionary<string, string>();
 
             foreach (var subElement in database.Elements(id).SelectMany(element => element.Elements()))
             {

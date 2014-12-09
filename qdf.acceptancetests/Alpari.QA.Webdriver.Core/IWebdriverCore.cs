@@ -5,7 +5,7 @@ namespace Alpari.QA.Webdriver.Core
 {
     public interface IWebdriverCore
     {
-        IReadOnlyDictionary<string, object> Options { get; }
+        IReadOnlyDictionary<string, string> Options { get; }
         string Url { get; }
         void OpenPage(string url);
         IWebElement FindElement(By by);

@@ -9,11 +9,11 @@ namespace Alpari.QA.Webdriver.Core
         /// <summary>
         ///     TODO:- replace with a POCO populated with a call to Linq to Xml?
         /// </summary>
-        public IReadOnlyDictionary<string, object> Options { get; private set; }
+        public IReadOnlyDictionary<string, string> Options { get; private set; }
 
         private IWebDriver _driver;
 
-        public WebdriverCore(IReadOnlyDictionary<string, object> options)
+        public WebdriverCore(IReadOnlyDictionary<string, string> options)
         {
             Options = options;
         }

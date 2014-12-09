@@ -11,7 +11,7 @@ namespace Alpari.QA.Webdriver.Core
 {
     public static class WebDriverFactory
     {
-        public static IWebDriver Create(IReadOnlyDictionary<string, object> options)
+        public static IWebDriver Create(IReadOnlyDictionary<string, string> options)
         {
             IWebDriver webDriver;
             if (options == null)
@@ -22,7 +22,7 @@ namespace Alpari.QA.Webdriver.Core
 
             //todo:- at this point, check for an "Inherits" tag, search the manager for 
 
-            switch (options[WebDriverConfig.Driver].ToString())
+            switch (options[WebDriverConfig.Driver])
             {
                 case WebDriverConfig.ChromeDriver:
                     webDriver = SetupChromeDriver(options);
@@ -35,7 +35,7 @@ namespace Alpari.QA.Webdriver.Core
             return webDriver;
         }
 
-        private static ChromeDriver SetupChromeDriver(IReadOnlyDictionary<string, object> options)
+        private static ChromeDriver SetupChromeDriver(IReadOnlyDictionary<string, string> options)
         {
             ChromeDriver webDriver;
             //if we need to configure any settings using the chrome options, then set up the chrome options, otherwise don't bother
