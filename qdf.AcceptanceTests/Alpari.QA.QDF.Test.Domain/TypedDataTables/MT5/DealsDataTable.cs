@@ -21,7 +21,7 @@ namespace Alpari.QA.QDF.Test.Domain.TypedDataTables.MT5
         {
             SetupColumns();
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             // ReSharper restore DoNotCallOverridableMethodsInConstructor
         }
 

@@ -2,6 +2,7 @@
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QA.Webdriver.Core.Elements;
+using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
@@ -25,11 +26,27 @@ namespace Alpari.QA.CC.UI.Tests.Steps
             PositionTablePageObject.IsDisplayed().Should().Be(true);
         }
 
+        /// <summary>
+        /// Basically a self test method to check we can get data. unlikely we want to use the Positions field at all
+        /// </summary>
         [When(@"I get the positions")]
         public void WhenIGetThePositions()
         {
             Positions = PositionTablePageObject.GetPositionData();
         }
+
+        /// <summary>
+        /// probably just a self test method, siunce any comparison will be between 2 position tables in differnet page objects
+        /// </summary>
+        [When(@"I compare the positions")]
+        public void WhenICompareThePositions()
+        {
+            var currentTable = PositionTablePageObject.GetPositionDataAsDataTableBySymbols();
+            var newTable = PositionTablePageObject.GetPositionDataAsDataTableBySymbols();
+            var diffs = currentTable.Compare(newTable);
+            diffs.CheckForDifferences();
+        }
+
 
         [Then(@"The count of servers is (.*)")]
         public void ThenTheCountOfServersIs(int serverCount)

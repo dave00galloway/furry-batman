@@ -111,7 +111,7 @@ namespace qdf.AcceptanceTests.TypedDataTables
             string[] primaryKeys)
         {
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
         }
 

@@ -112,6 +112,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSQDF-201_AT_cnxstp-pret-deals-qsa.feature.cs">
+      <DependentUpon>UKUSQDF-201_AT_cnxstp-pret-deals-qsa.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Specs\UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data Http Request.feature.cs">
       <DependentUpon>UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data Http Request.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -251,6 +256,10 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSQDF-201_AT_cnxstp-pret-deals-qsa.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSQDF-201_AT_cnxstp-pret-deals-qsa.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data Http Request.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

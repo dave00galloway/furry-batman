@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D3CDD368-7D7F-4973-BAD7-47F9B45A97AF}</ProjectGuid>
+    <ProjectGuid>{9E8C82B1-7D65-486E-8FA3-8CC9FE42B9E0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alpari.QA.CC.UI.Tests</RootNamespace>
-    <AssemblyName>Alpari.QA.CC.UI.Tests</AssemblyName>
+    <RootNamespace>Alpari.QA.Webdriver.Core.Tests</RootNamespace>
+    <AssemblyName>Alpari.QA.Webdriver.Core.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,60 +39,52 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
-    <Reference Include="nunit.framework, Version=2.6.0.12051, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="TechTalk.SpecFlow">
+    <Reference Include="TechTalk.SpecFlow, Version=1.9.0.77, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SpecFlow.1.9.0\lib\net35\TechTalk.SpecFlow.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver">
-      <HintPath>..\packages\Selenium.WebDriver.2.44.0\lib\net40\WebDriver.dll</HintPath>
-    </Reference>
-    <Reference Include="WebDriver.Support">
-      <HintPath>..\packages\Selenium.Support.2.44.0\lib\net40\WebDriver.Support.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hooks\WebDriverHooks.cs" />
-    <Compile Include="PageObjects\IPositionTablePageObject.cs" />
-    <Compile Include="PageObjects\PositionTablePageObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Specs\UKUSCC-1310ComparePositionsTable.feature.cs">
+    <Compile Include="WebDriverCoreSetup.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UKUSCC-1310ComparePositionsTable.feature</DependentUpon>
+      <DependentUpon>WebDriverCoreSetup.feature</DependentUpon>
     </Compile>
-    <Compile Include="Steps\CcPositionSteps.cs" />
-    <Compile Include="Steps\CcUiSteps.cs" />
-    <Compile Include="Steps\StepCentral.cs" />
+    <Compile Include="WebdriverCoreSetupSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj">
       <Project>{268c72a1-5093-48fd-8262-fca688e69f29}</Project>
       <Name>Alpari.QA.Webdriver.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
-      <Project>{cebbc3b4-e690-4f96-8b25-1080b7fbfad4}</Project>
-      <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Specs\UKUSCC-1310ComparePositionsTable.feature">
+    <None Include="WebDriverCoreSetup.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>UKUSCC-1310ComparePositionsTable.feature.cs</LastGenOutput>
+      <LastGenOutput>WebDriverCoreSetup.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DriverConfig\DefaultDriver.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DriverConfig\SpecialDriver.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -64,7 +64,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.TypedDataTables
             string[] primaryKeys)
         {
             TableName = tableName;
-            SetPrimaryKey(primaryKeys);
+            this.SetPrimaryKey(primaryKeys);
             return SetupDataTable(enumeratedObjects, this);
         }
 

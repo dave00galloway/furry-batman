@@ -1,22 +1,36 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Net;
 using Alpari.QA.Webdriver.Core.Constants;
-using Alpari.QA.Webdriver.Core.Elements;
-using HtmlAgilityPack;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 
 namespace Alpari.QA.Webdriver.Core
 {
-    //TODO:- decide if the Webdriver core will hold multipe selenium instances, or have a container for Cores
     public class WebdriverCore : IWebdriverCore
     {
-        private IWebDriver Driver { get; set; }
+        /// <summary>
+        ///     TODO:- replace with a POCO populated with a call to Linq to Xml?
+        /// </summary>
+        public IReadOnlyDictionary<string, string> Options { get; private set; }
+
+        private IWebDriver _driver;
+
+        public WebdriverCore(IReadOnlyDictionary<string, string> options)
+        {
+            Options = options;
+        }
+
+        public WebdriverCore()
+        {
+            Options = null;
+        }
+
+        private IWebDriver Driver
+        {
+            get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
+        }
 
         public void OpenPage(string url)
         {
-            GetDriver().Navigate().GoToUrl(url);
+            Driver.Navigate().GoToUrl(url);
         }
 
         public IWebElement FindElement(By by)
@@ -27,17 +41,20 @@ namespace Alpari.QA.Webdriver.Core
 
         public void Quit()
         {
-            //TODO:- detect if running as a container and quit all instances
-            Driver.Quit();
+            if (_driver != null)
+            {
+                Driver.Quit();
+            }
         }
 
-        /// <summary>
-        ///     very lazy way of lazily initialising a webdriver
-        /// </summary>
-        /// <returns></returns>
-        protected virtual IWebDriver GetDriver()
+        public void OpenPage()
         {
-            return Driver ?? (Driver = new ChromeDriver());
+            Driver.Navigate().GoToUrl(Options[WebDriverConfig.BaseUrl].ToString());
+        }
+
+        public string Url
+        {
+            get { return Driver.Url; }
         }
     }
 }

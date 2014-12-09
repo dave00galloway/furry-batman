@@ -111,16 +111,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         //    string[] primaryKeys) where T : System.Data.DataTable, new();
 
         // ReSharper disable once MemberCanBePrivate.Global - used externally
-        public void SetPrimaryKey(string[] primaryKeyColumns)
-        {
-            int size = primaryKeyColumns.Length;
-            var keyColumns = new DataColumn[size];
-            for (int i = 0; i < size; i++)
-            {
-                keyColumns[i] = Columns[primaryKeyColumns[i]];
-            }
-            PrimaryKey = keyColumns;
-        }
+
 
         /// <summary>
         /// TODO:- replace/create overload which uses delegates instead of a switch
