@@ -41,6 +41,7 @@ Scenario Outline: UKUSQDF-201 Test Redis STP data from new FIX STP feed
 		 | Book           |
 		 | OrderId        |
 		 | State          |
+		 | BankPrice      |
 	Then the cnx hub trade deals should match the qdf deal data exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |

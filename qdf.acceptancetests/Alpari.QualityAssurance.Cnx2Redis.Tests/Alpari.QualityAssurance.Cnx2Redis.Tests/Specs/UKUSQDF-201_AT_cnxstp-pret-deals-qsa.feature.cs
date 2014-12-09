@@ -181,6 +181,8 @@ this.FeatureBackground();
                         "OrderId"});
             table3.AddRow(new string[] {
                         "State"});
+            table3.AddRow(new string[] {
+                        "BankPrice"});
 #line 37
   testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table3, "And ");
 #line hidden
@@ -190,7 +192,7 @@ this.FeatureBackground();
             table4.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 44
+#line 45
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
 #line hidden
             this.ScenarioCleanup();
