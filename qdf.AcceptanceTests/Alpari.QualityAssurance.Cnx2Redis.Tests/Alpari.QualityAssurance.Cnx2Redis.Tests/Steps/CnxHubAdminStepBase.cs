@@ -66,6 +66,7 @@ namespace Alpari.QualityAssurance.Cnx2Redis.Tests.Steps
             {
                 case "cnxstp-pret-deals":
                 case "cnxstp-pret-deals-all":
+                case "cnxstp-pret-deals-qsa":
                 case "cnx-deals":
                     qdfDealsAsTestableDealDataTable = new TestableDealDataTable().ConvertIEnumerableToDataTable(
                         QDF.UIClient.Tests.Steps.StepCentral.RedisConnectionHelper.RetrievedDeals.ConvertToTestableDeals(),
