@@ -78,7 +78,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
                         "login",
                         "password"});
             table1.AddRow(new string[] {
-                        "10.10.144.25:443",
+                        "10.10.144.54:443",
                         "95",
                         "1q2w3e"});
 #line 8
