@@ -228,6 +228,14 @@ this.ScenarioSetup(scenarioInfo);
                         "^",
                         ",",
                         "output.csv"});
+            table5.AddRow(new string[] {
+                        "extract.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
+                        "",
+                        ",",
+                        "^",
+                        ",",
+                        "output.csv"});
 #line 41
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
 #line 45
@@ -285,14 +293,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table7.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract1.log",
+                        "C:\\Temp\\data\\RepeatPeakLoadOn73.txt",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed1.log"});
+                        "RepeatPeakLoadOn73Parsed.txt"});
 #line 73
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table7, "Given ");
 #line 77
@@ -330,14 +337,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table8.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract2.log",
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract2.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed2.log"});
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed2.log"});
 #line 87
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table8, "Given ");
 #line 91
@@ -375,14 +381,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table9.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract3.log",
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract3.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed3.log"});
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed3.log"});
 #line 101
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table9, "Given ");
 #line 105
@@ -420,14 +425,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table10.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract4.log",
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract4.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed4.log"});
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed4.log"});
 #line 115
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table10, "Given ");
 #line 119
@@ -465,14 +469,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table11.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract5.log",
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract5.log",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed5.log"});
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed5.log"});
 #line 128
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table11, "Given ");
 #line 132
@@ -488,6 +491,50 @@ this.ScenarioSetup(scenarioInfo);
 #line 137
  testRunner.And("I output the frequency analysis statistics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 138
+ testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Parse log file and export to graph 6")]
+        public virtual void ParseLogFileAndExportToGraph6()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Parse log file and export to graph 6", ((string[])(null)));
+#line 140
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table12 = new TechTalk.SpecFlow.Table(new string[] {
+                        "fileToParse",
+                        "parseSyntax",
+                        "ColumnJoins",
+                        "OuputDelimiter",
+                        "OuterSyntaxDelimiter",
+                        "InnerSyntaxDelimiter",
+                        "outputfile"});
+            table12.AddRow(new string[] {
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-10_extract1.log",
+                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
+                        "",
+                        ",",
+                        "^",
+                        ",",
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-10_parsed5.log"});
+#line 141
+ testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table12, "Given ");
+#line 145
+ testRunner.When("I parse the log file to memory", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 146
+ testRunner.And("I write the parsed log file to disk", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 147
+ testRunner.And("I analyze the log file by activity frequency", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 148
+ testRunner.And("I output the log file frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 149
+ testRunner.And("I generate statistics about the frequency analysis", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 150
+ testRunner.And("I output the frequency analysis statistics", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 151
  testRunner.Then("I can export the the analysis as a line graph", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

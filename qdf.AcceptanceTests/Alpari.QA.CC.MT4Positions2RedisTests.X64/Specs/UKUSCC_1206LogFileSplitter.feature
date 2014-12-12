@@ -51,13 +51,11 @@ Scenario: Split another log file By row numbers
 Scenario: Split another log file By row numbers into multiple log files
 	
 	Given I have the following log file splitter parameter sets by line number:-
-	| fileToParse                                                                                     | startAt | endAt    | outputfile   |
-	| C:\Reports\20141030143800568\UKUSCC_1230CombineLogFiles\Concatenate2moreLogFiles\OutputFile.log | 0       | 2000000  | extract1.log |
-	| C:\Reports\20141030143800568\UKUSCC_1230CombineLogFiles\Concatenate2moreLogFiles\OutputFile.log | 2000001 | 4000000  | extract2.log |
-	| C:\Reports\20141030143800568\UKUSCC_1230CombineLogFiles\Concatenate2moreLogFiles\OutputFile.log | 4000001 | 6000000  | extract3.log |
-	| C:\Reports\20141030143800568\UKUSCC_1230CombineLogFiles\Concatenate2moreLogFiles\OutputFile.log | 6000001 | 8000000  | extract4.log |
-	| C:\Reports\20141030143800568\UKUSCC_1230CombineLogFiles\Concatenate2moreLogFiles\OutputFile.log | 8000001 | 10000000 | extract5.log |
-
-
-
+	| fileToParse                                                 | startAt | endAt    | outputfile                                              |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log | 0       | 165716  | MT4P2R_Build75_10_10_144_54_443_2014-12-10_extract1.log |
+	#| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log | 2004104 | 400000  | MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract2.log |
+	#| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log | 4004104 | 600000  | MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract3.log |
+	#| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log | 6004104 | 800000  | MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract4.log |
+	#| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log | 8004104 | 1000004 | MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract5.log |
+																												  
 	When I split the log file by row numbers into files
