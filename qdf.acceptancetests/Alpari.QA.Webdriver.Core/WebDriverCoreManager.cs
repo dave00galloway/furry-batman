@@ -59,7 +59,7 @@ namespace Alpari.QA.Webdriver.Core
         {
             var fileNamePath = WebDriverConfig.WebDriverCoreConfigPath + webdriverConfigFile +
                                WebDriverConfig.WebDriverCoreConfigFormat;
-            IWebdriverCore wdc = new WebdriverCore(MergeOptionsWithParent(fileNamePath),null);
+            IWebdriverCore wdc = new WebdriverCore(MergeOptionsWithParent(fileNamePath));
             Instance._drivers.Add(name, wdc);
             return wdc;
         }
