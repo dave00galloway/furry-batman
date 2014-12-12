@@ -15,5 +15,7 @@ namespace Alpari.QA.Webdriver.Core
         ///     Opens the default page for the webdriver if set, otherwise does nothing
         /// </summary>
         void OpenPage();
+
+        bool Instantiated { get; }
     }
 }

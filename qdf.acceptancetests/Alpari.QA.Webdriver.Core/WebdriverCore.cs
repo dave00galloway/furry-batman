@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using Alpari.QA.Webdriver.Core.Constants;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core
 {
+    [DebuggerTypeProxy(typeof(WebDriverProxy))]
     public class WebdriverCore : IWebdriverCore
     {
         /// <summary>
@@ -18,11 +20,18 @@ namespace Alpari.QA.Webdriver.Core
             Options = options;
         }
 
+        public WebdriverCore(IReadOnlyDictionary<string, string> options, IWebDriver driver)
+        {
+            Options = options;
+            _driver = driver;
+        }
+
         public WebdriverCore()
         {
             Options = null;
         }
 
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         private IWebDriver Driver
         {
             get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
@@ -52,9 +61,30 @@ namespace Alpari.QA.Webdriver.Core
             Driver.Navigate().GoToUrl(Options[WebDriverConfig.BaseUrl].ToString());
         }
 
+        public bool Instantiated
+        {
+            get { return _driver != null; }
+        }
+
         public string Url
         {
             get { return Driver.Url; }
+        }
+
+        public class WebDriverProxy
+        {
+            private IWebDriver _driver;
+            public IReadOnlyDictionary<string, string> Options { get; set; }
+            public WebDriverProxy(IReadOnlyDictionary<string, string> options , IWebDriver driver)
+            {
+                Options = options;
+                _driver = driver;
+            }
+
+            public bool Instantiated
+            {
+                get { return _driver != null; }
+            }
         }
     }
 }
