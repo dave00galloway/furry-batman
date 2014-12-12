@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System.Data;
+using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
@@ -59,18 +61,30 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I compare the current positions")]
         public void WhenICompareTheCurrentPositions()
         {
-            //TODO:- parallelise into tasks
+            DataTable currentTable = null;
+            DataTable newTable = null;
             var currentDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcCurrent);
-            var newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
+            var currentPositionsPage = new PositionTablePageObject(currentDriver);
             currentDriver.OpenPage();
+
+            var newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
+            var newPositionsPage = new PositionTablePageObject(newDriver);
             newDriver.OpenPage();
-            IPositionTablePageObject currentPositionsPage = new PositionTablePageObject(currentDriver);
-            IPositionTablePageObject newPositionsPage = new PositionTablePageObject(currentDriver);
-            var currentTable = currentPositionsPage.GetPositionDataAsDataTableBySymbols();
-            var newTable = newPositionsPage.GetPositionDataAsDataTableBySymbols();
+
+            //leaving driver creation outside of task until softkey sorted to make debugging easier
+
+            var tasks = new Task[2]
+            {
+                Task.Factory.StartNew(()=>
+                currentTable = currentPositionsPage.GetPositionDataAsDataTableBySymbols())
+                ,
+                Task.Factory.StartNew(()=>
+                newTable = newPositionsPage.GetPositionDataAsDataTableBySymbols())
+            };
+
+            Task.WaitAll(tasks);
             var diffs = currentTable.Compare(newTable);
             diffs.CheckForDifferences();
-            
         }
 
         [Then(@"the current positions should match exactly:-")]
