@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Hooks\ComparisonHooks.cs" />
     <Compile Include="Hooks\WebDriverHooks.cs" />
     <Compile Include="PageObjects\IPositionTablePageObject.cs" />
     <Compile Include="PageObjects\PositionTablePageObject.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Steps\CcUiSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="Transforms\CcComparisonParametersTransform.cs" />
+    <Compile Include="Transforms\ExportParametersTransform.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj">

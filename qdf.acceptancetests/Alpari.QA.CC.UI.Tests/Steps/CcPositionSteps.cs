@@ -6,6 +6,7 @@ using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QA.Webdriver.Core.Elements;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using FluentAssertions;
 using TechTalk.SpecFlow;
@@ -85,12 +86,15 @@ namespace Alpari.QA.CC.UI.Tests.Steps
             Task.WaitAll(tasks);
             var diffs = currentTable.Compare(newTable);
             diffs.CheckForDifferences();
+            ScenarioContext.Current["diffs"] = diffs;
         }
 
         [Then(@"the current positions should match exactly:-")]
-        public void ThenTheCurrentPositionsShouldMatchExactly(Table table)
+        public void ThenTheCurrentPositionsShouldMatchExactly(ExportParameters exportParameters)
         {
-            ScenarioContext.Current.Pending();
+            var diffs = (DataTableComparison)ScenarioContext.Current["diffs"];
+            exportParameters.Path = ScenarioOutputDirectory;
+            diffs.CheckForDifferences(exportParameters, true).Should().BeNullOrWhiteSpace();
         }
 
 
