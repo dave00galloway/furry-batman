@@ -222,38 +222,13 @@ this.ScenarioSetup(scenarioInfo);
                         "endAt",
                         "outputfile"});
             table6.AddRow(new string[] {
-                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
-                            "OutputFile.log",
+                        "C:\\Temp\\data\\MT4P2R_Build75_10_10_144_54_443_2014-12-10.log",
                         "0",
-                        "2000000",
-                        "extract1.log"});
-            table6.AddRow(new string[] {
-                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
-                            "OutputFile.log",
-                        "2000001",
-                        "4000000",
-                        "extract2.log"});
-            table6.AddRow(new string[] {
-                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
-                            "OutputFile.log",
-                        "4000001",
-                        "6000000",
-                        "extract3.log"});
-            table6.AddRow(new string[] {
-                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
-                            "OutputFile.log",
-                        "6000001",
-                        "8000000",
-                        "extract4.log"});
-            table6.AddRow(new string[] {
-                        "C:\\Reports\\20141030143800568\\UKUSCC_1230CombineLogFiles\\Concatenate2moreLogFiles\\" +
-                            "OutputFile.log",
-                        "8000001",
-                        "10000000",
-                        "extract5.log"});
+                        "165716",
+                        "MT4P2R_Build75_10_10_144_54_443_2014-12-10_extract1.log"});
 #line 53
  testRunner.Given("I have the following log file splitter parameter sets by line number:-", ((string)(null)), table6, "Given ");
-#line 63
+#line 61
  testRunner.When("I split the log file by row numbers into files", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

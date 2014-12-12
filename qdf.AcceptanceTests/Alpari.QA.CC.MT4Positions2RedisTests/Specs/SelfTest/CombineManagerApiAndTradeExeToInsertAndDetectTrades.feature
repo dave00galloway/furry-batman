@@ -7,7 +7,7 @@ Feature: CombineManagerApiAndTradeExeToInsertAndDetectTrades
 Background: Setup Mt4CompositeApi
 	Given I have the following connection parameters for the Mt4CompositeApi:-
 		| server           | login | password |
-		| 10.10.144.25:443 | 95    | 1q2w3e   |
+		| 10.10.144.54:443 | 95    | 1q2w3e   |
 	#Given I have a connection to a redis repository on "uk-redis-dev.corp.alpari.com" port 6379 db 0 namespace "alpari-positions"
 	#And I have a connection to Mt4ArsPositionsContext
 	##When I get all positions for server "MT4Test-Demo-Pro" opened from '2014/09/02 00:00:00'	

@@ -41,7 +41,7 @@ Scenario: Parse log extended file extract and export to graph
 	Given I have the following log file parser parameters:-
 	| fileToParse                                                    | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile |
 	| TestData\LogFileTests\Build56_Service_Log_extract_extended.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | output.csv |
-
+	| extract.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | output.csv |
 	When I parse the log file to memory
 	And I analyze the log file by activity frequency
 	Then I can export the the analysis as a line graph
@@ -71,8 +71,8 @@ Scenario: Cleanse log file
 
 Scenario: Parse log file and export to graph 1
 	Given I have the following log file parser parameters:-
-	| fileToParse                   | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                        |
-	| C:\data\LoadTestAddTrades.txt | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | LoadTestAddTrades.txt_parsed1.log |
+	| fileToParse                         | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile             |
+	| C:\Temp\data\RepeatPeakLoadOn73.txt | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | RepeatPeakLoadOn73Parsed.txt |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk
@@ -85,8 +85,8 @@ Scenario: Parse log file and export to graph 1
 
 Scenario: Parse log file and export to graph 2
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                                              | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
-	| C:\Reports\20141031110428277\UKUSCC_1206LogFileSplitter\SplitanotherlogfileByrownumbersintomultiplelogfiles\extract2.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed2.log |
+	| fileToParse                                                          | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract2.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed2.log |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk
@@ -99,8 +99,8 @@ Scenario: Parse log file and export to graph 2
 
 Scenario: Parse log file and export to graph 3
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                                              | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
-	| C:\Reports\20141031110428277\UKUSCC_1206LogFileSplitter\SplitanotherlogfileByrownumbersintomultiplelogfiles\extract3.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed3.log |
+	| fileToParse                                                          | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract3.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed3.log |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk
@@ -113,8 +113,8 @@ Scenario: Parse log file and export to graph 3
 
 Scenario: Parse log file and export to graph 4
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                                              | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
-	| C:\Reports\20141031110428277\UKUSCC_1206LogFileSplitter\SplitanotherlogfileByrownumbersintomultiplelogfiles\extract4.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed4.log |
+	| fileToParse                                                          | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract4.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed4.log |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk
@@ -126,8 +126,21 @@ Scenario: Parse log file and export to graph 4
 
 Scenario: Parse log file and export to graph 5
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                                              | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
-	| C:\Reports\20141031110428277\UKUSCC_1206LogFileSplitter\SplitanotherlogfileByrownumbersintomultiplelogfiles\extract5.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed5.log |
+	| fileToParse                                                          | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-09_extract5.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_Build75_10_10_144_54_443_2014-12-09_parsed5.log |
+
+	When I parse the log file to memory
+	And I write the parsed log file to disk
+	And I analyze the log file by activity frequency
+	And I output the log file frequency analysis
+	And I generate statistics about the frequency analysis
+	And I output the frequency analysis statistics
+	Then I can export the the analysis as a line graph
+
+Scenario: Parse log file and export to graph 6
+	Given I have the following log file parser parameters:-
+	| fileToParse                                                          | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
+	| C:\Temp\data\MT4P2R_Build75_10_10_144_54_443_2014-12-10_extract1.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_Build75_10_10_144_54_443_2014-12-10_parsed5.log |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk
