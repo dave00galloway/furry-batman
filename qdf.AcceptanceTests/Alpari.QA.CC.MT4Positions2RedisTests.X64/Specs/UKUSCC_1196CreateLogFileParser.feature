@@ -71,8 +71,8 @@ Scenario: Cleanse log file
 
 Scenario: Parse log file and export to graph 1
 	Given I have the following log file parser parameters:-
-	| fileToParse                                                                                                              | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                                             |
-	| C:\Reports\20141031110428277\UKUSCC_1206LogFileSplitter\SplitanotherlogfileByrownumbersintomultiplelogfiles\extract1.log | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed1.log |
+	| fileToParse                   | parseSyntax                     | ColumnJoins | OuputDelimiter | OuterSyntaxDelimiter | InnerSyntaxDelimiter | outputfile                        |
+	| C:\data\LoadTestAddTrades.txt | [,1,,0, ,^],1,,0, ,^ ,0,U_,2, , |             | ,              | ^                    | ,                    | LoadTestAddTrades.txt_parsed1.log |
 
 	When I parse the log file to memory
 	And I write the parsed log file to disk

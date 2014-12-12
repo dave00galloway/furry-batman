@@ -285,14 +285,13 @@ this.ScenarioSetup(scenarioInfo);
                         "InnerSyntaxDelimiter",
                         "outputfile"});
             table7.AddRow(new string[] {
-                        "C:\\Reports\\20141031110428277\\UKUSCC_1206LogFileSplitter\\SplitanotherlogfileByrown" +
-                            "umbersintomultiplelogfiles\\extract1.log",
+                        "C:\\data\\LoadTestAddTrades.txt",
                         "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
                         "",
                         ",",
                         "^",
                         ",",
-                        "MT4P2R_build73_10_10_144_25_443_2014-10-29_parsed1.log"});
+                        "LoadTestAddTrades.txt_parsed1.log"});
 #line 73
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table7, "Given ");
 #line 77

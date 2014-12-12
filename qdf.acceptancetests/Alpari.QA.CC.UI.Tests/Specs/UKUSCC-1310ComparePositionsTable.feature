@@ -22,3 +22,12 @@ Scenario: Compare A Book Positions
 	When I compare the positions
 
 
+#note manually selecting the servers, book and types for now
+Scenario: Compare new and old servers current position
+	Given I have the following cc comparison parameters:-
+	| CcCurrent | CcNew  |
+	| cc_prod   | cc_new |
+	When I compare the current positions
+	Then the current positions should match exactly:-
+	| ExportType     |  Overwrite |
+	| DataTableToCsv |  true      |

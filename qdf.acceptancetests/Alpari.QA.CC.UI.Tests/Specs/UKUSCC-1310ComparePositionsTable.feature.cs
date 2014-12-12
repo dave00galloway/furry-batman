@@ -115,6 +115,37 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Compare new and old servers current position")]
+        public virtual void CompareNewAndOldServersCurrentPosition()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare new and old servers current position", ((string[])(null)));
+#line 26
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "CcCurrent",
+                        "CcNew"});
+            table1.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new"});
+#line 27
+ testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table1, "Given ");
+#line 30
+ testRunner.When("I compare the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table2.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 31
+ testRunner.Then("the current positions should match exactly:-", ((string)(null)), table2, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

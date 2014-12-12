@@ -55,6 +55,7 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
         {
             //TODO: if we decided to use Core as a container, then nothing needs to change here. if we use a container for cores, then we need to iterate over them and close all sel instances
             StepCentral.WebdriverCore.Quit();
+            WebDriverCoreManager.RemoveAll();
         }
     }
 }
