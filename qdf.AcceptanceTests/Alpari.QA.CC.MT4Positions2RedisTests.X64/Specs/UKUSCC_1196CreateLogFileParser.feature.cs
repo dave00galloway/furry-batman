@@ -228,14 +228,6 @@ this.ScenarioSetup(scenarioInfo);
                         "^",
                         ",",
                         "output.csv"});
-            table5.AddRow(new string[] {
-                        "extract.log",
-                        "[,1,,0, ,^],1,,0, ,^ ,0,U_,2, ,",
-                        "",
-                        ",",
-                        "^",
-                        ",",
-                        "output.csv"});
 #line 41
  testRunner.Given("I have the following log file parser parameters:-", ((string)(null)), table5, "Given ");
 #line 45

@@ -49,8 +49,8 @@ Scenario Outline: UKUSQDF-201 Test Redis STP data from new FIX STP feed
 	| reportDate |
 	| 12/08/2014 |
 	| 12/09/2014 |
-	#| 12/10/2014 |
-	#| 12/11/2014 |
+	| 12/10/2014 |
+	| 12/11/2014 |
 	#| 12/12/2014 |
 	#| 12/13/2014 |
 	#| 12/14/2014 |

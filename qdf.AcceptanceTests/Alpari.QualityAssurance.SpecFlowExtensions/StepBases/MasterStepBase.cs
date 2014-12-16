@@ -5,6 +5,7 @@ using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using BoDi;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 {
@@ -109,6 +110,17 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                                                 +
                                                 "This class can't be marked as abstract, but it shouldn't be directly inherited from");
             }
+        }
+
+        [StepArgumentTransformation]
+        public static ExportParameters ExportParametersTransform(Table table)
+        {
+            var parameters = table.CreateInstance<ExportParameters>();
+            if (parameters.ExportType == ExportTypes.Csv || parameters.ExportType == ExportTypes.DataTableToCsv)
+            {
+                parameters.Path = ScenarioOutputDirectory;
+            }
+            return parameters;
         }
     }
 }

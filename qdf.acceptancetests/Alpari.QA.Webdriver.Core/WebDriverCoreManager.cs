@@ -69,7 +69,7 @@ namespace Alpari.QA.Webdriver.Core
             IDictionary<string, string> dict = fileNamePath.ParseXmlAsDictionary(WebDriverConfig.WebDriverCoreConfig);
             if (dict.ContainsKey(WebDriverConfig.InheritsFrom))
             {
-                var parentDriverName = dict[WebDriverConfig.InheritsFrom].ToString();
+                var parentDriverName = dict[WebDriverConfig.InheritsFrom];
                 if (Drivers(parentDriverName) == null)
                 {
                     lock (InstanceRoot)
