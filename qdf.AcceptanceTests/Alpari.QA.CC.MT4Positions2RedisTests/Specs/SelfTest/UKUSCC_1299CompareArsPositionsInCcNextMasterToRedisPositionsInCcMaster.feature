@@ -8,7 +8,7 @@ Feature: UKUSCC_1299CompareArsPositionsInCcNextMasterToRedisPositionsInCcMaster
 Background: Setup Connection pool
 	Given I have the following connections to cc:-
 	| Connection1 | Connection2 |
-	| CcMaster    | CcMaster     |
+	| CcMaster    | CcMaster    |
 
 Scenario: Do JPN Comparison
 	When I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-

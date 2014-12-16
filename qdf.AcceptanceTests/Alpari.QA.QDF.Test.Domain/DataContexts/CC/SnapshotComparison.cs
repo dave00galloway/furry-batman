@@ -9,5 +9,7 @@
         public decimal Server2Volume { get; set; }
         public decimal Diff { get; set; }
         public decimal Delta { get; set; }
+        public string Server1LastSnapshotTime { get; set; }
+        public string Server2LastSnapshotTime { get; set; }
     }
 }

@@ -33,8 +33,8 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1331_ProvideExactSnapshotTimes", "In order to aid defect investigation\r\nAs a CC Developer\r\nI want to know the exact" +
-                    " time of a snapshot", ProgrammingLanguage.CSharp, new string[] {
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC_1331_ProvideExactSnapshotTimes", "In order to aid defect investigation\r\nAs a CC Developer\r\nI want to get exact cc s" +
+                    "napshot times", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1331"});
             testRunner.OnFeatureStart(featureInfo);
         }
@@ -69,7 +69,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         
         public virtual void FeatureBackground()
         {
-#line 7
+#line 8
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "Connection1",
@@ -77,28 +77,50 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
             table1.AddRow(new string[] {
                         "CcMaster",
                         "CcMaster"});
-#line 8
+#line 9
  testRunner.Given("I have the following connections to cc:-", ((string)(null)), table1, "Given ");
 #line hidden
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Add two numbers")]
-        public virtual void AddTwoNumbers()
+        [NUnit.Framework.DescriptionAttribute("Do JPN Comparison")]
+        public virtual void DoJPNComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add two numbers", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do JPN Comparison", ((string[])(null)));
 #line 13
 this.ScenarioSetup(scenarioInfo);
-#line 7
+#line 8
 this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server1",
+                        "Server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2",
+                        "Book",
+                        "Section",
+                        "Symbol",
+                        "StartTime",
+                        "EndTime"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDCAD",
+                        "2014/12/12 10:30:00",
+                        "2014/12/15 09:00:00"});
 #line 14
- testRunner.Given("I have entered 50 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 15
- testRunner.And("I have entered 70 into the calculator", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 16
- testRunner.When("I press add", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 17
- testRunner.Then("the result should be 120 on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
+                    "hese sets of snapshot parameters:-", ((string)(null)), table2, "When ");
+#line 18
+  testRunner.Then("the snapshot comparison list contains fields for actual snapshot times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

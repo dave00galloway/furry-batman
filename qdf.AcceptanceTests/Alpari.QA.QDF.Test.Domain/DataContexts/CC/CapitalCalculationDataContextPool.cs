@@ -32,10 +32,10 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
             set
             {
                 _capitalCalculationDataContextPoolParams = value;
-                CapitalCalculationDataContexts.Add(value.Connection1+1, new CapitalCalculationDataContext(
+                CapitalCalculationDataContexts.Add(value.Connection1 + 1, new CapitalCalculationDataContext(
                     ConfigurationManager.ConnectionStrings[value.Connection1].ConnectionString
                         .UnProtect('_')));
-                CapitalCalculationDataContexts.Add(value.Connection2+2, new CapitalCalculationDataContext(
+                CapitalCalculationDataContexts.Add(value.Connection2 + 2, new CapitalCalculationDataContext(
                     ConfigurationManager.ConnectionStrings[value.Connection2].ConnectionString
                         .UnProtect('_')));
             }
@@ -74,17 +74,28 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 );
             Task.WaitAll(task1, task2);
 
-            List<SnapshotComparison> list = dict1.Rows.Cast<DataRow>().Select(row =>
-                new SnapshotComparison
+            var list = dict1.Rows.Cast<DataRow>().Select(row =>
+            {
+                var dict2Row = dict2.Rows.Find(row["snapshot_time_to_minute"]);
+                var s = new SnapshotComparison
                 {
                     SnapshotTimeToMinute = row["snapshot_time_to_minute"] as string,
                     Server1Name = ccParameter.Server1,
                     Server1Volume = (decimal) row["database1_volume"],
+                    Server1LastSnapshotTime = row["last_snapshot_time"] as string,
                     Server2Name = ccParameter.Server2,
-                    Server2Volume = (decimal) (dict2.Rows.Find(row["snapshot_time_to_minute"])["database1_volume"] ?? 0)
-                }).ToList();
+                    Server2Volume = dict2Row["database1_volume"] != DBNull.Value
+                        ? (decimal) dict2Row["database1_volume"]
+                        : 0,
+                    Server2LastSnapshotTime = dict2Row["last_snapshot_time"] != DBNull.Value
+                        ? dict2Row["last_snapshot_time"] as String
+                        : ""
+                };
+                return s;
+            }
+                ).ToList();
             //check there aren't any extra rows in dict 2
-            foreach (DataRow row in dict2.Rows.Cast<DataRow>()
+            foreach (var row in dict2.Rows.Cast<DataRow>()
                 .Where(row => !list.Any(x => Equals(x.SnapshotTimeToMinute, row["snapshot_time_to_minute"]))))
             {
                 list.Add(new SnapshotComparison
@@ -92,16 +103,18 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                     SnapshotTimeToMinute = row["snapshot_time_to_minute"] as string,
                     Server1Name = ccParameter.Server1,
                     Server1Volume = 0,
+                    Server1LastSnapshotTime = "",
                     Server2Name = ccParameter.Server2,
-                    Server2Volume = (decimal) row["database1_volume"]
+                    Server2Volume = (decimal) row["database1_volume"],
+                    Server2LastSnapshotTime = row["last_snapshot_time"] as string
                 });
             }
             list.Sort((x, snapshotComparison) =>
             {
                 //TODO:- sort out SnapshotComparison so that the type of snapshot time is a DateTime, thus avoiding part of the proceeding complexity
-                DateTime date1 = DateTime.ParseExact(x.SnapshotTimeToMinute, DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS,
+                var date1 = DateTime.ParseExact(x.SnapshotTimeToMinute, DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS,
                     CultureInfo.InvariantCulture);
-                DateTime date2 = DateTime.ParseExact(snapshotComparison.SnapshotTimeToMinute,
+                var date2 = DateTime.ParseExact(snapshotComparison.SnapshotTimeToMinute,
                     DateTimeUtils.MY_SQL_DATE_FORMAT_TO_SECONDS, CultureInfo.InvariantCulture);
                 if (DateTime.Compare(date1, date2) < 0)
                 {
@@ -115,7 +128,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
         }
 
         /// <summary>
-        /// Shouldn't be in here, move to the context.
+        ///     Shouldn't be in here, move to the context.
         /// </summary>
         /// <param name="snapshotParams"></param>
         /// <returns></returns>

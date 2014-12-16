@@ -117,5 +117,13 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Steps
         {
             _result.Should().HaveCount(expResultCount);
         }
+
+        [Then(@"the snapshot comparison list contains fields for actual snapshot times")]
+        public void ThenTheSnapshotComparisonListContainsFieldsForActualSnapshotTimes()
+        {
+            _result.Where(r => r.Server1LastSnapshotTime.Length > 0).ToList().Should().NotBeNull();
+            _result.Where(r => r.Server2LastSnapshotTime.Length > 0).ToList().Should().NotBeNull();
+        }
+
     }
 }
