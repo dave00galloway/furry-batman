@@ -124,6 +124,49 @@ this.FeatureBackground();
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Do ADS CFD Comparison")]
+        public virtual void DoADSCFDComparison()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS CFD Comparison", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 8
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                        "Server1",
+                        "Server2",
+                        "Database1",
+                        "Database2",
+                        "Connection1",
+                        "Connection2",
+                        "Book",
+                        "Section",
+                        "Symbol",
+                        "StartTime",
+                        "EndTime"});
+            table3.AddRow(new string[] {
+                        "ADS CFD",
+                        "ADS CFD",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "CL.F5",
+                        "2014/12/15 09:00:00",
+                        "2014/12/16 12:45:00"});
+#line 21
+ testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
+                    "hese sets of snapshot parameters:-", ((string)(null)), table3, "When ");
+#line 25
+ testRunner.Then("the snapshot comparison list contains fields for actual snapshot times", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

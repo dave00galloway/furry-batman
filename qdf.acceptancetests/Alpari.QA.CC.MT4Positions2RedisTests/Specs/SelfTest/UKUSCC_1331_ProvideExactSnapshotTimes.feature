@@ -16,3 +16,10 @@ Scenario: Do JPN Comparison
 	 | JPN     | JPN     | cc_next   | cc        | CcMaster    | CcMaster    | A    | Default | AUDCAD | 2014/12/12 10:30:00 | 2014/12/15 09:00:00 |
 
 	 Then the snapshot comparison list contains fields for actual snapshot times
+
+Scenario: Do ADS CFD Comparison
+	When I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-
+	| Server1 | Server2 | Database1 | Database2 | Connection1 | Connection2 | Book | Section | Symbol  | StartTime           | EndTime             |
+	| ADS CFD | ADS CFD | cc_next   | cc        | CcMaster    | CcMaster    | B    | Default | CL.F5   | 2014/12/15 09:00:00 | 2014/12/16 12:45:00 |
+
+	Then the snapshot comparison list contains fields for actual snapshot times

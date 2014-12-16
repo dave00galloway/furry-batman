@@ -81,9 +81,13 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                 {
                     SnapshotTimeToMinute = row["snapshot_time_to_minute"] as string,
                     Server1Name = ccParameter.Server1,
-                    Server1Volume = (decimal) row["database1_volume"],
-                    Server1LastSnapshotTime = row["last_snapshot_time"] as string,
                     Server2Name = ccParameter.Server2,
+                    Server1Volume = row["database1_volume"] != DBNull.Value
+                        ? (decimal) row["database1_volume"]
+                        : 0,
+                    Server1LastSnapshotTime = row["last_snapshot_time"] != DBNull.Value
+                        ? row["last_snapshot_time"] as String
+                        : "",
                     Server2Volume = dict2Row["database1_volume"] != DBNull.Value
                         ? (decimal) dict2Row["database1_volume"]
                         : 0,
@@ -91,6 +95,7 @@ namespace Alpari.QA.QDF.Test.Domain.DataContexts.CC
                         ? dict2Row["last_snapshot_time"] as String
                         : ""
                 };
+
                 return s;
             }
                 ).ToList();
