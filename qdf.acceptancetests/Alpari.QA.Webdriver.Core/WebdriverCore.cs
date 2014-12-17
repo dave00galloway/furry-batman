@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using Alpari.QA.Webdriver.Core.Constants;
+using log4net;
+using log4net.Config;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core
@@ -8,6 +10,7 @@ namespace Alpari.QA.Webdriver.Core
     [DebuggerTypeProxy(typeof (WebDriverProxy))]
     public class WebdriverCore : IWebdriverCore
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(WebdriverCore));
         private IWebDriver _driver;
 
         public WebdriverCore(IReadOnlyDictionary<string, string> options)
@@ -23,6 +26,7 @@ namespace Alpari.QA.Webdriver.Core
 
         public WebdriverCore()
         {
+            Log.Debug("loading webdriverCore");
             Options = null;
         }
 

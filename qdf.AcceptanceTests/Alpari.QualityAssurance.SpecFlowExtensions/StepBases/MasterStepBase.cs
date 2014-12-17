@@ -4,6 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using BoDi;
+using log4net;
+using log4net.Config;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
 
@@ -11,25 +13,30 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 {
     public class MasterStepBase
     {
-        private static readonly string FullName = typeof(MasterStepBase).FullName;
-        protected static readonly string StepBaseRootNameSpace = typeof(MasterStepBase).Namespace;
+        private static readonly ILog Log = LogManager.GetLogger(typeof(MasterStepBase));
         public const string FEATURE_OUTPUT_DIRECTORY = "FeatureOutputDirectory";
         public const string SCENARIO_OUTPUT_DIRECTORY = "ScenarioOutputDirectory";
         public const string TEST_RUN_CONTEXT = "TestRunContext";
         public const string REPORT_ROOT = "reportRoot";
-        protected static IObjectContainer ObjectContainer { get; set; }
+        private static readonly string FullName = typeof (MasterStepBase).FullName;
+        protected static readonly string StepBaseRootNameSpace = typeof (MasterStepBase).Namespace;
 
         [SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors",
             Justification =
                 "Unable to mark this class as abstract, so using an exceptional method to prevent direct inheritance")]
         protected MasterStepBase()
         {
+            SetupLogging();
 // ReSharper disable once DoNotCallOverridableMethodsInConstructor
             ScenarioContext.Current[ToString()] = this;
             ThrowExceptionIfInMasterStepBase();
             TestRunContext = TestRunContext.Instance;
-            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof(IObjectContainer)) as IObjectContainer;
+            ObjectContainer = ScenarioContext.Current.GetBindingInstance(typeof (IObjectContainer)) as IObjectContainer;
         }
+
+        protected static IObjectContainer ObjectContainer { get; set; }
+
+        private static bool LoggingEnabled { get; set; }
 
 
         /// <summary>
@@ -39,6 +46,34 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         ///     to the top of every step def file
         /// </summary>
         public TestRunContext TestRunContext { get; private set; }
+
+        /// <summary>
+        ///     TODO:- bypass ScenarioContext altogether?
+        /// </summary>
+        public static string ScenarioOutputDirectory
+        {
+            get { return (string) ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY]; }
+        }
+
+        /// <summary>
+        ///     TODO:- bypass FeatureContext altogether?
+        /// </summary>
+        protected static string FeatureOutputDirectory
+        {
+            get { return (string) FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]; }
+        }
+
+        private static void SetupLogging()
+        {
+            if (!LoggingEnabled)
+            {
+                XmlConfigurator.Configure();
+                //BasicConfigurator.Configure();
+                LoggingEnabled = true;
+                Log.Debug("logging enabled");
+                Log.InfoFormat("Feature {0} Scenario {1}",FeatureContext.Current.FeatureInfo.Title,ScenarioContext.Current.ScenarioInfo.Title);
+            }
+        }
 
         /// <summary>
         ///     gets a named step definiton file from the Scenario context.
@@ -58,8 +93,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 
 
         /// <summary>
-        /// Use this in a BeforeFeature to create and clear a unique output directory for Feature results in the ReportRoot as Specified in App.Config
-        /// THe next level down will be the timestamp of the test run
+        ///     Use this in a BeforeFeature to create and clear a unique output directory for Feature results in the ReportRoot as
+        ///     Specified in App.Config
+        ///     THe next level down will be the timestamp of the test run
         /// </summary>
         public static void SetupFeatureOutputDirectoryTimestampFirst()
         {
@@ -67,13 +103,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                                                                TestRunContext.StaticFriendlyTime + @"\" +
                                                                FeatureContext.Current.FeatureInfo.Title.Replace(" ", "") +
                                                                @"\";
-            ((string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]).ClearOutputDirectory();
+            ((string) FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]).ClearOutputDirectory();
         }
 
         public static void SetupScenarioOutputDirectoryTimestampFirst()
         {
             ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY] =
-                (string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY] +
+                (string) FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY] +
                 ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
             (ScenarioOutputDirectory).ClearOutputDirectory();
         }
@@ -81,22 +117,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static void InstantiateTestRunContext()
         {
             TestRunContext.Instance[TEST_RUN_CONTEXT] = TestRunContext.Instance;
-        }
-
-        /// <summary>
-        /// TODO:- bypass ScenarioContext altogether?
-        /// </summary>
-        public static string ScenarioOutputDirectory
-        {
-            get { return (string)ScenarioContext.Current[SCENARIO_OUTPUT_DIRECTORY]; }
-        }
-
-        /// <summary>
-        /// TODO:- bypass FeatureContext altogether?
-        /// </summary>
-        protected static string FeatureOutputDirectory
-        {
-            get { return (string)FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]; }
         }
 
         /// <summary>

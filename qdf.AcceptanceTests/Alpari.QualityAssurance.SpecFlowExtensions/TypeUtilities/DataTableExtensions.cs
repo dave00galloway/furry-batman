@@ -6,12 +6,14 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
+using log4net;
 using NUnit.Framework;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
     public static class DataTableExtensions
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(DataTableExtensions));
         /// <summary>
         ///     http://stackoverflow.com/questions/1398609/casting-generic-datatable-to-typed-datatable
         /// </summary>
@@ -243,8 +245,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         {
             foreach (DataColumn column in columnsToCompare)
             {
-                row[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
-                    outputMatches, removeReturns);
+                try
+                {
+                    row[column].CompareWith(newRow[column.ColumnName], column, findTheseVals, comparisonDiffs,
+                        outputMatches, removeReturns);
+                }
+                catch (Exception e)
+                {
+                    Log.Warn("Bad Things",e);
+                }
             }
         }
 

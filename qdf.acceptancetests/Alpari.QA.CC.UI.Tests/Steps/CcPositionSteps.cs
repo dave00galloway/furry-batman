@@ -84,7 +84,8 @@ namespace Alpari.QA.CC.UI.Tests.Steps
             };
 
             Task.WaitAll(tasks);
-            var diffs = currentTable.Compare(newTable);
+            //TODO:- provide mapping where the column names are different
+            var diffs = currentTable.Compare(newTable, new[] { "Client Total", "Coverage Total", "Net Total" });
             diffs.CheckForDifferences();
             ScenarioContext.Current["diffs"] = diffs;
         }
