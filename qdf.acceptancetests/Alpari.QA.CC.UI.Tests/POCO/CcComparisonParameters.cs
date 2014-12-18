@@ -12,5 +12,9 @@
         ///     indicates the driver to load for the envirnment contianing the version of cc under test
         /// </summary>
         public string CcNew { get; set; }
+
+        public string MonitorFor { get; set; }
+
+        public string MonitorEvery { get; set; }
     }
 }

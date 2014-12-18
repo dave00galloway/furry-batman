@@ -69,6 +69,7 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Hooks
             {
                 ObjectContainer = null;
             }
+            MoveExampleEvidence();
         }
 
         [BeforeFeature]

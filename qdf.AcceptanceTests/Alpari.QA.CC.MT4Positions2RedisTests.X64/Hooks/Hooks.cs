@@ -14,5 +14,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.X64.Hooks
             base.BeforeScenario();
         }
 
+        [AfterScenario]
+        public void AfterScenario()
+        {
+            MoveExampleEvidence();
+        }
     }
 }

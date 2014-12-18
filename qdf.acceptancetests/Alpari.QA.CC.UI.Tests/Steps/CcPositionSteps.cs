@@ -1,7 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Alpari.QA.CC.UI.Tests.BusinessProcesses;
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
@@ -62,33 +64,17 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I compare the current positions")]
         public void WhenICompareTheCurrentPositions()
         {
-            DataTable currentTable = null;
-            DataTable newTable = null;
-            var currentDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcCurrent);
-            var currentPositionsPage = new PositionTablePageObject(currentDriver);
-            currentDriver.OpenPage();
-
-            var newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
-            var newPositionsPage = new PositionTablePageObject(newDriver);
-            newDriver.OpenPage();
-
-            //leaving driver creation outside of task until softkey sorted to make debugging easier
-
-            var tasks = new Task[2]
-            {
-                Task.Factory.StartNew(()=>
-                currentTable = currentPositionsPage.GetPositionDataAsDataTableBySymbols())
-                ,
-                Task.Factory.StartNew(()=>
-                newTable = newPositionsPage.GetPositionDataAsDataTableBySymbols())
-            };
-
-            Task.WaitAll(tasks);
-            //TODO:- provide mapping where the column names are different
-            var diffs = currentTable.Compare(newTable, new[] { "Client Total", "Coverage Total", "Net Total" });
-            diffs.CheckForDifferences();
-            ScenarioContext.Current["diffs"] = diffs;
+            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
+            ScenarioContext.Current["diffs"] = comparisionProcess.ComparePositionTables();
         }
+
+        [When(@"I monitor the current positions")]
+        public void WhenIMonitorTheCurrentPositions()
+        {
+            var stopAt = CcComparisonParameters.MonitorFor.GetTimeFromShortCode(DateTime.UtcNow);
+            ScenarioContext.Current.Pending();
+        }
+
 
         [Then(@"the current positions should match exactly:-")]
         public void ThenTheCurrentPositionsShouldMatchExactly(ExportParameters exportParameters)

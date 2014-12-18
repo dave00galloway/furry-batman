@@ -13,11 +13,11 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
 {
     public class MasterStepBase
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(MasterStepBase));
         public const string FEATURE_OUTPUT_DIRECTORY = "FeatureOutputDirectory";
         public const string SCENARIO_OUTPUT_DIRECTORY = "ScenarioOutputDirectory";
         public const string TEST_RUN_CONTEXT = "TestRunContext";
         public const string REPORT_ROOT = "reportRoot";
+        private static readonly ILog Log = LogManager.GetLogger(typeof (MasterStepBase));
         private static readonly string FullName = typeof (MasterStepBase).FullName;
         protected static readonly string StepBaseRootNameSpace = typeof (MasterStepBase).Namespace;
 
@@ -26,7 +26,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 "Unable to mark this class as abstract, so using an exceptional method to prevent direct inheritance")]
         protected MasterStepBase()
         {
-            SetupLogging();
+            SetupLogging(true);
 // ReSharper disable once DoNotCallOverridableMethodsInConstructor
             ScenarioContext.Current[ToString()] = this;
             ThrowExceptionIfInMasterStepBase();
@@ -63,7 +63,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
             get { return (string) FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY]; }
         }
 
-        private static void SetupLogging()
+        private static bool ScenarioContextLogged { get; set; }
+
+        private static void SetupLogging(bool logContext)
         {
             if (!LoggingEnabled)
             {
@@ -71,8 +73,14 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 //BasicConfigurator.Configure();
                 LoggingEnabled = true;
                 Log.Debug("logging enabled");
-                Log.InfoFormat("Feature {0} Scenario {1}",FeatureContext.Current.FeatureInfo.Title,ScenarioContext.Current.ScenarioInfo.Title);
             }
+            if (!ScenarioContextLogged && logContext)
+            {
+                Log.InfoFormat("Feature {0} Scenario {1}", FeatureContext.Current.FeatureInfo.Title,
+                    ScenarioContext.Current.ScenarioInfo.Title);
+                ScenarioContextLogged = true;
+            }
+
         }
 
         /// <summary>
@@ -112,10 +120,13 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                 (string) FeatureContext.Current[FEATURE_OUTPUT_DIRECTORY] +
                 ScenarioContext.Current.ScenarioInfo.Title.Replace(" ", "") + @"\";
             (ScenarioOutputDirectory).ClearOutputDirectory();
+            Log.InfoFormat("reporting to  {0} ", ScenarioOutputDirectory);
         }
 
         public static void InstantiateTestRunContext()
         {
+            SetupLogging(false);
+                // as this method is static it could be called before the class constructor, so in the spirit of logging as early as possible, we make the call here.
             TestRunContext.Instance[TEST_RUN_CONTEXT] = TestRunContext.Instance;
         }
 
