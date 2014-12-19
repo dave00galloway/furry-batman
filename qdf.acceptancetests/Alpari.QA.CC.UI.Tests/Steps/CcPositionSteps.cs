@@ -26,7 +26,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
 
         private IPositionTablePageObject PositionTablePageObject { get; set; }
         private HtmlTableData Positions { get; set; }
-        public CcComparisonParameters CcComparisonParameters { get; set; }
+        private CcComparisonParameters CcComparisonParameters { get; set; }
 
         [Then(@"the position table is displayed")]
         public void ThenThePositionTableIsDisplayed()
@@ -71,8 +71,11 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I monitor the current positions")]
         public void WhenIMonitorTheCurrentPositions()
         {
-            var stopAt = CcComparisonParameters.MonitorFor.GetTimeFromShortCode(DateTime.UtcNow);
-            ScenarioContext.Current.Pending();
+            //todo:- make this a class interface field initialised from constructor? might need to split this step class up as not all steps or even all scenarios that use this file will use all/most ofthe existing fields, including theWebdriver
+            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
+            var monitoringresults = comparisionProcess.MonitorPositions();
+            
+           // ScenarioContext.Current.Pending();
         }
 
 

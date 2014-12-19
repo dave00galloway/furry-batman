@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Alpari.QA.Webdriver.Core.Constants;
 using log4net;
 using log4net.Config;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.Events;
 
 namespace Alpari.QA.Webdriver.Core
 {
@@ -46,10 +48,28 @@ namespace Alpari.QA.Webdriver.Core
             Driver.Navigate().GoToUrl(url);
         }
 
+        /// <summary>
+        /// immediately return the element if it is there else return null
+        /// </summary>
+        /// <param name="by"></param>
+        /// <returns></returns>
         public IWebElement FindElement(By by)
         {
             //TODO:- add sync, logging etc...
-            return Driver.FindElement(by);
+            Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(1));
+            try
+            {
+                return Driver.FindElement(by);
+            }
+            catch (Exception e)
+            {
+                Log.DebugFormat("Element {0} was not found",by);
+                return null;
+            }
+            finally
+            {
+                Driver.SetTimeout(Options, WebDriverConfig.ImplicitlyWait);
+            }
         }
 
         public void Quit()

@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Alpari.QA.Webdriver.Core.Constants;
 using log4net;
-using log4net.Config;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -14,6 +10,7 @@ namespace Alpari.QA.Webdriver.Core
     public static class WebDriverFactory
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (WebDriverFactory));
+
         public static IWebDriver Create(IReadOnlyDictionary<string, string> options)
         {
 //            BasicConfigurator.Configure();
@@ -25,7 +22,7 @@ namespace Alpari.QA.Webdriver.Core
                 return webDriver;
             }
 
- //           BasicConfigurator.Configure();
+            //           BasicConfigurator.Configure();
 
             //todo:- at this point, check for an "Inherits" tag, search the manager for 
             Log.DebugFormat("loading webdriver {0}", options[WebDriverConfig.Driver]);
@@ -56,10 +53,28 @@ namespace Alpari.QA.Webdriver.Core
             //var co = new ChromeOptions();
             //co.
             webDriver = new ChromeDriver();
-            webDriver.Manage()
-                .Timeouts()
-                .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond * Convert.ToInt16(options[WebDriverConfig.ImplicitlyWait])));
+            webDriver.SetTimeout(options, WebDriverConfig.ImplicitlyWait);
             return webDriver;
+        }
+
+        public static void SetTimeout(this IWebDriver driver, IReadOnlyDictionary<string, string> options,
+            string timeoutName)
+        {
+            switch (timeoutName)
+            {
+                case WebDriverConfig.ImplicitlyWait:
+                    driver.Manage()
+                        .Timeouts()
+                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
+                    break;
+                default:
+                    driver.Manage()
+                        .Timeouts()
+                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
+                    break;
+            }
+
+            //return new TimeSpan(TimeSpan.TicksPerSecond * Convert.ToInt16(timeout));
         }
     }
 }

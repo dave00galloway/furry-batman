@@ -20,8 +20,8 @@ namespace Alpari.QA.Webdriver.Core
 
         public bool IsDisplayed()
         {
-            return WebdriverCore.FindElement(Displayed).Displayed;
+            var element = WebdriverCore.FindElement(Displayed);
+            return element != null && element.Displayed;
         }
-
     }
 }
