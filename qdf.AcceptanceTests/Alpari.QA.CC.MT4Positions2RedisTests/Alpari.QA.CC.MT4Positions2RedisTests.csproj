@@ -120,6 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC_1331_ProvideExactSnapshotTimes.feature</DependentUpon>
     </Compile>
+    <Compile Include="Specs\UKUSCC1353ReduceScopeOfPositionComparisonTests.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UKUSCC1353ReduceScopeOfPositionComparisonTests.feature</DependentUpon>
+    </Compile>
     <Compile Include="Specs\UKUSCC_1236CompareClientPositionsxlsx.feature.cs">
       <DependentUpon>UKUSCC_1236CompareClientPositionsxlsx.feature</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -250,6 +255,10 @@
     <None Include="Specs\SelfTest\UKUSCC_1331_ProvideExactSnapshotTimes.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC_1331_ProvideExactSnapshotTimes.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Specs\UKUSCC1353ReduceScopeOfPositionComparisonTests.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC1353ReduceScopeOfPositionComparisonTests.feature.cs</LastGenOutput>
     </None>
     <None Include="Specs\UKUSCC_1236CompareClientPositionsxlsx.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
