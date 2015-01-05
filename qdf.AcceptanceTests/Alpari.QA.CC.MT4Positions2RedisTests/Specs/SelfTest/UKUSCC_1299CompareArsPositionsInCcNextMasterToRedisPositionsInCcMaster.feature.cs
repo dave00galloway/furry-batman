@@ -85,10 +85,10 @@ namespace Alpari.QA.CC.MT4Positions2RedisTests.Specs.SelfTest
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do JPN ComparisonMini")]
-        public virtual void DoJPNComparisonMini()
+        [NUnit.Framework.DescriptionAttribute("Do JPN Comparison")]
+        public virtual void DoJPNComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do JPN ComparisonMini", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do JPN Comparison", ((string[])(null)));
 #line 13
 this.ScenarioSetup(scenarioInfo);
 #line 8
@@ -116,8 +116,404 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CADCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CHFJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURGBP",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "SGDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDDKK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDHKD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table2.AddRow(new string[] {
+                        "JPN",
+                        "JPN",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
 #line 14
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table2, "When ");
@@ -126,11 +522,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do JPN Comparison")]
-        public virtual void DoJPNComparison()
+        [NUnit.Framework.DescriptionAttribute("Do C1 Comparison")]
+        public virtual void DoC1Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do JPN Comparison", ((string[])(null)));
-#line 18
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do C1 Comparison", ((string[])(null)));
+#line 51
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -148,8 +544,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -157,11 +553,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -169,11 +565,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -181,11 +577,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -193,11 +589,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -205,11 +613,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "B.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -217,23 +637,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "CADSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -241,11 +661,59 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "CL.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "DE30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EUR50.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -253,11 +721,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -265,11 +733,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -277,11 +745,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -289,11 +757,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -301,11 +781,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -313,11 +793,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -325,11 +817,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -337,11 +841,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "FRA40.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -349,11 +865,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -361,11 +877,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -373,11 +889,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -385,11 +901,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -397,11 +913,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -409,23 +937,71 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "HKDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NOKSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "NQ100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -433,11 +1009,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -445,11 +1021,47 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "UK100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US500.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -457,11 +1069,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -469,23 +1081,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "USDDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "USDCNH",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -493,11 +1105,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -505,11 +1129,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -517,11 +1153,35 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDRUB",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -529,11 +1189,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -541,11 +1201,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table3.AddRow(new string[] {
-                        "JPN",
-                        "JPN",
+                        "C1",
+                        "C1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -553,9 +1213,57 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 19
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZC.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table3.AddRow(new string[] {
+                        "C1",
+                        "C1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZS.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 52
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table3, "When ");
 #line hidden
@@ -563,11 +1271,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do C1 Comparison")]
-        public virtual void DoC1Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do C2 Comparison")]
+        public virtual void DoC2Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do C1 Comparison", ((string[])(null)));
-#line 56
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do C2 Comparison", ((string[])(null)));
+#line 116
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -585,726 +1293,1710 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "AUDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "AUDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "B.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "CADCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "CHFJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "EUA.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EUR50.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "EURGBP",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "EURPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "EURTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "EURZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "EURZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "GBPAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "GBPCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "GBPNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "GBPNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "GBPSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "GBPSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "HKDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NOKSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "GC.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "HG.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "MXNJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "NZDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "NZDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "NZDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "SB.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "SI.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "UK100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "US30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDDKK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDRUB",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "USDTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "USDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "ZARJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "ZC.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table4.AddRow(new string[] {
-                        "C1",
-                        "C1",
+                        "C2",
+                        "C2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "ZS.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 57
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "AUDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "AUDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "AUDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "CL.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "DE30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURGBP",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "FRA40.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "GC.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "NZDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "SI.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "US30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "US500.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table4.AddRow(new string[] {
+                        "C2",
+                        "C2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 117
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table4, "When ");
 #line hidden
@@ -1312,11 +3004,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do C2 Comparison")]
-        public virtual void DoC2Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do M1 Comparison")]
+        public virtual void DoM1Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do C2 Comparison", ((string[])(null)));
-#line 121
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do M1 Comparison", ((string[])(null)));
+#line 262
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -1334,1710 +3026,630 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "AUDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "AUDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "B.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "EUA.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "EUR50.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "EURMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "EURSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "GBPSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "GBPSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "HKDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "HG.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "MXNJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "NZDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "SB.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
-                        "SI.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "UK100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "USDDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
+                        "Default",
                         "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
+                        "Default",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
-                        "UK",
+                        "A",
+                        "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "UK",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "Default",
                         "ZARJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "ZC.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "ZS.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
+                        "M1",
+                        "M1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "US",
-                        "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "SI.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table5.AddRow(new string[] {
-                        "C2",
-                        "C2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 122
+                        "Default",
+                        "USDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 263
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table5, "When ");
 #line hidden
@@ -3045,11 +3657,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do M1 Comparison")]
-        public virtual void DoM1Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do M2 Comparison")]
+        public virtual void DoM2Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do M1 Comparison", ((string[])(null)));
-#line 267
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do M2 Comparison", ((string[])(null)));
+#line 318
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -3067,8 +3679,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3076,11 +3688,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3088,11 +3700,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3100,11 +3712,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3112,11 +3724,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3124,11 +3736,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3136,11 +3748,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3148,11 +3760,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3160,11 +3772,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3172,11 +3784,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3184,11 +3796,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CHFSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3196,11 +3820,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3208,11 +3832,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3220,11 +3844,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURDKK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3232,11 +3868,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURHKD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3244,11 +3892,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3256,11 +3904,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3268,11 +3916,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3280,11 +3928,35 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3292,11 +3964,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3304,11 +3988,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3316,11 +4000,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3328,11 +4012,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3340,11 +4024,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3352,11 +4048,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3364,11 +4060,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3376,11 +4072,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3388,23 +4084,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3412,11 +4096,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3424,11 +4108,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3436,11 +4120,47 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "HKDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "MXNJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NOKJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NOKSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3448,11 +4168,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3460,11 +4180,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3472,11 +4192,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3484,11 +4216,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3496,11 +4240,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3508,11 +4252,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3520,11 +4264,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3532,11 +4276,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3544,11 +4288,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3556,11 +4300,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3568,11 +4312,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3580,11 +4324,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3592,11 +4336,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3604,11 +4360,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3616,11 +4372,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3628,11 +4384,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3640,11 +4396,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3652,11 +4408,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3664,11 +4420,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table6.AddRow(new string[] {
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -3676,21 +4444,21 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "ZARJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table6.AddRow(new string[] {
-                        "M1",
-                        "M1",
+                        "M2",
+                        "M2",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
+                        "B",
                         "Default",
-                        "USDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 268
+                        "GBPNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 319
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table6, "When ");
 #line hidden
@@ -3698,11 +4466,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do M2 Comparison")]
-        public virtual void DoM2Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do Pro Comparison")]
+        public virtual void DoProComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do M2 Comparison", ((string[])(null)));
-#line 323
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do Pro Comparison", ((string[])(null)));
+#line 387
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -3720,786 +4488,1086 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "AUDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "CHFJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "CHFSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
+                        "CL.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "DE30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "EURDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "EURHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "EURGBP",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "EURPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "EURSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "EURSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
+                        "UK",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "GBPCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "GBPSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "GBPNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "HKDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "MXNJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "B",
+                        "UK",
+                        "GC.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "NOKJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "B",
+                        "UK",
+                        "HG.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "NOKSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "B",
+                        "UK",
+                        "NQ100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "NZDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "B",
+                        "UK",
+                        "SI.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
+                        "US30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "US500.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "USDDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
+                        "UK",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
                         "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
+                        "B",
+                        "UK",
                         "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
+                        "UK",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
+                        "UK",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "UK",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "ZARJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table7.AddRow(new string[] {
-                        "M2",
-                        "M2",
+                        "Pro",
+                        "Pro",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
+                        "UK",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "UK",
+                        "USDTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "USDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "UK",
+                        "CADSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "CL.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "US",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 324
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "US",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "JP",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "JP",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "JP",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "JP",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table7.AddRow(new string[] {
+                        "Pro",
+                        "Pro",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "JP",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 388
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table7, "When ");
 #line hidden
@@ -4507,11 +5575,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do Pro Comparison")]
-        public virtual void DoProComparison()
+        [NUnit.Framework.DescriptionAttribute("Do SB1 Comparison")]
+        public virtual void DoSB1Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do Pro Comparison", ((string[])(null)));
-#line 392
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do SB1 Comparison", ((string[])(null)));
+#line 481
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -4529,1086 +5597,594 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
-                        "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "B",
+                        "Default",
+                        "B.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "CHFSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
+                        "EUA.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table8.AddRow(new string[] {
+                        "SB1",
+                        "SB1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
-                        "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "EURSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "EURTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
+                        "FRA40.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table8.AddRow(new string[] {
+                        "SB1",
+                        "SB1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "G.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table8.AddRow(new string[] {
+                        "SB1",
+                        "SB1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "HG.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "SI.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "SB.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
+                        "SGDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table8.AddRow(new string[] {
+                        "SB1",
+                        "SB1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "UK100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table8.AddRow(new string[] {
+                        "SB1",
+                        "SB1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
                         "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
+                        "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "USDSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "UK",
+                        "B",
+                        "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "Default",
+                        "ZARJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
+                        "SB1",
+                        "SB1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "UK",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "UK",
-                        "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "USDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "UK",
-                        "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "US",
-                        "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "US",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "JP",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "JP",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "JP",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "JP",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table8.AddRow(new string[] {
-                        "Pro",
-                        "Pro",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "JP",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 393
+                        "Default",
+                        "ZS.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 482
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table8, "When ");
 #line hidden
@@ -5616,11 +6192,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do SB1 Comparison")]
-        public virtual void DoSB1Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do CBoJ Comparison")]
+        public virtual void DoCBoJComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do SB1 Comparison", ((string[])(null)));
-#line 486
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do CBoJ Comparison", ((string[])(null)));
+#line 534
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -5638,8 +6214,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5647,35 +6223,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5683,11 +6235,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5695,47 +6247,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "B.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5743,47 +6259,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EUA.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5791,11 +6271,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5803,23 +6283,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5827,11 +6295,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5839,23 +6307,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5863,23 +6319,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5887,47 +6331,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "G.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5935,23 +6343,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5959,23 +6355,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -5983,59 +6367,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "HG.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6043,71 +6379,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "SB.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "UK100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6115,11 +6391,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6127,23 +6403,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6151,47 +6415,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6199,33 +6427,33 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "ZARJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table9.AddRow(new string[] {
-                        "SB1",
-                        "SB1",
+                        "CBoJ",
+                        "CBoJ",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "ZS.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 487
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 535
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table9, "When ");
 #line hidden
@@ -6233,11 +6461,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do CBoJ Comparison")]
-        public virtual void DoCBoJComparison()
+        [NUnit.Framework.DescriptionAttribute("Do B2B Comparison")]
+        public virtual void DoB2BComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do CBoJ Comparison", ((string[])(null)));
-#line 539
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do B2B Comparison", ((string[])(null)));
+#line 558
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -6255,20 +6483,44 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
+                        "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6276,11 +6528,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6288,23 +6552,71 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CADCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CADJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CHFJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6312,11 +6624,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6324,11 +6648,47 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6336,11 +6696,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURGBP",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6348,23 +6720,107 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
+                        "A",
+                        "Default",
+                        "EURJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6372,23 +6828,71 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "GBPAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPAUD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6396,11 +6900,71 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6408,11 +6972,83 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NOKSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6420,11 +7056,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6432,11 +7080,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6444,11 +7104,47 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCNH",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDHKD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6456,11 +7152,83 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6468,23 +7236,35 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
+                        "A",
+                        "Default",
+                        "USDTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
                         "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table10.AddRow(new string[] {
-                        "CBoJ",
-                        "CBoJ",
+                        "B2B",
+                        "B2B",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6492,9 +7272,93 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 540
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURNOK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table10.AddRow(new string[] {
+                        "B2B",
+                        "B2B",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 559
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table10, "When ");
 #line hidden
@@ -6502,12 +7366,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do B2B Comparison")]
-        public virtual void DoB2BComparison()
+        [NUnit.Framework.DescriptionAttribute("Do MK1 Comparison")]
+        public virtual void DoMK1Comparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do B2B Comparison", ((string[])(null)));
-#line 563
-this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do MK1 Comparison", ((string[])(null)));
+#line 635
+ this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
 #line hidden
@@ -6524,8 +7388,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6533,11 +7397,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6545,11 +7409,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6557,23 +7421,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6581,23 +7433,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
+                        "A",
                         "Default",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "AUDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6605,11 +7457,35 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "B.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6617,23 +7493,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6641,11 +7505,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CADSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6653,23 +7529,47 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "CL.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "DE30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EUR50.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6677,23 +7577,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6701,23 +7589,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6725,23 +7601,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6749,23 +7613,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "B",
+                        "A",
                         "Default",
-                        "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "EURHKD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6773,11 +7637,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6785,11 +7649,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6797,11 +7661,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6809,11 +7673,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6821,23 +7685,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6845,11 +7697,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6857,11 +7709,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6869,11 +7721,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6881,23 +7733,47 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "EURZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "FRA40.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "G.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6905,11 +7781,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6917,11 +7793,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6929,23 +7805,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6953,23 +7817,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6977,11 +7829,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -6989,11 +7841,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7001,11 +7853,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7013,11 +7877,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7025,23 +7889,71 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "NOKSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "GBPZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GC.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "HG.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NOKJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "NQ100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7049,23 +7961,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7073,35 +7973,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7109,23 +7985,95 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "SB.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "SGDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "SI.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "UK100.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US500.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7133,23 +8081,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7157,11 +8093,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7169,35 +8105,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7205,11 +8117,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7217,11 +8129,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7229,23 +8141,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "USDRUB",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7253,11 +8165,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7265,23 +8177,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7289,107 +8189,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "USDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table11.AddRow(new string[] {
-                        "B2B",
-                        "B2B",
+                        "MK1",
+                        "MK1",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7397,9 +8213,141 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 564
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZC.H5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZC.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZS.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "ZARJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDDKK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EUA.Z4",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table11.AddRow(new string[] {
+                        "MK1",
+                        "MK1",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 636
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table11, "When ");
 #line hidden
@@ -7407,12 +8355,12 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do MK1 Comparison")]
-        public virtual void DoMK1Comparison()
+        [NUnit.Framework.DescriptionAttribute("Do MENA Comparison")]
+        public virtual void DoMENAComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do MK1 Comparison", ((string[])(null)));
-#line 640
- this.ScenarioSetup(scenarioInfo);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do MENA Comparison", ((string[])(null)));
+#line 719
+this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
 #line hidden
@@ -7429,8 +8377,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7438,11 +8386,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7450,11 +8398,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7462,11 +8410,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "AUDNZD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7474,47 +8434,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
+                        "B",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7522,11 +8458,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "B.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7534,11 +8470,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7546,23 +8482,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "CADSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7570,11 +8494,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "CHFSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7582,11 +8518,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7594,23 +8530,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "EUR50.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7618,11 +8542,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7630,11 +8554,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7642,11 +8566,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7654,23 +8578,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURHKD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7678,35 +8590,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7714,35 +8602,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "EURPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "EURSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7750,11 +8626,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7762,11 +8638,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7774,11 +8650,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7786,11 +8662,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7798,23 +8674,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "G.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7822,11 +8686,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7834,11 +8698,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7846,11 +8722,23 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GBPJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7858,23 +8746,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7882,11 +8758,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7894,23 +8770,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7918,11 +8782,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7930,35 +8794,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7966,23 +8806,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "HG.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NOKJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -7990,11 +8818,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -8002,335 +8830,11 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "SB.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "SI.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "UK100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDNOK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "ZC.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "ZC.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "ZS.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "ZARJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -8338,47 +8842,119 @@ this.FeatureBackground();
                         "A",
                         "Default",
                         "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "A",
                         "Default",
-                        "USDDKK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "NZDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "EUA.Z4",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table12.AddRow(new string[] {
-                        "MK1",
-                        "MK1",
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "NZDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US30.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "US500.Z",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCAD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDCNH",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -8386,9 +8962,201 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 641
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDMXN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDPLN",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDRUB",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDSEK",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDTRY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "USDZAR",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "XAUUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "ZS.F5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "AUDUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "SGDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "GC.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "HKDJPY",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "GBPSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table12.AddRow(new string[] {
+                        "MENA",
+                        "MENA",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "A",
+                        "Default",
+                        "XAGUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 720
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table12, "When ");
 #line hidden
@@ -8396,11 +9164,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do MENA Comparison")]
-        public virtual void DoMENAComparison()
+        [NUnit.Framework.DescriptionAttribute("Do ADS STP Comparison")]
+        public virtual void DoADSSTPComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do MENA Comparison", ((string[])(null)));
-#line 724
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS STP Comparison", ((string[])(null)));
+#line 795
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -8418,68 +9186,8 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -8487,191 +9195,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "B.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "CADCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "CADJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "CHFJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "CHFSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "DE30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURGBP",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -8679,431 +9207,23 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "EURZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "FRA40.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "USDSGD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPAUD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPNZD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "HG.H5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "NQ100.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "NZDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCAD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDCNH",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDMXN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDPLN",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDRUB",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDSEK",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDTRY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "USDZAR",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
@@ -9111,93 +9231,57 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "ZS.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "GBPUSD",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "SGDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
+                        "ADS STP",
+                        "ADS STP",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
-                        "Default",
-                        "GC.G5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "HKDJPY",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
-                        "Default",
-                        "GBPSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table13.AddRow(new string[] {
-                        "MENA",
-                        "MENA",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "A",
                         "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 725
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table13.AddRow(new string[] {
+                        "ADS STP",
+                        "ADS STP",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "CL.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table13.AddRow(new string[] {
+                        "ADS STP",
+                        "ADS STP",
+                        "cc_next",
+                        "cc",
+                        "CcMaster",
+                        "CcMaster",
+                        "B",
+                        "Default",
+                        "EURCHF",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 796
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table13, "When ");
 #line hidden
@@ -9205,11 +9289,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do ADS STP Comparison")]
-        public virtual void DoADSSTPComparison()
+        [NUnit.Framework.DescriptionAttribute("Do ADS CFD Comparison")]
+        public virtual void DoADSCFDComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS STP Comparison", ((string[])(null)));
-#line 800
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS CFD Comparison", ((string[])(null)));
+#line 807
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -9227,54 +9311,30 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table14.AddRow(new string[] {
-                        "ADS STP",
-                        "ADS STP",
+                        "ADS CFD",
+                        "ADS CFD",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
+                        "CL.G5",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
             table14.AddRow(new string[] {
-                        "ADS STP",
-                        "ADS STP",
+                        "ADS CFD",
+                        "ADS CFD",
                         "cc_next",
                         "cc",
                         "CcMaster",
                         "CcMaster",
                         "B",
                         "Default",
-                        "XAUUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table14.AddRow(new string[] {
-                        "ADS STP",
-                        "ADS STP",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "AUDUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table14.AddRow(new string[] {
-                        "ADS STP",
-                        "ADS STP",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "USDSGD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 801
+                        "US500.H",
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 808
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
                     "hese sets of snapshot parameters:-", ((string)(null)), table14, "When ");
 #line hidden
@@ -9282,11 +9342,11 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do ADS CFD Comparison")]
-        public virtual void DoADSCFDComparison()
+        [NUnit.Framework.DescriptionAttribute("Do FXCM FX Comparison")]
+        public virtual void DoFXCMFXComparison()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do ADS CFD Comparison", ((string[])(null)));
-#line 808
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do FXCM FX Comparison", ((string[])(null)));
+#line 814
 this.ScenarioSetup(scenarioInfo);
 #line 8
 this.FeatureBackground();
@@ -9304,71 +9364,6 @@ this.FeatureBackground();
                         "StartTime",
                         "EndTime"});
             table15.AddRow(new string[] {
-                        "ADS CFD",
-                        "ADS CFD",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "CL.F5",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table15.AddRow(new string[] {
-                        "ADS CFD",
-                        "ADS CFD",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US30.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table15.AddRow(new string[] {
-                        "ADS CFD",
-                        "ADS CFD",
-                        "cc_next",
-                        "cc",
-                        "CcMaster",
-                        "CcMaster",
-                        "B",
-                        "Default",
-                        "US500.Z",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 809
- testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
-                    "hese sets of snapshot parameters:-", ((string)(null)), table15, "When ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Do FXCM FX Comparison")]
-        public virtual void DoFXCMFXComparison()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Do FXCM FX Comparison", ((string[])(null)));
-#line 815
-this.ScenarioSetup(scenarioInfo);
-#line 8
-this.FeatureBackground();
-#line hidden
-            TechTalk.SpecFlow.Table table16 = new TechTalk.SpecFlow.Table(new string[] {
-                        "Server1",
-                        "Server2",
-                        "Database1",
-                        "Database2",
-                        "Connection1",
-                        "Connection2",
-                        "Book",
-                        "Section",
-                        "Symbol",
-                        "StartTime",
-                        "EndTime"});
-            table16.AddRow(new string[] {
                         "FXCM FX",
                         "FXCM FX",
                         "cc_next",
@@ -9378,9 +9373,9 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURCHF",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table16.AddRow(new string[] {
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table15.AddRow(new string[] {
                         "FXCM FX",
                         "FXCM FX",
                         "cc_next",
@@ -9390,9 +9385,9 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "EURUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-            table16.AddRow(new string[] {
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+            table15.AddRow(new string[] {
                         "FXCM FX",
                         "FXCM FX",
                         "cc_next",
@@ -9402,11 +9397,11 @@ this.FeatureBackground();
                         "B",
                         "Default",
                         "XAGUSD",
-                        "2014/12/12 10:30:00",
-                        "2014/12/15 09:00:00"});
-#line 816
+                        "2014/12/18 09:20:00",
+                        "2014/12/19 22:20:00"});
+#line 815
  testRunner.When("I get cc redis and cc ars position data across db connections and databases for t" +
-                    "hese sets of snapshot parameters:-", ((string)(null)), table16, "When ");
+                    "hese sets of snapshot parameters:-", ((string)(null)), table15, "When ");
 #line hidden
             this.ScenarioCleanup();
         }
