@@ -1,7 +1,9 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Alpari.QA.CC.UI.Tests.BusinessProcesses;
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
@@ -24,7 +26,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
 
         private IPositionTablePageObject PositionTablePageObject { get; set; }
         private HtmlTableData Positions { get; set; }
-        public CcComparisonParameters CcComparisonParameters { get; set; }
+        private CcComparisonParameters CcComparisonParameters { get; set; }
 
         [Then(@"the position table is displayed")]
         public void ThenThePositionTableIsDisplayed()
@@ -62,32 +64,20 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I compare the current positions")]
         public void WhenICompareTheCurrentPositions()
         {
-            DataTable currentTable = null;
-            DataTable newTable = null;
-            var currentDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcCurrent);
-            var currentPositionsPage = new PositionTablePageObject(currentDriver);
-            currentDriver.OpenPage();
-
-            var newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
-            var newPositionsPage = new PositionTablePageObject(newDriver);
-            newDriver.OpenPage();
-
-            //leaving driver creation outside of task until softkey sorted to make debugging easier
-
-            var tasks = new Task[2]
-            {
-                Task.Factory.StartNew(()=>
-                currentTable = currentPositionsPage.GetPositionDataAsDataTableBySymbols())
-                ,
-                Task.Factory.StartNew(()=>
-                newTable = newPositionsPage.GetPositionDataAsDataTableBySymbols())
-            };
-
-            Task.WaitAll(tasks);
-            var diffs = currentTable.Compare(newTable);
-            diffs.CheckForDifferences();
-            ScenarioContext.Current["diffs"] = diffs;
+            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
+            ScenarioContext.Current["diffs"] = comparisionProcess.ComparePositionTables();
         }
+
+        [When(@"I monitor the current positions")]
+        public void WhenIMonitorTheCurrentPositions()
+        {
+            //todo:- make this a class interface field initialised from constructor? might need to split this step class up as not all steps or even all scenarios that use this file will use all/most ofthe existing fields, including theWebdriver
+            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
+            var monitoringresults = comparisionProcess.MonitorPositions();
+            
+           // ScenarioContext.Current.Pending();
+        }
+
 
         [Then(@"the current positions should match exactly:-")]
         public void ThenTheCurrentPositionsShouldMatchExactly(ExportParameters exportParameters)

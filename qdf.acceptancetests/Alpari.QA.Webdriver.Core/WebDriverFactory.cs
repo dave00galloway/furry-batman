@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Alpari.QA.Webdriver.Core.Constants;
+using log4net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
@@ -11,17 +9,23 @@ namespace Alpari.QA.Webdriver.Core
 {
     public static class WebDriverFactory
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof (WebDriverFactory));
+
         public static IWebDriver Create(IReadOnlyDictionary<string, string> options)
         {
+//            BasicConfigurator.Configure();
+            Log.Debug("loading webdriver");
             IWebDriver webDriver;
             if (options == null)
             {
-                webDriver = new ChromeDriver();
+                webDriver = DefaultWebDriver();
                 return webDriver;
             }
 
-            //todo:- at this point, check for an "Inherits" tag, search the manager for 
+            //           BasicConfigurator.Configure();
 
+            //todo:- at this point, check for an "Inherits" tag, search the manager for 
+            Log.DebugFormat("loading webdriver {0}", options[WebDriverConfig.Driver]);
             switch (options[WebDriverConfig.Driver])
             {
                 case WebDriverConfig.ChromeDriver:
@@ -29,9 +33,16 @@ namespace Alpari.QA.Webdriver.Core
                     break;
 
                 default:
-                    webDriver = new ChromeDriver();
+                    webDriver = DefaultWebDriver();
                     break;
             }
+            return webDriver;
+        }
+
+        private static IWebDriver DefaultWebDriver()
+        {
+            Log.Debug("loading webdriver using default configuration");
+            IWebDriver webDriver = new ChromeDriver();
             return webDriver;
         }
 
@@ -42,10 +53,28 @@ namespace Alpari.QA.Webdriver.Core
             //var co = new ChromeOptions();
             //co.
             webDriver = new ChromeDriver();
-            webDriver.Manage()
-                .Timeouts()
-                .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond * Convert.ToInt16(options[WebDriverConfig.ImplicitlyWait])));
+            webDriver.SetTimeout(options, WebDriverConfig.ImplicitlyWait);
             return webDriver;
+        }
+
+        public static void SetTimeout(this IWebDriver driver, IReadOnlyDictionary<string, string> options,
+            string timeoutName)
+        {
+            switch (timeoutName)
+            {
+                case WebDriverConfig.ImplicitlyWait:
+                    driver.Manage()
+                        .Timeouts()
+                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
+                    break;
+                default:
+                    driver.Manage()
+                        .Timeouts()
+                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
+                    break;
+            }
+
+            //return new TimeSpan(TimeSpan.TicksPerSecond * Convert.ToInt16(timeout));
         }
     }
 }

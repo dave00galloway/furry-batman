@@ -10,7 +10,7 @@ Feature: UKUSCC_1236CompareClientPositionsXlsx
 Scenario: Compare JPN Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                             | ArsPositionsFile                                                                  |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_ajpc01_4_20141215_102349.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_ajpc01_4_20141215_102338.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_ajpc01_4_20141219_214241.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_ajpc01_4_20141219_214301.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -18,7 +18,7 @@ Scenario: Compare JPN Client Positions
 Scenario: Compare C1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                             | ArsPositionsFile                                                                  |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKC01_6_20141215_102724.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC01_6_20141215_102725.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKC01_6_20141219_214840.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC01_6_20141219_214837.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -26,15 +26,15 @@ Scenario: Compare C1 Client Positions
 Scenario: Compare C2 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKC02_46_20141215_102905.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC02_46_20141215_102954.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKC02_46_20141219_215127.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKC02_46_20141219_215220.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
 #
 Scenario: Compare MT4AUKM01 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
-	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_aukm01_47_20141215_104451.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_aukm01_47_20141215_104510.xlsx |
+	| RedisPositionsFile                                                                 | ArsPositionsFile                                                                |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_aukm01_47_20141219_215424.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_aukm01_47_20141219_215426.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -42,7 +42,7 @@ Scenario: Compare MT4AUKM01 Client Positions
 Scenario: Compare MT4AUKM02 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_aukm02_48_20141215_104718.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_aukm02_48_20141215_104747.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_aukm02_48_20141219_215707.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_aukm02_48_20141219_215726.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -50,7 +50,7 @@ Scenario: Compare MT4AUKM02 Client Positions
 Scenario: Compare MT4AUKPO1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKP01_49_20141215_104843.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKP01_49_20141215_104847.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKP01_49_20141219_215851.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKP01_49_20141219_215853.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -58,7 +58,7 @@ Scenario: Compare MT4AUKPO1 Client Positions
 Scenario: Compare MT4AUKSB1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                              | ArsPositionsFile                                                                   |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKSB1_53_20141215_104924.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKSB1_53_20141215_104932.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKSB1_53_20141219_220043.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKSB1_53_20141219_220049.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -66,7 +66,7 @@ Scenario: Compare MT4AUKSB1 Client Positions
 Scenario: Compare CBOJ Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                            | ArsPositionsFile                                                                 |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_cboj_57_20141215_105001.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_cboj_57_20141215_105000.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_cboj_57_20141219_220219.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_cboj_57_20141219_220218.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -74,7 +74,7 @@ Scenario: Compare CBOJ Client Positions
 Scenario: Compare B2B Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                               | ArsPositionsFile                                                                    |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKB2B1_74_20141215_105030.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKB2B1_74_20141215_105030.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKB2B1_74_20141219_220341.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKB2B1_74_20141219_220341.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -82,7 +82,7 @@ Scenario: Compare B2B Client Positions
 Scenario: Compare MT4AUKMARKET1 Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                                  | ArsPositionsFile                                                                       |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141215_105141.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141215_105203.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141219_221723.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141219_221757.xlsx |
 #	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarket1_89_20141204_142620.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarket1_89_20141204_142637.xlsx |
 
 	Then the redis positions should match the ars positions exactly:-
@@ -92,7 +92,7 @@ Scenario: Compare MT4AUKMARKET1 Client Positions
 Scenario: Compare MT4AUKMARKETMENA Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                                     | ArsPositionsFile                                                                       |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarketMENA_90_20141215_105433.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarketMENA_90_20141215_105442.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_AUKMarketMENA_90_20141218_142004.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_AUKMarketMENA_90_20141218_142008.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -100,7 +100,7 @@ Scenario: Compare MT4AUKMARKETMENA Client Positions
 Scenario: Compare ADS Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                           | ArsPositionsFile                                                                |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_201_20141215_112932.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_201_20141215_112929.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_201_20141218_142234.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_201_20141218_142234.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -108,7 +108,7 @@ Scenario: Compare ADS Client Positions
 Scenario: Compare ASV Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                           | ArsPositionsFile                                                                |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ASV_202_20141215_113018.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ASV_202_20141215_113017.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ASV_202_20141218_142516.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ASV_202_20141218_142514.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -116,7 +116,7 @@ Scenario: Compare ASV Client Positions
 Scenario: Compare MSCov Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                                | ArsPositionsFile                                                                     |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_Coverage_203_20141215_113535.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_Coverage_203_20141215_113535.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_Coverage_203_20141218_142601.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_Coverage_203_20141218_142601.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -124,7 +124,7 @@ Scenario: Compare MSCov Client Positions
 Scenario: Compare ADS STP Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                               | ArsPositionsFile                                                                    |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_STP_204_20141215_113612.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_STP_204_20141215_113611.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_STP_204_20141218_142637.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_STP_204_20141218_142637.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -132,7 +132,7 @@ Scenario: Compare ADS STP Client Positions
 Scenario: Compare ADS CFD Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                               | ArsPositionsFile                                                                    |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_CFD_206_20141215_113657.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_CFD_206_20141215_113656.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_ADS_CFD_206_20141218_142716.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_ADS_CFD_206_20141218_142715.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
@@ -140,7 +140,7 @@ Scenario: Compare ADS CFD Client Positions
 Scenario: Compare FXCM Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                            | ArsPositionsFile                                                                 |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_FXCM_208_20141215_113735.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_FXCM_208_20141215_113735.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_uk_FXCM_208_20141218_142747.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_uk_FXCM_208_20141218_142744.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |

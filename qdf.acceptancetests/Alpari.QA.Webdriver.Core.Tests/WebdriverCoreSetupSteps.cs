@@ -1,12 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Alpari.QA.Webdriver.Core.Constants;
+using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using FluentAssertions;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.Webdriver.Core.Tests
 {
     [Binding]
-    public class WebdriverCoreSetupSteps
+    public class WebdriverCoreSetupSteps : MasterStepBase
     {
         private IWebdriverCore Driver { get; set; }
 

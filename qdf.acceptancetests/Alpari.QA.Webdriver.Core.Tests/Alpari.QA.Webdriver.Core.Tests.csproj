@@ -39,6 +39,10 @@
     <Reference Include="FluentAssertions.Core">
       <HintPath>..\packages\FluentAssertions.3.0.107\lib\net45\FluentAssertions.Core.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -67,6 +71,10 @@
     <ProjectReference Include="..\Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj">
       <Project>{268c72a1-5093-48fd-8262-fca688e69f29}</Project>
       <Name>Alpari.QA.Webdriver.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Alpari.QualityAssurance.SpecFlowExtensions\Alpari.QualityAssurance.SpecFlowExtensions.csproj">
+      <Project>{CEBBC3B4-E690-4F96-8B25-1080B7FBFAD4}</Project>
+      <Name>Alpari.QualityAssurance.SpecFlowExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

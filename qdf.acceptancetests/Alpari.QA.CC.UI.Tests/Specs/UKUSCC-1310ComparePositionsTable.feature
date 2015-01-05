@@ -31,3 +31,13 @@ Scenario: Compare new and old servers current position
 	Then the current positions should match exactly:-
 	| ExportType     |  Overwrite |
 	| DataTableToCsv |  true      |
+
+#note manually selecting the servers, book and types for now
+Scenario: Monitor new and old servers position
+	Given I have the following cc comparison parameters:-
+	| CcCurrent | CcNew  | MonitorFor | MonitorEvery |
+	| cc_prod   | cc_new | 5MIN       | 1MIN         |
+	When I monitor the current positions
+	Then the current positions should match exactly:-
+	| ExportType     |  Overwrite |
+	| DataTableToCsv |  true      |

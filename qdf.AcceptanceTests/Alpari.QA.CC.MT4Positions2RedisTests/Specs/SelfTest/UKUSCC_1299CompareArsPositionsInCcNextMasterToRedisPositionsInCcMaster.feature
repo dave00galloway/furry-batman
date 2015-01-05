@@ -10,6 +10,11 @@ Background: Setup Connection pool
 	| Connection1 | Connection2 |
 	| CcMaster    | CcMaster    |
 
+Scenario: Do JPN ComparisonMini
+	When I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-
+	 | Server1 | Server2 | Database1 | Database2 | Connection1 | Connection2 | Book | Section | Symbol | StartTime           | EndTime             |
+	 | JPN     | JPN     | cc_next   | cc        | CcMaster    | CcMaster    | A    | Default | AUDCAD | 2014/12/12 10:30:00 | 2014/12/15 09:00:00 |
+
 Scenario: Do JPN Comparison
 	When I get cc redis and cc ars position data across db connections and databases for these sets of snapshot parameters:-
 	 | Server1 | Server2 | Database1 | Database2 | Connection1 | Connection2 | Book | Section | Symbol | StartTime           | EndTime             |
