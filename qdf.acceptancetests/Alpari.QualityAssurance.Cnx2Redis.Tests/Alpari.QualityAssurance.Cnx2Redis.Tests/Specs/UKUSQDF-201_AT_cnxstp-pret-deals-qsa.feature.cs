@@ -149,6 +149,11 @@ testRunner.Given("I have this list of takers to load from cnx hub", ((string)(nu
         [NUnit.Framework.TestCaseAttribute("12/09/2014", null)]
         [NUnit.Framework.TestCaseAttribute("12/10/2014", null)]
         [NUnit.Framework.TestCaseAttribute("12/11/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/12/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/13/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/14/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/15/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/16/2014", null)]
         public virtual void UKUSQDF_201TestRedisSTPDataFromNewFIXSTPFeed(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-201 Test Redis STP data from new FIX STP feed", exampleTags);
