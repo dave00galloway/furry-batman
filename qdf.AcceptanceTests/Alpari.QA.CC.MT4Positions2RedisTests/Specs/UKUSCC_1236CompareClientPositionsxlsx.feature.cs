@@ -79,8 +79,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table1.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_ajpc01_4_20141219_214241.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_ajpc01_4_20141219_214301.xlsx" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_ajpc01_4_20150106_144934.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_ajpc01_4_20150106_145018.xlsx" +
                             ""});
 #line 11
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table1, "When ");
@@ -109,8 +109,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table3.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKC01_6_20141219_214840.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC01_6_20141219_214837.xlsx" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKC01_6_20150106_145112.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC01_6_20150106_145118.xlsx" +
                             ""});
 #line 19
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table3, "When ");
@@ -139,8 +139,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table5.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKC02_46_20141219_215127.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC02_46_20141219_215220.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKC02_46_20150106_145253.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKC02_46_20150106_145406.xls" +
                             "x"});
 #line 27
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table5, "When ");
@@ -169,8 +169,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table7.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_aukm01_47_20141219_215424.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_aukm01_47_20141219_215426.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_aukm01_47_20150106_150212.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_aukm01_47_20150106_150231.xls" +
                             "x"});
 #line 35
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table7, "When ");
@@ -199,8 +199,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table9.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_aukm02_48_20141219_215707.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_aukm02_48_20141219_215726.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_aukm02_48_20150106_150338.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_aukm02_48_20150106_150414.xls" +
                             "x"});
 #line 43
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table9, "When ");
@@ -229,8 +229,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table11.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKP01_49_20141219_215851.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKP01_49_20141219_215853.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKP01_49_20150106_150446.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKP01_49_20150106_150452.xls" +
                             "x"});
 #line 51
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table11, "When ");
@@ -259,8 +259,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table13.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKSB1_53_20141219_220043.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKSB1_53_20141219_220049.xls" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKSB1_53_20150106_150533.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKSB1_53_20150106_150542.xls" +
                             "x"});
 #line 59
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table13, "When ");
@@ -289,8 +289,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table15.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_cboj_57_20141219_220219.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_cboj_57_20141219_220218.xlsx"});
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_cboj_57_20150106_150613.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_cboj_57_20150106_150614.xlsx"});
 #line 67
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table15, "When ");
 #line hidden
@@ -318,8 +318,8 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table17.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKB2B1_74_20141219_220341.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKB2B1_74_20141219_220341.xl" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKB2B1_74_20150106_150653.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKB2B1_74_20150106_150655.xl" +
                             "sx"});
 #line 75
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table17, "When ");
@@ -348,9 +348,9 @@ this.ScenarioSetup(scenarioInfo);
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table19.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKMarket1_89_20141219_221723.xl" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKMarket1_89_20150106_150755.xl" +
                             "sx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKMarket1_89_20141219_221757" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKMarket1_89_20150106_150819" +
                             ".xlsx"});
 #line 83
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table19, "When ");
@@ -361,7 +361,7 @@ this.ScenarioSetup(scenarioInfo);
             table20.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 88
+#line 87
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table20, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -372,18 +372,18 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareMT4AUKMARKETMENAClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MT4AUKMARKETMENA Client Positions", ((string[])(null)));
-#line 92
+#line 91
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table21 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table21.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKMarketMENA_90_20141218_142004" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_ars_AUKMarketMENA_90_20150106_150850" +
                             ".xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKMarketMENA_90_20141218_142" +
-                            "008.xlsx"});
-#line 93
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_ars_AUKMarketMENA_90_20150106_150" +
+                            "858.xlsx"});
+#line 92
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table21, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table22 = new TechTalk.SpecFlow.Table(new string[] {
@@ -392,7 +392,7 @@ this.ScenarioSetup(scenarioInfo);
             table22.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 96
+#line 95
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table22, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -403,16 +403,16 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareADSClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare ADS Client Positions", ((string[])(null)));
-#line 100
+#line 99
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table23 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table23.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_201_20141218_142234.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_201_20141218_142234.xlsx"});
-#line 101
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_201_20150106_151227.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_201_20150106_151227.xlsx"});
+#line 100
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table23, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table24 = new TechTalk.SpecFlow.Table(new string[] {
@@ -421,7 +421,7 @@ this.ScenarioSetup(scenarioInfo);
             table24.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 104
+#line 103
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table24, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -432,16 +432,16 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareASVClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare ASV Client Positions", ((string[])(null)));
-#line 108
+#line 107
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table25 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table25.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ASV_202_20141218_142516.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ASV_202_20141218_142514.xlsx"});
-#line 109
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ASV_202_20150106_151253.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ASV_202_20150106_151252.xlsx"});
+#line 108
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table25, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table26 = new TechTalk.SpecFlow.Table(new string[] {
@@ -450,7 +450,7 @@ this.ScenarioSetup(scenarioInfo);
             table26.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 112
+#line 111
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table26, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -461,18 +461,18 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareMSCovClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare MSCov Client Positions", ((string[])(null)));
-#line 116
+#line 115
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table27 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table27.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_Coverage_203_20141218_142601.xlsx" +
-                            "",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_Coverage_203_20141218_142601.x" +
-                            "lsx"});
-#line 117
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_Coverage_203_20150106_151326.x" +
+                            "lsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_Coverage_203_20150106_151327.xlsx" +
+                            ""});
+#line 116
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table27, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table28 = new TechTalk.SpecFlow.Table(new string[] {
@@ -481,7 +481,7 @@ this.ScenarioSetup(scenarioInfo);
             table28.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 120
+#line 119
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table28, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -492,17 +492,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareADSSTPClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare ADS STP Client Positions", ((string[])(null)));
-#line 124
+#line 123
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table29 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table29.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_STP_204_20141218_142637.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_STP_204_20141218_142637.xl" +
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_STP_204_20150106_151413.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_STP_204_20150106_151412.xl" +
                             "sx"});
-#line 125
+#line 124
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table29, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table30 = new TechTalk.SpecFlow.Table(new string[] {
@@ -511,7 +511,7 @@ this.ScenarioSetup(scenarioInfo);
             table30.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 128
+#line 127
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table30, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -522,17 +522,17 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareADSCFDClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare ADS CFD Client Positions", ((string[])(null)));
-#line 132
+#line 131
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table31 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table31.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_CFD_206_20141218_142716.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_CFD_206_20141218_142715.xl" +
-                            "sx"});
-#line 133
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_ADS_CFD_206_20150106_151447.xl" +
+                            "sx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_ADS_CFD_206_20150106_151448.xlsx"});
+#line 132
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table31, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table32 = new TechTalk.SpecFlow.Table(new string[] {
@@ -541,7 +541,7 @@ this.ScenarioSetup(scenarioInfo);
             table32.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 136
+#line 135
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table32, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -552,16 +552,16 @@ this.ScenarioSetup(scenarioInfo);
         public virtual void CompareFXCMClientPositions()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare FXCM Client Positions", ((string[])(null)));
-#line 140
+#line 139
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table33 = new TechTalk.SpecFlow.Table(new string[] {
                         "RedisPositionsFile",
                         "ArsPositionsFile"});
             table33.AddRow(new string[] {
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_FXCM_208_20141218_142747.xlsx",
-                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_FXCM_208_20141218_142744.xlsx"});
-#line 141
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Redis_uk_FXCM_208_20150106_151536.xlsx",
+                        "C:\\Users\\dgalloway\\Downloads\\Positions_Database_uk_FXCM_208_20150106_151536.xlsx"});
+#line 140
  testRunner.When("I compare cc redis and cc ars client position data from xlsx:-", ((string)(null)), table33, "When ");
 #line hidden
             TechTalk.SpecFlow.Table table34 = new TechTalk.SpecFlow.Table(new string[] {
@@ -570,7 +570,7 @@ this.ScenarioSetup(scenarioInfo);
             table34.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 144
+#line 143
  testRunner.Then("the redis positions should match the ars positions exactly:-", ((string)(null)), table34, "Then ");
 #line hidden
             this.ScenarioCleanup();

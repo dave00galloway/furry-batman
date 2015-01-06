@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using Alpari.QA.CC.UI.Tests.PageObjects;
@@ -16,7 +17,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         private readonly IPositionTablePageObject _currentPositionsPage;
         private readonly IWebdriverCore _newDriver;
         private readonly IPositionTablePageObject _newPositionsPage;
-        public DataTablePairComparisonDictionary<TimeStamp> DataTablePairComparisonDictionary { get; set; }
+        //public DataTablePairComparisonDictionary<TimeStamp> DataTablePairComparisonDictionary { get; set; }
 
         public CcPositionTableComparison(CcComparisonParameters ccComparisonParameters)
         {
@@ -75,22 +76,26 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             return new DataTablePair(currentTable, newTable);
         }
 
-        public object MonitorPositions()
+        public DataTablePairComparisonDictionary<TimeStamp> MonitorPositions()
         {
             var startDate = DateTime.UtcNow;
             var stopAt = _ccComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
             var interval = _ccComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
-            DataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>();
+            var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>();
             while (DateTime.UtcNow < stopAt)
             {
-                var timestamp = new TimeStamp( DateTime.UtcNow);
+                var stopwatch = new Stopwatch();//ToDo:- investigate moving outside loop and using Restart method
+                stopwatch.Start();
+                var timestamp = new TimeStamp(DateTime.UtcNow, "yyyyMMddHHmmssfff");
                 var tables = RunComparison(_currentPositionsPage, _newPositionsPage);
                 var diffs = Compare(tables);
-                DataTablePairComparisonDictionary.DataTablePairComparisons.Add(timestamp,new DataTablePairComparison(tables,diffs));
-                Thread.Sleep(interval);
+                dataTablePairComparisonDictionary.DataTablePairComparisons.Add(timestamp,
+                    new DataTablePairComparison(tables, diffs));
+                stopwatch.Stop();
+                Thread.Sleep(interval.Subtract(new TimeSpan(stopwatch.ElapsedMilliseconds)));
             }
 
-            return new object();
+            return dataTablePairComparisonDictionary;
         }
     }
 }

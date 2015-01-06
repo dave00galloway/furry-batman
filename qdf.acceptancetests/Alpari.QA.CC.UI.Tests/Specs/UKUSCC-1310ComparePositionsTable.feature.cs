@@ -170,15 +170,6 @@ this.ScenarioSetup(scenarioInfo);
 #line 40
  testRunner.When("I monitor the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-            TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table4.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 41
- testRunner.Then("the current positions should match exactly:-", ((string)(null)), table4, "Then ");
-#line hidden
             this.ScenarioCleanup();
         }
     }

@@ -154,6 +154,24 @@ testRunner.Given("I have this list of takers to load from cnx hub", ((string)(nu
         [NUnit.Framework.TestCaseAttribute("12/14/2014", null)]
         [NUnit.Framework.TestCaseAttribute("12/15/2014", null)]
         [NUnit.Framework.TestCaseAttribute("12/16/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/17/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/18/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/19/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/20/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/21/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/22/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/23/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/24/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/25/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/26/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/27/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/28/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/29/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/30/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/31/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/01/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/02/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("12/03/2014", null)]
         public virtual void UKUSQDF_201TestRedisSTPDataFromNewFIXSTPFeed(string reportDate, string[] exampleTags)
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-201 Test Redis STP data from new FIX STP feed", exampleTags);
@@ -201,6 +219,65 @@ this.FeatureBackground();
                         "true"});
 #line 45
  testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table4, "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("UKUSQDF-201 Test Redis STP data from new FIX STP feed Jan 2015")]
+        [NUnit.Framework.TestCaseAttribute("reportDate", null)]
+        [NUnit.Framework.TestCaseAttribute("01/01/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("01/02/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("01/03/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("01/04/2014", null)]
+        [NUnit.Framework.TestCaseAttribute("01/05/2014", null)]
+        public virtual void UKUSQDF_201TestRedisSTPDataFromNewFIXSTPFeedJan2015(string reportDate, string[] exampleTags)
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("UKUSQDF-201 Test Redis STP data from new FIX STP feed Jan 2015", exampleTags);
+#line 79
+this.ScenarioSetup(scenarioInfo);
+#line 7
+this.FeatureBackground();
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "DealSource",
+                        "DealType"});
+            table5.AddRow(new string[] {
+                        "cnxstp-pret-deals-qsa",
+                        "BookLessDeal"});
+#line 80
+ testRunner.Given("I have the following search criteria for qdf deals", ((string)(null)), table5, "Given ");
+#line 83
+ testRunner.When(string.Format("I load cnx trade activities for \"{0}\" for the included logins", reportDate), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 84
+  testRunner.And("I retrieve the qdf deal data filtered by cnx hub start and end times and by inclu" +
+                    "ded logins", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExcludedFields"});
+            table6.AddRow(new string[] {
+                        "Comment"});
+            table6.AddRow(new string[] {
+                        "AccountGroup"});
+            table6.AddRow(new string[] {
+                        "Book"});
+            table6.AddRow(new string[] {
+                        "OrderId"});
+            table6.AddRow(new string[] {
+                        "State"});
+            table6.AddRow(new string[] {
+                        "BankPrice"});
+#line 85
+  testRunner.And("I compare the cnx hub trade deals with the qdf deal data excluding these fields:", ((string)(null)), table6, "And ");
+#line hidden
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ExportType",
+                        "Overwrite"});
+            table7.AddRow(new string[] {
+                        "DataTableToCsv",
+                        "true"});
+#line 93
+ testRunner.Then("the cnx hub trade deals should match the qdf deal data exactly:-", ((string)(null)), table7, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

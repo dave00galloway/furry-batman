@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
+using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 
 namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 {
@@ -34,6 +36,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             DataTablePairComparisons = new Dictionary<T, DataTablePairComparison>();
         }
 
-        public Dictionary<T,DataTablePairComparison> DataTablePairComparisons { get; private set; }
+        public Dictionary<T, DataTablePairComparison> DataTablePairComparisons { get; private set; }
+
+        public void Export(ExportParameters exportParameters)
+        {
+            ExportComparisonResults(exportParameters);
+            switch (exportParameters.ExportType)
+            {
+                case ExportTypes.DataTableToCsv:
+                    
+                    break;
+                default:
+                    throw new ArgumentException("exportParameters");
+            }
+        }
+
+        private void ExportComparisonResults(ExportParameters exportParameters)
+        {
+            foreach (var dataTablePairComparison in DataTablePairComparisons)
+            {
+                exportParameters.FileName = dataTablePairComparison.Key.ToString();
+                dataTablePairComparison.Value.DataTableComparison.CheckForDifferences(exportParameters, true);
+            }
+        }
     }
 }

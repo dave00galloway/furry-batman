@@ -38,6 +38,6 @@ Scenario: Monitor new and old servers position
 	| CcCurrent | CcNew  | MonitorFor | MonitorEvery |
 	| cc_prod   | cc_new | 5MIN       | 1MIN         |
 	When I monitor the current positions
-	Then the current positions should match exactly:-
-	| ExportType     |  Overwrite |
-	| DataTableToCsv |  true      |
+	#Then the current positions should match exactly:-
+	#| ExportType     |  Overwrite |
+	#| DataTableToCsv |  true      |

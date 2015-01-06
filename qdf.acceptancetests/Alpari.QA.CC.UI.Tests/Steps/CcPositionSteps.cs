@@ -72,10 +72,14 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         public void WhenIMonitorTheCurrentPositions()
         {
             //todo:- make this a class interface field initialised from constructor? might need to split this step class up as not all steps or even all scenarios that use this file will use all/most ofthe existing fields, including theWebdriver
-            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
-            var monitoringresults = comparisionProcess.MonitorPositions();
-            
-           // ScenarioContext.Current.Pending();
+            var comparisonProcess = new CcPositionTableComparison(CcComparisonParameters);
+            var monitoringresults = comparisonProcess.MonitorPositions();
+            monitoringresults.Export(new ExportParameters
+            {
+                ExportType = ExportTypes.DataTableToCsv,
+                Path = ScenarioOutputDirectory
+            });
+            // ScenarioContext.Current.Pending();
         }
 
 

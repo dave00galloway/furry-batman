@@ -12,12 +12,26 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
     public struct TimeStamp : IComparable, IFormattable, IConvertible, ISerializable, IComparable<DateTime>,
         IEquatable<DateTime>
     {
-        private const string DEFAULT_TO_STRING_FORMAT = "dd/MM/yyy HH:mm:ss.fff";
+        public const string DefaultToStringFormat = "dd/MM/yyy HH:mm:ss.fff";
         public readonly DateTime DateTime;
+        private readonly string _toStringFormat;
+
+        public string ToStringFormat
+        {
+            get { return _toStringFormat; }
+           // private set { _toStringFormat = value; }
+        }
 
         public TimeStamp(DateTime dateTime)
         {
             DateTime = dateTime;
+            _toStringFormat = null;
+        }
+
+        public TimeStamp(DateTime dateTime, string toStringFormat)
+        {
+            DateTime = dateTime;
+            _toStringFormat = toStringFormat;
         }
 
         public int CompareTo(object obj)
@@ -136,7 +150,9 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <returns></returns>
         public override string ToString()
         {
-            return DateTime.ToString(DEFAULT_TO_STRING_FORMAT);
+            return _toStringFormat == null
+                ? DateTime.ToString(DefaultToStringFormat)
+                : DateTime.ToString(_toStringFormat);
         }
     }
 }

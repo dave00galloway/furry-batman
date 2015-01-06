@@ -164,21 +164,71 @@ Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 
 	| 12/14/2014 |
 	| 12/15/2014 |
 	| 12/16/2014 |
-	#| 12/17/2014 |
-	#| 12/18/2014 |
-	#| 12/19/2014 |
-	#| 12/20/2014 |
-	#| 12/21/2014 |
-	#| 12/22/2014 |
-	#| 12/23/2014 |
-	#| 12/24/2014 |
-	#| 12/25/2014 |
-	#| 12/26/2014 |
-	#| 12/27/2014 |
-	#| 12/28/2014 |
-	#| 12/29/2014 |
-	#| 12/30/2014 |
-	#| 12/31/2014 |
+	| 12/17/2014 |
+	| 12/18/2014 |
+	| 12/19/2014 |
+	| 12/20/2014 |
+	| 12/21/2014 |
+	| 12/22/2014 |
+	| 12/23/2014 |
+	| 12/24/2014 |
+	| 12/25/2014 |
+	| 12/26/2014 |
+	| 12/27/2014 |
+	| 12/28/2014 |
+	| 12/29/2014 |
+	| 12/30/2014 |
+	| 12/31/2014 |
+
+Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - redeploy at build 31 Jan 2015
+	Given I have the following search criteria for qdf deals
+		 | DealSource        | DealType     |
+		 | cnxstp-pret-deals | BookLessDeal |
+	When I load cnx trade activities for "<reportDate>" for the included logins
+		And I retrieve the qdf deal data filtered by cnx hub start and end times and by included logins
+		And I compare the cnx hub trade deals with the qdf deal data excluding these fields:
+		 | ExcludedFields |
+		 | Comment        |
+		 | AccountGroup   |
+		 | Book           |
+		 | OrderId        |
+		 | State          |
+	Then the cnx hub trade deals should match the qdf deal data exactly:-
+		| ExportType     |  Overwrite |
+		| DataTableToCsv |  true      |
+	Examples: 
+	| reportDate |
+	| 01/01/2014 |
+	| 01/02/2014 |
+	| 01/03/2014 |
+	| 01/04/2014 |
+	#| 01/05/2014 |
+	#| 01/06/2014 |
+	#| 01/07/2014 |
+	#| 01/08/2014 |
+	#| 01/09/2014 |
+	#| 01/10/2014 |
+	#| 01/11/2014 |
+	#| 01/12/2014 |
+	#| 01/13/2014 |
+	#| 01/14/2014 |
+	#| 01/15/2014 |
+	#| 01/16/2014 |
+	#| 01/17/2014 |
+	#| 01/18/2014 |
+	#| 01/19/2014 |
+	#| 01/20/2014 |
+	#| 01/21/2014 |
+	#| 01/22/2014 |
+	#| 01/23/2014 |
+	#| 01/24/2014 |
+	#| 01/25/2014 |
+	#| 01/26/2014 |
+	#| 01/27/2014 |
+	#| 01/28/2014 |
+	#| 01/29/2014 |
+	#| 01/30/2014 |
+	#| 01/31/2014 |
 
 
 Scenario Outline: UKUSQDF-136 [AT] Cnx2Redis Data Collector - Reconcile with Cnx Hub Admin Data from http request
