@@ -4,6 +4,7 @@ using System.Data;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms.DataVisualization.Charting;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using log4net;
 
@@ -101,6 +102,31 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     series.Value.EnumerableToCsv(
                         String.Format("{0}\\{1}.{2}", path, resultName,
                             CsvParserExtensionMethods.csv), false);
+                    series.Value.EnumerableToLineGraph(
+                        new EnumerableToGraphExtensions.DataSeriesParameters
+                        {
+                            PropertyName = "Key",
+                            ChartValueType = ChartValueType.DateTime,
+                            LabelStyleFormat = "yyyyMMddHHmmssfff"
+                        },
+                        new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                {
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "OrginalSeriesValue",
+                        SeriesName = "OrginalSeriesName"
+                    },
+                    new EnumerableToGraphExtensions.DataSeriesParameters
+                    {
+                        PropertyName = "NewSeriesValue",
+                        SeriesName = "NewSeriesName"
+                    }
+                }, new EnumerableToGraphExtensions.ChartOptions
+                {
+                    FilePath = path,
+                    Name = resultName,
+                    AxisXMajorGridInterval = 1
+                });
                 }
             }
         }
