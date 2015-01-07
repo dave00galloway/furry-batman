@@ -21,6 +21,8 @@ namespace Alpari.QA.CC.UI.Tests.Specs
     [NUnit.Framework.TestFixtureAttribute()]
     [NUnit.Framework.DescriptionAttribute("UKUSCC-1310ComparePositionsTable")]
     [NUnit.Framework.CategoryAttribute("UKUSCC_1310")]
+    [NUnit.Framework.CategoryAttribute("IPositionTablePageObject")]
+    [NUnit.Framework.CategoryAttribute("IWebdriverCore")]
     public partial class UKUSCC_1310ComparePositionsTableFeature
     {
         
@@ -35,7 +37,9 @@ namespace Alpari.QA.CC.UI.Tests.Specs
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC-1310ComparePositionsTable", "In order to check the CC UI is displaying the correct data\r\nas a tester\r\nI want t" +
                     "o compare the positions table in different CC environments", ProgrammingLanguage.CSharp, new string[] {
-                        "UKUSCC_1310"});
+                        "UKUSCC_1310",
+                        "IPositionTablePageObject",
+                        "IWebdriverCore"});
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -112,63 +116,6 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.Given("I have opened the cc url \"https://webportal.corp.alpari.com/CC_UAT\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 22
  testRunner.When("I compare the positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Compare new and old servers current position")]
-        public virtual void CompareNewAndOldServersCurrentPosition()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare new and old servers current position", ((string[])(null)));
-#line 26
-this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "CcCurrent",
-                        "CcNew"});
-            table1.AddRow(new string[] {
-                        "cc_prod",
-                        "cc_new"});
-#line 27
- testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table1, "Given ");
-#line 30
- testRunner.When("I compare the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                        "ExportType",
-                        "Overwrite"});
-            table2.AddRow(new string[] {
-                        "DataTableToCsv",
-                        "true"});
-#line 31
- testRunner.Then("the current positions should match exactly:-", ((string)(null)), table2, "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Monitor new and old servers position")]
-        public virtual void MonitorNewAndOldServersPosition()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position", ((string[])(null)));
-#line 36
-this.ScenarioSetup(scenarioInfo);
-#line hidden
-            TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                        "CcCurrent",
-                        "CcNew",
-                        "MonitorFor",
-                        "MonitorEvery"});
-            table3.AddRow(new string[] {
-                        "cc_prod",
-                        "cc_new",
-                        "1MIN",
-                        "10SEC"});
-#line 37
- testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table3, "Given ");
-#line 40
- testRunner.When("I monitor the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
         }

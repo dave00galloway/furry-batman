@@ -1,4 +1,5 @@
 ﻿using System;
+using Alpari.QA.CC.UI.Tests.BusinessProcesses;
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.Steps;
 using Alpari.QA.Webdriver.Core;
@@ -10,14 +11,46 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
     [Binding]
     public class WebDriverHooks : SpecFlowExtensionsHooks
     {
+        private static readonly string[] ExcludeColumns =
+        {
+            "Client Total", "Coverage Total", "Net Total", "∑ Net",
+            "∑ Client", "∑ Cov"
+        };
+
         [BeforeScenario]
         public void BeforeScenario()
         {
             SetupObjectContainerAndTagsProperties();
             //TODO: configure to use parameters, read from config etc.
-            SetupWebdriverCore();
+            if (TagDependentAction("IWebdriverCore"))
+            {
+                SetupWebdriverCore();
+            }
 
-            SetupPositionTablePageObject();
+            if (TagDependentAction("IPositionTablePageObject"))
+            {
+                SetupPositionTablePageObject();
+            }
+            if (TagDependentAction("CcPositionTableComparison"))
+            {
+                SetupCcPositionTableComparison();
+            }
+        }
+
+        private static CcPositionTableComparison SetupCcPositionTableComparison()
+        {
+            CcPositionTableComparison ccPositionTableComparison;
+            try
+            {
+                ccPositionTableComparison = ObjectContainer.Resolve<CcPositionTableComparison>();
+            }
+            catch (Exception)
+            {
+                ccPositionTableComparison = new CcPositionTableComparison(ExcludeColumns);
+                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(ccPositionTableComparison);
+            }
+
+            return ccPositionTableComparison;
         }
 
         private static IPositionTablePageObject SetupPositionTablePageObject()
@@ -53,8 +86,11 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-            //TODO: if we decided to use Core as a container, then nothing needs to change here. if we use a container for cores, then we need to iterate over them and close all sel instances
-            StepCentral.WebdriverCore.Quit();
+
+            if (TagDependentAction("IPositionTablePageObject") || TagDependentAction("IWebdriverCore"))
+            {
+                SetupWebdriverCore().Quit();
+            }
             WebDriverCoreManager.RemoveAll();
         }
     }

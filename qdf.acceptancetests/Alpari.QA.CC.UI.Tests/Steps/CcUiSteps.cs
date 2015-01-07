@@ -6,14 +6,17 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class CcUiSteps : StepCentral
     {
-        public CcUiSteps(IWebdriverCore webdriverCore) : base(webdriverCore)
+        private readonly IWebdriverCore _webdriverCore;
+
+        public CcUiSteps(IWebdriverCore webdriverCore)
         {
+            _webdriverCore = webdriverCore;
         }
 
         [Given(@"I have opened the cc url ""(.*)""")]
         public void GivenIHaveOpenedTheCcUrl(string url)
         {
-            WebdriverCore.OpenPage(url);
+            _webdriverCore.OpenPage(url);
         }
 
     }

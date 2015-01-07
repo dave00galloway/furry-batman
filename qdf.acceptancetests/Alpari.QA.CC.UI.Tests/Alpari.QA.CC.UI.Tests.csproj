@@ -72,11 +72,17 @@
     <Compile Include="PageObjects\PositionTablePageObject.cs" />
     <Compile Include="POCO\CcComparisonParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Specs\UKUSCC-1310ComparePositionsTableComparisons.feature.cs">
+      <DependentUpon>UKUSCC-1310ComparePositionsTableComparisons.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Specs\UKUSCC-1310ComparePositionsTable.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC-1310ComparePositionsTable.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\CcPositionComparisonSteps.cs" />
     <Compile Include="Steps\CcPositionSteps.cs" />
     <Compile Include="Steps\CcUiSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
@@ -98,6 +104,10 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Specs\UKUSCC-1310ComparePositionsTableComparisons.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>UKUSCC-1310ComparePositionsTableComparisons.feature.cs</LastGenOutput>
+    </None>
     <None Include="Specs\UKUSCC-1310ComparePositionsTable.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>UKUSCC-1310ComparePositionsTable.feature.cs</LastGenOutput>

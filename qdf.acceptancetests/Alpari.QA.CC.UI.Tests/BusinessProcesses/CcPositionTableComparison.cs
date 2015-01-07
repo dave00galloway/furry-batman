@@ -12,23 +12,31 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
 {
     public class CcPositionTableComparison
     {
-        private readonly CcComparisonParameters _ccComparisonParameters;
-        private readonly IWebdriverCore _currentDriver;
-        private readonly IPositionTablePageObject _currentPositionsPage;
-        private readonly IWebdriverCore _newDriver;
-        private readonly IPositionTablePageObject _newPositionsPage;
+        private CcComparisonParameters _ccComparisonParameters;
+        private IWebdriverCore _currentDriver;
+        private IPositionTablePageObject _currentPositionsPage;
+        private IWebdriverCore _newDriver;
+        private IPositionTablePageObject _newPositionsPage;
         private readonly string[] _excludeColumns ;
-        //public DataTablePairComparisonDictionary<TimeStamp> DataTablePairComparisonDictionary { get; set; }
 
-        public CcPositionTableComparison(CcComparisonParameters ccComparisonParameters, string[] excludeColumns)
+        public CcPositionTableComparison(string[] excludeColumns)
         {
-            _ccComparisonParameters = ccComparisonParameters;
             _excludeColumns = excludeColumns;
-            _currentDriver = WebDriverCoreManager.Add(_ccComparisonParameters.CcCurrent);
-            _currentPositionsPage = new PositionTablePageObject(_currentDriver);
-            _newDriver = WebDriverCoreManager.Add(_ccComparisonParameters.CcNew);
-            _newPositionsPage = new PositionTablePageObject(_newDriver);
-            OpenPages();
+
+        }
+
+        public CcComparisonParameters CcComparisonParameters
+        {
+            get { return _ccComparisonParameters; }
+            set
+            {
+                _ccComparisonParameters = value;
+                _currentDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcCurrent);
+                _currentPositionsPage = new PositionTablePageObject(_currentDriver);
+                _newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
+                _newPositionsPage = new PositionTablePageObject(_newDriver);
+                OpenPages();
+            }
         }
 
         public DataTableComparison ComparePositionTables()
@@ -81,8 +89,8 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         public DataTablePairComparisonDictionary<TimeStamp> MonitorPositions()
         {
             var startDate = DateTime.UtcNow;
-            var stopAt = _ccComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
-            var interval = _ccComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
+            var stopAt = CcComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
+            var interval = CcComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
             var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>(_excludeColumns);
             var stopwatch = new Stopwatch();//ToDo:- investigate moving outside loop and using Restart method
             while (DateTime.UtcNow < stopAt)
