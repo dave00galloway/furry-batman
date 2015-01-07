@@ -21,7 +21,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
 
         public DataTable GetPositionDataAsDataTableBySymbols()
         {
-            return PositionTableSelector.GetTableData(WebdriverCore).ConvertHtmlTableDataToDataTable("Symbol");
+            return PositionTableSelector.GetTableData(WebdriverCore).ConvertHtmlTableDataToDataTable("Symbol",WebdriverCore.Options["Name"]);
         }
     }
 }

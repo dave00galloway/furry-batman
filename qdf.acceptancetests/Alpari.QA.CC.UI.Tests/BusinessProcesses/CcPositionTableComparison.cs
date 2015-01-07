@@ -17,11 +17,13 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         private readonly IPositionTablePageObject _currentPositionsPage;
         private readonly IWebdriverCore _newDriver;
         private readonly IPositionTablePageObject _newPositionsPage;
+        private readonly string[] _excludeColumns ;
         //public DataTablePairComparisonDictionary<TimeStamp> DataTablePairComparisonDictionary { get; set; }
 
-        public CcPositionTableComparison(CcComparisonParameters ccComparisonParameters)
+        public CcPositionTableComparison(CcComparisonParameters ccComparisonParameters, string[] excludeColumns)
         {
             _ccComparisonParameters = ccComparisonParameters;
+            _excludeColumns = excludeColumns;
             _currentDriver = WebDriverCoreManager.Add(_ccComparisonParameters.CcCurrent);
             _currentPositionsPage = new PositionTablePageObject(_currentDriver);
             _newDriver = WebDriverCoreManager.Add(_ccComparisonParameters.CcNew);
@@ -37,11 +39,11 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             return diffs;
         }
 
-        private static DataTableComparison Compare(DataTablePair tables)
+        private DataTableComparison Compare(DataTablePair tables)
         {
             return tables.BaseTable.Compare(tables.CompareWithTable,
                 //TODO:- provide mapping where the column names are different
-                new[] {"Client Total", "Coverage Total", "Net Total"});
+                _excludeColumns);
         }
 
         private void OpenPages()
@@ -81,11 +83,11 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             var startDate = DateTime.UtcNow;
             var stopAt = _ccComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
             var interval = _ccComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
-            var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>();
+            var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>(_excludeColumns);
+            var stopwatch = new Stopwatch();//ToDo:- investigate moving outside loop and using Restart method
             while (DateTime.UtcNow < stopAt)
             {
-                var stopwatch = new Stopwatch();//ToDo:- investigate moving outside loop and using Restart method
-                stopwatch.Start();
+                stopwatch.Restart();
                 var timestamp = new TimeStamp(DateTime.UtcNow, "yyyyMMddHHmmssfff");
                 var tables = RunComparison(_currentPositionsPage, _newPositionsPage);
                 var diffs = Compare(tables);

@@ -18,6 +18,8 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class CcPositionSteps : StepCentral
     {
+        private static readonly string[] ExcludeColumns = { "Client Total", "Coverage Total", "Net Total", "∑ Net", "∑ Client", "∑ Cov" };
+
         public CcPositionSteps(IWebdriverCore webdriverCore, IPositionTablePageObject positionTablePageObject)
             : base(webdriverCore)
         {
@@ -64,7 +66,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I compare the current positions")]
         public void WhenICompareTheCurrentPositions()
         {
-            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters);
+            var comparisionProcess = new CcPositionTableComparison(CcComparisonParameters,ExcludeColumns);
             ScenarioContext.Current["diffs"] = comparisionProcess.ComparePositionTables();
         }
 
@@ -72,7 +74,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         public void WhenIMonitorTheCurrentPositions()
         {
             //todo:- make this a class interface field initialised from constructor? might need to split this step class up as not all steps or even all scenarios that use this file will use all/most ofthe existing fields, including theWebdriver
-            var comparisonProcess = new CcPositionTableComparison(CcComparisonParameters);
+            var comparisonProcess = new CcPositionTableComparison(CcComparisonParameters, ExcludeColumns);
             var monitoringresults = comparisonProcess.MonitorPositions();
             monitoringresults.Export(new ExportParameters
             {

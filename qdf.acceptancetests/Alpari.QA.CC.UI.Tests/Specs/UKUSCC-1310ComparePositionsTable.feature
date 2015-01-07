@@ -36,7 +36,7 @@ Scenario: Compare new and old servers current position
 Scenario: Monitor new and old servers position
 	Given I have the following cc comparison parameters:-
 	| CcCurrent | CcNew  | MonitorFor | MonitorEvery |
-	| cc_prod   | cc_new | 5MIN       | 1MIN         |
+	| cc_prod   | cc_new | 1MIN       | 10SEC         |
 	When I monitor the current positions
 	#Then the current positions should match exactly:-
 	#| ExportType     |  Overwrite |

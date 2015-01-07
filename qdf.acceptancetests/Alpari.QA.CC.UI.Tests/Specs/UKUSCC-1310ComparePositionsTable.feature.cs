@@ -163,8 +163,8 @@ this.ScenarioSetup(scenarioInfo);
             table3.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
-                        "5MIN",
-                        "1MIN"});
+                        "1MIN",
+                        "10SEC"});
 #line 37
  testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table3, "Given ");
 #line 40
