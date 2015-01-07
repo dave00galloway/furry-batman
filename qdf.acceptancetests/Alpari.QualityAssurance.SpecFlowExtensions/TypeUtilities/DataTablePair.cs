@@ -94,38 +94,40 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             var trendDataCollection = GetTrendDataCollection(rowNames, columnNames, _excludeColumns);
             foreach (var colList in trendDataCollection)
             {
-                var path = Path.Combine(exportParameters.Path, colList.Key.RemoveWindowsUnfriendlyChars());
+                var path = Path.Combine(exportParameters.Path, colList.Key.RemoveWindowsUnfriendlyChars()) + "\\";
                 Directory.CreateDirectory(path);
                 foreach (var series in colList.Value)
                 {
                     var resultName = String.Format("{0}_{1}", colList.Key.RemoveWindowsUnfriendlyChars(), series.Key).RemoveWindowsUnfriendlyChars();
                     series.Value.EnumerableToCsv(
-                        String.Format("{0}\\{1}.{2}", path, resultName,
+                        String.Format("{0}{1}.{2}", path, resultName,
                             CsvParserExtensionMethods.csv), false);
+                    var orginalSeriesName = series.Value.First().OrginalSeriesName;
+                    var newSeriesName = series.Value.First().NewSeriesName;
                     series.Value.EnumerableToLineGraph(
                         new EnumerableToGraphExtensions.DataSeriesParameters
                         {
                             PropertyName = "Key",
                             ChartValueType = ChartValueType.DateTime,
-                            LabelStyleFormat = "yyyyMMddHHmmssfff"
+                            LabelStyleFormat = exportParameters.SeriesDateFormat //"yyyyMMddHHmmssfff"
                         },
                         new List<EnumerableToGraphExtensions.DataSeriesParameters>
                 {
                     new EnumerableToGraphExtensions.DataSeriesParameters
                     {
                         PropertyName = "OrginalSeriesValue",
-                        SeriesName = "OrginalSeriesName"
+                        SeriesName = orginalSeriesName
                     },
                     new EnumerableToGraphExtensions.DataSeriesParameters
                     {
                         PropertyName = "NewSeriesValue",
-                        SeriesName = "NewSeriesName"
+                        SeriesName = newSeriesName
                     }
                 }, new EnumerableToGraphExtensions.ChartOptions
                 {
                     FilePath = path,
                     Name = resultName,
-                    AxisXMajorGridInterval = 1
+                   // AxisXMajorGridInterval = 1
                 });
                 }
             }
@@ -219,7 +221,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         ///     get a unique list of column names  (e.g. server and Section names)
         /// </summary>
         /// <returns>a unique list of column names</returns>
-        private List<string> GetDistinctColumnNames()
+        private IEnumerable<string> GetDistinctColumnNames()
         {
             var baseColumnNames = (DataTablePairComparisons.Values.SelectMany(
                 dataTablePairComparison => dataTablePairComparison.DataTablePair.BaseTable.Columns.Cast<DataColumn>(),

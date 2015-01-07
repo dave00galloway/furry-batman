@@ -79,9 +79,10 @@ namespace Alpari.QA.CC.UI.Tests.Steps
             monitoringresults.Export(new ExportParameters
             {
                 ExportType = ExportTypes.DataTableToCsv,
-                Path = ScenarioOutputDirectory
+                Path = ScenarioOutputDirectory,
+                SeriesDateFormat = monitoringresults.DataTablePairComparisons.Keys.First().ToStringFormat
             });
-            // ScenarioContext.Current.Pending();
+
         }
 
 

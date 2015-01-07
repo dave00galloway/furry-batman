@@ -29,5 +29,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         public string Path { get; set; }
         public bool Overwrite { get; set; }
         public IDictionary<string,string> QueryParameters { get; set; }
+        public string SeriesDateFormat { get; set; }
     }
 }
