@@ -99,19 +99,40 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 foreach (var series in colList.Value)
                 {
                     var resultName = String.Format("{0}_{1}", colList.Key.RemoveWindowsUnfriendlyChars(), series.Key).RemoveWindowsUnfriendlyChars();
-                    series.Value.EnumerableToCsv(
-                        String.Format("{0}{1}.{2}", path, resultName,
-                            CsvParserExtensionMethods.csv), false);
-                    var orginalSeriesName = series.Value.First().OrginalSeriesName;
-                    var newSeriesName = series.Value.First().NewSeriesName;
-                    series.Value.EnumerableToLineGraph(
-                        new EnumerableToGraphExtensions.DataSeriesParameters
-                        {
-                            PropertyName = "Key",
-                            ChartValueType = ChartValueType.DateTime,
-                            LabelStyleFormat = exportParameters.SeriesDateFormat //"yyyyMMddHHmmssfff"
-                        },
-                        new List<EnumerableToGraphExtensions.DataSeriesParameters>
+                    try
+                    {
+                        series.Value.EnumerableToCsv(
+                            String.Format("{0}{1}.{2}", path, resultName,
+                                CsvParserExtensionMethods.csv), false);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(String.Format("Error outputting {0} to csv",resultName),e);
+                    }
+                    try
+                    {
+                        ExportChart(exportParameters, series, path, resultName);
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(String.Format("Error outputting {0} as chart", resultName), e);
+                    }
+                }
+            }
+        }
+
+        private static void ExportChart(ExportParameters exportParameters, KeyValuePair<string, List<TrendData>> series, string path, string resultName)
+        {
+            var orginalSeriesName = series.Value.First().OrginalSeriesName;
+            var newSeriesName = series.Value.First().NewSeriesName;
+            series.Value.EnumerableToLineGraph(
+                new EnumerableToGraphExtensions.DataSeriesParameters
+                {
+                    PropertyName = "Key",
+                    ChartValueType = ChartValueType.DateTime,
+                    LabelStyleFormat = exportParameters.SeriesDateFormat //"yyyyMMddHHmmssfff"
+                },
+                new List<EnumerableToGraphExtensions.DataSeriesParameters>
                 {
                     new EnumerableToGraphExtensions.DataSeriesParameters
                     {
@@ -127,10 +148,8 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                 {
                     FilePath = path,
                     Name = resultName,
-                   // AxisXMajorGridInterval = 1
+                    // AxisXMajorGridInterval = 1
                 });
-                }
-            }
         }
 
         /// <summary>
