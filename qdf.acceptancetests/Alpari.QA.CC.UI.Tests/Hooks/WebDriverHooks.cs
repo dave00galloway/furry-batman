@@ -62,7 +62,7 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
             }
             catch (Exception)
             {
-                iPageObject = new PositionTablePageObject(SetupWebdriverCore());
+                iPageObject = SetupWebdriverCore().Create("4.6");//new PositionTablePageObject(SetupWebdriverCore());
                 if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(iPageObject);
             }
             return iPageObject;

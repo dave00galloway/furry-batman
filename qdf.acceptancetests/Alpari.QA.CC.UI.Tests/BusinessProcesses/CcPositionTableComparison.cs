@@ -25,6 +25,9 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
 
         }
 
+        /// <summary>
+        /// now using setter injection instead of constructor injection
+        /// </summary>
         public CcComparisonParameters CcComparisonParameters
         {
             get { return _ccComparisonParameters; }
@@ -32,9 +35,9 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             {
                 _ccComparisonParameters = value;
                 _currentDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcCurrent);
-                _currentPositionsPage = new PositionTablePageObject(_currentDriver);
+                _currentPositionsPage = _currentDriver.Create(CcComparisonParameters.CcCurrentVersion); //new PositionTablePageObject(_currentDriver);
                 _newDriver = WebDriverCoreManager.Add(CcComparisonParameters.CcNew);
-                _newPositionsPage = new PositionTablePageObject(_newDriver);
+                _newPositionsPage = _newDriver.Create(CcComparisonParameters.CcNewVersion); //new PositionTablePageObject(_newDriver);
                 OpenPages();
             }
         }
@@ -43,7 +46,6 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         {
             var tables = RunComparison(_currentPositionsPage, _newPositionsPage);
             var diffs = Compare(tables);
-            //diffs.CheckForDifferences();
             return diffs;
         }
 
@@ -92,7 +94,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             var stopAt = CcComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
             var interval = CcComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
             var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>(_excludeColumns);
-            var stopwatch = new Stopwatch();//ToDo:- investigate moving outside loop and using Restart method
+            var stopwatch = new Stopwatch();
             while (DateTime.UtcNow < stopAt)
             {
                 stopwatch.Restart();

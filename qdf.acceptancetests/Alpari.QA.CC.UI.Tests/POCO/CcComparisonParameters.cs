@@ -3,7 +3,7 @@
     public class CcComparisonParameters
     {
         /// <summary>
-        ///     indicates the driver to load for the environment which either is production, 
+        ///     indicates the driver to load for the environment which either is production,
         ///     or has the current production version of CC
         /// </summary>
         public string CcCurrent { get; set; }
@@ -16,5 +16,8 @@
         public string MonitorFor { get; set; }
 
         public string MonitorEvery { get; set; }
+        //CcCurrentVersion | CcNewVersion
+        public string CcCurrentVersion { get; set; }
+        public string CcNewVersion { get; set; }
     }
 }

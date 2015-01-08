@@ -3,28 +3,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Alpari.QA.Webdriver.Core.Constants;
 using log4net;
-using log4net.Config;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Support.Events;
 
 namespace Alpari.QA.Webdriver.Core
 {
     [DebuggerTypeProxy(typeof (WebDriverProxy))]
     public class WebdriverCore : IWebdriverCore
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof(WebdriverCore));
+        private static readonly ILog Log = LogManager.GetLogger(typeof (WebdriverCore));
         private IWebDriver _driver;
 
         public WebdriverCore(IReadOnlyDictionary<string, string> options)
         {
             Options = options;
         }
-
-        //public WebdriverCore(IReadOnlyDictionary<string, string> options, IWebDriver driver)
-        //{
-        //    Options = options;
-        //    _driver = driver;
-        //}
 
         public WebdriverCore()
         {
@@ -49,21 +41,24 @@ namespace Alpari.QA.Webdriver.Core
         }
 
         /// <summary>
-        /// immediately return the element if it is there else return null
+        ///     immediately return the element if it is there else return null
         /// </summary>
         /// <param name="by"></param>
         /// <returns></returns>
         public IWebElement FindElement(By by)
         {
-            //TODO:- add sync, logging etc...
+            if (Options == null)
+            {
+                return Driver.FindElement(by);
+            }
             Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(1));
             try
             {
                 return Driver.FindElement(by);
             }
-            catch (Exception e)
+            catch (Exception)
             {
-                Log.DebugFormat("Element {0} was not found",by);
+                Log.DebugFormat("Element {0} was not found", by);
                 return null;
             }
             finally

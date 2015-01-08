@@ -79,10 +79,14 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                         "CcCurrent",
-                        "CcNew"});
+                        "CcNew",
+                        "CcCurrentVersion",
+                        "CcNewVersion"});
             table1.AddRow(new string[] {
                         "cc_prod",
-                        "cc_new"});
+                        "cc_new",
+                        "4.5",
+                        "4.6"});
 #line 10
  testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table1, "Given ");
 #line 13
@@ -112,12 +116,16 @@ this.ScenarioSetup(scenarioInfo);
                         "CcCurrent",
                         "CcNew",
                         "MonitorFor",
-                        "MonitorEvery"});
+                        "MonitorEvery",
+                        "CcCurrentVersion",
+                        "CcNewVersion"});
             table3.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
                         "1MIN",
-                        "10SEC"});
+                        "10SEC",
+                        "4.5",
+                        "4.6"});
 #line 20
  testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table3, "Given ");
 #line 23
