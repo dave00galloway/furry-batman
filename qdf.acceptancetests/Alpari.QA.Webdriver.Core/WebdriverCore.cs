@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using Alpari.QA.Webdriver.Core.Constants;
 using log4net;
 using OpenQA.Selenium;
@@ -88,6 +89,26 @@ namespace Alpari.QA.Webdriver.Core
         public string Url
         {
             get { return Driver.Url; }
+        }
+
+        public override string ToString()
+        {
+            var description = new StringBuilder();
+            if (Options == null)
+            {
+                description.AppendFormat("description = {0},", base.ToString());
+            }
+            else
+            {
+                foreach (var option in Options)
+                {
+                    description.AppendFormat("{0} = {1},", option.Key, option.Value);
+                }
+            }
+
+            description.AppendFormat(" started = {0}", Instantiated);
+
+            return description.ToString();
         }
 
         /// <summary>

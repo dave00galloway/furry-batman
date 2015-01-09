@@ -226,8 +226,15 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
             Directory.CreateDirectory(exportParameters.Path);
             foreach (var dataTablePairComparison in DataTablePairComparisons)
             {
-                exportParameters.FileName = dataTablePairComparison.Key.ToString();
-                dataTablePairComparison.Value.DataTableComparison.CheckForDifferences(exportParameters, true);
+                try
+                {
+                    exportParameters.FileName = dataTablePairComparison.Key.ToString();
+                    dataTablePairComparison.Value.DataTableComparison.CheckForDifferences(exportParameters, true);
+                }
+                catch (Exception e)
+                {
+                    Log.Warn(String.Format("comparison for {0} contained invalid data",exportParameters.FileName),e);
+                }
             }
         }
     }

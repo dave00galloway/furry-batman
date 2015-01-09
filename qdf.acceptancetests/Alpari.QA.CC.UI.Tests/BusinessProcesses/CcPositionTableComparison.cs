@@ -7,11 +7,13 @@ using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
+using log4net;
 
 namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
 {
     public class CcPositionTableComparison : ICcPositionTableComparison
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(CcPositionTableComparison));
         private readonly string[] _excludeColumns;
         private CcComparisonParameters _ccComparisonParameters;
         private IWebdriverCore _currentDriver;
@@ -61,7 +63,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
 
         public DataTableComparison ComparePositionTables()
         {
-            var tables = RunComparison(_currentPositionsPage, _newPositionsPage);
+            var tables = GetComparisonData(_currentPositionsPage, _newPositionsPage);
             var diffs = Compare(tables);
             return diffs;
         }
@@ -76,11 +78,18 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             while (DateTime.UtcNow < stopAt)
             {
                 stopwatch.Restart();
-                var timestamp = new TimeStamp(DateTime.UtcNow, "yyyyMMddHHmmssfff");
-                var tables = RunComparison(_currentPositionsPage, _newPositionsPage);
-                var diffs = Compare(tables);
-                dataTablePairComparisonDictionary.DataTablePairComparisons.Add(timestamp,
-                    new DataTablePairComparison(tables, diffs));
+                try
+                {
+                    var timestamp = new TimeStamp(DateTime.UtcNow, "yyyyMMddHHmmssfff");
+                    var tables = GetComparisonData(_currentPositionsPage, _newPositionsPage);
+                    var diffs = Compare(tables);
+                    dataTablePairComparisonDictionary.DataTablePairComparisons.Add(timestamp,
+                        new DataTablePairComparison(tables, diffs));
+                }
+                catch (Exception e)
+                {
+                    Log.Warn(String.Format("Error monitoring positions in with for book {0}",_ccComparisonParameters.Book),e);
+                }
                 stopwatch.Stop();
                 Thread.Sleep(interval.Subtract(new TimeSpan(stopwatch.ElapsedMilliseconds)));
             }
@@ -89,18 +98,26 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
 
         private DataTableComparison Compare(DataTablePair tables)
         {
-            return tables.BaseTable.Compare(tables.CompareWithTable,
-                //TODO:- provide mapping where the column names are different
-                _excludeColumns);
+            try
+            {
+                return tables.BaseTable.Compare(tables.CompareWithTable,
+                    //TODO:- provide mapping where the column names are different
+                    _excludeColumns);
+            }
+            catch (Exception e)
+            {
+                Log.Warn(string.Format("error comparing tables for for book {0}",_ccComparisonParameters.Book),e);
+                return null;
+            }
         }
 
-        private static DataTablePair RunComparison(IPositionTablePageObject currentPositionsPage,
+        private static DataTablePair GetComparisonData(IPositionTablePageObject currentPositionsPage,
             IPositionTablePageObject newPositionsPage)
         {
             DataTable currentTable = null;
             DataTable newTable = null;
 
-            var tasks = new Task[2]
+            var tasks = new Task[]
             {
                 Task.Factory.StartNew(() =>
                     currentTable = currentPositionsPage.GetPositionDataAsDataTableBySymbols())

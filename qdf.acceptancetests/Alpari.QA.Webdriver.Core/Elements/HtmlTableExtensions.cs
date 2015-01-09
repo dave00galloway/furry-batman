@@ -1,16 +1,20 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Net;
 using Alpari.QA.Webdriver.Core.Constants;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 using HtmlAgilityPack;
+using log4net;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core.Elements
 {
     public static class HtmlTableExtensions
     {
+        private static readonly ILog Log = LogManager.GetLogger(typeof(HtmlTableExtensions));
+
         /// <summary>
         ///     based on an idea from http://stackoverflow.com/questions/655603/html-agility-pack-parsing-tables
         /// </summary>
@@ -19,9 +23,17 @@ namespace Alpari.QA.Webdriver.Core.Elements
         /// <returns></returns>
         public static HtmlTableData GetTableData(this By tableBy, IWebdriverCore driver)
         {
-            var doc = tableBy.GetTableHtmlAsDoc(driver);
-            var columns = doc.GetHtmlColumnNames();
-            return doc.GetHtmlTableCellData(columns);
+            try
+            {
+                var doc = tableBy.GetTableHtmlAsDoc(driver);
+                var columns = doc.GetHtmlColumnNames();
+                return doc.GetHtmlTableCellData(columns);
+            }
+            catch (Exception e)
+            {
+                Log.Warn(String.Format("unable to get table data from {0} using driver {1} ",tableBy ,driver),e);
+                return null;
+            }
         }
 
         /// <summary>
@@ -39,10 +51,10 @@ namespace Alpari.QA.Webdriver.Core.Elements
         public static DataTable ConvertHtmlTableDataToDataTable(this HtmlTableData htmlTableData,
             string primaryKey = null, string tableName = null)
         {
+            if (htmlTableData == null) return null;
             var table = new DataTable(tableName);
             
             foreach (var colName in htmlTableData.Values.First().Keys)
-            //foreach (var colName in htmlTableData.Keys)
             {
                 table.Columns.Add(new DataColumn(colName, typeof (string)));
             }

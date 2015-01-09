@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using Alpari.QA.Webdriver.Core;
+using Alpari.QA.Webdriver.Core.Constants;
 using Alpari.QA.Webdriver.Core.Elements;
-using OpenQA.Selenium;
 
 namespace Alpari.QA.CC.UI.Tests.PageObjects
 {
@@ -30,7 +30,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         {
             return
                 PositionTableBys.PositionTableSelector.GetTableData(WebdriverCore)
-                    .ConvertHtmlTableDataToDataTable("Symbol", WebdriverCore.Options["Name"]);
+                    .ConvertHtmlTableDataToDataTable("Symbol", WebdriverCore.Options[WebDriverConfig.Name]);
         }
     }
 }

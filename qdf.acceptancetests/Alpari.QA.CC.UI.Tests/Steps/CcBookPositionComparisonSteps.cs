@@ -32,7 +32,7 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I monitor the current positions in parallel")]
         public void WhenIMonitorTheCurrentPositionsInParallel()
         {
-            var tasks = new Task[2]
+            var tasks = new[]
             {
                 Task.Factory.StartNew(() => 
                     _comparisons.First().MonitorPositionsAndExport(new ExportParameters{
