@@ -66,10 +66,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessProcesses\CcPositionTableComparison.cs" />
+    <Compile Include="BusinessProcesses\ICcPositionTableComparison.cs" />
     <Compile Include="Hooks\ComparisonHooks.cs" />
     <Compile Include="Hooks\WebDriverHooks.cs" />
     <Compile Include="PageObjects\IPositionTablePageObject.cs" />
     <Compile Include="PageObjects\PositionTablePageObject.cs" />
+    <Compile Include="PageObjects\PositionTablePageObjectFactory.cs" />
     <Compile Include="POCO\CcComparisonParameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Specs\UKUSCC-1310ComparePositionsTableComparisons.feature.cs">
@@ -82,12 +84,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UKUSCC-1310ComparePositionsTable.feature</DependentUpon>
     </Compile>
+    <Compile Include="Steps\CcBookPositionComparisonSteps.cs" />
     <Compile Include="Steps\CcPositionComparisonSteps.cs" />
     <Compile Include="Steps\CcPositionSteps.cs" />
     <Compile Include="Steps\CcUiSteps.cs" />
     <Compile Include="Steps\StepCentral.cs" />
     <Compile Include="Transforms\CcComparisonParametersTransform.cs" />
-    <Compile Include="Transforms\ExportParametersTransform.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Alpari.QA.Webdriver.Core\Alpari.QA.Webdriver.Core.csproj">

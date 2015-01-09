@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Alpari.QualityAssurance.SpecFlowExtensions.Context;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using BoDi;
@@ -80,7 +82,6 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
                     ScenarioContext.Current.ScenarioInfo.Title);
                 ScenarioContextLogged = true;
             }
-
         }
 
         /// <summary>
@@ -126,7 +127,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static void InstantiateTestRunContext()
         {
             SetupLogging(false);
-                // as this method is static it could be called before the class constructor, so in the spirit of logging as early as possible, we make the call here.
+            // as this method is static it could be called before the class constructor, so in the spirit of logging as early as possible, we make the call here.
             TestRunContext.Instance[TEST_RUN_CONTEXT] = TestRunContext.Instance;
         }
 
@@ -147,11 +148,28 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.StepBases
         public static ExportParameters ExportParametersTransform(Table table)
         {
             var parameters = table.CreateInstance<ExportParameters>();
+            SetOutputDirectoryForFileBoundExports(parameters);
+            return parameters;
+        }
+
+        private static void SetOutputDirectoryForFileBoundExports(ExportParameters parameters)
+        {
             if (parameters.ExportType == ExportTypes.Csv || parameters.ExportType == ExportTypes.DataTableToCsv)
             {
                 parameters.Path = ScenarioOutputDirectory;
             }
-            return parameters;
+        }
+
+        [StepArgumentTransformation]
+        public static IEnumerable<ExportParameters> ExportParametersSetTransform(Table table)
+        {
+            var parameters = table.CreateSet<ExportParameters>();
+            var exportParametersSetTransform = parameters as IList<ExportParameters> ?? parameters.ToList();
+            foreach (var parameter in exportParametersSetTransform)
+            {
+                SetOutputDirectoryForFileBoundExports(parameter);
+            }
+            return exportParametersSetTransform;
         }
     }
 }

@@ -12,19 +12,17 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     public class CcPositionComparisonSteps : StepCentral
     {
         //TODO:- extract and use an interface for the business process
-        private readonly CcPositionTableComparison _ccPositionTableComparison;
+        private readonly ICcPositionTableComparison _ccPositionTableComparison;
 
-        public CcPositionComparisonSteps(CcPositionTableComparison ccPositionTableComparison)
+        public CcPositionComparisonSteps(ICcPositionTableComparison ccPositionTableComparison)
         {
             _ccPositionTableComparison = ccPositionTableComparison;
         }
 
-        private CcComparisonParameters CcComparisonParameters { get; set; }
 
         [Given(@"I have the following cc comparison parameters:-")]
         public void GivenIHaveTheFollowingCcComparisonParameters(CcComparisonParameters ccComparisonParameters)
         {
-            CcComparisonParameters = ccComparisonParameters;
             _ccPositionTableComparison.CcComparisonParameters = ccComparisonParameters;
         }
 
@@ -37,15 +35,12 @@ namespace Alpari.QA.CC.UI.Tests.Steps
         [When(@"I monitor the current positions")]
         public void WhenIMonitorTheCurrentPositions()
         {
-            var monitoringresults = _ccPositionTableComparison.MonitorPositions();
-            monitoringresults.Export(new ExportParameters
+            _ccPositionTableComparison.MonitorPositionsAndExport(new ExportParameters
             {
                 ExportType = ExportTypes.DataTableToCsv,
-                Path = ScenarioOutputDirectory,
-                SeriesDateFormat = monitoringresults.DataTablePairComparisons.Keys.First().ToStringFormat
+                Path = ScenarioOutputDirectory
             });
         }
-
 
         [Then(@"the current positions should match exactly:-")]
         public void ThenTheCurrentPositionsShouldMatchExactly(ExportParameters exportParameters)

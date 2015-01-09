@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using Alpari.QA.CC.UI.Tests.BusinessProcesses;
 using Alpari.QA.CC.UI.Tests.PageObjects;
-using Alpari.QA.CC.UI.Tests.Steps;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QualityAssurance.SpecFlowExtensions.Hooks;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace Alpari.QA.CC.UI.Tests.Hooks
@@ -14,7 +15,7 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
         private static readonly string[] ExcludeColumns =
         {
             "Client Total", "Coverage Total", "Net Total", "∑ Net",
-            "∑ Client", "∑ Cov"
+            "∑ Client", "∑ Cov", "CNX QAC", "QAH"
         };
 
         [BeforeScenario]
@@ -31,18 +32,41 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
             {
                 SetupPositionTablePageObject();
             }
-            if (TagDependentAction("CcPositionTableComparison"))
+            if (TagDependentAction("ICcPositionTableComparisons"))
+            {
+                SetupCcPositionTableComparisons();
+            }
+            else if (TagDependentAction("ICcPositionTableComparison"))
             {
                 SetupCcPositionTableComparison();
             }
         }
 
-        private static CcPositionTableComparison SetupCcPositionTableComparison()
+        private static List<ICcPositionTableComparison> SetupCcPositionTableComparisons()
         {
-            CcPositionTableComparison ccPositionTableComparison;
+            List<ICcPositionTableComparison> list;
             try
             {
-                ccPositionTableComparison = ObjectContainer.Resolve<CcPositionTableComparison>();
+                list = ObjectContainer.Resolve<List<ICcPositionTableComparison>>();
+            }
+            catch (Exception)
+            {
+                list = new List<ICcPositionTableComparison>
+                {
+                    new CcPositionTableComparison(ExcludeColumns),
+                    new CcPositionTableComparison(ExcludeColumns)
+                };
+                if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(list);
+            }
+            return list;
+        }
+
+        private static ICcPositionTableComparison SetupCcPositionTableComparison()
+        {
+            ICcPositionTableComparison ccPositionTableComparison;
+            try
+            {
+                ccPositionTableComparison = ObjectContainer.Resolve<ICcPositionTableComparison>();
             }
             catch (Exception)
             {
@@ -62,7 +86,7 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
             }
             catch (Exception)
             {
-                iPageObject = SetupWebdriverCore().Create("4.6");//new PositionTablePageObject(SetupWebdriverCore());
+                iPageObject = SetupWebdriverCore().Create("4.6");
                 if (ObjectContainer != null) ObjectContainer.RegisterInstanceAs(iPageObject);
             }
             return iPageObject;
@@ -86,7 +110,6 @@ namespace Alpari.QA.CC.UI.Tests.Hooks
         [AfterScenario]
         public void AfterScenario()
         {
-
             if (TagDependentAction("IPositionTablePageObject") || TagDependentAction("IWebdriverCore"))
             {
                 SetupWebdriverCore().Quit();

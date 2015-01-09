@@ -98,6 +98,8 @@
     <Compile Include="TypeUtilities\DataTableComparison.cs" />
     <Compile Include="TypeUtilities\DataTableComparisonExtensions.cs" />
     <Compile Include="TypeUtilities\DataTablePair.cs" />
+    <Compile Include="TypeUtilities\DataTablePairComparison.cs" />
+    <Compile Include="TypeUtilities\DataTablePairComparisonDictionary.cs" />
     <Compile Include="TypeUtilities\DBUtils.cs" />
     <Compile Include="TypeUtilities\EnumExtensions.cs" />
     <Compile Include="TypeUtilities\IEnumerableExtensions.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="TypeUtilities\StringUtils.cs" />
     <Compile Include="TypeUtilities\TechTalkSpecFlowTableExtensions.cs" />
     <Compile Include="TypeUtilities\TimeStamp.cs" />
+    <Compile Include="TypeUtilities\TrendData.cs" />
     <Compile Include="TypeUtilities\TypedDataTable.cs" />
     <Compile Include="TypeUtilities\TypeExtensions.cs" />
     <Compile Include="TypeUtilities\WebClientEx.cs">

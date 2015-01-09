@@ -1,4 +1,7 @@
-﻿using Alpari.QA.Webdriver.Core;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Alpari.QA.CC.UI.Tests.BusinessProcesses;
+using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.StepBases;
 using TechTalk.SpecFlow;
@@ -8,21 +11,18 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class StepCentral : MasterStepBase
     {
-        //public StepCentral(IWebdriverCore webdriverCore)
-        //{
-        //    WebdriverCore = webdriverCore;
-        //}
-
-        ///// <summary>
-        /////     making the massive assumption that all tests will use webdriver...
-        /////     TODO:- configure hooks to take parameters for webdriver config etc.
-        ///// </summary>
-        //public static IWebdriverCore WebdriverCore { get; set; }
-
         [StepArgumentTransformation]
         public new static ExportParameters ExportParametersTransform(Table table)
         {
             return MasterStepBase.ExportParametersTransform(table);
         }
+
+        [StepArgumentTransformation]
+        public new static IEnumerable<ExportParameters> ExportParametersSetTransform(Table table)
+        {
+            return MasterStepBase.ExportParametersSetTransform(table);
+        }
+
+
     }
 }

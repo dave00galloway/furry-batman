@@ -35,7 +35,7 @@ namespace Alpari.QA.CC.UI.Tests.Specs
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "UKUSCC-1310ComparePositionsTable", "In order to check the CC UI is displaying the correct data\r\nas a tester\r\nI want t" +
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-GB"), "UKUSCC-1310ComparePositionsTable", "In order to check the CC UI is displaying the correct data\r\nas a tester\r\nI want t" +
                     "o compare the positions table in different CC environments", ProgrammingLanguage.CSharp, new string[] {
                         "UKUSCC_1310",
                         "IPositionTablePageObject",

@@ -10,7 +10,7 @@ Feature: UKUSCC_1236CompareClientPositionsXlsx
 Scenario: Compare JPN Client Positions
 	When I compare cc redis and cc ars client position data from xlsx:-
 	| RedisPositionsFile                                                             | ArsPositionsFile                                                                  |
-	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_ajpc01_4_20150108_084911.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_ajpc01_4_20150108_084952.xlsx |
+	| C:\Users\dgalloway\Downloads\Positions_Redis_ars_ajpc01_4_20150108_145301.xlsx | C:\Users\dgalloway\Downloads\Positions_Database_ars_ajpc01_4_20150108_145341.xlsx |
 	Then the redis positions should match the ars positions exactly:-
 		| ExportType     |  Overwrite |
 		| DataTableToCsv |  true      |
