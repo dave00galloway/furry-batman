@@ -140,44 +140,32 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
         /// <param name="excludeColumns"></param>
         /// <returns></returns>
         private IEnumerable<KeyValuePair<string, List<KeyValuePair<string, List<TrendData>>>>> GetTrendDataCollection(
-            List<string> rowNames, IEnumerable<string> columnNames,
-            string[] excludeColumns)
+            IEnumerable<string> rowNames, IEnumerable<string> columnNames,
+            IEnumerable<string> excludeColumns)
         {
             var newSeriesName = DataTablePairComparisons.First().Value.DataTablePair.CompareWithTable.TableName;
             var originalSeriesName = DataTablePairComparisons.First().Value.DataTablePair.BaseTable.TableName;
-            var colList = new List<KeyValuePair<string, List<KeyValuePair<string, List<TrendData>>>>>();
-            foreach (var columnName in columnNames)
-            {
-                if (excludeColumns != null && !excludeColumns.Contains(columnName) &&
-                    !columnName.Equals(_primaryKeyName))
-                {
-                    var rowlist = new List<KeyValuePair<string, List<TrendData>>>();
-                    foreach (var rowName in rowNames)
+            var data = (from columnName in columnNames
+                where
+                    excludeColumns != null && !excludeColumns.Contains(columnName) &&
+                    !columnName.Equals(_primaryKeyName)
+                let rowlist = (from rowName in rowNames
+                    let list = DataTablePairComparisons.Select(dataTablePairComparison => new TrendData
                     {
-                        var list = new List<TrendData>();
-                        foreach (var dataTablePairComparison in DataTablePairComparisons)
-                        {
-                            var trendData = new TrendData
-                            {
-                                Key = dataTablePairComparison.Key.ToString(),
-                                NewSeriesName = newSeriesName,
-                                OrginalSeriesName = originalSeriesName,
-                                NewSeriesValue =
-                                    FindTableValueOrEmpty(dataTablePairComparison.Value.DataTablePair.CompareWithTable,
-                                        rowName, columnName, "0"),
-                                OrginalSeriesValue =
-                                    FindTableValueOrEmpty(dataTablePairComparison.Value.DataTablePair.BaseTable,
-                                        rowName, columnName, "0")
-                            };
-                            list.Add(trendData);
-                        }
-                        rowlist.Add(new KeyValuePair<string, List<TrendData>>(rowName, list));
-                    }
-                    colList.Add(new KeyValuePair<string, List<KeyValuePair<string, List<TrendData>>>>(columnName,
-                        rowlist));
-                }
-            }
-            return colList;
+                        Key = dataTablePairComparison.Key.ToString(),
+                        NewSeriesName = newSeriesName,
+                        OrginalSeriesName = originalSeriesName,
+                        NewSeriesValue =
+                            FindTableValueOrEmpty(dataTablePairComparison.Value.DataTablePair.CompareWithTable, rowName,
+                                columnName, "0"),
+                        OrginalSeriesValue =
+                            FindTableValueOrEmpty(dataTablePairComparison.Value.DataTablePair.BaseTable, rowName,
+                                columnName, "0")
+                    }).ToList()
+                    select new KeyValuePair<string, List<TrendData>>(rowName, list)).ToList()
+                select new KeyValuePair<string, List<KeyValuePair<string, List<TrendData>>>>(columnName, rowlist))
+                .ToList();
+            return data;
         }
 
         private static string FindTableValueOrEmpty(DataTable table, string rowName, string columnName,
@@ -235,6 +223,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
 
         private void ExportComparisonResults(ExportParameters exportParameters)
         {
+            Directory.CreateDirectory(exportParameters.Path);
             foreach (var dataTablePairComparison in DataTablePairComparisons)
             {
                 exportParameters.FileName = dataTablePairComparison.Key.ToString();

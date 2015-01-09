@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Alpari.QA.CC.UI.Tests.PageObjects;
 using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
-using Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities;
 using Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities;
 
 namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
@@ -37,14 +35,14 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
                 _ccComparisonParameters = value;
                 _currentDriver =
                     WebDriverCoreManager.Add(
-                        String.Format("{0}_{1}", CcComparisonParameters.CcCurrent, CcComparisonParameters.Book),
-                        CcComparisonParameters.CcCurrent);
-                _currentPositionsPage = _currentDriver.Create(CcComparisonParameters.CcCurrentVersion);
+                        String.Format("{0}_{1}", _ccComparisonParameters.CcCurrent, _ccComparisonParameters.Book),
+                        _ccComparisonParameters.CcCurrent);
+                _currentPositionsPage = _currentDriver.Create(_ccComparisonParameters.CcCurrentVersion);
                 _newDriver =
                     WebDriverCoreManager.Add(
-                        String.Format("{0}_{1}", CcComparisonParameters.CcNew, CcComparisonParameters.Book),
-                        CcComparisonParameters.CcNew);
-                _newPositionsPage = _newDriver.Create(CcComparisonParameters.CcNewVersion);
+                        String.Format("{0}_{1}", _ccComparisonParameters.CcNew, _ccComparisonParameters.Book),
+                        _ccComparisonParameters.CcNew);
+                _newPositionsPage = _newDriver.Create(_ccComparisonParameters.CcNewVersion);
                 OpenPages();
             }
         }
@@ -71,8 +69,8 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         public DataTablePairComparisonDictionary<TimeStamp> MonitorPositions()
         {
             var startDate = DateTime.UtcNow;
-            var stopAt = CcComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
-            var interval = CcComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
+            var stopAt = _ccComparisonParameters.MonitorFor.GetTimeFromShortCode(startDate);
+            var interval = _ccComparisonParameters.MonitorEvery.GetTimeFromShortCode(startDate) - startDate;
             var dataTablePairComparisonDictionary = new DataTablePairComparisonDictionary<TimeStamp>(_excludeColumns);
             var stopwatch = new Stopwatch();
             while (DateTime.UtcNow < stopAt)
@@ -86,22 +84,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
                 stopwatch.Stop();
                 Thread.Sleep(interval.Subtract(new TimeSpan(stopwatch.ElapsedMilliseconds)));
             }
-
             return dataTablePairComparisonDictionary;
-        }
-
-        /// <summary>
-        /// ToDo - change to Extension method of a type implementing an interface extraceted from CcPositionTableComparison
-        /// </summary>
-        /// <param name="ccPositionTableComparison"></param>
-        /// <param name="outputDirectory"></param>
-        /// <param name="exportParameters"></param>
-        public static void MonitorPositionsAndExport(ICcPositionTableComparison ccPositionTableComparison, ExportParameters exportParameters)
-        {
-            var monitoringresults = ccPositionTableComparison.MonitorPositions();
-            exportParameters.SeriesDateFormat =
-                monitoringresults.DataTablePairComparisons.Keys.First().ToStringFormat;
-            monitoringresults.Export(exportParameters);
         }
 
         private DataTableComparison Compare(DataTablePair tables)

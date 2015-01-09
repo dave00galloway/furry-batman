@@ -27,6 +27,10 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.FileUtilities
         public ExportTypes ExportType { get; set; }
         public string FileName { get; set; }
         public string Path { get; set; }
+        /// <summary>
+        /// used to differentiate 2 or more result sets that would otherwise conflict or overwrite each other
+        /// </summary>
+        public string Segregator { get; set; }
         public bool Overwrite { get; set; }
         public IDictionary<string,string> QueryParameters { get; set; }
         public string SeriesDateFormat { get; set; }
