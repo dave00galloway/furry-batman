@@ -30,7 +30,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.Context
 
         private TestRunContext()
         {
-            _dateTimeNow = DateTime.Now;
+            _dateTimeNow = DateTime.UtcNow;
             DateTimeNow = _dateTimeNow;
             Add(Instantiated, _dateTimeNow + "  " + _dateTimeNow.Ticks);
             Add(RandomFileName, GenerateRandomStringFromFileName());

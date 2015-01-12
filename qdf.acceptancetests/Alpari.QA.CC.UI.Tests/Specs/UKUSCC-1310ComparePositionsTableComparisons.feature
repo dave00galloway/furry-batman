@@ -38,3 +38,11 @@ Scenario: Monitor new and old servers position A And B
 	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | A    |
 	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | B    |
 	When I monitor the current positions in parallel
+
+@ICcPositionTableComparisons
+Scenario: Monitor new and old servers position A And B Longer Test
+	Given I have the following cc comparison parameter sets:-
+	| CcCurrent | CcNew  | MonitorFor | MonitorEvery | CcCurrentVersion | CcNewVersion | Book |
+	| cc_prod   | cc_new | 1HR        | 10SEC        | 4.5              | 4.6          | A    |
+	| cc_prod   | cc_new | 1HR        | 10SEC        | 4.5              | 4.6          | B    |
+	When I monitor the current positions in parallel

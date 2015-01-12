@@ -209,6 +209,48 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Monitor new and old servers position A And B Longer Test")]
+        [NUnit.Framework.CategoryAttribute("ICcPositionTableComparisons")]
+        public virtual void MonitorNewAndOldServersPositionAAndBLongerTest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position A And B Longer Test", new string[] {
+                        "ICcPositionTableComparisons"});
+#line 43
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "CcCurrent",
+                        "CcNew",
+                        "MonitorFor",
+                        "MonitorEvery",
+                        "CcCurrentVersion",
+                        "CcNewVersion",
+                        "Book"});
+            table6.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "1HR",
+                        "10SEC",
+                        "4.5",
+                        "4.6",
+                        "A"});
+            table6.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "1HR",
+                        "10SEC",
+                        "4.5",
+                        "4.6",
+                        "B"});
+#line 44
+ testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table6, "Given ");
+#line 48
+ testRunner.When("I monitor the current positions in parallel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -80,7 +80,7 @@ namespace Alpari.QualityAssurance.SpecFlowExtensions.TypeUtilities
                     {
                         series.Value.EnumerableToCsv(
                             String.Format("{0}{1}.{2}", path, resultName,
-                                CsvParserExtensionMethods.csv), false);
+                                CsvParserExtensionMethods.csv), false,true,true);
                     }
                     catch (Exception e)
                     {
