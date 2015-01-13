@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using Alpari.QA.CC.UI.Tests.POCO;
 using Alpari.QA.Webdriver.Core;
 using Alpari.QA.Webdriver.Core.Constants;
 using Alpari.QA.Webdriver.Core.Elements;
@@ -19,6 +20,11 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         public IPositionTableBys PositionTableBys
         {
             get { return _positionTableBys; }
+        }
+
+        public void ConfigurePositionTable(CcComparisonParameters comparisonParameters)
+        {
+            //Set the book and server selections. Always select the book, even if its currently displayed, and select the servers according to passed params
         }
 
         public HtmlTableData GetPositionData()

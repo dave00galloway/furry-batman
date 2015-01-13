@@ -185,7 +185,8 @@ this.ScenarioSetup(scenarioInfo);
                         "MonitorEvery",
                         "CcCurrentVersion",
                         "CcNewVersion",
-                        "Book"});
+                        "Book",
+                        "Select"});
             table5.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
@@ -193,7 +194,8 @@ this.ScenarioSetup(scenarioInfo);
                         "10SEC",
                         "4.5",
                         "4.6",
-                        "A"});
+                        "A",
+                        "All"});
             table5.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
@@ -201,7 +203,8 @@ this.ScenarioSetup(scenarioInfo);
                         "10SEC",
                         "4.5",
                         "4.6",
-                        "B"});
+                        "B",
+                        "All"});
 #line 36
  testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table5, "Given ");
 #line 40

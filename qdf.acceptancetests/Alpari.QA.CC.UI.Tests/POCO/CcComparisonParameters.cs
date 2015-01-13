@@ -1,4 +1,7 @@
-﻿namespace Alpari.QA.CC.UI.Tests.POCO
+﻿using System;
+using OpenQA.Selenium.Support.UI;
+
+namespace Alpari.QA.CC.UI.Tests.POCO
 {
     public class CcComparisonParameters
     {
@@ -27,5 +30,15 @@
             get { return _book; }
             set { _book = value; }
         }
+
+        #region PositionSettings
+        private string _select = "None";
+
+        public String Select
+        {
+            get { return _select; }
+            set { _select = value; }
+        }
+        #endregion
     }
 }

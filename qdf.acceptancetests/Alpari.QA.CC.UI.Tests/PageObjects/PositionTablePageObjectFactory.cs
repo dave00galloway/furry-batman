@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Alpari.QA.Webdriver.Core;
 using OpenQA.Selenium;
 
@@ -30,38 +31,62 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         }
     }
 
-    public class PositionTableBy : IPositionTableBys
+    internal class PositionTableBy : IPositionTableBys
     {
-        public By PositionTableSelector { get; set; }
-        public By BBookSelector { get; private set; }
-        public PositionTableBy PositionTableBys { get; set; }
+        public By PositionTableSelector
+        {
+            get { return PositionTableBys.PositionTableSelector; }
+            set { PositionTableBys.PositionTableSelector = value; }
+        }
+
+        public By PositionSettingsButton
+        {
+            get { return PositionTableBys.PositionSettingsButton; }
+            set { PositionTableBys.PositionSettingsButton = value; }
+        }
+
+        public By BBookSelector
+        {
+            get { return PositionTableBys.BBookSelector; }
+        }
+
+        public By ABookSelector
+        {
+            get { return PositionTableBys.ABookSelector; }
+        }
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public IPositionTableBys PositionTableBys { get; set; }
 
         public void SetCommonBys(IPositionTableBys positionTableBy)
         {
-            PositionTableSelector = PositionTableByInvariants.PositionTableSelector;
             PositionTableBys = this;
+            positionTableBy.PositionTableSelector = PositionTableByInvariants.PositionTableSelector;
+            positionTableBy.PositionSettingsButton = PositionTableByInvariants.PositionSettingsButton;
             positionTableBy.PositionTableBys = this;
-            positionTableBy.PositionTableSelector = PositionTableSelector;
-            BBookSelector = null;
         }
     }
 
     public interface IPositionTableBys
     {
         By PositionTableSelector { get; set; }
+        By PositionSettingsButton { get; set; }
         By BBookSelector { get; }
-        PositionTableBy PositionTableBys { get; set; }
+        By ABookSelector { get; }
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        IPositionTableBys PositionTableBys { get; set; }
     }
 
 
     internal static class PositionTableByInvariants
     {
         public static readonly By PositionTableSelector = By.CssSelector("#position-table");
+        public static readonly By PositionSettingsButton = By.CssSelector("#position-setting-button");
     }
 
     internal class PositionTableBy4_5 : IPositionTableBys
     {
         private readonly By _bBookSelector = By.CssSelector("#bookType-option-B");
+        private readonly By _aBookSelector = By.CssSelector("#bookType-option-A");
 
         public PositionTableBy4_5(PositionTableBy positionTableBy)
         {
@@ -69,18 +94,25 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         }
 
         public By PositionTableSelector { get; set; }
+        public By PositionSettingsButton { get; set; }
 
         public By BBookSelector
         {
             get { return _bBookSelector; }
         }
 
-        public PositionTableBy PositionTableBys { get; set; }
+        public By ABookSelector
+        {
+            get { return _aBookSelector; }
+        }
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public IPositionTableBys PositionTableBys { get; set; }
     }
 
     internal class PositionTableBy4_6 : IPositionTableBys
     {
         private readonly By _bBookSelector = By.CssSelector("#viewType-option-B");
+        private readonly By _aBookSelector = By.CssSelector("#viewType-option-A");
 
         public PositionTableBy4_6(PositionTableBy positionTableBy)
         {
@@ -88,12 +120,18 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         }
 
         public By PositionTableSelector { get; set; }
+        public By PositionSettingsButton { get; set; }
 
         public By BBookSelector
         {
             get { return _bBookSelector; }
         }
 
-        public PositionTableBy PositionTableBys { get; set; }
+        public By ABookSelector
+        {
+            get { return _aBookSelector; }
+        }
+        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        public IPositionTableBys PositionTableBys { get; set; }
     }
 }
