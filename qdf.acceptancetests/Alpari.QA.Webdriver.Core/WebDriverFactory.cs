@@ -56,25 +56,5 @@ namespace Alpari.QA.Webdriver.Core
             webDriver.SetTimeout(options, WebDriverConfig.ImplicitlyWait);
             return webDriver;
         }
-
-        public static void SetTimeout(this IWebDriver driver, IReadOnlyDictionary<string, string> options,
-            string timeoutName)
-        {
-            switch (timeoutName)
-            {
-                case WebDriverConfig.ImplicitlyWait:
-                    driver.Manage()
-                        .Timeouts()
-                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
-                    break;
-                default:
-                    driver.Manage()
-                        .Timeouts()
-                        .ImplicitlyWait(new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(options[timeoutName])));
-                    break;
-            }
-
-            //return new TimeSpan(TimeSpan.TicksPerSecond * Convert.ToInt16(timeout));
-        }
     }
 }

@@ -9,6 +9,8 @@ namespace Alpari.QA.Webdriver.Core
         string Url { get; }
         void OpenPage(string url);
         IWebElement FindElement(By by);
+        IWebElement FindElement(By by,bool log);
+        IWebElement WaitForElementToExist(By by);
         void Quit();
 
         /// <summary>

@@ -59,6 +59,8 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
             {
                 _newDriver.OpenPage();
             }
+            _currentPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
+            _newPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
         }
 
         public DataTableComparison ComparePositionTables()

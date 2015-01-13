@@ -25,6 +25,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         public void ConfigurePositionTable(CcComparisonParameters comparisonParameters)
         {
             //Set the book and server selections. Always select the book, even if its currently displayed, and select the servers according to passed params
+            WebdriverCore.WaitForElementToExist(PositionTableBys.PositionTableSelector);
         }
 
         public HtmlTableData GetPositionData()

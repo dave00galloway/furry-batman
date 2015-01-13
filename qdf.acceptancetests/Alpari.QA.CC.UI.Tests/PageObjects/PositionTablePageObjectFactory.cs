@@ -18,7 +18,6 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
             switch (version)
             {
                 case "4.5":
-
                     positionTableBys = new PositionTableBy4_5(positionTableBy);
                     break;
 

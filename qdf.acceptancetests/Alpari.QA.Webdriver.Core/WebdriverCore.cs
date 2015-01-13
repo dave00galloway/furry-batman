@@ -13,20 +13,23 @@ namespace Alpari.QA.Webdriver.Core
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (WebdriverCore));
         private IWebDriver _driver;
+        private readonly FindElements _findElements;
 
         public WebdriverCore(IReadOnlyDictionary<string, string> options)
         {
             Options = options;
+            _findElements = new FindElements(this, options);
         }
 
         public WebdriverCore()
         {
             Log.Debug("loading webdriverCore");
             Options = null;
+            _findElements = new FindElements(this, Options);
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        private IWebDriver Driver
+        internal IWebDriver Driver
         {
             get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
         }
@@ -48,24 +51,17 @@ namespace Alpari.QA.Webdriver.Core
         /// <returns></returns>
         public IWebElement FindElement(By by)
         {
-            if (Options == null)
-            {
-                return Driver.FindElement(by);
-            }
-            Driver.Manage().Timeouts().ImplicitlyWait(new TimeSpan(1));
-            try
-            {
-                return Driver.FindElement(by);
-            }
-            catch (Exception)
-            {
-                Log.DebugFormat("Element {0} was not found", by);
-                return null;
-            }
-            finally
-            {
-                Driver.SetTimeout(Options, WebDriverConfig.ImplicitlyWait);
-            }
+            return _findElements.FindElement(by);
+        }
+
+        public IWebElement FindElement(By by, bool log)
+        {
+            return _findElements.FindElement(by, log);
+        }
+
+        public IWebElement WaitForElementToExist(By by)
+        {
+            return _findElements.WaitForElementToExist(by);
         }
 
         public void Quit()
