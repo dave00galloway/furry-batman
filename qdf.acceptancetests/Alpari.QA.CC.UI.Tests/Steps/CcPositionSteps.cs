@@ -12,11 +12,11 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     {
         public CcPositionSteps(IPositionTablePageObject positionTablePageObject)
         {
-            //WebdriverCore = webdriverCore;
+            //Core = webdriverCore;
             PositionTablePageObject = positionTablePageObject;
         }
 
-        //private IWebdriverCore WebdriverCore { get; set; }
+        //private IWebdriverCore Core { get; set; }
         private IPositionTablePageObject PositionTablePageObject { get; set; }
         private HtmlTableData Positions { get; set; }
 

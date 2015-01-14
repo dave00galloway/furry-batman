@@ -8,18 +8,22 @@ using OpenQA.Selenium.Support.UI;
 namespace Alpari.QA.Webdriver.Core
 {
     /// <summary>
-    ///     TODO:- extract interface etc. etc.
+    ///     Provides methods for finding elements , waiting for elements, and syncing on elements
     /// </summary>
-    public class FindElements
+    public class ElementFinder : IElementFinder
     {
-        private static readonly ILog Log = LogManager.GetLogger(typeof (FindElements));
-        private readonly IReadOnlyDictionary<string, string> _options;
-        private readonly WebdriverCore _webdriverCore;
+        private static readonly ILog Log = LogManager.GetLogger(typeof (ElementFinder));
+        private IReadOnlyDictionary<string, string> _options;
+        private IWebdriverCore _core;
 
-        public FindElements(WebdriverCore webdriverCore, IReadOnlyDictionary<string, string> options)
+        public IWebdriverCore Core
         {
-            _webdriverCore = webdriverCore;
-            _options = options;
+            get { return _core; }
+            set
+            {
+                _core = value;
+                _options = _core.Options;
+            }
         }
 
         /// <summary>
@@ -29,12 +33,12 @@ namespace Alpari.QA.Webdriver.Core
         /// <returns></returns>
         public IWebElement FindElement(By by)
         {
-            return FindWebElement(by, _webdriverCore.Driver, true);
+            return FindWebElement(by, Core.Driver, true);
         }
 
         public IWebElement FindElement(By by, bool log)
         {
-            return FindWebElement(by, _webdriverCore.Driver, log);
+            return FindWebElement(by, Core.Driver, log);
         }
 
         public IWebElement WaitForElementToExist(By by)
@@ -43,21 +47,24 @@ namespace Alpari.QA.Webdriver.Core
             Log.InfoFormat("Waiting for {0} for {1} to exist", implicitWait, by);
             //TODO:- wait for Ajax?
 
-            var wait = new WebDriverWait(new SystemClock(), _webdriverCore.Driver, implicitWait,
+            var wait = new WebDriverWait(new SystemClock(), Core.Driver, implicitWait,
                 _options.GetPollingFrequency());
-            IWebElement findElement = null;
-            var found = wait.Until(driver =>
-            {
-                findElement = FindElement(by, false);
-                return findElement != null;
-            });
+            //leaving this as an example of how to return a bool and an IWebElement in case needed
+            //IWebElement findElement = null;
+            //var found = wait.Until(driver =>
+            //{
+            //    findElement = FindWebElement(by, driver);
+            //    return findElement != null;
+            //});
+
+            var element = wait.Until(driver => FindWebElement(by, driver));
             try
             {
-                return found ? findElement : FindElement(by, true);
+                return element ?? FindWebElement(by, Core.Driver, true);
             }
             finally
             {
-                if (found)
+                if (element != null)
                     Log.InfoFormat("{0} found", by);
                 else
                     Log.WarnFormat("{0} not found", by);

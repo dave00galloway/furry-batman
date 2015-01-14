@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -47,10 +46,10 @@ namespace Alpari.QA.Webdriver.Core
         /// <returns></returns>
         public static IWebdriverCore Add(string webdriverConfigFile)
         {
-            return AddWebdriverCore(webdriverConfigFile,webdriverConfigFile);
+            return AddWebdriverCore(webdriverConfigFile, webdriverConfigFile);
         }
 
-        public static IWebdriverCore Add( string name, string webdriverConfigFile)
+        public static IWebdriverCore Add(string name, string webdriverConfigFile)
         {
             return AddWebdriverCore(name, webdriverConfigFile);
         }
@@ -59,9 +58,20 @@ namespace Alpari.QA.Webdriver.Core
         {
             var fileNamePath = WebDriverConfig.WebDriverCoreConfigPath + webdriverConfigFile +
                                WebDriverConfig.WebDriverCoreConfigFormat;
-            IWebdriverCore wdc = new WebdriverCore(MergeOptionsWithParent(fileNamePath));
+            var wdc = Create(fileNamePath); //new WebdriverCore(MergeOptionsWithParent(fileNamePath));
             Instance._drivers.Add(name, wdc);
             return wdc;
+        }
+
+        /// <summary>
+        ///     Factory Method for WebDriverCore
+        /// </summary>
+        /// <param name="fileNamePath"></param>
+        /// <returns></returns>
+        public static IWebdriverCore Create(string fileNamePath)
+        {
+            var options = MergeOptionsWithParent(fileNamePath);
+            return new WebdriverCore(options, new ElementFinder());
         }
 
         private static IReadOnlyDictionary<string, string> MergeOptionsWithParent(string fileNamePath)
@@ -101,7 +111,7 @@ namespace Alpari.QA.Webdriver.Core
             }
         }
 
-        public static IEnumerable<IWebdriverCore> Drivers(string key, string value )
+        public static IEnumerable<IWebdriverCore> Drivers(string key, string value)
         {
             return Instance._drivers.Where(d => d.Value.Options[key] == value).Select(d => d.Value);
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Alpari.QA.Webdriver.Core.Constants;
@@ -12,24 +11,23 @@ namespace Alpari.QA.Webdriver.Core
     public class WebdriverCore : IWebdriverCore
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof (WebdriverCore));
+        private readonly IElementFinder _elementFinder;
         private IWebDriver _driver;
-        private readonly FindElements _findElements;
 
-        public WebdriverCore(IReadOnlyDictionary<string, string> options)
+        public WebdriverCore(IReadOnlyDictionary<string, string> options, IElementFinder elementFinder)
         {
             Options = options;
-            _findElements = new FindElements(this, options);
+            _elementFinder = elementFinder;
+            _elementFinder.Core = this;
         }
 
-        public WebdriverCore()
+        public WebdriverCore() : this(null, new ElementFinder())
         {
             Log.Debug("loading webdriverCore");
-            Options = null;
-            _findElements = new FindElements(this, Options);
         }
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
-        internal IWebDriver Driver
+        public IWebDriver Driver
         {
             get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
         }
@@ -51,17 +49,23 @@ namespace Alpari.QA.Webdriver.Core
         /// <returns></returns>
         public IWebElement FindElement(By by)
         {
-            return _findElements.FindElement(by);
+            return _elementFinder.FindElement(by);
         }
 
         public IWebElement FindElement(By by, bool log)
         {
-            return _findElements.FindElement(by, log);
+            return _elementFinder.FindElement(by, log);
         }
 
         public IWebElement WaitForElementToExist(By by)
         {
-            return _findElements.WaitForElementToExist(by);
+            return _elementFinder.WaitForElementToExist(by);
+        }
+
+        public IWebdriverCore Core
+        {
+            get { return _elementFinder.Core; }
+            set { _elementFinder.Core = value; }
         }
 
         public void Quit()

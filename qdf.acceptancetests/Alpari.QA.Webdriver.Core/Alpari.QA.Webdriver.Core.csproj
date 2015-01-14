@@ -75,7 +75,8 @@
     <Compile Include="Elements\HtmlTableData.cs" />
     <Compile Include="Constants\XmlExpressions.cs" />
     <Compile Include="Elements\HtmlTableExtensions.cs" />
-    <Compile Include="FindElements.cs" />
+    <Compile Include="ElementFinder.cs" />
+    <Compile Include="IElementFinder.cs" />
     <Compile Include="IWebdriverCore.cs" />
     <Compile Include="PageBase.cs" />
     <Compile Include="TimeoutExtensions.cs" />
