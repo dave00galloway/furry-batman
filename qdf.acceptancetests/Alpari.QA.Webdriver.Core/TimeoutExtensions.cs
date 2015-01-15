@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Alpari.QA.Webdriver.Core.Constants;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 
 namespace Alpari.QA.Webdriver.Core
 {
@@ -29,7 +27,8 @@ namespace Alpari.QA.Webdriver.Core
         }
 
         /// <summary>
-        /// Get a Timespan from the WebDriverCore options from the name of a timeout assumed to be a timeout in seconds as string
+        ///     Get a Timespan from the WebDriverCore options from the name of a timeout assumed to be a timeout in seconds as
+        ///     string
         /// </summary>
         /// <param name="options"></param>
         /// <param name="timeoutName"></param>
@@ -41,13 +40,19 @@ namespace Alpari.QA.Webdriver.Core
         }
 
         /// <summary>
-        /// Convert seconds as string to a TimeSpan
+        ///     Convert seconds as string to a TimeSpan
         /// </summary>
         /// <param name="timeout"></param>
         /// <returns></returns>
         public static TimeSpan TimeToTimeSpan(this string timeout)
         {
             return new TimeSpan(TimeSpan.TicksPerSecond*Convert.ToInt16(timeout));
+        }
+
+        public static WebDriverWait SetDefaultImplicitWait(this IWebdriverCore core)
+        {
+            return new WebDriverWait(new SystemClock(), core.Driver, core.Options.GetImplicitWait(),
+                core.Options.GetPollingFrequency());
         }
     }
 }

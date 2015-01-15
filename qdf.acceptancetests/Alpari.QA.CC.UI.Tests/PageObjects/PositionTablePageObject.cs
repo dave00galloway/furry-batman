@@ -98,6 +98,25 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
             return actual;
         }
 
+        private void SetPositionConfig(CcComparisonParameters comparisonParameters)
+        {
+            SetBook(comparisonParameters);
+            SetServers(comparisonParameters);
+        }
+
+        private void SetServers(CcComparisonParameters comparisonParameters)
+        {
+            //not bothering with a pre check for now, just do a post check
+            _positionTableBys.PositionSettingsButton.Click(WebdriverCore,true,true);
+            _positionTableBys.ServerBtnSelectAll.Click(WebdriverCore,true,true);
+            _positionTableBys.PositionSettingBtnSave.Click(WebdriverCore, true, true);
+            var wait = WebdriverCore.SetDefaultImplicitWait();
+            wait.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
+            wait.Until(
+                driver => GetPositionData().FirstOrDefault().Value.Keys.Count >= comparisonParameters.MinimumServers);
+
+        }
+
         private bool BookSelected(CcComparisonParameters comparisonParameters, string btnBtnDefaultActive,
             CcComparisonParameters actual, TimeSpan wait, bool set = false)
         {
@@ -130,11 +149,7 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
             }
             return bookSelected;
         }
-
-        private void SetPositionConfig(CcComparisonParameters comparisonParameters)
-        {
-            SetBook(comparisonParameters);
-        }
+        
 
         private void SetBook(CcComparisonParameters comparisonParameters)
         {

@@ -53,6 +53,19 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         {
             get { return PositionTableBys.ABookSelector; }
         }
+
+        public By ServerBtnSelectAll
+        {
+            get { return PositionTableBys.ServerBtnSelectAll; }
+            set { PositionTableBys.ServerBtnSelectAll = value; }
+        }
+
+        public By PositionSettingBtnSave
+        {
+            get { return PositionTableBys.PositionSettingBtnSave; }
+            set { PositionTableBys.PositionSettingBtnSave = value; }
+        }
+
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public IPositionTableBys PositionTableBys { get; set; }
 
@@ -61,6 +74,8 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
             PositionTableBys = this;
             positionTableBy.PositionTableSelector = PositionTableByInvariants.PositionTableSelector;
             positionTableBy.PositionSettingsButton = PositionTableByInvariants.PositionSettingsButton;
+            positionTableBy.ServerBtnSelectAll = PositionTableByInvariants.ServerBtnSelectAll;
+            positionTableBy.PositionSettingBtnSave = PositionTableByInvariants.PositionSettingBtnSave;
             positionTableBy.PositionTableBys = this;
         }
     }
@@ -71,6 +86,8 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         By PositionSettingsButton { get; set; }
         By BBookSelector { get; }
         By ABookSelector { get; }
+        By ServerBtnSelectAll { get; set; }
+        By PositionSettingBtnSave { get; set; }
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         IPositionTableBys PositionTableBys { get; set; }
     }
@@ -78,8 +95,10 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
 
     internal static class PositionTableByInvariants
     {
-        public static readonly By PositionTableSelector = By.CssSelector("#position-table");
-        public static readonly By PositionSettingsButton = By.CssSelector("#position-setting-button");
+        internal static readonly By PositionTableSelector = By.CssSelector("#position-table");
+        internal static readonly By PositionSettingsButton = By.CssSelector("#position-setting-button");
+        internal static readonly By ServerBtnSelectAll = By.CssSelector("#server-btn-select-all");
+        internal static readonly By PositionSettingBtnSave = By.CssSelector("#position-setting-btn-save");
     }
 
     internal class PositionTableBy4_5 : IPositionTableBys
@@ -104,6 +123,10 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         {
             get { return _aBookSelector; }
         }
+
+        public By ServerBtnSelectAll { get; set; }
+        public By PositionSettingBtnSave { get; set; }
+
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public IPositionTableBys PositionTableBys { get; set; }
     }
@@ -130,6 +153,10 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         {
             get { return _aBookSelector; }
         }
+
+        public By ServerBtnSelectAll { get; set; }
+        public By PositionSettingBtnSave { get; set; }
+
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         public IPositionTableBys PositionTableBys { get; set; }
     }
