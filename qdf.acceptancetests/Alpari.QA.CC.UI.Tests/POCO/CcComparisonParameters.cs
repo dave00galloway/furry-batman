@@ -33,12 +33,34 @@ namespace Alpari.QA.CC.UI.Tests.POCO
 
         #region PositionSettings
         private string _select = "None";
+        private int _minimumServers = 11;
+        private int _minimumSymbols = 11;
 
+        /// <summary>
+        /// Since its problematic to determine if "ALL" symbols/servers are selected, the actual verification of this will be done by the following "minimum" fields
+        /// </summary>
         public String Select
         {
             get { return _select; }
             set { _select = value; }
         }
+
+        public int MinimumServers
+        {
+            get { return _minimumServers; }
+            set { _minimumServers = value; }
+        }
+
+        public int MinimumSymbols
+        {
+            get { return _minimumSymbols; }
+            set { _minimumSymbols = value; }
+        }
+        /// <summary>
+        /// Has the position setting been set or not?
+        /// </summary>
+        public bool Set { get; set; }
+
         #endregion
     }
 }

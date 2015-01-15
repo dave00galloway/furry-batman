@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using Alpari.QA.Webdriver.Core.Constants;
@@ -30,6 +31,16 @@ namespace Alpari.QA.Webdriver.Core
         public IWebDriver Driver
         {
             get { return _driver ?? (_driver = WebDriverFactory.Create(Options)); }
+        }
+
+        public string WaitForElementAttributeToHaveProperty(By by, string attributeName, string attributeValue)
+        {
+            return _elementFinder.WaitForElementAttributeToHaveProperty(by, attributeName, attributeValue);
+        }
+
+        public string WaitForElementAttributeToHaveProperty(By by, string attributeName, string attributeValue, TimeSpan wait)
+        {
+            return _elementFinder.WaitForElementAttributeToHaveProperty(by, attributeName, attributeValue, wait);
         }
 
         /// <summary>

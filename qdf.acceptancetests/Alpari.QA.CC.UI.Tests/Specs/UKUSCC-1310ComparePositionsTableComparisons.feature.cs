@@ -70,11 +70,13 @@ namespace Alpari.QA.CC.UI.Tests.Specs
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Compare new and old servers current position")]
         [NUnit.Framework.CategoryAttribute("ICcPositionTableComparison")]
+        [NUnit.Framework.CategoryAttribute("Broken")]
         public virtual void CompareNewAndOldServersCurrentPosition()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Compare new and old servers current position", new string[] {
-                        "ICcPositionTableComparison"});
-#line 9
+                        "ICcPositionTableComparison",
+                        "Broken"});
+#line 10
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
@@ -87,9 +89,9 @@ this.ScenarioSetup(scenarioInfo);
                         "cc_new",
                         "4.5",
                         "4.6"});
-#line 10
+#line 11
  testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table1, "Given ");
-#line 13
+#line 14
  testRunner.When("I compare the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -98,7 +100,7 @@ this.ScenarioSetup(scenarioInfo);
             table2.AddRow(new string[] {
                         "DataTableToCsv",
                         "true"});
-#line 14
+#line 15
  testRunner.Then("the current positions should match exactly:-", ((string)(null)), table2, "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -107,11 +109,13 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Monitor new and old servers position")]
         [NUnit.Framework.CategoryAttribute("ICcPositionTableComparison")]
+        [NUnit.Framework.CategoryAttribute("Broken")]
         public virtual void MonitorNewAndOldServersPosition()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position", new string[] {
-                        "ICcPositionTableComparison"});
-#line 20
+                        "ICcPositionTableComparison",
+                        "Broken"});
+#line 22
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
@@ -128,9 +132,9 @@ this.ScenarioSetup(scenarioInfo);
                         "10SEC",
                         "4.5",
                         "4.6"});
-#line 21
+#line 23
  testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table3, "Given ");
-#line 24
+#line 26
  testRunner.When("I monitor the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -139,11 +143,13 @@ this.ScenarioSetup(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Monitor new and old servers position longer test")]
         [NUnit.Framework.CategoryAttribute("ICcPositionTableComparison")]
+        [NUnit.Framework.CategoryAttribute("Broken")]
         public virtual void MonitorNewAndOldServersPositionLongerTest()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position longer test", new string[] {
-                        "ICcPositionTableComparison"});
-#line 28
+                        "ICcPositionTableComparison",
+                        "Broken"});
+#line 31
 this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
@@ -160,10 +166,76 @@ this.ScenarioSetup(scenarioInfo);
                         "1MIN",
                         "4.5",
                         "4.6"});
-#line 29
- testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table4, "Given ");
 #line 32
+ testRunner.Given("I have the following cc comparison parameters:-", ((string)(null)), table4, "Given ");
+#line 35
  testRunner.When("I monitor the current positions", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Configure A and B Book")]
+        [NUnit.Framework.CategoryAttribute("ICcPositionTableComparisons")]
+        public virtual void ConfigureAAndBBook()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Configure A and B Book", new string[] {
+                        "ICcPositionTableComparisons"});
+#line 38
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                        "CcCurrent",
+                        "CcNew",
+                        "CcCurrentVersion",
+                        "CcNewVersion",
+                        "Book",
+                        "Select",
+                        "Minimum Servers",
+                        "Minimum Symbols"});
+            table5.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "4.5",
+                        "4.6",
+                        "A",
+                        "All",
+                        "10",
+                        "10"});
+            table5.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "4.5",
+                        "4.6",
+                        "B",
+                        "All",
+                        "10",
+                        "10"});
+#line 39
+ testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table5, "Given ");
+#line 43
+ testRunner.When("I configure the position pages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                        "CcCurrent",
+                        "CcNew",
+                        "Book",
+                        "Minimum Servers",
+                        "Minimum Symbols"});
+            table6.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "A",
+                        "10",
+                        "10"});
+            table6.AddRow(new string[] {
+                        "cc_prod",
+                        "cc_new",
+                        "B",
+                        "10",
+                        "10"});
+#line 44
+ testRunner.Then("the position pages have this configuration:-", ((string)(null)), table6, "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -175,10 +247,10 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position A And B", new string[] {
                         "ICcPositionTableComparisons"});
-#line 35
+#line 50
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                         "CcCurrent",
                         "CcNew",
                         "MonitorFor",
@@ -187,7 +259,7 @@ this.ScenarioSetup(scenarioInfo);
                         "CcNewVersion",
                         "Book",
                         "Select"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
                         "1MIN",
@@ -196,7 +268,7 @@ this.ScenarioSetup(scenarioInfo);
                         "4.6",
                         "A",
                         "All"});
-            table5.AddRow(new string[] {
+            table7.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
                         "1MIN",
@@ -205,9 +277,9 @@ this.ScenarioSetup(scenarioInfo);
                         "4.6",
                         "B",
                         "All"});
-#line 36
- testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table5, "Given ");
-#line 40
+#line 51
+ testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table7, "Given ");
+#line 55
  testRunner.When("I monitor the current positions in parallel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();
@@ -220,10 +292,10 @@ this.ScenarioSetup(scenarioInfo);
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Monitor new and old servers position A And B Longer Test", new string[] {
                         "ICcPositionTableComparisons"});
-#line 43
+#line 58
 this.ScenarioSetup(scenarioInfo);
 #line hidden
-            TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+            TechTalk.SpecFlow.Table table8 = new TechTalk.SpecFlow.Table(new string[] {
                         "CcCurrent",
                         "CcNew",
                         "MonitorFor",
@@ -231,7 +303,7 @@ this.ScenarioSetup(scenarioInfo);
                         "CcCurrentVersion",
                         "CcNewVersion",
                         "Book"});
-            table6.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
                         "1HR",
@@ -239,7 +311,7 @@ this.ScenarioSetup(scenarioInfo);
                         "4.5",
                         "4.6",
                         "A"});
-            table6.AddRow(new string[] {
+            table8.AddRow(new string[] {
                         "cc_prod",
                         "cc_new",
                         "1HR",
@@ -247,9 +319,9 @@ this.ScenarioSetup(scenarioInfo);
                         "4.5",
                         "4.6",
                         "B"});
-#line 44
- testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table6, "Given ");
-#line 48
+#line 59
+ testRunner.Given("I have the following cc comparison parameter sets:-", ((string)(null)), table8, "Given ");
+#line 63
  testRunner.When("I monitor the current positions in parallel", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
             this.ScenarioCleanup();

@@ -20,6 +20,7 @@
         public const string TableRow = "tr";
         public const string TableHeader = "th";
         public const string TableCell = "th|td";
+        public const string Class = "class";
     }
     
 }

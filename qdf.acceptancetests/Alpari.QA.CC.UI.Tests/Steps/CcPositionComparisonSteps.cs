@@ -11,7 +11,6 @@ namespace Alpari.QA.CC.UI.Tests.Steps
     [Binding]
     public class CcPositionComparisonSteps : StepCentral
     {
-        //TODO:- extract and use an interface for the business process
         private readonly ICcPositionTableComparison _ccPositionTableComparison;
 
         public CcPositionComparisonSteps(ICcPositionTableComparison ccPositionTableComparison)

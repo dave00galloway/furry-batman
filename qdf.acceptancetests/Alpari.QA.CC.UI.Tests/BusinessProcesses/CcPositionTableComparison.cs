@@ -17,9 +17,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
         private readonly string[] _excludeColumns;
         private CcComparisonParameters _ccComparisonParameters;
         private IWebdriverCore _currentDriver;
-        private IPositionTablePageObject _currentPositionsPage;
         private IWebdriverCore _newDriver;
-        private IPositionTablePageObject _newPositionsPage;
 
         public CcPositionTableComparison(string[] excludeColumns)
         {
@@ -39,33 +37,37 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
                     WebDriverCoreManager.Add(
                         String.Format("{0}_{1}", _ccComparisonParameters.CcCurrent, _ccComparisonParameters.Book),
                         _ccComparisonParameters.CcCurrent);
-                _currentPositionsPage = _currentDriver.Create(_ccComparisonParameters.CcCurrentVersion);
+                CurrentPositionsPage = _currentDriver.Create(_ccComparisonParameters.CcCurrentVersion);
                 _newDriver =
                     WebDriverCoreManager.Add(
                         String.Format("{0}_{1}", _ccComparisonParameters.CcNew, _ccComparisonParameters.Book),
                         _ccComparisonParameters.CcNew);
-                _newPositionsPage = _newDriver.Create(_ccComparisonParameters.CcNewVersion);
+                NewPositionsPage = _newDriver.Create(_ccComparisonParameters.CcNewVersion);
                 OpenPages();
             }
         }
 
+        public IPositionTablePageObject CurrentPositionsPage { get; private set; }
+
+        public IPositionTablePageObject NewPositionsPage { get; private set; }
+
         public void OpenPages()
         {
-            if (!_currentPositionsPage.IsDisplayed())
+            if (!CurrentPositionsPage.IsDisplayed())
             {
                 _currentDriver.OpenPage();
             }
-            if (!_newPositionsPage.IsDisplayed())
+            if (!NewPositionsPage.IsDisplayed())
             {
                 _newDriver.OpenPage();
             }
-            _currentPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
-            _newPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
+            CurrentPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
+            NewPositionsPage.ConfigurePositionTable(_ccComparisonParameters);
         }
 
         public DataTableComparison ComparePositionTables()
         {
-            var tables = GetComparisonData(_currentPositionsPage, _newPositionsPage);
+            var tables = GetComparisonData(CurrentPositionsPage, NewPositionsPage);
             var diffs = Compare(tables);
             return diffs;
         }
@@ -83,7 +85,7 @@ namespace Alpari.QA.CC.UI.Tests.BusinessProcesses
                 try
                 {
                     var timestamp = new TimeStamp(DateTime.UtcNow, "yyyyMMddHHmmssfff");
-                    var tables = GetComparisonData(_currentPositionsPage, _newPositionsPage);
+                    var tables = GetComparisonData(CurrentPositionsPage, NewPositionsPage);
                     var diffs = Compare(tables);
                     dataTablePairComparisonDictionary.DataTablePairComparisons.Add(timestamp,
                         new DataTablePairComparison(tables, diffs));

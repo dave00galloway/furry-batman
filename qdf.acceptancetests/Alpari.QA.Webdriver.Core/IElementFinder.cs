@@ -1,3 +1,4 @@
+using System;
 using OpenQA.Selenium;
 
 namespace Alpari.QA.Webdriver.Core
@@ -13,6 +14,8 @@ namespace Alpari.QA.Webdriver.Core
 
         IWebElement FindElement(By by, bool log);
         IWebElement WaitForElementToExist(By by);
+        string WaitForElementAttributeToHaveProperty(By by, string attributeName, string attributeValue);
+        string WaitForElementAttributeToHaveProperty(By by, string attributeName, string attributeValue, TimeSpan wait);
         IWebdriverCore Core { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace Alpari.QA.CC.UI.Tests.PageObjects
         DataTable GetPositionDataAsDataTableBySymbols();
         IPositionTableBys PositionTableBys { get; }
         void ConfigurePositionTable(CcComparisonParameters comparisonParameters);
+        CcComparisonParameters CheckComparisonParameters(CcComparisonParameters comparisonParameters);
     }
 }

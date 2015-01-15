@@ -54,8 +54,8 @@ namespace Alpari.QA.Webdriver.Core.Constants
         /// <returns></returns>
         public static TimeSpan GetPollingFrequency(this IReadOnlyDictionary<string, string> options)
         {
-            const int interval = 500; //todo:- create some hardcoded defaults, or make _options a proper class
-            return new TimeSpan(0,0,0,interval);
+            const int interval = 50; //todo:- create some hardcoded defaults, or make _options a proper class
+            return new TimeSpan(0,0,0,0,interval);
         }
     }
 }

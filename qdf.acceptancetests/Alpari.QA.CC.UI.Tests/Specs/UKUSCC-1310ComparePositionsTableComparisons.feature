@@ -5,7 +5,8 @@ as a tester
 I want to compare the positions table in different CC environments
 
 #note manually selecting the servers, book and types for now
-@ICcPositionTableComparison
+@ICcPositionTableComparison @Broken
+#error: Interface cannot be resolved: Alpari.QA.CC.UI.Tests.BusinessProcesses.ICcPositionTableComparison (resolution path: Alpari.QA.CC.UI.Tests.Steps.CcPositionComparisonSteps)
 Scenario: Compare new and old servers current position
 	Given I have the following cc comparison parameters:-
 	| CcCurrent | CcNew  | CcCurrentVersion | CcNewVersion |
@@ -16,7 +17,8 @@ Scenario: Compare new and old servers current position
 	| DataTableToCsv |  true      |
 
 #note manually selecting the servers, book and types for now
-@ICcPositionTableComparison
+@ICcPositionTableComparison @Broken
+#error: Interface cannot be resolved: Alpari.QA.CC.UI.Tests.BusinessProcesses.ICcPositionTableComparison (resolution path: Alpari.QA.CC.UI.Tests.Steps.CcPositionComparisonSteps)
 Scenario: Monitor new and old servers position
 	Given I have the following cc comparison parameters:-
 	| CcCurrent | CcNew  | MonitorFor | MonitorEvery | CcCurrentVersion | CcNewVersion |
@@ -24,7 +26,8 @@ Scenario: Monitor new and old servers position
 	When I monitor the current positions
 
 #note manually selecting the servers, book and types for now
-@ICcPositionTableComparison
+@ICcPositionTableComparison @Broken
+#error: Interface cannot be resolved: Alpari.QA.CC.UI.Tests.BusinessProcesses.ICcPositionTableComparison (resolution path: Alpari.QA.CC.UI.Tests.Steps.CcPositionComparisonSteps)
 Scenario: Monitor new and old servers position longer test
 	Given I have the following cc comparison parameters:-
 	| CcCurrent | CcNew  | MonitorFor | MonitorEvery | CcCurrentVersion | CcNewVersion |
@@ -32,11 +35,23 @@ Scenario: Monitor new and old servers position longer test
 	When I monitor the current positions
 
 @ICcPositionTableComparisons
+Scenario: Configure A and B Book 
+	Given I have the following cc comparison parameter sets:-
+	| CcCurrent | CcNew  | CcCurrentVersion | CcNewVersion | Book | Select | Minimum Servers | Minimum Symbols |
+	| cc_prod   | cc_new | 4.5              | 4.6          | A    | All    | 10              | 10              |
+	| cc_prod   | cc_new | 4.5              | 4.6          | B    | All    | 10              | 10              |
+	When I configure the position pages
+	Then the position pages have this configuration:-
+	| CcCurrent | CcNew  | Book | Minimum Servers | Minimum Symbols |
+	| cc_prod   | cc_new | A    | 10              | 10              |
+	| cc_prod   | cc_new | B    | 10              | 10              |
+
+@ICcPositionTableComparisons
 Scenario: Monitor new and old servers position A And B
 	Given I have the following cc comparison parameter sets:-
 	| CcCurrent | CcNew  | MonitorFor | MonitorEvery | CcCurrentVersion | CcNewVersion | Book | Select |
-	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | A    | All                     |
-	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | B    | All                     |
+	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | A    | All    |  
+	| cc_prod   | cc_new | 1MIN       | 10SEC        | 4.5              | 4.6          | B    | All    |                 
 	When I monitor the current positions in parallel
 
 @ICcPositionTableComparisons

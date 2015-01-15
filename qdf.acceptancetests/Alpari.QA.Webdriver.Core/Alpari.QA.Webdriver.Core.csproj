@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="Constants\HtmlAttributes.cs" />
     <Compile Include="Constants\WebDriverConfig.cs" />
+    <Compile Include="Elements\ClickableElementExtensions.cs" />
     <Compile Include="Elements\HtmlTableData.cs" />
     <Compile Include="Constants\XmlExpressions.cs" />
     <Compile Include="Elements\HtmlTableExtensions.cs" />
